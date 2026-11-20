@@ -3557,3 +3557,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   last five chains of 17 November against each chain's own source (Wahaca, Wendy's, Yalla Yalla, Yo! Sushi pass). Wagamama re-read for its 18 November
   festive menu (8 new dishes, Koko crackers' new figures) and matched by the second reader; Sweet heat sprouts held back (no allergens listed for a gochujang
   sauce). Committed on `iap`; not live until the founder says.
+- (about 10:55) **Protein, carbs and fat have their colours again** (founder, after comparing the recipe page before and after the colour meeting: "the
+  colours back for protein carbs and fats"): the small dots beside each word, green, blue and purple (labels only, never good or bad), on the recipe page's
+  serving card and on every dish's three tiles. This reverses the colour meeting's "told apart by their words, never by a hue" for these three only; the
+  other six differences shown to the founder (green calories, capitals, white pills, green prices, grey buttons, the dark switch) stay as they are unless asked.

@@ -124,10 +124,11 @@ function Amount({ text }: { text: string }) {
 
 /** One macro of a serving, like Home's rows: the name in the small label style and the grams in DM Mono, in ink. No dot (colour meeting, 19 November 2026:
  *  a coloured dot hints "good") and no bar: on Home a bar means progress toward a day's target, and a serving has none. */
-function MacroRow({ label, grams }: { label: string; grams: number }) {
+function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: string }) {
+  // each macro's small colour dot beside its word (founder 2026-11-20: "the colours back for protein carbs and fats"; a label, never good or bad)
   return (
     <p className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
-      <span className={`min-w-0 ${LABEL}`}>{label}</span>
+      <span className="inline-flex min-w-0 items-center gap-2"><span aria-hidden className={`dot ${dot}`} /><span className={LABEL}>{label}</span></span>
       <span className="app-numbers whitespace-nowrap font-mono text-[0.8125rem] font-normal text-foreground">{Math.round(grams)}g</span>
     </p>
   );
@@ -391,9 +392,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 <p className={`order-first ${LABEL}`}>{forPeople}</p>
               </div>
               <div className={`${CARD} flex min-w-0 flex-col justify-center gap-3.5 px-4 py-4`}>
-                <MacroRow label={t("protein")} grams={all(totals.perServing.protein)} />
-                <MacroRow label={t("carbs")} grams={all(totals.perServing.carbs)} />
-                <MacroRow label={t("fat")} grams={all(totals.perServing.fat)} />
+                <MacroRow label={t("protein")} grams={all(totals.perServing.protein)} dot="bg-protein" />
+                <MacroRow label={t("carbs")} grams={all(totals.perServing.carbs)} dot="bg-carbs" />
+                <MacroRow label={t("fat")} grams={all(totals.perServing.fat)} dot="bg-fat" />
               </div>
             </div>
             {people > 1 && (

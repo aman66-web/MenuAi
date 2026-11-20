@@ -91,11 +91,11 @@ export function MacroLine({ nutrients }: { nutrients: Nutrients }) {
  */
 export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutrients; name: string; children?: React.ReactNode; media?: React.ReactNode }) {
   const t = useT();
-  // fixed order, no dots, every figure ink (colour meeting, 19 November 2026)
-  const macros: Array<[string, number | undefined]> = [
-    [t("Protein"), nutrients.protein],
-    [t("Carbs"), nutrients.carbs],
-    [t("Fat"), nutrients.fat],
+  // fixed order, each with its small colour dot (founder 2026-11-20: "the colours back for protein carbs and fats"; labels only, never good or bad)
+  const macros: Array<[string, number | undefined, string]> = [
+    [t("Protein"), nutrients.protein, "bg-protein"],
+    [t("Carbs"), nutrients.carbs, "bg-carbs"],
+    [t("Fat"), nutrients.fat, "bg-fat"],
   ];
   return (
     <div className="hero-card overflow-hidden rounded-[1.25rem]">
@@ -110,9 +110,9 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
             {nutrients.energyKj !== undefined && <span className="font-mono text-[0.8125rem] text-muted">· {formatInt(nutrients.energyKj)} kJ</span>}
           </div>
           <dl className="mt-5 grid grid-cols-3 gap-2 @max-[17.5rem]:grid-cols-1">
-            {macros.map(([label, value]) => (
+            {macros.map(([label, value, hue]) => (
               <div key={label} className="tile flex min-w-0 flex-col gap-2.5 rounded-2xl px-3.5 pb-3.5 pt-3 @max-[17.5rem]:flex-row @max-[17.5rem]:items-center @max-[17.5rem]:justify-between @max-[17.5rem]:px-4 @max-[17.5rem]:py-3">
-                <dt className={SMALL_LABEL}>{label}</dt>
+                <dt className={`flex items-center gap-1.5 ${SMALL_LABEL}`}><span aria-hidden className={`dot ${hue}`} />{label}</dt>
                 <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : "text-[1.625rem] font-medium leading-none tracking-[-0.02em] text-foreground"}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>
             ))}
