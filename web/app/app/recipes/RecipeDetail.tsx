@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { AllergenTable } from "../_components/Allergens";
+import { recipeAllergens } from "@/lib/mm/recipeAllergens";
 import { useRouter } from "next/navigation";
 import type { Preferences } from "@/lib/mm/types";
 import { useEffect, useMemo, useState } from "react";
@@ -419,7 +421,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               <button type="button" aria-expanded={detail} aria-controls="recipe-label" onClick={() => setDetail((d) => !d)} className={`${CARD} flex min-h-14 w-full items-center gap-3 px-4 py-3 text-start transition active:scale-[0.99] hover:bg-soft-strong`}>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[0.9375rem] font-bold">{t("More detail")}</span>
-                  <span className="block text-[0.8125rem] leading-snug text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>
+                  <span className="block text-[0.8125rem] leading-snug text-muted">{t("Saturated fat, salt, sugar, fibre and allergens")}</span>
                 </span>
                 <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[var(--fill)]"><ChevronRightIcon className={`h-[18px] w-[18px] transition-transform ${detail ? "-rotate-90" : "rotate-90"}`} /></span>
               </button>
@@ -437,6 +439,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   <p className="mt-2.5 text-[0.8125rem] leading-snug text-muted">{totals.community.length > 0
                     ? t("Added up from each product's numbers for the amounts below, before cooking: its own label, or the community numbers named above. \"Not on every label\" means one of the products doesn't give that figure, so we don't give a total for it.")
                     : t("Added up from each product's own label for the amounts below, before cooking. \"Not on every label\" means one of the products doesn't print that figure, so we don't give a total for it.")}</p>
+                  <RecipeAllergenPart ingredients={view.recipe.ingredients.map((written, i) => { const spec = picks[i]?.spec ?? written; return { label: t(spec.label), pantry: spec.pantry }; })} />
                 </section>
               )}
             </div>
@@ -588,7 +591,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted"><span className="font-semibold text-foreground">{t("Also handy (not counted):")}</span> {recipe.extras!.map(rt).join(", ")}.</p>
           )}
           {dietNote && (
-            <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.9375rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly ? t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy.")}</span></p>
+            <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.9375rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{prefs.halalOnly ? t("Recipes are chosen for your diet by their ingredients. The allergens under More detail are what each ingredient usually contains, and we haven't read these products' halal labels, so check each pack before you buy.") : t("Recipes are chosen for your diet by their ingredients. The allergens under More detail are what each ingredient usually contains, so check each pack before you buy.")}</span></p>
           )}
         </section>
 
@@ -765,6 +768,25 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           </>
         )}
       </Sheet>
+    </div>
+  );
+}
+
+/** The recipe's allergens, inside More detail (founder 2026-11-20: "there'll also be a part where it has allergens ... it'll tell you if there's allergens in it"):
+ *  the 14 allergens UK law names, as on every dish and product page, each one this recipe's ingredients contain marked with the ingredients that bring it, and
+ *  any the person avoids marked "You avoid". From each ingredient kind's flags (lib/mm/recipeAllergens.ts), never "may contain", which a pack can add. */
+function RecipeAllergenPart({ ingredients }: { ingredients: Array<{ label: string; pantry?: string }> }) {
+  const t = useT();
+  const { allergens, from } = recipeAllergens(ingredients);
+  const list = (names: string[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(names);
+  const fromText = Object.fromEntries(Object.entries(from).map(([k, names]) => [k, t("From: {names}", { names: list(names) })]));
+  const n = allergens.contains.length;
+  return (
+    <div className="mt-5 border-t border-line pt-4">
+      <h3 className="text-[1.0625rem] font-bold tracking-[-0.01em]">{t("Allergens")}</h3>
+      <p className="mt-1.5 text-[0.9375rem] leading-snug">{n === 0 ? t("None of the 14 main allergens in these ingredients.") : n === 1 ? t("Contains 1 of the 14 main allergens.") : t("Contains {n} of the 14 main allergens.", { n })}</p>
+      <p className="mt-1 text-[0.8125rem] leading-snug text-muted">{t("From what each ingredient usually contains, checked against the supermarkets' own labels. A pack can differ, and we don't show \"may contain\" for recipes, so always check the label.")}</p>
+      <AllergenTable allergens={allergens} caption={t("Allergens in this recipe")} columnLabel={t("This recipe")} pad="px-1" from={fromText} />
     </div>
   );
 }

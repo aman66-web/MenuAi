@@ -44,8 +44,9 @@ function statusOf(a: Allergens, key: AllergenKey): { kind: "contains" | "may" | 
 }
 
 /** The 14 allergens UK law names, one row each: Contains (with the cereal or nut when named), May contain, or Not listed. */
-/** `pad`: the cells' side padding, matching the card the table sits in (px-5 on the grocery product page, px-4 on a dish's card). */
-export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }: { allergens: Allergens; caption: string; columnLabel: string; pad?: string }) {
+/** `pad`: the cells' side padding, matching the card the table sits in (px-5 on the grocery product page, px-4 on a dish's card). `from`: what brings each
+ *  contained allergen, said under its name (a recipe's ingredients), in place of the guide's cereal or nut. */
+export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5", from }: { allergens: Allergens; caption: string; columnLabel: string; pad?: string; from?: Partial<Record<AllergenKey, string>> }) {
   const t = useT();
   const avoid = useSettings().preferences.avoidAllergens ?? [];
   return (
@@ -60,6 +61,7 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
         <tbody className="divide-y divide-line">
           {ALLERGEN_KEYS.map((key) => {
             const s = statusOf(allergens, key);
+            const detail = (s.kind === "contains" && from?.[key]) || s.detail;
             return (
               <tr key={key} className={s.kind !== "none" || avoid.includes(key) ? "bg-[var(--fill)]" : undefined}>
                 <th scope="row" className={`${pad} py-3 text-start align-middle leading-snug ${s.kind !== "none" || avoid.includes(key) ? "font-bold" : "font-medium"}`}>
@@ -71,7 +73,7 @@ export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5" }:
                       {t("You avoid")}
                     </span>
                   )}
-                  {s.detail && <span className="mt-0.5 block text-sm font-medium text-muted">{s.detail}</span>}
+                  {detail && <span className="mt-0.5 block text-sm font-medium text-muted">{detail}</span>}
                 </th>
                 <td className={`${pad} py-3 text-end align-middle`}>
                   {s.kind === "contains" ? (

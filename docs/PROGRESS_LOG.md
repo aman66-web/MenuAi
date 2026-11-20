@@ -3561,3 +3561,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   colours back for protein carbs and fats"): the small dots beside each word, green, blue and purple (labels only, never good or bad), on the recipe page's
   serving card and on every dish's three tiles. This reverses the colour meeting's "told apart by their words, never by a hue" for these three only; the
   other six differences shown to the founder (green calories, capitals, white pills, green prices, grey buttons, the dark switch) stay as they are unless asked.
+- (about 11:15) Recipe page: **Allergens in More detail** (founder: "If they press more detail ... there'll also be a part where it has allergens ... it'll
+  tell you if there's allergens in it"; they asked for the US list as the longer one, but the UK names 14 and the US 9, so the UK's 14 are used, as on every
+  dish and product page). "Saturated fat, salt, sugar, fibre and allergens"; a count ("Contains 4 of the 14 main allergens."), then the 14 rows, each one the
+  recipe contains marked with the ingredients that bring it ("From: Peanut butter") and the person's own marked "You avoid". Worked out only from each
+  ingredient kind's flags in pantry.ts (checked against the shops' labels on 19 November; `lib/mm/recipeAllergens.ts`, `tests/recipeAllergens.test.ts`);
+  never "may contain", and the page says a pack can differ. The note at the end of the ingredients now points to it instead of "We haven't read these
+  products' allergen labels" (rule 8: new words, founder's request).
