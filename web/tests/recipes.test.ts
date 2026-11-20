@@ -226,7 +226,10 @@ describe("fitting a recipe to someone's numbers", () => {
 describe("meal sizes and targets", () => {
   it("offers three sizes from the daily calories and a protein aim", () => {
     expect(mealSizes(2000)).toEqual({ small: 400, normal: 600, big: 800 });
-    expect(mealSizes(1200)).toEqual({ small: 200, normal: 350, big: 550 });
+    expect(mealSizes(1200)).toEqual({ small: 250, normal: 350, big: 450 });
+    // a third less and a third more, whatever the day (founder 2026-11-20): not 850 / 1,050 / 1,250 on a 3,480 kcal day
+    expect(mealSizes(3480)).toEqual({ small: 700, normal: 1050, big: 1400 });
+    expect(mealSizes(5000)).toEqual({ small: 800, normal: 1200, big: 1600 });
     expect(moreProteinGrams(600)).toBe(45);
   });
   it("defaults to more protein for build muscle and caps GLP-1 meals at the comfortable size", () => {

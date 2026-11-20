@@ -863,10 +863,17 @@ export function fitDistance(t: RecipeTotals["perServing"], target: MealTarget): 
 
 export type MealSize = "small" | "normal" | "big";
 
-/** Three meal sizes from the person's daily calories: a normal meal is about 30% of the day (to the nearest 50 kcal, 300-1,200), small and big 200 kcal either side. */
+const to50 = (n: number): number => Math.round(n / 50) * 50;
+
+/**
+ * Three meal sizes from the person's daily calories. A normal meal is about 30% of the day (the share the UK's 400-600-600 rule of thumb gives lunch and
+ * dinner), to the nearest 50 kcal, 300-1,200. Small is about a third less and big a third more, also to the nearest 50 (founder 2026-11-20, "is that actually
+ * small, normal, big?": a fixed 200 kcal either side made "Small" 850 kcal on a 3,480 kcal day, too close to normal to mean much, and only 250 on a 1,200 day).
+ * The step is the one a chain's own sizes take (McDonald's UK fries 237, 337 and 444 kcal); on a 2,000 kcal day it gives the same 400, 600 and 800 as before.
+ */
 export function mealSizes(dailyCalories: number): Record<MealSize, number> {
-  const normal = Math.min(1200, Math.max(300, Math.round((dailyCalories * 0.3) / 50) * 50));
-  return { small: Math.max(200, normal - 200), normal, big: normal + 200 };
+  const normal = Math.min(1200, Math.max(300, to50(dailyCalories * 0.3)));
+  return { small: Math.max(200, to50((normal * 2) / 3)), normal, big: to50((normal * 4) / 3) };
 }
 
 /** "More protein": a protein aim of 30% of the meal's calories, at 4 kcal per gram (the labelling factor), to the nearest 5 g. A target the person picks, never a figure shown as nutrition. */

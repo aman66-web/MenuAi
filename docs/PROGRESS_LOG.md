@@ -3641,3 +3641,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   dearest serving with "(default)"; a tap opens a sheet with one track and two handles (10p steps), the range in big type, "Show {n} recipes" and "Back to every
   price". The range filters the list, is kept in the address (?pmin=60&pmax=320, so Back keeps it) and is reset by Clear. Occasion stays in the Filters sheet
   (More). `lib/mm/servingPrice.ts` + tests; e2e/recipes.mjs 17/17.
+- (about 15:50) **Meal sizes: small and big are now a third either side of normal, not 200 kcal** (founder, screenshot of Filters > Your meal showing Small 850,
+  Normal 1,050, Big 1,250: "do you think that's actually considered small, normal, big? ... do some research and choose the best one ... up to you"). Normal stays
+  30% of the day (the share PHE's 400-600-600 rule of thumb gives lunch and dinner: 20% breakfast, 30% lunch, 30% dinner, snacks the rest), so on the founder's
+  3,480 kcal day a normal meal really is about 1,050 kcal; but a fixed 200 kcal step made "Small" 850 (only 19% less) on a big day and 250 on a 1,200 kcal day.
+  Now small is ⅔ and big 4/3 of normal, to the nearest 50, the step a chain's own sizes take (McDonald's UK fries 237 / 337 / 444 kcal, from our menu data).
+  A 2,000 kcal day still gives 400 / 600 / 800 (PHE's 400 and 600; the 2018 BMJ study of UK chain main meals found fast food averaged 751 kcal, full-service
+  1,033); 3,480 gives 700 / 1,050 / 1,400; 1,200 gives 250 / 350 / 450. `mealSizes` in `lib/mm/recipes.ts`; tests/recipes.test.ts. No words changed.
