@@ -3766,3 +3766,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   per meal like a real plan (21 different dishes priced at £109 against a real plan's £67): Sainsbury's about £80 then £47, Morrisons £83 then £58. A 2,000
   kcal Meal plan at Sainsbury's: about £67 then £42. **Open for the founder:** the budget still limits the first shop (the money really paid that week), not
   each week after. Tests: mealPlan, exampleWeek; e2e showcase 14/14, mealplan 12/12.
+- (about 23:15) **Sandbox purchases cleared for Premium testing** (founder: "you can clear those"): App Store Connect › Users and Access › Sandbox › Test Accounts,
+  the one sandbox tester › Clear Purchase History (Apple: only sandbox purchases are deleted; real customers' purchases are not affected). Its "Last purchase"
+  read 28 September 2025, so the founder's phone may have been Premium for another reason; to check on the phone (Settings › Subscription). **Budget**
+  (founder: "do the rest for me"): stays on the first shop, the money actually paid that week.
