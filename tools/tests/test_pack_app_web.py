@@ -13,7 +13,7 @@ spec.loader.exec_module(pack)
 def make_export(root: Path) -> None:
     for rel in ["app.html", "sw.js", "menus/menus-manifest.json", "menus-sample/x.json", "menu-images/kfc/a.webp", "logos/kfc.png",
                 "groceries/tesco.json", "groceries/sainsburys.json", "groceries/coop.json", "groceries/all/tesco.json", "groceries/all/sainsburys.json",
-                "grocery-images/tesco/1.webp", "grocery-images/sainsburys/1.webp"]:
+                "grocery-images/tesco/1.webp", "grocery-images/sainsburys/1.webp", "recipe-images/oats-1a2b.webp", "recipe-images/thumbs/oats-1a2b.webp"]:
         p = root / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text("x")
@@ -47,6 +47,14 @@ class PackTests(unittest.TestCase):
         cat = json.loads((dst / "groceries/groceries-manifest.json").read_text())
         self.assertEqual([r["id"] for r in cat["retailers"]], ["sainsburys", "coop"])  # community-only shops stay as on the website
         self.assertTrue((dst / "logos/kfc.png").exists())
+
+    def test_remote_images_leave_out_dish_and_product_photos_but_keep_our_recipe_pictures(self):
+        # 20 November 2026: a recipe and its picture ship in the same build, so a build newer than the live site never shows recipes without pictures
+        dst = self.run_pack({"menuPhotos": True, "remoteImages": True, "shops": ["sainsburys", "tesco"]})
+        self.assertFalse((dst / "menu-images").exists())
+        self.assertFalse((dst / "grocery-images").exists())
+        self.assertTrue((dst / "recipe-images/oats-1a2b.webp").exists())
+        self.assertTrue((dst / "recipe-images/thumbs/oats-1a2b.webp").exists())
 
     def test_unknown_shop_is_an_error(self):
         tmp = Path(tempfile.mkdtemp())

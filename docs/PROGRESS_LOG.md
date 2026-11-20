@@ -3686,3 +3686,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   use, with the grams beside; a saved Pip recipe shows "Saved" at the photo's top right, never the cog. **Restored after the words pass:** "Check {chain}'s
   own guide." and the plans screen's free-trial terms (Apple 3.1.2). Checked live: our route found Rice Krispies (5059319042626) at Open Food Facts.
   Tests: every e2e listed green, vitest all green, tsc and eslint clean. Not checked: e2e/signin.mjs (needs a sign-in-required build).
+- (about 18:55) **Our own recipe pictures are always packed inside the iPhone app** (founder, screenshot of Recipes: "Many recipes are missing images"):
+  the app loaded recipe pictures from numbite.com (`remoteImages`, founder 2026-11-17, to keep the app small), and the live site doesn't have the newest
+  recipes' pictures (scrambled eggs on toast answered 404), so a build newer than the site showed plain tiles. `recipe-images/` (about 21 MB) now always
+  ships in the app (`assetUrl` in web/lib/mm/config.ts, scripts/pack_app_web.py, a test in tools/tests/test_pack_app_web.py); dish and product photos
+  still load from the website. The same gap affects every new server feature until numbite.com is deployed: the app's API calls go to the live site.

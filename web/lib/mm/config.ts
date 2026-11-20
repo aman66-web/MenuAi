@@ -138,10 +138,15 @@ export const REMOTE_BASE = APP_BUILD ? (process.env.NEXT_PUBLIC_REMOTE_BASE ?? "
  * storage"): dish, recipe and stored product photos are about 125 MB, so the app's build leaves them out (scripts/pack_app_web.py, web/app-content.json
  * "remoteImages") and loads each one from the live site the first time it is shown; the phone keeps it in the web view's cache. Offline, a photo not yet
  * seen shows the usual plain tile. NEXT_PUBLIC_APP_REMOTE_IMAGES=0 packs them in again.
+ * Our own recipe pictures (recipe-images/, about 21 MB) are always packed in (20 November 2026): a recipe and its picture ship in the same build, so a
+ * build newer than the live site never shows new recipes without pictures (the founder's phone did: "Many recipes are missing images").
  */
 export const REMOTE_IMAGES = APP_BUILD && !!REMOTE_BASE && process.env.NEXT_PUBLIC_APP_REMOTE_IMAGES !== "0";
+/** Paths that are always inside the app, never loaded from the live site. */
+const ALWAYS_PACKED = ["/recipe-images/"];
 /** A photo's address: the site's own path on the website and in a packed app, the live site's address when the app loads photos from it. */
-export const assetUrl = (path: string): string => (REMOTE_IMAGES && path.startsWith("/") && !path.startsWith("//") ? `${REMOTE_BASE}${path}` : path);
+export const assetUrl = (path: string): string =>
+  REMOTE_IMAGES && path.startsWith("/") && !path.startsWith("//") && !ALWAYS_PACKED.some((p) => path.startsWith(p)) ? `${REMOTE_BASE}${path}` : path;
 
 /** The chains' own item photos (CLAUDE.md rule 2). The iPhone app's build can leave them out (web/app-content.json, docs/APP_BUILD.md). */
 export const MENU_PHOTOS_ENABLED = process.env.NEXT_PUBLIC_MENU_PHOTOS !== "0";
