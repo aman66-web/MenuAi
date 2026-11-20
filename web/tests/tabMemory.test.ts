@@ -72,3 +72,15 @@ describe("Home always opens Home, and no tab opens Settings (usability test 2026
     expect(validFor(HOME, "/app/settings")).toBe(false);
   });
 });
+
+describe("which tab is lit", () => {
+  it("keeps Home lit on Home's cooking tools, whose addresses sit under Recipes (founder 2026-11-20)", async () => {
+    const { TABS } = await import("../app/app/_lib/tabs");
+    const lit = (p: string) => TABS.filter((t) => t.match(p)).map((t) => t.href);
+    expect(lit("/app/recipes/fridge")).toEqual(["/app"]);
+    expect(lit("/app/recipes/photo")).toEqual(["/app"]);
+    expect(lit("/app/recipes")).toEqual(["/app/recipes"]);
+    expect(lit("/app/recipes/view")).toEqual(["/app/recipes"]);
+    expect(lit("/app/recipes/saved")).toEqual(["/app"]);
+  });
+});

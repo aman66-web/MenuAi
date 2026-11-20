@@ -3782,3 +3782,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   should come up with 7 days free trial"). Reverses the 19 November meeting's rule (never straight after setup; once, on a later day). Being built with the
   Premium sheet's redesign (founder: "This has got to look more interesting also mention is a 7 day free trial"): iPhone app only, only when the Apple ID can
   still have the trial, never when Premium, never twice, never on a link start.
+- (about 23:20) **Home stays lit on its cooking tools** (founder: "If I press click on what you already have, it will go to a screen, but ... it says that I'm on
+  the recipes page, but it should still be like on the home page"): Cook with what you already have (/app/recipes/fridge) and Make it at home
+  (/app/recipes/photo) are opened only from Home's cards, so the tab bar now lights Home there (HOME_TOOLS in app/app/_lib/tabs.ts; tests/tabMemory.test.ts).

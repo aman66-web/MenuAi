@@ -9,9 +9,13 @@ import { BasketIcon, ForkIcon, HomeIcon, PeopleIcon, PotIcon } from "../_compone
 // opened from Recipes lit Home). Pages inside a tab keep that tab lit.
 // Moved out of AppShell unchanged (2026-11-17) so the welcome tour's copy of the bar uses the very same icons and words.
 // The order (founder 2026-11-19): Home, Recipes, Groceries, then Eat out.
+/** Home's cooking tools, opened from Home's cards though their addresses sit under Recipes: Home stays lit there (founder 2026-11-20: "If I press click on what
+ *  you already have ... it says that I'm on the recipes page, but it should still be like on the home page"). */
+const HOME_TOOLS = ["/app/recipes/fridge", "/app/recipes/photo"];
+
 const ALL_TABS = [
-  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/recipes/saved") || p.startsWith("/app/scan") || p.startsWith("/app/plan") || p.startsWith("/app/stats") },
-  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") },
+  { href: "/app", label: tk("Home"), Icon: HomeIcon, match: (p: string) => p === "/app" || p.startsWith("/app/today") || p.startsWith("/app/saved") || p.startsWith("/app/meals") || p.startsWith("/app/recipes/saved") || HOME_TOOLS.some((t) => p.startsWith(t)) || p.startsWith("/app/scan") || p.startsWith("/app/plan") || p.startsWith("/app/stats") },
+  { href: "/app/recipes", label: tk("Recipes"), Icon: PotIcon, match: (p: string) => p.startsWith("/app/recipes") && !p.startsWith("/app/recipes/saved") && !HOME_TOOLS.some((t) => p.startsWith(t)) },
   { href: "/app/groceries", label: tk("Groceries"), Icon: BasketIcon, match: (p: string) => p.startsWith("/app/groceries") }, // the shopping list too (usability test 2026-11-19: four testers expected Groceries lit there)
   { href: "/app/eat-out", label: tk("Eat out"), Icon: ForkIcon, match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/map") || p.startsWith("/app/chain") || p.startsWith("/app/item") || p.startsWith("/app/search") || p.startsWith("/app/builder") },
   { href: "/app/community", label: tk("Community"), Icon: PeopleIcon, match: (p: string) => p.startsWith("/app/community") },
