@@ -84,3 +84,14 @@ describe("which tab is lit", () => {
     expect(lit("/app/recipes/saved")).toEqual(["/app"]);
   });
 });
+
+describe("a recipe page lights the tab it was opened from", () => {
+  it("Home from the meal plan or the cooking tools, Groceries from the list, Recipes when opened first", async () => {
+    const { litTab } = await import("../app/app/_lib/tabs");
+    expect(litTab("/app/recipes/view", "/app")).toBe("/app");
+    expect(litTab("/app/recipes/view", "/app/groceries")).toBe("/app/groceries");
+    expect(litTab("/app/recipes/view", null)).toBe("/app/recipes");
+    expect(litTab("/app/recipes", "/app")).toBe("/app/recipes"); // only shared pages follow where the person came from
+    expect(litTab("/app/settings", "/app")).toBeNull();
+  });
+});

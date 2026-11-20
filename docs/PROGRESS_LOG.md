@@ -3785,3 +3785,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (about 23:20) **Home stays lit on its cooking tools** (founder: "If I press click on what you already have, it will go to a screen, but ... it says that I'm on
   the recipes page, but it should still be like on the home page"): Cook with what you already have (/app/recipes/fridge) and Make it at home
   (/app/recipes/photo) are opened only from Home's cards, so the tab bar now lights Home there (HOME_TOOLS in app/app/_lib/tabs.ts; tests/tabMemory.test.ts).
+- (about 23:30) **A recipe page lights the tab it was opened from** (founder, screenshot of Cook with what you already have with Recipes lit: "This should still be
+  part of the homepage. Same with the snap recipe to timetable, all of that"): a recipe (/app/recipes/view) opened from Home (the meal plan, the cooking tools'
+  results) keeps Home lit, from Groceries' list keeps Groceries lit, opened first or from Recipes lights Recipes (SHARED_PAGES and litTab in
+  app/app/_lib/tabs.ts, used by AppShell's tab bar). Checked in a browser; tests/tabMemory.test.ts.

@@ -18,7 +18,7 @@ import { bootAccount, useAccountChecking, useAccountUser } from "../_lib/account
 import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
 import { setLanguage, useT } from "../_lib/i18n";
-import { TABS } from "../_lib/tabs";
+import { litTab, SHARED_PAGES, TABS } from "../_lib/tabs";
 import { TabLabel } from "./TabLabel";
 import { CreatorKeys } from "../_lib/creator";
 import { RefCapture } from "../../components/RefCapture";
@@ -44,6 +44,11 @@ import { Spinner } from "./ui";
 export function AppShell({ children }: { children: ReactNode }) {
   const t = useT();
   const pathname = usePathname();
+  // a recipe opened from Home (the meal plan, the cooking tools) keeps Home lit, from Groceries keeps Groceries lit (lib: _lib/tabs.ts litTab)
+  // (worked out while rendering when the address changes: the tab lit on the last page that isn't a shared one)
+  const [nav, setNav] = useState<{ path: string; cameFrom: string | null }>({ path: pathname, cameFrom: null });
+  if (nav.path !== pathname) setNav({ path: pathname, cameFrom: SHARED_PAGES.some((p) => nav.path.startsWith(p)) ? nav.cameFrom : litTab(nav.path, null) });
+  const lit = litTab(pathname, nav.path === pathname ? nav.cameFrom : SHARED_PAGES.some((p) => nav.path.startsWith(p)) ? nav.cameFrom : litTab(nav.path, null));
   const hydrated = useHydrated();
   const settings = useSettings();
   const textSize = settings.textSize;
@@ -182,8 +187,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           >
             <ul className="flex">
               {TABS.map((tab) => {
-                const { href, label, Icon, match } = tab;
-                const active = match(pathname);
+                const { href, label, Icon } = tab;
+                const active = href === lit;
                 return (
                   <li key={href} className="min-w-0 flex-1">
                     <Link
