@@ -16,7 +16,12 @@ The flag names are read from the page and mapped with common.allergen_words; an 
 Wagamama's allergen table (ALLERGEN_TABLE, the "17 June 2026" menu) printed the same flags for the food dishes and was
 used to cross-check them on 2026-10-06. Read again on 2026-10-08 from the page's new menu "07/10/2026 - UK - main website" (10 dishes
 gone, 22 new, 10 with new numbers, 3 of those with new allergens; the section table, GF_SAME_AS and the counts below were updated). Read again on 2026-11-17 (same menu name, item records modified up to 17 Nov 2026): same items and allergens, new numbers on 33 items,
-and three seasonal iced drinks now print 0 for everything (held back, see CONTRADICTED). Two of the page's notices are not allergens and are reported, not read:
+and three seasonal iced drinks now print 0 for everything (held back, see CONTRADICTED). Read again on 2026-11-20 from the page's new menu
+"18/11/2026 - UK festive - main website" (menu modified 18 Nov 2026, item records up to 20 Nov 2026): nothing gone, 9 new recipes (8 dishes with
+nutrition: two cranberry katsu wraps, sweet heat sprouts, two cranberry katsu curries, roast dinner ramen, a cranberry katsu curry sauce and a
+chocolate orange bao nut; and a spiced berry gin spritz printed "-"), new numbers on Koko 'prawn' crackers; the page now opens with a section
+"festive limited time only" that repeats eight of them, all but the curry sauce (LIMITED_SECTIONS; those dishes are marked limited_time, the
+sauce is not); the section table and the counts below were updated. Sweet heat sprouts prints no allergens at all (held back, see CONTRADICTED). Two of the page's notices are not allergens and are reported, not read:
 "for allergen information please check the label" (bottled soft drinks, beers, wines: the flags still list what the
 drink contains, e.g. gluten for beer) and "do not display the allergen/nutrition" (an item the site hides: held back).
 
@@ -25,6 +30,8 @@ What is left out, and why (every rule is counted, so a change in any of them sto
   * Gluten free menu entries that are the same recipe as a standard item (same id) or a separate recipe whose numbers are
     identical to the standard dish (GF_SAME_AS): listing them twice would only duplicate rows. A gluten free recipe whose numbers
     DIFFER from the standard dish is published as its own item, named "... (gluten free menu)".
+  * Records in a limited-time section (LIMITED_SECTIONS) that are the same recipe (same id) as a dish in its own section: the dish is
+    published once, in its own section's category, and marked limited_time.
   * Held back (published to the CSV, listed in holdback.csv, never shown): items the site hides ("do not display the allergen/
     nutrition"), items whose own figures contradict each other (contradiction(): kJ vs kcal, saturates > fat, sugars > carbohydrate,
     kcal vs 4P+4C+9F) and the records in CONTRADICTED.
@@ -51,26 +58,30 @@ NOT_ALLERGEN_FLAGS = {"vegan", "vegetarian", "vegan hero", "new", "refreshed", "
 
 # page section path -> (expected recipe count, category, rankable, limited_time, name prefix, name suffix)
 # rankable: false for drinks, desserts and extras (sauces, pickles, a single egg); true for everything else (the chain's sides
-# are real servings, as for the other chains). limited_time is false everywhere: the menu "07/10/2026" has no limited-time section;
-# an item is marked limited_time only when its own description says so (LIMITED_WORDING).
+# are real servings, as for the other chains). limited_time is false in every section the page also lists all year; the festive menu
+# "18/11/2026" opens with the limited-time section below (LIMITED_SECTIONS), whose dishes are marked limited_time in their own sections;
+# otherwise an item is marked limited_time only when its own description says so (LIMITED_WORDING).
 # The drinks sub-section "coffee by UESHIMA" (hot and iced coffee, tea, matcha) is filed under "Coffee + tea", the category it had
 # before the 7 Oct 2026 menu: the heading is a partner's name, the items are coffee and tea.
 S = [
-    (("lunch time",), 5, "Lunch time", True, False, "", ""),
-    (("sides", "lighter bites"), 5, "Lighter bites", True, False, "", ""),
+    # Added 2026-11-20 (menu "18/11/2026 - UK festive"): every recipe here is also listed in its own section (lunch time, lighter bites,
+    # curries, ramen, desserts, cocktails); main() publishes it from there. Category, rankable and affixes of this row are never used.
+    (("festive limited time only",), 8, "", False, True, "", ""),
+    (("lunch time",), 7, "Lunch time", True, False, "", ""),
+    (("sides", "lighter bites"), 6, "Lighter bites", True, False, "", ""),
     (("sides", "gyoza"), 4, "Gyoza", True, False, "", " gyoza"),
     (("sides", "big flavour bites"), 10, "Big flavour bites", True, False, "", ""),
     (("sides", "bao buns"), 4, "Bao buns", True, False, "", " bao bun"),
     (("the main event", "chef's picks"), 3, "Chef's picks", True, False, "", ""),
-    (("the main event", "curries"), 10, "Curries", True, False, "", ""),
+    (("the main event", "curries"), 12, "Curries", True, False, "", ""),
     (("the main event", "donburi"), 6, "Donburi", True, False, "", ""),
-    (("the main event", "ramen"), 6, "Ramen", True, False, "", ""),
+    (("the main event", "ramen"), 7, "Ramen", True, False, "", ""),
     (("the main event", "teppanyaki"), 10, "Teppanyaki", True, False, "", ""),
-    (("extras",), 12, "Extras", False, False, "", ""),
-    (("desserts + sweet treats",), 12, "Desserts", False, False, "", ""),
+    (("extras",), 13, "Extras", False, False, "", ""),
+    (("desserts + sweet treats",), 13, "Desserts", False, False, "", ""),
     (("drinks", "freshly made juices"), 5, "Juices", False, False, "", " juice"),
     (("drinks", "soft drinks"), 12, "Soft drinks", False, False, "", ""),
-    (("drinks", "cocktails"), 6, "Cocktails", False, False, "", ""),
+    (("drinks", "cocktails"), 7, "Cocktails", False, False, "", ""),
     (("drinks", "beers + cider"), 4, "Beers + cider", False, False, "", ""),
     (("drinks", "wine + sake"), 7, "Wine + sake", False, False, "", ""),
     (("drinks", "coffee by UESHIMA"), 10, "Coffee + tea", False, False, "", ""),
@@ -93,6 +104,9 @@ S = [
     (("gluten free", "drinks", "coffee by UESHIMA"), 10, "Gluten free menu", False, False, "", " (gluten free menu)"),
 ]
 RULES = {path: rest for path, *rest in S}
+# Limited-time sections that repeat, as the same recipe ids, dishes the page lists in their own sections. A record found only in such a
+# section stops the script (its category would have to be decided by hand).
+LIMITED_SECTIONS = {("festive limited time only",)}
 
 # Gluten free recipes (first 8 characters of their id) whose per-serving numbers equal those of the standard dish (id prefix).
 # main() re-checks the equality on every run; if one now differs the script stops so a human decides.
@@ -121,7 +135,7 @@ COLUMNS = {
 }
 IGNORED = {"Energy (kj)", "sodium (g)"}  # kJ is read separately (energy_kj); sodium is printed in g (we never convert sodium to salt or the reverse)
 
-# The menu has no limited-time section any more; the one item that says so itself ("available while stocks last") is marked.
+# Besides the dishes of LIMITED_SECTIONS, an item whose own description says so (e.g. "available while stocks last") is marked.
 LIMITED_WORDING = re.compile(r"while stocks? last|limited time|limited edition", re.I)   # not "seasonal greens" (a kids ramen ingredient)
 
 PORK = re.compile(r"\bpork\b|bacon|\bham\b|sausage|chorizo|salami|pepperoni|pancetta", re.I)
@@ -244,13 +258,24 @@ def main() -> int:
     wanted_overrides = set(NAME_OVERRIDE)
     if not wanted_overrides <= {r["ident"][:8] for r in recipes}:
         raise SystemExit("NAME_OVERRIDE names a recipe that is no longer on the page.")
+    limited_ids = {r["ident"] for r in recipes if r["section"] in LIMITED_SECTIONS}
+    own_section = {r["ident"]: r for r in reversed(recipes) if r["section"] not in LIMITED_SECTIONS and r["section"][0] != "gluten free"}
+    for r in recipes:
+        if r["section"] in LIMITED_SECTIONS:
+            if r["ident"] not in own_section:
+                raise SystemExit(f"{r['name']!r} is listed only in the limited-time section {r['section']}: decide its category by hand.")
+            if r["nutr"] != own_section[r["ident"]]["nutr"] or r["intols"] != own_section[r["ident"]]["intols"]:
+                raise SystemExit(f"{r['name']!r}: its limited-time record differs from the same recipe in its own section: check by hand.")
 
-    items, unpublished, same_id, same_numbers, variants = [], [], [], [], []
+    items, unpublished, same_id, same_numbers, variants, limited_repeat = [], [], [], [], [], []
     seen_ids: set[str] = set()
     for r in recipes:
+        if r["section"] in LIMITED_SECTIONS:
+            limited_repeat.append(r["name"])  # published once, from its own section (checked equal above)
+            continue
         _, _, rankable, limited, prefix, suffix = RULES[r["section"]]
         category = RULES[r["section"]][1]
-        limited = limited or bool(LIMITED_WORDING.search(r["desc"] + " " + r["pro_desc"]))
+        limited = limited or r["ident"] in limited_ids or bool(LIMITED_WORDING.search(r["desc"] + " " + r["pro_desc"]))
         nums = numbers(r)
         first_time = r["ident"] not in seen_ids
         seen_ids.add(r["ident"])
@@ -297,9 +322,9 @@ def main() -> int:
         })
 
     # 2. The rules above must leave exactly what was reviewed.
-    expected = {"published": 146, "unpublished": 29, "same_id": 26, "same_numbers": 23, "variants": 5}
+    expected = {"published": 154, "unpublished": 30, "same_id": 26, "same_numbers": 23, "variants": 5, "limited_repeat": 8}
     got = {"published": len(items), "unpublished": len(unpublished), "same_id": len(same_id), "same_numbers": len(same_numbers),
-           "variants": len(variants)}
+           "variants": len(variants), "limited_repeat": len(limited_repeat)}
     if got != expected:
         raise SystemExit(f"The item set changed: expected {expected}, got {got}. Re-review before publishing.")
     names = [i["name"] for i in items]
@@ -357,7 +382,8 @@ def main() -> int:
         allergen_guide={"title": f"Wagamama UK menu allergen information (wagamama.com/menu, menu \"{menu['menu_name']}\")",
                         "url": SOURCE_URL, "checked_on": args.checked_on, "may_contain_published": True})
     print(f"wrote {len(items)} items to {args.out}; left out: {len(unpublished)} with no published nutrition, "
-          f"{len(same_id)} repeated on the gluten free menu, {len(same_numbers)} gluten free with identical numbers; "
+          f"{len(same_id)} repeated on the gluten free menu, {len(same_numbers)} gluten free with identical numbers, "
+          f"{len(limited_repeat)} repeated in a limited-time section; "
           f"{len(variants)} gluten free variants kept (page sha256 {sha256_file(args.html)})")
     return 0
 
@@ -372,7 +398,7 @@ KJ_KCAL_BAND = (0.93, 1.07)
 # Records the page itself contradicts, by recipe id (first 8 characters) -> reason. Each is published to the CSV as printed and held back.
 CONTRADICTED = {
     "9f2647c3": ("The gluten free menu's record for the Revive juice (named 'revive (parent)' in Wagamama's menu data) prints 0 kcal and 0 g of "
-                 "everything, while the main menu prints 165 kcal for the same juice (revive - regular, same ingredients), so its figures "
+                 "everything, while the main menu prints 163 kcal for the same juice (revive - regular, same ingredients), so its figures "
                  "cannot be trusted."),
     # Read again on 2026-11-17: since 10 Oct 2026 these three seasonal iced drinks print 0 kcal, 0 kJ and 0.0 g of every nutrient (per serving
     # and per 100 g), while the same records printed 141, 155 and 159 kcal on 8 Oct 2026 and each is a matcha or coffee drink with milk/oat or maple.
@@ -382,6 +408,10 @@ CONTRADICTED = {
                  "8 October 2026), so its figures cannot be trusted."),
     "f2b1b9f4": ("Wagamama's menu data prints 0 kcal and 0 g of every nutrient for this miso maple iced latte (it printed 159 kcal on "
                  "8 October 2026), so its figures cannot be trusted."),
+    # Read on 2026-11-20 (menu "18/11/2026 - UK festive"): sweet heat sprouts carries only the "new", "vegan" and "vegetarian" flags, no allergen
+    # at all, while every other gochujang dish on the page contains soya (founder's lead, 20 Nov 2026: hold it back).
+    "34d01a89": ("Wagamama's menu data lists no allergens for this dish, yet its description names a cranberry gochujang sauce, and every other "
+                 "gochujang dish on the page contains soya, so its allergens cannot be trusted."),
 }
 
 

@@ -1,7 +1,7 @@
 {
  "schemaVersion": 1,
- "dataVersion": 20261120101519,
- "generatedAt": "2026-11-20T10:15:19Z",
+ "dataVersion": 20261120102605,
+ "generatedAt": "2026-11-20T10:26:05Z",
  "chains": [
   {
    "id": "abokado",
@@ -2571,11 +2571,11 @@
    "name": "Wagamama",
    "cuisine": "Japanese",
    "file": "chain-wagamama.json",
-   "sha256": "c02dc49d14c7395b3f2f4bc7a021174d15684ff1c76d08b397c30a43ea2d0b4d",
-   "contentHash": "2f648929f8ea30285db8243143b1575faf1cf46882652a03dafd6bbef1c5aa71",
+   "sha256": "f6b4d2a2381362afc081b7984cd5faf79ccb8401f25749951a4a5378846cb1f2",
+   "contentHash": "7790181a02ae380f4412810e3cdb92463628651df24305ccd23ddbba411c3ee2",
    "sample": false,
-   "itemCount": 136,
-   "checkedOn": "2026-10-08"
+   "itemCount": 139,
+   "checkedOn": "2026-11-20"
   },
   {
    "id": "wahaca",
@@ -2775,10 +2775,10 @@
  ],
  "search": {
   "file": "menus-search.json",
-  "sha256": "272cfbac110df107293d6f7dafc3fabeb8dd2e5418f25716019c18484307a5ca"
+  "sha256": "00aed0e97327d2ba602220c93bdbb7b12823bfe4c2007be2d88152154b43a044"
  },
  "numbers": {
   "file": "menus-numbers.json",
-  "sha256": "ffffbbf10128e440c75407c4dd8792be6038b60e7f54fab4e2145cb60efde0a3"
+  "sha256": "801353951c8e798f4be6c22e0148bd716f0b7b6f8b0d69b50fb5c7a457374ba7"
  }
 }
