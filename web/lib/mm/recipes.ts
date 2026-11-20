@@ -1,5 +1,5 @@
 import { formatInt } from "./format";
-import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind } from "./pantry";
+import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind, mixesMeatAndDairy } from "./pantry";
 import { normalizeForSearch } from "./search";
 import { hasPrice, productKey, type PricedProduct, type ShopNutrition, type ShopProduct } from "./shopProducts";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "./localRange";
@@ -173,6 +173,8 @@ export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
     else delete spec.subs;
     out.push(spec);
   }
+  // kosher style: never meat with dairy in one dish
+  if (prefs.kosherStyle && mixesMeatAndDairy(recipe.ingredients.map((i) => (i.pantry ? PANTRY.get(i.pantry) : undefined)).filter((k): k is NonNullable<typeof k> => !!k))) return null;
   return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}) };
 }
 

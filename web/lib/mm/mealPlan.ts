@@ -50,13 +50,12 @@ export const DEFAULT_SHAPE: DayShape = { meals: ["breakfast", "lunch", "dinner"]
 export const planSlots = (shape: DayShape): MealType[] => [...PLAN_MEALS.filter((m) => shape.meals.includes(m)), ...Array.from({ length: shape.snacks }, () => "snack" as const)];
 export const shapeOf = (slots: readonly MealType[]): DayShape => ({ meals: PLAN_MEALS.filter((m) => slots.includes(m)), snacks: slots.filter((m) => m === "snack").length });
 
-/** How the day's meals share what isn't eaten as snacks: a smaller breakfast, a bigger dinner. */
-const MEAL_WEIGHT: Record<string, number> = { breakfast: 0.8, lunch: 1, dinner: 1.2 };
-
 /**
- * Each slot's size from the person's own daily numbers, so the day adds up to them: a snack is a tenth of the day (100-250 kcal), the meals share the rest
- * by MEAL_WEIGHT, each kept between 200 and 1,200 kcal (and under the GLP-1 meal cap when the person has one); protein follows each slot's share of the day.
- * Recipes are then fitted to these sizes exactly as the Recipes tab fits them.
+ * Each slot's size from the person's own daily numbers, so the day adds up to them: a snack is a tenth of the day (100-250 kcal), and the meals share the rest
+ * equally (founder 2026-11-20: "clearly they all have to be the amount of calories that I wanted, 3,400 divided by 3"; until then a smaller breakfast and a
+ * bigger dinner, each kept under 1,200 kcal, so a 3,400 kcal day came to 3,240). Each meal is at least 200 kcal, and under the GLP-1 meal cap when the person
+ * has one: then the day can't add up, and the plan says so (capShortfall). Protein follows each slot's share of the day. Recipes are then fitted to these
+ * sizes exactly as the Recipes tab fits them.
  */
 export function slotTargets(shape: DayShape, daily: { kcal: number; protein: number }, cap?: number | null): Partial<Record<MealType, MealTarget>> {
   const out: Partial<Record<MealType, MealTarget>> = {};
@@ -64,15 +63,21 @@ export function slotTargets(shape: DayShape, daily: { kcal: number; protein: num
   const snackKcal = shape.snacks ? Math.min(250, Math.max(100, round10(daily.kcal * 0.1))) : 0;
   const meals = PLAN_MEALS.filter((m) => shape.meals.includes(m));
   const rest = daily.kcal - shape.snacks * snackKcal;
-  const weights = meals.reduce((t, m) => t + MEAL_WEIGHT[m]!, 0);
   const share = (kcal: number) => Math.max(5, Math.round((daily.protein * kcal) / Math.max(1, daily.kcal)));
   for (const m of meals) {
-    let kcal = Math.min(1200, Math.max(200, round10((rest * MEAL_WEIGHT[m]!) / weights)));
+    let kcal = Math.max(200, round10(rest / Math.max(1, meals.length)));
     if (cap) kcal = Math.min(kcal, cap);
     out[m] = { kcal, protein: share(kcal) };
   }
   if (shape.snacks) out.snack = { kcal: snackKcal, protein: share(snackKcal) };
   return out;
+}
+
+/** How far the day's slots fall short of the daily calories (0 when they add up, within rounding): only a GLP-1 meal cap makes them fall short. */
+export function capShortfall(shape: DayShape, targets: Partial<Record<MealType, MealTarget>>, dailyKcal: number): number {
+  const total = shape.meals.reduce((t, m) => t + (targets[m]?.kcal ?? 0), 0) + shape.snacks * (targets.snack?.kcal ?? 0);
+  const gap = dailyKcal - total;
+  return gap > 30 * (shape.meals.length + shape.snacks) ? gap : 0;
 }
 
 /** A budget never swaps a meal for one this far from the meal size (fitDistance; 0.3 is about 30% off on calories): a cheap 200 kcal soup doesn't make a lunch. */

@@ -3,6 +3,7 @@
 // camera sees: the vessel, the components in their real arrangement, the colours and the textures the method really gives. Only foods that are in the recipe's
 // own ingredients; never cutlery, hands, writing, packaging, brand names, steam or any claim about health. A test checks every recipe has one and the words.
 
+import { EVERYDAY_BREAKFAST_LOOKS } from "./everydayBreakfast";
 import { GLUTEN_FREE_LOOKS } from "./glutenFree";
 import { MORE_MAINS_LOOKS } from "./moreMains";
 import { VEGAN_MAINS_LOOKS } from "./veganMains";
@@ -131,4 +132,5 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   ...VEGAN_MAINS_LOOKS,
   ...GLUTEN_FREE_LOOKS,
   ...MORE_MAINS_LOOKS,
+  ...EVERYDAY_BREAKFAST_LOOKS,
 };

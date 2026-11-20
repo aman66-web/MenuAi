@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE } from "../lib/mm/mealPlan";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { isVegan } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -204,22 +204,33 @@ describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green
 describe("meals and snacks a day (founder 2026-11-18: \"how many meals and how many snacks they want a day ... full personalization\")", () => {
   const daily = { kcal: 2000, protein: 120 };
 
-  it("sizes each slot from the day's numbers: snacks a tenth, a smaller breakfast and a bigger dinner, the day adding up", () => {
+  it("sizes each slot from the day's numbers: snacks a tenth, the meals sharing the rest equally, the day adding up", () => {
     const shape = { meals: ["breakfast", "lunch", "dinner"] as const, snacks: 2 };
     const t = slotTargets({ meals: [...shape.meals], snacks: 2 }, daily);
     expect(t.snack!.kcal).toBe(200);
-    expect(t.breakfast!.kcal).toBeLessThan(t.lunch!.kcal);
-    expect(t.lunch!.kcal).toBeLessThan(t.dinner!.kcal);
+    expect(t.breakfast!.kcal).toBe(t.lunch!.kcal);
+    expect(t.lunch!.kcal).toBe(t.dinner!.kcal);
     const total = t.breakfast!.kcal + t.lunch!.kcal + t.dinner!.kcal + 2 * t.snack!.kcal;
     expect(Math.abs(total - 2000)).toBeLessThanOrEqual(30);
     expect(t.dinner!.protein! + t.lunch!.protein! + t.breakfast!.protein! + 2 * t.snack!.protein!).toBeGreaterThan(110);
-    // two meals: each bigger, never past 1,200 kcal; a GLP-1 cap keeps them smaller
+    // two meals: each bigger; a GLP-1 cap keeps them smaller, and the plan says how far the day falls short
     const two = slotTargets({ meals: ["lunch", "dinner"], snacks: 0 }, daily);
     expect(two.lunch!.kcal).toBeGreaterThan(t.lunch!.kcal);
-    expect(two.dinner!.kcal).toBeLessThanOrEqual(1200);
     expect(two.breakfast).toBeUndefined();
     const capped = slotTargets({ meals: ["lunch", "dinner"], snacks: 1 }, daily, 450);
     expect(capped.dinner!.kcal).toBe(450);
+    expect(capShortfall({ meals: ["lunch", "dinner"], snacks: 1 }, capped, 2000)).toBe(2000 - 450 * 2 - 200);
+    expect(capShortfall(shape as unknown as { meals: ("breakfast" | "lunch" | "dinner")[]; snacks: number }, t, 2000)).toBe(0);
+  });
+
+  it("adds up for a big day too (founder 2026-11-20: \"3,400 divided by 3\"): no 1,200 kcal ceiling on a meal", () => {
+    const big = slotTargets({ meals: ["breakfast", "lunch", "dinner"], snacks: 0 }, { kcal: 3400, protein: 180 });
+    expect([big.breakfast!.kcal, big.lunch!.kcal, big.dinner!.kcal]).toEqual([1130, 1130, 1130]);
+    expect(big.dinner!.protein).toBe(60);
+    // the GLP-1 cap of 450: each meal 450, and the day 2,050 kcal short
+    const glp = slotTargets({ meals: ["breakfast", "lunch", "dinner"], snacks: 0 }, { kcal: 3400, protein: 180 }, 450);
+    expect(glp.lunch!.kcal).toBe(450);
+    expect(capShortfall({ meals: ["breakfast", "lunch", "dinner"], snacks: 0 }, glp, 3400)).toBe(2050);
   });
 
   it("puts the slots in order: the meals, then the snacks", () => {

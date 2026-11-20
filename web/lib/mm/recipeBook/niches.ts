@@ -75,6 +75,8 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
   // the recipes added 2026-11-16 (veganMorning, veganMains, glutenFree, moreMains)
   ...cuisine("british", "crispy-potatoes-garlic-mushrooms", "crispy-potato-cakes-fried-eggs", "broccoli-cheddar-soup", "cheese-onion-potato-cakes", "tuna-sweetcorn-pasta-bake", "beef-potato-pepper-hash", "broccoli-pepper-cheddar-pasta-bake", "honey-mustard-chicken-traybake"),
   ...cuisine("indian", "coconut-vegetable-curry", "potato-pea-curry", "chicken-biryani-style-rice", "chicken-korma-style-curry"),
+  // the everyday breakfasts added 2026-11-20 (everydayBreakfast.ts): the ones that are plainly British breakfasts
+  ...cuisine("british", "cheesy-beans-on-toast", "boiled-eggs-toast-soldiers", "cheese-tomato-on-toast", "bacon-tomato-sandwich", "grilled-full-english", "eggy-bread-berries"),
   ...cuisine("italian", "mushroom-pea-risotto-rice", "garlic-mushroom-spinach-spaghetti", "spinach-soft-cheese-pasta", "mozzarella-tomato-pesto-wraps", "smoked-salmon-pea-pasta", "salmon-broccoli-pasta"),
 ];
 

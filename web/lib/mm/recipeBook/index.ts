@@ -4,6 +4,7 @@ import { CHRISTMAS } from "./christmas";
 import { CORE } from "./core";
 import { DINNER_HOME } from "./dinnerHome";
 import { DINNER_WORLD } from "./dinnerWorld";
+import { EVERYDAY_BREAKFAST } from "./everydayBreakfast";
 import { GLUTEN_FREE } from "./glutenFree";
 import { LUNCH } from "./lunch";
 import { MORE_MAINS } from "./moreMains";
@@ -28,4 +29,6 @@ import { VEGAN_MORNING } from "./veganMorning";
 
 // founder 2026-11-16: "we need plenty of recipes because people are restricted with different dietary requirements": four more files of 12, written
 // for the diets with the fewest recipes (vegan, gluten-free, vegetarian, fish and halal-friendly).
-export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...DINNER_WORLD, ...DINNER_HOME, ...SNACKS, ...CHRISTMAS, ...VEGAN_MORNING, ...VEGAN_MAINS, ...GLUTEN_FREE, ...MORE_MAINS];
+export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...DINNER_WORLD, ...DINNER_HOME, ...SNACKS, ...CHRISTMAS, ...VEGAN_MORNING, ...VEGAN_MAINS, ...GLUTEN_FREE, ...MORE_MAINS,
+  // founder 2026-11-20 ("maybe add some more breakfast items"): everyday British breakfasts, most of them on toast
+  ...EVERYDAY_BREAKFAST];

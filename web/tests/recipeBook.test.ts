@@ -30,7 +30,7 @@ const METHOD_FOODS: Array<[RegExp, string[]]> = [
   [/\bapples?\b(?! sauce)/i, ["apple"]], [/\bcoriander\b/i, ["fresh-coriander"]], [/\bparsley\b/i, ["fresh-parsley"]], [/\bbasil\b(?! pesto)/i, ["fresh-basil", "pesto"]],
   [/\bdill\b/i, ["dill"]], [/\bchives\b/i, ["chives"]], [/\bmint\b/i, ["mint"]], [/\bthyme\b/i, ["thyme"]], [/\brosemary\b/i, ["rosemary"]], [/\boregano\b/i, ["oregano"]],
   [/\b(?:dried |mixed )herbs\b/i, ["mixed-herbs", "oregano", "thyme", "rosemary"]], [/\bsesame\b/i, ["sesame-seeds", "mixed-seeds"]], [/\bmustard\b/i, ["mustard"]],
-  [/\bhorseradish\b/i, ["horseradish"]], [/\boil spray\b|\bspray\b/i, ANY_OIL], [/\boil\b/i, ANY_OIL], [/\bstock\b/i, ["stock-cube"]], [/\bhoney\b/i, ["honey"]],
+  [/\bbread\b/i, ["bread", "white-bread"]], [/\bhorseradish\b/i, ["horseradish"]], [/\boil spray\b|\bspray\b/i, ANY_OIL], [/\boil\b/i, ANY_OIL], [/\bstock\b/i, ["stock-cube"]], [/\bhoney\b/i, ["honey"]],
   [/\bvegetables\b/i, ["stir-fry-veg", "mixed-veg", "peas", "broccoli", "green-beans", "carrots", "peppers", "onion", "spinach", "sweetcorn", "mushrooms", "mangetout", "cherry-tomatoes"]],
 ];
 const MENTION_OK = /\b(?:if you like|to taste|a splash of (?:hot )?water|boiling water|the rest|seasoning pack)\b/i;

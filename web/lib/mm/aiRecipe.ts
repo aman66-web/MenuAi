@@ -74,7 +74,10 @@ export function pantryLines(products: readonly ShopProduct[], prefs: DietPrefs):
 
 const DIET_WORDS: Array<[keyof DietPrefs, string]> = [
   ["vegetarianOnly", "vegetarian (no meat or fish)"], ["veganOnly", "vegan (nothing from an animal)"], ["pescatarianOnly", "pescatarian (no meat; fish and seafood are fine)"], ["halalOnly", "halal"],
-  ["noPork", "no pork"], ["noBeef", "no beef"],
+  ["noPork", "no pork"], ["noBeef", "no beef"], ["noRedMeat", "no red meat (no beef, lamb or pork)"], ["noOnionGarlic", "no onion, garlic, shallot, leek or chives"],
+  ["jain", "Jain (no meat, fish, eggs or honey; nothing grown underground such as onion, garlic, potatoes, carrots or ginger; no mushrooms or sprouts; dairy is fine)"],
+  ["kosherStyle", "kosher style (no pork or shellfish; never meat and dairy in one dish)"], ["noAlcohol", "no alcohol (no wine, beer or spirits, in cooking too)"],
+  ["noHalalKosherMeat", "no meat sold as halal or kosher"],
 ];
 
 /** Plain words for the diet, for the prompt. */

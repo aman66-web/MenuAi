@@ -10,7 +10,7 @@ each recipe's description of how it looks from above is in `web/lib/mm/recipeBoo
 
 Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**
 (https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.
-The safe way is for a person to paste each prompt (165 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
+The safe way is for a person to paste each prompt (178 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
 current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.
 
 ## Hand-over for Claude in Chrome (or for a person)
@@ -31,7 +31,7 @@ You are making one picture per recipe with Midjourney for Numbite, a UK calories
 Then, on the founder's computer: copy the PNG files into `data/recipe-images/` (named `<recipe id>.png`), run `python3 tools/recipes/import_recipe_images.py` (it crops to 4:3, resizes to 800 x 600, writes WebP copies into `web/public/recipe-images/`
 and lists them in `web/lib/mm/recipeImages.ts`), then commit and push. Or send the files to Claude and it does this.
 
-165 recipes, 165 with a picture.
+178 recipes, 178 with a picture.
 
 ## Breakfast
 
@@ -63,12 +63,6 @@ A shallow white bowl of thick, pale oat porridge with a swirl of golden-brown pe
 
 ```
 A round white plate holding a soft, glossy mound of pale yellow scrambled eggs with torn ribbons of pink-orange smoked salmon folded through, flecked with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### ✓ Spanish-style omelette with potatoes and peas · `spanish-omelette`
-
-```
-A single thick wedge of Spanish-style omelette on a round white plate, its pale yellow set top meeting cut sides that show golden potato slices, green peas and softened onion held in firm egg. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Bean breakfast burritos · `breakfast-burrito`
@@ -131,22 +125,10 @@ Two halves of a rolled tortilla wrap laid side by side on a white oval plate, th
 A stack of several small round, golden-brown oat pancakes on a round white plate, with a dollop of thick white yogurt on top and deep red and purple mixed berries scattered over and around them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
-### ✓ Huevos rancheros · `huevos-rancheros`
-
-```
-A flat round tortilla wrap on a round white plate, spread with reddish-brown crushed kidney beans and topped with two fried eggs, white with bright yellow yolks, with red tomato salsa spooned over and around them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
 ### ✓ Apple Bircher muesli · `bircher-muesli`
 
 ```
 Bircher muesli in a deep round pale grey bowl: creamy pale soaked oats flecked with coarsely grated apple and dark raisins, with roughly chopped almonds scattered over the top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### ✓ Smoked salmon kedgeree · `smoked-salmon-kedgeree`
-
-```
-Smoked salmon kedgeree in a shallow white bowl: golden curry-tinted rice dotted with green peas and softened onion, torn strips of pink smoked salmon folded through, and boiled egg quarters with set yellow yolks arranged on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Bean and potato hash · `bean-potato-hash`
@@ -221,6 +203,84 @@ Three round baked egg cups on a white plate, puffed and golden at the edges, the
 A folded half-moon omelette on a round white plate, smooth and pale golden on top, with golden-brown sliced mushrooms and melted orange cheddar spilling from the open edge. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
+### ✓ Cheesy beans on toast · `cheesy-beans-on-toast`
+
+```
+Two slices of golden wholemeal toast on a round white plate, covered with glossy orange-red baked beans in tomato sauce and topped with a scatter of finely grated orange cheddar just starting to melt, with flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Scrambled eggs on toast · `scrambled-eggs-on-toast`
+
+```
+Two slices of golden wholemeal toast side by side on a round white plate, heaped with soft, glossy pale yellow scrambled eggs in large folds, flecked with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Poached eggs and spinach on toast · `poached-eggs-spinach-toast`
+
+```
+Two slices of golden wholemeal toast on a round white plate, each topped with a heap of dark green wilted spinach and a poached egg with a smooth, set white and a soft yellow yolk, with a few flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Boiled eggs with toast soldiers · `boiled-eggs-toast-soldiers`
+
+```
+Two soft-boiled eggs in white egg cups on a round white plate, their tops sliced off to show set whites and runny bright yellow yolks with a few white salt flecks, beside a neat row of golden wholemeal toast soldiers. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Cheese and tomato on toast · `cheese-tomato-on-toast`
+
+```
+Two slices of wholemeal cheese on toast on a round white plate, the melted orange cheddar bubbling and browned in patches over thin red tomato slices that show at the edges, with flecks of black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Peanut butter and banana on toast · `peanut-butter-banana-toast`
+
+```
+Two slices of golden wholemeal toast on a round white plate, spread with golden-brown peanut butter and covered with overlapping rows of round banana slices, dusted with a fine sprinkle of brown cinnamon. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Bacon and tomato sandwich · `bacon-tomato-sandwich`
+
+```
+A bacon and tomato sandwich of golden wholemeal toast cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing browned bacon medallions and red tomato slices. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Grilled full English breakfast · `grilled-full-english`
+
+```
+A grilled full English breakfast on a large round white plate: browned bacon medallions, a fried egg with a set white and golden yolk, golden sliced mushrooms, two soft grilled tomato halves, orange-red baked beans and a slice of golden wholemeal toast. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Ham and cheese toastie · `ham-cheese-toastie`
+
+```
+A golden-brown wholemeal ham and cheese toastie cut in half on the diagonal on a pale wooden board, the two halves set slightly apart, the cut edges showing melted orange cheddar and pink ham. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Garlic mushrooms on toast · `garlic-mushrooms-on-toast`
+
+```
+Two slices of golden wholemeal toast on a round white plate, piled with glossy golden-brown sliced mushrooms and dark green wilted spinach in their pan juices, flecked with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Berry and banana smoothie · `berry-banana-smoothie`
+
+```
+A tall clear glass filled to the top with a thick, smooth purple-red berry and banana smoothie, its round surface flecked with tiny dark berry seeds and a few pale specks of blended oat. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Apple and cinnamon porridge · `apple-cinnamon-porridge`
+
+```
+A round white bowl of thick, creamy pale oat porridge flecked with soft grated apple and brown cinnamon, topped with a small heap of grated apple showing red and green skin and a thin drizzle of golden honey. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Eggy bread with berries and yogurt · `eggy-bread-berries`
+
+```
+Two slices of golden-brown eggy bread overlapping on a round white plate, topped with a dollop of thick white yogurt and a scatter of deep red and purple mixed berries. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
 ## Lunch
 
 ### ✓ Chicken and yogurt wraps · `chicken-wraps`
@@ -233,6 +293,24 @@ One chicken and yogurt wrap cut in half, the two halves leaning together in a V 
 
 ```
 One chickpea and houmous wrap cut in half on the diagonal on a pale wooden board, one half resting across the other, the cut ends showing beige houmous, spice-dusted chickpeas, green lettuce and red tomato slices inside a soft pale wrap. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Spanish-style omelette with potatoes and peas · `spanish-omelette`
+
+```
+A single thick wedge of Spanish-style omelette on a round white plate, its pale yellow set top meeting cut sides that show golden potato slices, green peas and softened onion held in firm egg. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Huevos rancheros · `huevos-rancheros`
+
+```
+A flat round tortilla wrap on a round white plate, spread with reddish-brown crushed kidney beans and topped with two fried eggs, white with bright yellow yolks, with red tomato salsa spooned over and around them. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+```
+
+### ✓ Smoked salmon kedgeree · `smoked-salmon-kedgeree`
+
+```
+Smoked salmon kedgeree in a shallow white bowl: golden curry-tinted rice dotted with green peas and softened onion, torn strips of pink smoked salmon folded through, and boiled egg quarters with set yellow yolks arranged on top. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### ✓ Tuna and sweetcorn pasta salad · `tuna-sweetcorn-pasta-salad`

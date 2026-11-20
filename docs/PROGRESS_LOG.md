@@ -3470,3 +3470,22 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
 - Checked: all unit tests (2,290), e2e smoke, tour (with the new "everything settles in 6 s" check), coach, extra, firstvisit, household, onboarding-body 27/27,
   largetext (no overflow at 100/150/200%), homepages, mealplan, addfood, days, numbers, back, diet, recipes, and axe 0 on every screen (light and dark).
   Not run here: signin.mjs (needs the sign-in-required build), app-build.mjs and iap.mjs (packed builds). Not yet seen on the iPhone.
+
+### 20 November 2026 (night): everyday breakfasts with photos, six more diets, meal sizes that add up
+- **Breakfasts** (founder: "you can't give someone ... kedgeree ... for breakfast ... maybe add some more breakfast items and you can use the Higgsfield connector to
+  make images for them"): 13 everyday UK breakfasts in `web/lib/mm/recipeBook/everydayBreakfast.ts` (cheesy beans on toast, scrambled eggs on toast, poached eggs
+  and spinach on toast, boiled eggs with soldiers, cheese and tomato on toast, peanut butter and banana on toast, bacon and tomato sandwich, grilled full English,
+  ham and cheese toastie, garlic mushrooms on toast, berry and banana smoothie, apple and cinnamon porridge, eggy bread with berries); every figure from the shops'
+  labels. A new **wholemeal sliced bread** kind (40 g a slice, contains gluten and soya as most labels print; white bread as its substitute). Kedgeree, Spanish
+  omelette and huevos rancheros move to lunch. 178 recipes (breakfast 41). Coverage: Sainsbury's 178, Morrisons 174, Waitrose 136, Iceland 136, Asda 128, Aldi 41,
+  M&S 27, Tesco 3.
+- **Their photos**: Higgsfield GPT Image 2.6, medium, 1k, 4:3, in the existing colourful set's style (grey concrete with a mustard napkin, mint with a striped tea
+  towel, blue hexagon tiles with a beige napkin; speckled cream or teal plates), each checked by eye (only the recipe's foods; no writing, packaging or logos).
+  About 6.5 credits. `import_recipe_images.py`: 178 of 178 recipes have a picture.
+- **Six more diets** in the recipe and meal-plan logic (founder: "Some people might be Hindu, Pakistani, whatever ... cater to every single diet"): Jain, No onion or
+  garlic, Kosher style (no pork or shellfish, never meat with dairy in one dish), No red meat, No alcohol (halal leaves alcohol out too), No meat sold as halal or
+  kosher. Tags read from the shops' own ingredient lists (onion or garlic in every houmous, salsa, pesto, stock cube and fajita seasoning; white wine in Dijon
+  mustard; honey in some granolas, which vegan now leaves out too). `tests/diets.test.ts`. Shown in the diet picker behind "More diets" (next).
+- **Meal plan sizes** (founder: "I put in 3,400 calories ... clearly they all have to be ... 3,400 divided by 3"): the meals share the day equally, with no
+  1,200 kcal ceiling (a 3,400 kcal day: three meals of 1,130 kcal). A GLP-1 meal cap still applies when the goal is GLP-1 (the founder's phone: cap 450), and
+  `capShortfall` says how far the day falls short so the plan can say so.

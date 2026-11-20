@@ -125,7 +125,8 @@ describe("one shop alone, against Sainsbury's published list", () => {
         expect(plain(after), `${r.id} ${JSON.stringify(opts)}`).toBe(plain(before));
       }
     }
-  });
+    // every recipe three ways, twice over: past the default 5 seconds when the whole suite runs at once
+  }, 60_000);
 
   it("keeps a swap: the same product chosen by its own id before and by its shop-qualified key now", () => {
     const r = RECIPES[0]!;

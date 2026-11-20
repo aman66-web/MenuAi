@@ -16,7 +16,7 @@ export const USED_AS: Record<string, RegExp> = {
   // carbs
   rice: /\brice\b(?! noodles)/i, "pasta-long": /\bpasta\b|\bspaghetti\b|\blinguine\b/i, "pasta-shapes": /\bpasta\b|\bpenne\b|\bfusilli\b/i, noodles: /\bnoodles\b/i,
   "egg-noodles": /\bnoodles\b/i, wraps: /\bwraps?\b|\btortillas?\b/i, oats: /\boats\b/i, naan: /\bnaans?\b/i, "new-potatoes": /\bpotato(?:es)?\b/i,
-  "wheat-biscuits": /\bbiscuits?\b/i, granola: /\bgranola\b/i,
+  "wheat-biscuits": /\bbiscuits?\b/i, granola: /\bgranola\b/i, bread: /\bbread\b/i, "white-bread": /\bbread\b/i,
   // tins and frozen
   "baked-beans": /\bbeans\b/i, chickpeas: /\bchickpeas\b/i, "kidney-beans": /\bbeans\b/i, "chopped-tomatoes": /(?<!cherry |sliced )\btomato(?:es)?\b(?! pur)/i,
   passata: /\bpassata\b/i, sweetcorn: /\bsweetcorn\b/i, peas: /\bpeas\b/i, "coconut-milk": /\bcoconut milk\b/i,

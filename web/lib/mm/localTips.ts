@@ -23,6 +23,7 @@ export const LOCAL_TIPS: Readonly<Record<string, string>> = {
   almonds: tk("any small bag of almonds"),
   "light-mayo": tk("any light mayonnaise"),
   naan: tk("any pack of plain naan"),
+  bread: tk("any medium sliced wholemeal loaf"),
   lettuce: tk("an iceberg lettuce or a bag of shredded lettuce"),
   turmeric: tk("a jar of ground turmeric"),
   nutmeg: tk("a jar of ground nutmeg"),

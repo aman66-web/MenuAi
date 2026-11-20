@@ -40,7 +40,8 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "spanish-omelette", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 30,
+    // lunch, not breakfast (founder 2026-11-20: "no one's going to eat that for breakfast", of kedgeree; the same holds for this one)
+    id: "spanish-omelette", meal: "lunch", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 30,
     // the potatoes follow the eggs so the omelette keeps its proportions, and one frying pan holds at most half as many eggs again
     ingredients: [ing("eggs", 360, { note: "about 6 eggs", fit: [0.5, 1.5] }), ing("new-potatoes", 300, { follows: "eggs" }), ing("peas", 120), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
     method: [
@@ -184,7 +185,8 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "huevos-rancheros", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Huevos rancheros", blurb: "Fried eggs on warm wraps with crushed beans and salsa.", servings: 2, minutes: 20,
+    // lunch, not breakfast (founder 2026-11-20, as for kedgeree)
+    id: "huevos-rancheros", meal: "lunch", tags: ["Eggs", "Brunch"], name: "Huevos rancheros", blurb: "Fried eggs on warm wraps with crushed beans and salsa.", servings: 2, minutes: 20,
     ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("salsa", 100), ing("wraps", 120), ing("cumin", 1), ing("oil-spray", 1)],
     method: [
       "Drain the beans: Drain the kidney beans in a sieve, rinse them under cold water and leave them for a minute to drain well.",
@@ -210,7 +212,8 @@ export const BREAKFAST: readonly Recipe[] = [
     ],
   },
   {
-    id: "smoked-salmon-kedgeree", meal: "breakfast", tags: ["Brunch"], name: "Smoked salmon kedgeree", blurb: "Curried rice with smoked salmon, peas and boiled eggs.", servings: 2, minutes: 30,
+    // a lunch since 2026-11-20 (founder: "you can't give someone ... kedgeree ... for, like, breakfast"): the recipe is unchanged
+    id: "smoked-salmon-kedgeree", meal: "lunch", tags: ["Brunch"], name: "Smoked salmon kedgeree", blurb: "Curried rice with smoked salmon, peas and boiled eggs.", servings: 2, minutes: 30,
     ingredients: [ing("rice", 150), ing("smoked-salmon", 200), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 100), ing("onion", 150, { note: "about 1 onion" }), ing("curry-powder", 3), ing("lemon-juice", 10), ing("vegetable-oil", 5)],
     method: [
       "Get ready: Peel the onion and chop it small, about the size of a pea. Tear the smoked salmon into strips about as wide as your finger and keep them in the fridge.",

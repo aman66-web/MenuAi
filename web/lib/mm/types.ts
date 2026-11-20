@@ -177,6 +177,16 @@ export interface Preferences {
   pescatarianOnly?: boolean;
   /** Only restaurants that say on their own website that all their UK food is halal (lib/mm/halal.ts). Chain-level. */
   halalOnly?: boolean;
+  /**
+   * More diets for recipes and the meal plan (founder 2026-11-20: "Some people might be Hindu, Pakistani, whatever ... you have to cater to every single diet you
+   * can possibly think about"; lib/mm/pantry.ts kindExcluded). Restaurant menus print no ingredient lists, so they can't be checked for these: the app says so.
+   */
+  noRedMeat?: boolean;
+  noOnionGarlic?: boolean;
+  jain?: boolean;
+  kosherStyle?: boolean;
+  noAlcohol?: boolean;
+  noHalalKosherMeat?: boolean;
   /** Hide dishes whose guide lists one of these as "contains" or "may contain", and dishes with no allergen information. */
   avoidAllergens?: AllergenKey[];
 }
