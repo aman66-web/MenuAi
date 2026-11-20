@@ -1,0 +1,451 @@
+# Copy changes, 20 November 2026 (afternoon build)
+
+Every user-facing sentence the builders, the examples pass and the words pass changed, old -> new, as each reported it (CLAUDE.md rule 8).
+Founder's standing instruction for this pass (20 Nov): "If the person understands something with shorter text, there's no need for you to put longer text."
+
+## built: onboarding
+
+- The 'Step {step} of {total}' line under the bar -> no visible words (the bar alone; screen readers still hear it with each heading). The replay's visible '{n} of {total}' -> likewise screen-reader only
+- Goal tile hints 'Meals and orders that fit a lower calorie target' / 'Keep my weight steady' / 'Higher-protein meals and orders' / 'Smaller, protein-first orders' / 'Something else, or just here for the numbers' -> removed (the tile shows the goal name only)
+- Pip's 'Hi, I'm Pip. {n} short steps, and I'll show you what {app} can do for you on the way.' and all five GOAL_REACTION lines ('Got it. I'll look for meals and orders that fit a lower calorie target.' and the others) -> removed (no speech bubbles)
+- 'Pick one to go on, or tap Skip at the top.' -> 'Pick one, or tap Skip.'
+- 'Pick the one closest to your week to go on, or skip these questions below.' -> 'Pick one, or tap Skip.'
+- Avoid screen: Pip's 'Pick anything you don't eat. I'll leave it out of everything I show you next.' / 'Got it. I'll leave those out where the menu or label says so.' / 'Where a restaurant publishes allergens, dishes that list them are hidden; where it publishes none we say so on its page. Always check with the restaurant.' -> removed
+- 'Tap everything that applies. Change it any time.' -> removed
+- Onboarding only (Settings unchanged): 'Allergy filters use each restaurant's own allergen guide. If you have an allergy, always check with the restaurant.' -> 'Filters use each restaurant's own allergen guide. Always check with staff.'
+- Shops screen: Pip's 'Got it. I'll show those shops first.' / 'Tick the shops you use. Next, I'll show you recipes made from their products.' -> removed
+- 'Tap all that apply. Change it any time in Settings.' -> removed
+- 'Not sure yet? That's fine. Until you choose, recipes use {shop}.' / 'Not sure yet? That's fine: until you choose, recipes use the supermarket we have the most labels for.' -> removed
+- Onboarding shop tiles only (Settings list unchanged): 'Recipes, products and prices' / 'Products and prices. Not in recipes yet' / 'Products and some prices. Not in recipes yet' / 'Product names only' -> 'No recipes yet' on shops recipes can't use, nothing on the rest; the 'Opens first' badge is not shown on tiles
+- The whole 'Know before you order' screen -> removed, including 'Next: where you shop', 'Skip setup and make my account' / 'Skip the rest and go to Home', 'Somewhere else? All {n} restaurants are in Eat out.', '{list} at {chain}' headings, 'From {chain}'s own published figures, checked {date}. Not affiliated with {chain}.', 'Dishes that list {allergens}, or have no allergy information, are left out. Always check with staff.', 'Menus need a connection the first time. Every restaurant is in Eat out.', 'Nothing at these places fits what you avoid...' and 'Loading the menus…'
+- 'A look at Recipes' / 'A look at Eat out' / 'A look at Meal plan, on Home', the 'Free' tag and 'Nothing is charged during setup.' -> removed
+- 'Every ingredient is a real {shop} product, with its price.' -> removed
+- 'Tap one to cook first. It'll be waiting on Home.' (under the cards) -> 'Tap one to cook first.' (above the cards)
+- 'Shown as written. Once your numbers are set, every recipe is sized to your meals.' -> removed
+- '{left} isn't in recipes yet, so these use {shop}: every ingredient is a real product there, with its price.' -> '{left} isn't in recipes yet.'
+- '{left} aren't in recipes yet, so these use {shop}: every ingredient is a real product there, with its price.' -> '{left} aren't in recipes yet.'
+- 'You didn't pick a shop, so these use {shop}: every ingredient is a real product there, with its price.' -> removed (the heading names the shop)
+- Recipes button 'Next: your daily numbers' -> 'Continue'
+- 'Only to work out your daily calories. Nothing here is saved or sent anywhere.' -> 'Only used to work out your numbers. Never saved or sent.'
+- 'Already have a daily calorie number? Skip these questions and type it in on the next screen.' -> removed (Your plan has 'Change')
+- Screen 'Your height and weight' with 'Use whichever units you know. Rather not say? Skip these questions.' and 'Your answers are only used to work out your numbers. They aren't saved or sent anywhere.' -> merged into About you
+- Sex tile order Female, Male, Prefer not to say -> Male, Female, Prefer not to say
+- Separate unit switches 'Stone and pounds / Kilograms' and 'Feet and inches / Centimetres' -> one switch 'Feet and stone' / 'cm and kg' (new)
+- New box words: 'Age in years' (box label), 'years', and the unit marks ft, in, st, lb, cm, kg
+- 'Type your age in the Age box to go on, or skip these questions.' / 'Check your age in the Age box: a whole number from 18 to 100.' / 'Fill in your height and weight above to go on, or skip these questions below.' -> 'Add your age, height and weight, or tap Skip.' (after a tap on the grey Continue, the existing lines 'Enter your age as a whole number from 18 to 100.', 'That height doesn't look right. Please check it.', 'That weight doesn't look right. Please check it.', 'Use the pounds box for part of a stone.' or 'Use the inches box for part of a foot.')
+- The 'Skip these questions' link -> the top-right 'Skip'
+- Pip's 'Last question. Think of a normal week, not your busiest one.' -> removed
+- 'Work out my numbers' -> 'See my plan'
+- 'Your daily targets' screen -> merged into 'Your plan'
+- 'Worked out on your phone from your answers. They're only a starting point: tap a number to type your own, or use − and +.' -> removed ('Change' opens the boxes)
+- 'These are starting numbers, not worked out for you. Know your number? Tap Calories and type it in.' -> 'Starting numbers.' followed by the 'Change' link
+- 'Your sex, age, height, weight and activity aren't kept. Your daily numbers, goal, the foods you avoid and your shops are kept on this phone, and in your account once you sign in.' -> removed (About you carries the privacy line)
+- 'Not sure? Suggest targets for me' -> removed
+- GLP-1's 'Comfortable meal size' box and 'Orders and recipes are kept to this size, protein first.' -> removed from onboarding (the meal size stays its default and can be changed in Settings)
+- 'Next: plan my week' -> removed
+- 'Your week, planned' -> 'Your plan'
+- 'Breakfast, lunch and dinner for 7 days from {shop}, sized to your numbers.' -> removed
+- One day's rows 'Breakfast · {recipe}' / 'Lunch · {recipe}' / 'Dinner · {recipe}' -> a 7-day picture timetable with column labels 'Breakfast', 'Lunch', 'Dinner', 'kcal'; screen readers hear '{day}: {meals}. {kcal} calories.'
+- 'About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).' -> each day's kcal at its row's end, plus, only when the average is more than 5% off: 'Our recipes can't reach {target} kcal yet: about {kcal} a day.' or 'Our recipes can't go down to {target} kcal yet: about {kcal} a day.'
+- New GLP-1 line when the meal size keeps the day under the calories: 'Each meal is kept to your {cap} kcal meal size.'
+- 'Shopping for the week at {shop}: about £{total}' -> chip 'About £{n} for the week'
+- 'Everything goes on one shopping list.' -> chip '1 shopping list'
+- 'This week isn't kept. Open Meal plan on Home to make it yours, for you or everyone you cook for.' -> removed
+- 'Also in Premium: Scan your food, Make it at home and Pip's new recipes from what you have.' / 'Also in Premium: Pip's new recipes from what you have.' and the four 'Free: every menu, our recipes and supermarket products...' lines -> removed (one small Premium badge kept above the timetable where Premium is sold)
+- 'Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list. You'll find it on Home.' -> 'Meal plan makes your week from your shop, with one shopping list.'
+- 'Planning your week from {shop}'s recipes…' -> unchanged words, now screen-reader only while the page-fill squares show
+- New: 'Calories a day', 'Protein a day', 'Change', 'Save', 'Starting numbers.' and the screen-reader region name 'Your week'
+- New restaurant row: heading '{n} restaurants, their own figures', card pill '{kcal} kcal', screen-reader '{dish} at {chain}: {kcal} calories.', with the existing 'Photo from the {chain} website' and 'Not affiliated with any restaurant or shop shown.'
+- Your plan button 'Next: save your numbers' -> 'Save my plan' (signed-in run keeps 'Save and go to Home')
+- Constants: new SHOW_GAP = 0.05 in lib/mm/planPreview.ts (when the gap line shows); new keepNarrow option on weekPreview (NARROW_PREVIEW unchanged, and Meal plan's page still gets 'narrow'); new PHOTO_CHAINS = mcdonalds, nandos, pret, greggs, caffe-nero in lib/mm/showcase.ts; new LEGACY_STEPS in lib/mm/welcomeSteps.ts. No ranking constant, price or recipe limit changed.
+
+## built: sign-in
+
+- Welcome step heading: "Save your goal and numbers: make your free account" -> "Save your plan" (lib/mm/signInGate.ts SIGN_IN_HEADING.setup)
+- Pip line on the welcome step: "Your goal and daily numbers are ready. Your free account keeps them safe." -> "Free, and it keeps your plan safe on any phone."
+- Pip line on an app page reached signed out (heading stays "Sign in or sign up"): "First, your free account. It keeps your goal, meals and shopping list safe if you change phone." -> "Free, and it keeps your plan safe on any phone."
+- Pip line when the welcome step is resumed: "Welcome back. Your goal and daily numbers are still here." -> "Welcome back. Your plan is still here."
+- Pip line for returning people: "Use the same Apple ID, Google account or email as last time." -> unchanged
+- "New here? Any of these makes your free account. Been here before? Use the same one as last time." -> removed
+- "With Apple, your iPhone asks for Face ID or your passcode. There's no new password to remember." -> removed
+- "We keep your email address, your goal and daily numbers, the foods you avoid, your shops, the last two days of your food log, your favourites, the meals, recipes, lists and comparisons you save, and the foods you said you have. Never your sex, age, height, weight or activity. No ads, no tracking." -> "We keep your email and what you save. No ads, no tracking." followed by a "Privacy" link
+- Same line, version used only while the setup-screen counting (TELEMETRY_ENABLED) is on: "We keep your email address, ... Never your sex, age, height, weight or activity. No ads. We also count how many people reach each setup screen, without knowing who they are." -> "We keep your email and what you save. No ads. We count visits to setup screens, without knowing who you are." (new wording, not the founder's; please check)
+- Sign-in screen footer: "Terms · Privacy · Help" -> "Terms · Help" (Privacy is now in the line under the buttons)
+- "We'll email you a 6-digit code. There's no password to remember." -> screen heading "What's your email?" plus the line "We'll send you a code."
+- Email box label: "Your email address" -> the box is labelled by the heading "What's your email?"
+- Button: "Send me a code" -> "Continue"
+- Button: "Other ways to sign in" -> a round Back arrow (screen readers hear "Back")
+- "We've sent a 6-digit code to {email}" -> screen heading "Enter the code" plus the line "Sent to {email}"
+- "It comes from {app} ({sender}). Not there in a minute? Look in Junk or Spam." -> removed (the founder said "nothing else")
+- iPhone only: "Open Mail to find the code, then come back here. {app} keeps your place." -> removed
+- Code box label: "6-digit code" -> six boxes labelled by the heading "Enter the code"
+- "Sign in" button on the code step -> removed (the code is sent by itself when the sixth digit is in)
+- "Please type the 6 digits from the email." -> removed (no longer reachable)
+- Button: "Use a different email" -> the Back arrow
+- Button: "Send a new code" -> "You can ask for a new code in {n} seconds" ("You can ask for a new code in 1 second" at 1), then the link "Send it again"
+- New screen-reader-only status after a resend: "We've sent a new code."
+- New: a "Try again" button (existing words) appears only after a failure that was not a wrong code, while all six digits are in
+- Back on the email screens: a pill showing the word "Back" -> an arrow-only round button, as the founder asked (this departs from the 19 November colour meeting's "Back always shows its word")
+- New constants: CODE_LENGTH = 6 and CODE_RESEND_SECONDS = 60 (Supabase sends one code a minute per address, docs/ACCOUNTS_SYNC.md)
+
+## built: scanner
+
+- (new) Add food choice: title 'Scan a barcode' (existing key), line 'For food in a pack'
+- 'How much did you have? (g)' / 'How much did you have? (ml)' -> 'How much?' (the unit now sits inside the box as 'g' or 'ml')
+- 'From the label, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.' -> removed (the ring shows the figures; screen readers hear '{calories} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat')
+- 'From Open Food Facts contributors (community data), for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat. Check the pack.' -> 'Figures from Open Food Facts (community data)' plus a small link 'Open Food Facts, ODbL' (and the existing 'Photo: Open Food Facts contributors (CC BY-SA)' when the photo is theirs)
+- 'From the UK government's figures, for {amount}: {kcal}, {protein} protein, {carbs} carbs, {fat} fat.' -> removed (the existing 'Fresh fruit and vegetables don't have to carry a nutrition label...' sentence stays as the source line)
+- 'Type an amount from {min} to {max}.' was the idle line when the box was empty -> now shown only as the red error when the typed amount is wrong
+- How-much header '{shop} · {kcal} kcal · {protein} protein per 100 {unit}' -> the shop name (or, for a product no shop list holds, its brand) above the product name; the per-100 line is removed
+- (new, spoken only) the - and + buttons: 'Less' (new key) and 'More' (existing key)
+- Choose a supermarket product, barcode typed with no figures anywhere: 'We don't have {code} yet. Search for it by name, or type in your numbers.' -> 'We don't have this one yet.' + button 'Type the numbers from the pack'
+- Barcode lookup spinner: 'Loading products' -> 'Looking it up' (barcode only; name search unchanged)
+- Barcode lookup failure: 'Couldn't load the products. Check your connection.' -> 'Couldn't look it up. Check your connection.' (barcode only)
+- (new) Scan step when nobody has the barcode: 'We don't have this one yet.', 'Barcode {code}' (code with leading zeros), 'Type the numbers from the pack', 'Scan again' (existing key)
+- (new) Name used for an Open Food Facts product with no name: 'Barcode {code}'
+- Picked-product row line for a product with no shop: 'Groceries · ...' -> '{brand} · ...' where the brand is known
+- Groceries product page 'We don't have {code} yet.': same sentence, but {code} now keeps its leading zeros (1318180 -> 01318180)
+- Privacy page, 'Groceries and barcodes' (new sentence after 'If you scan a barcode, the camera picture is read on your device and is never sent anywhere.'): 'A barcode we don't have is looked up at Open Food Facts through our server: only the barcode is sent, and nothing about you is kept.'
+- Constants to log (rule 8): Open Food Facts answers kept 24 h in server memory (at most 5,000 barcodes); at most 50 new Open Food Facts requests a minute per server instance; server timeout 8 s, phone timeout 15 s; energy check 4/4/9 kcal per gram plus up to 2 per gram of fibre, 20 kcal + 25% slack; at most 900 kcal and 100 g of any macro per 100 g; - and + step 5 g/ml below 50, 10 up to 500, 50 above; How much? now starts a multipack at one item (was 100 g) when the label prints no portion
+
+## built: stats
+
+- (new) page title: 'Stats'
+- (new) tab names: 'Macros', 'Nutrients' ('Calories' already existed)
+- (new) range switch's spoken name: 'Which days'; option 'Last 4 weeks' ('This week' already existed)
+- (new) 'Nothing logged before today.' (Calories, when no earlier day in the range has food)
+- (new) chart key: 'Nothing logged'; 'Your target' (the macros' key; Calories reuses 'Your target: {n} kcal')
+- (new) 'Share by weight.' (under the macro ring)
+- (new) 'Nothing logged yet this week.' (empty macro ring)
+- (new) 'a day' (in '91g / 100g a day'); 'a day this week' (the Nutrients caption)
+- (new) 'Averages are over the days you logged, not counting today.' (Macros and Nutrients)
+- (new) 'Some foods don't give protein, carbs or fat, so these count only the foods that do.'
+- (new) '{k} of {n} foods' (Nutrients coverage)
+- (new) 'Your stats show here once you log your meals.' (logging paid and nothing logged)
+- (new, spoken only) 'See calorie stats', 'See protein, carbs and fat stats' (Home's card links); '{name} each day' (chart list name); '{day}: {figure}' and '{day} (today, so far): {figure}' (each day in the macro and nutrient lists)
+- Reused unchanged: 'From the {n} days you logged, not counting today.', 'A new week starts today.', 'Last week's average: {n} kcal a day', 'kcal a day', 'Your target: {n} kcal', 'Includes estimates from your photos.', 'Only foods whose label or menu gives these figures are counted.', 'Calories each day', '{day}: nothing logged', '{day} (today, so far): {n} kcal', 'See Premium', 'Back to home', 'Saturates', 'not published', 'none yet', 'nothing logged yet', 'protein'
+- Code comment only (HomeWeek.tsx header): 'The chart can't be tapped: the circles above open each day.' -> 'The card opens Stats (founder 2026-11-20: its Calories tab, this week), with a small chevron by the title; the circles above still open each day.'
+
+## built: meal-plan
+
+- Meals step, Pip's line: "How do you like to eat? Pick your meals and snacks, and how often a meal can come round." -> "Pick your meals and snacks, and how often a meal can come round." (the question now has its own step)
+- (new) Style step title: "How do you like to eat?"
+- (new) Style step, Pip's line: "Pick one, and I'll choose recipes to match."
+- (new) Tile names: "Balanced", "High protein", "Lower carb"
+- (new) Tile lines: "Any of our recipes"; "At least {pct}% of calories from protein" (pct = 30, from HIGH_PROTEIN_MIN); "At most {pct}% of calories from carbs" (pct = 25, from LOWER_CARB_MAX)
+- (new) Style step note: "{style}: no {meals} yet, so they can be any recipe." and "{style}: only {list}, so some days repeat." (for example "Lower carb: only 3 lunches, so some days repeat.")
+- (new) Check screen row: label "How you like to eat", value the style's name; note under it "No {meals} yet, so they can be any recipe." / "Only {list}, so some days repeat."
+- (new) Making your plan step: "Keeping to {style}: {n} of them fit"
+- (new) Single meal words used in those notes: "breakfast", "lunch", "dinner" ("snack" already existed)
+- Making your plan, Just me with High protein or Lower carb: "Sizing every meal to your {kcal} kcal and {protein} g protein a day" keeps its words, but {protein} is now the protein the meals are fitted to (for example 160 g instead of 100 g). Balanced is unchanged.
+- Earlier plans summary line: "{kinds of food} · {shops} · {meals a day}" -> "{style} · {kinds of food} · {shops} · {meals a day}" when the plan's style isn't Balanced
+
+## built: recipe-page
+
+- NEW (line under a serving's numbers): "Sized to your meal: about {kcal} kcal"
+- NEW: "Usual portion: about {kcal} kcal"
+- NEW: "As close to your {kcal} kcal meal as this recipe goes"
+- NEW: "As close to {kcal} kcal as this recipe goes"
+- NEW: "This recipe can't be resized."
+- NEW reasons: "Your {day} kcal day over {meals} meals" (meal plan only) / "30% of your {day} kcal day" / "A small meal for your {day} kcal day" / "A big meal for your {day} kcal day" / "Your comfortable meal size"
+- NEW switch: "Usual portion" / "My meal size"; its spoken group name: "Portion size"
+- NEW photo move: "Drag to move it" + "Done"; spoken name of the chip: "Move the photo"
+- Fit card: "This recipe is fitted to about {kcal} kcal a serving. The amounts below are changed to fit." -> "The amounts below are changed to fit." (the size is now in the new top line)
+- Fit card: "Made as close to your {kcal} kcal meal as this recipe goes: {actual} kcal a serving. The amounts below are changed to fit." -> top line "As close to your {kcal} kcal meal as this recipe goes" + card "The amounts below are changed to fit."
+- Fit card: "This recipe already fits your meal, so nothing is changed." (with "Show it as written") -> removed; the top line says "Sized to your meal: about {kcal} kcal" (as written would be the same amounts)
+- Fit card: "This recipe can't be changed to fit your {kcal} kcal meal, so it's shown as written: {actual} kcal a serving." -> top line "This recipe can't be resized." (card removed)
+- NEW CONSTANT: USUAL_PORTION_KCAL = 600 (lib/mm/recipePortion.ts). UI constants: MIN_ROOM 8 px, KEY_STEP 5% (RecipeTile.tsx)
+- CHANGED BEHAVIOUR: recipeThumbnail stored a centre-cropped 800x600 JPEG; it now stores the whole photo scaled to cover 800x600, long side at most 1,600 px
+
+## built: data
+
+- Costa chain note (shown under the source on the chain page): "Per portion as printed; drinks show the default size and milk only. The menu can differ by store; a few snacks print no numbers and are left out. Read from the chain's own pages on 2026-10-09 (50 UK sites: ...within a mile of central London alone)." -> same text + " No size shown for food: Costa's pages print food portions in ml."
+- Costa Egg & Mushroom Bap serving: "Per portion 158 ml" -> "Per portion"
+- Costa Smoked Bacon Bap: "Per portion 124 ml" -> "Per portion"
+- Costa Pork Sausage Bap: "Per portion 161 ml" -> "Per portion"
+- Costa Greek Style Yogurt with Mixed Berry Compote & Granola: "Per portion 210 ml" -> "Per portion"
+- Costa Wholegrain Jumbo Oats Porridge: "Per portion 220 ml" -> "Per portion"
+- Costa Instant Wholegrain Porridge: "Per portion 290 ml" -> "Per portion"
+- Costa Seeded Brown Toast (V): "Per portion 100 ml" -> "Per portion"
+- Costa White Toast (V): "Per portion 90 ml" -> "Per portion"
+- Costa Wiltshire Ham & Mature Cheddar Toastie: "Per portion 172 ml" -> "Per portion"
+- Costa Mature Cheddar & Roasted Tomato Toastie: "Per portion 165 ml" -> "Per portion"
+- Costa Tuna Melt Panini: "Per portion 190 ml" -> "Per portion"
+- Costa Mozzarella & Tomato Panini (V): "Per portion 195 ml" -> "Per portion"
+- Costa Chicken & Bacon Toastie: "Per portion 190 ml" -> "Per portion"
+- Costa Ham & Cheese Toastie: "Per portion 148 ml" -> "Per portion"
+- Costa Gluten Free Mozzarella & Pesto Toastie: "Per portion 180 ml" -> "Per portion"
+- Costa BLT Sandwich: "Per portion 190 ml" -> "Per portion"
+- Costa Free Range Egg Mayo Sandwich: "Per portion 170 ml" -> "Per portion"
+- Costa Mac & Cheese: "Per portion 270 ml" -> "Per portion"
+- Costa All Butter Sultana Scone (V): "Per portion 100 ml" -> "Per portion"
+- Costa Chocolate & Pistachio Cookie Sandwich: "Per portion 73 ml" -> "Per portion"
+- Costa Raspberry & Almond Bake: "Per portion 75 ml" -> "Per portion"
+- Costa Carrot & Walnut Cake: "Per portion 130 ml" -> "Per portion"
+- Costa Triple Chocolate Muffin: "Per portion 96 ml" -> "Per portion"
+- Costa Pain Au Chocolat: "Per portion 72 ml" -> "Per portion"
+- Costa Croissant (V): "Per portion 62.8 ml" -> "Per portion"
+- Costa Almond Croissant (V): "Per portion 83 ml" -> "Per portion"
+- Costa Cheddar Cheese Twist: "Per portion 85 ml" -> "Per portion"
+- Costa Chocolate Twist (V): "Per portion 85 ml" -> "Per portion"
+- Costa Pain aux Raisins: "Per portion 96 ml" -> "Per portion"
+- Costa Blueberry Muffin: "Per portion 110 ml" -> "Per portion"
+- Costa Lemon Muffin (V): "Per portion 101 ml" -> "Per portion"
+- Costa Salted Caramel Brownie: "Per portion 80 ml" -> "Per portion"
+- Costa Millionaire's Shortbread (V): "Per portion 77 ml" -> "Per portion"
+- Costa Chocolate Tiffin (V): "Per portion 80 ml" -> "Per portion"
+- Costa Lemon Curd Tart: "Per portion 70 ml" -> "Per portion"
+- Costa Lemon Drizzle Loaf Cake: "Per portion 105 ml" -> "Per portion"
+- Costa Watermelon: "Per portion 180 ml" -> "Per portion"
+- Costa Stem Ginger Biscuits: "Per portion 48 ml" -> "Per portion"
+- Costa Fruit & Oat Biscuits: "Per portion 48 ml" -> "Per portion"
+- Costa Millionaire's Shortbread (Gluten Free): "Per portion 56 ml" -> "Per portion"
+- Costa Belgian Chocolate Brownie (Gluten Free): "Per portion 60 ml" -> "Per portion"
+- Costa Jammy Shortbread: "Per portion 50 ml" -> "Per portion"
+- Costa Mini All Butter Shortbreads: "Per portion 10 ml (one piece)" -> "Per portion (one piece)"
+- Costa Caramel Waffles: "Per portion 78 ml" -> "Per portion"
+
+## words: home-today
+
+- Home and Today (today): "Some foods today don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them." -> "Some foods today don't list protein, carbs or fat, so those totals count only the foods that do."
+- Today (a past day): "Some foods on this day don't have every figure (typed in without them, or from a restaurant that publishes calories only), so protein, carbs and fat count only the foods that have them." -> "Some foods on this day don't list protein, carbs or fat, so those totals count only the foods that do."
+- Today (locked Premium card, only on a build where logging is paid): "Log a meal from any order and see your calories and protein against your targets, so you always know what's left." -> "See what's left of your calories and protein."
+- Home, Start here card: "Had something today? Add it and see what's left." -> "Had something today?"
+- Home, Scan your food card: "Take a photo of a meal: see its calories and macros, or get the recipe to make it at home." -> (removed; the 'Photo to calories' and 'Photo to recipe' buttons say it)
+- Home, Meal plan card: "Pip plans 7 days of meals for your goal, with one shopping list." -> "7 days of meals for your goal, with one shopping list."
+- Home, Cook with what you already have card: "Tell me what's in your fridge and I'll find recipes for it." -> "Recipes from what's in your fridge."
+- Reminders page (iPhone only): "{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone." -> "A reminder may not appear if notifications are off or silenced, so don't rely on it alone."
+- Reminders page: "Ticking “Done” is only your own mark. It doesn't stop a reminder from ringing later today." -> (removed from this page only, which has no Done ticks; still shown under Home's Reminders list)
+- Pip's tip, Your day: "What you've eaten today and what's left, and your week." -> "What you've eaten, what's left, and your week."
+- Pip's tip, Add what you ate (build where logging is paid): "Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers. It's part of Premium." -> "Tap + next to a meal to add a restaurant dish, a recipe, a product or your own numbers. It's part of Premium."
+- Pip's tip, Add what you ate (build where logging is free): "Tap + next to a meal to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers." -> "Tap + next to a meal to add a restaurant dish, a recipe, a product or your own numbers."
+- Pip's tip, Scan your food: "Take a photo of a meal: see its calories and macros, or get the recipe to make it at home. It's part of Premium." -> "Take a photo of a meal to see its calories or get its recipe. It's part of Premium."
+- Pip's tip, Shopping list, Settings: "At the top right: your shopping list, and Settings, where you can change your goal, your diet and these tips." -> "Your shopping list, and Settings to change your goal, diet and these tips."
+- Pip's tip, Moving around: "These buttons take you to each part of the app: Home, Recipes, Groceries and Eat out." -> "Tap these to go to Home, Recipes, Groceries or Eat out."
+- Pip's tip, Search (Eat out): "Type the name of a restaurant or a dish to find it." -> "Type a restaurant or a dish to find it."
+- Pip's tip, Near me: "See the places to eat around you on a map." -> "Places to eat near you, on a map."
+- Pip's tip, Restaurants: "Tap any restaurant to see the calories and protein of every dish on its menu." -> "Tap one to see every dish's calories and protein."
+- Pip's tip, Your supermarkets: "Tap a shop to see its products and prices. Tap Select on a few to see them together." -> "Tap a shop for its products and prices. Tap Select to see a few together."
+- Pip's tip, Search every shop: "Type a product's name to find it in every supermarket at once." -> "Type a product to find it in every supermarket."
+- Pip's tip, Scan a barcode: "Point your camera at a product's barcode to see its label." -> "Point your camera at a barcode to see the label."
+- Pip's tip, Choose a meal: "Tap Breakfast, Lunch, Dinner or Snacks to see recipes for that meal. Tap More for every filter." -> "Tap a meal to see its recipes, or More for every filter."
+- Pip's tip, My recipes: "Recipes you keep, and ones I made for you, are here." -> "Recipes you saved, and ones I made for you." ('saved' matches the recipe page's Save button)
+
+## words: recipes
+
+- Recipes, note when the person's shops can't make recipes: "These recipes use {shop} products for now. We haven't read enough of {shops} product labels yet, so their recipes aren't ready." -> "These recipes use {shop} products for now: we haven't read enough of {shops} labels yet."
+- Recipes, Shopping at sheet: "Recipes are made for one shop at a time. Choose where you're shopping; you can change it any time." -> "Recipes use one shop at a time."
+- Recipes Filters sheet and Make it at home, allergy line: "Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen labels, so check each pack before you buy." -> "Chosen by their ingredients, not the packs' allergen labels: check each pack before you buy."
+- Same two places, halal version: "Recipes are chosen for your diet by their ingredients. We haven't read these products' allergen or halal labels, so check each pack before you buy." -> "Chosen by their ingredients, not the packs' allergen or halal labels: check each pack before you buy."
+- Recipes, Ask Pip card (hidden while AI_RECIPES_ENABLED is false): "Say what you fancy and Pip writes one from {shop} products, fitted to your meal and diet." -> "Say what you fancy; Pip writes one from {shop} products."
+- Same card, version with no shop: "Say what you fancy and Pip writes one from your shop's products, fitted to your meal and diet." -> "Say what you fancy; Pip writes one from your shop's products."
+- Recipes: "1 more recipe needs something we haven't found at {shops} yet. Choose another shop to see it." -> "1 more recipe needs something we haven't found at {shops}. Try another shop."
+- Recipes: "{n} more recipes need something we haven't found at {shops} yet. Choose another shop to see them." -> "{n} more recipes need something we haven't found at {shops}. Try another shop."
+- Recipes footer: "\"A serving\" prices only the amounts a serving uses, including the pinch of salt and the spoon of oil. Recipes are chosen for your diet by their ingredients; check each pack." -> "\"A serving\" prices only what one serving uses, salt and oil included. Recipes are chosen for your diet by their ingredients; check each pack."
+- Recipes button: "Show more recipes ({n} more)" -> "Show {n} more recipes"
+- All recipes line (MealPicker targetSentence): "Meals are fitted to about {kcal} kcal a serving, as far as each recipe allows; snacks are shown as written." -> "Meals fitted to about {kcal} kcal a serving; snacks as written."
+- All recipes line, with protein, carbs or fat: "Meals are fitted to about {kcal} kcal and {more} a serving, as far as each recipe allows; snacks are shown as written." -> "Meals fitted to about {kcal} kcal and {more} a serving; snacks as written."
+- Cook with what you have, Pip: "Tell me what's in your fridge and cupboards, and what you fancy. I'll find recipes that use it." -> "Tell me what you have, and I'll find recipes that use it."
+- Cook with what you have, placeholder: "For example: eggs, spinach, cheddar, leftover rice, half an onion" -> "For example: eggs, spinach, leftover rice"
+- Cook with what you have, Ask Pip card: "Pip makes one up from what you have, adding as little as possible from {shop}." -> "From what you have, plus as little as possible from {shop}."
+- Cook with what you have, AI line: "Pip uses AI from Anthropic (the company that makes Claude). We send the foods you typed or tapped, what you fancy, your diet and allergy choices, the meal size and the list of {shop} products. No name, email or account is sent with it, and we don't keep it." -> "Pip uses AI from Anthropic. We send your foods, what you fancy, your diet and allergies, the meal size and {shop} product list; never your name, email or account. We don't keep it."
+- Cook with what you have, Pip while working: "Give me a moment: I'm making a recipe from what you have." -> "Making a recipe from what you have."
+- Cook with what you have, Ask Pip and Make it at home: "Saved to My recipes. You can take it out there any time." -> "Saved to My recipes."
+- Ask Pip (feature off): "(you can skip this)" -> "(optional)"
+- Ask Pip (feature off): "This usually takes 10 to 30 seconds." -> "Usually 10 to 30 seconds."
+- Ask Pip (feature off), AI line: "Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your choices on this page (meal, people, meal size, diet and anything you typed) and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels." -> "Pip uses AI from Anthropic. We send your meal, people, meal size, diet, anything you typed and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products' labels."
+- Make it at home, without Premium: "Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket." -> "Make it at home is part of Premium. Snap a dish you loved and I'll write a recipe from your supermarket."
+- Make it at home, Pip: "Tell me what you'd like to make. Then snap it, or upload a photo of it from your phone. The more detail you give, the better the recipe will match." -> "Name the dish, then take or upload a photo of it."
+- Make it at home, name help: "Be as specific as you can: the flavour, the sauce and how it's cooked. For example, 'peri-peri chicken wings with spicy rice', not just 'chicken wings'." -> "Be specific: 'peri-peri chicken wings', not just 'chicken wings'."
+- Make it at home, description help: "It helps Pip choose the right ingredients, so the recipe matches your dish more closely." -> (removed; the 'Recommended for accuracy' tag stays)
+- Make it at home, what to exclude: "Tick anything you don't eat, and Pip leaves it out. It starts with your diet from Settings; changes here are for this recipe only." -> "Tick what you don't eat. Changes here are for this recipe only."
+- Make it at home, nudge: "Add a bit more, like the flavour or sauce, so the recipe matches your photo." -> "Add a bit more, like the flavour or sauce."
+- Make it at home, only one shop: "For now, recipes use {shop} products, the shop whose labels we've read. More supermarkets will come as we read theirs." -> "For now, recipes use {shop} products. More shops will follow."
+- Make it at home, AI line: "Pip uses AI from Anthropic (the company that makes Claude). To write your recipe we send your photo (made smaller on your phone first), your description, your diet and allergy choices, the meal size and the list of {shop} products it may use. No name, email or account is sent with it, and we don't keep it. The numbers you see are worked out from the products' own labels." -> "Pip uses AI from Anthropic. We send your photo (made smaller), your words, your diet and allergies, the meal size and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products' labels."
+- Make it at home, why Next can't be pressed: "Too few {shop} products fit what you exclude. Go back and untick something, or choose another shop." -> "Too few {shop} products fit what you exclude. Untick something or choose another shop."
+- Make it at home, working screen 'Choosing from' row: "{n} {shop} products, each with its own label and price" -> "{n} {shop} products"
+- Make it at home, working screen paragraph: "Pip reads your photo and your words, and chooses a real {shop} product for each part of the dish. Then every amount, price and nutrition figure is worked out from those products' own labels. It can take up to a minute." -> "Pip picks a real {shop} product for each part of the dish, then works out every figure from their labels. It can take up to a minute."
+- Camera (Make it at home and Scan your food): "The camera can't be shown here. Take a photo with your phone's camera, or choose one from your photos." -> "The camera can't be shown here." (its two buttons, 'Take a photo' and 'Choose from your photos', say the rest)
+- Camera: "Point the camera at your food, then press and hold the button to scan." -> "Point the camera at your food, then press and hold."
+- Scan your food intro (with and without Premium): "Take a photo of your plate and Pip estimates its calories, protein, carbs and fat." -> "Pip estimates a plate's calories, protein, carbs and fat from a photo."
+- Scan your food, helper under 'What are you eating?': "A few words help Pip tell what's on the plate." -> (removed; the question and its example placeholder stay)
+- Scan your food first page (with and without Premium): "The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen." -> "Estimate from your photo, not a label: oil, sauces and portion sizes can't always be seen."
+- Scan your food result footnote: "The numbers are an estimate from your photo, not from a label: oil, sauces and portion sizes can't always be seen." -> "Not from a label: oil, sauces and portion sizes can't always be seen." (the card's 'Estimate from your photo' tag sits above it)
+- Scan your food, AI line: "Pip uses AI from Anthropic (the company that makes Claude). To work out the numbers we send your photo (made smaller on your phone first) and the words you typed about it. No name, email or account is sent with it, and we don't keep it." -> "Pip uses AI from Anthropic. We send your photo (made smaller) and your words; never your name, email or account. We don't keep it."
+- Scan your food, high confidence: "Pip is fairly sure about this one." -> "Pip is fairly sure."
+- Scan your food, low confidence: "A rough guess: some of this plate is hidden or hard to tell." -> "A rough guess: some of it is hard to see."
+- My meals, Recipes tab when empty: "Tap the heart on any recipe, or Save at the top of a recipe, and it will be here next time." -> "Tap the heart on any recipe to keep it here."
+
+## words: groceries
+
+- Groceries intro: 'Supermarket food, with its price and, where the shop publishes it, the calories and protein from its label.' -> 'Supermarket prices, calories and protein.'
+- Groceries shortcut: 'The top 20 products for protein, fibre and more' -> 'Top 20 for protein, fibre and more'
+- Groceries shortcut: 'Put products side by side, even from different shops' -> 'Side by side, from any shop'
+- Groceries: 'Tap a shop to see its products, prices and photos.' -> (removed)
+- Groceries and Search foot note: 'Prices appear only where we've read them from the supermarket's own website. Not affiliated with any supermarket.' -> 'Prices from each supermarket's own website. Not affiliated with any supermarket.'
+- No shop chosen (/groceries/shop): body 'Tap a shop on Groceries to see its products, prices and photos.' -> (removed; title and 'Choose a shop' button stay)
+- No shops chosen (/groceries/shops and its empty state): 'Tap Select on the shops you want on Groceries, then see their products together.' -> 'Tap Select on the shops you want.'
+- No product chosen: body 'Tap a shop on Groceries, then a product, to see its page.' -> (removed)
+- Shop list intro, all priced: '{n} products, with the prices {shop} showed on {date}.' + '{count} of them show calories and protein.' -> '{count} of {n} products show calories and protein.' (with none: '{n} products. None show calories and protein yet.')
+- Shop list intro, partly priced: '{n} products from {shop}'s website, checked {date}. {count} show a price. {shop} lists no price for the others. / ... {shop} shows the others' prices only in store.' -> '{count} of {n} products show a price. {shop} lists no price for the others. / {shop} shows the others' prices only in store.' then '{count} show calories and protein.' or 'None show calories and protein yet.' (the date stays in the foot note)
+- 'Calories and protein aren't shown for these yet.' -> 'None show calories and protein yet.'
+- Sort note (shop, selected shops, search): 'Products with under 20 kcal or 5 g of protein per 100 g, those without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.' -> 'Listed last: under 20 kcal or 5 g protein per 100 g, no numbers, or numbers for the cooked or prepared food.'
+- Sort note: 'Products without numbers, and those whose numbers are for the cooked or prepared food, are listed after the rest.' -> 'Listed last: no numbers, or numbers for the cooked or prepared food.'
+- Shop list allergy note: 'Products whose Open Food Facts record lists {allergens}, or has no allergen information, are hidden. Most products here have no Open Food Facts record, so they stay. Always check the pack.' -> 'Hidden: products whose Open Food Facts record lists {allergens} or no allergens. Most have no record, so they still show. Always check the pack.'
+- Shop list allergy note: 'Your allergy settings aren't hiding anything while “Fits my diet” is off. Always check the pack.' -> 'Nothing is hidden for your allergies while “Fits my diet” is off. Always check the pack.'
+- Shop list empty: 'Try fewer words or a different type.' -> 'Try fewer words or another aisle.'
+- Selected shops empty: 'Try fewer words or a different type.' -> 'Try fewer words.'
+- Search empty: 'Try fewer words, another supermarket, or a different type.' -> 'Try fewer words or another shop.'
+- Shop and selected-shops foot note: 'Prices and offers vary by store and by loyalty card.' -> 'Prices vary by store and loyalty card.'
+- Shop list foot note: 'Where we haven't read a product's own page, its numbers are the same product's label at another shop, Open Food Facts contributors' numbers (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures; each product's page says which.' -> 'Some numbers are the same product's label at another shop, Open Food Facts (community data), or UK government figures for loose fruit and veg; each product says which.'
+- Search foot note: 'Numbers come from each shop's own product page where we've read it; otherwise from the same product's label at another shop, Open Food Facts contributors (community data) for the same barcode, or, for loose fresh fruit and vegetables, the UK government's figures. Each product's page says which.' -> 'Numbers are from each shop's own label where we've read it.' + 'Some numbers are the same product's label at another shop, Open Food Facts (community data), or UK government figures for loose fruit and veg; each product says which.'
+- Selected shops intro: 'Products from {shops}, each with its own shop's price and photo.' -> (removed; the logos and shop chips name them)
+- Selected shops allergy note: 'We haven't read allergens for these products, so nothing is hidden for {allergens}. Always check the pack.' -> 'Allergens aren't read here, so nothing is hidden for {allergens}. Always check the pack.'
+- Search intro: 'Find a product at every supermarket that sells it, with its price and, where we've read its label, its calories and protein.' -> (removed; title 'Search every shop' stays)
+- Cheapest protein intro: 'What 10 g of protein costs at {shop}, worked out from each product's own label and shelf price.' -> 'What 10 g of protein costs at {shop}, from each label and shelf price.'
+- Cheapest protein pair: '100 g of protein costs {a} in one and {b} in the other.' -> (removed; 'Save {amount} on every 100 g of protein' stays)
+- Cheapest protein empty: 'We haven't read the nutrition labels of any shop's products yet.' -> 'We haven't read any shop's labels yet.'
+- Cheapest protein foot note: 'Prices are what {shop} showed on {date} and they change. Foods are measured as sold, so dried foods such as lentils cook up heavier. This compares the price of protein only, and says nothing else about a food. Not affiliated with {shop}.' -> 'Prices from {shop} on {date}; they change. Measured as sold, so dried foods such as lentils cook up heavier. Price of protein only: it says nothing else about a food. Not affiliated with {shop}.'
+- Leaderboards intro: 'The top 20 supermarket products for one thing at a time, from each product's own label. Tap a board to see it.' -> 'The top 20 supermarket products, from their own labels.'
+- Leaderboards: the board's own line repeated under its heading -> (removed there; still on the board tile)
+- Leaderboards meat-free note: 'Chosen by the product's name, with no meat or fish in it: if you're vegetarian or vegan, check the pack.' -> 'Picked by name, with no meat or fish in it. Vegetarian or vegan? Check the pack.'
+- Leaderboards foot note: 'Figures are as sold, from each shop's own website (labels read up to {labels}, prices from {prices}); a product sold at several shops shows every shop's logo with its shelf price there, the cheapest in bold. Prices vary by store. Not affiliated with any supermarket.' -> 'Figures as sold, from each shop's own website (labels read up to {labels}, prices from {prices}). Prices vary by store. Not affiliated with any supermarket.'
+- Shopping list subtitle: 'Tick things off as they go in your basket.' -> 'Tick things off as you shop.' (an extra list now shows this too, in place of 'One of your shopping lists.')
+- Shopping list: 'One of your shopping lists.' -> (removed)
+- Shopping list field placeholder: 'Add something, e.g. milk' -> 'e.g. milk' (the label 'Add something to your list' stays)
+- Empty extra list: body 'Add products from {shop}, or type what you need above.' -> (removed; the 'Add products from {shop}' button stays)
+- Empty Shopping list: body 'Type what you need above, or add products from Groceries and recipes.' -> (removed; 'Browse groceries' and 'See recipes' stay)
+- List total: '{total} for the items with a price, at {shopPossessive} prices checked {date}. Prices change: check in store.' -> '{total} at {shopPossessive} prices checked {date}. Prices change: check in store.' (same for the version without a date; the partly priced versions are unchanged)
+- Shopping list: 'Everything is ticked off: nothing left to share.' -> 'All ticked off: nothing to share.'
+- Shopping list privacy line: 'Sharing sends a link that holds your list, so anyone who has it can see it.' -> 'Anyone with the link can see your list.'
+- Open a shared list sheet: 'Paste the link your friend sent, and the list opens.' -> (removed; label 'The link or code' and placeholder 'Paste it here' stay)
+- New list sheet: 'Choose a shop. You can have more than one list for the same shop.' -> (removed; title unchanged)
+- New list sheet, full: 'You have {n} lists, the most there can be. Delete one to make another.' -> '{n} lists is the most. Delete one to make another.'
+- Swap sheet: 'Can't find it? Choose something similar at {shop} instead. It takes its place on your list.' -> 'Can't find it? Pick something similar at {shop}.'
+- Choose a product sheet: 'Pick the one you want. It takes the place of “{name}” on your list, with its price.' -> (removed)
+- Choose a product sheet: 'Nothing at {shop} has “{name}” in its name. Try another shop, or keep it as you typed it.' -> 'Nothing at {shop} matches “{name}”. Try another shop.' (when there is only one shop: 'Nothing at {shop} matches “{name}”.')
+- Cook with your list intro: 'These recipes use something on your list. Each one shows what you still need to buy.' -> (removed)
+- Cook with your list: '{left} isn't in recipes yet, so these use {shop}: every ingredient is a real product there, with its price.' -> '{left} isn't in recipes yet, so these use {shop}.'
+- Cook with your list empty: 'Add a few things you have or plan to buy, and I'll find recipes that use them.' -> 'Add a few things and we'll find recipes that use them.'
+- Cook with your list empty button: 'Back to my groceries' -> 'Back to shopping list' (an existing key; the old name dates from before the 2026-10-11 rename)
+- Cook with your list note: 'Recipes are matched to your list by the products' names and chosen for your diet by their ingredients; check each pack.' -> 'Matched by product names and chosen for your diet by ingredients: check each pack.'
+- Shared list intro: 'A friend shared this shopping list with you. Add it to yours to tick things off as you shop.' -> (removed; the Community inbox's own intro is unchanged)
+- Shared list: 'Prices are what each shop showed on its website, and they change: check in store.' -> 'Prices from each shop's website. Prices change: check in store.'
+- Compare intro: 'Pick a few products or dishes and see their numbers side by side.' -> (removed)
+- Compare empty (groceries): 'Search above, for example “baked beans”, and add two or more. You can also tap “Compare” on any product.' -> 'Add two or more above, or tap “Compare” on any product.'
+- Compare empty (dishes): 'Search above, for example “chicken burger”, and add two or more. You can also tap “Compare” on any dish.' -> 'Add two or more above, or tap “Compare” on any dish.'
+- Compare basis: 'Per 100 g. Each column says where its figures come from: not all of them are a shop's label.' -> 'Per 100 g. Not all from a shop's label: each column says.' (same for 100 ml)
+- Compare: 'Some of these labels are per 100 ml or for the cooked food, so compare those with care.' -> 'Some are per 100 ml or for the cooked food: compare with care.'
+- Compare: 'Swipe the table sideways to see every column →' -> 'Swipe sideways for more →'
+- Compare foot note: 'Numbers as each product's label or page showed them when you added it. Price per kg is the shop's own; “Protein for £1” is that price worked out for the protein. Always check the pack.' -> 'Numbers from when you added each product. “Protein for £1” is worked out from the shop's own price per kg. Always check the pack.'
+- Compare foot note: 'Some figures aren't a shop's label: they're Open Food Facts contributors' numbers (community data) or the UK government's figures for loose fruit and vegetables, as each column says.' -> 'Some figures are Open Food Facts (community data) or UK government figures for loose fruit and veg, as each column says.'
+- Compare foot note: 'The colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g. Calories and protein have no colour, and products measured per 100 ml aren't coloured.' -> 'Colours are the UK Food Standards Agency's traffic-light bands for fat, saturates, sugars and salt per 100 g.'
+- Compare foot note (dishes): 'Numbers as each restaurant publishes them, per serving. Servings differ in size, so a bigger dish can have more of everything.' -> 'Servings differ in size, so a bigger dish can have more of everything.' (the basis line above already says 'Per serving, as each restaurant publishes it.')
+- Compare overview: 'Which one leads on each figure, worked out from the numbers above.' -> 'Which one leads on each figure.'
+- Compare overview: 'One figure at a time. What suits a person differs, and nothing here is advice.' -> 'What suits each person differs; this isn't advice.'
+- Compare overview: 'These are measured differently (some per 100 g, some per 100 ml), so there's no overview. Compare products measured the same way.' -> 'Some are per 100 g and some per 100 ml, so there's no overview.'
+
+## words: eat-out
+
+- Eat out intro under the title: 'Restaurants, cafés, pubs and takeaways, with the calories of every dish, and protein where the restaurant publishes it.' -> (removed)
+- Eat out, Near me line: 'See the places to eat around you on a map' -> 'On a map'
+- Eat out, My favourite restaurants line (no favourites yet): 'Keep the places you go to here' -> 'None yet'
+- Eat out, Compare dishes line: 'Put dishes side by side, even from different restaurants' -> 'Side by side, from any restaurant'
+- Eat out, empty state body: 'We're adding restaurants from their official nutrition guides. Tell us which ones you want first.' -> 'Tell us which ones you want first.'
+- Eat out, Halal chip note: 'Restaurants whose own website says all their food is halal. Halal is what each restaurant says on its own website. If it matters to you, check with the restaurant.' -> 'Their own websites say all their food is halal. If it matters to you, check with the restaurant.'
+- Find by numbers panel: 'Type any of these to see the restaurants with dishes that fit. Leave the rest empty.' -> 'Fill in any of these.'
+- Finder results note: 'These count every item on a menu, sides and drinks included, as each restaurant publishes it.' -> 'Counts include sides and drinks.'
+- Finder results note: 'Restaurants that publish calories only are left out when you ask for protein, carbs or fat.' -> 'Restaurants that publish calories only are left out.' (it only shows when protein, carbs or fat was typed)
+- Finder results note: 'Restaurants that don't publish an allergen guide are left out while you have allergies chosen.' -> 'Restaurants with no allergen guide are left out.' (it only shows when allergies are chosen)
+- My favourite restaurants, empty state body: 'Tap the star next to a restaurant below, or on its page, and it will be here next time.' -> 'Tap Favourite next to a restaurant below.'
+- My favourite restaurants, list foot: 'Type a name to find any of the {n} restaurants.' -> 'Type a name to see all {n}.'
+- Search, before typing: 'Type at least {n} letters of a restaurant or a dish.' -> 'Type a restaurant or a dish.'
+- Search, no results body: 'Nothing matches “{query}”. Tell us which restaurant you'd like next.' -> (removed; the SPEC title 'We don't cover this yet.' and the 'Request it' button stay)
+- Search, beside Fits my diet: '1 dish hidden: it doesn't fit your diet settings, or its restaurant doesn't say.' / '{n} dishes hidden: they don't fit your diet settings, or their restaurant doesn't say.' -> '1 dish hidden' / '{n} dishes hidden' (the caution line just under it says why)
+- Search note: '“Not checked”: its restaurant doesn't mark which dishes fit your diet or publish allergens, so only the dish's name was read.' -> '“Not checked”: only the dish's name was read.'
+- Restaurant not found, body: 'It may have left the app, or the link may be wrong.' -> (removed; the title and the See all restaurants button stay)
+- Restaurant header, calories-only: '{chain} publishes calories only: protein, carbs and fat aren't published, so there are no best-for-you picks or order builder for this restaurant. Its dishes are added to today and saved with their calories.' -> '{chain} publishes calories only.'
+- Restaurant page, Halal turned on but the chain doesn't say halal: '{chain}'s website doesn't say its food is halal. Halal is what each restaurant says on its own website. If it matters to you, check with the restaurant.' -> '{chain}'s website doesn't say its food is halal. If it matters to you, check with the restaurant.'
+- Amber note, vegetarian: '{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat or fish are left out.' -> '{chain} doesn't mark vegetarian dishes, so only dishes whose names, menu sections or labels say meat or fish are left out.'
+- Amber note, pescatarian: '{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat are left out.' -> '{chain} doesn't mark vegetarian dishes, so only dishes whose names, menu sections or labels say meat are left out.'
+- Amber note, vegan (chain marks vegetarian): '{chain} doesn't say which dishes are vegan, so only dishes it marks vegetarian are shown, and of those, dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.' -> '{chain} doesn't mark vegan dishes. Only its vegetarian dishes are shown, leaving out any whose names, menu sections or labels say meat, fish, dairy or eggs.'
+- Amber note, vegan (no vegetarian marks): '{chain} doesn't say which dishes are vegan, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.' -> '{chain} doesn't mark vegan dishes, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.'
+- Quick answers, when it can't check: 'Quick answers can't pick for your diet or allergies here. The full menu is below.' -> 'Can't pick for your diet or allergies here.'
+- Best for you, can't check diet and allergies: 'Best for you can't pick for your diet or allergies here, because {chain} doesn't mark which dishes fit them. Its full menu is below.' -> 'Can't pick for your diet or allergies here.'
+- Best for you, can't check diet: 'Best for you can't pick for your diet here, because {chain} doesn't mark which dishes fit it. Its full menu is below.' -> 'Can't pick for your diet here.'
+- Best for you, other diets: 'Best for you can't pick for {diets} here: restaurant menus don't list ingredients. The full menu is below.' -> 'Can't pick for {diets} here.'
+- Best for you, can't check allergies: 'Best for you can't pick for your allergies here, because {chain} doesn't publish allergen details we can read. Its full menu is below.' -> 'Can't pick for your allergies here.'
+- Your diet sheet on a restaurant page: 'Just for {chain}, this visit. To change it everywhere, go to Settings › Diet.' (link) -> 'Just for this visit. Change it in Settings' (link; an existing string)
+- Full menu card, diet hides some dishes: 'The others don't fit your diet settings, or {chain} doesn't say.' -> 'The rest don't fit your diet, or {chain} doesn't say.'
+- Full menu card after Show all: 'Some of them may not fit your diet settings.' -> 'Some may not fit your diet.'
+- Full menu, diet hides every dish, body: 'None of {chain}'s {n} dishes fits your settings ({settings}). You can see them all for this visit, or change your diet.' -> 'Your settings: {settings}.' (the title and the Show every dish / Change my diet buttons stay)
+- Dish page, warning at the top: 'May contain {allergens}. The restaurant says small amounts could get in, for example from a shared kitchen or fryer.' -> 'May contain {allergens}.' (the meaning is said once in the Allergens card below)
+- Allergens card, no allergen guide read: 'We don't show allergens for {chain} yet. {chain}'s own guide lists them. Dishes change and kitchens handle many allergens, so always check with staff before you order.' -> 'We don't show allergens for {chain} yet. Before you order, always check with staff.'
+- Allergens card summary: 'Contains {n} of the 14 main allergens.' -> 'Contains {n} of the 14 allergens.'
+- Allergens card summary: 'None of the 14 main allergens listed as an ingredient.' -> 'None of the 14 allergens listed as an ingredient.'
+- Allergens card summary: '1 more may be present in small amounts.' / '{n} more may be present in small amounts.' -> 'May contain {n} more.' (or 'May contain {n}.' when nothing is a 'Contains')
+- Allergens card summary: '{chain}'s guide doesn't say what may be present in traces.' -> '{chain}'s guide doesn't list traces.'
+- Allergens card, your own allergen is a 'may contain': 'The restaurant says small amounts could get in, for example from a shared kitchen or fryer.' -> 'Small amounts could get in, for example from a shared kitchen or fryer.'
+- Allergens card footnote: '“May contain” means the restaurant says small amounts could get in, for example from a shared kitchen or fryer.' -> '“May contain” means small amounts could get in, for example from a shared kitchen or fryer.' (now shown only when the table has a May contain row and the person's own box hasn't already said it)
+- Allergens card foot: '“Not listed” means the guide doesn't list it, not that the item is free from it. Dishes change and kitchens handle many allergens, so always check with staff before you order.' -> '“Not listed” doesn't mean free from. Before you order, always check with staff.'
+- Order builder allergens: 'Your changes aren't reflected: the guide lists allergens for the standard item only.' -> 'The guide covers the standard items, not your changes.'
+- Order builder, Premium gate: 'The order builder is part of Premium.' -> (removed; the Premium badge, 'Customise any order with live totals' and the See Premium button stay)
+- Order builder, calories-only restaurant: '{chain} publishes calories only, so there are no protein, carbs or fat totals to build an order from.' -> '{chain} publishes calories only, so there are no protein, carbs or fat totals.'
+- Order builder, saved order no longer on the menu: 'Something in this order was removed from the menu, so it can't be edited. Your saved numbers are kept.' -> 'It can't be changed now. Your saved numbers are kept.' (the title 'No longer on the menu' stays)
+- Order builder, Add item / Add ingredient sheets: '{chain} doesn't mark which dishes fit your diet or allergies, so only dishes whose names say otherwise are left out.' -> '{chain} doesn't mark which dishes fit, so only dishes whose names say otherwise are left out.'
+
+## words: settings-premium
+
+- Settings, Go through setup again: "Your goal, the foods you avoid, your shops and daily numbers, with a look at what {app} can do." -> "Your goal, foods, shops and numbers."
+- Settings, Show me the buttons on each screen: "Takes you to Home, where Pip shows what each button does. Each tab's tips show the first time you open it." -> "Pip shows what each button does."
+- Settings, after a goal change: "Your daily targets haven't changed. Tap Suggest targets for numbers that fit this goal." -> "Your targets haven't changed." (the Suggest targets button stays beside it)
+- Settings, GLP-1 goal: "Smaller, protein-first orders, capped at the meal size you set below." -> "Smaller, protein-first orders."
+- Settings, Water tile hint: "Your goal for the day on Home. Left empty it is 2,000 ml." -> (removed; the empty box shows 2000 in grey)
+- Settings, meal-size tile hint: "Best-for-you picks and your meal plan stay within this size. Default 450." -> "Your picks and meal plan stay within this. Default 450."
+- Settings: "Not saved yet. Tap “Save targets” to keep them." -> "Not saved yet."
+- Settings, after Use these: "Saved. These are your new targets." -> "Saved."
+- Settings, Your supermarkets: "Groceries and Recipes open on the first one you picked." -> "Groceries and Recipes open on your first pick."
+- Settings, Subscription (iPhone): "Renews through the App Store. Change or cancel it with Manage subscription." -> "Renews through the App Store." (the Manage subscription button is right under it)
+- Settings, Subscription (web): "Premium isn't available on the web yet. Every chain's full menu with calories and macros stays free." -> "Premium isn't on the web yet."
+- Settings, Your data (website only): "Browsers can clear site data they haven't seen in a while (iPhone Safari can after about a week). Adding {app} to your Home Screen, and opening it now and then, keeps your data safe." -> "Browsers can clear site data you don't use (iPhone Safari after about a week). To keep yours, add {app} to your Home Screen and open it now and then."
+- Settings, Testing tools (testing builds only): "Unlock Premium features without paying (testing builds only)" -> "Premium without paying (testing builds only)"
+- Settings, Save your new targets? sheet: "You changed your daily targets but haven't saved them." -> (removed; the title says it)
+- Paywall, web: "Everything free stays free: every chain's full menu with calories and macros. Leave your email and we'll tell you once, when Premium is ready." -> "Every menu stays free. Leave your email and we'll tell you once, when it's ready."
+- Paywall, testing builds: "Testing build: unlock Premium features on this device without paying." -> (removed; the button says "Unlock Premium preview (testing)")
+- What Premium adds: "Every menu, every recipe and every supermarket label stay free, and so does adding what you eat." -> "Every menu, recipe and label stays free, and so does your food diary."
+- App Store plans, Apple's words: "Payment is charged to your Apple ID when you confirm the purchase. A subscription renews at the same price for the same length unless you cancel it at least 24 hours before the end of the current period, and the renewal is charged within the 24 hours before that. Manage or cancel it in your App Store account settings." -> "Payment is charged to your Apple ID when you confirm. A subscription renews at the same price and length unless you cancel at least 24 hours before the period ends; the renewal is charged within those 24 hours. Manage or cancel it in your App Store account settings."
+- App Store plans, trial: "With the free trial you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID." -> "One free trial per Apple ID." (the trial card's Today and Day {days} lines and the line above Continue still give the rest)
+- Free-trial offer, under Not now: "You can start your free trial later from any Premium feature, or in Settings › Subscription." -> "You can start it later in Settings › Subscription."
+- Meal plan, meal-size note: "Your comfortable meal size is {cap} kcal (Settings), so your meals come to {sum} of your {daily} kcal." -> "Your meal size is {cap} kcal, so your meals come to {sum} of your {daily} kcal." (the Change it in Settings button stays)
+- Meal plan intro (free): "Tell Meal plan your goal, your diet and where you shop, and it plans a whole week of meals for you, with the shopping list." -> (removed)
+- Meal plan intro, week card: "Breakfast, lunch and dinner for 7 days from {shop}, sized to your numbers." -> "7 days from {shop}, sized to your numbers."
+- Meal plan intro, week card: "Everything goes on one shopping list." -> (removed; the list below says it)
+- Meal plan intro, week card: "With Premium, Meal plan makes this week for you. You can change any answer first, and swap any meal after." -> "With Premium, Meal plan makes this week for you."
+- Meal plan intro, no week: "Meal plan can't plan a week for your diet ({diet}) yet: there aren't enough of our recipes for every meal." -> "Not enough of our recipes fit your diet ({diet}) for a week yet."; "Meal plan makes a week of meals from your shop, sized to your numbers, with one shopping list." -> "A week of meals from your shop, sized to your numbers."
+- Meal plan intro, list: "Your meals and snacks for seven days, sized to your goal" -> "Meals and snacks sized to your goal"; "From one shop or several: the best recipes across them" -> "One shop or several"; "What each meal costs, and the week's shopping within your budget" -> "What each meal costs, within your budget"; "Swap any meal you don't fancy, then add everything to your shopping list" -> "Swap any meal, then add it all to your shopping list"
+- Meal plan, how many people (Pip): "Let's plan your week. How many people are eating, you included? I'll size every meal for each of them." -> "Count yourself too."
+- Meal plan, who's eating (Pip): "Tell me who each person is, so I can size their portion. Names are optional and stay on this phone." -> "So I can size each portion. Names stay on this phone."
+- Meal plan, who's eating label: "Their name (you can leave it out)" -> "Their name (optional)"
+- Meal plan, meals step: "Pick your meals and snacks, and how often a meal can come round." -> (removed; the title and the step's headings say it)
+- Meal plan, shops (Pip): "Everything will come from {shop}: one shop, one shopping list. Pick another too, and I'll share the meals between them." -> "Everything from {shop}. Pick another to share the meals."; "I'll share your meals between {shops}, using the best shop for each meal." -> "I'll share your meals between {shops}."; "Where do you shop? Pick one shop to buy everything there, or several and I'll share the meals between them." -> "Pick one shop, or several to share the meals."
+- Meal plan, shops note: "Every ingredient for the whole week is a real {shop} product, with its price." -> "Every ingredient is a real {shop} product, with its price."; "One shop and one shopping list." -> "One shopping list."; "Each meal comes from the shop whose products fit your numbers best (the cheaper one when they're as close), and all its ingredients are bought there." -> "Each meal comes from one shop: the best fit for your numbers, or the cheaper when they're as close."; "Your shopping list is split by shop, so you know what to buy where." -> "Your shopping list is split by shop."; "More shops also means more recipes to choose from." -> "More shops means more recipes."
+- Meal plan, diet (Pip): "Do you follow a diet, or have any allergies? I'll leave out any recipe that doesn't fit." -> "I'll leave out any recipe that doesn't fit."; under the picker: "This is your diet everywhere in the app, as in Settings." -> "This is your diet across the app."
+- Meal plan, food you like (Pip, none chosen): "What kind of food do you like for lunch and dinner? Pick as many as you like, or Any." -> "For lunch and dinner. Pick as many as you like."; under the chips: "The numbers are how many lunches and dinners of each kind suit your diet." -> "Each number is how many lunches and dinners suit your diet."; "There aren't enough {kinds} {meals} for your diet yet, so your {meals} can be any kind of food." -> "Not enough {kinds} {meals} for your diet yet, so your {meals} can be any kind."
+- Meal plan, allergies at home (Pip): "Tick any food allergy anyone at home has. Recipes made with it are left out for everyone. Always check the label." -> "Anything ticked is left out for everyone. Always check the label."
+- Meal plan, diets at home (Pip): "You cook one meal for everyone, so tick every diet anyone at home follows. Every meal will fit all of them." -> "Tick every diet anyone follows. Every meal will fit them all."
+- Meal plan, foods left out (Pip): "Any foods someone won't eat? Tap them, or type your own, and I'll leave them out for everyone." -> "I'll leave them out for everyone."; "Any foods you don't like? Tap them, or type your own, and I'll leave them out." -> "I'll leave them out."
+- Meal plan, no recipes for a meal: "With these, there are no {meal} recipes left, so I can't plan a week. Tap a food again to put it back." -> "No {meal} recipes left with these. Tap a food again to put it back."; "With the diets at home ({diet}) there are no {meal} recipes yet, so I can't plan a week: untick {meal} on Meals and snacks, or change the diets at home." -> "No {meal} recipes fit the diets at home ({diet}) yet. Untick {meal} on Meals and snacks, or change the diets."; "With your diet ({diet}) there are no {meal} recipes yet, so I can't plan a week: untick {meal} on Meals and snacks, or change your diet." -> "No {meal} recipes fit your diet ({diet}) yet. Untick {meal} on Meals and snacks, or change your diet."
+- Meal plan (4 places): "There aren't enough of our recipes left for every meal with these choices. Try leaving out fewer foods, or pick another shop." -> "Not enough recipes for every meal with these choices. Leave out fewer foods, or pick another shop."
+- Meal plan, budget (plain line): "Keep No budget for the best week for your goal, or slide to set one. The green spot is the best fit: left is cheaper, right buys pricier products." -> "Keep No budget, or slide to set one. The green spot is the best fit." (the line under the slider still says what each spot means)
+- Meal plan, check screen (Pip): "I've filled this in from your settings. Tap Change on anything you'd like to change, then I'll make your plan." -> "I've filled this in from your settings."; "Here's everything. Tap Change on anything you'd like to change, then I'll make your plan." -> "Here's what you picked."
+- Meal plan, step counter: "Step {step} of {total}" -> same words, now only for screen readers (the bar alone on screen)
+- Making your plan: "Working out your best week. This takes about 20 seconds." -> "This takes about 20 seconds."
+- Your meal plan, subtitle: "{meals} meals and {snacks} snacks from our recipes, with ingredients from {shops}." -> "{meals} meals and {snacks} snacks from {shops}."; "{meals} meals from our recipes, with ingredients from {shops}." -> "{meals} meals from {shops}."
+- Your meal plan, diet changed: "Your diet or allergies have changed since this plan was made, so some meals may not fit. Make a new plan." -> "Your diet or allergies have changed, so some meals may not fit." (the Make a new plan button sits under it)
+- Your meal plan, budget: "That's {over} over your {budget} budget with the meals you swapped in." -> "{over} over your {budget} budget with your swaps."; "That's {over} over your {budget} budget: it's the cheapest week our recipes allow with your choices." -> "{over} over your {budget} budget: the cheapest week our recipes allow."
+- Your meal plan, fresh food: "{pct}% of the fresh food you buy is eaten this week. Oil, spices, dry goods like rice and pasta, jars and frozen food keep for longer." -> "{pct}% of the fresh food you buy is eaten this week."
+- Your meal plan, short of calories: "... Add a snack or two on the meals step to make up the rest." -> "... Add snacks on the meals step to make up the rest." (first sentence unchanged)
+- Your meal plan, household: "Cooked for {n} of you: each recipe as written, with your own portion sized to your numbers. Only your numbers are shown." -> "Cooked for {n} of you. The numbers are your own portion."
+- Your meal plan, What to buy: "Every meal's amounts added up, as whole packs." -> "In whole packs."
+- Your meal plan, swap sheet: "Other recipes sized for this meal. Tap one to have it on {day}." -> "Tap one to have it on {day}."
+- Earlier plans: "Your last plans are kept on this phone. Open one to follow it again." -> "Kept on this phone."

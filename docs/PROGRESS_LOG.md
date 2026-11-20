@@ -3648,3 +3648,34 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Now small is ⅔ and big 4/3 of normal, to the nearest 50, the step a chain's own sizes take (McDonald's UK fries 237 / 337 / 444 kcal, from our menu data).
   A 2,000 kcal day still gives 400 / 600 / 800 (PHE's 400 and 600; the 2018 BMJ study of UK chain main meals found fast food averaged 751 kcal, full-service
   1,033); 3,480 gives 700 / 1,050 / 1,400; 1,200 gives 250 / 350 / 450. `mealSizes` in `lib/mm/recipes.ts`; tests/recipes.test.ts. No words changed.
+- (afternoon, commit 08e2524c) **The founder's queued requests of 20 November, built by seven teams, then matched to the founder's own example screenshots**
+  (founder: "Did you not use any of the examples to make the new screens I said and make them look better?": the first build had only written briefs; a
+  second pass gave five people the screenshots, `scratchpad/w5/refs`, liked email/code/one-question screens, diet photo tiles, a Progress screen), then a
+  shorter-words pass over every screen, tests and a review.
+  - **Onboarding, 7 screens then Save your plan:** goal; anything you avoid (diet picture tiles from our own recipe illustrations, allergy chips, More diets);
+    where you shop (logo tiles); recipes from your shop (the cards the founder likes); about you (sex, age, height, weight on one screen, age only, never a
+    birthday or name); how active; your plan (calories and protein big, the week as a picture timetable of our recipe pictures with each day's kcal, "About
+    £{n} for the week", "1 shopping list", five chains' dish photos captioned "Photo from the {chain} website", "Not affiliated with any restaurant or shop
+    shown."). No step words, no labels on previews, no Pip bubbles (Pip small on screen 1 only). Old saved progress maps onto the new steps.
+    **Dropped from onboarding (rule 7, SPEC copy; still in Settings):** "Not sure? Suggest targets for me" and GLP-1's "Comfortable meal size" box.
+    **Kept:** one small Premium badge over the week preview where Premium is sold (App Store honesty) although the founder said previews need no labels.
+    **Big days:** the week can't reach very high targets (fitRecipe moves protein and carb ingredients only between ½ and 2×, so a 3,480 kcal day averages
+    about 2,830); Your plan now says so plainly: "Our recipes can't reach {target} kcal yet: about {kcal} a day." Ways to close it are a founder decision
+    (two servings on big days, automatic snacks, or a wider fit range).
+  - **Sign-in:** "Save your plan", three buttons, one privacy line; email as two screens ("What's your email?", then "Enter the code" with six boxes, iOS
+    one-time-code autofill, goes on by itself, a resend countdown). New constant CODE_RESEND_SECONDS 60.
+  - **Add food:** "Scan a barcode" first; the product with a protein/carbs/fat ring and How much? in its own unit (label serving, pack, 100 g/ml); a barcode
+    we don't hold is asked of Open Food Facts once through our own route `/api/v1/barcode/{code}` (generic User-Agent, a day's memory cache, numbers
+    checked), shown as "Figures from Open Food Facts (community data)" with "Open Food Facts, ODbL"; the privacy page says so in one line. Leading zeros kept.
+  - **Stats** (`/app/stats`, from Home's calories and macros cards): Calories, Macros, Nutrients from the food log only; no steps, sleep or weight (rule 4).
+  - **Meal plan "How do you like to eat?":** Balanced, High protein, Lower carb with our recipe pictures (no keto: 9 recipes; no Mediterranean: too few).
+    **New constants for the founder's yes:** HIGH_PROTEIN_MIN 0.30 of a serving's calories, LOWER_CARB_MAX 0.25, STYLE_PROTEIN_FIT 0.32 (the protein aim
+    when fitting those two styles, so each meal slot has enough recipes).
+  - **Recipe page:** tap your own photo to move it (kept on the phone, file unchanged); "Sized to your meal" with a Usual portion / My meal size switch;
+    new constant USUAL_PORTION 600 kcal (fitRecipe's range means some recipes stay above it, e.g. Pip's salsa chicken tacos 894 kcal: said on screen).
+  - **Data:** Iceland's Sharwood's naan photo; Costa's food portions no longer printed in ml ("Per portion", note.txt says why); a test that fails when a
+    product a recipe uses has no photo. Every wording change, old -> new: `docs/COPY_CHANGES_2026-11-20.md` (411 lines).
+- (about 18:20) **Sainsbury's photos for the two recipe products** (Mission 6 x Original Tortilla Wraps 367g, Stamford Street Co. Medium Wholemeal Bread 800g):
+  sainsburys.co.uk answered 403 to the server, so they were read from the shop's own product pages in the founder's Chrome (one page each, the gallery
+  photo on assets.sainsburys-groceries.co.uk), written to `data/groceries/images/sainsburys-listing.csv`, hotlinked (Option D step 2). Every product a recipe
+  uses now has a photo. **Morrisons:** the last 3 pages read; every Morrisons page is read (10,555 labels of its own).
