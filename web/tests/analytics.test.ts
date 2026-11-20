@@ -224,7 +224,7 @@ describe("the number stays on the device", () => {
   });
   it("Settings › Clear data removes it", () => {
     // Clear data is one function since 20 November 2026 (app/app/_lib/clearData.ts; tests/clearData.test.ts checks every store is in it), called by Settings
-    const settings = readFileSync(new URL("../app/app/settings/page.tsx", import.meta.url), "utf8");
+    const settings = readFileSync(new URL("../app/app/settings/SettingsScreen.tsx", import.meta.url), "utf8");
     const clear = readFileSync(new URL("../app/app/_lib/clearData.ts", import.meta.url), "utf8");
     expect(settings).toContain("await clearDeviceData();");
     expect(clear).toContain('"mm.v1.installId": () => forgetInstallId()');

@@ -3739,3 +3739,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   menus" (the menu catalogue); "Recipes from {shop}" (the recipe shop's product file, loaded there and then). Nothing shown that isn't running, and nothing
   waits on it: the screen goes when sign-in is done. Offline, a dash and "The rest finishes when you're online." The separate spinner went. New copy: the
   lines above, "Done", "Loading", "When you're online" (screen readers). Tests: vitest all green (mascot.test.ts lists the new file).
+- (about 22:20) **A Daily targets page of its own, /app/targets** (founder, screenshots of Meal plan's "Change my numbers" and Settings' Daily targets: "If they
+  press change my numbers, it should go onto [the daily targets], but at the same time, it shouldn't be on the settings page. I just want the daily targets
+  page"). Settings moved into `app/app/settings/SettingsScreen.tsx` (page.tsx renders it); `only="targets"` shows just the Daily targets card under "Daily
+  targets" with Back (to the page it came from), the same boxes, Save targets, Suggest targets and the ask before leaving unsaved numbers. Linked from Meal
+  plan's "Change my numbers", its GLP-1 meal-size line ("Change it in Settings" -> "Change it") and Home's "Set your targets to see what's left today".
+  Precached for the website (sw.js mm-v10); not remembered as a tab page.

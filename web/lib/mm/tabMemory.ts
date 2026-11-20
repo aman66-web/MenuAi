@@ -11,7 +11,7 @@ export type TabMemory = Record<string, string>;
 
 // Settings is never a tab's remembered page (2026-11-19: it opens from Home and from Eat out, and no tab must reopen it: the usability test of 2026-11-19 found
 // Home's tab opening Settings)
-const NOT_REMEMBERED = ["/app/welcome", "/app/offline", "/app/settings"];
+const NOT_REMEMBERED = ["/app/welcome", "/app/offline", "/app/settings", "/app/targets"];
 /** Tabs that always open their first page (usability test 2026-11-19: Home's tab opened Settings, the page last seen there, and Frank thought he was lost). */
 const ALWAYS_FIRST = ["/app"];
 

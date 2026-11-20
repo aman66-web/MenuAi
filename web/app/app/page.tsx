@@ -241,7 +241,7 @@ export default function HomePage() {
       {/* waits while the Start here card shows (the meeting); it opens Settings › Daily targets, with "Where these numbers come from" */}
       {!startOpen && !settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (
         <Card className="mt-3 flex items-center justify-between gap-3 p-4">
-          <Link href="/app/settings#targets" className="min-h-11 flex-1 font-medium">{t("Set your targets to see what's left today")}</Link>
+          <Link href="/app/targets" className="min-h-11 flex-1 font-medium">{t("Set your targets to see what's left today")}</Link>
           <button type="button" className="min-h-11 min-w-11 text-sm text-muted" onClick={() => updateSettings({ dismissedTargetsCard: true })} aria-label={t("Dismiss")}>{t("Dismiss")}</button>
         </Card>
       )}

@@ -1293,7 +1293,7 @@ describe("reminders never leave the device", () => {
   });
 
   it("Settings' Clear data empties them, and so does a different person signing in (the real wiring)", () => {
-    const settings = read("app/app/settings/page.tsx");
+    const settings = read("app/app/settings/SettingsScreen.tsx");
     // Clear data is one function since 20 November 2026 (app/app/_lib/clearData.ts), called by Settings
     expect(settings).toContain("await clearDeviceData();");
     expect(read("app/app/_lib/clearData.ts")).toContain('"mm.v1.reminders": () => clearReminders()');

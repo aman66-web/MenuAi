@@ -268,7 +268,7 @@ describe("the note stays on this phone and never counts as the person's own data
   });
   it("Settings › Clear everything removes it", () => {
     // Clear data's list moved to app/_lib/clearData.ts (20 November 2026); either place counts
-    const settings = readFileSync(new URL("../app/app/settings/page.tsx", import.meta.url), "utf8");
+    const settings = readFileSync(new URL("../app/app/settings/SettingsScreen.tsx", import.meta.url), "utf8");
     const clearData = existsSync(new URL("../app/app/_lib/clearData.ts", import.meta.url)) ? readFileSync(new URL("../app/app/_lib/clearData.ts", import.meta.url), "utf8") : "";
     expect(settings + clearData).toMatch(/welcomeProgress/);
   });

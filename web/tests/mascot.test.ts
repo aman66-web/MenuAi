@@ -80,7 +80,7 @@ const MAY_DRAW_PIP = [
   "app/app/recipes/page.tsx",
   "app/app/recipes/photo/PhotoCamera.tsx",
   "app/app/recipes/photo/page.tsx",
-  "app/app/settings/page.tsx",
+  "app/app/settings/SettingsScreen.tsx",
   "app/app/welcome/BodySteps.tsx",
   "app/app/welcome/Cover.tsx",
   "app/app/welcome/QuestionSteps.tsx",
