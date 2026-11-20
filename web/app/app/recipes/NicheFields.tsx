@@ -4,7 +4,8 @@ import type { CuisineOption, OccasionOption } from "@/lib/mm/recipeNiche";
 import { useT } from "../_lib/i18n";
 import { CHIP, CHIP_ON, LABEL } from "../groceries/PageBits";
 
-// "Cuisine" and "Occasion" on the Recipes screen (founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or
+// "Cuisine" and "Serving price" (founder 2026-11-20: in place of "Occasion", which stays in the Filters sheet) on the Recipes screen; first "Cuisine" and "Occasion"
+// on the Recipes screen (founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or
 // Indian"). Founder 2026-11-18: side by side to save room ("could it be worth putting them side by side"), and any number of choices in each ("they can select
 // more filters multiple as many as they want"), so each field is a button that opens the Filters sheet at its own choices, with what is chosen on its face
 // ("Chinese, Indian": commas, not "and", because a recipe of either cuisine is shown). Two columns while two fit; one under the other with large text (the
@@ -29,7 +30,7 @@ function Field({ label, value, chosen, onClick }: { label: string; value: string
 }
 
 export function NicheFields({
-  cuisines, occasions, chosenCuisines, chosenOccasions, onOpen,
+  cuisines, occasions, chosenCuisines, chosenOccasions, onOpen, price,
 }: {
   cuisines: readonly CuisineOption[];
   occasions: readonly OccasionOption[];
@@ -37,6 +38,8 @@ export function NicheFields({
   chosenOccasions: readonly string[];
   /** Opens the Filters sheet at that field's choices. */
   onOpen: (field: "cuisine" | "occasion") => void;
+  /** The Serving price field, in the Occasion field's place (founder 2026-11-20; Occasion stays in More): what it shows, whether a range is chosen, what a tap does. */
+  price?: { value: string; chosen: boolean; onOpen: () => void };
 }) {
   const t = useT();
   if (cuisines.length === 0 && occasions.length === 0) return null;
@@ -44,7 +47,8 @@ export function NicheFields({
   return (
     <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-2.5">
       {cuisines.length > 0 && <Field label={t("Cuisine")} value={names(cuisines, chosenCuisines) || t("Any cuisine")} chosen={chosenCuisines.length > 0} onClick={() => onOpen("cuisine")} />}
-      {occasions.length > 0 && <Field label={t("Occasion")} value={names(occasions, chosenOccasions) || t("Any occasion")} chosen={chosenOccasions.length > 0} onClick={() => onOpen("occasion")} />}
+      {price ? <Field label={t("Serving price")} value={price.value} chosen={price.chosen} onClick={price.onOpen} />
+        : occasions.length > 0 && <Field label={t("Occasion")} value={names(occasions, chosenOccasions) || t("Any occasion")} chosen={chosenOccasions.length > 0} onClick={() => onOpen("occasion")} />}
     </div>
   );
 }

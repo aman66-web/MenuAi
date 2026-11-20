@@ -504,7 +504,7 @@ await step("Pip's recipe maker is off: no card even when the server says it's on
 // meal tiles. Founder 2026-11-18: side by side, and any number of choices in each ("they can select more filters multiple as many as they want"), so each field
 // opens the Filters sheet at its choices. Every choice says how many recipes it has with everything else as it is; one with none is greyed out unless chosen;
 // within a field the choices are alternatives, the two fields together both apply; the choice lives in the address; Clear all resets it.
-await step("cuisine and occasion: side by side, each opens the Filters sheet at its choices, several at once with counts, AND with the tiles and the diet, kept in the address and by Back, bad addresses ignored, Clear all", async () => {
+await step("cuisine and serving price: side by side (Serving price in Occasion's place since 20 Nov; occasions in the Filters sheet), the sheet's choices, several at once with counts, AND with the tiles and the diet, kept in the address and by Back, bad addresses ignored, Clear all", async () => {
   const { ctx, page } = await newPage();
   const status = () => page.getByRole("status").filter({ hasText: /recipes? match$/ });
   const matchCount = async () => Number(/^(\d+) recipes? match$/.exec((await status().innerText()).trim())?.[1]);
@@ -518,14 +518,14 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   await page.goto(BASE + "/app/recipes");
   await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
   const cuisine = page.getByRole("button", { name: /^Cuisine/ });
-  const occasion = page.getByRole("button", { name: /^Occasion/ });
+  const occasion = page.getByRole("button", { name: /^Serving price/ }); // in the Occasion field's place (founder 2026-11-20)
   await cuisine.waitFor();
   await occasion.waitFor();
   // the two fields sit side by side under the meal tiles, above "Picked for you"
   const boxes = await Promise.all([page.getByRole("group", { name: "Filters" }).boundingBox(), cuisine.boundingBox(), occasion.boundingBox(), page.getByRole("region", { name: "Picked for you" }).boundingBox()]);
   expect(boxes.every(Boolean) && boxes[0].y + boxes[0].height <= boxes[1].y && Math.abs(boxes[1].y - boxes[2].y) < 2 && boxes[1].x + boxes[1].width <= boxes[2].x && boxes[1].y + boxes[1].height <= boxes[3].y, `order: tiles, Cuisine beside Occasion, Picked for you ${JSON.stringify(boxes.map((x) => x && [Math.round(x.x), Math.round(x.y)]))}`);
   expect(boxes[1].height >= 44 && boxes[2].height >= 44, "44 pt fields");
-  expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("Any occasion"), "nothing chosen at first");
+  expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("(default)"), "nothing chosen at first");
   await noSideways("fields");
   // the Cuisine field opens the sheet with every filter: the meals, the three others, then the cuisines and occasions with counts
   await cuisine.click();
@@ -601,7 +601,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
     await page.goto(BASE + "/app/recipes" + q);
     await page.getByRole("heading", { name: ALL_HEAD }).waitFor();
     await page.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
-    expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("Any occasion"), `${q}: no choice`);
+    expect((await cuisine.innerText()).includes("Any cuisine") && (await occasion.innerText()).includes("(default)"), `${q}: no choice`);
   }
   // a link with two cuisines, a reload and Back from a recipe keep the choice
   await page.goto(BASE + "/app/recipes?cuisine=indian,chinese");
@@ -646,7 +646,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   const bStatus = () => bp.getByRole("status").filter({ hasText: /recipes? match$/ });
   await bp.goto(BASE + "/app/recipes");
   await bp.getByRole("heading", { name: ALL_HEAD }).waitFor();
-  await bp.getByRole("button", { name: /^Occasion/ }).click();
+  await bp.getByRole("button", { name: /^Cuisine/ }).click(); // the Filters sheet, where the occasions now are
   const picnic = await bCount("Occasion", "Picnic");
   expect(picnic >= 8, `Picnic has plenty: ${picnic}`);
   await bChip("Occasion", "Picnic").click();
@@ -663,7 +663,7 @@ await step("cuisine and occasion: side by side, each opens the Filters sheet at 
   await bp.getByRole("link", { name: /Houmous with vegetable sticks/ }).waitFor();
   await bp.getByRole("button", { name: "Clear" }).click();
   await bp.getByRole("status").filter({ hasText: ALL_COUNT }).waitFor();
-  expect((await bp.getByRole("button", { name: /^Cuisine/ }).innerText()).includes("Any cuisine") && (await bp.getByRole("button", { name: /^Occasion/ }).innerText()).includes("Any occasion"), "Clear resets both fields");
+  expect((await bp.getByRole("button", { name: /^Cuisine/ }).innerText()).includes("Any cuisine") && (await bp.getByRole("button", { name: /^Serving price/ }).innerText()).includes("(default)"), "Clear resets both fields");
   // the search finds a recipe by its cuisine or occasion word
   await bp.getByLabel("Search recipes").fill("chinese");
   await bStatus().waitFor();

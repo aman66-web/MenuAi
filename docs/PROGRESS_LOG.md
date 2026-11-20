@@ -3636,3 +3636,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - **Queued (founder 12:21-12:54):** the 7-screen onboarding with photo previews and far fewer words; email sign-in as two simple screens; a words pass on every
   screen; the stats screen behind Home's cards; the scan choice in Add food with a macros chart and Open Food Facts; the meal plan's eating styles with recipe
   pictures; moving your own photo on Pip's recipes; "Sized to your meal" and a usual-portion switch; the 3 recipe products without photos; Costa's "ml" portions.
+- (about 16:00) Recipes: **"Serving price" in the Occasion field's place** (founder, screenshot: "have it down as ... serving price ... £1.80 to £5.60, and then next
+  to it brackets default ... they'll be able to have like this kind of arrow ... adjust for the range of per serving cost"). The field shows the shop's cheapest to
+  dearest serving with "(default)"; a tap opens a sheet with one track and two handles (10p steps), the range in big type, "Show {n} recipes" and "Back to every
+  price". The range filters the list, is kept in the address (?pmin=60&pmax=320, so Back keeps it) and is reset by Clear. Occasion stays in the Filters sheet
+  (More). `lib/mm/servingPrice.ts` + tests; e2e/recipes.mjs 17/17.

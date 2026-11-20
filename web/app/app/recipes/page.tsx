@@ -14,6 +14,7 @@ import { tk, type T } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
 import { RECIPES } from "@/lib/mm/recipeBook";
+import { inPriceRange, pounds, rangeFromAddress, rangeToAddress, servingPriceBounds, settleRange, type PriceRange } from "@/lib/mm/servingPrice";
 import { cuisineOptions, matchesNiche, nicheCounts, nicheSearchWords, occasionOptions, type CuisineOption, type OccasionOption } from "@/lib/mm/recipeNiche";
 import { isMeatFree, isQuick, isVegan, MEAL_TYPES, recipeForDiet, type MealType, type Recipe } from "@/lib/mm/recipes";
 import { recipeShops } from "@/lib/mm/shopProducts";
@@ -34,6 +35,7 @@ import { useListRecipes } from "../_lib/listRecipes";
 import { useShopManifest } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { FilterChip, NicheFields } from "./NicheFields";
+import { ServingPriceSheet } from "./ServingPrice";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
 import { useListAddress, useNicheFilter } from "./useNicheFilter";
@@ -248,6 +250,9 @@ function RecipesScreen() {
   // "More" opens every filter in one sheet (founder 2026-11-18: "it opens all of them including the 7 there"); openAt is the part it opens at
   const [more, setMore] = useState(false);
   const [openAt, setOpenAt] = useState<string | null>(null);
+  // the Serving price filter (founder 2026-11-20), kept in the address in pence (?pmin=180&pmax=350) like every other choice
+  const [priceSel, setPriceSel] = useState<PriceRange | null>(() => rangeFromAddress(read("pmin"), read("pmax")));
+  const [priceOpen, setPriceOpen] = useState(false);
   const openFilters = (at: string | null = null) => { setOpenAt(at); setMore(true); };
   useEffect(() => {
     if (!more || !openAt) return;
@@ -289,10 +294,15 @@ function RecipesScreen() {
     () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesSearch(c.recipe, query, t, offered, extras.get(c.recipe.id))),
     [cards, toggles, meals, query, t, offered, extras],
   );
-  const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions)), effectiveSort), [base, niche.cuisines, niche.occasions, effectiveSort]);
+  // the default range: this shop's cheapest and dearest serving; a chosen range is kept inside it (null: every price)
+  const priceBounds = useMemo(() => servingPriceBounds(cards.map((c) => c.totals.costPerServing)), [cards]);
+  const priceRange = priceSel && priceBounds ? settleRange(priceSel, priceBounds) : null;
+  const priceFits = (c: RecipeCard, r: PriceRange | null) => !r || inPriceRange(c.totals.costPerServing, r);
+  const setPrice = (r: PriceRange | null) => { setPriceSel(r); setLimit(PAGE); write(r ? { ...rangeToAddress(r), shown: null } : { pmin: null, pmax: null, shown: null }); };
+  const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions) && priceFits(c, priceRange)), effectiveSort), [base, niche.cuisines, niche.occasions, effectiveSort, priceRange]);
   const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisines, niche.occasions) : null), [cards.length, base, niche.cuisines, niche.occasions]);
   const nicheOn = niche.cuisines.length > 0 || niche.occasions.length > 0;
-  const filtering = toggles.size > 0 || meals.size > 0 || query.trim() !== "" || nicheOn;
+  const filtering = toggles.size > 0 || meals.size > 0 || query.trim() !== "" || nicheOn || !!priceRange;
   const slot: MealType = mealSlotFor(now);
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   // how many recipes the shopping list can help make, and the first three (their pictures go on the card)
@@ -340,7 +350,7 @@ function RecipesScreen() {
   const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
   const liveLine = shown.length > 0 ? countLine : filtering && cards.length > 0 ? t("No recipes match.") : "";
   // one write for everything, the cuisine and occasion too (niche.clear() would be a second write)
-  const clearAll = () => { setQuery(""); setMeals(new Set()); setToggles(new Set()); setLimit(PAGE); write({ q: null, meal: null, only: null, shown: null, cuisine: null, occasion: null }); };
+  const clearAll = () => { setQuery(""); setMeals(new Set()); setToggles(new Set()); setPriceSel(null); setLimit(PAGE); write({ q: null, meal: null, only: null, shown: null, cuisine: null, occasion: null, pmin: null, pmax: null }); };
   const href = (c: RecipeCard) => `/app/recipes/view?id=${c.recipe.id}&r=${shop}`;
 
   return (
@@ -426,8 +436,14 @@ function RecipesScreen() {
         <Tile label={t("More")} Icon={GridIcon} more onClick={() => openFilters()} />
       </div>
 
-      {/* Cuisine and Occasion side by side (founder 2026-11-18); each opens the Filters sheet at its own choices, since each can hold several. */}
+      {/* Cuisine and Serving price side by side (founder 2026-11-18; Serving price in Occasion's place since 2026-11-20, Occasion still in More): Cuisine opens the
+          Filters sheet at its choices, Serving price its own sheet with the two-handle slider. The default shows the shop's range with "(default)". */}
       <NicheFields
+        price={priceBounds ? {
+          value: priceRange ? `${pounds(priceRange.min)} – ${pounds(priceRange.max)}` : `${pounds(priceBounds.min)} – ${pounds(priceBounds.max)} (${t("default")})`,
+          chosen: !!priceRange,
+          onOpen: () => setPriceOpen(true),
+        } : undefined}
         cuisines={CUISINE_OPTIONS}
         occasions={occasionOpts}
         chosenCuisines={niche.cuisines}
@@ -438,6 +454,16 @@ function RecipesScreen() {
       {/* Every filter in one sheet (founder 2026-11-18: "when they select more it opens all of them including the 7 there and they can select more filters
           multiple as many as they want"): the seven tiles' choices, every cuisine and occasion with how many recipes each has, then the sort, the meal size,
           allergies and the diet. Choices apply at once; the button at the bottom says how many recipes match and closes the sheet. */}
+      {priceBounds && (
+        <ServingPriceSheet
+          open={priceOpen}
+          onClose={() => setPriceOpen(false)}
+          bounds={priceBounds}
+          chosen={priceRange}
+          onChange={setPrice}
+          count={(r) => base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions) && priceFits(c, r)).length}
+        />
+      )}
       <Sheet open={more} onClose={() => setMore(false)} title={t("Filters")}>
         <div className="space-y-5 pb-2">
           <section aria-labelledby="filter-meal-h">
