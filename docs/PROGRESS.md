@@ -41,6 +41,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
+- **Overnight 20 November (read `docs/MORNING_REPORT_2026-11-20.md` first):** three waves of the meetings' changes committed on `iap` (new onboarding that shows the app working, account last; Start here; two Home pages; More diets; every recipe priced; Premium everywhere). The 30-person audit stopped after 8 of 30 areas (the Claude app's tool check slowed every action to 10 minutes); its findings are in `docs/audit-findings-2026-11-20-partial.json`, not yet fixed. Blocker: the published menus are older than `data/source` (republish).
 - **App Store:** Numbite 1.0 (build 4) is live in the UK store since 12 November 2026. **1.1 (build 7) was uploaded to App Store Connect on 19 November
   2026 at 03:01** (founder: "I want to upload the newest version ... even though ... we are still working on some stuff"): Premium through Apple In-App Purchase
   with a 7-day free trial, Make it at home, Cook with what you have, everyone signs in, the rating question, and the 19 November fixes from the older testers
