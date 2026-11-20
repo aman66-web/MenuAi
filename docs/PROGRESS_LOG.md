@@ -3702,3 +3702,16 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   on this phone is still here"), and the start-up gate (`lib/mm/tour.ts` tourDue / TOUR_GATE_SCRIPT) sent only people who hadn't set up to the cover, so a
   relaunch showed the bare sign-in screen. Now, where everyone signs in and nobody is signed in on the phone, a plain start always goes to the cover ("Get
   started", "Already have an account? Sign in"); links (a shared list, a dish) still open their page with the sign-in screen in place. tests/tour.test.ts.
+- (about 21:20) **Onboarding's buttons answer the first tap; About you clearly optional, with a unit each for height and weight** (founder, screenshots):
+  - "Sometimes when I press the continue button, it doesn't work" (Where do you shop?): ticking a shop did not break it (checked); on an iPhone a tap while a
+    scrolled list is still gliding only stops the glide and no click follows. The welcome screens' bottom button (`BottomButton`, welcome/Frame.tsx) now acts
+    when the finger lifts (a press that moves over 12 px is a drag), and ignores any click in the second after a finger tap (the phone's own click, which could
+    land on the next screen's button); mouse, keyboard and screen readers still use the click. Checked: one tap, a quick double tap (one screen only), a drag
+    (nothing), a mouse click. Not reproduced on a real iPhone (the simulator's Safari wouldn't load); the founder to try.
+  - "The person might know feet in kilograms, or ... centimeters and stone ... they should be interchangeable": the one "Feet and stone / cm and kg" switch
+    became a switch under each row, "ft and in / cm" and "st and lb / kg" (each converts what is typed, as Settings does).
+  - "the person should definitely know that they don't have to add any of these": the grey line starts with a bold "All optional."; with nothing typed the
+    button reads "Skip these" and does what Skip does (no grey Continue, no "Add your age, height and weight, or tap Skip." until something is typed).
+  - Copy, old -> new: "Only used to work out your numbers. Never saved or sent." -> "**All optional.** Only used to work out your numbers. Never saved or
+    sent."; grey "Continue" with nothing typed -> "Skip these"; "Feet and stone" / "cm and kg" -> "ft and in" / "cm" and "st and lb" / "kg".
+  Tests: e2e onboarding-body 17/17, showcase 14/14, tour 13/13, firstvisit 10/10; a11y.mjs and welcome-steps.mjs updated.

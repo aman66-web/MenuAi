@@ -3,8 +3,8 @@ import { createRequire } from "node:module";
 import * as W from "./welcome-steps.mjs";
 
 // The welcome steps' questions about the person and the numbers worked out from them, as rebuilt on 20 November 2026 (founder: one question a screen, a big
-// input, far fewer words): screen 5 "About you" asks everything on one screen (Male / Female / Prefer not to say as big tiles, one switch for Feet and stone or
-// cm and kg, then age, height and weight as big number boxes; the age only, never a date of birth), screen 6 "How active are you?" is the activity tiles (its
+// input, far fewer words): screen 5 "About you" asks everything on one screen (Male / Female / Prefer not to say as big tiles, height in ft and in or cm and
+// weight in st and lb or kg, each with its own switch (founder 2026-11-20), then age, height and weight as big number boxes; the age only, never a date of birth), screen 6 "How active are you?" is the activity tiles (its
 // button "See my plan"), and screen 7 "Your plan" shows Calories a day and Protein a day big, with "Change" opening the − and + boxes and "Save". Skip (top
 // right) on 5 or 6 skips both, to the starting numbers. Settings' single-screen form gives the same numbers. Two people are typed in:
 //   A: a vegan woman, 34, 11 st 0 lb, 5 ft 10 in, lightly active, wants to lose weight  -> 1,530 kcal, 110 g protein (160 g carbs, 50 g fat saved)
@@ -84,16 +84,23 @@ await step("(a) About you is one screen: the privacy line, Male / Female / Prefe
   await W.toAbout(page, BASE);
   await W.expectCounter(page, 5, 8);
   await vis(page.getByText("Only used to work out your numbers. Never saved or sent."));
+  await vis(page.getByText("All optional.", { exact: true }));
   const sex = page.getByRole("radiogroup", { name: "Sex" }).getByRole("radio");
   expect(JSON.stringify(await sex.allInnerTexts()) === JSON.stringify(["Male", "Female", "Prefer not to say"]), "the sex tiles: " + JSON.stringify(await sex.allInnerTexts()));
-  expect((await page.locator("main [role='radio'][aria-checked='true']").count()) === 1, "something other than the unit switch is ticked for the person"); // the unit switch's one choice
-  expect((await page.getByRole("radiogroup", { name: "Units" }).count()) === 1, "one unit switch");
+  expect((await page.locator("main [role='radio'][aria-checked='true']").count()) === 2, "something other than the two unit switches is ticked for the person"); // each unit switch's one choice
+  expect((await page.getByRole("radiogroup", { name: "Height unit" }).count()) === 1 && (await page.getByRole("radiogroup", { name: "Weight unit" }).count()) === 1, "a unit switch each for height and weight");
   for (const name of ["Age in years", "Feet", "Inches", "Stone", "Pounds"]) await vis(box(page, name));
   const text = (await page.locator("main").innerText()).toLowerCase();
   for (const word of ["birth", "name", "postcode", "email"]) expect(!text.includes(word), `About you asks for "${word}"`);
-  expect(await isGrey(page), "Continue isn't grey with nothing typed");
+  // nothing typed: the button says it can be skipped (founder 2026-11-20), with no grey button and no line asking for numbers
+  await vis(page.getByRole("button", { name: "Skip these", exact: true }));
+  expect((await aboutContinue(page).count()) === 0 && (await page.locator("#welcome-why-grey").count()) === 0, "Continue or the reason line with nothing typed");
+  // something typed: Continue, grey until the rest is there, with the reason linked to it
+  await box(page, "Feet").fill("5");
+  expect(await isGrey(page), "Continue isn't grey with only the feet typed");
   expect((await aboutContinue(page).getAttribute("aria-describedby")) === "welcome-why-grey", "the reason isn't linked to Continue");
   await vis(page.locator("#welcome-why-grey").filter({ hasText: "Add your age, height and weight, or tap Skip." }));
+  await box(page, "Feet").fill("");
   await age(page).focus();
   await vis(page.getByRole("button", { name: "Done", exact: true }));
   await W.skipButton(page).waitFor();
@@ -132,21 +139,25 @@ await step("(b) person B (a man in cm and kg on a GLP-1 medicine): 2,220 kcal an
   await ctx.close();
 });
 
-await step("(c) one switch changes both units, converting what is typed (11 st 0 lb = 69.9 kg, 5 ft 10 in = 177.8 cm) and back, and gives the same plan", async () => {
+await step("(c) height and weight each switch their own unit, converting what is typed (11 st 0 lb = 69.9 kg, 5 ft 10 in = 177.8 cm) and back; feet with kg gives the same plan", async () => {
   const { ctx, page } = await fresh();
   await W.toAbout(page, BASE, { goalName: A.goal, diets: A.diets });
   await W.aboutYou(page, A);
-  await page.getByRole("radiogroup", { name: "Units" }).getByRole("radio", { name: "cm and kg", exact: true }).click();
-  expect((await box(page, "Kilograms").inputValue()) === "69.9" && (await box(page, "Centimetres").inputValue()) === "177.8", `converted: ${await box(page, "Kilograms").inputValue()} kg, ${await box(page, "Centimetres").inputValue()} cm`);
+  const unit = (which, name) => page.getByRole("radiogroup", { name: which }).getByRole("radio", { name, exact: true }).click();
+  await unit("Weight unit", "kg");
+  expect((await box(page, "Kilograms").inputValue()) === "69.9" && (await box(page, "Feet").inputValue()) === "5", `weight alone converted: ${await box(page, "Kilograms").inputValue()} kg, height still ${await box(page, "Feet").inputValue()} ft`);
+  await unit("Height unit", "cm");
+  expect((await box(page, "Centimetres").inputValue()) === "177.8", `height converted: ${await box(page, "Centimetres").inputValue()} cm`);
   expect((await box(page, "Stone").count()) === 0 && (await box(page, "Feet").count()) === 0, "the stone and feet boxes are still there");
-  await page.getByRole("radiogroup", { name: "Units" }).getByRole("radio", { name: "Feet and stone", exact: true }).click();
+  await unit("Weight unit", "st and lb");
+  await unit("Height unit", "ft and in");
   const back = [await box(page, "Stone").inputValue(), await box(page, "Pounds").inputValue(), await box(page, "Feet").inputValue(), await box(page, "Inches").inputValue()];
   expect(Number(back[0]) === 11 && Number(back[1] || 0) === 0 && Number(back[2]) === 5 && Number(back[3]) === 10, "switched back: " + JSON.stringify(back));
-  await page.getByRole("radiogroup", { name: "Units" }).getByRole("radio", { name: "cm and kg", exact: true }).click();
+  await unit("Weight unit", "kg"); // feet and inches with kilograms
   await W.aboutNext(page);
   await W.active(page, A.activity);
   const n = await W.planNumbers(page);
-  expect(n.calories === 1530 && n.protein === 110, "cm and kg give the same plan: " + JSON.stringify(n));
+  expect(n.calories === 1530 && n.protein === 110, "feet with kg gives the same plan: " + JSON.stringify(n));
   await ctx.close();
 });
 
@@ -447,6 +458,8 @@ for (const [label, viewport, big] of [["402x874", { width: 402, height: 874 }, f
     };
     await W.toAbout(page, BASE, { goalName: A.goal, diets: A.diets });
     await check("About you");
+    // the reason line shows once something is typed (with nothing typed the button says "Skip these")
+    await box(page, "Feet").fill("5");
     const why = page.locator("#welcome-why-grey");
     const hit = await why.evaluate((el) => { const r = el.getBoundingClientRect(); const h = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!h && (el === h || el.contains(h)); });
     expect(hit, `${label}: the reason line is covered`);

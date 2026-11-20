@@ -108,6 +108,8 @@ export function QuietLink({ onClick, children }: { onClick: () => void; children
 
 /** How long after a screen appears a finger's tap on its button is ignored (see BottomButton). */
 const SETTLE_MS = 600;
+/** When a finger last lifted from a screen's bottom button: the click the phone sends after it is ignored, on that button or on the next screen's in its place. */
+let lastFingerTap = -Infinity;
 
 /**
  * The big pill at the bottom of a screen: the ink pill with white words (colour meeting, 19 November 2026: ink means "do this"), or with `light` the secondary look
@@ -117,22 +119,34 @@ const SETTLE_MS = 600;
  * (the activity, the targets, the foods to avoid...). A tap or pen press on a button in its first 0.6 s on screen is therefore ignored. A mouse click, the
  * keyboard and a screen reader's activation are never held back (nobody double-clicks past a screen with those, and a screen reader takes longer anyway).
  * `onBlocked`: what a tap on the grey button does instead (About you: bring the Age box into view); it then stays tappable and is marked aria-disabled.
+ * A finger acts when it lifts (founder 2026-11-20: "Sometimes when I press the continue button, it doesn't work"): on an iPhone, a tap while a scrolled list is
+ * still gliding only stops the glide and no click follows, so the first tap after scrolling the shops did nothing. The button now acts on the finger's lift
+ * (a press that moved more than 12 px is a drag, not a tap) and ignores any click in the second after it (the phone's own click for that tap, which could otherwise
+ * land on the next screen's button in the same place and skip that screen); the mouse, the keyboard and screen readers still use the click.
  */
 export function BottomButton({ children, onClick, onBlocked, disabled, light, describedBy, className = "" }: { children: React.ReactNode; onClick: () => void; onBlocked?: () => void; disabled?: boolean; light?: boolean; describedBy?: string; className?: string }) {
   const blocked = !!disabled && !!onBlocked;
   const shownAt = useRef(0);
-  const pointer = useRef("");
+  const down = useRef<{ x: number; y: number } | null>(null);
   useEffect(() => { shownAt.current = performance.now(); }, []);
+  const act = () => (blocked ? onBlocked?.() : onClick());
   return (
     <button
       type="button"
-      onPointerDown={(e) => { pointer.current = e.pointerType; }}
+      onPointerDown={(e) => { down.current = e.pointerType === "touch" || e.pointerType === "pen" ? { x: e.clientX, y: e.clientY } : null; }}
+      onPointerCancel={() => { down.current = null; }}
+      onPointerUp={(e) => {
+        const d = down.current;
+        down.current = null;
+        if (!d || Math.hypot(e.clientX - d.x, e.clientY - d.y) > 12) return;
+        const now = performance.now();
+        lastFingerTap = now; // the click that may follow belongs to this tap
+        if (now - shownAt.current < SETTLE_MS) return;
+        act();
+      }}
       onClick={() => {
-        const finger = pointer.current === "touch" || pointer.current === "pen";
-        pointer.current = "";
-        if (finger && performance.now() - shownAt.current < SETTLE_MS) return;
-        if (blocked) return onBlocked?.();
-        onClick();
+        if (performance.now() - lastFingerTap < 1000) return;
+        act();
       }}
       disabled={disabled && !blocked}
       aria-disabled={blocked || undefined}

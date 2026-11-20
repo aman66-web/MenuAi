@@ -564,7 +564,10 @@ function Welcome() {
   const under18Typed = typedUnder18(body.age);
   const bodyWrong: BodyProblem[] = under18Typed ? [] : bodyProblems(body);
   const partWrong = bodyWrong.filter((p) => p.endsWith("-part"));
-  const aboutLine = bodyWrong.length === 0 ? null : aboutTried || partWrong.length > 0 ? aboutProblemLine(t, body, bodyWrong) : t("Add your age, height and weight, or tap Skip.");
+  // nothing typed yet: the button says it can be skipped and does what Skip does (founder 2026-11-20: "the person should definitely know that they don't have to
+  // add any of these"), so there is no grey button and no line asking for the numbers
+  const nothingTyped = body.age.trim() === "" && `${body.height.major}${body.height.minor}${body.weight.major}${body.weight.minor}`.trim() === "";
+  const aboutLine = nothingTyped || bodyWrong.length === 0 ? null : aboutTried || partWrong.length > 0 ? aboutProblemLine(t, body, bodyWrong) : t("Add your age, height and weight, or tap Skip.");
   /** A tap on About you's grey Continue: what is wrong is said, and the first box that needs the person is brought into view, ready to type in. */
   const showProblem = () => {
     setAboutTried(true);
@@ -630,17 +633,21 @@ function Welcome() {
             <div aria-hidden className="h-6 shrink-0" />
             <Bottom>
               {aboutLine && <p id={WHY_GREY} className={WHY_GREY_LINE}>{aboutLine}</p>}
-              <BottomButton
-                disabled={bodyWrong.length > 0}
-                onBlocked={showProblem}
-                describedBy={aboutLine ? WHY_GREY : undefined}
-                onClick={() => {
-                  if (under18Typed) undoWorkedOut();
-                  forward("about", "next", { ...answers, under18: under18Typed });
-                }}
-              >
-                {t("Continue")}
-              </BottomButton>
+              {nothingTyped ? (
+                <BottomButton onClick={skipThis}>{t("Skip these")}</BottomButton>
+              ) : (
+                <BottomButton
+                  disabled={bodyWrong.length > 0}
+                  onBlocked={showProblem}
+                  describedBy={aboutLine ? WHY_GREY : undefined}
+                  onClick={() => {
+                    if (under18Typed) undoWorkedOut();
+                    forward("about", "next", { ...answers, under18: under18Typed });
+                  }}
+                >
+                  {t("Continue")}
+                </BottomButton>
+              )}
             </Bottom>
           </section>
         </>

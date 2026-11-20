@@ -245,9 +245,11 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
 await step("(b) the questions about the person skipped: Skip on About you and on How active are you? both go to Your plan with 'Starting numbers.'; Back to About you; an age under 18 goes straight to Your plan with no numbers, no Change and no week; About you's grey Continue says what is missing and focuses that box", async () => {
   const { ctx, page } = await phone();
   await W.toAbout(page, BASE);
-  // the grey Continue (aria-disabled, still tappable): the reason, and the Age box focused
+  // nothing typed: the button offers to skip (founder 2026-11-20); something typed: the grey Continue (aria-disabled, still tappable), the reason, the Age box focused
+  await page.getByRole("button", { name: "Skip these", exact: true }).waitFor();
+  await page.getByLabel("Feet", { exact: true }).fill("6");
   await page.getByText("Add your age, height and weight, or tap Skip.").waitFor();
-  expect((await page.getByRole("button", { name: "Continue", exact: true }).getAttribute("aria-disabled")) === "true", "About you's Continue isn't grey with nothing typed");
+  expect((await page.getByRole("button", { name: "Continue", exact: true }).getAttribute("aria-disabled")) === "true", "About you's Continue isn't grey with only the feet typed");
   await page.getByRole("button", { name: "Continue", exact: true }).click({ force: true });
   await W.onStep(page, "about");
   expect(await page.evaluate(() => document.activeElement?.id === "welcome-age"), "the Age box isn't focused after the grey Continue");

@@ -15,8 +15,10 @@ import { GAP, HEADLINE, SUBLINE } from "./parts";
 import { CounterText } from "./QuestionSteps";
 
 // The questions about the person (founder, 20 November 2026): screen 5, About you, asks everything on one clean screen (Male, Female or Prefer not to say as big
-// tiles, then age, height and weight as big number boxes, in cm and kg or feet and stone), and screen 6, How active are you?, is the activity tiles. Both can be
-// skipped (page.tsx's top-right Skip). The age only, never a date of birth. What is typed is kept in the page's React state only and used once, to work out the
+// tiles, then age, height and weight as big number boxes), and screen 6, How active are you?, is the activity tiles. Height and weight each have their own unit
+// (founder 2026-11-20: "The person might know feet in kilograms, or the person might know centimeters and stone ... they should be interchangeable"): feet and
+// inches or cm, stone and pounds or kg. Everything here is optional, and the screen says so (founder, the same day: "the person should definitely know that they
+// don't have to add any of these"); both screens can be skipped (page.tsx's top-right Skip, and About you's own button while nothing is typed). The age only, never a date of birth. What is typed is kept in the page's React state only and used once, to work out the
 // suggested targets (CLAUDE.md rule 4: never stored, never sent), and About you says so on its own line before anything is typed. No Pip on either.
 
 /** `counter`: "Step n of N", read by a screen reader with the headline. */
@@ -51,12 +53,13 @@ function NumberBox({ id, label, unit, value, onChange, decimal, wide, invalid }:
   );
 }
 
-/** One row: its name at the start, its boxes after it. */
-function Row({ name, children }: { name: string; children: React.ReactNode }) {
+/** One row: its name at the start, its boxes after it, and under the boxes its own unit switch (`units`) where it has one. */
+function Row({ name, children, units }: { name: string; children: React.ReactNode; units?: React.ReactNode }) {
   return (
     <div role="group" aria-label={name} className="flex min-h-16 flex-wrap items-center gap-x-3 gap-y-2 py-1.5">
       <span aria-hidden className="w-[4.5rem] shrink-0 text-[1.125rem] font-bold">{name}</span>
       <span className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2">{children}</span>
+      {units && <div className="w-full ps-[5.25rem] pb-1"><div className="max-w-[15rem]">{units}</div></div>}
     </div>
   );
 }
@@ -67,9 +70,11 @@ function Row({ name, children }: { name: string; children: React.ReactNode }) {
  */
 export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & { sex: Sex | null; shown: readonly BodyProblem[] }) {
   const t = useT();
-  const metric = body.height.unit === "cm";
-  // one switch for both: feet and stone, or centimetres and kilograms (what is typed is converted, as Settings' form does it)
-  const setMetric = (m: boolean) => change({ height: switchHeightUnit(body.height, m ? "cm" : "ft"), weight: switchWeightUnit(body.weight, m ? "kg" : "st") });
+  const cm = body.height.unit === "cm";
+  const kg = body.weight.unit === "kg";
+  // a switch each, as in Settings: what is typed is converted to the other unit
+  const setHeightUnit = (u: "ft" | "cm") => change({ height: switchHeightUnit(body.height, u) });
+  const setWeightUnit = (u: "st" | "kg") => change({ weight: switchWeightUnit(body.weight, u) });
   const bad = (p: BodyProblem) => shown.includes(p);
   return (
     <>
@@ -77,7 +82,7 @@ export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & 
       {/* the screen's one grey line (the founder's examples), with the shield that says it is about privacy */}
       <p className={`${SUBLINE} flex items-start gap-2`}>
         <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
-        <span>{t("Only used to work out your numbers. Never saved or sent.")}</span>
+        <span><strong className="font-bold text-foreground">{t("All optional.")}</strong> {t("Only used to work out your numbers. Never saved or sent.")}</span>
       </p>
       <div role="radiogroup" aria-label={t("Sex")} className={`${GAP} grid grid-cols-2 gap-2.5`}>
         {SEX_OPTIONS.map((o, i) => (
@@ -96,16 +101,13 @@ export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & 
           </PickTile>
         ))}
       </div>
-      <div className={GAP}>
-        <Segmented label={t("Units")} value={metric ? "metric" : "uk"} options={[{ value: "uk", label: t("Feet and stone") }, { value: "metric", label: t("cm and kg") }]} onChange={(v) => setMetric(v === "metric")} />
-      </div>
       {/* the Done pill (an iPhone's number pad has no Return key) answers to the boxes below */}
       <div className="group/nums relative mt-3 divide-y divide-line">
         <Row name={t("Age")}>
           <NumberBox id={BODY_BOX.age} label={t("Age in years")} unit={t("years")} value={body.age} onChange={(age) => change({ age })} wide invalid={bad("age")} />
         </Row>
-        <Row name={t("Height")}>
-          {metric ? (
+        <Row name={t("Height")} units={<Segmented label={t("Height unit")} value={cm ? "cm" : "ft"} options={[{ value: "ft", label: t("ft and in") }, { value: "cm", label: "cm" }]} onChange={setHeightUnit} />}>
+          {cm ? (
             <NumberBox id={BODY_BOX.heightMajor} label={t("Centimetres")} unit="cm" value={body.height.major} onChange={(v) => change({ height: typeHeight(body.height, { major: v }) })} decimal wide invalid={bad("height")} />
           ) : (
             <>
@@ -114,8 +116,8 @@ export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & 
             </>
           )}
         </Row>
-        <Row name={t("Weight")}>
-          {metric ? (
+        <Row name={t("Weight")} units={<Segmented label={t("Weight unit")} value={kg ? "kg" : "st"} options={[{ value: "st", label: t("st and lb") }, { value: "kg", label: "kg" }]} onChange={setWeightUnit} />}>
+          {kg ? (
             <NumberBox id={BODY_BOX.weightMajor} label={t("Kilograms")} unit="kg" value={body.weight.major} onChange={(v) => change({ weight: typeWeight(body.weight, { major: v }) })} decimal wide invalid={bad("weight")} />
           ) : (
             <>

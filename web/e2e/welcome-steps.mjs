@@ -129,13 +129,13 @@ export async function toAbout(page, base, { goalName = "Maintain", diets = [], a
   await shops(page, shopNames);
   return recipes(page, { choose });
 }
-/** About you: the sex tile, the units ("uk" feet and stone, or "metric" cm and kg), age, height and weight typed. */
+/** About you: the sex tile, the units ("uk" ft and in with st and lb, or "metric" cm with kg; each row has its own switch since 20 Nov), age, height and weight typed. */
 export async function aboutYou(page, { sex = "Male", units = "uk", age = "", height = [], weight = [] } = {}) {
   await onStep(page, "about");
   if (sex) await page.getByRole("radiogroup", { name: "Sex" }).getByRole("radio", { name: sex, exact: true }).click();
-  const unitName = units === "metric" ? "cm and kg" : "Feet and stone";
-  const seg = page.getByRole("radio", { name: unitName, exact: true }).or(page.getByRole("button", { name: unitName, exact: true })).or(page.getByRole("tab", { name: unitName, exact: true })).first();
-  await seg.click();
+  const [h, w] = units === "metric" ? ["cm", "kg"] : ["ft and in", "st and lb"];
+  await page.getByRole("radiogroup", { name: "Height unit" }).getByRole("radio", { name: h, exact: true }).click();
+  await page.getByRole("radiogroup", { name: "Weight unit" }).getByRole("radio", { name: w, exact: true }).click();
   if (age !== "") await page.getByLabel("Age in years", { exact: true }).fill(String(age));
   if (units === "metric") {
     if (height[0] !== undefined) await page.getByLabel("Centimetres", { exact: true }).fill(String(height[0]));
