@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { averageOf, calorieStats, dayValue, macroStats, nutrientStats, rangeDates, scaleTop, sharesOf, statsDays, weeklyCalories, type StatsEntry } from "../lib/mm/stats";
+import { averageOf, calorieStats, dayValue, KCAL_PER_GRAM, macroStats, nutrientStats, rangeDates, scaleTop, sharesOf, statsDays, weeklyCalories, type StatsEntry } from "../lib/mm/stats";
 import { dayLabelTotals, todayLabelTotals } from "../lib/mm/labelTotals";
 import { weekSummary } from "../lib/mm/week";
 
@@ -86,6 +86,7 @@ describe("calories", () => {
     expect(weeks.map((w) => w.current)).toEqual([false, false, false, true]);
     expect(weeks.map((w) => w.average)).toEqual([1500, null, 2400, 1700]);
     expect(weeks.map((w) => w.days)).toEqual([2, 0, 1, 2]);
+    expect(weeks.map((w) => w.entries)).toEqual([2, 0, 1, 3]); // this week's count has today's food (the dash for "nothing logged" goes only on a week with none)
     expect(weeks[3]!.average).toBe(calorieStats(log, thursday, "week", 2000).average);
   });
   it("has no average when nothing before today was logged, and notes photo estimates", () => {
@@ -98,7 +99,7 @@ describe("calories", () => {
 });
 
 describe("protein, carbs and fat", () => {
-  it("averages each over the days that gave it and splits the week by weight from foods with all three", () => {
+  it("averages each over the days that gave it and splits the week by share of calories from foods with all three", () => {
     const log = [
       food(at(2026, 10, 16), { calories: 600, protein: 40, carbs: 50, fat: 10 }),
       food(at(2026, 10, 17), { calories: 700 }), // a calories-only restaurant
@@ -108,9 +109,17 @@ describe("protein, carbs and fat", () => {
     expect(m.macros.protein).toMatchObject({ average: 40, days: 1 }); // today's 20 is not in the average
     expect(m.macros.fat.scaleTop).toBeCloseTo(80.5);
     expect(m.split!.grams).toEqual({ protein: 60, carbs: 80, fat: 60 }); // today counts in the week's split
-    expect(m.split!.shares).toEqual({ protein: 30, carbs: 40, fat: 30 });
+    // 60 g protein = 240 kcal, 80 g carbs = 320 kcal, 60 g fat = 540 kcal: 1,100 kcal, so 21.8%, 29.1% and 49.1%, rounded to add up to 100
+    expect(m.split!.shares).toEqual({ protein: 22, carbs: 29, fat: 49 });
     expect(m.gap).toBe(true);
     expect(dayValue(m.days[1]!, "protein")).toBeNull();
+  });
+  it("shares calories as the meal plan's High protein does: protein and carbs 4 kcal a gram, fat 9", () => {
+    expect(KCAL_PER_GRAM).toEqual({ protein: 4, carbs: 4, fat: 9 });
+    // 30 g protein, 30 g carbs and 0 g fat: equal grams, equal calories, so 50% each
+    expect(macroStats([food(at(2026, 10, 17), { calories: 240, protein: 30, carbs: 30, fat: 0 })], thursday, {}).split!.shares).toEqual({ protein: 50, carbs: 50, fat: 0 });
+    // 10 g protein and 10 g fat: the same grams, but fat gives 90 of the 130 kcal
+    expect(macroStats([food(at(2026, 10, 17), { calories: 130, protein: 10, carbs: 0, fat: 10 })], thursday, {}).split!.shares).toEqual({ protein: 31, carbs: 0, fat: 69 });
   });
   it("has no split when nothing this week gave all three, and ignores last week", () => {
     const m = macroStats([food(at(2026, 10, 12), { calories: 600, protein: 40, carbs: 50, fat: 10 })], thursday, {});

@@ -117,6 +117,14 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
   const styles = page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio");
   expect((await styles.count()) === 3, "three ways to eat: " + (await styles.count()));
   expect((await page.getByRole("radio", { name: /^Balanced/ }).getAttribute("aria-checked")) === "true", "Balanced to start with");
+  // on a short phone (375 x 667) the pictures are flatter, so all three tiles show whole above the pinned Done (Lower carb was cut off, 20 November 2026)
+  await page.setViewportSize({ width: 375, height: 667 });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(300);
+  const band = await page.getByRole("button", { name: "Done", exact: true }).last().evaluate((el) => el.closest(".sticky").getBoundingClientRect().top);
+  const lowest = await styles.last().boundingBox();
+  expect(lowest.y + lowest.height <= band + 0.5, `Lower carb is under the pinned Done at 375 x 667: ${JSON.stringify({ lowest, band })}`);
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("radio", { name: /^High protein/ }).click();
   expect((await page.getByRole("radio", { name: /^High protein/ }).getAttribute("aria-checked")) === "true", "High protein chosen");
   await page.getByRole("radio", { name: /^Balanced/ }).click();

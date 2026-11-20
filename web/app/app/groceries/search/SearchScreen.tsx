@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useMemo, useState } from "react";
-import { normaliseBarcode, shopItemHref } from "@/lib/mm/barcodes";
+import { barcodeDigits, scanHref, shopItemHref } from "@/lib/mm/barcodes";
 import { anyFoodDiet, foodDietProblem, groceryDietLine } from "@/lib/mm/foodDiet";
 import { RETAILERS, retailerName } from "@/lib/mm/groceries";
 import { groupProducts, sameProductGroups, type ProductGroup } from "@/lib/mm/leaderboards";
@@ -79,7 +79,8 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const [scanning, setScanning] = useState(false);
   const [dietOn, setDietOn] = useState(true);
   const deferred = useDeferredValue(query);
-  const code = normaliseBarcode(deferred);
+  // a barcode typed in, as printed (leading zeros kept: 2026-11-20, 01318180 sent as 1318180 wasn't found)
+  const code = barcodeDigits(deferred);
   const lists = useShopLists(manifest ? ids : [], retry);
   const loaded = lists.status === "ready" ? lists.loaded : null;
   const files = useMemo(() => new Map((loaded ?? []).map((l) => [l.file.retailer, l.file])), [loaded]);
@@ -134,7 +135,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
 
       {code ? (
         // a barcode typed in: the product's own page (a shop's list where one has it, the person's own shop first)
-        <Link href={`/app/groceries/product?code=${code}&scan=1`} className={`${ROW} mt-6`}>
+        <Link href={scanHref(code) ?? "/app/groceries/search"} className={`${ROW} mt-6`}>
           <ScanIcon aria-hidden className="h-6 w-6 shrink-0 text-ink" />
           <span className="min-w-0 flex-1 text-base font-bold leading-snug">{t("Open the product with barcode {code}", { code })}</span>
           <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
@@ -171,7 +172,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
       </FootNote>
 
       {/* a scan opens the product: in a shop's full list where one has it (the person's own shop first), else its catalogue page, else "We don't have it yet" */}
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(raw) => { setScanning(false); const c = normaliseBarcode(raw); if (c) router.push(`/app/groceries/product?code=${c}&scan=1`); }} />
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(raw) => { setScanning(false); const href = scanHref(raw); if (href) router.push(href); }} />
     </div>
   );
 }

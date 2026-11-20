@@ -411,6 +411,50 @@ await step("Pip's recipe is saved as it's made: the button beside the title says
   await ctx.close();
 });
 
+await step("a saved Pip recipe opened from My recipes: Saved at the photo's top right, never the Settings cog; a tap takes it out (said, with Undo) and Save puts it back", async () => {
+  const { ctx, page, errors, sent } = await open();
+  await pretend(page, sent, { delay: 200 });
+  await toShops(page);
+  await page.waitForFunction(() => ![...document.querySelectorAll("button")].find((b) => b.textContent?.trim() === "Next")?.disabled, null, { timeout: 30000 });
+  await page.getByRole("button", { name: "Next", exact: true }).tap();
+  await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
+  await page.getByText("Saved to My recipes.").first().waitFor();
+  const mine = () => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.myRecipes") ?? "null")?.data ?? []);
+  const saved = await mine();
+  // opened from My recipes (founder 2026-11-20, with screenshots of this page: "Move the save into the top right instead of settings")
+  await page.goto(BASE + "/app/meals?tab=recipes");
+  const card = page.locator(`a[href*="mine=${saved[0].id}"]`);
+  await card.waitFor({ timeout: 30000 });
+  await card.tap();
+  await page.getByRole("heading", { name: RECIPE.name }).waitFor({ timeout: 15000 });
+  const chip = page.getByRole("button", { name: /^Saved? to My recipes$/ }).first();
+  await chip.waitFor({ timeout: 5000 });
+  const box = await chip.boundingBox();
+  const vw = page.viewportSize().width;
+  expect(box && box.y < 80 && box.x + box.width > vw - 40 && Math.round(box.height) >= 44, "Saved isn't at the photo's top right: " + JSON.stringify({ box, vw }));
+  expect((await page.getByRole("link", { name: /^Settings/ }).count()) === 0, "the Settings cog is on the saved recipe's photo");
+  expect((await chip.getAttribute("aria-pressed")) === "true" && (await chip.innerText()).trim() === "Saved", "it doesn't say Saved: " + (await chip.innerText()));
+  // a tap does what Remove does: taken out, said, with Undo; never a silent delete
+  await chip.tap();
+  await page.getByText(`Removed “${RECIPE.name}” from My recipes.`).waitFor({ timeout: 5000 });
+  await page.getByText("Removed from My recipes.", { exact: true }).waitFor();
+  expect((await mine()).length === 0, "the tap didn't take it out");
+  expect((await chip.getAttribute("aria-pressed")) === "false" && (await chip.innerText()).trim() === "Save", "the chip doesn't say Save once taken out: " + (await chip.innerText()));
+  // Save puts it back, where it was
+  await chip.tap();
+  await page.getByRole("button", { name: "Remove from My recipes" }).waitFor({ timeout: 5000 });
+  const back = await mine();
+  expect(back.length === 1 && back[0].id === saved[0].id, "Save didn't put it back");
+  expect((await chip.getAttribute("aria-pressed")) === "true", "the chip didn't go back to Saved");
+  // taken out again, Back goes straight back: no "Save your recipe first?" on a recipe the person chose to take out
+  await chip.tap();
+  await page.getByRole("link", { name: /^Back/ }).first().tap();
+  await page.waitForURL((u) => !u.pathname.endsWith("/recipes/view"), { timeout: 8000 });
+  expect((await page.locator("dialog[open]").count()) === 0, "Back asked a question");
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
 await step("the photo becomes the saved recipe's picture: on its card in My meals and at the top of the recipe, kept on this phone only, gone after Clear data", async () => {
   const { ctx, page, errors, sent } = await open();
   await pretend(page, sent, { delay: 300 });

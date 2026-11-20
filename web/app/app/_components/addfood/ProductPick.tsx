@@ -26,6 +26,7 @@ import { PhotoTile } from "../../groceries/ProductPhoto";
 import { useBarcodeLookup } from "./findByBarcode";
 import { grams, MacroRing } from "./MacroRing";
 import { ChoosePill, PICK_LIST, PickRow, SheetSearch, type NewEntry } from "./parts";
+import { TypedNumbers } from "./TypedNumbers";
 
 // "Choose a supermarket product": found by name in the person's own supermarkets' full lists (or one shop they pick), or by its barcode (typed, or read by the
 // camera; founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product and they can input in and it's their food thing"),
@@ -151,24 +152,24 @@ export function ProductPick({ meal, onAdd, onBack, header, onScan, onType }: { m
 }
 
 /** A barcode nobody has figures for: the calm line, and the way on (typing the numbers from the pack, starting with the name where Open Food Facts knows it). */
-export function NotFound({ name, onType, code }: { name: string; onType: (name: string) => void; code?: string }) {
+export function NotFound({ name, onType, code, badge }: { name: string; onType: (name: string) => void; code?: string; badge?: ReactNode }) {
   const t = useT();
   return (
     <div className="space-y-3">
       <InfoLine heading={null}>{t("We don't have this one yet.")}</InfoLine>
       {code && <p className="app-numbers px-1 text-[0.9375rem] text-muted">{t("Barcode {code}", { code: barcodeShown(code) })}</p>}
-      <Button full className="min-h-12 text-base" onClick={() => onType(name)}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}</Button>
+      <Button full className="min-h-12 text-base" onClick={() => onType(name)}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}{badge}</Button>
     </div>
   );
 }
 
-/** Where the numbers are from, in one short line under them (and the credits Open Food Facts' data and photos need). */
-function SourceNote({ product }: { product: LoggableProduct }) {
+/** Where the numbers are from, in one short line under them (and the credits Open Food Facts' data and photos need; `photoCredit={false}` where the photo's own caption gives it). */
+export function SourceNote({ product, photoCredit = true }: { product: LoggableProduct; photoCredit?: boolean }) {
   const t = useT();
   const poss = usePossessive();
   const s = product.source;
   if (s.kind === "community") {
-    const photo = product.photos.some((p) => p.from === "off");
+    const photo = photoCredit && product.photos.some((p) => p.from === "off");
     return (
       <div className="space-y-1">
         <p className="text-[0.875rem] font-semibold leading-snug">{t("Figures from Open Food Facts (community data)")}</p>
@@ -195,6 +196,21 @@ function choiceLabel(c: AmountChoice, unit: "g" | "ml", t: ReturnType<typeof use
   if (c.kind === "pack") return t("The whole pack ({amount})", { amount });
   if (c.kind === "item") return t("1 of {n} ({amount})", { n: c.count, amount });
   return amount;
+}
+
+/** "Which meal?": Breakfast, Lunch, Dinner or Snacks as one choice (on a product page, where no meal's + was tapped). */
+function MealChoice({ meal, onMeal }: { meal: LogMeal; onMeal: (m: LogMeal) => void }) {
+  const t = useT();
+  return (
+    <div role="radiogroup" aria-label={t("Which meal?")}>
+      <p className="mb-2 text-[0.9375rem] font-semibold leading-snug" aria-hidden>{t("Which meal?")}</p>
+      <div className="flex flex-wrap gap-2">
+        {LOG_MEALS.map((m) => (
+          <Chip key={m} role="radio" aria-checked={m === meal} aria-pressed={undefined} selected={m === meal} onClick={() => onMeal(m)}>{t(LOG_MEAL_LABEL[m])}</Chip>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 /** The round − and + beside the amount: white with the edge and an ink sign, 48 px. */
@@ -242,7 +258,8 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
       <div className="group/nums relative">
         <label htmlFor={id} className="mb-3 flex min-h-8 items-center pe-20 text-lg font-[800] leading-snug tracking-[-0.01em]">{t("How much?")}</label>
         <NumberDone />
-        {choices.length > 1 && (
+        {/* always at least 100 g or ml, marked when it is the amount (2026-11-20: Asda's 2 L milk prints no portion and is too big a pack, so no chips showed) */}
+        {choices.length > 0 && (
           <div role="group" aria-label={t("Amounts")} className="mb-3.5 flex flex-wrap gap-2">
             {choices.map((c) => (
               <Chip key={`${c.kind}-${c.amount}`} selected={amount === c.amount} onClick={() => setText(String(c.amount))}>{choiceLabel(c, unit, t)}</Chip>
@@ -277,16 +294,7 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
         )}
       </div>
 
-      {onMeal && (
-        <div role="radiogroup" aria-label={t("Which meal?")}>
-          <p className="mb-2 text-[0.9375rem] font-semibold leading-snug" aria-hidden>{t("Which meal?")}</p>
-          <div className="flex flex-wrap gap-2">
-            {LOG_MEALS.map((m) => (
-              <Chip key={m} role="radio" aria-checked={m === meal} aria-pressed={undefined} selected={m === meal} onClick={() => onMeal(m)}>{t(LOG_MEAL_LABEL[m])}</Chip>
-            ))}
-          </div>
-        </div>
-      )}
+      {onMeal && <MealChoice meal={meal} onMeal={onMeal} />}
 
       <div className="space-y-3">
         <SourceNote product={product} />
@@ -335,6 +343,42 @@ export function DiaryButton({ product, onAdded, className, main = false }: { pro
       </Sheet>
     </>
   );
+}
+
+/**
+ * "Type the numbers from the pack" on a product page for a barcode nobody has figures for (founder 2026-11-20): Add food's "Type in your numbers" in a sheet, the
+ * name starting as the one Open Food Facts knows (or empty), the meal the one the clock says, changeable there. Adding does what DiaryButton does; the gate decides.
+ * `type(name)` opens it; `sheet` goes on the page; `paid`: adding is Premium for this person (the button then carries the Premium mark).
+ */
+export function useTypedDiary(onAdded: (entry: LogEntry, meal: LogMeal) => void): { type: (name: string) => void; sheet: ReactNode; paid: boolean } {
+  const t = useT();
+  const { gate } = useGate();
+  const paid = needsPaywall("log", { pro: useIsPro() });
+  const [open, setOpen] = useState<{ name: string } | null>(null);
+  const [meal, setMeal] = useState<LogMeal>(() => mealSlotFor(new Date()));
+  const type = (name: string) => gate("log", () => { setMeal(mealSlotFor(new Date())); setOpen({ name }); });
+  const sheet = (
+    <Sheet open={open !== null} onClose={() => setOpen(null)} title={t("Type in your numbers")}>
+      {open && (
+        <div className="space-y-1 pb-2">
+          <MealChoice meal={meal} onMeal={setMeal} />
+          <TypedNumbers
+            key={open.name}
+            meal={meal}
+            startName={open.name}
+            onAdd={(entry) => {
+              const logged = addLogEntry({ ...entry, meal });
+              analytics.track({ name: "mealLogged" });
+              countProAction();
+              setOpen(null);
+              onAdded(logged, meal);
+            }}
+          />
+        </div>
+      )}
+    </Sheet>
+  );
+  return { type, sheet, paid };
 }
 
 /** The toast after adding to the food diary, with Undo (the same words Home uses). */

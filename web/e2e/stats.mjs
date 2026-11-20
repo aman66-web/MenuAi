@@ -1,9 +1,9 @@
 // The Stats screen behind Home's numbers (founder 2026-11-20, 12:54, from another app's Progress screen; app/app/stats/, lib/mm/stats.ts): Home's calories
 // card and its week card open Calories, its protein, carbs and fat card opens Macros (?tab=macros). Three tabs (a real tab list: arrow keys, the address
-// follows without a new history entry, a reload keeps the tab, Back goes to Home): Calories (this week and the last 4 weeks, against the target), Macros (the
-// week's split by weight as a ring, then protein, carbs and fat), Nutrients (sugar, saturates, salt and fibre: today and a day this week). Every figure is
+// follows without a new history entry, a reload keeps the tab, Back goes to Home; the Home tab is lit): Calories (one card with a This week / Last 4 weeks
+// switch, against the target), Macros (the week's split as shares of calories in a ring, protein and carbs 4 kcal a gram and fat 9, then protein, carbs and fat), Nutrients (sugar, saturates, salt and fibre: today and a day this week). Every figure is
 // added up from the food log on this phone (CLAUDE.md rule 1: a day with nothing logged is never a 0, a food without a figure is left out and said so, today
-// is never in an average); nothing is sent. Where logging is paid for this person and nothing is logged, one card says the stats come once they log.
+// is never in an average; a day with nothing logged has a small dash, explained by "Nothing logged" under the chart); nothing is sent. Where logging is paid for this person and nothing is logged, one card says the stats come once they log.
 // The clock is fixed at Friday 20 November 2026, 12:00 in London, and this log is seeded (expected figures worked out by hand below):
 //   Tue 10 Nov  1,500 kcal (70 g protein, 160 g carbs, 50 g fat)
 //   Mon 16 Nov  1,000 kcal (50/100/40; sugar 10 g, saturates 8 g, salt 1 g, fibre 5 g) + 800 kcal (40/90/30, no label figures)
@@ -81,6 +81,8 @@ await step("(a) Home's numbers open Stats: 'See calorie stats' on Calories, 'See
   await page.waitForURL((u) => u.pathname === "/app/stats");
   await heading(page).waitFor({ timeout: 60000 });
   expect((await tab(page, "Calories").getAttribute("aria-selected")) === "true", "Calories isn't the tab shown");
+  const lit = await page.getByRole("navigation", { name: "Main" }).locator('a[aria-current="page"]').allInnerTexts();
+  expect(lit.length === 1 && /Home/.test(lit[0]), "the tab lit on Stats: " + JSON.stringify(lit));
   // its name is "Back" after coming from Home ("Back to home" when the page was opened by its address)
   await page.getByRole("link", { name: /^Back/ }).first().click();
   await page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/");
@@ -92,10 +94,13 @@ await step("(a) Home's numbers open Stats: 'See calorie stats' on Calories, 'See
   await ctx.close();
 });
 
-await step("(b) Calories: this week 1,533 kcal a day from the 3 days logged (not today), each day said, the target 2,000; the last 4 weeks 1,525 kcal a day with a bar a week", async () => {
+await step("(b) Calories: one card; this week 1,533 kcal a day from the 3 days logged (not today), each day said, the target 2,000, Thursday's dash and its key; the switch to the last 4 weeks: 1,525 kcal a day with a bar a week", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/stats");
   await heading(page).waitFor({ timeout: 120000 });
+  expect((await page.getByRole("tabpanel").getByRole("region").count()) === 1, "more than one card on Calories");
+  const range = page.getByRole("radiogroup", { name: "Calories" });
+  expect((await range.getByRole("radio", { name: "This week" }).getAttribute("aria-checked")) === "true", "This week isn't chosen first");
   const week = card(page, "This week");
   await week.getByText("1,533", { exact: true }).waitFor();
   await week.getByText("kcal a day").first().waitFor();
@@ -105,10 +110,16 @@ await step("(b) Calories: this week 1,533 kcal a day from the 3 days logged (not
   const want = [/^Monday.*: 1,800 kcal$/, /^Tuesday.*: 2,200 kcal$/, /^Wednesday.*: 600 kcal$/, /^Thursday.*: nothing logged$/, /^Friday.*\(today, so far\): 500 kcal$/];
   want.forEach((re, i) => expect(re.test(days[i] ?? ""), `day ${i + 1}: ${days[i]}`));
   await page.getByText("Your target: 2,000 kcal").first().waitFor();
+  await week.getByText("Nothing logged", { exact: true }).waitFor();
+  expect((await week.locator("span.bg-muted.rounded-full").count()) === 2, "a dash on Thursday only (and one in the key)");
+  await range.getByRole("radio", { name: "Last 4 weeks" }).click();
   const month = card(page, "Last 4 weeks");
   await month.getByText("1,525", { exact: true }).waitFor();
   const weeks = await spoken(page, "Calories a day, each week");
   expect(weeks.length === 4 && /nothing logged$/.test(weeks[0]) && /nothing logged$/.test(weeks[1]) && /: 1,500 kcal a day$/.test(weeks[2]) && /: 1,533 kcal a day$/.test(weeks[3]), "the weeks: " + JSON.stringify(weeks));
+  await month.getByText("From the 4 days you logged, not counting today.").waitFor();
+  await month.getByText("Nothing logged", { exact: true }).waitFor();
+  expect((await page.getByRole("tabpanel").getByRole("region").count()) === 1, "more than one card after the switch");
   // never a 0 for a day with nothing logged, and no "over"/"good"/"bad"
   const text = (await page.locator("main").innerText()).toLowerCase();
   for (const word of [" over ", "good", "bad", "healthy", "too much"]) expect(!text.includes(word), `the word "${word.trim()}"`);
@@ -135,14 +146,15 @@ await step("(c) the tabs: arrow keys move between them, the address follows with
   await ctx.close();
 });
 
-await step("(d) Macros: the week's split by weight (25% protein, 56% carbs, 19% fat from the foods that give all three), protein 95 g / carbs 220 g / fat 75 g a day against 120, 250 and 70; Wednesday's calories-only food is 'not published', never 0, and the gap is said", async () => {
+await step("(d) Macros: the week's split as shares of calories (20% protein, 46% carbs, 34% fat from the foods that give all three: 880, 2,000 and 1,485 kcal), protein 95 g / carbs 220 g / fat 75 g a day against 120, 250 and 70; Wednesday's calories-only food is 'not published', never 0, and the gap is said", async () => {
   const { ctx, page } = await open();
   await page.goto(BASE + "/app/stats?tab=macros");
   await heading(page).waitFor({ timeout: 120000 });
   const split = page.getByRole("region", { name: "This week", exact: true });
   const text = (await split.innerText()).replace(/\s+/g, " ");
-  expect(/25% protein/.test(text) && /Protein 220g ?25%/.test(text) && /Carbs 500g ?56%/.test(text) && /Fat 165g ?19%/.test(text), "the split: " + text);
-  await page.getByText("Share by weight.").waitFor();
+  expect(/20% protein/.test(text) && /Protein 20% ?220g/.test(text) && /Carbs 46% ?500g/.test(text) && /Fat 34% ?165g/.test(text), "the split: " + text);
+  await page.getByText("Share of calories.").waitFor();
+  await page.getByText("Nothing logged", { exact: true }).waitFor();
   for (const [name, avg, target] of [["Protein", "95g", "120g"], ["Carbs", "220g", "250g"], ["Fat", "75g", "70g"]]) {
     const c = card(page, name);
     const words = (await c.innerText()).replace(/\s+/g, " ");
@@ -209,13 +221,14 @@ await step("(g) nothing is sent: no request carries the log, a figure or a food'
 });
 
 for (const [label, viewport, big] of [["402x874", { width: 402, height: 874 }, false], ["375x667", { width: 375, height: 667 }, false], ["200% text at 360x780", { width: 360, height: 780 }, true]]) {
-  await step(`(h) ${label}: every tab with no sideways scroll, 44 px tabs and links${big ? "" : " and no axe violations"}`, async () => {
+  await step(`(h) ${label}: every tab (and Calories' last 4 weeks) with no sideways scroll, 44 px tabs and links${big ? "" : " and no axe violations"}`, async () => {
     const { ctx, page } = await open({ viewport });
     await page.goto(BASE + "/app/stats");
     await heading(page).waitFor({ timeout: 120000 });
     if (big) await page.addStyleTag({ content: "html { font-size: 200% !important; }" });
-    for (const name of ["Calories", "Macros", "Nutrients"]) {
-      await tab(page, name).click();
+    for (const name of ["Calories", "Last 4 weeks", "Macros", "Nutrients"]) {
+      if (name === "Last 4 weeks") await page.getByRole("radiogroup", { name: "Calories" }).getByRole("radio", { name }).click();
+      else await tab(page, name).click();
       await page.waitForTimeout(500);
       expect((await overflow(page)) <= 0, `${name}: scrolls sideways by ${await overflow(page)}`);
       const small = await smallTargets(page);

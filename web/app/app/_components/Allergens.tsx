@@ -106,7 +106,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
     return (
       <section aria-labelledby="allergens-heading" className="glass rounded-[1.25rem] p-4">
         <h2 id="allergens-heading" className="text-xl font-[800] tracking-[-0.01em]">{title}</h2>
-        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We don't show allergens for {chain} yet.", { chain: chain.name })} {t(CHECK_WITH_STAFF)}</p>
+        <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We don't show allergens for {chain} yet. Check {chain}'s own guide.", { chain: chain.name })} {t(CHECK_WITH_STAFF)}</p>
         <div className="mt-3.5"><GuideLink chain={chain} href={link} /></div>
       </section>
     );

@@ -151,6 +151,9 @@ export function RecipeScreen({ id, mine, shop: asked, have, servings, asWritten,
       dietClash={clash}
       planTarget={planTarget}
       better={better}
+      // a recipe Pip wrote, kept in My recipes: Saved at the photo's top right, never the Settings cog (founder 2026-11-20: "Move the save into the top right
+      // instead of settings"); a tap does what Remove does (taken out, said, with Undo), and Save then puts it back where it was
+      kept={savedOne ? { saved: !isRemoved, onToggle: isRemoved ? undoRemove : remove } : undefined}
       actions={savedOne ? (
         isRemoved
           ? <p role="status" className="px-1 text-center text-[0.9375rem] font-semibold leading-snug">{t("Removed from My recipes.")}</p>

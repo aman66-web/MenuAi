@@ -18,7 +18,7 @@ import { Bottom, BottomButton, CHOSEN, H1, TickSlot, UNCHOSEN, WHY_GREY, WHY_GRE
 import { CARD, GAP, HEADLINE, STEP_TOP } from "./parts";
 
 // The three questions of the welcome steps (founder, 20 November 2026: one question a screen, a short heading, a big input, far fewer words, pictures over
-// text): 1 What's your goal? (big tiles), 2 Anything you avoid? (each diet a picture of one of our recipes that fits it, the allergies as big chips) and 3 Where
+// text): 1 What's your goal? (big tiles), 2 Anything you avoid? (the allergies first as big chips, then each diet a picture of one of our recipes that fits it) and 3 Where
 // do you shop? (the shops' own logos). Each has the top-right white "Skip" (page.tsx), which means "skip this question"; nothing is pre-picked. Pip appears
 // once, small, beside step 1's heading, with no speech bubble; he gives no medication guidance: for GLP-1 the note is a plain line under the tiles.
 
@@ -101,7 +101,8 @@ export function AvoidStep({ prefs, setPrefs, onContinue, counter }: { prefs: Pre
     <section className={`${STEP_TOP} flex flex-1 flex-col`}>
       <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Anything you avoid?")}<CounterText text={counter} /></h1>
       <div className={GAP}>
-        {/* the allergy caution under "Allergies to avoid", read before anything is ticked and never under the bottom button */}
+        {/* the allergies first, in the first view before "Nothing to avoid" (the common ones, then "More"), with their caution under them, never under the
+            bottom button; then the diets' pictures */}
         <DietPicker value={prefs} onChange={setPrefs} allergyCautionFirst pictures={pictureSources()} chips allergyCaution={t("Filters use each restaurant's own allergen guide. Always check with staff.")} />
       </div>
       <div aria-hidden className="h-6 shrink-0" />

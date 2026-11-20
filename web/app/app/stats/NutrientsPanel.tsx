@@ -7,7 +7,7 @@ import { tk } from "@/lib/mm/i18n";
 import { dayValue, NUTRIENT_KEYS, nutrientStats, type NutrientKey } from "@/lib/mm/stats";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useT } from "../_lib/i18n";
-import { DayBars } from "./DayBars";
+import { DayBars, NothingKey } from "./DayBars";
 import { StatCard } from "./StatCard";
 
 // The Nutrients tab (founder 2026-11-20, laid out like the founder's example screen): one card each for sugar, saturates, salt and fibre, with today
@@ -62,7 +62,7 @@ export function NutrientsPanel({ log, now, htmlLang }: { log: readonly LogEntry[
             }
             chart={
               <DayBars
-                bars={stats.days.map((d) => ({ key: d.key, date: d.date, state: d.state, value: dayValue(d, key) }))}
+                bars={stats.days.map((d) => ({ key: d.key, date: d.date, state: d.state, value: dayValue(d, key), nothing: d.state !== "future" && d.entries === 0 }))}
                 top={s.scaleTop}
                 color="bg-ink"
                 htmlLang={htmlLang}
@@ -80,6 +80,7 @@ export function NutrientsPanel({ log, now, htmlLang }: { log: readonly LogEntry[
       })}
 
       <div className="space-y-1 px-1 text-[0.875rem] leading-snug text-muted">
+        {stats.days.some((d) => d.state !== "future" && d.entries === 0) && <NothingKey />}
         <p>{t("Averages are over the days you logged, not counting today.")}</p>
         <p>{t("Only foods whose label or menu gives these figures are counted.")}</p>
       </div>

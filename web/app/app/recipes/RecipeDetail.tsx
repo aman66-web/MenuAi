@@ -180,7 +180,7 @@ function MacroRow({ label, grams, dot }: { label: string; grams: number; dot: st
  *  `products` are theirs, tagged with their shop. Every ingredient comes from the first shop unless the person swaps it to another shop's product.
  *  `onChangeShops`: when given, the shop in the header is a button that opens the screen's choice of shop. `onNeedOtherShops`: called when the Swap sheet opens,
  *  so the screen loads the other shops (they're not loaded for a plain look at a recipe); `othersLoading` says they are on their way. */
-export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, haveKeys, startServings, startAsWritten, dietClash = [], planTarget, better }: { /** Opened from a household meal plan: everyone's servings (quarters allowed), as written. */ startServings?: number; startAsWritten?: boolean; /** What in this recipe doesn't suit the diet (lib/mm/recipes.ts dietClashes): an amber note says so, and the page never says it was chosen for the diet. */ dietClash?: ReadonlyArray<{ label: string; pantry: string; reason: string }>; /** From a meal plan: the slot's meal size, which the recipe is fitted to as its plan card was (instead of the Recipes tab's meal size). */ planTarget?: MealTarget | null; /** From a meal plan made with better produce: the shop's better products, as the plan chose them. */ better?: boolean; /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude") or is checked against (a household's plan), when it isn't the one in Settings. */ diet?: DietPrefs; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void } }) {
+export function RecipeDetail({ recipe, files, products, backHref, actions, photo, onChangeShops, onNeedOtherShops, othersLoading, diet, save, kept, haveKeys, startServings, startAsWritten, dietClash = [], planTarget, better }: { /** Opened from a household meal plan: everyone's servings (quarters allowed), as written. */ startServings?: number; startAsWritten?: boolean; /** What in this recipe doesn't suit the diet (lib/mm/recipes.ts dietClashes): an amber note says so, and the page never says it was chosen for the diet. */ dietClash?: ReadonlyArray<{ label: string; pantry: string; reason: string }>; /** From a meal plan: the slot's meal size, which the recipe is fitted to as its plan card was (instead of the Recipes tab's meal size). */ planTarget?: MealTarget | null; /** From a meal plan made with better produce: the shop's better products, as the plan chose them. */ better?: boolean; /** Ingredients the person said they have (Cook with what you have): they start ticked "I have this". */ haveKeys?: readonly string[]; recipe: Recipe; files: readonly ShopFile[]; products: readonly ShopProduct[]; backHref: string; actions?: React.ReactNode; photo?: string; onChangeShops?: () => void; onNeedOtherShops?: () => void; othersLoading?: boolean; /** The diet this recipe was made for (Make it at home's "What to exclude") or is checked against (a household's plan), when it isn't the one in Settings. */ diet?: DietPrefs; /** A recipe Pip has just written (Make it at home): a Save button at the top, and Back asks to save it first while it isn't saved. */ save?: { saved: boolean; onSave: () => void }; /** A recipe Pip wrote, opened from My recipes: the top right chip says Saved (filled heart); a tap takes it out as the page's Remove does (said, with Undo), and Save puts it back. */ kept?: { saved: boolean; onToggle: () => void } }) {
   const t = useT();
   const poss = usePossessive();
   const first = files[0]!;
@@ -439,9 +439,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   const mealChip = mealLabel ? <span className={INFO_CHIP}><MealIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t(mealLabel)}</span> : null;
   const meatChip = meatFree ? <span className={INFO_CHIP}><LeafIcon aria-hidden className="h-[18px] w-[18px] text-ink" />{t("No meat or fish")}</span> : null;
 
-  // Save, at the photo's top right: our own recipes always; one Pip wrote, when it can be kept
-  // a recipe Pip has just written: Save, then (it can't be unsaved here: My recipes takes it out) a plain "Saved" that says so, not a toggle that does nothing
-  const saveControl = !recipe.ai ? <SaveRecipeButton id={recipe.id} /> : save ? (
+  // Save, at the photo's top right: our own recipes always; one Pip wrote and the person keeps (opened from My recipes): Saved, a tap takes it out as the page's
+  // Remove does (with Undo) and Save puts it back; one Pip has just written: Save, then (it can't be unsaved there: My recipes takes it out) a plain "Saved"
+  // that says so, not a toggle that does nothing
+  const saveControl = !recipe.ai ? <SaveRecipeButton id={recipe.id} /> : kept ? <SaveChip saved={kept.saved} onClick={kept.onToggle} /> : save ? (
     save.saved ? (
       <span role="status" className={SAVE_BUTTON}>
         <HeartIcon aria-hidden filled className="h-5 w-5 text-ink" /><span aria-hidden>{t("Saved")}</span><span className="sr-only">{t("Saved to My recipes")}</span>
@@ -456,14 +457,14 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   return (
     <div>
       {/* the picture runs to the edges and under the status bar, like the reference. Over it only photo chips (colour meeting, 19 November 2026; approved by
-          the founder that day): Back top left, Save top right (founder 2026-11-20: "Move the save into the top right instead of settings"; the cog stays only
-          where a recipe can't be saved), the expand chip bottom right, and the light status band over its top 60 px (RecipeHeroArt draws it over a picture only). */}
+          the founder that day): Back top left, Save top right (founder 2026-11-20: "Move the save into the top right instead of settings"; never the cog on a
+          recipe's photo), the expand chip bottom right, and the light status band over its top 60 px (RecipeHeroArt draws it over a picture only). */}
       <div className="relative -mx-5" style={{ marginTop: "calc(-1 * max(1.25rem, env(safe-area-inset-top)))" }}>
         {/* first in the page, drawn over the picture: Back and Save come before "See the whole picture" for a keyboard or a screen reader (audit, 20 November) */}
         {/* only its buttons take a tap, so a drag of the person's photo can start anywhere else on it */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
           {/* Back on a recipe Pip has just written that isn't saved yet asks first (it stays on the page and opens the question) */}
-          <PageHeader photo settings={!saveControl} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
+          <PageHeader photo settings={false} action={saveControl} back={{ href: backHref, label: t("Back to recipes"), onClick: (e) => { if (save && !save.saved) { e.preventDefault(); setLeaving(true); } } }} />
         </div>
         {/* the person's own photo (`photo`, just taken, or the one kept with the recipe) can be moved: a tap on it, then drag (founder 2026-11-20) */}
         <RecipeHeroArt id={recipe.id} name={recipe.name} label={rt(recipe.name)} meal={recipe.meal} photo={photo} moving={moving} onMoving={setMoving} />
@@ -1020,10 +1021,15 @@ function RecipeAllergenPart({ ingredients }: { ingredients: Array<{ label: strin
 /** Save a recipe from our book to My recipes (on this device), or take it off: a heart on the picture, with its word so it's plain. One name for the place
  *  everywhere: "My recipes" (audit, 20 November 2026: it was "My meals" here and "My recipes" on the button that opens it). */
 function SaveRecipeButton({ id }: { id: string }) {
-  const t = useT();
   const saved = useStore(savedRecipesStore).some((r) => r.id === id);
+  return <SaveChip saved={saved} onClick={() => toggleSavedRecipe(id)} />;
+}
+
+/** The heart chip at the photo's top right: outline with "Save", filled with "Saved"; heard as "Save to My recipes" / "Saved to My recipes", pressed when saved. */
+function SaveChip({ saved, onClick }: { saved: boolean; onClick: () => void }) {
+  const t = useT();
   return (
-    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My recipes") : t("Save to My recipes")} onClick={() => toggleSavedRecipe(id)} className={SAVE_BUTTON}>
+    <button type="button" aria-pressed={saved} aria-label={saved ? t("Saved to My recipes") : t("Save to My recipes")} onClick={onClick} className={SAVE_BUTTON}>
       <HeartIcon aria-hidden filled={saved} className="h-5 w-5 text-ink" />{saved ? t("Saved") : t("Save")}
     </button>
   );

@@ -199,8 +199,9 @@ const styleLine = (t: (s: string, v?: Record<string, string | number>) => string
  * images of the diet": two to a row, the picture filling each tile's top, the name in bold and one short grey line under it). Each picture is one of our own
  * recipes of that style that suits the diet (mealPlan.ts stylePicture; none for High protein and a vegan diet, or a picture that can't load: the plate
  * drawing). The choice look on a picture tile: the ring (a tick when chosen) on the picture's corner, and the chosen tile lime with the dark green edge. An odd
- * last tile sits in the middle of its row, the same size as the others. Never "healthy" (CLAUDE.md rule 3). `note`: what the shops' recipes leave short for
- * this style, said under the tiles as it is known.
+ * last tile sits in the middle of its row, the same size as the others. On a short screen (under 700 px high, a 375 x 667 phone) the pictures are flatter
+ * (5:2), so the third tile shows whole above the pinned Done. Never "healthy" (CLAUDE.md rule 3). `note`: what the shops' recipes leave short for this style,
+ * said under the tiles as it is known.
  */
 export function StyleStep({ value, onChange, diet, note }: { value: EatingStyle; onChange: (s: EatingStyle) => void; diet: DietPrefs; note?: string | null }) {
   const t = useT();
@@ -219,7 +220,7 @@ export function StyleStep({ value, onChange, diet, note }: { value: EatingStyle;
           return (
             <button key={s} type="button" role="radio" aria-checked={on} onClick={() => onChange(s)}
               className={`flex flex-col overflow-hidden rounded-[1.25rem] border-[1.5px] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${last ? "col-span-2 w-[calc(50%-0.3125rem)] justify-self-center" : ""} ${on ? TILE_ON : TILE_OFF}`}>
-              <span aria-hidden className="relative grid aspect-[8/5] w-full shrink-0 place-items-center overflow-hidden bg-fill">
+              <span aria-hidden className="relative grid aspect-[8/5] w-full shrink-0 place-items-center overflow-hidden bg-fill [@media(max-height:700px)]:aspect-[5/2]">
                 {shown
                   // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; decorative, the style's name is under it
                   ? <img src={assetUrl(shown)} alt="" width={800} height={600} decoding="async" onError={() => setFailed((f) => [...f, shown])} className="h-full w-full object-cover" />

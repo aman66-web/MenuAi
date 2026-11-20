@@ -463,6 +463,42 @@ for (const [label, viewport, big] of [["402x874", { width: 402, height: 874 }, f
   });
 }
 
+// Step 2 "Anything you avoid?" (the review of 20 November evening, a safety finding): the allergies come first, so someone with a peanut or milk allergy sees
+// them before "Nothing to avoid": the common seven as big chips in the first view, "More" for the other seven, then the diets' pictures.
+for (const [label, viewport] of [["402x874", { width: 402, height: 874 }], ["375x667", { width: 375, height: 667 }]]) {
+  await step(`(m) ${label}: step 2's allergy chips are in the first view, above the bottom bar, before the diet pictures; More brings out the rest and is kept open by a choice among them`, async () => {
+    const { ctx, page } = await fresh({ viewport });
+    await W.startSteps(page, BASE);
+    await W.goal(page, null);
+    await page.waitForTimeout(500);
+    const seen = await page.evaluate(() => {
+      const chips = [...document.querySelectorAll('[role="group"][aria-label="Allergies to avoid"] button')];
+      const bar = [...document.querySelectorAll("main div")].find((d) => d.className.includes("sticky bottom-0"));
+      const diet = document.querySelector('[role="group"][aria-label="Your diet"]');
+      return { y: scrollY, barTop: bar ? bar.getBoundingClientRect().top : innerHeight, dietTop: diet ? diet.getBoundingClientRect().top : 0, chips: chips.map((c) => ({ name: c.textContent.trim(), bottom: c.getBoundingClientRect().bottom })) };
+    });
+    expect(seen.y === 0, "the screen opened scrolled");
+    expect(seen.chips.map((c) => c.name).join(",") === "Gluten,Milk,Eggs,Peanuts,Tree nuts,Soya,Fish,More", "the first chips: " + seen.chips.map((c) => c.name).join(","));
+    const low = seen.chips.filter((c) => c.bottom > seen.barTop);
+    expect(low.length === 0, `under the bottom bar (${Math.round(seen.barTop)} px): ${low.map((c) => `${c.name} ${Math.round(c.bottom)}`).join(", ")}`);
+    expect(seen.dietTop > Math.max(...seen.chips.map((c) => c.bottom)), "the diet pictures come after the allergies");
+    expect(await page.getByText("Filters use each restaurant's own allergen guide. Always check with staff.").isVisible(), "the allergy caution");
+    await axe(page, "Anything you avoid?");
+    await W.moreAllergies(page).click();
+    expect(!(await W.moreAllergies(page).count()), "More is still there once tapped");
+    const focused = await page.evaluate(() => document.activeElement?.textContent?.trim() ?? "");
+    expect(focused.startsWith("Crustaceans"), "the focus after More: " + focused);
+    expect((await page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button").count()) === 14, "all 14 after More");
+    await W.allergyChip(page, "Sesame").click();
+    await go(page, "Continue");
+    await W.onStep(page, "shops");
+    await W.backButton(page).click();
+    await W.onStep(page, "avoid");
+    expect((await W.allergyChip(page, "Sesame").getAttribute("aria-pressed")) === "true" && !(await W.moreAllergies(page).count()), "a chosen allergy behind More is hidden on the way back");
+    await ctx.close();
+  });
+}
+
 await browser.close();
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

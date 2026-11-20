@@ -167,6 +167,8 @@ export interface WeekAverage {
   /** Calories a day over the week's days before today with food logged (null when there are none). */
   average: number | null;
   days: number;
+  /** How many foods were logged in the week up to today (0 = nothing logged; today's foods count here though not in the average). */
+  entries: number;
 }
 
 /**
@@ -184,6 +186,7 @@ export function weeklyCalories(days: readonly StatsDay[]): WeekAverage[] {
       current: week.some((d) => d.state === "today"),
       average: counted.length ? counted.reduce((s, d) => s + d.figures.calories.total, 0) / counted.length : null,
       days: counted.length,
+      entries: week.reduce((s, d) => s + d.entries, 0),
     });
   }
   return out;
@@ -195,10 +198,16 @@ export interface MacroStat extends Average {
   scaleTop: number;
 }
 
+/** Calories a gram of protein, carbs and fat (the rule lib/mm/mealPlan.ts fitsStyle uses: protein and carbs 4, fat 9). */
+export const KCAL_PER_GRAM: Readonly<Record<MacroKey, number>> = { protein: 4, carbs: 4, fat: 9 };
+
 export interface MacroSplit {
   /** Grams this week up to now, from the foods that gave all three figures. */
   grams: Record<MacroKey, number>;
-  /** Each one's share of those grams, whole numbers adding up to 100. */
+  /**
+   * Each one's share of the calories those grams give (KCAL_PER_GRAM), whole numbers adding up to 100: the same measure as the meal plan's High protein (at
+   * least 30% of calories from protein), so "30% protein" means the same thing on both screens.
+   */
   shares: Record<MacroKey, number>;
 }
 
@@ -206,7 +215,7 @@ export interface MacroStats {
   /** Monday to Sunday of this week. */
   days: StatsDay[];
   macros: Record<MacroKey, MacroStat>;
-  /** The week's split by weight (null when no food this week up to now gave all three). */
+  /** The week's split as shares of calories (null when no food this week up to now gave all three). */
   split: MacroSplit | null;
   /** Some food this week up to now has no protein, carbs or fat figure, so those count only the foods that have them. */
   gap: boolean;
@@ -230,7 +239,7 @@ export function macroStats(log: readonly StatsEntry[], now: Date, targets: Parti
     if (MACRO_KEYS.every((k) => finite(n[k]))) for (const k of MACRO_KEYS) grams[k] += n[k]!;
     else gap = true;
   }
-  const shares = sharesOf(MACRO_KEYS.map((k) => grams[k]));
+  const shares = sharesOf(MACRO_KEYS.map((k) => grams[k] * KCAL_PER_GRAM[k]));
   return {
     days,
     macros,

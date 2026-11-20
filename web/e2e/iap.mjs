@@ -119,7 +119,7 @@ await step("after setup: the free-trial offer once, with the plans, the price af
   await sheet.getByText("£9.99, one payment. It doesn't renew.").waitFor();
   await plans.getByRole("radio", { name: /Founding Member/ }).press("ArrowUp");
   await plans.getByRole("radio", { name: /Monthly/, checked: true }).waitFor();
-  await sheet.getByText(/One free trial per Apple ID\./).waitFor();
+  await sheet.getByText(/There is one free trial per Apple ID\./).waitFor();
   await sheet.getByText(/renews at the same price and length unless you cancel at least 24 hours/).waitFor();
   await sheet.getByRole("link", { name: "Terms of Use (EULA)" }).waitFor();
   await sheet.getByRole("link", { name: "Privacy Policy" }).waitFor();

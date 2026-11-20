@@ -2,12 +2,14 @@ import { Card } from "../_components/ui";
 
 // One white card per measure, laid out like the founder's example screen (2026-11-20): the name at the top, the figure on the left sitting level with the
 // bottom of the bars, the bars on the right. When the text is large (or the screen narrow) the bars move under the figure. `wide`: the bars take the card's
-// full width under the figure (the four weeks, whose dates need the room).
+// full width under the figure (the four weeks, whose dates need the room). `control`: a switch in the name's place (Calories' This week / Last 4 weeks), the
+// name then for screen readers only.
 
-export function StatCard({ title, dot, figure, chart, foot, wide = false }: {
+export function StatCard({ title, dot, control, figure, chart, foot, wide = false }: {
   title: string;
   /** A small dot in the measure's own colour before its name (protein, carbs, fat). */
   dot?: string;
+  control?: React.ReactNode;
   figure: React.ReactNode;
   chart: React.ReactNode;
   /** Small lines under the chart (the target key, which days count). */
@@ -17,18 +19,25 @@ export function StatCard({ title, dot, figure, chart, foot, wide = false }: {
   return (
     <Card className="px-4 pb-4 pt-4">
       <section aria-label={title}>
-        <h2 className="flex items-center gap-2 text-[1.375rem] font-bold leading-tight">
-          {dot && <span aria-hidden className={`dot ${dot}`} />}
-          {title}
-        </h2>
+        {control ? (
+          <>
+            <h2 className="sr-only">{title}</h2>
+            {control}
+          </>
+        ) : (
+          <h2 className="flex items-center gap-2 text-[1.375rem] font-bold leading-tight">
+            {dot && <span aria-hidden className={`dot ${dot}`} />}
+            {title}
+          </h2>
+        )}
         {wide ? (
           <>
-            <div className="mt-2">{figure}</div>
+            <div className={control ? "mt-4" : "mt-2"}>{figure}</div>
             <div className="mt-4">{chart}</div>
           </>
         ) : (
           // side by side once the card has room for 6.5rem of figure and 10rem of bars (so large text stacks them, figure first)
-          <div className="mt-3 @container">
+          <div className={`${control ? "mt-4" : "mt-3"} @container`}>
             <div className="flex flex-col gap-4 @min-[17.75rem]:flex-row @min-[17.75rem]:items-end @min-[17.75rem]:gap-5">
               {/* level with the bottom of the bars, above the day letters */}
               <div className="min-w-0 @min-[17.75rem]:flex-[1_1_6.5rem] @min-[17.75rem]:pb-8">{figure}</div>

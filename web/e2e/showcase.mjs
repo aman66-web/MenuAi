@@ -219,8 +219,8 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   expect((await W.planNumbers(page)).calories === 2500, "Change and Save didn't keep 2,500");
   expect((await settingsOf(page)).dailyCalories === 2500, "2,500 isn't saved");
   await W.planNext(page);
-  // 8: the account: one line, the recipe waiting, three ways in, Not now
-  await check("save", 8, { skip: false, pip: 1 });
+  // 8: the account: one line, the recipe waiting, three ways in, Not now; no Pip (founder 2026-11-20: Pip taken off the account step)
+  await check("save", 8, { skip: false });
   await page.getByText("Free, and it keeps your plan safe on any phone.").waitFor();
   await page.getByText(`Waiting for you on Home: ${recipe}.`).waitFor();
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) expect(await page.getByText(way, { exact: true }).isVisible(), `${way} isn't offered`);

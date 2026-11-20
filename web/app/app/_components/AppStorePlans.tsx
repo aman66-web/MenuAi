@@ -197,7 +197,8 @@ export function AppStorePlans({ afterContinue, onUnlocked }: { afterContinue?: R
       <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{renewalWords(listed, t).join(" ")}</p>
       {trial && (
         <p className="mt-2 text-[0.9375rem] leading-snug text-muted">
-          {t("One free trial per Apple ID.")}
+          {/* Apple's free-trial terms (guideline 3.1.2): what happens when the trial ends must stay on this screen; the words pass of 20 Nov cut it, restored */}
+          {t("With the free trial you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID.", { days: trial })}
         </p>
       )}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">

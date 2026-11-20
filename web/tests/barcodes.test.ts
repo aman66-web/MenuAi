@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { barcodeCandidates, isBarcodeFile, labelledHits, lookupBarcode, normaliseBarcode, scanTarget, shopItemHref, upcEToA, type BarcodeFile } from "../lib/mm/barcodes";
-import type { ShopFile, ShopManifest } from "../lib/mm/shopProducts";
+import { amountChoices, loggableFromShop, startAmount } from "../lib/mm/addFood";
+import { barcodeCandidates, barcodeShown, isBarcodeFile, labelledHits, lookupBarcode, normaliseBarcode, sameBarcode, scanHref, scanTarget, shopItemHref, upcEToA, type BarcodeFile } from "../lib/mm/barcodes";
+import { decodeShopProducts, type ShopFile, type ShopManifest } from "../lib/mm/shopProducts";
 
 // Scan a barcode, see the product (founder 2026-11-20). lib/mm/barcodes.ts reads public/groceries/all/barcodes.json (tools/groceries/build_all_products.py).
 
@@ -68,6 +69,25 @@ describe("looking a barcode up", () => {
   });
 });
 
+describe("a scan opens the Groceries product page with the digits as printed (2026-11-20: 01318180 sent as 1318180 said \"We don't have it yet\")", () => {
+  it("keeps the leading zeros in the link", () => {
+    expect(scanHref("01318180")).toBe("/app/groceries/product?code=01318180&scan=1");
+    expect(scanHref(" 0131-8180 ")).toBe("/app/groceries/product?code=01318180&scan=1");
+    expect(scanHref("5063089019924")).toBe("/app/groceries/product?code=5063089019924&scan=1");
+    expect(scanHref("1318180")).toBeNull(); // 7 digits isn't a barcode
+    expect(scanHref("rice krispies")).toBeNull();
+  });
+
+  it("compares a record's GTIN with the barcode without leading zeros, and never matches an empty one", () => {
+    expect(sameBarcode("01318180", "1318180")).toBe(true);
+    expect(sameBarcode("01318180", "01318180")).toBe(true);
+    expect(sameBarcode("0012345678905", "12345678905")).toBe(true);
+    expect(sameBarcode("01318180", "1318181")).toBe(false);
+    expect(sameBarcode("0000", "0")).toBe(false);
+    expect(sameBarcode("", "")).toBe(false);
+  });
+});
+
 describe("the published barcode index", () => {
   const raw = JSON.parse(readFileSync("public/groceries/all/barcodes.json", "utf8")) as unknown;
   const manifest = JSON.parse(readFileSync("public/groceries/all/all-manifest.json", "utf8")) as ShopManifest;
@@ -100,6 +120,29 @@ describe("the published barcode index", () => {
         expect(hit?.catalogue, `${r.id} ${p.gtin}`).toContain(r.id);
       }
     }
+  });
+
+  it("finds the design review's 01318180 (Sainsbury's Multiseed Wholemeal Farmhouse Loaf) by its 8 digits, even from a link that lost the leading zero", () => {
+    // the stripped form the page used to look up is too short to be a barcode: that was the bug
+    expect(lookupBarcode(file, "1318180")).toBeNull();
+    for (const asked of ["01318180", barcodeShown("1318180")]) {
+      const hit = lookupBarcode(file, asked);
+      expect(hit?.code, asked).toBe("1318180");
+      expect(hit?.catalogue).toContain("sainsburys");
+    }
+    const sainsburys = JSON.parse(readFileSync("public/groceries/sainsburys.json", "utf8")) as { products: Array<{ gtin: string; name: string }> };
+    const loaf = sainsburys.products.find((p) => sameBarcode(p.gtin, "1318180"));
+    expect(loaf?.name).toBe("Multiseed Wholemeal Farmhouse Loaf");
+  });
+
+  it("offers the 100 ml amount for Asda's 2 L semi-skimmed milk, which prints no portion and is too big a pack for a whole-pack amount", () => {
+    const at = file.shops.indexOf("asda");
+    const row = (file.codes["5063089019924"] ?? []).find(([i]) => i === at)!;
+    const f = JSON.parse(readFileSync("public/groceries/all/asda.json", "utf8")) as ShopFile;
+    const milk = loggableFromShop(f, decodeShopProducts(f).find((p) => p.id === row[1])!)!;
+    expect(milk.per).toBe("ml");
+    expect(amountChoices(milk)).toContainEqual({ kind: "hundred", amount: 100 });
+    expect(startAmount(milk)).toBe(100);
   });
 
   it("puts the person's own shop first for a product several shops sell", () => {

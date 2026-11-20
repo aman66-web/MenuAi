@@ -78,7 +78,8 @@ function SignInError({ children, id }: { children: string; id?: string }) {
 function describeError(e: unknown, t: T): string {
   if (e instanceof AccountError) {
     if (e.offline) return t("You're offline. Connect to the internet and try again.");
-    if (e.code === "invalid_code") return t("That code isn't right, or it has run out. Ask for a new one.");
+    // short: the countdown and "Send it again" under it say the rest (the 20 November review: the old "Ask for a new one" fought the countdown)
+    if (e.code === "invalid_code") return t("That code isn't right.");
     if (e.status === 429) return t("Please wait a minute and try again.");
     if (e.code === "invalid_request") return t("That doesn't look right. Please check it and try again.");
     if (e.status === 503) return t("Sign-in isn't available right now. Please try again in a moment.");

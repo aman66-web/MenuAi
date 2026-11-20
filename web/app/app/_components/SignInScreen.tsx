@@ -5,7 +5,6 @@ import { SIGN_IN_HEADING, type SignInReason } from "@/lib/mm/signInGate";
 import { tk } from "@/lib/mm/i18n";
 import { site } from "@/site.config";
 import { useT } from "../_lib/i18n";
-import { Pip } from "./Mascot";
 import { BackCircle, EmailSignIn, SIGN_IN_MESSAGES, SIGN_IN_SCREEN, SignInPanel } from "./SignIn";
 
 // The sign-in screen (founder 2026-11-17: "Sign up screen shouldn't be skippable, required for everyone"; lib/mm/config.ts SIGN_IN_REQUIRED, lib/mm/signInGate.ts).
@@ -15,8 +14,8 @@ import { BackCircle, EmailSignIn, SIGN_IN_MESSAGES, SIGN_IN_SCREEN, SignInPanel 
 // afternoon, "short and simple"; that morning "Save your goal and numbers: make your free account") (Step 11 of 11, after the three feature screens and straight
 // before Home), with Back to the screen it came from; the cover's "Already have an account? Sign in" opens it headed "Welcome back. Sign in"; a page of the app
 // reached signed out keeps "Sign in or sign up" (founder 2026-11-18). Laid out like the founder's reference screens (20 November: "Did you not use any of the
-// examples"): the heading and one grey line at the top left, a picture in the free space (Pip, waving: no figure is on this screen, so he may stand here), and
-// the three big buttons at the foot, where a thumb is; under them one small line says what the account keeps, with the Privacy link (SignIn.tsx), and no card
+// examples"): the heading and one grey line at the top left, white space (no picture: Pip stands, small, on the welcome steps' first screen only; the review of
+// 20 November evening), and the three big buttons at the foot, where a thumb is; under them one small line says what the account keeps, with the Privacy link (SignIn.tsx), and no card
 // round any of it. "Continue with email" swaps the whole screen for the two email screens ("What's your email?", then "Enter the code": SignIn.tsx
 // EmailSignIn), whose Back arrow comes back here. On the last step:
 // - "Waiting for you on Home: {recipe}." when a first recipe was chosen on step 5, only while the three buttons still fit on the screen without scrolling (4.8);
@@ -68,7 +67,7 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
   // "Continue with email": the two email screens take this screen's place until their Back arrow
   const [emailOpen, setEmailOpen] = useState(false);
   // the recipe line only while Apple, Google and email all still fit on the screen without scrolling (guideline 4.8): measured once it is in place, and
-  // taken out again (hidden) when it would push "Continue with email" below the screen (Pip shrinks first: his size follows the screen's height)
+  // taken out again (hidden) when it would push "Continue with email" below the screen
   const waitingLine = useRef<HTMLParagraphElement>(null);
   // a screen reader starts at the heading when this screen takes the place of a page (and again back from the email screens)
   useLayoutEffect(() => {
@@ -114,12 +113,8 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
       {/* the one grey line under the heading, as on the reference screens */}
       <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t(line)}</p>
       {waiting && <p ref={waitingLine} className="mt-2 text-base font-semibold leading-snug text-foreground">{t("Waiting for you on Home: {recipe}.", { recipe: waiting })}</p>}
-      {/* the picture in the free space: Pip waving, smaller on a shorter screen and left out on the smallest, so the three buttons always fit (4.8); the
-          height ranges don't overlap, as the order of the rules isn't fixed */}
-      <div className="flex min-h-0 flex-1 items-center justify-center py-4 [@media(max-height:700px)]:py-1.5 [@media(max-height:600px)]:hidden">
-        <Pip mood="wave" size={140} className="h-[10rem] w-[9.33rem] [@media(min-height:701px)_and_(max-height:800px)]:h-[7.5rem] [@media(min-height:701px)_and_(max-height:800px)]:w-[7rem] [@media(max-height:700px)]:h-[3.75rem] [@media(max-height:700px)]:w-[3.5rem]" />
-      </div>
-      <div className="mt-auto pt-2">
+      {/* nothing in the free space: white space, as on the reference screens (Pip stands, small, on step 1 only) */}
+      <div className="mt-auto pt-6">
         {way === "setup" && !online && (
           <p role="status" className="mb-3 text-base font-semibold leading-snug text-foreground">{t("You're offline. Connect to the internet to make your account. Your answers are kept on this phone.")}</p>
         )}

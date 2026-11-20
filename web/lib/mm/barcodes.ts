@@ -135,6 +135,21 @@ export function barcodeShown(code: string): string {
   return /^\d{1,7}$/.test(d) ? d.padStart(8, "0") : d;
 }
 
+/**
+ * The Groceries product page for a scanned or typed barcode, the digits as printed (2026-11-20: a link with the leading zeros stripped sent 01318180 as 1318180,
+ * which is too short to look up, so the page said "We don't have it yet"); null for anything that isn't a barcode.
+ */
+export function scanHref(raw: string): string | null {
+  const d = barcodeDigits(raw);
+  return d ? `/app/groceries/product?code=${d}&scan=1` : null;
+}
+
+/** Is a record's barcode (a catalogue GTIN, leading zeros or not) this one? Compared as the files key them, with the leading zeros stripped. */
+export const sameBarcode = (gtin: string, code: string): boolean => {
+  const a = (gtin ?? "").replace(/^0+/, "");
+  return a !== "" && a === (code ?? "").replace(/^0+/, "");
+};
+
 // ---- a barcode no list of ours holds: Open Food Facts, asked through our own API (GET /api/v1/barcode/{code}, lib/barcodeLookup.ts). Founder 2026-11-20.
 // Community data, said so on screen (CLAUDE.md rule 1): every figure is checked here, on the server and again on the phone; a figure that can't be right is left out,
 // and when the calories don't roughly agree with the protein, carbs and fat there are no figures to add at all (the person types them from the pack).

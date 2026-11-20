@@ -69,8 +69,16 @@ export async function goal(page, name = "Maintain") {
 }
 /** A diet's picture tile on step 2 (its name is all its words: the diet, then its short line). */
 export const dietTile = (page, name) => page.getByRole("group", { name: /^(Your diet|More diets)$/ }).getByRole("button", { name: new RegExp(`^${esc(name)}(?: |$)`) }).first();
-/** An allergy chip on step 2 (its name is the allergen and its hint). */
+/** An allergy chip on step 2 (its name is the allergen and its hint). Step 2 shows the allergies first, the common seven (Gluten, Milk, Eggs, Peanuts, Tree
+ *  nuts, Soya, Fish) then "More" for the rest of the 14 (the review of 20 November evening): see showAllergy. */
 export const allergyChip = (page, name) => page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: new RegExp(`^${esc(name)}(?: |$)`) }).first();
+/** Step 2's "More" chip, which brings out the other seven allergies (it goes once tapped). */
+export const moreAllergies = (page) => page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: "More", exact: true });
+/** An allergy chip on step 2, with "More" tapped first when it is one of the rest. */
+export async function showAllergy(page, name) {
+  if (!(await allergyChip(page, name).count()) && (await moreAllergies(page).count())) await moreAllergies(page).click();
+  return allergyChip(page, name);
+}
 /** Step 2: the diets and allergies tapped, then Continue; none: "Nothing to avoid"; null: Skip. */
 export async function avoid(page, { diets = [], allergies = [] } = {}) {
   await onStep(page, "avoid");
@@ -78,7 +86,7 @@ export async function avoid(page, { diets = [], allergies = [] } = {}) {
     await skipButton(page).click();
   } else {
     for (const d of diets) await dietTile(page, d).click();
-    for (const a of allergies) await allergyChip(page, a).click();
+    for (const a of allergies) await (await showAllergy(page, a)).click();
     await press(page, diets.length || allergies.length ? "Continue" : "Nothing to avoid");
   }
   await onStep(page, "shops");

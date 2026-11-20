@@ -154,7 +154,9 @@ await step("a first visit: the cover says which numbers and 'No ads, no tracking
   await heardStep(page, 8, 8);
   const screen = await page.locator("main").innerText();
   expect(!/skip|not now|continue without|look around|optional/i.test(screen), "nothing on the sign-in screen gets past it: " + screen.replace(/\n/g, " | "));
-  // founder 2026-11-20: one short line from Pip and one small line with the Privacy link; no "New here?", no Face ID line, no long list
+  // founder 2026-11-20: one short grey line and one small line with the Privacy link; no "New here?", no Face ID line, no long list; white space, no Pip
+  // (he stands, small, on step 1 only: the review of 20 November evening)
+  expect(!(await page.locator("main svg.pip").count()), "Pip is on the account step");
   expect(screen.includes("Free, and it keeps your plan safe on any phone.") && screen.includes("We keep your email and what you save. No ads, no tracking.") && !/New here|Face ID|Never your sex/.test(screen), "the reason and the promise: " + screen.replace(/\n/g, " | "));
   expect(await page.getByRole("link", { name: "Privacy" }).isVisible(), "the Privacy link beside the promise");
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) expect(await page.getByText(way, { exact: true }).isVisible(), `${way} is offered`);
@@ -264,7 +266,8 @@ await step("'Continue with email' is two screens of one question each: 'What's y
   expect(text.includes("Sent to joan.smith@example.com") && /You can ask for a new code in \d+ seconds/.test(text) && !/Junk|Use a different email|Send a new code|Sign in/.test(text), "the code screen: " + text.replace(/\n/g, " | "));
   // a wrong code goes by itself with the sixth digit, says so and empties the six places
   await code.fill("000000");
-  await page.getByText("That code isn't right, or it has run out. Ask for a new one.").waitFor();
+  // short: the countdown and "Send it again" say the rest (the 20 November review)
+  await page.getByText("That code isn't right.", { exact: true }).waitFor();
   expect((await code.inputValue()) === "", "the six places are empty again");
   // Back: the address is still there, and going on with it while its code is new sends no second email
   const sends = device.calls.filter((c) => c === "POST auth/email/start").length;

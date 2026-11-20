@@ -60,6 +60,17 @@ export type BarcodeLookup =
   /** It couldn't be looked up (no connection). */
   | { status: "error" };
 
+/** Open Food Facts alone, for a barcode our own files have no figures for: its product with figures to add, else the name it knows (or ""), else that it couldn't be asked. */
+export async function lookupOpenFoodFacts(digits: string, unnamed: string): Promise<BarcodeLookup> {
+  try {
+    const off = await askOpenFoodFacts(digits);
+    const product = off ? loggableFromOff(off, unnamed) : null;
+    return product ? { status: "found", products: [product] } : { status: "missing", name: off?.name ?? "" };
+  } catch {
+    return { status: "error" };
+  }
+}
+
 /** Everything we can find for a barcode's digits (leading zeros kept), in the order above. `unnamed`: the name for an Open Food Facts record with none. */
 export async function lookupBarcodeEverywhere(digits: string, mine: readonly string[], unnamed: string): Promise<BarcodeLookup> {
   try {
@@ -68,13 +79,7 @@ export async function lookupBarcodeEverywhere(digits: string, mine: readonly str
   } catch {
     // our files couldn't load: Open Food Facts may still answer
   }
-  try {
-    const off = await askOpenFoodFacts(digits);
-    const product = off ? loggableFromOff(off, unnamed) : null;
-    return product ? { status: "found", products: [product] } : { status: "missing", name: off?.name ?? "" };
-  } catch {
-    return { status: "error" };
-  }
+  return lookupOpenFoodFacts(digits, unnamed);
 }
 
 /** The lookup for a barcode's digits (null: none yet), asked once per digits and `retry`. */
@@ -88,6 +93,23 @@ export function useBarcodeLookup(digits: string | null, mine: readonly string[],
     lookupBarcodeEverywhere(digits, mineKey ? mineKey.split(",") : [], unnamed).then((value) => { if (live) setGot({ key, value }); });
     return () => { live = false; };
   }, [key, digits, mineKey, unnamed]);
+  if (!key) return null;
+  return got?.key === key ? got.value : { status: "loading" };
+}
+
+/**
+ * Open Food Facts alone for a barcode's digits (null: none to ask), asked once per digits and `retry`: the Groceries product page, which has already looked in our
+ * own files (founder 2026-11-20: a scan of Rice Krispies there ended at "We don't have it yet" though Add food would have found it).
+ */
+export function useOpenFoodFacts(digits: string | null, unnamed: string, retry = 0): BarcodeLookup | null {
+  const key = digits ? `${digits}|${retry}` : null;
+  const [got, setGot] = useState<{ key: string; value: BarcodeLookup } | null>(null);
+  useEffect(() => {
+    if (!key || !digits) return;
+    let live = true;
+    lookupOpenFoodFacts(digits, unnamed).then((value) => { if (live) setGot({ key, value }); });
+    return () => { live = false; };
+  }, [key, digits, unnamed]);
   if (!key) return null;
   return got?.key === key ? got.value : { status: "loading" };
 }

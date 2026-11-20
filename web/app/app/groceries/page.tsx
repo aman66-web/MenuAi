@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { barcodeQuery, RETAILERS } from "@/lib/mm/groceries";
+import { scanHref } from "@/lib/mm/barcodes";
+import { RETAILERS } from "@/lib/mm/groceries";
 import { parseShops, pickedShopsHref, toggleShop } from "@/lib/mm/shopPick";
 import { CompareIcon, PodiumIcon, ScanIcon, SearchIcon } from "../_components/icons";
 import { ShopMark } from "../_components/ChainMark";
@@ -123,7 +124,8 @@ export default function GroceriesPage() {
       )}
 
       {/* a scan opens the product: in a shop's full list where one has it (the person's own shop first), else its catalogue page, else "We don't have it yet" */}
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const c = barcodeQuery(code); if (c) router.push(`/app/groceries/product?code=${c}&scan=1`); }} />
+      {/* the digits as printed, leading zeros kept (2026-11-20: 01318180 sent as 1318180 wasn't found) */}
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(code) => { setScanning(false); const href = scanHref(code); if (href) router.push(href); }} />
     </div>
   );
 }

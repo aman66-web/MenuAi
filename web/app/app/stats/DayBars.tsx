@@ -7,7 +7,8 @@ import { useT } from "../_lib/i18n";
 // A bar a day, or a bar a week (the Stats screen, founder 2026-11-20), drawn like the founder's example screen: a rounded grey track for each day with the
 // day's figure filling it from the bottom, the day letters under it. Drawn only: a screen reader gets the list under it, one line a day. A day with nothing
 // logged (or, on Macros and Nutrients, no food that gave the figure) is its empty track, never a bar of 0 (CLAUDE.md rule 1); a day still to come is a faint
-// track. One flat colour for every bar, never a colour for "over" (rule 3): the target is a dashed line across the tracks. Seven days read Monday to Sunday,
+// track. A day (or week) with nothing logged at all also has a small dash on its track, so it never looks like a day still to come; NothingKey under the
+// chart says what the dash means. One flat colour for every bar, never a colour for "over" (rule 3): the target is a dashed line across the tracks. Seven days read Monday to Sunday,
 // today in lime with its dark green edge as on Home; four weeks read by each week's Monday, this week in lime ("This week").
 
 export interface Bar {
@@ -17,7 +18,12 @@ export interface Bar {
   state: StatsDayState;
   /** The day's figure, or null when there is none to show. */
   value: number | null;
+  /** Nothing was logged that day (or that week): a small dash on its empty track. */
+  nothing?: boolean;
 }
+
+/** The dash on a day with nothing logged, and in its key (the same mark in both). */
+const DASH = "block h-[2px] w-2 rounded-full bg-muted";
 
 const TODAY = "rounded-full border-[1.5px] border-on-sun bg-sun px-1.5 py-px font-bold text-on-sun";
 
@@ -50,7 +56,11 @@ export function DayBars({ bars, top, target, color, weeks = false, spoken, listL
           {bars.map((b) => (
             <div key={b.key} className="flex justify-center">
               <div className={`relative h-full overflow-hidden rounded-full bg-soft-strong ${weeks ? "w-4" : "w-3.5"} ${b.state === "future" ? "opacity-40" : ""}`}>
-                {b.value !== null && <div className={`absolute inset-x-0 bottom-0 rounded-full ${color}`} style={{ height: `max(${least}, ${pct(b.value)})` }} />}
+                {b.value !== null ? (
+                  <div className={`absolute inset-x-0 bottom-0 rounded-full ${color}`} style={{ height: `max(${least}, ${pct(b.value)})` }} />
+                ) : b.nothing ? (
+                  <span className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 ${DASH}`} />
+                ) : null}
               </div>
             </div>
           ))}
@@ -73,6 +83,22 @@ export function DayBars({ bars, top, target, color, weeks = false, spoken, listL
       </ol>
     </div>
   );
+}
+
+/** The key under a chart for the dash on a day with nothing logged. Shown only when a dash is on the screen. */
+export function NothingKey() {
+  const t = useT();
+  return (
+    <p className="flex items-center gap-1.5">
+      <span aria-hidden className="flex w-4 shrink-0 justify-center"><span className={DASH} /></span>
+      {t("Nothing logged")}
+    </p>
+  );
+}
+
+/** A row of keys under a chart (the target line, the dash): side by side while they fit, one under the other when they don't. */
+export function Keys({ children }: { children: React.ReactNode }) {
+  return <div className="flex flex-wrap gap-x-4 gap-y-1">{children}</div>;
 }
 
 /** The key under a chart: the dashed target line. */

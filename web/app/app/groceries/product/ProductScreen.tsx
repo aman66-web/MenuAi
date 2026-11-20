@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromShop, withShopLabel, type LoggableProduct } from "@/lib/mm/addFood";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
-import { barcodeDigits, barcodeShown, labelledHits, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
-import { barcodeQuery, cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
+import { barcodeDigits, barcodeShown, labelledHits, normaliseBarcode, sameBarcode, scanHref, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
+import { cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { avoidedAllergens, foodDietNotChecked, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens, LogMeal } from "@/lib/mm/types";
@@ -15,8 +15,10 @@ import { withPhoto } from "@/lib/mm/groceries";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
-import { DiaryButton, DiaryToast } from "../../_components/addfood/ProductPick";
-import { CopyIcon, ExternalIcon, InfoIcon, PlusIcon, ScanIcon } from "../../_components/icons";
+import { useOpenFoodFacts } from "../../_components/addfood/findByBarcode";
+import { DiaryButton, DiaryToast, NotFound, SourceNote, useTypedDiary } from "../../_components/addfood/ProductPick";
+import { PremiumBadge } from "../../_components/PremiumBadge";
+import { CopyIcon, ExternalIcon, InfoIcon, PencilIcon, PlusIcon, ScanIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { InfoLine } from "../../_components/Note";
 import { PageHeader } from "../../_components/PageHeader";
@@ -107,6 +109,87 @@ function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggablePr
   return got?.key === key ? got.product : null;
 }
 
+/**
+ * A barcode none of our lists holds (founder 2026-11-20: "I just tried to scan Rice Krispies, but it didn't come up ... a massive UK database ... they can just add
+ * it easy"): Open Food Facts, asked through our own API as Add food asks it (findByBarcode.ts; the phone never talks to it directly). Found with figures: its
+ * photo, name and per-100 figures, said to be community data with the ODbL credit, and "Add to my food diary" as the page's one ink button. Nobody has figures (or
+ * no barcode to ask): the calm "We don't have this one yet" and "Type the numbers from the pack" (starting with Open Food Facts' name where it knows the product).
+ */
+function NotInOurLists({ digits }: { digits: string | null }) {
+  const t = useT();
+  const router = useRouter();
+  const [retry, setRetry] = useState(0);
+  const [scanning, setScanning] = useState(false);
+  const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
+  const added = (entry: LogEntry, meal: LogMeal) => setDiary({ entry, meal });
+  const typed = useTypedDiary(added);
+  const off = useOpenFoodFacts(digits, digits ? t("Barcode {code}", { code: digits }) : "", retry);
+  const again = <Button variant="secondary" full className="min-h-12" onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan again")}</Button>;
+  const ends = (
+    <>
+      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => { setScanning(false); const href = scanHref(c); if (href) router.replace(href); }} />
+      {typed.sheet}
+      <DiaryToast added={diary} onClose={() => setDiary(null)} />
+    </>
+  );
+
+  if (off?.status === "loading") return (<><Spinner label={t("Looking it up")} />{ends}</>);
+  if (off?.status === "found") {
+    const p = off.products[0]!;
+    const l = p.label;
+    const per = t("per 100 {unit}", { unit: p.per });
+    const rows: Array<[string, string]> = [
+      ...(l.saturates !== undefined ? [[t("Saturates"), `${l.saturates}g`] as [string, string]] : []),
+      ...(l.sugars !== undefined ? [[t("Sugars"), `${l.sugars}g`] as [string, string]] : []),
+      ...(l.fibre !== undefined ? [[t("Fibre"), `${l.fibre}g`] as [string, string]] : []),
+      ...(l.salt !== undefined ? [[t("Salt"), `${l.salt}g`] as [string, string]] : []),
+    ];
+    return (
+      <>
+        <div className={`${CARD} mt-3.5 overflow-hidden p-5`}>
+          <ProductPhotoFigure sources={p.photos} />
+          {p.brand && <p className="kicker">{p.brand}</p>}
+          <h1 className={`${p.brand ? "mt-1.5" : ""} ${productTitleClass(p.name)}`}>{p.name}</h1>
+          {p.size && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{p.size}</p>}
+          {/* the food diary is why it was scanned: the page's one ink button, under the name */}
+          <DiaryButton main product={p} className="mt-5 min-h-[3.25rem] text-base" onAdded={added} />
+          <div className="mt-7">
+            <NutritionPanel
+              kcal={l.kcal} protein={l.protein} carbs={l.carbs} fat={l.fat} basis={per} rows={rows}
+              groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: l.kcal, protein: l.protein, carbs: l.carbs, fat: l.fat, per })}
+            />
+          </div>
+        </div>
+        {/* community data, said so, with the Open Database Licence credit (the photo's own caption credits it) */}
+        <div className="mt-3 px-1"><SourceNote product={p} photoCredit={false} /></div>
+        <div className="mt-4">{again}</div>
+        {ends}
+      </>
+    );
+  }
+  // nobody has figures, or Open Food Facts couldn't be asked: the calm line (or the connection said), and typing the numbers from the pack
+  const badge = typed.paid ? <PremiumBadge /> : null;
+  return (
+    <>
+      <div className="mt-4">
+        {off?.status === "error" ? (
+          <div className="space-y-3">
+            <ErrorBox message={t("Couldn't look it up. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
+            <Button variant="secondary" full className="min-h-12" onClick={() => typed.type("")}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}{badge}</Button>
+          </div>
+        ) : (
+          <NotFound name={off?.status === "missing" ? off.name : ""} code={digits ?? undefined} onType={typed.type} badge={badge} />
+        )}
+      </div>
+      <div className="mt-2.5 grid gap-2.5">
+        {again}
+        <LinkButton href="/app/groceries/search" variant="secondary" full>{t("Search the supermarkets")}</LinkButton>
+      </div>
+      {ends}
+    </>
+  );
+}
+
 export function ProductScreen({ code, retailerHint, scan = false }: { code: string; retailerHint: string | null; scan?: boolean }) {
   const t = useT();
   const poss = usePossessive();
@@ -114,16 +197,18 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const settings = useSettings();
   const prefs = settings.preferences;
   const mineKey = (settings.shops ?? []).join(",");
-  // a link from a screen that dropped the leading zeros (an EAN-8 such as 01318180 arrives as 1318180) still finds it
-  const wanted = barcodeQuery(barcodeShown(code));
+  // the barcode as printed: a link from a screen that dropped the leading zeros (an EAN-8 such as 01318180 arriving as 1318180) gets its 8 digits back, and it is
+  // looked up in that form (2026-11-20: the 7 digits left after stripping were too short to look up, so 01318180 said "We don't have it yet")
+  const digits = barcodeDigits(barcodeShown(code));
+  // the files key barcodes with the leading zeros stripped; "" (all zeros) is no barcode
+  const wanted = digits ? normaliseBarcode(digits) || null : null;
   const [retry, setRetry] = useState(0);
-  const key = `${wanted}|${retailerHint ?? ""}|${scan}|${retry}`;
+  const key = `${digits}|${retailerHint ?? ""}|${scan}|${retry}`;
   const [loaded, setLoaded] = useState<{ key: string; state: State; hit: BarcodeHit | null } | null>(null);
   const state: State = loaded?.key === key ? loaded.state : { status: "loading" };
   const hit = loaded?.key === key ? loaded.hit : null;
   const [added, setAdded] = useState<{ text: string; href: string; n: number } | null>(null);
   const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
-  const [scanning, setScanning] = useState(false);
   // to the main list, or (when the person has lists for that shop) the one they choose; said in the toast, each add a new one
   const { add, sheet } = useAddToList((list) => { setDiary(null); setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your Shopping list."), href: listHref() }), n: (was?.n ?? 0) + 1 })); });
   const [copied, setCopied] = useState(false);
@@ -133,11 +218,11 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
     const done = (st: State, h: BarcodeHit | null = null) => { if (!cancelled) setLoaded({ key, state: st, hit: h }); };
     (async () => {
       try {
-        if (!wanted) return done({ status: "missing" });
+        if (!digits || !wanted) return done({ status: "missing" });
         const mine = mineKey ? mineKey.split(",") : [];
         // where the barcode is (public/groceries/all/barcodes.json); undefined when that file can't be loaded (then every catalogue file is looked in)
         let found: BarcodeHit | null | undefined;
-        try { found = await findBarcode(wanted, mine); } catch { found = undefined; }
+        try { found = await findBarcode(digits, mine); } catch { found = undefined; }
         // only shops whose lists this copy of the app has (the iPhone app can be packed with fewer shops than the barcode file names)
         if (found) {
           const [lists, cat] = await Promise.all([loadShopManifest(), loadManifest().catch(() => null)]);
@@ -162,18 +247,20 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
           ids = [...(retailerHint ? [retailerHint] : []), ...RETAILERS.map((r) => r.id).filter((id) => id !== retailerHint)].filter((id) => manifest.retailers.some((m) => m.id === id));
         }
         const files: GroceryFile[] = await Promise.all(ids.map((id) => loadRetailer(id)));
+        // the code the files hold it under (a UPC-E scan is found by its UPC-A), compared without leading zeros
+        const held = found?.code ?? wanted;
         // a shop counts only where its own list shows the price; a scanned barcode no shop prices still opens with its numbers
         const priced = mergeProducts(files, { pricedOnly: true });
-        const pricedHit = priced.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        const pricedHit = priced.find((p) => sameBarcode(p.gtin, held));
         const all = pricedHit ? priced : mergeProducts(files);
-        const product = pricedHit ?? all.find((p) => p.gtin.replace(/^0+/, "") === wanted);
+        const product = pricedHit ?? all.find((p) => sameBarcode(p.gtin, held));
         done(product ? { status: "ready", product, all } : { status: "missing" }, found ?? null);
       } catch {
         done({ status: "error" });
       }
     })();
     return () => { cancelled = true; };
-  }, [key, wanted, retailerHint, scan, mineKey, router]);
+  }, [key, digits, wanted, retailerHint, scan, mineKey, router]);
 
   const listed = state.status === "ready" ? state.product : null;
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
@@ -184,18 +271,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
-  if (state.status === "missing" || !listed || !selected) return (
-    <div>{back}
-      {/* a barcode we don't have is an ordinary answer, not a failure: the calm line, and the ways on */}
-      {/* the barcode as printed, leading zeros kept (the design review of 2026-11-20: 01318180 was shown as 1318180) */}
-      <div className="mt-4"><InfoLine heading={null}>{t("We don't have {code} yet.", { code: barcodeShown(code) })}</InfoLine></div>
-      <div className="mt-4 grid gap-2.5">
-        <Button full onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan again")}</Button>
-        <LinkButton href="/app/groceries/search" variant="secondary" full>{t("Search the supermarkets")}</LinkButton>
-      </div>
-      <Scanner open={scanning} onClose={() => setScanning(false)} onCode={(c) => { setScanning(false); const q = barcodeDigits(c); if (q) router.replace(`/app/groceries/product?code=${q}&scan=1`); }} />
-    </div>
-  );
+  if (state.status === "missing" || !listed || !selected) return (<div>{back}<NotInOurLists key={digits ?? ""} digits={wanted ? digits : null} /></div>);
 
   const p = forRetailer(listed, selected);
   const cheapestPrice = Math.min(...Object.values(listed.prices).map((x) => x.amount));

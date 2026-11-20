@@ -4,6 +4,8 @@
 // Food Facts through our own API (faked here: nothing reaches Open Food Facts), whose figures are said to be community data. The product comes up with a ring of
 // its protein, carbs and fat, the amount chips and "How much?"; Add puts label x amount in the meal whose + was tapped, with the usual toast and Undo. A barcode
 // nobody has figures for is a calm line with "Type the numbers from the pack"; no connection says so with Try again. Leading zeros stay.
+// The Groceries tab's scan (groceries/page.tsx, product/ProductScreen.tsx): the design review's 01318180 opens its product (2026-11-20: it said "We don't have
+// 01318180 yet"), and a barcode none of our lists holds asks the same lookup (Open Food Facts, faked): its product with "Add to my food diary" as the main button.
 // Run with the server's switches: BASE=http://localhost:3005 NEXT_PUBLIC_PRO=1 NEXT_PUBLIC_PHOTO_RECIPES=1 node e2e/barcodediary.mjs   (ONLY="(c)" runs one)
 import { chromium } from "playwright-core";
 import { readFileSync } from "node:fs";
@@ -88,8 +90,11 @@ await step("(b) our own list first: the milk comes up with Asda's name, the ring
   const text = await dlg(page).innerText();
   expect(text.includes(row[1]) && text.includes("Asda"), "the product shown: " + text.slice(0, 200));
   expect((await dlg(page).locator("svg circle").count()) >= 2, "no ring");
-  // no one-tap amounts here: a 2 litre pack is more than a whole pack's chip offers, and the label prints no portion (100 ml is where it starts)
+  // a 2 litre pack is more than a whole pack's chip offers, and the label prints no portion: 100 ml is where it starts, and its chip is still there, marked
+  // (2026-11-20: no quick picks showed at all)
   expect((await dlg(page).getByLabel("How much?").inputValue()) === "100" && /\bml\b/.test(text), "not 100 ml to start");
+  const hundred = dlg(page).getByRole("group", { name: "Amounts" }).getByRole("button", { name: "100 ml" });
+  expect((await hundred.count()) === 1 && (await hundred.getAttribute("aria-pressed")) === "true", "no marked 100 ml chip");
   await box.fill("250");
   // the ring's figures follow the amount, said in one line to a screen reader
   const said = await dlg(page).locator("p[role='status'].sr-only").first().innerText();
@@ -143,6 +148,79 @@ await step("(e) no connection for the lookup: 'Couldn't look it up. Check your c
   await dlg(page).getByText("Couldn't look it up. Check your connection.").waitFor({ timeout: 90000 });
   await dlg(page).getByRole("button", { name: /Try again/ }).waitFor();
   await dlg(page).getByRole("button", { name: "Type the numbers from the pack" }).waitFor();
+  await ctx.close();
+});
+
+const SAINSBURYS_CODE = "01318180"; // the design review's: Sainsbury's Multiseed Wholemeal Farmhouse Loaf, in the older catalogue
+/** The Groceries tab, "Scan a barcode": the camera can't open here, so the typed number takes its place. */
+async function scanGroceries(page, code) {
+  await page.goto(BASE + "/app/groceries");
+  await page.getByRole("button", { name: /^Scan a barcode/ }).first().tap({ timeout: 120000 });
+  const typed = page.getByPlaceholder("Barcode number");
+  await typed.waitFor({ timeout: 30000 });
+  await typed.fill(code);
+  await page.getByRole("button", { name: "Find", exact: true }).tap();
+}
+
+await step("(g) the Groceries tab: 01318180 opens Sainsbury's Multiseed Wholemeal Farmhouse Loaf, the link keeping the leading zero; an old link without it finds it too; the search's barcode link keeps it", async () => {
+  const { ctx, page, asked, errors } = await open();
+  await scanGroceries(page, SAINSBURYS_CODE);
+  await page.getByRole("heading", { level: 1, name: "Multiseed Wholemeal Farmhouse Loaf" }).waitFor({ timeout: 90000 });
+  expect(new URL(page.url()).searchParams.get("code") === SAINSBURYS_CODE, "the link: " + page.url());
+  expect((await page.getByText(/We don't have/).count()) === 0, "said we don't have it");
+  await page.goto(BASE + "/app/groceries/product?code=1318180&scan=1");
+  await page.getByRole("heading", { level: 1, name: "Multiseed Wholemeal Farmhouse Loaf" }).waitFor({ timeout: 90000 });
+  expect(asked.length === 0, "Open Food Facts was asked for a barcode we hold: " + asked.join(", "));
+  await page.goto(BASE + "/app/groceries/search");
+  await page.getByRole("searchbox", { name: "Search products or type a barcode" }).fill(SAINSBURYS_CODE);
+  const link = page.getByRole("link", { name: `Open the product with barcode ${SAINSBURYS_CODE}` });
+  await link.waitFor({ timeout: 30000 });
+  expect((await link.getAttribute("href")) === `/app/groceries/product?code=${SAINSBURYS_CODE}&scan=1`, "the search's link: " + (await link.getAttribute("href")));
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("(h) the Groceries tab, a barcode only Open Food Facts knows: its name and figures, 'Figures from Open Food Facts (community data)' with the ODbL credit, 'Add to my food diary' as the one ink button; 40 g goes in the food diary", async () => {
+  const { ctx, page, asked, requests, errors } = await open();
+  await scanGroceries(page, OFF_CODE);
+  await page.getByRole("heading", { level: 1, name: "Test Oat Bar" }).waitFor({ timeout: 90000 });
+  await page.getByText("Figures from Open Food Facts (community data)").waitFor();
+  const credit = page.getByRole("link", { name: /Open Food Facts, ODbL/ });
+  expect((await credit.getAttribute("href")) === `https://world.openfoodfacts.org/product/${OFF_CODE}`, "the ODbL credit's link");
+  expect(asked.includes(OFF_CODE), "our API wasn't asked");
+  expect(!requests.some((u) => /openfoodfacts\.org\/api/.test(u)), "the phone asked Open Food Facts directly");
+  const diary = page.getByRole("button", { name: /^Add to my food diary/ });
+  expect((await diary.count()) === 1 && /\bbg-ink\b/.test(await diary.getAttribute("class")), "Add to my food diary isn't the ink button");
+  expect((await page.locator("main button.bg-ink, main a.bg-ink").count()) <= 1, "more than one ink button");
+  await diary.tap();
+  await dlg(page).getByLabel("How much?").fill("40");
+  await dlg(page).getByRole("radio", { name: "Lunch" }).tap();
+  await dlg(page).getByRole("button", { name: "Add to Lunch", exact: true }).tap();
+  await page.getByText(/^Added “Test Oat Bar \(40 g\)” to Lunch\./).waitFor({ timeout: 15000 });
+  const [e] = await log(page);
+  expect(e && e.meal === "lunch" && e.nutrients.calories === 160 && e.nutrients.protein === 4, "entry: " + JSON.stringify(e));
+  expect(errors.length === 0, errors.join(" | "));
+  await ctx.close();
+});
+
+await step("(i) the Groceries tab, a barcode nobody has: the calm 'We don't have this one yet.' with the digits as printed and 'Type the numbers from the pack', which adds the typed numbers to the food diary; never a red error", async () => {
+  const { ctx, page, errors } = await open();
+  await scanGroceries(page, NONE_CODE);
+  await page.getByText("We don't have this one yet.").waitFor({ timeout: 90000 });
+  expect((await page.locator("main").innerText()).replace(/\s/g, "").includes(NONE_CODE), "the barcode lost its leading zero");
+  // (Next's route announcer is an alert of its own, outside the page)
+  const alerts = await page.locator("main [role='alert']").allInnerTexts();
+  expect(alerts.length === 0, "a red error showed: " + alerts.join(" | "));
+  await page.getByRole("button", { name: "Scan again" }).waitFor();
+  await page.getByRole("button", { name: /^Type the numbers from the pack/ }).tap();
+  await dlg(page).getByLabel("Calories (kcal)").fill("210");
+  await dlg(page).getByLabel("Protein (g)").fill("6");
+  await dlg(page).getByRole("radio", { name: "Dinner" }).tap();
+  await dlg(page).getByRole("button", { name: "Add to Dinner", exact: true }).tap();
+  await page.getByText(/to Dinner\./).first().waitFor({ timeout: 15000 });
+  const [e] = await log(page);
+  expect(e && e.meal === "dinner" && e.nutrients.calories === 210 && e.nutrients.protein === 6, "entry: " + JSON.stringify(e));
+  expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
 });
 

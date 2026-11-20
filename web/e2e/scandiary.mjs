@@ -1,7 +1,8 @@
 // Scan a barcode, see the product, add it to the food diary (founder 2026-11-20: "when they scan a barcode of a product, it needs to come up with the product
 // and they can input in and it's their food thing, food tracker"). Groceries › Scan a barcode › "Type the number instead" 5063089019924 (ASDA British Milk
 // Semi Skimmed 2 L, in Asda's full list with Asda's own label) opens Asda's product page; "Add to my food diary" opens "How much?"; Add puts the
-// label's figures x the amount on the food diary with the usual toast and Undo; Today shows it. A barcode we don't have says so calmly, with Scan again.
+// label's figures x the amount on the food diary with the usual toast and Undo; Today shows it. A barcode nobody has (our lists, then Open Food Facts through our own
+// API, faked) says so calmly, with Scan again.
 // Run against a dev or test server: BASE=http://localhost:3005 node e2e/scandiary.mjs
 import { chromium } from "playwright-core";
 import { readFileSync } from "node:fs";
@@ -103,8 +104,11 @@ try {
   });
 
   await step("a barcode we don't have: the calm line and Scan again, never a red error", async () => {
+    // none of our lists holds it, so the page asks Open Food Facts through our own API (faked here: nothing reaches Open Food Facts), which knows nothing
+    await page.route("**/api/v1/barcode/**", (route) => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ found: false }) }));
     await page.goto(`${BASE}/app/groceries/product?code=5000000000123&scan=1`);
-    await page.getByText("We don't have 5000000000123 yet.").waitFor({ timeout: 60000 });
+    await page.getByText("We don't have this one yet.").waitFor({ timeout: 60000 });
+    expect((await page.locator("main").innerText()).replace(/\s/g, "").includes("5000000000123"), "the barcode isn't shown");
     // (in <main>: Next.js's own route announcer is an empty role=alert in its shadow root on every page)
     expect((await page.locator("main").getByRole("alert").count()) === 0, "a red error showed");
     await page.getByRole("button", { name: "Scan again" }).waitFor();
