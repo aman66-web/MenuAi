@@ -31,8 +31,11 @@ struct WebAppView: UIViewRepresentable {
         // The web app handles the notch and home bar itself (viewport-fit=cover + env(safe-area-inset-*)).
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         webView.isOpaque = false
-        webView.backgroundColor = .systemBackground
-        webView.scrollView.backgroundColor = .systemBackground
+        // The app's page grey (globals.css --background in the app, #f4f5f6; colour meeting, 19 November 2026), so an overscroll or the moment before the
+        // first page draws shows the page colour, not white. Light appearance only.
+        let page = UIColor(red: 0xF4 / 255, green: 0xF5 / 255, blue: 0xF6 / 255, alpha: 1)
+        webView.backgroundColor = page
+        webView.scrollView.backgroundColor = page
         #if DEBUG
         webView.isInspectable = true // Safari › Develop on a Mac
         #endif
