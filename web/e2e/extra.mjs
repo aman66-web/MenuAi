@@ -14,26 +14,28 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 let pass = 0, fail = 0;
 async function step(n, fn) { try { await fn(); pass++; console.log("PASS", n); } catch (e) { fail++; console.log("FAIL", n, "-", String(e.message).split("\n")[0]); } }
 const vis = (l) => l.waitFor({ state: "visible", timeout: 8000 });
-// The welcome screen, Pip's arrival, the text size, Pip's walk along the tab bar (Home, Eat out, Groceries, Recipes; Community is off since 2026-11-18) and "Let's make it yours",
-// then "Set up my plan" to the first question.
+// The welcome screen, Pip's arrival, Pip's walk along the tab bar (Home, Recipes, Groceries, Eat out; Community is off since 2026-11-18) and "Let's make it yours",
+// then "Set up my daily numbers" to the first question.
 async function pastIntro(page) {
   await page.getByRole("button", { name: "Get started" }).click();
   await vis(page.getByRole("heading", { name: "Hi, I'm Pip!" }));
   await page.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
-  for (const tab of ["Home", "Recipes", "Groceries", "Eat out"]) {
-    await vis(page.getByRole("heading", { level: 1, name: tab, exact: true }));
+  for (const [i, tab] of ["Home", "Recipes", "Groceries", "Eat out"].entries()) {
+    await vis(page.getByRole("heading", { level: 1, name: stopHead(tab, i + 1) }));
     await page.getByRole("button", { name: "Continue" }).click();
   }
   await vis(page.getByRole("heading", { name: "Let's make it yours" }));
-  await page.getByRole("button", { name: "Set up my plan" }).click();
+  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await vis(page.getByRole("heading", { name: "What's your goal?" }));
 }
 
-// "You're all set!" → "Choose a recipe to start with" → Home (or the shared page): the way out of onboarding without picking a recipe.
+/** A first-run stop's headline as a screen reader hears it: the tab's name, then "stop n of 4" (Chrome puts a space before the comma). */
+const stopHead = (tab, n) => new RegExp(`^${tab} ?, stop ${n} of 4$`);
+
+// "You're all set!" (with its first recipes) → Go to Home (or the shared page): the way out of onboarding without picking a recipe.
 async function finishWithoutRecipe(page) {
-  await page.getByRole("button", { name: "Continue" }).click();
-  await vis(page.getByRole("heading", { name: "Choose a recipe to start with" }));
-  await page.getByRole("button", { name: "Take me to Home" }).click();
+  await vis(page.getByRole("heading", { name: "You're all set!" }));
+  await page.getByRole("button", { name: "Go to Home" }).click();
 }
 
 await step("a link to a restaurant on a first visit opens it straight away: no questions first, and nothing is redirected", async () => {
@@ -66,8 +68,8 @@ await step("GLP-1 onboarding shows the exact line 'Comfortable meal size: … ca
   await pastIntro(page);
   await page.getByRole("radio", { name: "I'm on a GLP-1 medication" }).click();
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("button", { name: "Skip" }).click(); // foods to avoid
-  await page.getByRole("button", { name: "Skip" }).click(); // the questions about the person
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
+  await page.getByRole("button", { name: "Skip", exact: true }).click(); // the questions about the person (not "Skip these questions", which does the same)
   await vis(page.getByText("Comfortable meal size:"));
   if ((await page.getByLabel("Comfortable meal size in calories").inputValue()) !== "450") throw new Error("default 450 expected");
   await ctx.close();
@@ -78,11 +80,11 @@ await step("onboarding offers Other as a goal, Pip answers, and it's kept in Set
   await page.goto(BASE + "/app/welcome");
   await pastIntro(page);
   await page.getByRole("radio", { name: /^Other/ }).click();
-  await vis(page.getByText("No problem. I'll show you the numbers and keep your orders around your target."));
+  await vis(page.getByText("Got it. I'll show you the numbers and keep your meals and orders around your target."));
   await vis(page.getByRole("button", { name: "Continue" }));
   await page.getByRole("button", { name: "Continue" }).click();
   // foods to avoid, the questions about the person, the targets and the shops (text size is chosen at the start of the tour now)
-  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip" }).click();
+  for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Skip", exact: true }).click();
   await finishWithoutRecipe(page);
   await page.waitForURL(/\/app$/);
   await page.goto(BASE + "/app/settings");
@@ -104,9 +106,9 @@ await step("onboarding back button returns to the previous step, keeping the cho
   await vis(page.getByRole("heading", { name: "Let's make it yours" }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   // the walk follows the tab bar (Home, Recipes, Groceries, Eat out; Community is off): back from the end is Eat out
-  await vis(page.getByRole("heading", { level: 1, name: "Eat out", exact: true }));
+  await vis(page.getByRole("heading", { level: 1, name: stopHead("Eat out", 4) }));
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await vis(page.getByRole("heading", { level: 1, name: "Groceries", exact: true }));
+  await vis(page.getByRole("heading", { level: 1, name: stopHead("Groceries", 3) }));
   // Recipes, Home, Pip's arrival, the welcome screen (no text size screen since 2026-11-19)
   for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Back to the previous step" }).click();
   await vis(page.getByRole("button", { name: "Get started" }));

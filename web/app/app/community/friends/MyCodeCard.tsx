@@ -53,7 +53,7 @@ export function MyCodeCard({ username, code }: { username: string; code: string 
         <Button variant="secondary" className="min-h-12" onClick={() => void copy(code)}><CopyIcon className="h-5 w-5" />{t("Copy code")}</Button>
         <Button variant="secondary" className="min-h-12" onClick={() => void copy(link)}><LinkIcon className="h-5 w-5" />{t("Copy link")}</Button>
       </div>
-      <p role="status" aria-live="polite" className="mt-2 min-h-5 text-sm font-medium text-accent">{note}</p>
+      <p role="status" aria-live="polite" className="mt-2 min-h-5 text-sm font-medium text-foreground">{note}</p>
       <p className={`mt-1 ${NOTE}`}>{t("Friends use this code to add you. Nobody can search for you, and nobody can see your email address.")}</p>
       <p className={`mt-2 ${NOTE}`}>{t("Anyone who has your code can ask to be your friend, and will see your username. Share it only with people you choose.")}</p>
     </section>

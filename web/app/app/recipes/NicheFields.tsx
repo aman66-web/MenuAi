@@ -53,7 +53,7 @@ export function NicheFields({
 export function FilterChip({ label, count, pressed, onClick }: { label: string; count?: number | null; pressed: boolean; onClick: () => void }) {
   const off = count === 0 && !pressed;
   return (
-    <button type="button" aria-pressed={pressed} disabled={off} onClick={onClick} className={`${pressed ? CHIP_ON : CHIP} px-4 disabled:cursor-not-allowed disabled:opacity-40`}>
+    <button type="button" aria-pressed={pressed} disabled={off} onClick={onClick} className={`${pressed ? CHIP_ON : CHIP} px-4 disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted`}>
       <span className="app-numbers">{count === undefined || count === null ? label : `${label} · ${count}`}</span>
     </button>
   );

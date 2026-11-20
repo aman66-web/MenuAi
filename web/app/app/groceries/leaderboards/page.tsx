@@ -124,7 +124,7 @@ function Boards() {
               <Button size="lg" full variant="secondary" className="mt-3" onClick={() => showPaywall("leaderboard")}>{t("Unlock the other {n}", { n: rows.length - FREE_LEADERBOARD_ROWS })}</Button>
             )}
             {board === "cheapestProtein" && (
-              <Link href="/app/groceries/protein" className="glass mt-3 flex min-h-12 items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition hover:bg-soft-strong">{t("Compare protein products with everyday ones")}</Link>
+              <Link href="/app/groceries/protein" className="glass border-[1.5px] border-[color:var(--edge)] bg-soft mt-3 flex min-h-12 items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition hover:bg-[var(--fill)]">{t("Compare protein products with everyday ones")}</Link>
             )}
           </>
         )}

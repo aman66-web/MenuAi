@@ -72,7 +72,7 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
         <div aria-hidden className="work-shimmer" />
         <div aria-hidden className="absolute bottom-2 end-3"><Pip mood={finished ? "cheer" : "think"} size={68} /></div>
       </div>
-      <div aria-hidden className="mt-5 h-2.5 overflow-hidden rounded-full bg-[rgba(17,24,20,0.08)]">
+      <div aria-hidden className="mt-5 h-2.5 overflow-hidden rounded-full bg-[var(--line)]">
         <div className={`h-full rounded-full bg-[var(--bar)] ${finished ? "w-full" : "work-bar"}`} />
       </div>
       <p role="status" aria-live="polite" className="sr-only">{t(PHOTO_WORKING_LINES[Math.min(shown, last)]!, { shop: shopName })}</p>
@@ -82,9 +82,9 @@ function Working({ shopName, finished, photoUrl }: { shopName: string; finished:
             {i < shown ? (
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
             ) : i === shown ? (
-              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
             ) : (
-              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-[rgba(17,24,20,0.1)]" />
+              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-line" />
             )}
             <span>{t(line, { shop: shopName })}</span>
           </li>
@@ -106,7 +106,7 @@ function Steps({ current }: { current: 1 | 2 | 3 }) {
         const on = n <= current;
         return (
           <li key={label} aria-current={n === current ? "step" : undefined} className="min-w-0">
-            <span aria-hidden className={`block h-1.5 rounded-full transition-colors ${on ? "bg-[var(--bar)]" : "bg-[rgba(17,24,20,0.1)]"}`} />
+            <span aria-hidden className={`block h-1.5 rounded-full transition-colors ${on ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />
             <span className={`mt-1.5 block truncate text-[0.8125rem] font-bold uppercase tracking-[0.08em] ${n === current ? "text-foreground" : "text-muted"}`}>{n}. {label}</span>
           </li>
         );
@@ -279,9 +279,9 @@ function PhotoScreen() {
   };
   const inFlow = step === "scanning" || step === "shops" || step === "error";
   const back = inFlow ? (
-    <button type="button" onClick={goBack} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
+    <button type="button" onClick={goBack} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></button>
   ) : (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
 
   if (!hydrated) return <Spinner />;
@@ -293,7 +293,7 @@ function PhotoScreen() {
         <div className="mt-4"><PipSays mood="wave" size={84}>{t("Make it at home is part of Premium. Snap a dish you've loved, or upload a photo of it, and I'll write a recipe you can cook from your supermarket.")}</PipSays></div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("photoRecipe")}>{t("See Premium")}</Button>
-          <Link href={nav.href} onClick={nav.onClick} replace className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
+          <Link href={nav.href} onClick={nav.onClick} replace className="glass border-[1.5px] border-[color:var(--edge)] bg-soft flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
         </div>
       </div>
     );

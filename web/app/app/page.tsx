@@ -8,6 +8,7 @@ import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, isSameLocalDay, LOG_MEAL_LABEL, LOG_MEALS, loggedGaps, loggedToday, mealBudget } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { dayHref, dayParam, loggedDayKeys, shortDate, weekOf } from "@/lib/mm/day";
+import { needsPaywall } from "@/lib/mm/entitlements";
 import { formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { localeInfo } from "@/lib/mm/i18n";
@@ -40,7 +41,9 @@ import { useLanguage, useT } from "./_lib/i18n";
 // grey centre, and carbs and fat with targets and bars too (worked out from calories and protein unless typed in Settings: targets.ts
 // macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
 // Under the meals, "Water" (founder 2026-10-15): today's millilitres against the person's own goal, a small bottle and a + that opens "Add water" (WaterCard).
-// Logging is Pro (SPEC §7.8): while Pro is on, a free user's + opens the paywall.
+// Logging follows the real gate (needsPaywall("log"), lib/mm/entitlements.ts): on a build where it is paid (SPEC §7.8, NEXT_PUBLIC_PRO=1) a free user's + opens the
+// paywall, Home shows the log card and the week and labels pages say their numbers come once you log; where logging is free (the paid tier alone, as in the 1.1
+// In-App Purchase build: PAID_TIER_ONLY) none of that is shown, so Home never sells what + already does for free (the onboarding meeting, 2026-11-19).
 // Each meal row shows up to two pictures of what was eaten (founder 2026-11-17, "use images please when possible"): the dish's, the recipe's or the
 // product's, kept on the entry when it was logged (EntryPicture.tsx; older entries: the dish found by its name). One that doesn't load is left out.
 
@@ -79,7 +82,8 @@ export default function HomePage() {
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
   const loggedDays = loggedDayKeys(log);
-
+  // whether logging is paid for this person on this build (the same check the + makes through gate("log"))
+  const logPaid = needsPaywall("log", { pro });
 
   const pictureOf = (e: LogEntry): EntryPicture | undefined => entryPicture(e, legacyImage(e, indexes.get(e.chainId), savedOrders));
   const byMeal = (meal: LogMeal) => todays.filter((e) => entryMeal(e) === meal).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
@@ -92,7 +96,7 @@ export default function HomePage() {
           <h1 className="min-w-0 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><span className="sr-only">{t("Home")}, </span>{shortDate(now, htmlLang)}</h1>
           {/* the calendar button at the date's side (founder 2026-10-16): pick any day to see its macros and meals */}
           <button type="button" onClick={() => setPicking(true)} aria-label={t("Choose a day")} className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]"><CalendarIcon className="h-[18px] w-[18px]" /></span>
           </button>
         </div>
         {/* the shopping list at the top right, with how many things are left to pick up (founder 2026-11-19: "instead of it saying settings in the top right on the
@@ -121,7 +125,7 @@ export default function HomePage() {
               <span aria-hidden className="text-[0.6875rem] font-semibold uppercase text-muted">{narrow.format(d)}</span>
               <span aria-hidden className={`app-numbers relative flex aspect-square w-full max-w-12 items-center justify-center rounded-full text-[0.8125rem] font-semibold ${look}`}>
                 {d.getDate()}
-                {logged && !future && <span aria-hidden className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${today ? "bg-current" : "bg-[var(--bar)]"}`} />}
+                {logged && !future && <span aria-hidden className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${today ? "bg-current" : "bg-[var(--sun)]"}`} />}
               </span>
             </>
           );
@@ -158,17 +162,17 @@ export default function HomePage() {
         now={now}
         pages={[
           { name: t(HOME_PAGE_NAMES.today), node: <><h2 className="sr-only">{t(HOME_PAGE_NAMES.today)}</h2><HomeToday calories={eaten.calories} target={settings.dailyCalories} targets={targets} eaten={eaten} /></> },
-          { name: t(HOME_PAGE_NAMES.week), node: <HomeWeek log={log} now={now} target={settings.dailyCalories} pro={pro} htmlLang={htmlLang} /> },
-          { name: t(HOME_PAGE_NAMES.labels), node: <HomeLabels log={log} now={now} pro={pro} /> },
+          { name: t(HOME_PAGE_NAMES.week), node: <HomeWeek log={log} now={now} target={settings.dailyCalories} logPaid={logPaid} htmlLang={htmlLang} /> },
+          { name: t(HOME_PAGE_NAMES.labels), node: <HomeLabels log={log} now={now} logPaid={logPaid} /> },
         ]}
       />
       {/* the word "today" keeps it true under any of the pages */}
       {gaps.any && <p className="mt-3 px-1 text-sm leading-snug text-muted">{t("Some meals you added today have no protein, carbs or fat entered, so today's figures only count the rest.")}</p>}
 
-      {!pro && (
+      {logPaid && (
         <Card className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4">
           <p className="min-w-[10rem] flex-1 text-base leading-snug">{t("Log your meals to see what's left today.")}</p>
-          <button type="button" onClick={() => showPaywall("log")} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent-soft px-4 text-sm font-bold text-accent transition active:scale-[0.97]">
+          <button type="button" onClick={() => showPaywall("log")} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-sm font-bold text-foreground transition active:scale-[0.97] hover:bg-[var(--fill)]">
             {PAYMENTS_ENABLED ? t("Try Pro free") : t("See Pro")}
           </button>
         </Card>
@@ -216,7 +220,7 @@ export default function HomePage() {
                   </span>
                 )}
               </Link>
-              <button type="button" data-coach={meal === LOG_MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1d2320] text-white transition active:scale-95 hover:bg-[#2c3530] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+              <button type="button" data-coach={meal === LOG_MEALS[0] ? "home-add" : undefined} onClick={() => gate("log", () => setAddTo(meal))} aria-label={t(ADD_TO[meal])} className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink transition active:scale-95 hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 <PlusIcon className="h-6 w-6" />
               </button>
             </li>
@@ -234,9 +238,9 @@ export default function HomePage() {
 
       {added && (
         // At the top, clear of the meal rows and their + buttons: a second tap on the same + must never land on Undo.
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
         </div>
       )}
     </div>

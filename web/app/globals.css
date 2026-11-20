@@ -8,8 +8,14 @@
   editorial accents. There is no dark mode (founder 2026-10-15: "The app doesn't need a dark mode anymore"). The class and variable
   names (--sun, .btn-sun, .sun-text) are from the first palette and mean "the brand colour". Colours here are OUR palette only: no
   restaurant brand colours, and nothing on food is ever coloured good/bad (CLAUDE.md rules 2 and 3).
-  Contrast (WCAG AA, checked): --muted 6.1:1 on white and 5.6:1 on the app's grey; --accent 6.4:1 on white, 5.9:1 on the app's grey and
-  5.3:1 on --accent-soft over it; dark text on the lime 11.9:1.
+  Contrast (WCAG AA, checked): --muted 6.1:1 on white and 5.6:1 on the website (in the app, 8.35:1 on white and 7.65:1 on the app's grey);
+  --accent 6.4:1 on white, 5.9:1 on the app's grey and 5.3:1 on --accent-soft over it; dark text on the lime 11.9:1.
+  The colour meeting of 19 November 2026 (its palette, kept to the parts that need no decision from the founder): --ink is the one dark fill (main
+  buttons, dark badges, toasts), with --ink-pressed (1.64:1 from ink, so a press shows; white on it 9.75:1) for its pressed and hover state and
+  --on-ink / --on-ink-2 for words on it (16:1 and 10.3:1); --edge is the 1.5 px edge of every unfilled control you can tap (3.99:1 on white,
+  3.65:1 on the app's grey), which is white (--card); --danger (6.57:1 on white) only for app errors and destructive actions, on --danger-bg;
+  --note-bg and --note-edge (4.84:1 on --note-bg) only for the one allergy note; --scrim behind every sheet; --tips-wash, the light dimming
+  behind Pip's tips; --placeholder the mid grey (connector lines on ink). Accent green is for links, never for a figure, a price or a status line.
 */
 :root {
   --background: #ffffff;
@@ -36,6 +42,19 @@
   --fat: #9333ea;
   --bar: #34d399;
   --fill: #f3f6f4;
+  --ink: #1d2320;
+  --ink-pressed: #3d4642;
+  --on-ink: #ffffff;
+  --on-ink-2: #c9d1cc;
+  --card: #ffffff;
+  --edge: #7a817d;
+  --placeholder: #6b716e;
+  --danger: #b42318;
+  --danger-bg: #fef3f2;
+  --note-bg: #fffbeb;
+  --note-edge: #b45309;
+  --scrim: rgba(0, 0, 0, 0.5);
+  --tips-wash: rgba(0, 0, 0, 0.2);
   color-scheme: light;
 }
 
@@ -45,14 +64,17 @@
    page, sticky bars, fades and sheets all follow. --soft-strong is a shade darker so chips and tracks show on the grey; --fill is the
    light grey of a tile or button that sits on a white card. Weights follow the pictures' Urbanist: headings semi-bold rather than heavy
    (the variables Tailwind's font-extrabold, font-bold and font-semibold read), and running text at 500 rather than 400 so it stays easy
-   to read on the grey. */
+   to read on the grey. The colour meeting (19 November 2026): a darker secondary grey (testers called the old one faint) and a deep green for
+   progress on light surfaces (4.99:1 on white, 3.67:1 against a line-coloured track); the day's numbers cards (ink) keep lime on their track
+   (HomeToday.tsx ON_DARK). */
 :root:has(.app-surface) {
   --background: #f4f5f6;
+  --muted: #4a4f4c;
   --soft-strong: #e9ecea;
   --fill: #f1f3f2;
   --line: rgba(17, 24, 20, 0.08);
   --tile: #ffffff;
-  --bar: #8cc63f;
+  --bar: #4d7c0f;
   --font-weight-extrabold: 650;
   --font-weight-bold: 600;
   --font-weight-semibold: 550;
@@ -72,6 +94,16 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
+  --color-ink: var(--ink);
+  --color-ink-pressed: var(--ink-pressed);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-2: var(--on-ink-2);
+  --color-card: var(--card);
+  --color-edge: var(--edge);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-note-bg: var(--note-bg);
+  --color-note-edge: var(--note-edge);
   --font-sans: var(--font-sans-loaded), var(--font-sans-ext), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-mono-loaded), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-serif: var(--font-serif-loaded), Georgia, "Times New Roman", serif;
@@ -109,8 +141,8 @@ p { text-wrap: pretty; }
 .app-surface .kicker { font-family: var(--font-sans); font-style: normal; font-size: 0.8125rem; font-weight: 700; line-height: 1.35; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .app-surface .serif-em { font-family: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
 /* Headings in one plain ink, like every one of the founder's reference pictures ("make the app look the cleanest you can", 2026-10-15):
-   an accent word in a heading no longer turns green (it is unlayered, so it beats .sun-text in the components layer). Big figures keep
-   the accent green, like the pictures' "0 / 2,800 kcal". */
+   an accent word in a heading no longer turns green (it is unlayered, so it beats .sun-text in the components layer). Figures, prices and
+   status lines are in the same ink as the words around them (colour meeting, 19 November 2026: green words mean a link). */
 .app-surface .serif-em { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: inherit; }
 
 
@@ -203,7 +235,9 @@ p { text-wrap: pretty; }
   .rise .stagger > *:nth-child(n + 6) { animation-delay: 200ms; }
 }
 
-/* Pip the mascot: a gentle float, a wave, a blink, a happy bounce. Nothing moves for reduced motion. */
+/* Pip the mascot: a gentle float, a wave, a blink, a happy bounce. Nothing moves for reduced motion. Everything but the blink settles
+   within a few seconds (onboarding review, 19 November 2026: WCAG 2.2.2, and endless waving "feels nervous"); PipSays remounts Pip
+   for each new reaction, so a reaction still hops, waves or cheers once more. */
 .pip .pip-wave { transform-box: view-box; transform-origin: 108px 80px; }
 .pip .pip-eyes { transform-box: view-box; transform-origin: 70px 76px; }
 .pip .pip-bob, .pip .pip-shadow { transform-box: view-box; transform-origin: 70px 140px; }
@@ -215,13 +249,13 @@ p { text-wrap: pretty; }
 @keyframes pop-in { 0% { transform: scale(0.7); opacity: 0; } 65% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); } }
 @keyframes confetti-fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(520px) rotate(540deg); opacity: 0; } }
 @media (prefers-reduced-motion: no-preference) {
-  .pip .pip-bob { animation: pip-bob 3.2s ease-in-out infinite; }
-  .pip .pip-shadow { animation: pip-shadow 3.2s ease-in-out infinite; }
-  .pip .pip-wave { animation: pip-wave 1.6s ease-in-out infinite; }
+  .pip .pip-bob { animation: pip-bob 3.2s ease-in-out 1; }
+  .pip .pip-shadow { animation: pip-shadow 3.2s ease-in-out 1; }
+  .pip .pip-wave { animation: pip-wave 1.6s ease-in-out 2; }
   .pip .pip-eyes { animation: pip-blink 4.5s infinite; }
-  .pip .pip-cheer { animation: pip-cheer 0.7s ease-in-out infinite; }
+  .pip .pip-cheer { animation: pip-cheer 0.7s ease-in-out 3; }
   .pop-in { animation: pop-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
-  .confetti > i { position: absolute; top: 0; width: 9px; height: 14px; border-radius: 3px; animation: confetti-fall 2.6s ease-in forwards; }
+  .confetti > i { position: absolute; top: 0; width: 9px; height: 14px; border-radius: 3px; animation: confetti-fall 1.4s ease-in forwards; }
 }
 .confetti { pointer-events: none; position: absolute; inset: 0; overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .confetti { display: none; } }
@@ -263,9 +297,9 @@ p { text-wrap: pretty; }
   .pip-hop { transform-origin: 50% 100%; animation: pip-hop 0.7s cubic-bezier(0.3, 0.6, 0.3, 1); }
   .pip-hop-sm { transform-origin: 50% 100%; animation: pip-hop-sm 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
   .bubble-pop { transform-origin: 50% 100%; animation: bubble-pop 0.45s cubic-bezier(0.2, 0.85, 0.25, 1.1) backwards; }
-  .bubble-pop-late { animation-delay: 0.95s; }
+  .bubble-pop-late { animation-delay: 0.55s; }
   .spot-in { animation: spot-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; }
-  .twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+  .twinkle { animation: twinkle 1.8s ease-in-out 2 forwards; } /* twice, then it rests faded: the latest sparkle (1.3 s delay) is still by 4.9 s */
   .pip-walk { transition: inset-inline-start 0.7s cubic-bezier(0.34, 1.25, 0.5, 1); }
 }
 /* A bubble over Pip on the tour: its tail points down at wherever Pip is standing (--tail, from the start edge; turns round for Urdu and Arabic). */
@@ -311,10 +345,11 @@ html[data-i18n-pending] body {
   .marquee { animation: none; }
 }
 
-/* Onboarding (founder 2026-10-14): the little labels float gently over the welcome picture; still for reduced motion. */
+/* Onboarding (founder 2026-10-14): the little labels float gently over the welcome picture, once each, then rest (19 November 2026,
+   WCAG 2.2.2: motion beside text stops within 5 s); still for reduced motion. */
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-.bob { animation: bob 4.5s ease-in-out infinite; }
-.bob-slow { animation: bob 6s ease-in-out infinite 0.8s; }
+.bob { animation: bob 4.5s ease-in-out 1; }
+.bob-slow { animation: bob 4s ease-in-out 0.8s 1; }
 @media (prefers-reduced-motion: reduce) { .bob, .bob-slow { animation: none; } }
 
 /* Make it at home (founder 2026-11-17): the camera's scanning look (corner marks and a light that sweeps over the dish), the word "Scanning" with its dots, and the
@@ -385,6 +420,12 @@ html[data-i18n-pending] body {
   --accent-soft: rgba(190, 242, 100, 0.16);
   --on-accent: #09090b;
   --card-shadow: none;
+  /* The shared controls (ui.tsx) draw with the colour meeting's tokens; on this dark card they keep the look they had (a white main button
+     and chosen chip with near-black words, dark secondary buttons) until the Truth card has its own colour pass. */
+  --card: #18181b;
+  --ink: #fafafa;
+  --ink-pressed: #d4d4d8;
+  --on-ink: #09090b;
   background: #09090b;
   color: #fafafa;
   color-scheme: dark;

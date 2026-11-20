@@ -144,7 +144,7 @@ export function ShopListScreen({ shop }: { shop: string }) {
       )}
 
       {catalogue.size > 0 && (
-        <Link href={`/app/groceries/search?r=${file.retailer}`} className="glass mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-soft-strong">
+        <Link href={`/app/groceries/search?r=${file.retailer}`} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-center text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-[var(--fill)]">
           {t("More {shop} products with their numbers", { shop: file.name })}
         </Link>
       )}

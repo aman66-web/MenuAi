@@ -81,7 +81,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); reset(); }} placeholder={t("Search groceries")} aria-label={t("Search products or type a barcode")} {...DONE_KEY} autoComplete="off" className={`${PILL_INPUT} ps-11 pe-4 ${DONE_ROOM}`} />
           <SearchDone />
         </div>
-        <button type="button" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")} className="glass inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-soft-strong">
+        <button type="button" onClick={() => setScanning(true)} aria-label={t("Scan a barcode")} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition active:scale-95 hover:bg-[var(--fill)]">
           <ScanIcon className="h-5 w-5" />
         </button>
       </div>

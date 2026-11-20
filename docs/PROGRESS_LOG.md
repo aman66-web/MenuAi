@@ -3444,3 +3444,29 @@ draft, a vote, a conclusion; average score 7.1 of 10) is summed up in the sessio
     the whole week's log (only 2 days sync, so the week page says "on this device"). The new words are English only for now (languages are off).
   - Checked: unit tests (week, label totals, hint, estimate, weekOf across clock changes, household label), e2e `homepages.mjs` 8/8 (dots, pages, hint, slide,
     free user, 320/360/390 px, axe 0), screenshots of all three pages. Not yet checked on the iPhone (swipe feel, VoiceOver in the web view).
+
+### 20 November 2026 (just after midnight): onboarding, Pip, tips, sign-in and safe colours (first wave)
+- **Two meetings, then a build.** A 30-person meeting on the whole onboarding and Pip (average 5.8/10, Pip 6.2) and a 25-person meeting on colours
+  (7.7/10); their conclusions are kept in `docs/meetings/` (with the 20-person Home swipe meeting). The founder then decided every open question:
+  "Do whatever you think is best ... Whatever the meeting ... conclude, go with that." This first wave builds the meetings' changes that needed no
+  answer; the second wave (next) builds the answered ones (sign-in after the targets, "Premium", the full colour plan, the cog with its word on every page).
+- **Onboarding (changes 2 to 15):** skipped targets stay "starting numbers" (no longer saved as set); the body questions ("Your height and weight", height
+  first; examples on the activity tiles; "Skip these questions"; no text over text); "Your daily targets" with each number once and the sources first;
+  goal, foods to avoid and shops with a neutral Pip, nothing picked for you (Continue waits for a tap), "Nothing to avoid", a true allergy line, hints on the
+  hard diet and allergy names, "Not in recipes yet" on shops recipes can't use; one honest counter ("Step n of 7"; no bar on the cover and the tour) and a
+  clearer fork ("Set up my daily numbers"); one last screen, "You're all set!" with a first recipe and "Go to Home"; the tour is Pip's walk with one plain line
+  a tab (the "What you can do" rows only in Settings' replay); the cover says "Calories and protein", "Every menu free" and "No ads, no tracking", has
+  "Already have an account? Sign in" again (a reversal of 17 November's removal), and its wall's label names five chains; Pip's tips teach each button once
+  (Home: Your day, Add what you ate, Scan your food, Shopping list and Settings; 3 on Eat out, 3 on Groceries, 2 on Recipes); the sign-in screen gives one
+  reason in Pip's bubble and a readable, true list of what an account keeps; the privacy page adds that the body questions are never kept, synced or sent
+  (privacy page date now 19 November 2026). Home, Today and the week pages follow the real logging gate (1.1's logging is free, so they no longer sell it).
+- **Pip redrawn** (`Mascot.tsx`): a thin dark-green outline, pink cheeks, thicker arms, soft eyebrows (the lead thinned them from the meeting's 4.5 to 3.2: they
+  looked stern), a "think" with two arms, new moods "listen" (every question) and "pointUp", "point" aiming down; he settles after a few seconds (bob once,
+  wave twice, cheer three times; only the blink keeps going). Comparison sheet made first (old and new, every mood, 40 to 190 px).
+- **Safe colours:** small text #4a4f4c (was #5f6361); prices and figures in ink, not green; one amber allergy note; red only for errors and deleting; progress on
+  light surfaces #4d7c0f; grey tappable pills white with a 1.5 px #7a817d edge; toasts' Undo white and underlined; lighter dimming behind Pip's tips with the
+  lit button ringed in ink; tokens for ink, edge, danger and note in globals.css.
+- **Every word added or dropped** is listed in `docs/meetings/2026-11-19-wave1-words.md` (80 new, 58 no longer used) for the founder's veto (rule 8).
+- Checked: all unit tests (2,290), e2e smoke, tour (with the new "everything settles in 6 s" check), coach, extra, firstvisit, household, onboarding-body 27/27,
+  largetext (no overflow at 100/150/200%), homepages, mealplan, addfood, days, numbers, back, diet, recipes, and axe 0 on every screen (light and dark).
+  Not run here: signin.mjs (needs the sign-in-required build), app-build.mjs and iap.mjs (packed builds). Not yet seen on the iPhone.

@@ -21,6 +21,8 @@ page.on("pageerror", (e) => errors.push(String(e).slice(0, 200)));
 const h1 = (name) => page.getByRole("heading", { level: 1, name, exact: true });
 const tap = (name) => page.getByRole("button", { name, exact: true }).last().click();
 async function axe(where) {
+  // after Pip's pop-in and the bubble's (finite animations; his blink never ends): half-faded words read as low contrast
+  await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 90)}`));
   expect(v.length === 0, `${where}: ${v.join(" | ")}`);

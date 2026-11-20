@@ -15,7 +15,7 @@ export type NewEntry = Pick<LogEntry, "chainId" | "chainName" | "name" | "nutrie
 export function BackBar({ onBack }: { onBack: () => void }) {
   const t = useT();
   return (
-    <button type="button" onClick={onBack} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+    <button type="button" onClick={onBack} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
       <ChevronLeftIcon className="h-5 w-5" />
       <span>{t("Back")}</span>
     </button>

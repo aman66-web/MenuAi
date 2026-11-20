@@ -47,5 +47,6 @@ export function useTargetFields(initial: UserSettings) {
     setSuggestedNotes([...notes]);
   }, []);
 
-  return { fields, setField, applyPlan, apply, suggestedNotes };
+  // `start` is what the boxes held on arrival (the saved targets), so the page can tell whether the person changed a box
+  return { fields, setField, applyPlan, apply, suggestedNotes, start };
 }

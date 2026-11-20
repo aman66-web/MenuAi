@@ -21,7 +21,7 @@ export function Ring({ fraction, label, size = 104, stroke = 9, children, id }: 
       style={{ width: size, height: size }}
     >
       <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90" aria-hidden focusable="false">
-        <circle cx="50" cy="50" r={r} fill="none" stroke="var(--ring-track)" strokeWidth={stroke} />
+        <circle cx="50" cy="50" r={r} fill="none" stroke="var(--line)" strokeWidth={stroke} />
         <circle
           cx="50"
           cy="50"

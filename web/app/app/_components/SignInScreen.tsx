@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import { site } from "@/site.config";
 import { useT } from "../_lib/i18n";
 import { ChevronLeftIcon } from "./icons";
-import { Pip } from "./Mascot";
+import { PipSays } from "./Mascot";
 import { SignInPanel } from "./SignIn";
 import { Card } from "./ui";
 
@@ -12,6 +12,8 @@ import { Card } from "./ui";
 // SIGN_IN_REQUIRED, lib/mm/signInGate.ts). The same three ways in as Settings › Account (Apple, Google, a 6-digit email code); a new email, Apple ID or Google
 // account creates the account, so one screen serves both. There is no way past it except signing in: the terms, privacy and support pages stay open below.
 // `onBack`: the welcome screen's own Back (to its cover); the app's pages have none.
+// Onboarding review 2026-11-19 (change 12): one reason, said once by Pip (the account keeps things safe if you change phone), instead of three lines on
+// "new or returning"; the app's own icon and name on top, like the welcome cover; the heading stays "Sign in or sign up" (founder 2026-11-18).
 export function SignInScreen({ onDone, onBack }: { onDone?: () => void; onBack?: () => void }) {
   const t = useT();
   const heading = useRef<HTMLHeadingElement>(null);
@@ -26,13 +28,16 @@ export function SignInScreen({ onDone, onBack }: { onDone?: () => void; onBack?:
           <ChevronLeftIcon aria-hidden className="h-5 w-5" /> {t("Back")}
         </button>
       )}
-      <p className={`${onBack ? "mt-4" : "mt-2"} flex items-center gap-3 text-[1.125rem] font-semibold leading-snug`}>
-        <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[var(--sun)]"><Pip mood="wave" size={40} className="translate-y-0.5" /></span>
-        <span className="min-w-0">{site.name}</span>
+      <p className={`${onBack ? "mt-4" : "mt-2"} flex items-center gap-2`}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- our own app icon, a static file */}
+        <img src="/icons/icon-192.png" alt="" width={28} height={28} className="h-7 w-7 shrink-0 rounded-lg" />
+        <span className="min-w-0 text-lg font-[800] tracking-[-0.02em]">{site.name}</span>
       </p>
       <h1 ref={heading} tabIndex={-1} className="mt-4 text-[2.25rem] font-[700] leading-[1.06] tracking-[-0.03em] outline-none">{t("Sign in or sign up")}</h1>
-      <p className="mt-2 text-base leading-snug text-muted">{t("New here or coming back, this one screen does both.")}</p>
-      <Card className="mt-5 p-5">
+      <div className="mt-4">
+        <PipSays mood="wave" size={64}>{t("First, your free account. It keeps your goal, meals and shopping list safe if you change phone.")}</PipSays>
+      </div>
+      <Card className="mt-2 p-5">
         <SignInPanel required community={false} onDone={onDone ?? (() => undefined)} />
       </Card>
       <p className="mt-auto pt-6 text-center text-xs text-muted">

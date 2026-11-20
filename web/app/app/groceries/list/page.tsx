@@ -240,7 +240,7 @@ function ShoppingListScreen() {
   };
   /** A round − or + : a 44 px tap area holding a 36 px grey circle, like Home's round actions. */
   const qtyButton = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
-  const qtyCircle = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+  const qtyCircle = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]";
 
   return (
     <div>
@@ -263,7 +263,7 @@ function ShoppingListScreen() {
               ))}
             </>
           )}
-          <button type="button" onClick={() => setCreating(true)} className="glass inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <button type="button" onClick={() => setCreating(true)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <span aria-hidden className="bg-sun inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-on-accent"><PlusIcon className="h-4 w-4" strokeWidth={3} /></span>
             <span className="min-w-0 [overflow-wrap:anywhere]">{t("New list")}</span>
           </button>
@@ -278,13 +278,13 @@ function ShoppingListScreen() {
         </label>
         <Button type="submit" className="min-h-[3.25rem] flex-[1_0_auto] px-5 disabled:bg-soft-strong disabled:text-muted disabled:opacity-100!" disabled={!typed.trim()}><PlusIcon className="h-5 w-5" />{t("Add")}</Button>
       </form>
-      <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-accent">{note}</p>
+      <p role="status" aria-live="polite" className="mt-2 min-h-5 ps-1 text-sm font-medium text-foreground">{note}</p>
       <button type="button" onClick={() => { setPastedProblem(null); setOpening(true); }} className="-ms-1 inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-semibold text-accent underline decoration-[color-mix(in_srgb,var(--accent)_40%,transparent)] underline-offset-[3px] transition active:scale-[0.97]">{t("Got a list from a friend? Open it")}</button>
 
       {!hydrated ? null : list.length === 0 && current ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <Link href={shopHref(current.shop)} className="inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[15px] font-bold text-background transition active:scale-[0.97]">{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</Link> : undefined} /></div>
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Nothing on {list} yet.", { list: current.name })} body={t("Add products from {shop}, or type what you need above.", { shop: groupName(current.shop, t) })} action={current.shop !== CUSTOM_RETAILER ? <Link href={shopHref(current.shop)} className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[15px] font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed">{t("Add products from {shop}", { shop: groupName(current.shop, t) })}</Link> : undefined} /></div>
       ) : list.length === 0 ? (
-        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><Link href="/app/groceries" className="inline-flex min-h-11 items-center rounded-full bg-foreground px-5 text-[15px] font-bold text-background transition active:scale-[0.97]">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold transition active:scale-[0.97] hover:bg-soft-strong">{t("See recipes")}</Link></div>} /></div>
+        <div className="mt-2"><EmptyState icon={<EmptyIcon><BasketIcon /></EmptyIcon>} title={t("Your list is empty.")} body={t("Type what you need above, or add products from Groceries and recipes.")} action={<div className="flex flex-wrap justify-center gap-2.5"><Link href="/app/groceries" className="inline-flex min-h-11 items-center rounded-full bg-ink px-5 text-[15px] font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed">{t("Browse groceries")}</Link><Link href="/app/recipes" className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold transition active:scale-[0.97] hover:bg-[var(--fill)]">{t("See recipes")}</Link></div>} /></div>
       ) : (
         <>
           {/* At the top, as asked: what this list can make (its own products, matched by the recipes' rules). The one lime tile on the screen. */}
@@ -308,7 +308,7 @@ function ShoppingListScreen() {
           <div className="mt-6 flex flex-wrap items-center justify-between gap-2">
             {selecting ? (
               <>
-                <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+                <button type="button" onClick={() => setPicked(allPicked ? new Set() : new Set(list.map(pickKey)))} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
                   <CheckIcon aria-hidden className="h-4 w-4" />{allPicked ? t("Deselect all") : t("Select all")}
                 </button>
                 <span role="status" aria-live="polite" className="app-numbers text-[0.9375rem] font-semibold text-muted">{t("{n} selected", { n: pickedNow.length })}</span>
@@ -317,7 +317,7 @@ function ShoppingListScreen() {
             ) : (
               <>
                 <span className="app-numbers ps-1 text-[0.9375rem] font-semibold text-muted">{list.length === 1 ? t("1 item") : t("{n} items", { n: list.length })}{ticked > 0 ? ` · ${t("{n} in the basket", { n: ticked })}` : ""}</span>
-                <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+                <button type="button" onClick={() => { setSelecting(true); setPicked(new Set()); }} className="inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
                   <CheckIcon aria-hidden className="h-4 w-4" />{t("Select")}
                 </button>
               </>
@@ -368,7 +368,7 @@ function ShoppingListScreen() {
                             onClick={() => shoppingStore.update((l) => toggleDone(l, code, i.retailer, listId))}
                             className="mt-2.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
                           >
-                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-transparent text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
+                            <span aria-hidden className={`inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-full border-2 transition ${i.done ? "bg-sun border-[color:var(--on-accent)] text-on-accent" : "border-[color-mix(in_srgb,var(--foreground)_28%,transparent)]"}`}>{i.done && <CheckIcon className="h-[15px] w-[15px]" strokeWidth={3} />}</span>
                           </button>
                         )}
                         {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
@@ -380,12 +380,12 @@ function ShoppingListScreen() {
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
                             <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
                               {i.custom && chooseShops.length > 0 && (
-                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                                <button type="button" onClick={() => setChoosing(i)} aria-label={t("Choose a product for {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]">
                                   <SearchIcon className="h-4 w-4" />{t("Choose a product")}
                                 </button>
                               )}
                               {canSwap(i) && (
-                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong">
+                                <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap {name}", { name: i.name })} className="me-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]">
                                   <SwapIcon className="h-4 w-4" />{t("Swap")}
                                 </button>
                               )}
@@ -472,7 +472,7 @@ function ShoppingListScreen() {
               <Button variant="secondary" className="mt-4" onClick={() => { const n = addMissing(suggestion, state.file); const { text, values } = addedNote(suggestion, n, state.file); setSuggestNote(t(text, values)); }}>
                 <PlusIcon className="h-5 w-5" />{suggestion.missing.length === 1 ? t("Add it to my list") : t("Add them to my list")}
               </Button>
-              <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-accent empty:mt-0">{suggestNote}</p>
+              <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-foreground empty:mt-0">{suggestNote}</p>
             </section>
           )}
 
@@ -488,9 +488,9 @@ function ShoppingListScreen() {
 
       {undo && (
         // Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" bar
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(undo.key, undo.values)}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={undoRemove}>{t("Undo")}</button>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={undoRemove}>{t("Undo")}</button>
         </div>
       )}
 

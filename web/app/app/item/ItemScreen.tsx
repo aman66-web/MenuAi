@@ -46,7 +46,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
 
   const nav = useBack(chainHref(chainId)); // the page before (the menu, Search, Today, a recipe...) when there is one in the app, else the restaurant's menu
   const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to menu"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to menu"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
@@ -133,7 +133,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             <CompareButton full item={compareDish(chain, item)} />
           </div>
           {/* Empty (and no height) until something is logged or saved; it stays in the page so a screen reader hears it. */}
-          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
+          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-foreground empty:mt-0">{message && t(message)}</p>
         </div>
       ) : (
         // a calories-only dish is added and saved with its calories alone (usability test 2026-11-19: Elsie, who counts calories, could neither log nor keep
@@ -160,7 +160,7 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             </Button>
             <CompareButton full item={compareDish(chain, item)} />
           </div>
-          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-accent empty:mt-0">{message && t(message)}</p>
+          <p role="status" aria-live="polite" className="mt-2.5 text-center text-sm font-semibold text-foreground empty:mt-0">{message && t(message)}</p>
           <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so only the calories are counted.", { chain: chain.name })}</p>
         </div>
       )}

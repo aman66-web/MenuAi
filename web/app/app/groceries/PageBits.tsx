@@ -8,7 +8,8 @@ import { backName, useBack } from "../_lib/backNav";
 import { useT } from "../_lib/i18n";
 
 // The groceries screens' shared pieces, in Home's design language (founder 2026-10-15: "the home screen now looks beautiful ... the rest of
-// the app should match that elegance too"): a compact heavy title, round grey actions inside 44 px tap areas, white cards with 20 px
+// the app should match that elegance too"): a compact heavy title, round white actions with a 1.5 px edge inside 44 px tap areas (colour meeting,
+// 19 November 2026), white cards with 20 px
 // corners, small spaced-capital labels, figures in DM Mono. The words are each screen's own: nothing here adds or changes a string.
 
 /** A page title, compact and heavy, like Home's. */
@@ -21,16 +22,16 @@ export const LABEL = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em]
 export const CARD = "glass rounded-[1.25rem]";
 /** A white pill input (search boxes, the typed shopping item). */
 export const PILL_INPUT = "glass min-h-12 w-full text-ellipsis rounded-full px-5 text-base placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent";
-/** An outlined chip that is a link (the shop switcher, other sizes); `CHIP_ON` when it is the current one. */
-export const CHIP = "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border text-sm font-semibold transition active:scale-[0.97] border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-transparent hover:bg-soft-strong";
-export const CHIP_ON = "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-transparent bg-foreground text-sm font-semibold text-background transition active:scale-[0.97]";
-/** A small grey circle holding an icon, like Home's calendar button. */
-export const ROUND = "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft-strong";
-/** The darker grey a round grey action takes when hovered. */
-const HOVER = "group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+/** An outlined chip that is a link (the shop switcher, other sizes), with the 1.5 px edge of every control you can tap; `CHIP_ON` when it is the current one (the same width of edge, so nothing moves). */
+export const CHIP = "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border-[1.5px] text-sm font-semibold transition active:scale-[0.97] border-edge bg-transparent hover:bg-soft-strong";
+export const CHIP_ON = "inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border-[1.5px] border-transparent bg-ink text-sm font-semibold text-on-ink transition active:scale-[0.97]";
+/** A small white circle with the 1.5 px edge holding an icon, like Home's calendar button (colour meeting, 19 November 2026: never a grey disc you tap). */
+export const ROUND = "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-edge bg-card";
+/** A small pill you can tap: white with the 1.5 px mid-grey edge (testers said the grey pills looked broken), the page's grey when pressed or hovered. */
+const PILL = "border-[1.5px] border-edge bg-card transition-colors group-hover:bg-background group-active:bg-background";
 
 /**
- * "Back", as a small grey pill inside a 44 px tap area (the word stays: founder 2026-10-11, every back button says Back). It goes to the page the person
+ * "Back", as a small white pill with an edge inside a 44 px tap area (the word stays: founder 2026-10-11, every back button says Back). It goes to the page the person
  * came from (the browser's own Back, `useBack`); `href` is the fixed page it goes to when there is no earlier page of the app (a page opened by address,
  * a shared link, a fresh launch), and `label` names that page for screen readers, so it is spoken only then (otherwise it is plain "Back").
  */
@@ -39,21 +40,21 @@ export function BackLink({ href, label }: { href: string; label: string }) {
   const back = useBack(href);
   return (
     <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), label, back.cameFromApp)} className="group -ms-1 inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
-      <span className={`inline-flex h-9 items-center gap-0.5 whitespace-nowrap rounded-full bg-soft-strong ps-2 pe-3.5 text-[0.9375rem] font-semibold transition-colors ${HOVER}`}>
+      <span className={`inline-flex h-9 items-center gap-0.5 whitespace-nowrap rounded-full ps-2 pe-3.5 text-[0.9375rem] font-semibold ${PILL}`}>
         <ChevronLeftIcon className="h-[18px] w-[18px]" /><span>{t("Back")}</span>
       </span>
     </Link>
   );
 }
 
-/** "Shopping list" with how many things are on it, as a small grey pill inside a 44 px tap area (founder 2026-11-18: "it should say shopping list for consistency": Home's card has the same name). */
+/** "Shopping list" with how many things are on it, as a small white pill with an edge inside a 44 px tap area (founder 2026-11-18: "it should say shopping list for consistency": Home's card has the same name); the count on an ink circle. */
 export function ListLink({ count }: { count: number }) {
   const t = useT();
   return (
     <Link href="/app/groceries/list" className="group -me-1 inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
-      <span className={`inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-semibold transition-colors ${HOVER}`}>
+      <span className={`inline-flex h-9 items-center gap-2 whitespace-nowrap rounded-full ps-3 pe-3.5 text-[0.9375rem] font-semibold ${PILL}`}>
         <BasketIcon className="h-[18px] w-[18px]" />{t("Shopping list")}
-        {count > 0 && <span className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1.5 font-mono text-[0.6875rem] font-medium text-background">{count}</span>}
+        {count > 0 && <span className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-ink px-1.5 font-mono text-[0.6875rem] font-medium text-on-ink">{count}</span>}
       </span>
     </Link>
   );
@@ -90,10 +91,10 @@ export function MainButton({ children, className, ...rest }: ButtonHTMLAttribute
 /** A product in a list: a white card with 20 px corners and a soft press, its photo on the left. */
 export const ROW = "glass flex min-h-[5.75rem] flex-wrap items-center gap-x-3.5 gap-y-2 rounded-[1.25rem] p-3 pe-3.5 transition active:scale-[0.99] hover:bg-[color-mix(in_srgb,white_60%,var(--fill))]";
 
-/** "Show n more": a white pill across the list's width. */
+/** "Show n more": a white pill with the 1.5 px edge across the list's width. */
 export function MoreButton({ onClick, children }: { onClick: () => void; children: ReactNode }) {
   return (
-    <button type="button" onClick={onClick} className="glass mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full px-5 text-[0.9375rem] font-bold transition active:scale-[0.98] hover:bg-soft-strong">
+    <button type="button" onClick={onClick} className="mt-3.5 inline-flex min-h-12 w-full items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-[0.9375rem] font-bold transition active:scale-[0.98] active:bg-background hover:bg-background">
       {children}
     </button>
   );

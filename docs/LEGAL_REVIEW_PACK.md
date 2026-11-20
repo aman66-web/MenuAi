@@ -47,6 +47,11 @@ The wording is switched on only when payments are on (`NEXT_PUBLIC_WEB_PRO=1`). 
 5. Is the 48-hour WhatsApp unlock a promotion that needs terms of its own?
 6. Does holding a creator code only in memory avoid PECR consent? (Decided 14 Nov 2026 to avoid any storage so no banner is needed; a lawyer may confirm.)
 7. Anything the Terms or Privacy must add for the seller's identity, VAT, complaints or alternative dispute resolution.
+8. (Added 19 November 2026, the 30-person onboarding meeting; the founder: "go with that".) Signed-in accounts sync the person's goal (which can be "I'm on a
+   GLP-1 medication", health), a halal or other religious diet choice (religion) and their allergies (health) to Supabase, stored in the US. Under UK GDPR these
+   are likely special-category data (Article 9). Is the explicit consent at sign-in, and the privacy page as written, enough, or is a separate explicit consent,
+   a data protection impact assessment, or EU/UK hosting needed? Until a solicitor answers, nothing changes; the sign-in and targets screens say plainly what is
+   saved with the account.
 
 ## 6. What I need from you
 The seller's exact details (item 4.1), a yes or no on the Stripe customer portal (4.2), and, before real money, an explicit yes that you accept the wording as it stands or have had it checked.

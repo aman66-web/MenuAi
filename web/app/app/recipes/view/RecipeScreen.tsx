@@ -85,7 +85,7 @@ export function RecipeScreen({ id, mine, shop: asked, have, servings, asWritten 
 
   const backHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
   const nav = useBack(backHref); // the page before when this one was reached from another page of the app, else the recipes at this shop
-  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
   let body: React.ReactNode;
   if (mine && !hydrated) body = (<div>{back}<Spinner label={t("Loading recipe")} /></div>);
   else if (!recipe) body = (<div>{back}<div className="mt-4"><ErrorBox message={mine ? t("That recipe isn't saved on this device, or no longer suits your diet.") : t("That recipe isn't in the list.")} /></div></div>);

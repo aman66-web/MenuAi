@@ -7,6 +7,7 @@ import { nativeCall, hasNative } from "@/lib/mm/native";
 import { site } from "@/site.config";
 import { accountApi, signedIn } from "../_lib/account";
 import { useT } from "../_lib/i18n";
+import { ShieldIcon } from "./icons";
 import { Pip } from "./Mascot";
 import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
 
@@ -18,6 +19,9 @@ import { Button, Field, Sheet, Spinner, inputClass } from "./ui";
 //   * Email: the same code form in both; the app keeps the session it is given, the website gets http-only cookies.
 
 type Step = "choose" | "email" | "code";
+
+/** Who the code email comes from: Supabase sends it through Resend as "Numbite" <noreply@numbite.com> (docs/ACCOUNTS_SYNC.md, SMTP settings). */
+const CODE_SENDER = "noreply@numbite.com";
 
 function AppleLogo() {
   return (
@@ -70,7 +74,7 @@ function SigningIn() {
     <div role="status" aria-live="polite" className="fixed inset-0 z-50 grid place-items-center bg-background px-6">
       <div className="flex flex-col items-center gap-5 text-center">
         <Pip mood="cheer" size={104} />
-        <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+        <span className="h-9 w-9 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
         <p className="text-lg font-bold">{t("Signing you in…")}</p>
       </div>
     </div>
@@ -181,7 +185,7 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
       {step === "choose" && (
         <>
           <p className="text-base leading-snug">{required
-            ? t("New here? Any of these makes your free account. Been here before? Use the same one you used last time. Your account keeps your meals, shopping list and settings safe on all your devices.")
+            ? t("New here? Any of these makes your free account. Been here before? Use the same one as last time.")
             : t("Sign in to keep your saved meals, shopping list and settings on all your devices. You don't need an account to use {app}.", { app: site.name })}</p>
           <div className="mt-5 space-y-2.5">
             {canUseProviders && (
@@ -220,7 +224,13 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
 
       {step === "code" && (
         <form noValidate onSubmit={(e) => { e.preventDefault(); void checkCode(); }}>
-          <p className="text-base leading-snug [overflow-wrap:anywhere]">{t("We've sent a 6-digit code to {email}. It can take a minute to arrive.", { email: email.trim() })}</p>
+          {/* the address on its own line, big, so a typo shows; then who the email is from and where else to look (onboarding review 2026-11-19: older people
+              stall in Mail with the code in Junk). No subject is named: returning people get the Magic Link email, whose subject isn't ours yet. */}
+          <p className="text-base leading-snug">
+            {t("We've sent a 6-digit code to")}{" "}
+            <strong className="mt-0.5 block text-[1.125rem] font-bold [overflow-wrap:anywhere]">{email.trim()}</strong>
+          </p>
+          <p className="mt-2.5 text-base leading-snug">{t("It comes from {app} ({sender}). Not there in a minute? Look in Junk or Spam.", { app: site.name, sender: CODE_SENDER })}</p>
           <div className="mt-5">
             <Field label={t("6-digit code")}>
               <input type="text" inputMode="numeric" pattern="[0-9]*" autoComplete="one-time-code" maxLength={6} autoFocus className={`${inputClass} min-h-14 text-center text-[1.75rem] font-semibold tracking-[0.4em] tabular-nums`} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))} />
@@ -235,7 +245,16 @@ export function SignInPanel({ onDone, community, required = false }: { onDone: (
         </form>
       )}
 
-      <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{required ? t("We only keep your email address and what your account syncs. No ads, no tracking.") : t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      {required ? (
+        // What the account keeps, named (lib/mm/syncStores.ts: the synced settings and stores; the log only today's and yesterday's entries), in readable
+        // ink, not small grey. Age, height and weight are never kept (lib/mm/onboardingPlan.ts PRIVACY). Change this with the privacy page and SYNC_STORES.
+        <p className="mt-5 flex items-start gap-2.5 text-[0.9375rem] leading-snug">
+          <ShieldIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+          <span>{t("We keep your email address, your goal and daily numbers, the foods you avoid, your shops, today's food log, your favourites, and the meals, recipes, lists, comparisons and cupboard items you save. Never your age, weight or height. No ads, no tracking.")}</span>
+        </p>
+      ) : (
+        <p className="mt-5 text-[0.8125rem] leading-snug text-muted">{t("We only keep your email address and what you choose to sync. No ads, no tracking.")}</p>
+      )}
       {community && <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("To use friends, we also keep the username you choose, your friends and the shopping lists you send and get.")}</p>}
     </div>
   );

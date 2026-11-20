@@ -25,7 +25,7 @@ function GuideLink({ chain, href }: { chain: Chain; href: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="glass inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.9375rem] font-semibold text-accent transition hover:bg-soft-strong active:scale-[0.98]"
+      className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-[0.9375rem] font-semibold text-foreground transition hover:bg-[var(--fill)] active:scale-[0.98]"
     >
       {t("Open {chain}'s allergen guide", { chain: chain.name })}
       <ExternalIcon className="h-4 w-4" />

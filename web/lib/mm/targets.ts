@@ -14,6 +14,16 @@ export const ACTIVITY_LABEL: Record<Activity, string> = {
   active: tk("Active"),
   veryActive: tk("Very active"),
 };
+/**
+ * An everyday example under each activity on the onboarding's tiles (BodyFields' ActivityTiles; usability test 2026-11-19: 14 of 16 guessed their level).
+ * Words only: ACTIVITY_FACTOR is unchanged.
+ */
+export const ACTIVITY_HINT: Record<Activity, string> = {
+  sedentary: tk("Desk job or mostly at home, not much walking"),
+  light: tk("A walk most days, or light exercise 1 to 3 times a week"),
+  active: tk("On your feet most of the day, or exercise 3 to 5 times a week"),
+  veryActive: tk("Hard exercise most days, or heavy physical work"),
+};
 export const SEX_OFFSET: Record<Sex, number> = { male: 5, female: -161, unspecified: -78 };
 export const CALORIE_ADJUSTMENT: Record<Goal, number> = { lose: -500, maintain: 0, buildMuscle: 250, glp1: -500, other: 0 };
 export const PROTEIN_PER_KG: Record<Goal, number> = { lose: 1.4, maintain: 1.2, buildMuscle: 1.6, glp1: 1.4, other: 1.2 }; // "other" = maintain

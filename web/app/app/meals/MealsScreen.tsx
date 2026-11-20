@@ -39,7 +39,7 @@ export function MealsScreen({ tab: asked }: { tab: MealsTab | null }) {
 
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("My meals")}</h1>
 
       <div role="tablist" aria-label={t("My meals")} className="glass mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-1 rounded-full p-1">

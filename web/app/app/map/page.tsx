@@ -63,9 +63,9 @@ function readSavedArea(): Origin {
 
 /** Back: a 36 px grey pill inside a 44 px tap area, like Home's round buttons. */
 const BACK = "group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95";
-const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-strong py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]";
 /** A secondary action inside a white card: the same grey as Home's round buttons (the shared secondary Button fades to the card fill here). */
-const pill = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-soft-strong px-5 text-[0.9375rem] font-semibold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50";
+const pill = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-5 text-[0.9375rem] font-semibold transition hover:not-disabled:bg-[var(--fill)] active:scale-[0.97] disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted";
 // -my/py: a scroller clips vertically too, so the chips get room for their focus ring (2 px wide, 3 px out).
 const chipRow = "no-scrollbar -mx-5 -my-1.5 flex gap-2 overflow-x-auto px-5 py-1.5";
 
@@ -220,8 +220,8 @@ export default function NearbyPage() {
           <button type="submit" className="inline-flex min-h-11 grow items-center justify-center rounded-full bg-white px-4 text-[0.9375rem] font-bold shadow-[0_1px_2px_rgba(17,24,20,0.08)] transition hover:bg-[var(--fill)] active:scale-[0.97]">{t("Search")}</button>
         </div>
         <p className="text-[0.8125rem] leading-snug text-muted">{t("Your location stays on your phone: we use it only to find the closest branches. A typed postcode or town is looked up by postcodes.io.")}</p>
-        {locating.state === "error" && <p role="alert" className="text-sm font-medium text-accent">{t(locating.message, { app: site.name })}</p>}
-        {lookupMessage && <p role="alert" className="text-sm font-medium text-accent">{t(lookupMessage)}</p>}
+        {locating.state === "error" && <p role="alert" className="text-sm font-medium text-foreground">{t(locating.message, { app: site.name })}</p>}
+        {lookupMessage && <p role="alert" className="text-sm font-medium text-foreground">{t(lookupMessage)}</p>}
         {origin && <Button type="button" variant="ghost" full onClick={() => setEditing(false)}>{t("Cancel")}</Button>}
         {choices.length > 0 && (
           <ul aria-label={t("Did you mean")} className="space-y-1.5">

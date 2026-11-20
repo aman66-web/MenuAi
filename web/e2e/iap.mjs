@@ -227,13 +227,30 @@ await step("the replay of the tour (Settings › Help › Show me around again) 
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/settings");
   await page.getByRole("link", { name: "Show me around again" }).click();
-  await page.getByText("Step 1 of 5").waitFor();
+  await page.getByText("Step 1 of 4").waitFor(); // four stops while Community is off (2026-11-18)
   await page.waitForTimeout(2500);
   expect((await page.getByRole("dialog").count()) === 0, "an offer during the replay");
   await page.getByRole("button", { name: "Close", exact: true }).click();
   await page.waitForURL(/\/app\/settings$/);
   await page.waitForTimeout(2500);
   expect((await page.getByRole("dialog").count()) === 0, "an offer on Settings after the replay");
+  await ctx.close();
+});
+
+// The onboarding meeting of 19 November (change 3): Home, the week, the labels page and Today follow the real gate (needsPaywall("log")). In this build the paid
+// tier keeps adding a meal free (PAID_TIER_ONLY), so nothing sells Premium for what + already does free.
+await step("adding a meal is free here: Home has no log card and no 'once you log your meals' lines, and Today shows the day's meals, not the paywall", async () => {
+  const { ctx, page } = await newPage({ offerShown: true });
+  await page.goto(BASE + "/app");
+  await page.getByRole("button", { name: "Add to Breakfast" }).waitFor({ timeout: 20000 });
+  await page.waitForTimeout(1000);
+  for (const line of ["Log your meals to see what's left today.", "Each day's calories show here once you log your meals.", "Your sugar, salt and fibre show here once you log your meals."]) {
+    expect((await page.getByText(line).count()) === 0, `Home says "${line}" where adding a meal is free`);
+  }
+  await page.goto(BASE + "/app/today");
+  await page.getByRole("heading", { level: 1, name: "Today's meals" }).waitFor();
+  expect((await page.getByText("Log a meal from any order and see your calories and protein against your targets", { exact: false }).count()) === 0, "Today shows the paywall card");
+  await page.getByRole("button", { name: /^Add to / }).first().waitFor();
   await ctx.close();
 });
 

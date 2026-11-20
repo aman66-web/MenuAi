@@ -112,7 +112,7 @@ function MakeScreen() {
 
   const recipesHref = `/app/recipes${shop ? `?r=${shop}` : ""}`;
   const nav = useBack(recipesHref); // the page before when this one was reached from another page of the app, else the recipes at this shop
-  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
+  const back = (<Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>);
 
   if (!hydrated) return <Spinner />;
 
@@ -126,7 +126,7 @@ function MakeScreen() {
         </div>
         <div className="mt-5 grid gap-3">
           <Button full className="min-h-14 text-lg" onClick={() => showPaywall("recipeMaker")}>{t("See Pro")}</Button>
-          <Link href={nav.href} onClick={nav.onClick} replace className="glass flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
+          <Link href={nav.href} onClick={nav.onClick} replace className="glass border-[1.5px] border-[color:var(--edge)] bg-soft flex min-h-14 items-center justify-center rounded-full px-5 text-base font-bold">{t("Back to the recipes")}</Link>
         </div>
       </div>
     );
@@ -204,7 +204,7 @@ function MakeScreen() {
             // the idea in the reader's language: it fills the box as shown (Pip understands it either way)
             const idea = t(key);
             return (
-              <button key={key} type="button" aria-pressed={wish === idea} onClick={() => setWish(wish === idea ? "" : idea)} className={`min-h-11 rounded-full border px-4 text-sm font-semibold transition active:scale-[0.97] ${wish === idea ? "border-transparent bg-foreground text-background" : "border-line bg-soft hover:bg-soft-strong"}`}>{idea}</button>
+              <button key={key} type="button" aria-pressed={wish === idea} onClick={() => setWish(wish === idea ? "" : idea)} className={`min-h-11 rounded-full border-[1.5px] px-4 text-sm font-semibold transition active:scale-[0.97] ${wish === idea ? "border-transparent bg-ink text-on-ink" : "border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>{idea}</button>
             );
           })}
         </div>

@@ -30,8 +30,8 @@ for (const scale of [1, 1.5, 2]) {
     await page.close();
   }
 }
-// Pip's onboarding, screen by screen: the welcome cover, Pip's arrival, the text size, the five stops of the walk, "Let's make it yours", the seven
-// questions and the last two screens.
+// Pip's onboarding, screen by screen: the welcome cover, Pip's arrival, the four stops of the walk, "Let's make it yours", the seven questions (nothing picked for
+// the person: the goal and the activity are tapped, and the foods-to-avoid button says "Nothing to avoid") and "You're all set!" with its first recipes.
 for (const scale of [1, 1.5, 2]) {
   const c = await browser.newContext({ viewport: { width: 360, height: 740 }, serviceWorkers: "block" });
   const page = await c.newPage();
@@ -48,21 +48,26 @@ for (const scale of [1, 1.5, 2]) {
   await check("Pip arrives");
   await press("Show me around");
   // no text size screen since 2026-11-19 (founder: "Just keep standard pls"; TEXT_SIZE_CHOICE_ENABLED false): the walk follows Pip's arrival
-  for (const tab of ["Home", "Eat out", "Groceries", "Recipes"]) { await check(`walk: ${tab}`); await press("Continue"); }
+  for (const tab of ["Home", "Recipes", "Groceries", "Eat out"]) { await check(`walk: ${tab}`); await press("Continue"); }
   await check("let's make it yours");
-  await press("Set up my plan");
-  for (const q of ["goal", "avoid"]) { await check(`question: ${q}`); await press("Continue"); }
+  await press("Set up my daily numbers");
+  await check("question: goal");
+  await page.getByRole("radio", { name: "Maintain" }).click();
+  await press("Continue");
+  await check("question: avoid");
+  await press("Nothing to avoid");
   await check("question: about you");
   await page.getByLabel("Age", { exact: true }).fill("34");
   await press("Continue");
-  await check("question: your size");
+  await check("question: your height and weight");
   await page.getByLabel("Stone").fill("11"); await page.getByLabel("Pounds").fill("4"); await page.getByLabel("Feet").fill("5"); await page.getByLabel("Inches").fill("10");
   await press("Continue");
-  for (const q of ["how active", "targets", "shops"]) { await check(`question: ${q}`); await press("Continue"); }
-  await check("all set");
+  await check("question: how active");
+  await page.getByRole("radio", { name: "Lightly active", exact: true }).click();
   await press("Continue");
+  for (const q of ["targets", "shops"]) { await check(`question: ${q}`); await press("Continue"); }
   await page.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 });
-  await check("choose a recipe");
+  await check("all set, with its first recipes");
   await c.close();
 }
 console.log(bad === 0 ? "No horizontal overflow at 100%, 150% or 200% text size (360px wide)." : `${bad} overflow problem(s)`);

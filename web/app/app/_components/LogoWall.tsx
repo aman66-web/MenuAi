@@ -37,13 +37,17 @@ function Tile({ item, namesOnly }: { item: WallItem; namesOnly?: boolean }) {
   );
 }
 
-/** `hero`: the wall as the picture under the welcome headline, fading in at the top as well as out at the bottom. */
+/**
+ * `hero`: the wall as the picture over the welcome headline, fading in at the top as well as out at the bottom. Its height is what a 390×844 phone has left
+ * once the cover's words, Get started, "Already have an account? Sign in" (2.75rem, back on the cover since the onboarding meeting of 19 November) and the
+ * footer are in, so the cover doesn't scroll; never under 7.5rem or over 19rem.
+ */
 export function LogoWall({ items, label, namesOnly, hero }: { items: readonly WallItem[]; label: string; namesOnly?: boolean; hero?: boolean }) {
   useHiddenLogos();
   const rows: WallItem[][] = Array.from({ length: ROWS }, () => []);
   items.forEach((item, i) => rows[i % ROWS]!.push(item));
   return (
-    <div role="img" aria-label={label} className={`logo-wall pointer-events-none relative overflow-hidden ${hero ? "wall-hero h-[clamp(7.5rem,calc(100dvh-36.5rem),19rem)]" : "h-[19rem]"}`}>
+    <div role="img" aria-label={label} className={`logo-wall pointer-events-none relative overflow-hidden ${hero ? "wall-hero h-[clamp(7.5rem,calc(100dvh-39.25rem),19rem)]" : "h-[19rem]"}`}>
       {/* always laid out left to right, so the loop works the same in Urdu and Arabic */}
       <div aria-hidden dir="ltr" className="absolute inset-x-[-30%] top-[-12%] flex rotate-[-9deg] flex-col gap-3">
         {rows.map((row, r) => (

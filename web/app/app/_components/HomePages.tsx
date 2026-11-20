@@ -166,7 +166,7 @@ export function HomePages({ pages, now }: { pages: HomePage[]; now: Date }) {
             onClick={() => go(i)}
             className="group inline-flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-[-6px] focus-visible:outline-accent"
           >
-            <span aria-hidden className={`block h-2.5 rounded-full transition-[width,background-color] duration-200 motion-reduce:transition-none ${current === i ? "w-6 bg-[#1d2320]" : "w-2.5 bg-muted"}`} />
+            <span aria-hidden className={`block h-2.5 rounded-full transition-[width,background-color] duration-200 motion-reduce:transition-none ${current === i ? "w-6 bg-ink" : "w-2.5 bg-muted"}`} />
           </button>
         ))}
       </div>

@@ -280,7 +280,7 @@ export default function SettingsPage() {
           </div>
           {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={messageClass}>{t("Not saved yet. Tap “Save targets” to keep them.")}</p>}
           {targetsMessage && (targetsMessage.ok
-            ? <p role="status" className="mt-3 text-[0.9375rem] font-semibold text-accent">{t(targetsMessage.text)}</p>
+            ? <p role="status" className="mt-3 text-[0.9375rem] font-semibold text-foreground">{t(targetsMessage.text)}</p>
             : <p role="alert" className={messageClass}>{t(targetsMessage.text)}</p>)}
           {suggest && (
             <div className="mt-4">
@@ -328,7 +328,7 @@ export default function SettingsPage() {
           {/* When the menus were last published, with a quiet pill to fetch them again. */}
           <p className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-3 text-[0.9375rem] leading-snug text-muted">
             <span className="min-w-0 flex-[1_1_10rem] [text-wrap:balance]">{menu.dataVersion ? <>{t("Menus updated {date}.", { date: formatDate(dataVersionDate(menu.dataVersion), t) })} </> : menu.status === "error" ? <>{t("Couldn't reach the menus.")} </> : <>{t("No menus published yet.")} </>}</span>
-            <button type="button" className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-4 text-[0.875rem] font-bold text-foreground transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,var(--soft-strong))]" onClick={() => { menuClient.invalidate(); void menuClient.ensureManifest(true); }}>{t("Refresh menus")}</button>
+            <button type="button" className="inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.875rem] font-bold text-foreground transition active:scale-95 hover:bg-[var(--fill)]" onClick={() => { menuClient.invalidate(); void menuClient.ensureManifest(true); }}>{t("Refresh menus")}</button>
           </p>
         </div>
       </Section>
@@ -341,7 +341,7 @@ export default function SettingsPage() {
                 <p className="text-[0.9375rem] font-semibold leading-snug">{i.kind === "report" ? t("Number report") : i.kind === "chainRequest" ? t("Chain request") : t("Message")} · {i.status === "failed" ? t("couldn't be sent") : t("will send when you're online")}</p>
                 {i.status === "failed" && (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <a className="glass inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold" href={mailtoFor(i, site.supportEmail)}>{t("Email instead")}</a>
+                    <a className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center rounded-full px-5 text-[15px] font-semibold hover:bg-[var(--fill)]" href={mailtoFor(i, site.supportEmail)}>{t("Email instead")}</a>
                     <Button variant="secondary" onClick={() => outbox().remove(i.id)}>{t("Delete")}</Button>
                   </div>
                 )}

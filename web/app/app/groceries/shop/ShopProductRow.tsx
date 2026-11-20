@@ -23,7 +23,7 @@ export function ShopProductRow({ file, product, showShop }: { file: ShopFile; pr
         {showShop && <span className="sr-only">{file.name}, </span>}
         <span className="block text-base font-bold leading-snug [overflow-wrap:anywhere]">{product.name}</span>
         <span className="app-numbers mt-1 block text-[0.9375rem] leading-snug">
-          {product.price !== null ? <span className="font-bold text-accent">{formatPrice(product.price)}</span> : <span className="font-semibold">{t("Price in store")}</span>}
+          {product.price !== null ? <span className="font-bold text-foreground">{formatPrice(product.price)}</span> : <span className="font-semibold">{t("Price in store")}</span>}
           {product.unitPrice !== null && product.unit && <span className="text-muted"> · {formatPrice(product.unitPrice)} {product.unit}</span>}
         </span>
         {product.member && <span className="app-numbers block text-sm leading-snug text-muted">{t("{price} with {scheme}", { price: formatPrice(product.member.amount), scheme: product.member.scheme.replace(/ price$/i, "") })}</span>}

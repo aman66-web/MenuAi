@@ -44,7 +44,7 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
 type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
 
 /** A small quiet mark beside a price ("Lowest", "Lowest with card"): the accent green on the light grey fill. */
-const MARK = "inline-flex items-center rounded-full bg-[var(--fill)] px-2.5 py-1 text-xs font-bold text-accent";
+const MARK = "inline-flex items-center rounded-full bg-[var(--fill)] px-2.5 py-1 text-xs font-bold text-foreground";
 
 /**
  * Label text the shop's page prints as "Name: value; Name: value" (the further label figures, the per-portion line), shown as calm rows: the
@@ -233,12 +233,12 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
         {here ? (
           <div className="mt-4">
             <p className="app-numbers flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="text-[2.5rem] font-medium leading-none tracking-[-0.03em] text-accent">{formatPrice(here.amount)}</span>
+              <span className="text-[2.5rem] font-medium leading-none tracking-[-0.03em] text-foreground">{formatPrice(here.amount)}</span>
               {here.perUnit && <span className="text-[0.9375rem] text-muted">{formatPrice(here.perUnit.amount)} {here.perUnit.unit}</span>}
             </p>
             {here.member && (
               <p className="app-numbers mt-3 text-base">
-                <span className="font-bold text-accent">{formatPrice(here.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: here.member.scheme.replace(/ price$/i, "") })}</span>
+                <span className="font-bold text-foreground">{formatPrice(here.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: here.member.scheme.replace(/ price$/i, "") })}</span>
                 <span className={`mt-0.5 block ${NOTE}`}>{here.member.ends ? t("Needs {shop}'s loyalty card, {ends}.", { shop: retailerName(selected), ends: here.member.ends }) : t("Needs {shop}'s loyalty card.", { shop: retailerName(selected) })} {t("The regular price above is what everyone pays.")}</span>
               </p>
             )}
@@ -274,7 +274,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
                           <a className="text-base font-bold underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
                           {diff !== null && diff !== 0 && <span className="block text-[0.8125rem] text-muted">{diff < 0 ? t("{price} cheaper", { price: formatPrice(Math.abs(diff)) }) : t("{price} more", { price: formatPrice(Math.abs(diff)) })}</span>}
                           {diff === 0 && <span className="block text-[0.8125rem] text-muted">{t("same price")}</span>}
-                          {price.member && <span className="block text-[0.8125rem] font-semibold text-accent">{t("{price} with {scheme}", { price: formatPrice(price.member.amount), scheme: price.member.scheme.replace(/ price$/i, "") })}</span>}
+                          {price.member && <span className="block text-[0.8125rem] font-semibold text-foreground">{t("{price} with {scheme}", { price: formatPrice(price.member.amount), scheme: price.member.scheme.replace(/ price$/i, "") })}</span>}
                         </>
                       ) : (
                         <a className={`text-sm ${outLink}`} href={SEARCH_LINKS[r]?.(listed.gtin) ?? "#"} target="_blank" rel="noopener noreferrer">{t("Check")}<span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
@@ -298,7 +298,7 @@ export function ProductScreen({ code, retailerHint }: { code: string; retailerHi
             </Button>
           ))}
         </div>
-        <p role="status" aria-live="polite" className="mt-3 text-sm font-medium text-accent empty:mt-0">{added?.text}</p>
+        <p role="status" aria-live="polite" className="mt-3 text-sm font-medium text-foreground empty:mt-0">{added?.text}</p>
         {added && <Link href={added.href} className={`inline-flex min-h-11 items-center text-[0.9375rem] ${outLink}`}>{t("Open your shopping list")}</Link>}
         {sheet}
       </div>

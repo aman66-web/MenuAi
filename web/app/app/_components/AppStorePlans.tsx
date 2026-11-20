@@ -122,7 +122,7 @@ export function AppStorePlans() {
                       <span className="text-[1.0625rem] font-extrabold leading-snug">{p.name}</span>
                       {plan.badge && <span className="rounded-full bg-[var(--sun)] px-2 py-0.5 text-[0.75rem] font-extrabold uppercase tracking-wide text-[var(--on-accent)]">{t(plan.badge)}</span>}
                     </span>
-                    <span className={`mt-0.5 block text-[0.875rem] leading-snug ${p.trialDays ? "font-semibold text-accent" : "text-muted"}`}>{line}</span>
+                    <span className={`mt-0.5 block text-[0.875rem] leading-snug ${p.trialDays ? "font-semibold text-foreground" : "text-muted"}`}>{line}</span>
                   </span>
                   <span className="app-numbers shrink-0 text-end">
                     <span className="block text-[1.375rem] font-extrabold leading-none tracking-tight">{p.price}</span>
@@ -147,7 +147,7 @@ export function AppStorePlans() {
 
       {note && <p ref={noteRef} role="status" className="mt-3 scroll-mb-32 text-center text-base font-semibold">{note}</p>}
 
-      <button type="button" disabled={busy !== null} onClick={() => void restore()} className="mx-auto mt-3 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold underline underline-offset-4 disabled:opacity-60">
+      <button type="button" disabled={busy !== null} onClick={() => void restore()} className="mx-auto mt-3 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold underline underline-offset-4 disabled:cursor-not-allowed disabled:text-muted">
         {busy === "restore" ? t("Checking with the App Store…") : t("Restore purchases")}
       </button>
 

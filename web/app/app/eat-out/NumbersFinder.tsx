@@ -190,7 +190,7 @@ export function NumbersPanel({ state, found }: { state: NumbersFinderState; foun
         ) : summary)}
       </p>
       {state.useMine && (
-        <button type="button" onClick={state.useMine} className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        <button type="button" onClick={state.useMine} className="mt-3 inline-flex min-h-11 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
           {t("Use my meal numbers")}
         </button>
       )}

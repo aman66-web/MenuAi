@@ -45,7 +45,7 @@ export function PresetPills({ chain, items, renderList }: { chain: Chain; items:
         {defs.map((d) => {
           const n = counts.get(d.id) ?? 0;
           return (
-            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} className="disabled:opacity-100 disabled:text-muted" onClick={() => { if (gated && d.id === "small-appetite") return showPaywall("smallAppetite"); setActive((a) => (a === d.id ? null : d.id)); }}>
+            <Chip key={d.id} size="lg" selected={active === d.id} disabled={n === 0} className="disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted" onClick={() => { if (gated && d.id === "small-appetite") return showPaywall("smallAppetite"); setActive((a) => (a === d.id ? null : d.id)); }}>
               {t(d.label)}
             </Chip>
           );

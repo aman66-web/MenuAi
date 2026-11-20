@@ -1,6 +1,8 @@
 // The welcome tour (founder 2026-11-17; lib/mm/tour.ts, app/app/welcome/Tour.tsx): a plain first launch of /app goes to the welcome screens before anything is
-// drawn; Pip's arrival, the text size (saved on the tap), five stops with "What you can do" on each tab, then "Let's make it yours" (Set up my plan / Look around
-// first). Links open as they are; Settings › Help replays the five stops and writes nothing; Clear everything brings the welcome back.
+// drawn; Pip's arrival, one stop per tab (Pip's one line over a copy of the tab bar, and a line naming the bar's buttons), then "Let's make it yours" (Set up my
+// daily numbers / Look around first). Links open as they are; Settings › Help replays the stops with "What you can do" on each tab and writes nothing; Clear
+// everything brings the welcome back. The first run has no "What you can do" (the onboarding meeting, 19 November).
+// Pip and the cover settle after a few seconds (step 15): only the logo wall's marquee and Pip's blink keep going; nothing moves for reduced motion.
 // Run against a production build, with the same NEXT_PUBLIC_ switches the build had (they decide the Make it at home and friends rows):
 //   BASE=http://localhost:3101 node e2e/tour.mjs
 import { chromium } from "playwright-core";
@@ -53,6 +55,19 @@ async function axe(page, where) {
 
 const TABS = ["Home", "Recipes", "Groceries", "Eat out"]; // Community is off (2026-11-18); the order since 2026-11-19
 const IDS = ["home", "recipes", "groceries", "eatOut"];
+/** A first-run stop's headline as a screen reader hears it: the tab's name, then "stop n of 4" (sr-only; the replay's headline is the tab's name alone). */
+const stopName = (i) => `${TABS[i]}, stop ${i + 1} of ${TABS.length}`;
+/** The same headline's accessible name: Chrome puts a space before the comma, because the screen-reader-only part is a block of its own ("Home , stop 1 of 4"). */
+const stopRe = (i) => new RegExp(`^${TABS[i]} ?, stop ${i + 1} of ${TABS.length}$`);
+// Pip's line on each stop (no "!", at most two sentences: the onboarding meeting, 19 November)
+const SAYS = {
+  home: "This is Home: what you've eaten today, and what's left of your calories and protein.",
+  recipes: "Cooking at home? Recipes made from real supermarket products, with the cost of each serving.",
+  groceries: "Going shopping? Pick your supermarket and look up its products, with prices and labels where the shop publishes them.",
+  eatOut: "Going out to eat? Look the place up first and see each dish's calories before you order.",
+};
+const BAR_LINE = `This is a picture of the buttons at the bottom of every screen: ${TABS.slice(0, -1).join(", ")} and ${TABS[TABS.length - 1]}.`;
+const ARRIVAL = "I'll show you the calories and protein from restaurants' own menus and from food labels, before you order or buy. Let me show you around.";
 const ROWS = {
   home: [
     "Tap + next to Breakfast, Lunch, Dinner or Snacks to add what you ate: a restaurant dish, a recipe, a supermarket product, or your own numbers.",
@@ -85,10 +100,17 @@ const ROWS = {
     ...(FRIENDS ? ["Sign in to add friends with a code, then send each other shopping lists."] : []),
   ],
 };
+/** The welcome cover, Pip's arrival and the first-run stops have no progress bar and no "Step n of n" (the questions' "Step n of 7" is the only counter). */
+async function noCounter(page, where) {
+  const segments = await page.locator("main div[aria-hidden='true'] > span.h-1.flex-1").count();
+  expect(segments === 0, `${where}: a progress bar of ${segments} segments`);
+  expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, `${where}: a 'Step n of n' counter`);
+}
 const stopId = (page) => page.locator("[data-tour-stop]").getAttribute("data-tour-stop");
 const barWords = (page) => page.locator("section[data-tour-stop] ul[aria-hidden='true'] span.line-clamp-2").allInnerTexts();
 const litTab = (page) => page.locator("section[data-tour-stop] ul[aria-hidden='true']").evaluate((ul) => [...ul.children].findIndex((li) => li.firstElementChild?.className.includes("text-[#d6efa0]")));
 const rows = (page) => page.locator("section[data-tour-stop] div.glass ul > li").allInnerTexts();
+const says = (page) => page.locator("section[data-tour-stop] p.speech-tour").innerText();
 
 // The real bar's words, read from Home for someone already set up.
 let realBar = [];
@@ -140,27 +162,35 @@ await step("1. a plain first visit to /app ends on the welcome screens without H
   await ctx.close();
 });
 
-await step("2. Get started → 'Hi, I'm Pip!' (its headline has the focus) → Show me around → the first stop: no text size screen (founder 2026-11-19, \"Just keep standard pls\")", async () => {
+await step("2. Get started → 'Hi, I'm Pip!' (its headline has the focus, Pip's line says where the numbers come from, and Pip is a named picture) → Show me around → the first stop: no text size screen (founder 2026-11-19, \"Just keep standard pls\")", async () => {
+  await noCounter(page, "the welcome cover");
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("heading", { level: 1, name: "Hi, I'm Pip!" }).waitFor();
   await h1Focused(page, "Hi, I'm Pip!");
+  await noCounter(page, "Pip's arrival");
+  await page.getByText(ARRIVAL).waitFor();
+  const pip = page.getByRole("img", { name: "Pip, a small round green character with a sprout on top.", exact: true });
+  expect((await pip.count()) === 1, "the arrival's Pip is not a named picture");
+  expect((await pip.evaluate((el) => el.tagName.toLowerCase())) === "svg", "the named picture is not Pip's drawing");
   await page.getByRole("button", { name: "Show me around" }).click();
-  await page.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
+  await page.getByRole("heading", { level: 1, name: stopRe(0) }).waitFor();
   expect((await page.getByRole("heading", { name: "Easy to read" }).count()) === 0, "the text size screen is back");
   expect((await page.evaluate(() => document.documentElement.style.fontSize)) === "", "html font-size: " + (await page.evaluate(() => document.documentElement.style.fontSize)));
 });
 
-await step("3. the five stops: the tab's name as the focused headline, the stop's id, the real bar's words with the stop's tab lit, and the rows of 'What you can do'", async () => {
+await step("3. the stops: the tab's name with 'stop n of 4' as the focused headline, the stop's id, Pip's line, the real bar's words with the stop's tab lit, the line naming the bar's buttons, and no 'What you can do' (the replay keeps it, step 9)", async () => {
   for (let i = 0; i < TABS.length; i++) {
-    await page.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
-    await h1Focused(page, TABS[i]);
+    await page.getByRole("heading", { level: 1, name: stopRe(i) }).waitFor();
+    await h1Focused(page, stopName(i));
+    await noCounter(page, `stop ${i + 1}`);
     expect((await stopId(page)) === IDS[i], `stop ${i + 1}: data-tour-stop ${await stopId(page)}`);
+    expect((await says(page)).trim() === SAYS[IDS[i]], `stop ${i + 1}: Pip says ${JSON.stringify(await says(page))}`);
     const words = (await barWords(page)).map((s) => s.trim());
     expect(JSON.stringify(words) === JSON.stringify(realBar), `stop ${i + 1}: the bar's words ${JSON.stringify(words)} against the real bar's ${JSON.stringify(realBar)}`);
     expect((await litTab(page)) === i, `stop ${i + 1}: lit tab ${await litTab(page)}`);
-    await page.getByRole("heading", { level: 2, name: "What you can do" }).waitFor();
-    const got = (await rows(page)).map((s) => s.trim());
-    expect(JSON.stringify(got) === JSON.stringify(ROWS[IDS[i]]), `stop ${i + 1}: rows ${JSON.stringify(got)}`);
+    await page.getByText(BAR_LINE, { exact: true }).waitFor();
+    expect((await page.getByRole("heading", { level: 2, name: "What you can do" }).count()) === 0, `stop ${i + 1}: 'What you can do' on the first run`);
+    expect((await rows(page)).length === 0, `stop ${i + 1}: rows on the first run`);
     await page.waitForTimeout(150);
     if (i < TABS.length - 1) await page.getByRole("button", { name: "Continue" }).click();
   }
@@ -170,25 +200,25 @@ await step("4. the last stop leads to 'Let's make it yours', and the tour is mar
   await page.getByRole("button", { name: "Continue" }).click();
   await page.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
   await page.waitForFunction(() => JSON.parse(localStorage.getItem("mm.v1.tour") || "null")?.data === 1, null, { timeout: 3000 });
-  await page.getByText("You can see this tour again any time in Settings.").waitFor();
+  await page.getByText("Rather look around first? You can set this up later from Home, and see the tour again in Settings.").waitFor();
+  // Pip names the number of questions the counter will count ("Step n of 7")
+  await page.getByText("That's the tour. Next, 7 short steps. I'll work out your daily calories and protein, and put the dishes that fit you first.").waitFor();
   expect((await page.getByRole("button", { name: /Skip/ }).count()) === 0, "no Skip on the choice");
 });
 
-await step("5. 'Set up my plan' → 'Step 1 of 9'; Back returns to 'Let's make it yours'; the questions end on Home, set up, with the card gone", async () => {
-  await page.getByRole("button", { name: "Set up my plan" }).click();
+await step("5. 'Set up my daily numbers' → 'Step 1 of 7'; Back returns to 'Let's make it yours'; the questions end on 'You're all set!' (no counter) and Go to Home, set up, with the card gone", async () => {
+  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
-  await page.getByText("Step 1 of 9").waitFor();
+  await page.getByText("Step 1 of 7").waitFor();
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await page.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
-  await page.getByRole("button", { name: "Set up my plan" }).click();
+  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
   // goal, foods to avoid, the questions about the person, the targets, the shops
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("heading", { name: "You're all set!" }).waitFor();
-  await page.getByText("Step 8 of 9").waitFor();
-  await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: "Choose a recipe to start with" }).waitFor();
-  await page.getByRole("button", { name: "Take me to Home" }).click();
+  expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, "a counter on the last screen");
+  await page.getByRole("button", { name: "Go to Home" }).click();
   await page.waitForURL(/\/app\/?$/);
   await homeHeading(page).waitFor();
   expect((await settingsOf(page))?.hasCompletedOnboarding === true, "set up");
@@ -202,11 +232,13 @@ await step("6. 'Skip tour' on stop 2 jumps to 'Let's make it yours'; 'Look aroun
   await p.waitForURL(/\/app\/welcome$/);
   await p.getByRole("button", { name: "Get started" }).click();
   await p.getByRole("button", { name: "Show me around" }).click();
-  await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
+  await p.getByRole("heading", { level: 1, name: stopRe(0) }).waitFor();
   await p.getByRole("button", { name: "Continue" }).click();
-  await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); // stop 2 since the tabs were reordered (2026-11-19)
+  await p.getByRole("heading", { level: 1, name: stopRe(1) }).waitFor(); // Recipes: stop 2 since the tabs were reordered (2026-11-19)
   await p.getByRole("button", { name: "Skip tour" }).click();
   await p.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
+  // the same line whether or not the tour was walked (only Pip's first sentence, "That's the tour.", is left out)
+  await p.getByText("Rather look around first? You can set this up later from Home, and see the tour again in Settings.").waitFor();
   await p.getByRole("button", { name: "Look around first" }).click();
   await p.waitForURL(/\/app\/?$/);
   await card(p).waitFor();
@@ -278,10 +310,16 @@ await step("9. Settings › Help › 'Show me around again': 'Step 1 of 4', Clos
   await p.waitForURL(/\/app\/settings$/);
   await again.click();
   await p.getByText(`Step 1 of ${TABS.length}`).waitFor();
-  for (let i = 1; i < TABS.length; i++) {
-    await p.getByRole("button", { name: "Continue" }).click();
-    await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
-    await p.getByText(`Step ${i + 1} of ${TABS.length}`).waitFor();
+  // the replay keeps "What you can do" on each tab, with the rows this build shows
+  for (let i = 0; i < TABS.length; i++) {
+    if (i > 0) {
+      await p.getByRole("button", { name: "Continue" }).click();
+      await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
+      await p.getByText(`Step ${i + 1} of ${TABS.length}`).waitFor();
+    }
+    await p.getByRole("heading", { level: 2, name: "What you can do" }).waitFor();
+    const got = (await rows(p)).map((s) => s.trim());
+    expect(JSON.stringify(got) === JSON.stringify(ROWS[IDS[i]]), `replay stop ${i + 1}: rows ${JSON.stringify(got)}`);
   }
   expect((await p.getByRole("button", { name: "Continue" }).count()) === 0, "the last stop says Done, not Continue");
   await p.getByRole("button", { name: "Done", exact: true }).click();
@@ -329,7 +367,7 @@ await step("11. reduced motion: nothing is animating on Pip's arrival or the sto
   expect((await running()).length === 0, "the arrival animates: " + (await running()).join(", "));
   await p.getByRole("button", { name: "Show me around" }).click(); // straight to the first stop: no text size screen since 2026-11-19
   for (let i = 0; i < TABS.length; i++) {
-    await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
+    await p.getByRole("heading", { level: 1, name: stopRe(i) }).waitFor();
     await p.waitForTimeout(200);
     expect((await running()).length === 0, `${TABS[i]} animates: ` + (await running()).join(", "));
     if (i < TABS.length - 1) await p.getByRole("button", { name: "Continue" }).click();
@@ -337,7 +375,7 @@ await step("11. reduced motion: nothing is animating on Pip's arrival or the sto
   await ctx.close();
 });
 
-await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, every button and link at least 44 px, and a stop's last row clear of the sticky button", async () => {
+await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, every button and link at least 44 px, and a stop's last line clear of the sticky button", async () => {
   for (const viewport of [{ width: 360, height: 780 }, { width: 375, height: 667 }]) {
     const ctx = await fresh({ viewport });
     await seed(ctx, { "mm.v1.settings": env({ textSize: "xlarge" }) });
@@ -362,16 +400,17 @@ await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, e
     await check("Pip's arrival");
     await p.getByRole("button", { name: "Show me around" }).click();
     for (let i = 0; i < TABS.length; i++) {
-      await p.getByRole("heading", { level: 1, name: TABS[i], exact: true }).waitFor();
+      await p.getByRole("heading", { level: 1, name: stopRe(i) }).waitFor();
       await p.waitForTimeout(900);
       await check(TABS[i]);
       const clear = await p.evaluate(() => {
         window.scrollTo(0, document.documentElement.scrollHeight);
-        const last = [...document.querySelectorAll("section[data-tour-stop] div.glass ul > li")].pop();
+        // the line under the copy of the bar ends the stop on the first run
+        const last = [...document.querySelectorAll("section[data-tour-stop] p")].pop();
         const bar = [...document.querySelectorAll("button")].find((b) => /^(Continue|Done)$/.test(b.textContent.trim()))?.closest(".sticky");
         return last && bar ? Math.round(bar.getBoundingClientRect().top - last.getBoundingClientRect().bottom) : null;
       });
-      expect(clear !== null && clear >= -1, `${where} ${TABS[i]}: the last row is under the sticky button (${clear})`);
+      expect(clear !== null && clear >= -1, `${where} ${TABS[i]}: the last line is under the sticky button (${clear})`);
       await p.getByRole("button", { name: "Continue" }).click();
     }
     await p.getByRole("heading", { level: 1, name: "Let's make it yours" }).waitFor();
@@ -380,17 +419,20 @@ await step("12. Extra large text at 360×780 and 375×667: no sideways scroll, e
   }
 });
 
-await step("13. axe: no violations on the welcome screen, a stop, 'Let's make it yours' and the replay", async () => {
+await step("13. axe: no violations on the welcome screen, Pip's arrival (Pip is a named picture there), a stop, 'Let's make it yours' and the replay", async () => {
   const ctx = await fresh(); const p = await ctx.newPage();
   await p.goto(BASE + "/app/welcome");
   await p.getByRole("button", { name: "Get started" }).waitFor();
   await p.waitForTimeout(800);
   await axe(p, "welcome");
   await p.getByRole("button", { name: "Get started" }).click();
+  await p.getByRole("heading", { level: 1, name: "Hi, I'm Pip!" }).waitFor();
+  await p.waitForTimeout(1900); // the jump and the burst
+  await axe(p, "Pip's arrival");
   await p.getByRole("button", { name: "Show me around" }).click();
-  await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor();
+  await p.getByRole("heading", { level: 1, name: stopRe(0) }).waitFor();
   await p.getByRole("button", { name: "Continue" }).click();
-  await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor();
+  await p.getByRole("heading", { level: 1, name: stopRe(1) }).waitFor();
   await p.waitForTimeout(900);
   await axe(p, "the Recipes stop");
   await p.getByRole("button", { name: "Skip tour" }).click();
@@ -406,6 +448,30 @@ await step("13. axe: no violations on the welcome screen, a stop, 'Let's make it
 await step("14. no request's address or body carries mm.v1.tour or the tour's state", async () => {
   const hits = requests.filter((r) => /mm\.v1\.tour/.test(r.url) || /mm\.v1\.tour|"tour"\s*:/.test(r.body));
   expect(hits.length === 0, "sent: " + hits.slice(0, 2).map((r) => r.url).join(" | "));
+});
+
+await step("15. Pip and the cover settle (the onboarding meeting, change 14): 6 s in, only the marquee and Pip's blink run on the cover and only the blink on 'Hi, I'm Pip!'; with reduced motion nothing runs on either", async () => {
+  // what is still moving: running animations by name (a CSS transition by the property it moves)
+  const running = (p) => p.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").map((a) => a.animationName ?? a.transitionProperty ?? "animation"));
+  for (const reducedMotion of ["no-preference", "reduce"]) {
+    const ctx = await fresh({ reducedMotion }); const p = await ctx.newPage();
+    await p.goto(BASE + "/app/welcome");
+    await p.getByRole("button", { name: "Get started" }).waitFor();
+    await p.waitForTimeout(6000);
+    const cover = await running(p);
+    if (reducedMotion === "reduce") expect(cover.length === 0, "reduced motion: the cover still moves: " + cover.join(", "));
+    else {
+      expect(cover.every((n) => n === "marquee" || n === "pip-blink"), "the cover at 6 s: " + [...new Set(cover)].join(", "));
+      expect(cover.includes("marquee"), "the logo wall stopped moving on the cover: " + cover.join(", "));
+    }
+    await p.getByRole("button", { name: "Get started" }).click();
+    await p.getByRole("heading", { level: 1, name: "Hi, I'm Pip!" }).waitFor();
+    await p.waitForTimeout(6000);
+    const arrival = await running(p);
+    if (reducedMotion === "reduce") expect(arrival.length === 0, "reduced motion: the arrival still moves: " + arrival.join(", "));
+    else expect(arrival.every((n) => n === "pip-blink"), "'Hi, I'm Pip!' at 6 s: " + [...new Set(arrival)].join(", "));
+    await ctx.close();
+  }
 });
 
 await main.close();

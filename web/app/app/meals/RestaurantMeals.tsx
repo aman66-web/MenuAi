@@ -96,7 +96,7 @@ export function RestaurantMeals() {
                     <p className="text-[0.9375rem] text-muted">{o.chainName}</p>
                   </div>
                   <button type="button" aria-label={t("Delete {name}", { name: o.name })} onClick={() => remove(o)} className={`group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition active:scale-95 ${photos ? "" : "-mt-1"}`}>
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--fill)] transition-colors group-hover:bg-soft-strong"><TrashIcon className="h-[18px] w-[18px]" /></span>
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
                   </button>
                 </div>
                 {/* the figures as the recipe cards' chips, across the card's full width: a bold number and a grey unit (the spaces keep the
@@ -113,7 +113,7 @@ export function RestaurantMeals() {
                   ) : (
                     <Button variant="secondary" className="flex-[3_1_auto]" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : o.id)}>{expanded ? t("Hide details") : t("Details")}</Button>
                   )}
-                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 flex-[1_1_auto] items-center justify-center rounded-full bg-[var(--fill)] px-5 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">{t("Menu")}</Link>}
+                  {!gone && <Link href={chainHref(o.chainId)} className="inline-flex min-h-11 flex-[1_1_auto] items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-5 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">{t("Menu")}</Link>}
                 </div>
                 {expanded && (
                   <div className="mt-3 rounded-[1rem] bg-[var(--fill)] p-3.5">
@@ -136,9 +136,9 @@ export function RestaurantMeals() {
       )}
 
       {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground px-5 py-2 text-background shadow-lg">
+        <div role="status" className="fixed inset-x-4 bottom-20 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-ink px-5 py-2 text-on-ink shadow-lg">
           <span className="text-[0.9375rem]">{t("Deleted “{name}”.", { name: undo.name })}</span>
-          <button type="button" className="min-h-11 px-2 text-[0.9375rem] font-bold text-[var(--sun)]" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>{t("Undo")}</button>
+          <button type="button" className="min-h-11 px-2 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2" onClick={() => { restoreSavedOrder(undo); setUndo(null); }}>{t("Undo")}</button>
         </div>
       )}
     </div>

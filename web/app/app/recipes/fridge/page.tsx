@@ -123,7 +123,7 @@ function Fridge() {
   };
 
   const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong">
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to recipes"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
       <ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span>
     </Link>
   );
@@ -163,7 +163,7 @@ function Fridge() {
           {WORKING.slice(0, line + 1).map((w, i) => (
             <li key={w} className="flex items-center gap-3 text-[1.0625rem] font-semibold">
               {i < line ? <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
-                : <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />}
+                : <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />}
               {t(w, { shop: shopName })}
             </li>
           ))}
@@ -230,7 +230,7 @@ function Fridge() {
                     // the tile fills the space above the line, so the line stays in view (usability test 2026-11-19: the tile's full height pushed it under the next card)
                     <li key={c.recipe.id} className="flex min-w-0 flex-col">
                       <div className="min-h-0 flex-1"><RecipeTile card={c} href={`/app/recipes/view?id=${c.recipe.id}&r=${shop}${haveFor(c.recipe.id)}`} /></div>
-                      <p className="mt-1.5 px-1 text-[0.875rem] font-semibold leading-snug text-accent">{t("Uses your {things}", { things: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(uses) })}</p>
+                      <p className="mt-1.5 px-1 text-[0.875rem] font-semibold leading-snug text-foreground">{t("Uses your {things}", { things: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(uses) })}</p>
                     </li>
                   );
                 })}
@@ -252,7 +252,7 @@ function Fridge() {
               </div>
               {error && <p role="alert" className="mt-3 rounded-[1rem] bg-white/10 p-3 text-[0.9375rem] font-semibold">{error}</p>}
               <button type="button" onClick={() => gate("fridgeRecipe", () => { if (access) void askPip(); })} disabled={!ready}
-                className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-sun px-5 text-base font-bold text-[var(--on-accent)] transition active:scale-95 disabled:opacity-60">
+                className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-sun px-5 text-base font-bold text-[var(--on-accent)] transition active:scale-95 disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:bg-soft-strong disabled:text-muted">
                 <FridgeIcon aria-hidden className="h-5 w-5" />{t("Make me a recipe")}
               </button>
             </div>

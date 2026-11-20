@@ -81,7 +81,7 @@ export default function CommunityPage() {
         <h2 id="community-blogs" className={HEADING}>{t("Food blogs")}</h2>
         {/* a small grey pill like Home's round actions, inside a full 44 px tap area; the heading is read after the words */}
         <Link href="/app/community/blog" className="group inline-flex min-h-11 shrink-0 items-center transition active:scale-95">
-          <span className="inline-flex h-9 items-center whitespace-nowrap rounded-full bg-soft-strong px-3.5 text-[0.9375rem] font-bold transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">{t("See all")}</span>
+          <span className="inline-flex h-9 items-center whitespace-nowrap rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.9375rem] font-bold transition-colors group-hover:bg-[var(--fill)]">{t("See all")}</span>
           <span className="sr-only"> {t("Food blogs")}</span>
         </Link>
       </div>

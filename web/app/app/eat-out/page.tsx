@@ -76,8 +76,9 @@ export default function EatOutPage() {
 
   return (
     <div>
-      {/* the top right (founder 2026-11-19): the shopping list and the Settings gear, as on Home */}
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+      {/* the top right (founder 2026-11-19): the shopping list and the Settings gear, as on Home. The 4 px gap beside the title keeps the title, the
+          pill (with its count) and the gear on one line from 337 px up; at a narrower width or a larger text the pill and gear move under the title. */}
+      <div className="flex flex-wrap items-center justify-between gap-x-1 gap-y-1">
         <h1 className="text-[1.75rem] font-[800] leading-none tracking-[-0.02em]"><Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} /></h1>
         {/* the shopping list and the Settings gear at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of
             every page. Also shopping list should be on the last page too") */}
@@ -175,7 +176,7 @@ export default function EatOutPage() {
                 <nav aria-label={t("Jump to letter")} className="no-scrollbar -mx-5 mt-2.5 flex overflow-x-auto px-4">
                   {restGroups.map((g) => (
                     <a key={g.letter} href={`#az-${g.letter}`} onClick={(e) => jumpTo(e, `az-${g.letter}`)} aria-label={t("Restaurants starting with {letter}", { letter: g.letter })} className="group inline-flex h-11 min-w-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-offset-[-2px]!">
-                      <span aria-hidden className="inline-flex h-9 min-w-9 items-center justify-center rounded-full bg-soft-strong px-1 text-[0.8125rem] font-semibold transition-colors group-hover:bg-foreground group-hover:text-background">{g.letter}</span>
+                      <span aria-hidden className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-1 text-[0.8125rem] font-semibold transition-colors group-hover:bg-foreground group-hover:text-background">{g.letter}</span>
                     </a>
                   ))}
                 </nav>

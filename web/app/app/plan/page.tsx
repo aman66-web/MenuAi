@@ -41,13 +41,13 @@ import { AllergiesStep, CountStep, GROUP_LABEL, MeatStep, WhoStep, allergyLine, 
 
 const today = () => new Date().toISOString().slice(0, 10);
 const ROUND = "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95";
-const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong";
+const ROUND_IN = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft";
 // The steps, one question a screen (the 20-agent meeting, 2026-11-19): how many people first; a household then says who each person is, its allergies and
 // whether anyone doesn't eat meat; Just me keeps its own diet and the food it likes; everyone ends on the check screen before the plan is made.
 type StepId = "count" | "who" | "meals" | "shops" | "diet" | "cuisine" | "allergies" | "meat" | "leaveOut" | "budget" | "check";
 const JUST_ME: readonly StepId[] = ["count", "meals", "shops", "diet", "cuisine", "leaveOut", "budget", "check"];
 const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergies", "meat", "leaveOut", "budget", "check"];
-const STEP_PIP: Record<StepId, PipMood> = { count: "wave", who: "point", meals: "point", shops: "think", diet: "think", cuisine: "cheer", allergies: "think", meat: "point", leaveOut: "point", budget: "point", check: "cheer" };
+const STEP_PIP: Record<StepId, PipMood> = { count: "wave", who: "point", meals: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", meat: "point", leaveOut: "point", budget: "point", check: "cheer" };
 /** A new person's id on this phone (letters and digits only). */
 const personId = () => `p${Math.random().toString(36).slice(2, 10)}`;
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
@@ -299,8 +299,8 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
             return (
               <li key={id} className="flex items-center gap-3 text-[1.0625rem] font-semibold">
                 {done ? <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
-                  : on ? <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
-                  : <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-[rgba(17,24,20,0.1)]" />}
+                  : on ? <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
+                  : <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-line" />}
                 <ShopMark shopId={id} size="xs" />
                 <span className={done || on ? "" : "text-muted"}>{shopsAll.find((s) => s.id === id)?.name ?? id}</span>
               </li>
@@ -355,10 +355,10 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
           <BackLink href="/app" label={t("Back to Home")} />
         )}
         <span className="flex-1" />
-        {onKeep && <button type="button" onClick={onKeep} className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.9375rem] font-semibold text-muted">{t("Keep my plan")}</button>}
+        {onKeep && <button type="button" onClick={onKeep} className="inline-flex min-h-11 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3 text-[0.9375rem] font-semibold text-foreground hover:bg-[var(--fill)]">{t("Keep my plan")}</button>}
       </div>
       <div aria-hidden className="mt-4 flex gap-1.5">
-        {Array.from({ length: total }, (_, i) => <span key={i} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i < step ? "bg-foreground" : "bg-[var(--ring-track)]"}`} />)}
+        {Array.from({ length: total }, (_, i) => <span key={i} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i < step ? "bg-[var(--bar)]" : "bg-[var(--line)]"}`} />)}
       </div>
       <p className="mt-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted" aria-live="polite">{t("Step {step} of {total}", { step, total })}</p>
 
@@ -374,7 +374,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
         {id === "meals" && (
           <div className={`${CARD} mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 p-4`}>
             <p className="app-numbers min-w-0 text-[1rem] font-bold">{household ? t("Your portions: {kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) }) : t("{kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) })}</p>
-            <Link href="/app/settings#targets" className="inline-flex min-h-11 items-center rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold">{t("Change my numbers")}</Link>
+            <Link href="/app/settings#targets" className="inline-flex min-h-11 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold">{t("Change my numbers")}</Link>
           </div>
         )}
 
@@ -468,7 +468,7 @@ function Questions({ saved, onDone, onKeep }: { saved: SavedPlan | null; onDone:
                   <span className="block text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-muted">{label}</span>
                   <span className="mt-0.5 block text-[1rem] font-semibold leading-snug [overflow-wrap:anywhere]">{value}</span>
                 </span>
-                <button type="button" onClick={() => go(to)} aria-label={t("Change: {what}", { what: label })} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95">{t("Change")}</button>
+                <button type="button" onClick={() => go(to)} aria-label={t("Change: {what}", { what: label })} className="inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95">{t("Change")}</button>
               </li>
             ))}
           </ul>
@@ -641,8 +641,8 @@ function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
     <div className="pb-6">
       <h1 className={`mt-11 ${TITLE}`}>{t("Making your plan")}</h1>
       <div className="mt-4"><PipSays mood="think" size={64} lively pulse={shown}>{t("Give me a moment: I'm working out your best week.")}</PipSays></div>
-      <div aria-hidden className="mt-5 h-2 overflow-hidden rounded-full bg-[var(--ring-track)]">
-        <span className="block h-full rounded-full bg-[var(--sun)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${Math.round((100 * Math.min(at + 1, steps.length)) / steps.length)}%` }} />
+      <div aria-hidden className="mt-5 h-2 overflow-hidden rounded-full bg-[var(--line)]">
+        <span className="block h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${Math.round((100 * Math.min(at + 1, steps.length)) / steps.length)}%` }} />
       </div>
       <p role="status" aria-live="polite" className="sr-only">{steps[shown]}</p>
       <ul className={`${CARD} mt-5 space-y-3.5 p-4`}>
@@ -651,7 +651,7 @@ function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
           const on = i === at;
           return (
             <li key={s} className="bubble-pop flex items-start gap-3 text-[1.0625rem] leading-snug">
-              {on ? <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+              {on ? <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
                 : <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>}
               <span className={`app-numbers pt-0.5 ${on ? "font-bold" : "font-semibold"}`}>{s}{on ? "…" : ""}</span>
             </li>
@@ -694,16 +694,16 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
       <div aria-hidden className="relative mt-5 h-7">
         <span className="app-numbers absolute bottom-0 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-[var(--fill)] px-2.5 py-0.5 text-[0.875rem] leading-snug"
           style={{ left: `clamp(4.5rem, ${along(best)}, calc(100% - 4.5rem))` }}>
-          <span className="h-2.5 w-2.5 rounded-full bg-[var(--sun)]" /><span className="text-muted">{t("Best fit")}</span><span className="font-bold">£{best}</span>
+          <span className="h-2.5 w-2.5 rounded-full bg-[var(--bar)]" /><span className="text-muted">{t("Best fit")}</span><span className="font-bold">£{best}</span>
         </span>
       </div>
       <div className={`relative mt-1 h-12 ${onSpot ? "[&_input::-webkit-slider-thumb]:border-[var(--sun)] [&_input::-moz-range-thumb]:border-[var(--sun)]" : ""}`}>
         {/* the arrow: a track with a head at each end */}
-        <span aria-hidden className="absolute inset-x-[1.125rem] top-1/2 h-2 -translate-y-1/2 rounded-full bg-[var(--ring-track)]" />
+        <span aria-hidden className="absolute inset-x-[1.125rem] top-1/2 h-2 -translate-y-1/2 rounded-full bg-[var(--line)]" />
         <ChevronLeftIcon aria-hidden className="absolute start-0 top-1/2 h-5 w-5 -translate-y-1/2 text-muted rtl:rotate-180" />
         <ChevronLeftIcon aria-hidden className="absolute end-0 top-1/2 h-5 w-5 -translate-y-1/2 rotate-180 text-muted rtl:rotate-0" />
         {/* the green spot: the best fit, a short green stretch of the track that shows either side of the handle when the handle is on it */}
-        <span aria-hidden className="absolute top-1/2 h-3 w-[4.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--sun)]" style={{ left: along(best) }} />
+        <span aria-hidden className="absolute top-1/2 h-3 w-[4.5rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--bar)]" style={{ left: along(best) }} />
         <input
           type="range"
           min={min}
@@ -724,8 +724,8 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
       </div>
       <p aria-live="polite" className="glass mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{zone}</p>
       {Math.abs(value - best) > 1 && (
-        <button type="button" onClick={() => onChange(best)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold">
-          <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--sun)]" />{t("Back to the green spot (£{n})", { n: best })}
+        <button type="button" onClick={() => onChange(best)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold">
+          <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--bar)]" />{t("Back to the green spot (£{n})", { n: best })}
         </button>
       )}
     </div>
@@ -789,9 +789,9 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
         })}
       </ul>
       {removed && (
-        <p role="status" className="mt-3 flex items-center justify-between gap-3 rounded-[1.25rem] bg-foreground py-1.5 ps-4 pe-1.5 text-[0.9375rem] text-background">
+        <p role="status" className="mt-3 flex items-center justify-between gap-3 rounded-[1.25rem] bg-ink py-1.5 ps-4 pe-1.5 text-[0.9375rem] text-on-ink">
           {t("Plan removed.")}
-          <button type="button" onClick={undo} className="min-h-11 rounded-full px-4 font-bold text-[var(--sun)]">{t("Undo")}</button>
+          <button type="button" onClick={undo} className="min-h-11 rounded-full px-4 font-bold text-on-ink underline underline-offset-2">{t("Undo")}</button>
         </p>
       )}
     </section>
@@ -967,7 +967,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         {/* the plans kept from before, reachable from the top (usability test 2026-11-19: at the bottom, below the whole shopping list, they were nearly missed) */}
         {earlierCount > 0 && (
           <a href="#earlier-h" onClick={(e) => { e.preventDefault(); document.getElementById("earlier-h")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
-            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--fill)] px-5 text-[0.9375rem] font-bold transition active:scale-95">
+            className="inline-flex min-h-12 items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-5 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]">
             <CalendarIcon aria-hidden className="h-5 w-5" />{earlierCount === 1 ? t("Your earlier plan") : t("Your {n} earlier plans", { n: earlierCount })}
           </a>
         )}
@@ -976,7 +976,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       {/* the money first: what the shopping comes to, against the budget */}
       <div className={`${CARD} mt-4 p-4`}>
         <div className="flex items-center gap-3">
-          <Pip mood={week.overBudget ? "think" : "cheer"} size={56} />
+          {/* one calm face, within budget or over it: Pip never reacts to a budget (colour meeting, 19 November 2026) */}
+          <Pip mood="listen" size={56} />
           <div className="min-w-0">
             <p className="app-numbers text-[1.75rem] font-[800] leading-none">{formatPrice(week.shoppingCost)}</p>
             <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
@@ -1016,7 +1017,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                     <span className="block font-bold leading-snug [overflow-wrap:anywhere]">{t(m.candidate.recipe.name)}</span>
                     <span className="app-numbers mt-0.5 block text-[0.875rem] text-muted">{formatInt(m.candidate.perServing.kcal)} kcal · {formatInt(m.candidate.perServing.protein)} g {t("protein")}</span>
                     {several && <span className="mt-1 flex items-center gap-1.5 text-[0.8125rem] text-muted"><ShopMark shopId={m.candidate.shop} size="xs" />{shopName(m.candidate.shop)}</span>}
-                    {m.candidate.better && <span className="mt-1 inline-block rounded-full bg-accent-soft px-2 py-0.5 text-[0.75rem] font-bold text-accent">{t("Better products")}</span>}
+                    {m.candidate.better && <span className="mt-1 inline-block rounded-full bg-[var(--fill)] px-2 py-0.5 text-[0.75rem] font-bold text-foreground">{t("Better products")}</span>}
                   </span>
                 </Link>
                 <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}{forN}</span>
@@ -1026,10 +1027,10 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
                 <p className="app-numbers mt-2 px-1 text-[0.875rem] leading-snug text-muted">{t("Servings each: {list}.", { list: plateList(m.candidate.plates) })}</p>
               )}
               <div className="mt-2 flex flex-wrap gap-2">
-              <button type="button" onClick={() => logMine(m.candidate, m.meal)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[#1d2320] px-4 text-[0.9375rem] font-bold text-white transition active:scale-95">
+              <button type="button" onClick={() => logMine(m.candidate, m.meal)} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition active:scale-95 hover:bg-ink-pressed">
                 <PlusIcon aria-hidden className="h-4 w-4" />{t("Add my portion to {meal}", { meal: slotName(i) })}
               </button>
-              <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}, {recipe}", { meal: slotName(i).toLowerCase(), recipe: t(m.candidate.recipe.name) })} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.875rem] font-bold transition active:scale-95">
+              <button type="button" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}, {recipe}", { meal: slotName(i).toLowerCase(), recipe: t(m.candidate.recipe.name) })} className="inline-flex min-h-11 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.875rem] font-bold transition active:scale-95">
                 <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
               </button>
               </div>
@@ -1091,8 +1092,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
 
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
         <Button full className="min-h-14 gap-2 text-lg" onClick={addAll}><PlusIcon aria-hidden className="h-5 w-5" />{t("Add all to my shopping list")}</Button>
-        <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-accent">
-          {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></span>}
+        <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-foreground">
+          {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="text-accent underline underline-offset-2">{t("See list")}</Link></span>}
         </p>
       </div>
 

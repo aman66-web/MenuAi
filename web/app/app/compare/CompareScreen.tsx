@@ -71,7 +71,7 @@ export function CompareScreen({ tab: asked }: { tab: CompareKind | null }) {
 
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), tab === "dish" ? t("Back to restaurants") : t("Back to groceries"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), tab === "dish" ? t("Back to restaurants") : t("Back to groceries"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       <h1 className="mt-5 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{t("Compare")}</h1>
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Pick a few products or dishes and see their numbers side by side.")}</p>
 
@@ -154,7 +154,7 @@ function Chosen({ items }: { items: readonly CompareItem[] }) {
                   {item.note && ` · ${item.note}`}
                 </span>
               </Link>
-              <button type="button" onClick={() => compareStore.update((l) => removeFromCompare(l, item.key))} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.8125rem] font-bold text-foreground transition active:scale-95 hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
+              <button type="button" onClick={() => compareStore.update((l) => removeFromCompare(l, item.key))} className="inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.8125rem] font-bold text-foreground transition active:scale-95 hover:bg-[var(--fill)]">
                 {t("Remove")}<span className="sr-only"> {item.name}</span>
               </button>
             </li>
@@ -390,7 +390,7 @@ function SearchBox({ value, onChange, label, placeholder }: { value: string; onC
 function AddButton({ added, onAdd, name, disabled }: { added: boolean; onAdd: () => void; name: string; disabled: boolean }) {
   const t = useT();
   return (
-    <button type="button" onClick={onAdd} disabled={added || disabled} className={`inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full px-3.5 text-[0.8125rem] font-bold transition active:scale-95 disabled:cursor-default ${added ? "bg-sun text-on-accent" : "bg-soft-strong text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_12%,var(--soft-strong))] disabled:opacity-40"}`}>
+    <button type="button" onClick={onAdd} disabled={added || disabled} className={`inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full px-3.5 text-[0.8125rem] font-bold transition active:scale-95 disabled:cursor-default ${added ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground hover:not-disabled:bg-[var(--fill)] disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted"}`}>
       {added ? t("Added") : (<><PlusIcon className="h-4 w-4" />{t("Add")}</>)}
       <span className="sr-only"> {name}</span>
     </button>

@@ -32,7 +32,7 @@ export function NutritionPanel({ kcal, protein, carbs, fat, basis, showBasis = t
     <>
       <div role="group" aria-label={groupLabel} className="app-numbers">
         <p className="flex flex-wrap items-baseline gap-x-2">
-          <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-accent">{Math.round(kcal)}</span>
+          <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-foreground">{Math.round(kcal)}</span>
           <span className="text-[1.0625rem] font-normal leading-none">kcal</span>
           {/* what the figures are per, in its own case: it carries units ("per 100 ml") that capitals would misprint */}
           {showBasis && <>{" "}<span className="mt-2 basis-full text-[0.8125rem] text-muted">{basis}</span></>}

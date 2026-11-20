@@ -16,14 +16,15 @@ import { Button, Card, Sheet } from "./ui";
 // Instant utility first (founder's brief, 13 Nov 2026): nobody is stopped at the door by a questionnaire any more. A first visit goes straight to
 // the app with sensible defaults (goal "Maintain", a 2,000 kcal day, no diet filters), and this quiet card offers to fit it to the person: one
 // sheet with the goal and what they avoid, nothing else. The longer guided setup (Pip, daily numbers from age and size) is reached through the welcome tour's
-// "Set up my plan" (a first plain launch opens the tour: lib/mm/tour.ts), and is reachable from Settings > Set up with Pip. Someone who arrived by a link and hasn't
+// "Set up my daily numbers" (a first plain launch opens the tour: lib/mm/tour.ts), and is reachable from Settings > Set up with Pip. Someone who arrived by a link and hasn't
 // had a plain launch yet can see the tour from here ("Show me around": just the five stops, nothing saved, back to this page).
 // Answering saves the goal and diet and counts as having set up, so the card goes away; "Not now" hides it too (the same flag the targets card uses).
+// The goals' hints are the welcome screen's own (the onboarding meeting, 19 November: "Stay where you are" was unclear, and "orders" didn't fit people who cook).
 
 const GOALS: ReadonlyArray<{ value: Goal; label: string; hint: string }> = [
-  { value: "lose", label: tk("Lose weight"), hint: tk("Orders that fit a lower calorie target") },
-  { value: "maintain", label: tk("Maintain"), hint: tk("Stay where you are") },
-  { value: "buildMuscle", label: tk("Build muscle"), hint: tk("More protein in every order") },
+  { value: "lose", label: tk("Lose weight"), hint: tk("Meals and orders that fit a lower calorie target") },
+  { value: "maintain", label: tk("Maintain"), hint: tk("Keep my weight steady") },
+  { value: "buildMuscle", label: tk("Build muscle"), hint: tk("Higher-protein meals and orders") },
   { value: "glp1", label: tk("I'm on a GLP-1 medication"), hint: tk("Smaller, protein-first orders") },
   { value: "other", label: tk("Other"), hint: tk("Something else, or just here for the numbers") },
 ];

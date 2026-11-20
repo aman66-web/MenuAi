@@ -138,7 +138,9 @@ await step("email code: a wrong code says so, the right one signs in, the accoun
   await seen("the bad-address message", sheet.getByText("That doesn't look like an email address."));
   await sheet.getByLabel("Your email address").fill("Person@Example.com");
   await sheet.getByRole("button", { name: "Send me a code" }).click();
-  await seen("the code step", sheet.getByText("We've sent a 6-digit code to Person@Example.com."));
+  // the address on a line of its own, in bold, after the lead (the onboarding meeting, 19 November: a typo shows)
+  await seen("the code step", sheet.getByText("We've sent a 6-digit code to"));
+  await seen("the address on the code step", sheet.locator("strong", { hasText: "Person@Example.com" }));
   expect(server.emails.at(-1) === "Person@Example.com", "the address was sent to the server");
   await sheet.getByLabel("6-digit code").fill("000000");
   await sheet.getByRole("button", { name: "Sign in", exact: true }).click();

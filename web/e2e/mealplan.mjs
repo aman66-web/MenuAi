@@ -68,6 +68,8 @@ await step("Pip asks one thing a screen: how many people (Just me), meals and sn
   await page.getByRole("checkbox", { name: /Morrisons/ }).click();
   await page.getByText(/^I'll share your meals between Sainsbury's and Morrisons, using the best shop for each meal/).waitFor();
   await page.getByRole("status").filter({ hasText: /With 2 shops/ }).filter({ hasText: /split by shop/ }).waitFor();
+  // Pip pops up again when his words change: axe reads the bubble once it has landed (half-faded words read as low contrast)
+  await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
   await page.addScriptTag({ path: AXE });
   const v = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa"] })).violations.map((x) => `${x.id}: ${x.nodes[0]?.html.slice(0, 100)}`));
   expect(v.length === 0, v.join(" | "));

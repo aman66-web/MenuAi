@@ -67,13 +67,13 @@ await step("Groceries: pescatarian leaves out the chicken, keeps the tuna and th
 await step("Settings: the diet picker has Pescatarian, and it stays on", async () => {
   const { ctx, page } = await newPage({});
   await page.goto(BASE + "/app/settings");
-  const tile = page.getByRole("button", { name: "Pescatarian", exact: true });
+  const tile = page.getByRole("button", { name: /^Pescatarian\b/ });
   await tile.waitFor();
   expect((await tile.getAttribute("aria-pressed")) === "false", "starts off");
   await tile.click();
   expect((await tile.getAttribute("aria-pressed")) === "true", "turns on");
   await page.reload();
-  expect((await page.getByRole("button", { name: "Pescatarian", exact: true }).getAttribute("aria-pressed")) === "true", "still on after a reload");
+  expect((await page.getByRole("button", { name: /^Pescatarian\b/ }).getAttribute("aria-pressed")) === "true", "still on after a reload");
   await ctx.close();
 });
 

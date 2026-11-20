@@ -101,7 +101,7 @@ function PaywallBody({ onDone }: { onDone: () => void }) {
           <ul className={`mt-5 divide-y divide-line ${card}`}>
             {(PAID_ACCESS_ENABLED ? PAID_BULLETS : PAYWALL_BULLETS).map((b) => (
               <li key={b} className="flex items-center gap-3.5 px-4 py-3.5">
-                <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-background"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
+                <span aria-hidden className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><CheckIcon className="h-4 w-4" strokeWidth={2.5} /></span>
                 <span className="text-base font-semibold leading-snug">{t(b)}</span>
               </li>
             ))}

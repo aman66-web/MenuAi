@@ -50,7 +50,7 @@ export function RowMenuButton({ name, onClick }: { name: string; onClick: () => 
   const t = useT();
   return (
     <button type="button" aria-label={t("More options for {name}", { name })} onClick={onClick} className="group -me-2 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-accent">
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><DotsIcon className="h-5 w-5" /></span>
+      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)]"><DotsIcon className="h-5 w-5" /></span>
     </button>
   );
 }

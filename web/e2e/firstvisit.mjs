@@ -121,17 +121,18 @@ await step("a returning person (set up already) never sees the card", async () =
   await ctx.close();
 });
 
-await step("the guided setup at /app/welcome is entered through the tour's 'Set up my plan'", async () => {
+await step("the guided setup at /app/welcome is entered through the tour's 'Set up my daily numbers'", async () => {
   const ctx = await fresh(); const page = await ctx.newPage();
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started" }).click();
   await page.getByRole("button", { name: "Show me around" }).click();
-  await page.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); // no text size screen since 2026-11-19
+  // the first stop (no text size screen since 2026-11-19); its headline says "stop 1 of 4" to a screen reader (Chrome's name has a space before the comma)
+  await page.getByRole("heading", { level: 1, name: /^Home ?, stop 1 of 4$/ }).waitFor();
   await page.getByRole("button", { name: "Skip tour" }).click();
   await page.getByRole("heading", { name: "Let's make it yours" }).waitFor();
-  await page.getByRole("button", { name: "Set up my plan" }).click();
+  await page.getByRole("button", { name: "Set up my daily numbers" }).click();
   await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
-  await page.getByText("Step 1 of 9").waitFor();
+  await page.getByText("Step 1 of 7").waitFor();
   await ctx.close();
 });
 

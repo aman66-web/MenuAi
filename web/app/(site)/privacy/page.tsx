@@ -106,6 +106,10 @@ export default function Privacy() {
             sent, and anything in the app while you are signed out.
           </li>
           <li className={row}>
+            <strong>Your age, height and weight:</strong> the questions about your sex, age, height, weight and how active you are, in setup and in Settings ›
+            Suggest targets, are used only on your device, only to work out your daily numbers. They are never kept, synced or sent.
+          </li>
+          <li className={row}>
             <strong>Where it is kept:</strong> in our database at Supabase (hosted in the United States), in a table that only our service can read or write,
             and only for the signed-in person. The app and this website never talk to the database directly.
           </li>

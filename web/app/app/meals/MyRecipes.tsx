@@ -76,9 +76,9 @@ export function MyRecipes() {
 
   // outside the branches below: taking out the last recipe empties the list, and the Undo must still be there
   const bar = undo && (
-    <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+    <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
       <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t("Removed “{name}” from My meals.", { name: undo.name })}</span>
-      <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={restore}>{t("Undo")}</button>
+      <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={restore}>{t("Undo")}</button>
     </div>
   );
 

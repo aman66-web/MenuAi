@@ -31,6 +31,14 @@ export function needsPaywall(trigger: PaywallTrigger, ctx: { pro: boolean; saved
   return true;
 }
 
+/**
+ * Is adding a meal paid on this build? The same test Home's + makes (gate("log")): only where free and paid are told apart (GATING_ENABLED) and the paid
+ * tier doesn't keep logging free (PAID_TIER_ONLY makes needsPaywall("log") false). Bare needsPaywall is true on a build with no gating at all, so it can't be
+ * used alone. Pip's + tip (coachSteps.ts) says "It's part of Premium", and the last welcome screen's free and Premium line names adding what you eat on the
+ * paid side, exactly when this is true, so neither is untrue on any build.
+ */
+export const LOG_IS_PAID = GATING_ENABLED && needsPaywall("log", { pro: false });
+
 // ---- paywall copy (SPEC §9), built from product values so prices are never hard-coded in UI ----
 
 export interface PaywallProduct {

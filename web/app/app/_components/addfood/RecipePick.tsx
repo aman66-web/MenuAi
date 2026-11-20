@@ -95,9 +95,9 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
       <div role="group" aria-label={t("Servings")} className="glass flex items-center justify-between gap-3 rounded-full py-1.5 ps-5 pe-1.5">
         <span className="min-w-0 text-base font-semibold [overflow-wrap:normal] [word-break:keep-all]">{t("Servings")}</span>
         <span className="flex items-center gap-1">
-          <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Fewer servings")} disabled={servings <= MIN_SERVINGS} onClick={() => setServings((s) => stepServings(s, -1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><MinusIcon className="h-5 w-5" /></button>
           <output aria-live="polite" className="app-numbers min-w-10 text-center text-lg font-bold">{servings}</output>
-          <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => setServings((s) => stepServings(s, 1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("More servings")} disabled={servings >= MAX_SERVINGS} onClick={() => setServings((s) => stepServings(s, 1))} className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-white transition active:scale-95 disabled:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"><PlusIcon className="h-5 w-5" /></button>
         </span>
       </div>
 

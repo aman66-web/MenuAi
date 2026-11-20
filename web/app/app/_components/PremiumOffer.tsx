@@ -10,6 +10,8 @@ import { Pip } from "./Mascot";
 // The top of the iPhone app's Premium offer (the one-time free-trial offer after setup, and the paywall on a Premium feature), founder 2026-11-16: "the premium for
 // free 7 days looks basic, make it look more interesting". A dark card like the tab bar with Pip and the free week, how the free week works, and what Premium adds as
 // tiles. The plans and Apple's words follow underneath (AppStorePlans). Nothing here names a price: the prices are StoreKit's own, shown with the plans.
+// Colours (colour meeting, 19 November 2026): the card is the ink token, its quieter lines on-ink-2 (10.3:1), day 7's ring on-ink-2 and the line between
+// the two days the mid grey.
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -27,7 +29,7 @@ export function PremiumOffer({ trial }: { trial: number | null }) {
   const t = useT();
   return (
     <div>
-      <section aria-labelledby="premium-hero" className="relative overflow-hidden rounded-[1.5rem] bg-[#1d2320] p-5 text-white">
+      <section aria-labelledby="premium-hero" className="relative overflow-hidden rounded-[1.5rem] bg-ink p-5 text-on-ink">
         {/* soft lime light behind Pip, drawn, not a picture */}
         <span aria-hidden className="pointer-events-none absolute -end-10 -top-10 h-44 w-44 rounded-full bg-[var(--sun)] opacity-20 blur-2xl" />
         <div className="relative flex items-start gap-3">
@@ -36,7 +38,7 @@ export function PremiumOffer({ trial }: { trial: number | null }) {
             <h3 id="premium-hero" className="mt-3 text-[2rem] font-[800] leading-[1.05] tracking-[-0.02em]">
               {trial ? t("Try Premium free for {days} days", { days: trial }) : t("Unlock everything")}
             </h3>
-            <p className="mt-2 text-base leading-snug text-white/75">{t("Everything that's free stays free.")}</p>
+            <p className="mt-2 text-base leading-snug text-on-ink-2">{t("Everything that's free stays free.")}</p>
           </div>
           <Pip mood="cheer" size={92} className="-me-1 shrink-0" />
         </div>
@@ -48,13 +50,13 @@ export function PremiumOffer({ trial }: { trial: number | null }) {
               { when: t("Day {days}", { days: trial }), what: t("Your plan starts, unless you cancel at least 24 hours before then in your App Store settings.") },
             ].map((s, i, all) => (
               <li key={s.when} className="relative flex gap-3 pb-4 last:pb-0">
-                {i < all.length - 1 && <span aria-hidden className="absolute start-[0.6875rem] top-6 h-[calc(100%-1rem)] w-0.5 rounded-full bg-white/20" />}
-                <span aria-hidden className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full ${i === 0 ? "bg-[var(--sun)]" : "border-2 border-white/40"}`}>
+                {i < all.length - 1 && <span aria-hidden className="absolute start-[0.6875rem] top-6 h-[calc(100%-1rem)] w-0.5 rounded-full bg-[var(--placeholder)]" />}
+                <span aria-hidden className={`mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full ${i === 0 ? "bg-[var(--sun)]" : "border-2 border-on-ink-2"}`}>
                   {i === 0 && <span className="h-2 w-2 rounded-full bg-[var(--on-accent)]" />}
                 </span>
                 <span className="min-w-0">
                   <span className="block text-[0.9375rem] font-bold">{s.when}</span>
-                  <span className="block text-[0.9375rem] leading-snug text-white/75">{s.what}</span>
+                  <span className="block text-[0.9375rem] leading-snug text-on-ink-2">{s.what}</span>
                 </span>
               </li>
             ))}

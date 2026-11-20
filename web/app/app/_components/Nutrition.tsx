@@ -111,7 +111,7 @@ export function ItemHero({ nutrients, name, children, media }: { nutrients: Nutr
             {macros.map(([label, value, lead, hue]) => (
               <div key={label} className="tile flex min-w-0 flex-col gap-2.5 rounded-2xl px-3.5 pb-3.5 pt-3 @max-[17.5rem]:flex-row @max-[17.5rem]:items-center @max-[17.5rem]:justify-between @max-[17.5rem]:px-4 @max-[17.5rem]:py-3">
                 <dt className={`flex items-center gap-1.5 ${SMALL_LABEL} tracking-[0.1em]`}><span aria-hidden className={`dot ${hue}`} />{label}</dt>
-                <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : `text-[1.625rem] font-medium leading-none tracking-[-0.02em] ${lead ? "text-accent" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
+                <dd className={value === undefined ? "text-[0.9375rem] italic leading-snug text-muted" : `text-[1.625rem] font-medium leading-none tracking-[-0.02em] ${lead ? "text-foreground" : ""}`}>{value === undefined ? t("not published") : formatGrams(value)}</dd>
               </div>
             ))}
           </dl>

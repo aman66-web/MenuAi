@@ -1,14 +1,19 @@
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 
-// Onboarding's three questions about the person (About you, Your size, How active are you?) and "Your daily targets" arriving filled in from them
+// Onboarding's three questions about the person (About you, Your height and weight, How active are you?) and "Your daily targets" arriving filled in from them
 // (founder 2026-10-16), and Settings' single-screen version of the same questions. Two people are typed in:
 //   A: a vegan woman, 34, 11 st 0 lb, 5 ft 10 in, lightly active, wants to lose weight  -> 1,530 kcal, 110 g protein, 160 g carbs, 50 g fat
 //   B: a man, 47, 83.7 kg, 183.4 cm, active, on a GLP-1 medicine                      -> 2,220 kcal, 115 g protein, 270 g carbs, 75 g fat
 // (the numbers are checked against planTargets in tests/onboardingPlan.test.ts, so they can't drift from the code). Nothing typed about the body may be
 // stored or sent: after finishing, storage, cookies, the address and every request are searched for it.
+// Steps (w) to (aa) check the onboarding meeting of 19 November on the screen: skipped targets stay starting numbers, nothing is ticked for the person, the
+// reason a Continue is grey, the targets screen's layout at 390x844, the foods-to-avoid and shop notes, and the last screen's fold. Run with the switches the
+// server was started with: on a gated build (NEXT_PUBLIC_PRO=1) the fold check (aa) also expects the free and Premium line.
 
 const BASE = process.env.BASE ?? "http://localhost:3101";
+/** Premium is sold in this build (lib/mm/config.ts GATING_ENABLED): the last screen then has the free and Premium line. */
+const GATED = process.env.NEXT_PUBLIC_PRO === "1" || process.env.NEXT_PUBLIC_WEB_PRO === "1" || process.env.NEXT_PUBLIC_IAP === "1";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
@@ -39,18 +44,31 @@ async function fresh(extra = {}, init) {
 const go = (page, name) => page.getByRole("button", { name, exact: true }).click();
 const cont = (page) => go(page, "Continue");
 const head = (page, name) => vis(page.getByRole("heading", { name }));
-/** The welcome screen and Pip's arrival (no text size screen since 2026-11-19), then "Skip tour" and "Set up my plan", to "What's your goal?". */
+/** The welcome screen and Pip's arrival (no text size screen since 2026-11-19), then "Skip tour" and "Set up my daily numbers", to "What's your goal?". */
 async function toGoal(page, path = "/app/welcome") {
   await page.goto(BASE + path);
   await go(page, "Get started");
   await go(page, "Show me around");
-  await vis(page.getByRole("heading", { level: 1, name: "Home", exact: true }));
+  // the first stop: its headline says "stop 1 of 4" to a screen reader (Chrome's name has a space before the comma)
+  await vis(page.getByRole("heading", { level: 1, name: /^Home ?, stop 1 of 4$/ }));
   await go(page, "Skip tour");
   await head(page, "Let's make it yours");
-  await go(page, "Set up my plan");
+  await go(page, "Set up my daily numbers");
   await head(page, "What's your goal?");
 }
-const status = (page, n) => vis(page.getByText(`Step ${n} of 9`));
+/** The seven questions' counter (the last screen has none). */
+const status = (page, n) => vis(page.getByText(`Step ${n} of 7`));
+/** Nothing is picked for the person on a first run (the onboarding meeting, 19 November): the goal and the activity are tapped, and the foods-to-avoid button says
+ * "Nothing to avoid" while nothing is ticked. */
+const nothingToAvoid = (page) => go(page, "Nothing to avoid");
+/** Past the goal (Maintain, the saved goal everyone starts with) and the foods to avoid (none), to "About you". */
+async function firstTwo(page) {
+  await page.getByRole("radio", { name: "Maintain" }).click();
+  await cont(page);
+  await head(page, "Anything you avoid?");
+  await nothingToAvoid(page);
+}
+const pickActivity = (page, name = "Lightly active") => page.getByRole("radio", { name, exact: true }).click();
 const num = (page, id) => page.locator(`#target-${id}`).inputValue();
 const targets = async (page) => ({ calories: await num(page, "calories"), protein: await num(page, "protein"), carbs: await num(page, "carbs"), fat: await num(page, "fat") });
 const settingsOf = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") ?? "null")?.data ?? {});
@@ -67,7 +85,7 @@ async function about(page, { sex, years }) {
   await age(page).fill(years);
 }
 async function size(page, { weight, height }) {
-  await head(page, "Your size");
+  await head(page, "Your height and weight");
   if (weight.kg !== undefined) {
     await page.getByRole("radio", { name: "Kilograms", exact: true }).click();
     await box(page, "Kilograms").fill(weight.kg);
@@ -91,8 +109,10 @@ async function toTargets(page, p) {
   await page.getByRole("radio", { name: p.goal }).click();
   await cont(page);
   await head(page, "Anything you avoid?");
-  if (p.diet) await page.getByRole("button", { name: p.diet, exact: true }).click();
-  await cont(page);
+  if (p.diet) {
+    await page.getByRole("button", { name: p.diet, exact: true }).click();
+    await cont(page);
+  } else await nothingToAvoid(page);
   await about(page, p);
   await cont(page);
   await size(page, p);
@@ -103,35 +123,57 @@ async function toTargets(page, p) {
   await head(page, "Your daily targets");
 }
 
-await step("(a) the screens come in the new order with the right headings and 'Step n of 9' (the text size is chosen at the start of the tour now)", async () => {
+/** The progress bar's segments on this screen (0 when there is no bar). */
+const segmentsOf = (page) => page.evaluate(() => [...document.querySelectorAll("div[aria-hidden='true']")].find((d) => d.className.includes("gap-1.5") && d.children.length > 5)?.children.length ?? 0);
+
+await step("(a) the screens come in the new order with the right headings and 'Step n of 7'; nothing is picked for the person (the goal and the activity start unticked with Continue grey and saying why; Tab reaches the first goal); the last screen has no counter and its first recipes", async () => {
   const { ctx, page, errors } = await fresh();
   await toGoal(page);
   await status(page, 1);
+  expect((await segmentsOf(page)) === 7, "seven progress segments, got " + (await segmentsOf(page)));
+  // a first run: no goal ticked, Continue grey with its reason linked to it, and the Tab key reaches the first goal
+  expect((await page.locator("[role='radio'][aria-checked='true']").count()) === 0, "a goal is ticked on a first run");
+  const goOn = page.getByRole("button", { name: "Continue", exact: true });
+  expect(await goOn.isDisabled(), "Continue works before a goal is picked");
+  const why = await goOn.getAttribute("aria-describedby");
+  expect(!!why && (await page.locator("#" + why).innerText()) === "Pick one to go on, or tap Skip at the top.", "Continue's reason: " + why);
+  await page.getByRole("heading", { level: 1 }).first().focus();
+  let reached = false;
+  for (let i = 0; i < 8 && !reached; i++) { await page.keyboard.press("Tab"); reached = await page.evaluate(() => document.activeElement?.getAttribute("role") === "radio" && document.activeElement.textContent.includes("Lose weight")); }
+  expect(reached, "Tab doesn't reach the first goal");
+  await page.getByRole("radio", { name: "Maintain" }).click();
   await cont(page);
   await head(page, "Anything you avoid?"); await status(page, 2);
-  await cont(page);
+  // nothing ticked: the button says so (and does the same as Continue)
+  expect((await page.getByRole("button", { name: "Continue", exact: true }).count()) === 0, "Continue on an untouched foods-to-avoid screen");
+  await nothingToAvoid(page);
   await head(page, "About you"); await status(page, 3);
   await age(page).fill("34");
   await cont(page);
-  await head(page, "Your size"); await status(page, 4);
+  await head(page, "Your height and weight"); await status(page, 4);
   await box(page, "Stone").fill("11"); await box(page, "Feet").fill("5");
   await cont(page);
   await head(page, "How active are you?"); await status(page, 5);
   expect((await page.getByRole("radio").count()) === 4, "four activity tiles");
   for (const a of ["Mostly sitting", "Lightly active", "Active", "Very active"]) await vis(page.getByRole("radio", { name: a, exact: true }));
-  expect(await page.getByRole("radio", { name: "Lightly active", exact: true }).getAttribute("aria-checked") === "true", "Lightly active starts chosen");
+  expect((await page.locator("[role='radio'][aria-checked='true']").count()) === 0, "an activity is ticked before one is tapped");
+  expect(await page.getByRole("button", { name: "Continue", exact: true }).isDisabled(), "Continue works before an activity is picked");
+  await vis(page.getByText("Pick the one closest to your week to go on, or skip these questions below."));
+  await pickActivity(page);
   await cont(page);
   await head(page, "Your daily targets"); await status(page, 6);
   for (const label of ["Calories", "Protein (g)", "Carbs (g)", "Fat (g)"]) await vis(page.getByLabel(label, { exact: true }));
   await cont(page);
   await head(page, "Where do you shop?"); await status(page, 7);
   await cont(page);
-  await head(page, "You're all set!"); await status(page, 8);
-  await cont(page);
-  await head(page, "Choose a recipe to start with"); await status(page, 9);
+  // the one last screen: no bar, no counter, no Skip; the first recipes on it, and Go to Home
+  await head(page, "You're all set!");
+  await vis(page.getByRole("heading", { level: 2, name: "A recipe to start with" }));
+  await vis(page.getByRole("button", { name: "Go to Home", exact: true }));
+  expect((await page.getByText(/^Step \d+ of \d+$/).count()) === 0, "a counter on the last screen");
+  expect((await segmentsOf(page)) === 0, "a progress bar on the last screen");
+  expect((await page.getByRole("button", { name: "Skip", exact: true }).count()) === 0, "Skip on the last screen");
   expect((await page.getByRole("heading", { name: "Easy to read" }).count()) === 0, "the text size is no longer a question");
-  const segments = await page.evaluate(() => [...document.querySelectorAll("div[aria-hidden='true']")].find((d) => d.className.includes("gap-1.5") && d.children.length > 5)?.children.length);
-  expect(segments === 9, "nine progress segments, got " + segments);
   expect(errors.length === 0, errors[0]);
   await ctx.close();
 });
@@ -142,7 +184,7 @@ await step("(b) person A (a vegan woman in stone and feet): the targets arrive f
   await toTargets(page, A);
   const t = await targets(page);
   expect(JSON.stringify(t) === JSON.stringify(A.plan), "plan for A: " + JSON.stringify(t));
-  await vis(page.getByText("I worked these out from your answers. They're only a starting point, so change any of them."));
+  await vis(page.getByText("I worked these out on your phone from your answers. They're only a starting point: tap a number to type your own, or use − and +."));
   await vis(page.getByText("Because of your diet, we set your protein a little higher. Change it any time."));
   expect((await page.getByText("Not sure? Suggest targets for me").count()) === 0, "no second way to get suggestions when the questions were answered");
   expect((await page.getByLabel("Comfortable meal size in calories").count()) === 0, "no meal size box off GLP-1");
@@ -165,8 +207,7 @@ await step("(b) person A (a vegan woman in stone and feet): the targets arrive f
   await head(page, "You're all set!");
   const plan = await page.locator("section").innerText();
   expect(/1,600/.test(plan) && /115g/.test(plan) && new RegExp(`${carbsNow}g`).test(plan) && /55g/.test(plan), "the plan card shows the four targets as Home will: " + plan.replace(/\s+/g, " "));
-  await cont(page);
-  await go(page, "Take me to Home");
+  await go(page, "Go to Home");
   await page.waitForURL(/\/app\/?$/);
   const home = await page.locator("main").innerText();
   expect(/\/\s*1,600/.test(home) && /\/\s*115g/.test(home) && new RegExp(`/\\s*${carbsNow}g`).test(home) && /\/\s*55g/.test(home), "Home agrees: " + home.replace(/\s+/g, " ").slice(0, 300));
@@ -179,7 +220,7 @@ await step("(b) person B (a man in kg and cm on a GLP-1 medicine): the plan fill
   await page.getByRole("radio", { name: B.goal }).click();
   await cont(page);
   await head(page, "Anything you avoid?");
-  await cont(page);
+  await nothingToAvoid(page);
   await about(page, B);
   await cont(page);
   await size(page, B);
@@ -220,6 +261,7 @@ await step("(c) switching a unit keeps the person (converted, and exactly their 
   await page.getByRole("radio", { name: "Centimetres", exact: true }).click();
   await cont(page);
   await head(page, "How active are you?");
+  await pickActivity(page, A.activity);
   await cont(page);
   await head(page, "Your daily targets");
   expect(JSON.stringify(await targets(page)) === JSON.stringify(A.plan), "the same plan in kg and cm: " + JSON.stringify(await targets(page)));
@@ -228,7 +270,7 @@ await step("(c) switching a unit keeps the person (converted, and exactly their 
   const two = await fresh();
   await toGoal(two.page);
   await two.page.getByRole("radio", { name: B.goal }).click();
-  await cont(two.page); await cont(two.page);
+  await cont(two.page); await nothingToAvoid(two.page);
   await about(two.page, B);
   await cont(two.page);
   await size(two.page, B);
@@ -245,16 +287,15 @@ await step("(c) switching a unit keeps the person (converted, and exactly their 
 });
 
 await step("(d) Skip on a body screen skips all three: the targets screen has nothing filled in, 'Not sure? Suggest targets for me' is there, and Back returns to About you (all three are empty, so they are answered in order)", async () => {
-  for (const from of ["About you", "Your size", "How active are you?"]) {
+  for (const from of ["About you", "Your height and weight", "How active are you?"]) {
     const { ctx, page } = await fresh();
     await toGoal(page);
-    await cont(page);
-    await cont(page);
+    await firstTwo(page);
     await head(page, "About you");
     if (from !== "About you") {
       await age(page).fill("34");
       await cont(page);
-      await head(page, "Your size");
+      await head(page, "Your height and weight");
       if (from === "How active are you?") {
         await box(page, "Stone").fill("11"); await box(page, "Feet").fill("5");
         await cont(page);
@@ -266,21 +307,25 @@ await step("(d) Skip on a body screen skips all three: the targets screen has no
     await status(page, 6);
     const t = await targets(page);
     expect(t.calories === "2000" && t.protein === "" && t.carbs === "" && t.fat === "", `${from}: nothing is filled in, calories stay at the default: ` + JSON.stringify(t));
-    expect((await page.getByText("I worked these out from your answers.").count()) === 0, "no line about worked-out numbers");
+    expect((await page.getByText("I worked these out on your phone from your answers.").count()) === 0, "no line about worked-out numbers");
+    await vis(page.getByText("Know your number? Tap Calories and type it in. Not sure? Tap “Not sure? Suggest targets for me” below and I'll help."));
     await vis(page.getByRole("button", { name: "Not sure? Suggest targets for me" }));
     await vis(page.getByText("Left empty, protein, carbs and fat are worked out from your calories", { exact: false }));
     await page.getByRole("button", { name: "Back to the previous step" }).click();
     await head(page, "About you");
     expect((await age(page).inputValue()) === "", `${from}: the age that was typed is gone with the skip`);
     if (from !== "About you") {
-      // answering all three again, in order, gives the plan (a Continue on Your size or How active used to carry on with no age)
+      // answering all three again, in order, gives the plan (a Continue on Your height and weight or How active used to carry on with no age)
       await age(page).fill("34");
       await cont(page);
-      await head(page, "Your size");
-      expect((await box(page, "Stone").inputValue()) === "" && (await box(page, "Feet").inputValue()) === "", `${from}: the size that was typed is gone too`);
+      await head(page, "Your height and weight");
+      expect((await box(page, "Stone").inputValue()) === "" && (await box(page, "Feet").inputValue()) === "", `${from}: the height and weight that were typed are gone too`);
       await box(page, "Stone").fill("11"); await box(page, "Feet").fill("5");
       await cont(page);
       await head(page, "How active are you?");
+      // the skip cleared the activity too: nothing is ticked again
+      expect((await page.locator("[role='radio'][aria-checked='true']").count()) === 0, `${from}: an activity is still ticked after the skip`);
+      await pickActivity(page);
       await cont(page);
       await head(page, "Your daily targets");
       const again = await targets(page);
@@ -293,7 +338,7 @@ await step("(d) Skip on a body screen skips all three: the targets screen has no
   const { ctx, page } = await fresh();
   await toGoal(page);
   await page.getByRole("radio", { name: A.goal }).click();
-  await cont(page); await cont(page); await go(page, "Skip");
+  await cont(page); await nothingToAvoid(page); await go(page, "Skip");
   await head(page, "Your daily targets");
   await page.getByRole("button", { name: "Not sure? Suggest targets for me" }).click();
   const form = page.locator("form");
@@ -313,7 +358,7 @@ await step("(d) Skip on a body screen skips all three: the targets screen has no
 await step("(e) under 18 goes straight to the targets with the doctor line, and invalid answers are named and block Continue", async () => {
   const { ctx, page } = await fresh();
   await toGoal(page);
-  await cont(page); await cont(page);
+  await firstTwo(page);
   await head(page, "About you");
   await age(page).fill("17");
   expect((await alerts(page).count()) === 0, "under 18 is not a typing mistake");
@@ -336,7 +381,7 @@ await step("(e) under 18 goes straight to the targets with the doctor line, and 
   await age(page).fill("34");
   expect((await alerts(page).count()) === 0, "the message goes");
   await cont(page);
-  await head(page, "Your size");
+  await head(page, "Your height and weight");
   expect(await page.getByRole("button", { name: "Continue", exact: true }).isDisabled(), "Continue is off with nothing typed");
   // a weight or height the plan can't use is said once the person has left the block (see (l)), not on every key
   await box(page, "Stone").fill("1");
@@ -408,7 +453,7 @@ await step("(g) Back keeps every answer all the way, and a number changed by han
   await head(page, "How active are you?");
   expect(await page.getByRole("radio", { name: A.activity, exact: true }).getAttribute("aria-checked") === "true", "activity kept");
   await page.getByRole("button", { name: "Back to the previous step" }).click();
-  await head(page, "Your size");
+  await head(page, "Your height and weight");
   expect((await box(page, "Stone").inputValue()) === "11" && (await box(page, "Pounds").inputValue()) === "0" && (await box(page, "Feet").inputValue()) === "5" && (await box(page, "Inches").inputValue()) === "10", "height and weight kept");
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await head(page, "About you");
@@ -420,7 +465,7 @@ await step("(g) Back keeps every answer all the way, and a number changed by han
   await head(page, "What's your goal?");
   expect(await page.getByRole("radio", { name: "Lose weight" }).getAttribute("aria-checked") === "true", "goal kept");
   // forward again: the same answers leave the hand-typed 1,600 alone
-  for (const h of ["Anything you avoid?", "About you", "Your size", "How active are you?", "Your daily targets"]) { await cont(page); await head(page, h); }
+  for (const h of ["Anything you avoid?", "About you", "Your height and weight", "How active are you?", "Your daily targets"]) { await cont(page); await head(page, h); }
   expect((await num(page, "calories")) === "1600", "the typed calories survive: " + (await num(page, "calories")));
   // different answers fill the plan in again
   await page.getByRole("button", { name: "Back to the previous step" }).click();
@@ -474,7 +519,7 @@ await step("(h) PRIVACY: age, sex, height, weight and activity never reach stora
   const { ctx, page, requests } = await fresh();
   await toGoal(page);
   await page.getByRole("radio", { name: B.goal }).click();
-  await cont(page); await cont(page);
+  await cont(page); await nothingToAvoid(page);
   await about(page, B);
   await cont(page);
   await size(page, B);
@@ -502,8 +547,7 @@ await step("(h) PRIVACY: age, sex, height, weight and activity never reach stora
   await check("after the targets were saved");
   await go(page, "Skip");
   await head(page, "You're all set!");
-  await cont(page);
-  await go(page, "Take me to Home");
+  await go(page, "Go to Home");
   await page.waitForURL(/\/app\/?$/);
   await page.waitForTimeout(1500);
   await check("after finishing onboarding");
@@ -578,14 +622,14 @@ await step("(i) Settings' single-screen form works out the same numbers as the o
 });
 
 
-/** Goal, diet and age 34 typed, on to "Your size". */
+/** Goal, diet and age 34 typed, on to "Your height and weight". */
 async function toSize(page) {
   await toGoal(page);
-  await cont(page); await cont(page);
+  await firstTwo(page);
   await head(page, "About you");
   await age(page).fill("34");
   await cont(page);
-  await head(page, "Your size");
+  await head(page, "Your height and weight");
 }
 
 await step("(l) 'doesn't look right' is not said on the first digit of an ordinary weight or height: only once the block is left with the value still wrong", async () => {
@@ -636,7 +680,7 @@ await step("(m) Skip on the targets screen saves nothing and changes nothing: Ba
   await page.getByRole("button", { name: "Back to the previous step" }).click();
   await head(page, "Your daily targets");
   expect(JSON.stringify(await targets(page)) === JSON.stringify(A.plan), "Back finds the plan as it was: " + JSON.stringify(await targets(page)));
-  await vis(page.getByText("I worked these out from your answers. They're only a starting point, so change any of them."));
+  await vis(page.getByText("I worked these out on your phone from your answers. They're only a starting point: tap a number to type your own, or use − and +."));
   // press Continue once (saved), go on, Back, Skip, Back: the boxes are what was saved
   await page.locator("#target-calories").fill("1600");
   await cont(page);
@@ -667,11 +711,11 @@ await step("(n) a goal or a diet tapped and then Skipped is not used: the plan, 
       await page.getByRole("button", { name: "Vegan", exact: true }).click();
       await go(page, "Skip");
     } else {
-      await cont(page); await cont(page);
+      await firstTwo(page);
     }
     await about(page, person); await cont(page);
     await size(page, person); await cont(page);
-    await head(page, "How active are you?"); await cont(page);
+    await head(page, "How active are you?"); await pickActivity(page); await cont(page);
     await head(page, "Your daily targets");
     const out = { t: await targets(page), mealBox: await page.getByLabel("Comfortable meal size in calories").count(), vegan: await page.getByText("Because of your diet, we set your protein a little higher.").count() };
     await cont(page);
@@ -698,7 +742,7 @@ await step("(o) after the questions were skipped, 'Use these' keeps the suggesti
   await head(page, "About you");
   await go(page, "Skip");
   await head(page, "Your daily targets");
-  await vis(page.getByText("Not sure of your numbers? Tap “Suggest targets for me” and I'll help."));
+  await vis(page.getByText("Know your number? Tap Calories and type it in. Not sure? Tap “Not sure? Suggest targets for me” below and I'll help."));
   await page.getByRole("button", { name: "Not sure? Suggest targets for me" }).click();
   const form = page.locator("form");
   await form.getByRole("radio", { name: "Female", exact: true }).click();
@@ -717,8 +761,8 @@ await step("(o) after the questions were skipped, 'Use these' keeps the suggesti
     "Because of your diet, we set your protein a little higher. Change it any time.",
   ];
   for (const n of notes) await vis(page.getByText(n));
-  await vis(page.getByText("I worked these out from your answers. They're only a starting point, so change any of them."));
-  expect((await page.getByText("Not sure of your numbers?").count()) === 0, "Pip no longer points at the button he was pointing at");
+  await vis(page.getByText("I worked these out on your phone from your answers. They're only a starting point: tap a number to type your own, or use − and +."));
+  expect((await page.getByText("Know your number?").count()) === 0, "Pip no longer points at the button he was pointing at");
   await page.waitForFunction(() => document.activeElement?.id === "target-calories", undefined, { timeout: 2000 }).catch(() => {});
   const focused = await page.evaluate(() => document.activeElement?.id);
   expect(focused === "target-calories", "the focus is on the calories box, not at the top of the page: " + focused);
@@ -824,11 +868,15 @@ await step("(t) a finger's quick second tap does not carry on past the next scre
     const b = await page.getByRole("button", { name: "Continue", exact: true }).boundingBox();
     await page.touchscreen.tap(b.x + b.width / 2, b.y + b.height / 2);
   };
-  await tapContinue(); // Your size -> How active are you?
+  await tapContinue(); // Your height and weight -> How active are you?
   await tapContinue(); // a second tap straight after: lands on the next screen's button
   await page.waitForTimeout(900);
   await head(page, "How active are you?");
   expect((await page.getByRole("heading", { name: "Your daily targets" }).count()) === 0, "How active are you? was not skipped");
+  // (Continue there is grey until a tile is tapped, the onboarding meeting of 19 November)
+  const tile = await page.getByRole("radio", { name: "Lightly active", exact: true }).boundingBox();
+  await page.touchscreen.tap(tile.x + tile.width / 2, tile.y + tile.height / 2);
+  await page.waitForTimeout(300);
   await tapContinue(); // a considered tap, after the screen settled
   await head(page, "Your daily targets");
   await tapContinue(); // a quick second tap
@@ -846,6 +894,7 @@ await step("(t) a finger's quick second tap does not carry on past the next scre
   await box(mouse.page, "Stone").fill("11"); await box(mouse.page, "Feet").fill("5");
   await cont(mouse.page);
   await head(mouse.page, "How active are you?");
+  await pickActivity(mouse.page);
   await cont(mouse.page);
   await head(mouse.page, "Your daily targets");
   await mouse.ctx.close();
@@ -871,23 +920,269 @@ await step("(v) Settings: 'Use these' puts the focus on the Calories box", async
   await ctx.close();
 });
 
+// ---- the onboarding meeting of 19 November: what the welcome screens now promise, checked on the screen
+
+/** Is the middle of this element (or of the box given) the element itself, or something inside it (not the bottom bar or anything else drawn over it)? */
+const onTop = (locator, at = "centre") => locator.evaluate((el, where) => {
+  const r = el.getBoundingClientRect();
+  const y = where === "bottom" ? r.bottom - 2 : r.top + r.height / 2;
+  const hit = document.elementFromPoint(r.left + r.width / 2, y);
+  return !!hit && (el === hit || el.contains(hit));
+}, at);
+/** The top of the sticky bar that holds the screen's bottom button. */
+const barTop = (page) => page.evaluate(() => [...document.querySelectorAll("main .sticky")].pop()?.getBoundingClientRect().top ?? Infinity);
+const settleAll = (page) => page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))));
+const STARTING = "These are starting numbers, not worked out for you.";
+const SET_YOURS = "Set your targets to see what's left today";
+
+await step("(w) skipped questions and untouched targets stay starting numbers (the last screen and Home say so); answered questions, a typed Calories number or targets set before are the person's own", async () => {
+  // 1. "Skip these questions" lands on the targets with empty boxes; Continue on them as they are
+  let r = await fresh();
+  await toGoal(r.page);
+  await firstTwo(r.page);
+  await go(r.page, "Skip these questions");
+  await head(r.page, "Your daily targets");
+  const t = await targets(r.page);
+  expect(t.calories === "2000" && t.protein === "" && t.carbs === "" && t.fat === "", "'Skip these questions' leaves the boxes empty: " + JSON.stringify(t));
+  await cont(r.page);
+  await head(r.page, "Where do you shop?");
+  expect((await settingsOf(r.page)).hasSetTargets !== true, "untouched starting numbers were saved as set");
+  await cont(r.page);
+  await head(r.page, "You're all set!");
+  await vis(r.page.getByText(STARTING));
+  await go(r.page, "Go to Home");
+  await r.page.waitForURL(/\/app\/?$/);
+  await vis(r.page.getByText(SET_YOURS));
+  await r.ctx.close();
+  // 2. the questions answered: worked out, so neither line
+  r = await fresh();
+  await toGoal(r.page);
+  await toTargets(r.page, A);
+  await cont(r.page);
+  await head(r.page, "Where do you shop?");
+  await cont(r.page);
+  await head(r.page, "You're all set!");
+  expect((await r.page.getByText(STARTING).count()) === 0, "answered: the last screen calls them starting numbers");
+  await go(r.page, "Go to Home");
+  await r.page.waitForURL(/\/app\/?$/);
+  await r.page.getByRole("heading", { level: 1, name: "Home" }).waitFor();
+  await r.page.waitForTimeout(500);
+  expect((await r.page.getByText(SET_YOURS).count()) === 0, "answered: Home asks for targets");
+  await r.ctx.close();
+  // 3. skipped, then a new Calories number typed: the person's own
+  r = await fresh();
+  await toGoal(r.page);
+  await firstTwo(r.page);
+  await go(r.page, "Skip");
+  await head(r.page, "Your daily targets");
+  await r.page.locator("#target-calories").fill("1,800");
+  await cont(r.page);
+  await head(r.page, "Where do you shop?");
+  const typed = await settingsOf(r.page);
+  expect(typed.hasSetTargets === true && typed.dailyCalories === 1800, "a typed number is set: " + JSON.stringify({ set: typed.hasSetTargets, kcal: typed.dailyCalories }));
+  await cont(r.page);
+  await head(r.page, "You're all set!");
+  expect((await r.page.getByText(STARTING).count()) === 0, "typed: the last screen calls them starting numbers");
+  await r.ctx.close();
+  // 4. targets set before, Settings › Set up with Pip again, everything skipped and Continue on the targets: they stay set (never written as false)
+  const before = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 1900, dailyProtein: 120, hasSetTargets: true, hasCompletedOnboarding: true, preferences: {} } });
+  r = await fresh({}, `if (!sessionStorage.getItem("seeded")) { sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", ${JSON.stringify(before)}); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 1 })); }`);
+  await toGoal(r.page);
+  // a re-run: the saved goal shows ticked
+  expect((await r.page.getByRole("radio", { name: "Maintain" }).getAttribute("aria-checked")) === "true", "the saved goal isn't ticked on a re-run");
+  await go(r.page, "Skip");
+  await head(r.page, "Anything you avoid?");
+  await go(r.page, "Skip");
+  await head(r.page, "About you");
+  await go(r.page, "Skip");
+  await head(r.page, "Your daily targets");
+  expect((await num(r.page, "calories")) === "1900", "the saved calories: " + (await num(r.page, "calories")));
+  await cont(r.page);
+  await head(r.page, "Where do you shop?");
+  const kept = await settingsOf(r.page);
+  expect(kept.hasSetTargets === true && kept.dailyCalories === 1900, "the targets set before stay set: " + JSON.stringify({ set: kept.hasSetTargets, kcal: kept.dailyCalories }));
+  await r.ctx.close();
+});
+
+await step("(x) the questions about the person at 390x844 and 375x667: the reason a Continue is grey is its own line, uncovered, clear of the privacy note and linked to Continue; nothing is ticked for the person on a re-run either; Age stays clear of the bar with the keyboard up", async () => {
+  for (const viewport of [{ width: 390, height: 844 }, { width: 375, height: 667 }]) {
+    const where = `${viewport.width}x${viewport.height}`;
+    const r = await fresh({ viewport });
+    await toSize(r.page);
+    await settleAll(r.page);
+    const why = r.page.locator("#welcome-why-grey");
+    expect((await why.innerText()) === "Fill in your height and weight above to go on, or skip these questions below.", `${where}: the reason line: ` + (await why.innerText()));
+    expect((await r.page.getByRole("button", { name: "Continue", exact: true }).getAttribute("aria-describedby")) === "welcome-why-grey", `${where}: Continue isn't linked to its reason`);
+    expect(await onTop(why), `${where}: something is drawn over the reason line`);
+    const a = await why.boundingBox();
+    const b = await r.page.getByText("Your answers are only used to work out your numbers.", { exact: false }).first().boundingBox();
+    const overlap = a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+    expect(!overlap, `${where}: the reason line and the privacy note overlap: ${JSON.stringify({ a, b })}`);
+    // the privacy note sits straight under Pip, before the boxes
+    const firstBox = await box(r.page, "Feet").boundingBox();
+    expect(b.y < firstBox.y, `${where}: the privacy note is not above the boxes`);
+    await r.ctx.close();
+  }
+  // a re-run (set up already): still no activity ticked
+  const seeded = JSON.stringify({ v: 1, data: { goal: "lose", dailyCalories: 1800, hasSetTargets: true, hasCompletedOnboarding: true, preferences: {} } });
+  const r = await fresh({}, `if (!sessionStorage.getItem("seeded")) { sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", ${JSON.stringify(seeded)}); }`);
+  await toGoal(r.page);
+  await cont(r.page);
+  await nothingToAvoid(r.page);
+  await about(r.page, A);
+  await cont(r.page);
+  await size(r.page, A);
+  await cont(r.page);
+  await head(r.page, "How active are you?");
+  expect((await r.page.locator("[role='radio'][aria-checked='true']").count()) === 0, "an activity is ticked on a re-run");
+  expect(await r.page.getByRole("button", { name: "Continue", exact: true }).isDisabled(), "Continue works on a re-run before an activity is picked");
+  await r.ctx.close();
+  // Age with the keyboard up at 375x667: the keyboard's 260 px taken off the screen and the box brought into view, as the phone does (an approximation: a desktop
+  // browser has no on-screen keyboard)
+  const k = await fresh({ viewport: { width: 375, height: 667 } });
+  await toGoal(k.page);
+  await firstTwo(k.page);
+  await head(k.page, "About you");
+  await age(k.page).focus();
+  await k.page.setViewportSize({ width: 375, height: 667 - 260 });
+  await age(k.page).evaluate((el) => el.scrollIntoView({ block: "nearest" }));
+  await k.page.waitForTimeout(200);
+  const ageBox = await age(k.page).boundingBox();
+  const bar = await barTop(k.page);
+  expect(ageBox.y >= 0 && ageBox.y + ageBox.height <= bar + 0.5, `Age is under the bar with the keyboard up: box ${Math.round(ageBox.y)}-${Math.round(ageBox.y + ageBox.height)}, bar from ${Math.round(bar)}`);
+  await k.ctx.close();
+});
+
+await step("(y) 'Your daily targets' at 390x844: each number once (in its box), where the numbers come from above the first card, the true kept line, and the carbs and fat − and + clear of the bottom bar (answered and skipped)", async () => {
+  for (const path of ["answered", "skipped"]) {
+    const r = await fresh();
+    await toGoal(r.page);
+    if (path === "answered") await toTargets(r.page, A);
+    else { await firstTwo(r.page); await go(r.page, "Skip"); await head(r.page, "Your daily targets"); }
+    await settleAll(r.page);
+    await r.page.evaluate(() => window.scrollTo(0, 0));
+    const sources = r.page.getByRole("button", { name: "Where these numbers come from" }).first();
+    const sourcesBox = await sources.boundingBox();
+    const firstCard = await r.page.locator("#target-calories").evaluate((el) => el.closest(".grid > *").getBoundingClientRect().top);
+    expect(sourcesBox.y + sourcesBox.height <= firstCard + 0.5, `${path}: 'Where these numbers come from' is not above the first card`);
+    expect(sourcesBox.height >= 43.5, `${path}: 'Where these numbers come from' is ${sourcesBox.height} px tall`);
+    // the calories show once: in the box (no summary or plate picture repeating them)
+    const calories = Number(await num(r.page, "calories")).toLocaleString("en-GB");
+    expect((await r.page.getByText(calories, { exact: false }).count()) === 0, `${path}: ${calories} shows outside its box`);
+    await vis(r.page.getByText("Your sex, age, height, weight and activity aren't kept.", { exact: false }));
+    const buttons = r.page.locator("#target-carbs, #target-fat").locator("xpath=ancestor::div[contains(@class,'group/step')]").getByRole("button", { name: /^(Decrease|Increase)$/ });
+    expect((await buttons.count()) === 4, `${path}: carbs and fat have ${await buttons.count()} − and + buttons`);
+    for (let i = 0; i < 4; i++) {
+      const b = buttons.nth(i);
+      expect((await onTop(b)) && (await onTop(b, "bottom")), `${path}: a carbs or fat − or + is under the bottom bar (${JSON.stringify(await b.boundingBox())}, bar from ${await barTop(r.page)})`);
+    }
+    await r.ctx.close();
+  }
+});
+
+await step("(z) foods to avoid and shops: the hard names have a second line (the tile's name is its whole visible text: label in name), the allergy caution sits under 'Allergies to avoid', two allergens change Pip's words once; 'Not in recipes yet' only once the shop list has loaded", async () => {
+  const { ctx, page } = await fresh();
+  await toGoal(page);
+  await page.getByRole("radio", { name: "Maintain" }).click();
+  await cont(page);
+  await head(page, "Anything you avoid?");
+  for (const [name, hint] of [["Lupin", "a flour in some breads and pastries"], ["Celery", "and celeriac"], ["Pescatarian", "fish, no meat"]]) {
+    // WCAG 2.5.3: the button's name is what it shows, the name and then its second line
+    const tile = page.getByRole("button", { name: new RegExp(`^${name}\\b`) });
+    const said = (await tile.evaluate((el) => el.textContent ?? "")).replace(/\s+/g, " ").trim();
+    expect(said.startsWith(name) && said.endsWith(hint), `${name}'s second line: ${JSON.stringify(said)}`);
+  }
+  const caution = page.getByText("Allergy filters use each restaurant's own allergen guide", { exact: false }).first();
+  await vis(caution);
+  const [label, cautionTop, firstTile] = [await page.getByText("Allergies to avoid", { exact: true }).first().boundingBox(), (await caution.boundingBox()).y, await page.getByRole("button", { name: "Gluten", exact: true }).boundingBox()];
+  expect(cautionTop > label.y && cautionTop < firstTile.y, `the allergy caution is not between 'Allergies to avoid' and the tiles: label ${label.y}, caution ${cautionTop}, first tile ${firstTile.y}`);
+  // Pip's words change once for two allergens (a screen reader hears him once, not on every tap)
+  await page.evaluate(() => {
+    const live = document.querySelector("main div[aria-live='polite']");
+    window.__said = [live.textContent];
+    new MutationObserver(() => { if (window.__said.at(-1) !== live.textContent) window.__said.push(live.textContent); }).observe(live, { subtree: true, childList: true, characterData: true });
+  });
+  await page.getByRole("button", { name: "Peanuts", exact: true }).click();
+  await page.waitForTimeout(400);
+  await page.getByRole("button", { name: "Milk", exact: true }).click();
+  await page.waitForTimeout(400);
+  const said = await page.evaluate(() => window.__said);
+  expect(said.length === 2 && said[1].includes("Got it. I'll hide dishes that list them, and dishes with no allergy information. Always check with staff, and check each pack."), "Pip's words for two allergens: " + JSON.stringify(said));
+  await vis(page.getByRole("button", { name: "Continue", exact: true }));
+  await go(page, "Skip");
+  await head(page, "About you");
+  await go(page, "Skip");
+  await head(page, "Your daily targets");
+  await go(page, "Skip");
+  await head(page, "Where do you shop?");
+  // the shop list loaded: a shop recipes can't use yet says so in its button (its name is its whole visible text: label in name)
+  await page.waitForFunction(() => document.body.innerText.includes("Not in recipes yet"), undefined, { timeout: 15000 });
+  await vis(page.getByRole("button", { name: /^Tesco\b.*Not in recipes yet$/ }));
+  expect(await page.getByRole("button", { name: "Sainsbury's", exact: true }).count() === 1, "Sainsbury's is in recipes: no note");
+  await vis(page.getByText("Not sure yet? That's fine. Until you choose, recipes use Sainsbury's."));
+  await ctx.close();
+  // the shop list blocked (offline): no shop is said to be missing from recipes
+  const off = await fresh();
+  await off.page.route("**/groceries/all/all-manifest.json", (route) => route.abort("internetdisconnected"));
+  await toGoal(off.page);
+  for (const h of ["Anything you avoid?", "About you", "Your daily targets", "Where do you shop?"]) { await go(off.page, "Skip"); await head(off.page, h); }
+  await off.page.waitForTimeout(1500);
+  expect((await off.page.getByText("Not in recipes yet").count()) === 0, "'Not in recipes yet' without the shop list");
+  await vis(off.page.getByText("Not sure yet? That's fine: until you choose, recipes use the supermarket we have the most labels for."));
+  await off.ctx.close();
+});
+
+await step("(aa) 'You're all set!' at 390x844 with the free and Premium line: the words stay in front of the confetti, the first recipe's title starts above the sticky Go to Home (answered and skipped), and 'Or look up a restaurant' opens Search with Home under it", async () => {
+  for (const path of ["answered", "skipped"]) {
+    const r = await fresh();
+    await toGoal(r.page);
+    if (path === "answered") { await toTargets(r.page, A); await cont(r.page); }
+    else { await firstTwo(r.page); await go(r.page, "Skip"); await head(r.page, "Your daily targets"); await cont(r.page); }
+    await head(r.page, "Where do you shop?");
+    await go(r.page, "Skip");
+    await head(r.page, "You're all set!");
+    // during the confetti's fall
+    expect(await onTop(r.page.getByRole("heading", { level: 1, name: "You're all set!" })), `${path}: the confetti is drawn over the headline`);
+    const goal = r.page.getByText(path === "answered" ? A.goal : "Maintain", { exact: true }).first();
+    expect(await onTop(goal), `${path}: the confetti is drawn over the plan card`);
+    if (path === "skipped") await vis(r.page.getByText(STARTING));
+    // the free and Premium line (a gated build, someone without Premium): the tallest the screen gets
+    if (GATED) await vis(r.page.getByText("Premium adds extras, such as", { exact: false }));
+    const title = r.page.locator('main ul a[href^="/app/recipes/view?id="] span.line-clamp-3').first();
+    await title.waitFor({ timeout: 30000 });
+    await settleAll(r.page);
+    await r.page.evaluate(() => window.scrollTo(0, 0));
+    const t = await title.boundingBox();
+    const bar = await barTop(r.page);
+    expect((await onTop(title)) && t.y + t.height <= bar + 0.5, `${path}: the first recipe's title (${Math.round(t.y)}-${Math.round(t.y + t.height)}) is not above Go to Home (from ${Math.round(bar)})`);
+    if (path === "skipped") {
+      await go(r.page, "Or look up a restaurant");
+      await r.page.waitForURL(/\/app\/search/);
+      await r.page.goBack();
+      await r.page.waitForURL(/\/app\/?$/);
+    }
+    await r.ctx.close();
+  }
+});
+
 // ---- looks: no horizontal overflow, 44 px targets and axe on every new screen at 360 px and Extra large text
-const SCREENS = ["About you", "Your size", "How active are you?", "Your daily targets", "Your daily targets (skipped, suggestions open)"];
+const SCREENS = ["About you", "Your height and weight", "How active are you?", "Your daily targets", "Your daily targets (skipped, suggestions open)"];
 async function reach(page, which, opts) {
   await toGoal(page, "/app/welcome");
   if (opts.xl) await page.addStyleTag({ content: "html { font-size: 200% !important; }" });
   await page.getByRole("radio").first().click(); // Lose weight
   await cont(page);
-  await cont(page);
+  await nothingToAvoid(page);
   await head(page, "About you");
   if (which === "About you") return;
   await age(page).fill("34");
   await cont(page);
-  await head(page, "Your size");
-  if (which === "Your size") { await box(page, "Stone").fill("11.5"); await vis(alerts(page).first()); return; }
+  await head(page, "Your height and weight");
+  if (which === "Your height and weight") { await box(page, "Stone").fill("11.5"); await vis(alerts(page).first()); return; }
   await box(page, "Stone").fill("11"); await box(page, "Feet").fill("5");
   await cont(page);
   await head(page, "How active are you?");
+  await pickActivity(page);
   if (which === "How active are you?") return;
   await cont(page);
   await head(page, "Your daily targets");
@@ -930,7 +1225,7 @@ for (const [label, ctxOptions, opts] of [
       const r = await fresh(ctxOptions);
       await toGoal(r.page);
       if (opts.xl) await r.page.addStyleTag({ content: "html { font-size: 200% !important; }" });
-      await cont(r.page); await cont(r.page); await go(r.page, "Skip");
+      await firstTwo(r.page); await go(r.page, "Skip");
       await head(r.page, "Your daily targets");
       await r.page.getByRole("button", { name: "Not sure? Suggest targets for me" }).click();
       await r.page.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click();

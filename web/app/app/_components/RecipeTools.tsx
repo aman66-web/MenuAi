@@ -43,7 +43,7 @@ export function RecipeTools() {
                 </Link>
               )}
               {PHOTO_RECIPES_ENABLED && (
-                <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1d2320] px-4 py-2 text-center text-[0.9375rem] font-bold leading-tight text-white transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                <button type="button" onClick={() => gate("photoRecipe", () => router.push("/app/recipes/photo"))} className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-4 py-2 text-center text-[0.9375rem] font-bold leading-tight text-on-ink transition active:scale-[0.98] hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                   <PotIcon aria-hidden className="h-4 w-4 shrink-0" />{t("Make it at home")}
                 </button>
               )}
@@ -62,7 +62,7 @@ export function RecipeTools() {
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span className="text-[1.1875rem] font-[800] leading-tight tracking-[-0.01em]">{t("Meal plan")}</span>
-                {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-[#1d2320] px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--sun)]">{t("Premium")}</span>}
+                {GATING_ENABLED && !pro && <span className="inline-block rounded-full bg-ink px-2 py-0.5 text-[0.8125rem] font-bold leading-snug text-[var(--sun)]">{t("Premium")}</span>}
               </span>
               <span className="mt-0.5 block text-[0.9375rem] leading-snug text-[#3d4a3f]">{t("Pip plans 7 days of meals for your goal, with one shopping list.")}</span>
             </span>

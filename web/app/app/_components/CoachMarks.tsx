@@ -10,7 +10,8 @@ import { Pip } from "./Mascot";
 import { coachStepsFor, type CoachStep } from "./coachSteps";
 
 // Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"; lib/mm/coach.ts, coachSteps.ts). The first time a tab opens
-// after the welcome screens, the page dims, one real control at a time is lit with a lime ring, and a card with Pip says what it does: "Tip 2 of 5", Next (Done
+// after the welcome screens, the page dims a little (rgba(0,0,0,0.2): older testers were flustered by the heavy dimming; colour meeting, 19 November 2026), one
+// real control at a time is lit with a 3 px ink ring and a 2 px white gap, and a card with Pip says what it does: "Tip 2 of 5", Next (Done
 // on the last), and "Stop the tips". It is a modal <dialog>, so the page behind can't be tapped by mistake, the focus stays on the card and a screen reader reads
 // the tip; Escape counts as Done. It waits until the tab has drawn its controls and no other sheet is open (and the iPhone app's trial offer waits for it).
 
@@ -61,7 +62,7 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
 
   // Wait for the tab's controls (a list may still be loading) and for any other sheet to close, then start with the tips whose controls are there.
   useEffect(() => {
-    const all = coachStepsFor(screen);
+    const all = coachStepsFor(screen, coachStore.get()); // after a walked tour, the tips it already gave are left out
     const started = Date.now();
     let timer = 0;
     const look = () => {
@@ -155,6 +156,8 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
     }
   }
   const showing = settled && inView;
+  // Pip waves on the first tip, then points at the lit control: up when the card sits below it, down when the card sits above it
+  const mood = at === 0 ? "wave" : place.top !== undefined ? "pointUp" : "point";
 
   return (
     <dialog
@@ -169,15 +172,15 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
     >
       {steps && step && (
         <>
-          {/* the dimmed page with the lit control's hole (a huge shadow round the hole), and the lime ring */}
+          {/* the lightly dimmed page with the lit control's hole (a huge shadow round the hole), a 2 px white gap and the 3 px ink ring outside it */}
           {hole && showing ? (
             <div
               aria-hidden
-              className="pointer-events-none fixed rounded-[1.25rem] outline-[3px] outline-[var(--sun)] [outline-style:solid] motion-safe:transition-[top,left,width,height] motion-safe:duration-300"
-              style={{ ...hole, boxShadow: "0 0 0 200vmax rgba(17,24,20,0.62)" }}
+              className="pointer-events-none fixed rounded-[1.25rem] outline-[3px] outline-offset-2 outline-ink [outline-style:solid] motion-safe:transition-[top,left,width,height] motion-safe:duration-300"
+              style={{ ...hole, boxShadow: "0 0 0 2px var(--card), 0 0 0 200vmax var(--tips-wash)" }}
             />
           ) : (
-            <div aria-hidden className="fixed inset-0 bg-[rgba(17,24,20,0.62)]" />
+            <div aria-hidden className="fixed inset-0 bg-[var(--tips-wash)]" />
           )}
           <div
             ref={card}
@@ -185,7 +188,7 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
             style={place}
           >
             <div className="flex items-start gap-3">
-              <span aria-hidden className="shrink-0"><Pip mood={at === 0 ? "wave" : "point"} size={52} /></span>
+              <span aria-hidden data-mood={mood} className="shrink-0"><Pip mood={mood} size={56} /></span>
               <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                 <p className="app-numbers text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-muted">{t("Tip {n} of {total}", { n: at + 1, total: steps.length })}</p>
                 <h2 ref={title} id="coach-title" tabIndex={-1} className="mt-0.5 text-[1.1875rem] font-[800] leading-snug tracking-[-0.01em] outline-none">{t(step.title)}</h2>
@@ -196,11 +199,11 @@ function CoachRun({ screen }: { screen: CoachScreen }) {
               <button
                 type="button"
                 onClick={() => (last ? finish() : setAt(at + 1))}
-                className="inline-flex min-h-12 min-w-[7rem] flex-1 items-center justify-center rounded-full bg-foreground px-5 text-[1.0625rem] font-bold text-background transition active:scale-[0.98]"
+                className="inline-flex min-h-12 min-w-[7rem] flex-1 items-center justify-center rounded-full bg-ink px-5 text-[1.0625rem] font-bold text-on-ink transition hover:bg-ink-pressed active:scale-[0.98] active:bg-ink-pressed"
               >
                 {last ? t("Done") : t("Next")}
               </button>
-              <button type="button" onClick={stopAll} className="inline-flex min-h-12 items-center justify-center rounded-full bg-soft-strong px-5 text-[1rem] font-bold text-foreground transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]">
+              <button type="button" onClick={stopAll} className="inline-flex min-h-12 items-center justify-center rounded-full border-[1.5px] border-edge bg-card px-5 text-[1rem] font-bold text-foreground transition hover:bg-background active:scale-[0.98] active:bg-background">
                 {t("Stop the tips")}
               </button>
             </div>

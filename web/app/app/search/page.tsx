@@ -60,7 +60,7 @@ export default function SearchPage() {
   return (
     <div>
       <h1 className="sr-only">{t("Search")}</h1>
-      <Link href={back.href} onClick={back.onClick} aria-label={t("Back")} className="group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95"><span className="inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-strong py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={t("Back")} className="group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95"><span className="inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-[1.125rem] w-[1.125rem]" /><span>{t("Back")}</span></span></Link>
       <div className="group/search relative mt-3">
         <SearchIcon className="pointer-events-none absolute start-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-foreground" />
         <input
@@ -82,7 +82,7 @@ export default function SearchPage() {
         <SearchDone>
           {query && (
             <button type="button" onClick={() => setQuery("")} aria-label={t("Clear search")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CloseIcon className="h-4 w-4" /></span>
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground transition-colors group-hover:bg-[var(--fill)]"><CloseIcon className="h-4 w-4" /></span>
             </button>
           )}
         </SearchDone>

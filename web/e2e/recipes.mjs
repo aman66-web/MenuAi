@@ -1,5 +1,5 @@
 // Recipes from your shop: list (165 recipes: meal chips, search, paging), filters, sort, cuisine and occasion, a recipe with swap, substitutes and "add all to my
-// list", the list's price total, Home's four tiles, Pip's recipe maker switched off (free launch), axe.
+// list", the list's price total, My meals (from Recipes' My recipes), Pip's recipe maker switched off (free launch), axe.
 // Uses the real published Sainsbury's list (public/groceries/all/sainsburys.json); the shop's pictures are answered locally.
 // Run against a production build: BASE=http://localhost:3101 node e2e/recipes.mjs
 import { chromium } from "playwright-core";
@@ -25,11 +25,14 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
 const lines = (text) => text.split("\n").map((l) => l.trim());
 
-await step("the tab bar opens Recipes; Home's My meals tile opens one page with two tabs; the old addresses forward to it", async () => {
+await step("the tab bar opens Recipes; Recipes' My recipes opens My meals, one page with two tabs (no tile on Home since 2026-11-19); the old addresses forward to it", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
   await page.getByRole("link", { name: /Shopping list/ }).waitFor();
-  await page.getByRole("link", { name: /My meals/ }).click();
+  expect((await page.getByRole("link", { name: /My meals/ }).count()) === 0, "a My meals tile is back on Home");
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
+  await page.getByRole("heading", { level: 1, name: "What's cooking today?" }).waitFor();
+  await page.getByRole("link", { name: /^My recipes/ }).click();
   await page.getByRole("heading", { level: 1, name: "My meals" }).waitFor();
   await page.getByRole("tab", { name: /^Recipes/, selected: true }).waitFor();
   await page.getByText("No saved recipes yet").waitFor();

@@ -82,7 +82,7 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
           <div className="mt-7">
             {added ? (
               <>
-                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-accent"><CheckIcon className="h-5 w-5" strokeWidth={3} />{t("Added to your shopping list.")}</p>
+                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-foreground"><CheckIcon className="h-5 w-5" strokeWidth={3} />{t("Added to your shopping list.")}</p>
                 <LinkButton href="/app/groceries/list" full className="mt-3 min-h-12 text-base"><BasketIcon className="h-5 w-5" />{t("Open my shopping list")}</LinkButton>
               </>
             ) : (

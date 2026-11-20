@@ -47,13 +47,13 @@ function MatchCard({ m }: { m: ListMatch }) {
           <span className="flex min-w-0 flex-1 items-center gap-3">
             <span className="min-w-0 flex-1">
               <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">{t(m.recipe.name)}</span>
-              <span className="app-numbers mt-0.5 block text-sm font-semibold text-accent">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
+              <span className="app-numbers mt-0.5 block text-sm font-semibold text-foreground">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
             </span>
             <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-muted" />
           </span>
         </span>
       </Link>
-      <div aria-hidden className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--ring-track)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
+      <div aria-hidden className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--line)]"><div className="h-full rounded-full bg-[var(--bar)]" style={{ width: `${(m.have.length / total) * 100}%` }} /></div>
       <p className="sr-only">{t("On your list:")} {m.have.map(label).join(", ")}</p>
       <ul aria-hidden className="mt-4 flex flex-wrap gap-2">
         {m.have.map((i) => (<li key={i} className="bg-sun inline-flex items-center gap-1.5 rounded-full py-1.5 pe-3.5 ps-2.5 text-sm font-semibold text-on-accent"><CheckIcon className="h-3.5 w-3.5" strokeWidth={3} />{label(i)}</li>))}
@@ -78,7 +78,7 @@ function MatchCard({ m }: { m: ListMatch }) {
       ) : (
         <p className="mt-5 text-[0.9375rem] font-semibold leading-snug">{t("Your list has everything this recipe uses.")}</p>
       )}
-      <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-accent empty:mt-0">{added}</p>
+      <p role="status" aria-live="polite" className="mt-2 text-sm font-medium text-foreground empty:mt-0">{added}</p>
     </li>
   );
 }

@@ -15,7 +15,8 @@ import { DARK_CARD } from "./HomeToday";
 
 const NAME: Record<LabelKey, string> = { sugar: tk("Sugar"), salt: tk("Salt"), fiber: tk("Fibre") };
 
-export function HomeLabels({ log, now, pro }: { log: readonly LogEntry[]; now: Date; pro: boolean }) {
+/** `logPaid`: logging is paid for this person on this build (needsPaywall("log"), worked out on Home), so an empty day says the figures come once they log. */
+export function HomeLabels({ log, now, logPaid }: { log: readonly LogEntry[]; now: Date; logPaid: boolean }) {
   const t = useT();
   const today = dayParam(now);
   const totals = useMemo(() => todayLabelTotals(log, now), [log, today]); // eslint-disable-line react-hooks/exhaustive-deps -- `now` matters only by its day
@@ -44,7 +45,7 @@ export function HomeLabels({ log, now, pro }: { log: readonly LogEntry[]; now: D
           );
         })}
       </dl>
-      {nothing && <p className="text-[0.9375rem] leading-snug text-white/85">{pro ? t("Nothing logged yet today.") : t("Your sugar, salt and fibre show here once you log your meals.")}</p>}
+      {nothing && <p className="text-[0.9375rem] leading-snug text-white/85">{logPaid ? t("Your sugar, salt and fibre show here once you log your meals.") : t("Nothing logged yet today.")}</p>}
       <p className="mt-1 text-[0.8125rem] leading-snug text-white/70">{t("Only foods whose label or menu gives these figures are counted.")}</p>
     </div>
   );

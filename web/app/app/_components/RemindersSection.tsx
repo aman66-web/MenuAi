@@ -83,7 +83,7 @@ function AddCard({ onClick }: { onClick: () => void }) {
     >
       <span aria-hidden className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong text-muted"><BellIcon className="h-5 w-5" /></span>
       <span className="min-w-0 flex-1 text-lg font-extrabold leading-snug tracking-tight">{t("Add a reminder")}</span>
-      <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1d2320] text-white"><PlusIcon className="h-6 w-6" /></span>
+      <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink"><PlusIcon className="h-6 w-6" /></span>
     </button>
   );
 }

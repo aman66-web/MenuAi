@@ -30,28 +30,32 @@ async function nearby(p, blockTiles) {
   await p.getByRole("heading", { name: /(restaurants?|No restaurants here)$/ }).waitFor();
 }
 
-// Onboarding, up to the screen asked for (the welcome screen, Pip's arrival and the text size, then "Skip tour" and "Set up my plan"). Used by the questions
-// about the person and the targets.
-const next = (p) => p.getByRole("button", { name: "Continue" }).click();
+// Onboarding, up to the screen asked for (the welcome screen, Pip's arrival, then "Skip tour" and "Set up my daily numbers"). Used by the questions about the person
+// and the targets. Everyone here is set up already (the settings below), so the saved goal shows ticked; the foods-to-avoid button says "Nothing to avoid" while
+// nothing is ticked, and an activity is tapped (nothing is picked for the person).
+const next = (p) => p.getByRole("button", { name: "Continue", exact: true }).click();
 async function toGoal(p) {
   await p.getByRole("button", { name: "Get started" }).click();
   await p.getByRole("button", { name: "Show me around" }).click();
   await p.getByRole("button", { name: "Skip tour" }).click();
-  await p.getByRole("button", { name: "Set up my plan" }).click();
+  await p.getByRole("button", { name: "Set up my daily numbers" }).click();
   await p.getByRole("heading", { name: "What's your goal?" }).waitFor();
 }
-async function toAbout(p) {
+async function toAvoid(p) {
   await toGoal(p);
   await next(p);
   await p.getByRole("heading", { name: "Anything you avoid?" }).waitFor();
-  await next(p);
+}
+async function toAbout(p) {
+  await toAvoid(p);
+  await p.getByRole("button", { name: "Nothing to avoid", exact: true }).click();
   await p.getByRole("heading", { name: "About you" }).waitFor();
 }
 async function toSize(p) {
   await toAbout(p);
   await p.getByLabel("Age", { exact: true }).fill("34");
   await next(p);
-  await p.getByRole("heading", { name: "Your size" }).waitFor();
+  await p.getByRole("heading", { name: "Your height and weight" }).waitFor();
 }
 async function toActive(p) {
   await toSize(p);
@@ -61,16 +65,42 @@ async function toActive(p) {
 }
 async function toTargets(p) {
   await toActive(p);
+  await p.getByRole("radio", { name: "Lightly active", exact: true }).click();
   await next(p);
   await p.getByRole("heading", { name: "Your daily targets" }).waitFor();
 }
+/** A first-run stop of the welcome tour: its headline says "stop n of 4" to a screen reader (Chrome's name has a space before the comma). */
+const stop = (p, tab, n) => p.getByRole("heading", { level: 1, name: new RegExp(`^${tab} ?, stop ${n} of 4$`) }).waitFor();
+/** Through the tour from Pip's arrival to the stop asked for (1-4). */
+async function toStop(p, tab, n) {
+  await p.getByRole("button", { name: "Get started" }).click();
+  await p.getByRole("button", { name: "Show me around" }).click();
+  for (let i = 1; i < n; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); }
+  await stop(p, tab, n);
+  await p.waitForTimeout(1200);
+}
+// What the onboarding meeting of 19 November asked of these screens beyond axe (each failure is counted with the violations): the cover's headline is its first
+// heading, Pip's arrival names him once, and a − or + on the targets says the new number.
+const problems = [];
+const must = (cond, what) => { if (!cond) problems.push(what); };
 
 const pages = [
-  ["welcome", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).waitFor(); }],
-  ["intro (Pip arrives)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); await p.waitForTimeout(1800); }],
-  ["intro (the tour's first stop; no text size screen since 2026-11-19)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); }],
-  ["intro (Pip's walk: Recipes)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 1; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Recipes", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
-  ["intro (Pip's walk: Eat out, the last tab while Community is off)", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); for (let i = 0; i < 3; i++) { await p.waitForTimeout(150); await p.getByRole("button", { name: "Continue" }).click(); } await p.getByRole("heading", { level: 1, name: "Eat out", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
+  ["welcome", "/app/welcome", false, async (p) => {
+    await p.getByRole("button", { name: "Get started" }).waitFor();
+    // the writing comes before the picture in the page, so a screen reader meets the headline first
+    must((await p.evaluate(() => document.querySelector("main :is(h1, h2, h3, h4, h5, h6)")?.tagName)) === "H1", "welcome: the first heading in the page is not the h1");
+  }],
+  ["intro (Pip arrives)", "/app/welcome", false, async (p) => {
+    await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("heading", { name: "Hi, I'm Pip!" }).waitFor(); await p.waitForTimeout(1800);
+    // the one place Pip has a name: a picture named for a screen reader
+    const pip = p.getByRole("img", { name: "Pip, a small round green character with a sprout on top.", exact: true });
+    must((await pip.count()) === 1 && (await pip.evaluate((el) => el.tagName.toLowerCase())) === "svg", "Pip arrives: Pip is not one svg named 'Pip, a small round green character with a sprout on top.'");
+  }],
+  // every stop of the walk (Community is off; no text size screen since 2026-11-19)
+  ["intro (Pip's walk: Home)", "/app/welcome", false, async (p) => { await toStop(p, "Home", 1); }],
+  ["intro (Pip's walk: Recipes)", "/app/welcome", false, async (p) => { await toStop(p, "Recipes", 2); }],
+  ["intro (Pip's walk: Groceries)", "/app/welcome", false, async (p) => { await toStop(p, "Groceries", 3); }],
+  ["intro (Pip's walk: Eat out, the last tab while Community is off)", "/app/welcome", false, async (p) => { await toStop(p, "Eat out", 4); }],
   ["tour: let's make it yours", "/app/welcome", false, async (p) => { await p.getByRole("button", { name: "Get started" }).click(); await p.getByRole("button", { name: "Show me around" }).click(); await p.getByRole("button", { name: "Skip tour" }).click(); await p.getByRole("heading", { name: "Let's make it yours" }).waitFor(); await p.waitForTimeout(800); }],
   ["tour: replay (Settings › Help)", "/app/welcome?tour=1", false, async (p) => { await p.getByText("Step 1 of 4").waitFor(); await p.getByRole("heading", { level: 1, name: "Home", exact: true }).waitFor(); await p.waitForTimeout(1200); }],
   ["home", "/app", true, async () => {}],
@@ -97,8 +127,10 @@ const pages = [
   ["food blogs", "/app/community/blog", true, async (p) => { await p.getByRole("group", { name: "Topics" }).getByRole("button").nth(1).click(); await p.waitForTimeout(300); }],
   ["article", "/app/community/blog/view?id=where-our-numbers-come-from", true, async (p) => { await p.locator("article h1").waitFor(); }],
   ["offline", "/app/offline", true, async () => {}],
-  ["welcome shops", "/app/welcome", false, async (p) => { await toGoal(p); for (let i = 0; i < 4; i++) await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); await p.getByRole("button", { name: "Sainsbury's", exact: true }).click(); await p.getByText("Lovely! I'll show those shops first.").waitFor(); }],
-  ["welcome: choose a recipe", "/app/welcome", false, async (p) => { await toGoal(p); for (let i = 0; i < 5; i++) await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("heading", { name: "You're all set!" }).waitFor(); await p.getByRole("button", { name: "Continue" }).click(); await p.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 }); await p.waitForTimeout(800); }],
+  ["welcome shops", "/app/welcome", false, async (p) => { await toGoal(p); for (let i = 0; i < 4; i++) await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("heading", { name: "Where do you shop?" }).waitFor(); await p.getByRole("button", { name: "Sainsbury's", exact: true }).click(); await p.getByText("Got it. I'll show those shops first.").waitFor(); await p.getByText("Not in recipes yet").first().waitFor(); }],
+  ["welcome: foods to avoid", "/app/welcome", false, async (p) => { await toAvoid(p); await p.getByRole("button", { name: "Peanuts", exact: true }).click(); await p.getByText("Got it. I'll hide dishes that list them", { exact: false }).waitFor(); await p.waitForTimeout(500); }],
+  // the one last screen: what was chosen, the free and Premium line on a gated build, and the first recipes
+  ["welcome: you're all set, with its first recipes", "/app/welcome", false, async (p) => { await toGoal(p); for (let i = 0; i < 5; i++) await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("heading", { name: "You're all set!" }).waitFor(); await p.locator('a[href^="/app/recipes/view?id="]').first().waitFor({ timeout: 30000 }); await p.waitForTimeout(800); }],
   ["recipe swap", "/app/recipes/view?id=tuna-pasta&r=sainsburys", false, async (p) => { await p.getByRole("button", { name: /^Swap Tuna/ }).click(); await p.waitForTimeout(500); }],
   ["shopping list", "/app/groceries/list", false, async (p) => { await p.goto(p.url().replace("/list", "/shop/item?r=sainsburys&id=sainsburys-red-kidney-beans-in-water-400g-240g")); await p.getByRole("button", { name: "Add to my list" }).click(); await p.goto(p.url().split("/app/")[0] + "/app/groceries/list"); await p.waitForTimeout(500); }],
   ["list recipes", "/app/groceries/list/recipes", false, async (p) => { await p.evaluate(() => localStorage.setItem("mm.v1.shopping", JSON.stringify({ v: 1, data: [{ gtin: "", retailer: "own", name: "Chicken", brand: "", size: "", qty: 1, addedAt: "2026-10-10T10:00:00.000Z", custom: true }] }))); await p.reload(); await p.getByText(/recipes? uses? something on your list/).first().waitFor(); }],
@@ -112,10 +144,21 @@ const pages = [
   ["nearby (list)", "/app/map", false, async (p) => { await nearby(p, true); }],
   ["nearby (map)", "/app/map", false, async (p) => { await nearby(p, false); await p.waitForTimeout(4000); }],
   ["welcome: about you", "/app/welcome", false, async (p) => { await toAbout(p); await p.getByLabel("Age", { exact: true }).fill("150"); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
-  ["welcome: your size", "/app/welcome", false, async (p) => { await toSize(p); await p.getByLabel("Stone").fill("11.5"); await p.getByLabel("Feet").fill("5.10"); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
+  ["welcome: your height and weight", "/app/welcome", false, async (p) => { await toSize(p); await p.getByLabel("Stone").fill("11.5"); await p.getByLabel("Feet").fill("5.10"); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
   ["welcome: how active", "/app/welcome", false, async (p) => { await toActive(p); await p.waitForTimeout(500); }],
-  ["welcome: your daily targets", "/app/welcome", false, async (p) => { await toTargets(p); await p.getByLabel("Protein (g)").focus(); await p.waitForTimeout(700); }],
-  ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toGoal(p); await next(p); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Skip" }).click(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
+  ["welcome: your daily targets", "/app/welcome", false, async (p) => {
+    await toTargets(p);
+    // a tap on + says the new number in a polite live region ("Calories, 1,550"); typing says nothing
+    const before = await p.locator("#target-calories").inputValue();
+    await p.getByRole("button", { name: "Increase", exact: true }).first().click();
+    const after = await p.locator("#target-calories").inputValue();
+    const said = await p.locator("#target-calories").evaluate((el) => el.closest(".group\\/step")?.querySelector("[aria-live='polite']")?.textContent ?? null);
+    must(after !== before && said === `Calories, ${Number(after).toLocaleString("en-GB")}`, `targets: + from ${before} to ${after} said ${JSON.stringify(said)}`);
+    await p.locator("#target-calories").fill(before);
+    must((await p.locator("#target-calories").evaluate((el) => el.closest(".group\\/step")?.querySelector("[aria-live='polite']")?.textContent)) === "", "targets: typing a number still has the live region speaking");
+    await p.getByLabel("Protein (g)").focus(); await p.waitForTimeout(700);
+  }],
+  ["welcome: targets, suggest form", "/app/welcome", false, async (p) => { await toGoal(p); await next(p); await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("button", { name: "Skip", exact: true }).click(); await p.getByRole("button", { name: "Not sure? Suggest targets for me" }).click(); await p.locator("form").getByRole("button", { name: "Suggest targets", exact: true }).click(); await p.locator("[role='alert']").filter({ hasText: /\S/ }).first().waitFor(); await p.waitForTimeout(500); }],
   ["site", "/", false, async () => {}],
   ["friend invite page", "/f#K7M2QXWA", false, async (p) => { await p.getByRole("heading", { level: 1, name: /A friend invited you/ }).waitFor(); }],
 ];
@@ -144,5 +187,7 @@ for (const scheme of ["light", "dark"]) {
   }
   await ctx.close();
 }
-console.log("\nTotal violations:", total);
+for (const x of problems) console.log(`      [check] ${x}`);
+total += problems.length;
+console.log("\nTotal violations:", total, problems.length ? `(${problems.length} of them failed checks)` : "");
 await browser.close();

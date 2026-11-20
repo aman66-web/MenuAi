@@ -70,11 +70,12 @@ await step("first launch with no signal: the welcome wall follows the appLogos s
     expect(imgs > 0, "logo files on the wall");
     const srcs = await wall.locator("img").evaluateAll((els) => els.slice(0, 20).map((e) => e.getAttribute("src") ?? ""));
     expect(srcs.every((s) => !/^https?:/.test(s)), `logos load from inside the app: ${srcs.join(", ")}`);
-    expect((await wall.getAttribute("aria-label")) === "Logos of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
   } else {
     expect(imgs === 0, "no logo files on the wall");
-    expect((await wall.getAttribute("aria-label")) === "Names of restaurants and shops in the app", `wall label: ${await wall.getAttribute("aria-label")}`);
   }
+  // one sentence for a screen reader, the same with logos on or off: the first five names on the wall (the onboarding meeting, 19 November)
+  const label = (await wall.getAttribute("aria-label")) ?? "";
+  expect(label.startsWith("Restaurants and shops in the app, including ") && label.length > "Restaurants and shops in the app, including ".length, `wall label: ${label}`);
   await ctx.close();
 });
 

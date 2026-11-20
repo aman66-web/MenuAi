@@ -15,7 +15,7 @@ import { useLanguage, useT } from "../_lib/i18n";
 
 const ARROW =
   "group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 disabled:pointer-events-none disabled:text-muted";
-const ARROW_FILL = "inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] group-disabled:bg-transparent";
+const ARROW_FILL = "inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] group-disabled:border-transparent group-disabled:bg-transparent";
 
 function Month({ log, now, onPick }: { log: readonly LogEntry[]; now: Date; onPick: (day: Date) => void }) {
   const t = useT();

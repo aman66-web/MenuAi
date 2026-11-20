@@ -191,7 +191,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
                   aria-pressed={on}
                   aria-describedby={i === 0 && problem === "days" ? field.problem : undefined}
                   onClick={() => change({ days: on ? form.days.filter((x) => x !== d.iso) : [...form.days, d.iso] })}
-                  className={`inline-flex min-h-11 items-center justify-center rounded-2xl px-1 text-[0.9375rem] font-semibold transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "bg-foreground text-background" : "glass hover:bg-soft-strong [.sheet-panel_&]:shadow-none"}`}
+                  className={`inline-flex min-h-11 items-center justify-center rounded-2xl px-1 text-[0.9375rem] font-semibold transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent border-[1.5px] ${on ? "border-transparent bg-ink text-on-ink" : "border-edge bg-card hover:bg-background"}`}
                 >
                   <span aria-hidden>{d.short}</span>
                   <span className="sr-only">{d.long}</span>

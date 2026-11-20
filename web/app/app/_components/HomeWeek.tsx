@@ -13,7 +13,7 @@ import { DARK_CARD } from "./HomeToday";
 // logged before today. Only what was logged (CLAUDE.md rule 1): a day with nothing logged has a short dash, never a bar of 0; no red, no "over", no score (rule 3).
 // The chart can't be tapped: the circles above open each day.
 
-export function HomeWeek({ log, now, target, pro, htmlLang }: { log: readonly WeekEntry[]; now: Date; target: number; pro: boolean; htmlLang: string }) {
+export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonly WeekEntry[]; now: Date; target: number; logPaid: boolean; htmlLang: string }) {
   const t = useT();
   const today = dayParam(now);
   // the log is kept for ever and Home redraws every minute: work the week out only when the log or the day changes
@@ -22,8 +22,9 @@ export function HomeWeek({ log, now, target, pro, htmlLang }: { log: readonly We
   const narrow = new Intl.DateTimeFormat(htmlLang, { weekday: "narrow" });
   const longDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
   const anyLogged = week.days.some((d) => d.entries > 0);
-  // Logging is Premium: someone who can't log and has nothing logged sees the empty frame and one plain sentence (never sample bars); anything really logged shows
-  const empty = !pro && !anyLogged;
+  // Where logging is paid (needsPaywall("log"), worked out on Home): someone who can't log and has nothing logged sees the empty frame and one plain sentence
+  // (never sample bars); anything really logged shows. Where logging is free, an empty week is the ordinary chart with its dashes.
+  const empty = logPaid && !anyLogged;
   const monday = week.days[0]!.state === "today";
   const pct = (n: number) => `${Math.min(100, (n / week.scaleTop) * 100)}%`;
 

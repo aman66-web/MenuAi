@@ -23,7 +23,7 @@ import { useT } from "../../_lib/i18n";
 
 /** Back: a 36 px grey pill inside a 44 px tap area, like Home's round buttons. */
 const BACK = "group -ms-1 inline-flex min-h-11 items-center rounded-full px-1 transition active:scale-95";
-const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full bg-soft-strong py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+const BACK_PILL = "inline-flex min-h-9 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft py-1 ps-2 pe-3.5 text-[0.9375rem] font-bold leading-tight transition-colors group-hover:bg-[var(--fill)]";
 
 export default function FavouriteRestaurantsPage() {
   const t = useT();
@@ -73,7 +73,7 @@ export default function FavouriteRestaurantsPage() {
                   <ChainMark chainId={c.id} cuisine={c.cuisine} size="md" />
                   <span className="min-w-0 flex-1 text-base font-bold leading-snug">{c.name}</span>
                   <button type="button" aria-pressed={on} onClick={() => toggleFavorite(c.id)} className="group inline-flex min-h-11 shrink-0 items-center rounded-full">
-                    <span className={`inline-flex min-h-9 items-center gap-1.5 rounded-full py-1 ps-3 pe-3.5 text-[0.9375rem] font-bold leading-tight transition group-active:scale-95 ${on ? "bg-sun text-[var(--on-accent)]" : "bg-soft-strong text-foreground group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"}`}>
+                    <span className={`inline-flex min-h-9 items-center gap-1.5 rounded-full py-1 ps-3 pe-3.5 text-[0.9375rem] font-bold leading-tight transition group-active:scale-95 ${on ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-[var(--on-accent)]" : "border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground group-hover:bg-[var(--fill)]"}`}>
                       <StarIcon filled={on} className="h-[1.125rem] w-[1.125rem]" />{on ? t("Saved") : t("Save")}
                     </span>
                     <span className="sr-only"> {c.name}</span>

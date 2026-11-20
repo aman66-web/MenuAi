@@ -74,7 +74,7 @@ export function AddFriendCard({ invite, onUsed }: { invite: string | null; onUse
         {/* aria-disabled, not disabled, while it is sending: a disabled button drops the keyboard focus to the page */}
         <Button full type="submit" className="mt-3 min-h-12 text-base" disabled={value.trim() === ""} aria-disabled={busy || undefined}>{busy ? <Spinner label={t("Sending…")} /> : t("Add friend")}</Button>
       </form>
-      <p role={result && !result.ok ? "alert" : "status"} aria-live="polite" className={`mt-3 text-[0.9375rem] font-semibold leading-snug empty:mt-0 ${result?.ok ? "text-accent" : ""}`}>{result?.text}</p>
+      <p role={result && !result.ok ? "alert" : "status"} aria-live="polite" className={`mt-3 text-[0.9375rem] font-semibold leading-snug empty:mt-0 ${result?.ok ? "text-foreground" : ""}`}>{result?.text}</p>
     </section>
   );
 }

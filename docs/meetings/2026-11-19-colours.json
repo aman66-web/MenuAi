@@ -1,0 +1,1113 @@
+{
+ "conclusion": {
+  "summary": "The meeting's answer is a calmer, more consistent version of the colours you already have, not a new look. All 25 specialists voted on every item. Their average score for the plan is 7.7 out of 10: 18 gave it 8 and 7 gave it 7.\n\nThe palette in words. The light grey page stays. White cards get a thin, light outline so groups don't melt into the page outdoors. There is one dark colour, the near-black green of the tab bar, and it means only two things: 'do this' (main buttons and every + button) and 'your numbers' (the calories and macros cards). Lime means only 'chosen, today, done, or how far you've got'. On a light background lime is almost invisible, so anything chosen also gets a dark edge and a tick. Deep green words always mean a link and are always underlined. The pale green Meal plan tint and the cream 'cook with what you have' tint stay, and each feature uses its tint on every card where it appears. Amber is kept for allergy warnings only, and red only for errors and for deleting things. No colour ever judges food, a price, a budget or going over a target: those are said in plain dark words.\n\nWhat each kind of thing gets:\n- Main buttons are dark with white words.\n- Other buttons are white with a mid-grey outline (testers said grey buttons looked broken).\n- A button you can't press yet is grey, with the reason written beside it.\n- A choice shows an empty tick circle, and turns lime with a dark edge and a tick when chosen.\n- Secondary text is a darker grey, because testers called it faint.\n- Restaurant and shop logos sit on small white tiles, and their names are always written.\n\nYour two requests:\n- **Settings cog:** it now sits at the far top right of every page, not just the four tabs, as a white circle with the word 'Settings' under it.\n- **Shopping list:** the Shopping list button sits just to its left on Home, Groceries and Eat out.\n- Where something already sat in that corner, it moves: Save goes into the recipe sheet, and the restaurant star moves next to the restaurant's name.\n\nThe biggest changes from today:\n- Dark 'selected' chips (Dinner, Thursday) become lime with a tick, so they stop looking like buttons.\n- The three dark past days on Home become white, with a dot when you logged food, so today stands out.\n- Grey pills (Back, Change, Select, Add, + and −) become white with an outline.\n- Prices and big numbers that were green become dark.\n- Lime comes off decoration: the icon circles, the More tile, the Scan card's button and 'Make a new plan'.\n- Every allergy line, including the household's on the plan check, uses one amber note.\n- The faint track on the numbers card gets brighter, so you can see where your target ends.\n- The dial shows '1,580 left' in the middle instead of a percentage.\n\nHow the votes went:\n- Agreed by nearly everyone: dark main buttons, the dark tab bar, the grey page, every + dark, retiring the separate protein/carbs/fat colours, and a dark Scan card button.\n- Close calls:\n  - The brighter dial track: 16 for, 8 wanted it fainter.\n  - The outline on every button: most for, some worried about clutter.\n  - Lime instead of dark for chosen things: most for, with a check that older testers find it just as clear.\n\nWhat would raise the score:\n- Your yes on the changes that undo your own earlier looks (they are in the questions).\n- A before-and-after check with Frank, Harold, Irene, Raj and Joan on a real phone, outdoors and with the brightness turned down.\n- A real-phone check that the brighter dial track doesn't look heavy.\n- Building it once as shared pieces, with a test that blocks stray colours.\n\nNothing goes live until you say so. It stays on the iap branch, and the iPhone app gets it only in a build after 1.1 is reviewed.",
+  "palette": [
+   {
+    "token": "page (--background; --fill is an alias)",
+    "hex": "#f4f5f6",
+    "role": "Page background behind every screen and the recipe sheet. Also the flat inset inside white cards: info tags, icon wells, the macro strip, step-number and rank circles, the segmented-control track, photo and pack-shot placeholders, loading skeletons, and the pressed state of white controls. Replaces #eef1ef, #f1f3f2 and #f3f6f4"
+   },
+   {
+    "token": "card (--card; --soft, --tile and --bubble become aliases)",
+    "hex": "#ffffff",
+    "role": "Cards, sheets, Pip's speech bubbles, fields, secondary buttons, unselected chips and tiles, header controls, logo and pack-shot tiles"
+   },
+   {
+    "token": "line (--line; --soft-strong and --track become aliases)",
+    "hex": "#d9dedb",
+    "role": "Solid 1px edge on cards, Pip's bubble (tail included) and logo/pack-shot tiles; row dividers; the empty part of progress bars on light surfaces (sun-deep is 3.67:1 against it); the fill of a button that can't be pressed yet (text-2 on it 6.13:1). Replaces rgba(17,24,20,0.08), #e9ecea and #e2e6e3"
+   },
+   {
+    "token": "edge (--edge)",
+    "hex": "#7a817d",
+    "role": "1.5px edge on every unfilled tappable control (secondary buttons, Back, cog, Shopping list pill, chips, fields, the stepper, segmented track), the 2px empty tick ring, radio ring, switch-off track and knob, the sheet handle, the dashed edge of the scan estimate, the water-bottle outline. 3.99:1 on white, 3.65 on page, 3.36 on the plan tint, 3.41 on the cook tint"
+   },
+   {
+    "token": "mid (--placeholder; --ring-track)",
+    "hex": "#6b716e",
+    "role": "Placeholder words in fields on white only (4.99:1). Also the empty part of the dial and bars on the ink numbers cards: 3.21:1 against ink, with lime 3.97:1 on it. This is the founder's white track made brighter, about 35% white over ink"
+   },
+   {
+    "token": "text (--foreground)",
+    "hex": "#0b1a12",
+    "role": "Headings, body, every sentence a person must read, figures, prices, allergy-note words. 17.9:1 on white, 16.4 on page, 15.1 on the plan tint, 15.3 on the cook tint, 17.3 on note-bg. Text only, never a fill"
+   },
+   {
+    "token": "text-2 (--muted)",
+    "hex": "#4a4f4c",
+    "role": "One-line captions, units, counts, small labels, ticked-item names: 8.35:1 on white, 7.65 on page, 7.03 on the plan tint, 7.15 on the cook tint, 6.13 on line. Replaces #5f6361 (also inside the select-arrow SVG)"
+   },
+   {
+    "token": "ink (--ink)",
+    "hex": "#1d2320",
+    "role": "The one dark fill. Used for main buttons, every add (+), the tab bar, the day's numbers cards, toasts, the Contains box, the Premium badge, count badges, map pins, and the dark logo tile behind white-artwork logos. Replaces #0b1a12 used as a fill, #111, #0b0b0b and #09090b"
+   },
+   {
+    "token": "ink-pressed",
+    "hex": "#3d4642",
+    "role": "Pressed and hover state of ink buttons, together with a 0.97 scale. 1.64:1 against ink, so the change is visible; white on it 9.75:1. Replaces #2c3530, which was only 1.26:1 from ink"
+   },
+   {
+    "token": "on-ink",
+    "hex": "#ffffff",
+    "role": "Words, figures, icons and the toast's Undo on ink (16.0:1)"
+   },
+   {
+    "token": "on-ink-2",
+    "hex": "#c9d1cc",
+    "role": "Labels on ink (Calories, Protein), unselected tab icons and words, paywall sub-lines, the Premium badge edge on ink surfaces (10.26:1). Replaces white/75 and white/40"
+   },
+   {
+    "token": "sun (--sun)",
+    "hex": "#d6efa0",
+    "role": "Lime. Means chosen, today, where you are, done, or progress on ink. Never a button, banner, card fill, icon disc or decoration, and never on the plan or cook tint (1.06 and 1.07:1)"
+   },
+   {
+    "token": "on-sun (--on-accent)",
+    "hex": "#052e16",
+    "role": "Words, ticks and dots on lime (11.86:1); the 2px edge around any lime item on a light surface (14.91 on white, 12.54 on the plan tint); today's ring on the week strip. Also Pip's own line colour"
+   },
+   {
+    "token": "sun-deep (--bar)",
+    "hex": "#4d7c0f",
+    "role": "Progress on light surfaces: plan step bar, making-plan bar, ingredient match bar, the budget slider's best-fit band and dot (4.99:1 on white, 3.67 against the line track). Never text or icons, and never placed right next to accent. Replaces #8cc63f and #34d399"
+   },
+   {
+    "token": "accent (--accent)",
+    "hex": "#046c4f",
+    "role": "Underlined links, line icons in category tiles and tool rows (6.44:1 on white, 5.90 in page-fill wells), the 2px focus ring on light surfaces, the caret, iOS AccentColor and CSS accent-color. Never a figure, price, status line, error or button fill"
+   },
+   {
+    "token": "tint-plan",
+    "hex": "#e4f0d0",
+    "role": "Meal plan feature card only. Nothing lime and no bare Pip may sit on it"
+   },
+   {
+    "token": "tint-cook",
+    "hex": "#fbeccb",
+    "role": "Every 'cook with what you have' card (Home, the Shopping list's 'What can I cook with this?', Recipes' 'Cook with what's on your list'). Nothing lime and no bare Pip may sit on it"
+   },
+   {
+    "token": "note-bg",
+    "hex": "#fffbeb",
+    "role": "Fill of the allergy note only"
+   },
+   {
+    "token": "note-edge",
+    "hex": "#b45309",
+    "role": "Full 2px border and triangle icon of the allergy note (4.84:1 on note-bg, 5.02 on white). Replaces #d97706 and #92400e. The note's words use text #0b1a12; #3b2a06 is retired"
+   },
+   {
+    "token": "danger (--danger, now defined)",
+    "hex": "#b42318",
+    "role": "App errors and destructive actions only: words, circle-! icon, 4px banner bar, 2px wrong-field edge, the 1.5px edge on destructive buttons, the confirm button's fill (white on it 6.57:1). Never on food, figures, prices or targets"
+   },
+   {
+    "token": "danger-bg",
+    "hex": "#fef3f2",
+    "role": "Behind an app error banner (danger words 6.05:1 on it, text 16.5:1)"
+   },
+   {
+    "token": "photo-chip",
+    "hex": "rgba(255,255,255,0.92)",
+    "role": "Controls and pills floating on photos (Back, cog, expand, heart, kcal pill), with a soft shadow. Tappable ones also get a 1px #7a817d edge, the kcal pill a 1px #d9dedb edge. Ink on it is 15:1 or more over any photo"
+   },
+   {
+    "token": "scrim",
+    "hex": "rgba(0,0,0,0.5)",
+    "role": "Behind sheets and dialogs. Neutral black so food photos don't turn olive. Replaces rgba(11,26,18,0.55), bg-black/60-65 and the 0.28-0.62 overlays"
+   },
+   {
+    "token": "tips-wash",
+    "hex": "rgba(0,0,0,0.2)",
+    "role": "The light dimming behind Pip's tips (older testers were flustered by heavy dimming); the lit control is ringed in ink"
+   },
+   {
+    "token": "status-band",
+    "hex": "linear-gradient(rgba(0,0,0,0.3), transparent) over the top 60px",
+    "role": "Only over a full-bleed photo hero, so the iPhone status bar stays readable. The only overlay allowed on a food photo"
+   },
+   {
+    "token": "allow-list (illustration and platform, raw hex permitted only in these files)",
+    "hex": "water #a6e6fa #5ccaf3 #38b6ef #2c9fe8; FSA tl-green #3ddc84 tl-amber #ffb020 tl-red #ff6b63 tl-grey #d4d4d8; Pip and app icon #d9f99d #4ade80 #059669 #bef264 #16a34a #15803d #047857 #a3e635 #22c55e #fb7185; map 'you' dot #3b82f6; Apple and Google sign-in colours",
+    "role": "Water only inside the bottle drawing; FSA lights only on the Truth card with Low/Medium/High printed; Pip (Mascot.tsx) and the app icon (icon.svg) are fixed brand art and must never be touched by a token sweep; the location dot follows the platform convention; tl-ink maps to ink"
+   },
+   {
+    "token": "retired",
+    "hex": "#eef1ef #f1f3f2 #f3f6f4 #e9ecea #e2e6e3 #eef6f1 #5f6361 #8cc63f #34d399 #d97706 #92400e #3b2a06 #e11d48 #fb7185 (UI uses) #059669 #0284c7 #9333ea (as macro colours) #2c3530 #c2c9c4 #111 #0b0b0b #09090b #18181b #27272a #bef264 (Truth theme) #4d6127 #55645b #0f766e; recipe pastels #fcecc8 #fadcd8 #e8f1d4 #d9efe3 #dbeaf3 #fbe1c8; --accent-soft, --sun-text, --nav-bg tint, white/75, white/40, bg-black/60, #0b1a12 as a fill",
+    "role": "Taken out of the app UI. Each one was an extra green, a second near-black, a grey that made buttons look disabled, a colour code people had to learn, or a pastel identical to a feature tint (#fcecc8 vs cook tint 1.00:1). Delete a token only after a search finds zero uses; the marketing site's :root keeps its own values until a separate pass"
+   }
+  ],
+  "assignments": [
+   {
+    "screen": "All screens",
+    "element": "Page background",
+    "colour": "page #f4f5f6; text #0b1a12 (16.4:1), text-2 #4a4f4c (7.65:1)",
+    "reason": "Calm base, kept by 23 of 25 and chosen by the founder"
+   },
+   {
+    "screen": "All screens",
+    "element": "Cards",
+    "colour": "card #ffffff, 1px line #d9dedb, light shadow 0 1px 2px rgba(0,0,0,0.04); text #0b1a12 (17.9:1), text-2 (8.35:1). A card inside a card uses page fill, no edge, no shadow",
+    "reason": "White on the page is 1.09:1 and shadows vanish outdoors; one light edge groups content without clutter"
+   },
+   {
+    "screen": "All screens",
+    "element": "Floating layers (sheets, toasts, sticky bars, photo chips)",
+    "colour": "card or ink with --shadow-lift; nothing else gets the strong shadow",
+    "reason": "A shadow means 'floats', so cards don't carry a double edge"
+   },
+   {
+    "screen": "All screens",
+    "element": "Header order",
+    "colour": "left: Back or title; then the page's own action; then the Shopping list pill; the cog always far right",
+    "reason": "The user asked for the cog at the top right of every page; one fixed order lets people find it by position"
+   },
+   {
+    "screen": "All screens",
+    "element": "Settings cog",
+    "colour": "44pt target; 36px card #ffffff circle, 1.5px edge #7a817d (3.65:1 on page), cog in ink (16:1); the word 'Settings' 12px semibold #0b1a12 underneath; spoken name 'Settings'. Over a photo: photo-chip pill with the cog and 'Settings' inside it. Not shown on the Settings page itself, in sheets or on full-screen camera",
+    "reason": "The user's request; older testers need words on icons (Frank), and Eat out's labelled pill was how Barbara found Settings"
+   },
+   {
+    "screen": "Home, Groceries, Eat out",
+    "element": "Shopping list pill",
+    "colour": "card #ffffff, 1.5px edge, ink list icon, 'Shopping list' #0b1a12 (17.9:1); count badge ink circle with a white figure (16:1), never red. Below 360px wide it shows the icon and count only, spoken 'Shopping list, 3 things'",
+    "reason": "The user asked for it on Eat out too; the same control looks the same on every tab"
+   },
+   {
+    "screen": "All screens",
+    "element": "Back",
+    "colour": "card #ffffff pill, 1.5px edge, ink chevron and the word 'Back' #0b1a12, always with the word (the plan check's bare chevron gains it); over a photo: photo-chip with a 1px #7a817d edge",
+    "reason": "Today grey on six screens and white on four; grey-on-grey reads as disabled"
+   },
+   {
+    "screen": "All screens",
+    "element": "Tab bar",
+    "colour": "ink #1d2320; unselected icons and words on-ink-2 #c9d1cc (10.26:1); open tab: sun pill with on-sun icon (11.86:1), word in sun, bold (12.72:1)",
+    "reason": "The founder's dark bar; the pill shape and bold word mark the tab beyond colour"
+   },
+   {
+    "screen": "All screens",
+    "element": "Main button",
+    "colour": "ink #1d2320, white words (16:1); pressed ink-pressed #3d4642 plus 0.97 scale; busy: stays ink with a white spinner and words (e.g. 'Making your plan…'), locked, aria-busy, never grey. At most one full-width ink button in view",
+    "reason": "Ink means 'do this'; testers thought a greyed busy button was broken (Raj, Irene)"
+   },
+   {
+    "screen": "All screens",
+    "element": "Main button on an ink surface (paywall hero, Make it at home card, Truth card)",
+    "colour": "card #ffffff fill, ink words (16:1); pressed #f4f5f6",
+    "reason": "Lime is never an action, and ink on ink would vanish"
+   },
+   {
+    "screen": "All screens",
+    "element": "Secondary button",
+    "colour": "card #ffffff, 1.5px edge #7a817d (3.36-3.99:1 on every surface), words #0b1a12 (17.9:1); pressed #f4f5f6 plus 0.97 scale; hover on the website = pressed",
+    "reason": "Testers said grey buttons 'look broken'; an edge says 'tappable' on the page and inside white cards alike"
+   },
+   {
+    "screen": "All screens",
+    "element": "Button that can't be pressed yet",
+    "colour": "line #d9dedb fill, pill shape, words text-2 #4a4f4c (6.13:1); the reason in #0b1a12 with an info icon directly above it (inside a sticky bar, above the button); never faded with opacity",
+    "reason": "All ten testers met a grey Continue with no reason; fades are unreadable for older eyes"
+   },
+   {
+    "screen": "All screens",
+    "element": "Premium-locked control",
+    "colour": "its normal working colours (ink, or white with the edge) plus a small ink lock glyph and the Premium badge; a tap opens the paywall on that feature. Never grey, faded, blurred or lime",
+    "reason": "Grey now means 'can't press'; locked doors must invite the tap, not look broken"
+   },
+   {
+    "screen": "All screens",
+    "element": "Every add (+) button",
+    "colour": "ink #1d2320, white + (16:1; 14.65:1 against the page). After a tap: 'Added' state, sun + 2px on-sun edge + tick, on-sun words, with Undo in the toast",
+    "reason": "Founder rule of 19 Nov; Joan and Stan double-added because the button looked unchanged after tapping"
+   },
+   {
+    "screen": "All screens",
+    "element": "Unchosen choice (chips, answer tiles, quick answers, 'I have this')",
+    "colour": "card #ffffff, 1.5px edge, words #0b1a12, plus an empty 16px tick ring (1.5px #7a817d) in the tick slot",
+    "reason": "Without it an unchosen choice looks exactly like a secondary button; the slot also stops words jumping when ticked"
+   },
+   {
+    "screen": "All screens",
+    "element": "Chosen choice, day, segment, radio, ticked item",
+    "colour": "sun #d6efa0 + 2px on-sun #052e16 edge (14.91 vs white, 13.7 vs page, 12.54 vs plan tint) + a filled on-sun tick of at least 16px with a 2px stroke (a dot for radios, days and 'where you are' chips); words on-sun bold (11.86:1)",
+    "reason": "Lime alone is 1.06-1.26:1 on light surfaces and disappears in sunlight; the tick is mandatory so the state reads when only that item is in view (contrast, sunlight, low-vision)"
+   },
+   {
+    "screen": "All screens",
+    "element": "Segmented control (e.g. Which meal?)",
+    "colour": "track page #f4f5f6 with a 1.5px #7a817d edge; unselected words #0b1a12; chosen segment sun + 2px on-sun edge + tick + bold on-sun",
+    "reason": "An edgeless track is 1.14:1 on white and reads as plain words when zoomed"
+   },
+   {
+    "screen": "All screens",
+    "element": "Fields",
+    "colour": "card #ffffff, 1.5px edge; a visible label above in #0b1a12; typed words #0b1a12; placeholder #6b716e (4.99:1, on white only); focused: 2px accent ring with a 2px gap (5.9:1 vs page); wrong: 2px danger edge stays while focused, plus circle-! icon and a message under the field in #b42318, aria-invalid",
+    "reason": "Every tester was stuck at an unlabelled Age box; a red edge alone is 1.65:1 from the normal edge"
+   },
+   {
+    "screen": "All screens",
+    "element": "Links",
+    "colour": "accent #046c4f, always underlined (offset 3px, skip-ink), short runs only (6.44 on white, 5.9 on page). Prices that open a shop's site: #0b1a12 underlined with an external-link icon",
+    "reason": "Accent vs body text is only 2.79:1, so the underline makes it a link; long underlined runs are hard for dyslexic readers"
+   },
+   {
+    "screen": "All screens",
+    "element": "Info tags that can't be tapped (Lowest, Only at X, label source, New, Limited time, Sample data, check the label)",
+    "colour": "inside white cards: page fill #f4f5f6, 6px corners, no edge, words #0b1a12 (16.4:1), optional info icon; on the page: card #ffffff with a 1px line",
+    "reason": "Flat and square so they never look like buttons; a page-coloured tag on the page would vanish (1.04:1)"
+   },
+   {
+    "screen": "All screens",
+    "element": "Info banner (offline, not switched on yet, can't go on yet)",
+    "colour": "card #ffffff, 1px line, 4px #7a817d left bar, ink circle-i icon, words #0b1a12",
+    "reason": "Calm 'please note' look that is neither warning nor error; offline is never red"
+   },
+   {
+    "screen": "All screens",
+    "element": "App error banner (no connection, sign-in failed, purchase failed)",
+    "colour": "danger-bg #fef3f2, 4px danger #b42318 left bar, circle-! icon #b42318, title #b42318 bold (6.05:1), body #0b1a12 (16.5:1)",
+    "reason": "Red only for failures; its icon and structure differ from the allergy note's, because the two are almost the same colour to colour-blind users"
+   },
+   {
+    "screen": "All screens",
+    "element": "Allergy note (own or household allergens, a Contains match, 'not checked for your diet')",
+    "colour": "note-bg #fffbeb, full 2px note-edge #b45309 border (4.84:1), triangle icon #b45309, heading word ('Allergy') bold #0b1a12, words #0b1a12 (17.3:1); at most one per screen view",
+    "reason": "One safety look; a full border survives zooming and sunlight; amber stays rare so people keep noticing it"
+   },
+   {
+    "screen": "All screens",
+    "element": "Generic 'always check the label' line",
+    "colour": "info tag (page fill, info icon, #0b1a12)",
+    "reason": "Amber on every recipe would cause alarm fatigue"
+   },
+   {
+    "screen": "All screens",
+    "element": "Destructive buttons (Clear list, Delete my account, Clear data)",
+    "colour": "card #ffffff, 1.5px danger #b42318 edge, red words and bin icon (6.57:1), placed last and apart. Confirm sheet: Cancel secondary on the left with focus on it; Delete filled #b42318 with white words (6.57:1) on the right",
+    "reason": "Red only for destroying; distance matters as much as colour (Joan nearly hit Clear list)"
+   },
+   {
+    "screen": "All screens",
+    "element": "Toast after an action",
+    "colour": "ink #1d2320, white words (16:1), sun tick, Undo white bold underlined 44pt; 16px page gap above the tab bar (or 1px on-ink-2 edge); stays at least 8s and while touched or focused",
+    "reason": "Success is shown by a tick and words; lime is never an action; older users read slowly"
+   },
+   {
+    "screen": "All screens",
+    "element": "Premium badge",
+    "colour": "ink #1d2320, 6px corners (not a pill), small star glyph, 'Premium' in sun (12.72:1), text height, no shadow. On ink surfaces: no fill, 1px on-ink-2 edge, sun word. Shown only when gating is on and the person isn't Premium; at most one per feature card; never on rows, prices, the header or the tab bar",
+    "reason": "One badge everywhere (today lime on Scan and ink on Meal plan); square so it never reads as a button"
+   },
+   {
+    "screen": "All screens",
+    "element": "Pip's speech bubble",
+    "colour": "card #ffffff, 1px line including the tail, light shadow, words #0b1a12 (17.9:1)",
+    "reason": "The edge stops the bubble and tail melting into the page"
+   },
+   {
+    "screen": "All screens",
+    "element": "Pip himself",
+    "colour": "bare on the page or on white, with no disc; may sit on ink (paywall); never on lime, either tint, the numbers cards, a safety note or next to a chain logo. His face never reacts to a figure or a budget",
+    "reason": "Pip's head (#d9f99d) is 1.00-1.17:1 on every light surface and melts into any disc; mood reacting to amounts would be a judgement"
+   },
+   {
+    "screen": "All screens",
+    "element": "Pip's tips (coach marks)",
+    "colour": "tips-wash rgba(0,0,0,0.2); white bubble with #0b1a12 words; the lit control ringed 3px ink with a 2px white gap (about 9:1); Next ink; Stop the tips secondary at the same height",
+    "reason": "Testers were flustered by heavy dimming; an ink ring means 'tap this' without borrowing lime"
+   },
+   {
+    "screen": "All screens",
+    "element": "Sheets and dialogs",
+    "colour": "scrim rgba(0,0,0,0.5); sheet card #ffffff; handle #7a817d only if it really drags; controls inside stay white with the edge",
+    "reason": "Neutral scrim keeps food photos true"
+   },
+   {
+    "screen": "All screens",
+    "element": "Chain and shop logos",
+    "colour": "unmodified file on a card #ffffff tile, 1px line, padding 12% of the tile (at least 3px), corner radius on the tile only, never clipping the file; white-artwork logos on an ink #1d2320 tile; sizes 28 / 48 / 64 / 80px; the name always written beside it in #0b1a12",
+    "reason": "Rule 2: brand colour only inside the file; 75 white-artwork logos would vanish on white; Stan couldn't tell logos apart without names"
+   },
+   {
+    "screen": "All screens",
+    "element": "Pack shots",
+    "colour": "card #ffffff tile, 1px line, object-contain, never cropped; never on page fill, a tint or a pastel; missing image: page fill with an ink basket glyph",
+    "reason": "Most pack shots have white backgrounds and need the tile edge"
+   },
+   {
+    "screen": "All screens",
+    "element": "Food photos",
+    "colour": "no overlay, tint, filter or text on the photo; only photo chips (and the status band on hero photos); a chosen photo card shows its edge and tick on the card frame",
+    "reason": "Food carries its own colour; a lime tint over food reads as sickly"
+   },
+   {
+    "screen": "All screens",
+    "element": "Focus, selection, caret",
+    "colour": "focus on light: 2px accent ring with 2px gap; on ink: 2px sun (12.72:1); ::selection sun with on-sun text; caret accent; -webkit-tap-highlight-color transparent",
+    "reason": "The default grey tap flash looks like a disabled control"
+   },
+   {
+    "screen": "All screens",
+    "element": "Loading and empty states",
+    "colour": "skeletons page fill on cards, no shimmer colour; spinner ink on a line track; empty state: Pip on the page, one text-2 line, one ink action",
+    "reason": "No new colours for waiting"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Date heading and subtitle",
+    "colour": "date #0b1a12 (16.4:1) and itself the calendar button (ink chevron after it, 44pt); subtitle text-2 (7.65:1)",
+    "reason": "Frees header room for the word 'Settings' and drops a fourth header control (older-user, hierarchy); founder to confirm"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Week strip: the chosen day",
+    "colour": "sun + 2px on-sun edge, on-sun figure (11.86:1) and on-sun dot",
+    "reason": "Only the chosen day is filled lime"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Week strip: today",
+    "colour": "the word 'Today' #0b1a12 under it in every state; when not chosen: no fill, 2px on-sun ring, figure #0b1a12",
+    "reason": "Today and the chosen day must look different when someone picks a past day"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Week strip: past days",
+    "colour": "card #ffffff circle, 1.5px edge #7a817d, figure #0b1a12 (17.9:1); a 6px ink dot under days with food logged, nothing on empty days",
+    "reason": "Frank, Barbara and Stan said the solid black past days outshout today; past days are tappable so they get the control edge"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Week strip: days ahead and weekday letters",
+    "colour": "no fill or edge; figures and letters text-2 (7.65:1)",
+    "reason": "Quietest state, still readable"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Calories card",
+    "colour": "ink; 'Calories' (sentence case) on-ink-2 (10.26:1); dial centre: '1,580' white largest, 'left' white (or '120 over', same colour and weight); under it '420 eaten' in sun (12.72:1) and 'of 2,000 kcal' white; arc sun on mid #6b716e track (3.21 vs card, lime 3.97 on it); no centre disc, no percentage",
+    "reason": "Founder: the day's numbers on the dark; '21%' clamped at 100% hid going over, while 'left' is what people want"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Protein, carbs, fat card",
+    "colour": "ink; words on-ink-2 in fixed order; eaten grams sun, '/ 100 g' white, at least 15px; bars 8px sun on #6b716e; over: '18 g over' white",
+    "reason": "One bar colour, words name each macro; 11px figures and 4px bars were too small"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Over target",
+    "colour": "arc or bar full sun; the over amount in white at the same weight as 'left'; no red, amber, icon or glow",
+    "reason": "Over is a number in words, never a judgement"
+   },
+   {
+    "screen": "01 Home",
+    "element": "'Log your meals' card and See Premium",
+    "colour": "card; headline #0b1a12; body text-2; See Premium as a secondary button",
+    "reason": "Retires the mint pill (a fourth button look); the numbers stay first"
+   },
+   {
+    "screen": "01 Home",
+    "element": "Scan your food card",
+    "colour": "card + line; icon well page fill with accent camera (5.9:1); Premium badge; title #0b1a12; body text-2; 'Calories and macros' ink with white words; 'Make it at home' secondary",
+    "reason": "One main-button look, lime off decoration; the lime button looked like a chosen chip (founder's yes asked)"
+   },
+   {
+    "screen": "02 Home lower",
+    "element": "Meal plan card",
+    "colour": "tint-plan #e4f0d0 + 1px line; title #0b1a12 (15.1:1), body text-2 (7.03:1); day squares card + line, letters #0b1a12; ink chevron; Premium badge ink/sun (13.46:1 ink vs tint); nothing lime",
+    "reason": "Founder's tint; lime on it is 1.06:1"
+   },
+   {
+    "screen": "02 Home lower",
+    "element": "Cook with what you already have card",
+    "colour": "tint-cook #fbeccb + 1px line; title #0b1a12 (15.34:1), body text-2 (7.15:1); food chips card + edge; add chip ink circle with white + (13.68:1 vs tint)",
+    "reason": "Dashed grey + looked disabled; every add dark"
+   },
+   {
+    "screen": "02 Home lower",
+    "element": "Meal rows",
+    "colour": "card; meal name #0b1a12; '420 / 500 kcal' #0b1a12, 'kcal' and food names text-2; icon well page fill with an ink icon (not green, beside a food figure); ink chevron; + ink",
+    "reason": "The lime flame tile looked switched on; green next to a calorie figure reads as 'good'"
+   },
+   {
+    "screen": "02 Home lower",
+    "element": "Water",
+    "colour": "card; bottle drawing in its own blues with a 1.5px #7a817d outline on the bottle and level line; glasses count in words #0b1a12; + ink",
+    "reason": "The blues are 1.4-2.9:1 on white; the count is never colour-only"
+   },
+   {
+    "screen": "02 Home lower",
+    "element": "Reminders",
+    "colour": "card; names and times #0b1a12; + ink; 'Done today' uses the chosen look (sun + edge + tick); never a 'missed' or 'late' colour",
+    "reason": "Reminders are the person's own"
+   },
+   {
+    "screen": "03 Recipes",
+    "element": "Header",
+    "colour": "Pip bare (no disc) beside the title #0b1a12; My recipes secondary with an ink heart; cog with 'Settings' far right",
+    "reason": "Same header rules everywhere"
+   },
+   {
+    "screen": "03 Recipes",
+    "element": "Search field and shop picker",
+    "colour": "field style with a visible label; shop picker secondary with the logo on its white tile, shop name #0b1a12, ink caret",
+    "reason": "Controls need an edge on the page; the logo never tints the control"
+   },
+   {
+    "screen": "03 Recipes",
+    "element": "Category tiles, including More",
+    "colour": "card + 1px line; accent line icon (6.44:1); label #0b1a12; More white like the rest; chosen tile: sun + on-sun edge + tick",
+    "reason": "A lime More tile looked already chosen"
+   },
+   {
+    "screen": "03 Recipes",
+    "element": "Cuisine and Occasion dropdowns",
+    "colour": "field style; label text-2 (8.35:1); value #0b1a12; ink chevron (select arrow redrawn with currentColor)",
+    "reason": "Every dropdown the same"
+   },
+   {
+    "screen": "03-04 Recipes",
+    "element": "Recipe cards",
+    "colour": "card with the 1px line around the picture too; picture loading backdrop page fill with an ink plate glyph; kcal photo-chip (1px line) with #0b1a12; heart on a photo-chip with a #7a817d edge: outline ink, saved filled ink (spoken 'Saved')",
+    "reason": "Readable over any photo; no red heart beside food; grey-concrete pictures melted into the page"
+   },
+   {
+    "screen": "04 Recipes lower",
+    "element": "Cook with what's on your list card",
+    "colour": "tint-cook #fbeccb + line, #0b1a12 words, ink arrow button; stacked thumbnails with a 2px white ring",
+    "reason": "Same feature, same tint as Home (white today)"
+   },
+   {
+    "screen": "04 Recipes lower",
+    "element": "Macro strip on recipe cards",
+    "colour": "page fill inside the card; figures #0b1a12 (16.4:1); words text-2 (7.65:1); fixed order",
+    "reason": "No macro hues"
+   },
+   {
+    "screen": "04 Recipes lower",
+    "element": "Price, time, count, Adjust",
+    "colour": "'£1.85' #0b1a12 semibold; 'a serving · 40 min' text-2; count text-2; Adjust secondary",
+    "reason": "Prices never green or red; Adjust had no edge"
+   },
+   {
+    "screen": "05 Groceries",
+    "element": "Tool rows (Scan a barcode, Leaderboards, Compare)",
+    "colour": "card, line dividers; icon well page fill with accent icon (5.9:1); title #0b1a12; line text-2; ink chevron",
+    "reason": "Three lime circles read as three things switched on"
+   },
+   {
+    "screen": "05 Groceries",
+    "element": "Shop cards",
+    "colour": "card + line; logo tile; name #0b1a12; product count text-2; Select secondary; chosen: card gets a 2px on-sun edge and the button becomes '✓ Selected' sun + on-sun edge + tick",
+    "reason": "Chosen is shown on the control and frame, never as a lime card"
+   },
+   {
+    "screen": "05 Groceries / Leaderboards",
+    "element": "Board tiles, ranks, values, tags",
+    "colour": "tiles: choice style, chosen sun + edge + tick (was ink); ranks #0b1a12 in page-fill circles, no lime top 3, no medal colours; value box page fill with #0b1a12 figure and text-2 unit; prices #0b1a12; 'Lowest' square info tag in bold #0b1a12",
+    "reason": "Ranking is the order, not a colour; the app's existing word 'Lowest' is kept"
+   },
+   {
+    "screen": "Groceries, search, leaderboards, list",
+    "element": "Logo price strip",
+    "colour": "each logo with the shop name in words; every price #0b1a12, at least 12px; the lowest in extrabold with the word 'Lowest'; loyalty price #0b1a12 semibold, smaller than the shelf price, naming the scheme in words ('with Nectar'); never a scheme's brand colour",
+    "reason": "Grey and green prices read as faint or as links; the price everyone pays leads"
+   },
+   {
+    "screen": "Product page (supermarket)",
+    "element": "Price, unit price, label source, add buttons",
+    "colour": "shelf price #0b1a12 extrabold (was accent, 40px); per kg and price date text-2, never amber; label source (borrowed, Open Food Facts, CoFID) as an info tag naming it; 'Add · {shop}': the shop you came from ink, the others secondary; confirmation as a toast",
+    "reason": "The biggest number must not look like a link or praise; five ink adds would be a black block"
+   },
+   {
+    "screen": "Product page / Truth card",
+    "element": "Nutrition table, FSA lights, Protein score, Smart Swap",
+    "colour": "table #0b1a12 on card with line dividers; kcal figure #0b1a12 (was accent); share-of-macro bars removed; FSA pills only on the Truth card, Low/Medium/High printed in #0b1a12 inside each pill (10.05, 9.81, 6.44:1) in fixed order; Protein score #0b1a12 with ink dots on a line track, empty dots outlined #7a817d; Smart Swap as a card with line (not a lime banner); Truth card buttons ink",
+    "reason": "The only red/green on food is the official scheme with words; a green score reads as 'good'"
+   },
+   {
+    "screen": "Truth card dark theme (Creator view, saved image)",
+    "element": "Surfaces and accents",
+    "colour": "ink #1d2320 background, white and on-ink-2 text, sun accent, mid #6b716e tracks (replaces #09090b, zinc greys and #bef264)",
+    "reason": "No third near-black or second lime"
+   },
+   {
+    "screen": "Cheapest protein",
+    "element": "Two sides, saving, ranks",
+    "colour": "both sides identical cards; 'Cheaper' as an info tag, no green ring; saving line #0b1a12 in a card (not a lime banner); ranks in page-fill circles",
+    "reason": "Price comparison must not look like a chosen state"
+   },
+   {
+    "screen": "Compare (dishes and products)",
+    "element": "Columns and differences",
+    "colour": "identical columns told apart by name headers; no winner or loser colour; differences in words ('12 g more protein'), the larger figure bold at most; Clear all secondary; Add when full: line fill with the reason",
+    "reason": "Where food-rating apps break 'never good or bad'"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "List switcher and New list",
+    "colour": "current list: sun + on-sun edge + tick, with its small logo; others white + edge; New list secondary pill with an ink circle and white +",
+    "reason": "The lime + circle was decoration; adds are dark"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Add field and Add",
+    "colour": "field with visible label; Add ink with white words, always on (tapping it while empty puts the cursor in the field)",
+    "reason": "The grey Add looked broken to testers"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "'Got a list from a friend? Open it'",
+    "colour": "secondary button with the same words",
+    "reason": "Raj called the small link faint; an action people need is a button"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "'What can I cook with this?' card",
+    "colour": "tint-cook #fbeccb + line, #0b1a12 words, ink arrow button",
+    "reason": "A full lime card read as selected"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Shop group headings, counts, Select, Done",
+    "colour": "logo tile + shop name #0b1a12 bold; '3 items' and 'Any shop' (sentence case) text-2 semibold; Select secondary; Done in selection mode ink (was accent text)",
+    "reason": "The shop heading is the shopper's anchor in the aisle"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Tick circles",
+    "colour": "44pt target; empty 2px #7a817d ring; ticked sun + 2px on-sun edge + on-sun tick; ticked name text-2 with a line through (8.35:1)",
+    "reason": "Ticked is 'done'; Joan struggled with 33pt ticks"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Choose a product and the − / + stepper",
+    "colour": "secondary; the stepper is one grouped white control with a 1.5px edge and ink icons; at a limit that side is line fill with a text-2 icon",
+    "reason": "Two grey circles looked alike and both looked disabled"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Prices and total",
+    "colour": "#0b1a12 right-aligned, total bold; unit price and 'checked {date}' text-2, never amber",
+    "reason": "Money always in plain dark text"
+   },
+   {
+    "screen": "06 Shopping list",
+    "element": "Remove ticked, Share list, Clear list",
+    "colour": "Remove ticked ink once something is ticked; Share list secondary; Clear list destructive (white, red edge and words), last and apart",
+    "reason": "Keeps Joan's round-2 fix; today both are ink and stacked"
+   },
+   {
+    "screen": "07 Eat out",
+    "element": "Top right",
+    "colour": "Shopping list pill + cog with 'Settings' (replaces the 'Settings' text pill); both white, edge, ink",
+    "reason": "The user's two requests; same set as Home and Groceries"
+   },
+   {
+    "screen": "07 Eat out",
+    "element": "Search, Near me, Favourites, Compare, expanders",
+    "colour": "field style; rows card with icon well page fill and accent icon; titles #0b1a12; lines text-2; ink chevrons; 'All restaurants' #0b1a12, count text-2",
+    "reason": "Eat out and Groceries look alike"
+   },
+   {
+    "screen": "08 Eat out lower",
+    "element": "Restaurant tiles",
+    "colour": "card + line; logo 64px on its white tile (ink tile for white artwork), unmodified; name #0b1a12; 'Burgers · 151 items' text-2 (8.35:1). Logos off: cuisine icon ink on page fill",
+    "reason": "Brand colour stays inside the logo file"
+   },
+   {
+    "screen": "Near me map",
+    "element": "Base, pins, location, errors",
+    "colour": "muted base style; pins ink with white glyph, logo markers on their white or ink tile with line; chosen pin sun + 2px on-sun edge; 'you' dot #3b82f6 with a white ring; selected card card + line, pin disc page fill (not lime); location errors as the error banner (was green)",
+    "reason": "No chain colour; errors aren't green"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Header, labels, rows",
+    "colour": "Back, no cog on this page; section labels sentence case text-2 semibold; rows card with line dividers; words #0b1a12; sub-lines text-2; ink chevrons",
+    "reason": "Faint spaced capitals were hard to read"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Set up your plan again",
+    "colour": "card; Pip bare, no disc",
+    "reason": "Pip melts into any disc"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Sign in",
+    "colour": "Apple and Google buttons in their own required styles; email sign-in secondary",
+    "reason": "Platform rules"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Goal radios",
+    "colour": "empty 2px #7a817d ring; chosen sun + 2px on-sun edge + on-sun dot, label bold",
+    "reason": "Today's pale rings are about 1.5:1 (Frank)"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Switches",
+    "colour": "off: white track, 1.5px edge, #7a817d knob, word 'Off' text-2; on: sun track, 2px on-sun edge, on-sun knob (11.86:1), word 'On'",
+    "reason": "Same chosen look everywhere, and a word so the state is never colour alone"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Subscription",
+    "colour": "card + line; Premium badge; 'Premium is on' or 'Free trial: ends {date}' #0b1a12, never amber or red; Manage subscription secondary; Restore accent underlined",
+    "reason": "Calm status, no countdown colours"
+   },
+   {
+    "screen": "09 Settings",
+    "element": "Delete my account, Clear data",
+    "colour": "destructive style; confirm sheet with red-filled Delete",
+    "reason": "Red only for irreversible steps"
+   },
+   {
+    "screen": "10 Cook with what you already have",
+    "element": "Back, Pip bubble, 'What do you have?' box",
+    "colour": "Back secondary; bubble card + line, #0b1a12; box field style with a visible label",
+    "reason": "The box edge was barely visible"
+   },
+   {
+    "screen": "10 Cook with what you already have",
+    "element": "'+ eggs' chips and 'What do you fancy?' chips",
+    "colour": "choice style: unchosen white + edge with an ink '+' in the tick slot; added or chosen sun + on-sun edge, the '+' becomes a tick, on-sun bold words (fancy chips were ink)",
+    "reason": "Chosen must never look like a button"
+   },
+   {
+    "screen": "10 Cook with what you already have",
+    "element": "Find recipes and 'Uses your…' line",
+    "colour": "ink with white words; the line #0b1a12 on the card, never on a photo",
+    "reason": "One main action; testers missed the line"
+   },
+   {
+    "screen": "10 Cook with what you already have",
+    "element": "'Ask Pip for a new recipe' card",
+    "colour": "card + line (was a raw ink card); Pip bare; Premium badge; 'Make me a recipe' ink (was lime); can't press: line fill with the reason",
+    "reason": "Ink is for actions and numbers; lime is never a button"
+   },
+   {
+    "screen": "11 Scan your food",
+    "element": "Take a photo, Choose a photo, description",
+    "colour": "ink with white words; secondary; field with label; missing words: 2px danger edge, icon and message",
+    "reason": "Error shown by icon and words, not red alone"
+   },
+   {
+    "screen": "11 Scan your food",
+    "element": "Estimate note and small print",
+    "colour": "estimate line #0b1a12 with an info icon; small print text-2 at least 13px",
+    "reason": "Rule 1: the estimate must be seen"
+   },
+   {
+    "screen": "11 Scan your food",
+    "element": "Estimate result",
+    "colour": "card with a 1.5px dashed #7a817d border; tag 'Estimate from your photo' at the top, page fill with #0b1a12 at body size; figures #0b1a12; never on the ink numbers card, never lime bars; Pip may think, never cheer or stamp",
+    "reason": "An AI estimate must never look like a published label"
+   },
+   {
+    "screen": "Camera screens (scan, barcode, Make it at home)",
+    "element": "Viewfinder and feedback",
+    "colour": "white viewfinder corners on the feed; shutter white ring; hold-to-scan progress ring sun on the dark feed; found: ink toast with sun tick; not found: words + secondary 'Add it by name', never red",
+    "reason": "Neutral on camera; lime only for progress on dark"
+   },
+   {
+    "screen": "Make it at home (dark card)",
+    "element": "Steps, tag, button, photo label",
+    "colour": "step numbers in 1.5px on-ink-2 rings with white figures, the current step sun fill with on-sun figure; 'Recommended for accuracy' tag 1px on-ink-2 edge, white words; main button white fill with ink words; 'Your photo…' moves into the sheet as a text-2 line",
+    "reason": "Lime only for 'where you are'; no text on photos (founder's 17 Nov design, founder asked)"
+   },
+   {
+    "screen": "12 Today",
+    "element": "Locked preview",
+    "colour": "mini ink card with sun arc on #6b716e; headline #0b1a12 with the Premium badge; body text-2; See Premium ink",
+    "reason": "The preview looks like the real numbers; #8cc63f on grey was about 1.8:1"
+   },
+   {
+    "screen": "12 Today",
+    "element": "Signed-in diary",
+    "colour": "the same ink numbers card as Home (was a light card with an accent figure); entries card; meal + ink; remove: ink outline bin with the word 'Remove', 44pt, confirm sheet; a day with an estimate says 'includes 1 estimate' in on-ink-2",
+    "reason": "One look in both places; George missed the small grey bin"
+   },
+   {
+    "screen": "13 Search",
+    "element": "Field, Done, results",
+    "colour": "field with a 2px accent focus ring; Done ink; results rows: dish #0b1a12, matched letters bold, not coloured; chain or shop name in words text-2 beside a 28px logo tile; kcal and protein info tags",
+    "reason": "Coloured highlights look like links"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Photo hero controls",
+    "colour": "Back photo-chip top left; cog photo-chip with 'Settings' far top right; expand photo-chip bottom right; status band over the top 60px; full-screen viewer on solid ink with a photo-chip Close",
+    "reason": "The cog takes the top right on every page; nothing else sits on the food"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Sheet, label, shop picker, Save",
+    "colour": "sheet page #f4f5f6; 'Recipe' sentence case text-2; shop picker secondary with logo tile; Save beside the title as a secondary: outline ink heart + 'Save', saved filled ink heart + 'Saved'",
+    "reason": "Save moves off the photo for the cog"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Title, description, key numbers",
+    "colour": "title #0b1a12; description text-2; '600 kcal and 55 g protein' #0b1a12 semibold; cost a serving and '£x used' #0b1a12 (were accent)",
+    "reason": "Key numbers in full dark, never green"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Serves stepper, '40 min', 'Dinner'",
+    "colour": "grouped secondary stepper, ink icons, 44pt; limit side line fill with text-2 icon; '40 min' and 'Dinner' flat: ink icon and #0b1a12 words, no pill",
+    "reason": "Grey steppers looked disabled; white pills looked like buttons"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Nutrition cards",
+    "colour": "card; labels text-2; figures #0b1a12; the green protein dot removed",
+    "reason": "A green protein dot hints 'good'"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Allergy line and spice note",
+    "colour": "allergy: the amber note at the top of the ingredient list when it matches the person's or household's allergens; otherwise the label line and the unlabelled-spice note as info tags",
+    "reason": "Safety stands out; facts stay calm"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Ingredient rows",
+    "colour": "card with line dividers; amount #0b1a12 semibold; product line text-2; price #0b1a12; pack shot white tile; 'I have this' as a 44pt tick circle (empty 2px #7a817d ring, ticked sun + edge + tick); 'Swap' as a row action in #0b1a12 with an ink chevron",
+    "reason": "Twenty outlined buttons in ten rows would be clutter"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Method steps",
+    "colour": "card; step number #0b1a12 bold in a page-fill circle; words #0b1a12; time text-2",
+    "reason": "Findable numbers that don't look like buttons"
+   },
+   {
+    "screen": "14 Recipe",
+    "element": "Add all to my shopping list",
+    "colour": "ink sticky bar, white words and + (16:1); a 16px opaque page band above the tab bar; after the tap the Added state and an ink toast",
+    "reason": "Two dark bars must not merge into one slab"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Header card",
+    "colour": "card; logo 80px tile; name #0b1a12; 'Burgers' text-2; one link 'Where these numbers come from' accent underlined; '151 items · checked {date}' text-2; 'Not affiliated with {chain}' text-2; favourite as a secondary button beside the name: outline ink star / filled ink star with its word",
+    "reason": "No chain colour; four lines of green link text were too much; the star leaves the top bar for the cog"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Sticky menu bar",
+    "colour": "card with a line under it; search field; category jump chips: current 'where you are' sun + on-sun edge + dot, others white + edge",
+    "reason": "Same chosen look"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Quick answer chips and Which meal?",
+    "colour": "choice chips (empty tick ring / sun + edge + tick); segmented control as defined (the ink 'Dinner' becomes lime with a tick)",
+    "reason": "The ink segment looked like a button"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Best for you rows",
+    "colour": "diet line #0b1a12; Change secondary; dish name #0b1a12; kcal #0b1a12 bold; protein text-2; rank #0b1a12 in a page-fill circle (rank 1 not lime); New and Limited time as info tags (not lime); no photo: page-fill tile with ink fork",
+    "reason": "Results lead; no colour says 'the good one'"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Locked Best for you",
+    "colour": "picks keep their normal colours with the lock glyph and Premium badge, no grey veil; the card's one action ink",
+    "reason": "Locked must invite the tap"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Dish allergens",
+    "colour": "Contains: ink box, 6px corners, warning sign first, white words (16:1), no chevron; May contain: card with a 3px ink border and its meaning in words; Not listed: text-2; 'You avoid' becomes the amber note (was a lime badge)",
+    "reason": "Tested in round 3; the person's own allergen is exactly what amber is for"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "'Not checked for your diet, ask staff' note",
+    "colour": "the amber note via tokens (was inline #d97706)",
+    "reason": "Stronger edge, one look"
+   },
+   {
+    "screen": "15 Restaurant",
+    "element": "Floating 'Best for you' jump pill",
+    "colour": "secondary: white, edge, shadow-lift",
+    "reason": "It navigates rather than acts, and an ink pill on the ink tab bar merges"
+   },
+   {
+    "screen": "Dish page (restaurant item)",
+    "element": "Photo, caption, figures",
+    "colour": "photo with 'Photo from the {chain} website' text-2 under it, never on it; chain name kicker accent underlined, sentence case; kcal #0b1a12 at 56px; macro tiles page fill, figures #0b1a12 (protein no longer accent), no dots, fixed order",
+    "reason": "A chain photo never looks like ours; no green protein"
+   },
+   {
+    "screen": "Dish page (restaurant item)",
+    "element": "Actions",
+    "colour": "Add to today ink (the one main action); Change the order, Save, Share, Compare, Smart Swap and the Truth button secondary; More detail ink chevron, no disc; Report a number underlined link; the floating action card keeps a page gap and never covers the allergen table; 'Added to today's food' as a toast",
+    "reason": "Elsie found Smart Swap the loudest button; Harold's allergen table was covered"
+   },
+   {
+    "screen": "Order builder",
+    "element": "Double toggle and notices",
+    "colour": "Double uses the chosen look (lime + edge + tick); notices as info banners or error banners (were green text)",
+    "reason": "Status is never green words"
+   },
+   {
+    "screen": "16 Cook with your list",
+    "element": "Pip, count, match line and bar",
+    "colour": "bubble card + line; count text-2; 'You have 1 of 3 ingredients' #0b1a12 semibold; bar sun-deep #4d7c0f on line #d9dedb (3.67:1)",
+    "reason": "Green words read as a link or praise; #8cc63f on grey was 1.8:1"
+   },
+   {
+    "screen": "16 Cook with your list",
+    "element": "Have and to-buy chips; add",
+    "colour": "have: sun + on-sun edge + tick; to buy: white + edge with the pack shot on its white tile (info-tag style if not tappable); 'Add the other 2 to my list' ink with white words and +",
+    "reason": "Have is a done state; the grey add looked disabled"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Step bar, counter, Back, Keep my plan",
+    "colour": "done segments sun-deep, to come line #d9dedb; 'Step 1 of 9' sentence case text-2 semibold, at least 13px; Back with word; Keep my plan secondary",
+    "reason": "Testers called the step text faint; Keep my plan read as a label"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Answer tiles, Who age tiles, portion chips, allergen chips, shop rows",
+    "colour": "all choice style: white + edge + empty tick ring; chosen sun + 2px on-sun edge + tick (Who tiles were grey fill, portion and allergen chips were ink via CHIP_ON)",
+    "reason": "One chosen look; no option looks disabled"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Meat and Meals rows",
+    "colour": "empty 2px #7a817d ring; chosen sun + 2px on-sun edge + on-sun tick (was an ink disc)",
+    "reason": "Matches every other tick"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Pip's portion line",
+    "colour": "Pip's standard white bubble (raw #e4f0d0 retired there)",
+    "reason": "Only one look for Pip speaking"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Budget slider",
+    "colour": "track line #d9dedb; best-fit band and legend dot sun-deep (4.99 on white, 3.67 vs track); thumb ink with a white ring; 'Best fit £X' #0b1a12; 'Back to the green spot' secondary with a sun-deep dot",
+    "reason": "The lime 'green spot' was about 1.0:1"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Making your plan",
+    "colour": "bar sun-deep on line; done ticks sun + on-sun edge + tick; Pip",
+    "reason": "Lime on the track was invisible"
+   },
+   {
+    "screen": "17 Meal plan steps",
+    "element": "Blocking notices",
+    "colour": "info banner (white, 4px #7a817d bar, ink circle-i, #0b1a12)",
+    "reason": "Calm 'can't go on yet', not an error"
+   },
+   {
+    "screen": "17-18 Meal plan",
+    "element": "Continue and Make my plan",
+    "colour": "ink, white words; can't press: line fill with the reason above ('Pick at least one shop.'); busy: ink with spinner and words",
+    "reason": "Main action, one dark"
+   },
+   {
+    "screen": "Meal plan Premium intro",
+    "element": "Feature list and Get Premium",
+    "colour": "tick bullets ink (were lime); Get Premium ink",
+    "reason": "A feature list is not 'chosen'"
+   },
+   {
+    "screen": "18 Meal plan: check",
+    "element": "Summary cards and Change",
+    "colour": "card; labels text-2; values #0b1a12; Change secondary",
+    "reason": "Calm, even review list"
+   },
+   {
+    "screen": "18 Meal plan: check",
+    "element": "Allergies at home",
+    "colour": "listed first; the amber note when at least one allergy is set; 'No allergies at home.' stays a plain card; its Change stays secondary",
+    "reason": "The card a parent must not miss; amber only when it matters"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Cost card",
+    "colour": "card; '£120.47' #0b1a12 extrabold; caption text-2; budget line #0b1a12 in words, within or over alike; any sentence that must be read #0b1a12; Pip's face fixed (cheer or wave), never 'think' for over budget",
+    "reason": "Money never green or red, and Pip's face never judges"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Peanut line",
+    "colour": "the amber note inside the cost card, same wording as the check screen",
+    "reason": "Buried among grey paragraphs today"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Day chips",
+    "colour": "unchosen white + edge; chosen sun + 2px on-sun edge + dot + bold (was ink); scroll cue: a pinned secondary '›' button on a solid page backing; no fade over words",
+    "reason": "The ink Thursday matched the ink add buttons; the faded Sunday looked disabled; Irene missed the scroll"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Meal cards",
+    "colour": "card; 'Breakfast' sentence case text-2; dish #0b1a12; '£3.26' #0b1a12 bold; 'for 3' text-2; 'Servings each: you 1¼…' #0b1a12 with names bold; Swap secondary; thumbnail loading backdrop page fill",
+    "reason": "The servings line is what a parent dishes up from"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Add my portion and Add all",
+    "colour": "Add my portion: compact ink pill, then the Added state and a toast (replaces the plan-tint confirmation box); Add all: full-width sticky ink with a 16px opaque page band above the tab bar",
+    "reason": "Every add dark; size sets the order"
+   },
+   {
+    "screen": "19 Meal plan: week",
+    "element": "Make a new plan and Your earlier plans",
+    "colour": "both secondary (Make a new plan was a lime button with +, Your earlier plans grey)",
+    "reason": "Lime is never a button; Add all stays the screen's main action"
+   },
+   {
+    "screen": "Welcome and onboarding",
+    "element": "Welcome, logo wall, Get started, Skip",
+    "colour": "page; logo tiles white + line (ink tile for white artwork); 'Not affiliated with any restaurant or shop shown.' text-2; Get started ink with white words (was white on pale grey); Skip and Skip tour secondary at the same height",
+    "reason": "Every tester struggled first here"
+   },
+   {
+    "screen": "Welcome and onboarding",
+    "element": "Sign-in screen",
+    "colour": "Apple and Google in their required styles; Email secondary; code field with label; failures as the error banner",
+    "reason": "Everyone now passes through it"
+   },
+   {
+    "screen": "Welcome and onboarding",
+    "element": "Questions, targets, all set",
+    "colour": "answer tiles in the choice style; Age field with a visible label and edge; can't-press Continue with the reason above; targets summary figures #0b1a12 in fixed order with no lime or green stripes (protein not singled out); 'You're all set' shows a mini ink numbers card; confetti only sun, ink and cream, off under reduced motion",
+    "reason": "Same rules as the rest of the app"
+   },
+   {
+    "screen": "Paywall",
+    "element": "Hero",
+    "colour": "ink; headline white; sub-lines on-ink-2 (was white/75); trial in words, white bold (no lime pill); timeline: today dot sun with on-sun centre, day-7 ring 2px on-ink-2, connector #6b716e; Pip cheering on ink, no glow",
+    "reason": "Premium feel from ink and lime without new colours"
+   },
+   {
+    "screen": "Paywall",
+    "element": "Features, plans, buy, restore",
+    "colour": "feature tiles card + line with page-fill well and accent icon (no lime discs); plan cards white + edge, chosen sun + 2px on-sun edge + tick; billed price #0b1a12 largest (on-sun when chosen); 'First 7 days free' #0b1a12 semibold (was accent); 'Best value' in the Premium-badge style; Buy ink 56pt; Restore accent underlined; renewal small print text-2 at 15px or more; purchase errors as the error banner; after purchase a toast 'Premium is on'",
+    "reason": "Billed price most prominent (App Store 3.1.2); legal text readable"
+   },
+   {
+    "screen": "Rating question (iPhone)",
+    "element": "Stars",
+    "colour": "ink outline, chosen filled ink, never gold",
+    "reason": "No colour pushes towards 5"
+   },
+   {
+    "screen": "Store screenshots",
+    "element": "Frames",
+    "colour": "one frame colour for the set: ink #1d2320 with a white headline and one key word in sun; never a logo or a chain or shop photo",
+    "reason": "A lime frame separates from the screen at only 1.15:1; one frame looks deliberate"
+   },
+   {
+    "screen": "Share card, social image, saved Truth image",
+    "element": "Colours",
+    "colour": "ink, sun, white and #0b1a12 only (retires #4d6127, #5f6361, the #047857-#0f766e gradient, #eef6f1, #55645b, #09090b, #bef264)",
+    "reason": "People see these before they install"
+   },
+   {
+    "screen": "iPhone shell and browser chrome",
+    "element": "Background, theme, tint",
+    "colour": "WKWebView background, overscroll, launch screen and theme-color #f4f5f6; iOS AccentColor accent #046c4f",
+    "reason": "No white flash; native alerts and pickers stop showing system blue"
+   }
+  ],
+  "rules": [
+   "Ink #1d2320 means 'do this' or 'your numbers'. It is the only dark fill: main buttons, every add (+), the tab bar, the day's numbers cards, toasts, the Contains box, small badges, map pins and dark logo tiles. #0b1a12 is for text only.",
+   "At most one full-width ink button is in view at a time. Repeated adds are compact ink pills, and alternatives (other shops) are secondary.",
+   "A main button sitting on an ink surface is white with ink words.",
+   "Lime #d6efa0 means chosen, today, where you are, done, or progress on ink. It is never an action (including toast Undo), a banner, a card fill, an icon disc, a badge fill, a tick bullet or decoration, and never on either feature tint.",
+   "On a light surface every lime item has a 2px #052e16 edge and a mandatory mark: a tick for choices, a dot for radios, days and 'where you are' chips. Its words are #052e16 and bold.",
+   "An unchosen choice shows an empty 1.5px #7a817d tick ring in the tick slot, so a choice never looks like a button and the words never jump when ticked.",
+   "Every unfilled tappable control is white with a 1.5px #7a817d edge. Tappable cards and rows keep the 1px #d9dedb line and show an ink chevron or a photo.",
+   "A #d9dedb fill means only 'can't press yet'. It is pill-shaped, with the reason in #0b1a12 above it. Never fade a control with opacity, and never grey out a Premium-locked control: it keeps its working colours, a lock and the badge.",
+   "Things you can't tap never look like buttons: 6px corners, no edge, no chevron. This covers info tags, the Premium badge and the Contains box. On the page, a tag is white with the 1px line; inside a card it uses page fill.",
+   "Words on light surfaces are #0b1a12, or #4a4f4c for one-line captions only. Placeholders are #6b716e and only on white. On ink, words are white or #c9d1cc. Any sentence a person must read is #0b1a12. Small labels are sentence case, semibold, at least 13px; no spaced capitals.",
+   "Green words (#046c4f) are always an underlined link, in short runs. Status lines ('Added', 'You have 1 of 3') are #0b1a12 with an icon, or a toast. A price that opens a shop's site is #0b1a12, underlined, with an external-link icon.",
+   "Progress on ink is lime on #6b716e. Progress on a light surface is #4d7c0f on #d9dedb. The figure is always written beside it. #4d7c0f never sits right next to accent.",
+   "Never colour food, a figure, a price, a budget, a rank or going over a target by meaning. Going over is said in words in the same colour ('120 kcal over', '18 g over', '£4 over your budget').",
+   "There is no reward colour, glow or confetti for eating or for streaks. A day's dot means only 'logged'. Compare has no winner colour, and ranks have no medal colours.",
+   "Pip's face never reacts to what or how much was eaten, or to a budget.",
+   "Protein, carbs and fat are told apart by their words and fixed order, never by hue.",
+   "Amber (#fffbeb fill, full 2px #b45309 border, triangle icon, a heading word, #0b1a12 words) is only for the person's or household's own allergens, Contains matches and 'not checked for your diet', with at most one per screen view. Generic 'check the label' lines are info tags.",
+   "Red #b42318 is only for app errors (a 4px left bar, circle-! icon and title on #fef3f2, or a 2px field edge with icon and message) and for destructive actions. Neither amber nor red ever touches a food figure or a price.",
+   "Each feature keeps one tint everywhere it appears: Meal plan #e4f0d0, every 'cook with what you have' card #fbeccb, Scan your food white. Words on tints are #0b1a12 or #4a4f4c.",
+   "The same thing looks the same on every screen. The header order is Back or title, then the page action, then the Shopping list pill, then the cog with the word 'Settings' far right, on every page except Settings itself, sheets and full-screen camera. Back always shows the word. The Premium badge, toast, stepper, chips, numbers card and allergy note are each one component.",
+   "A chain's or shop's colour exists only inside its unmodified logo file, on a white tile with a 1px #d9dedb line (an ink tile for white artwork), with padding proportional to the tile and the radius on the tile, never clipping the file. The name is always written beside it. Loyalty-scheme colours are never borrowed.",
+   "Food photos get no overlay, tint, filter or text, except the neutral top status band on hero photos. Only photo chips sit on them. A chosen photo card is marked on its frame.",
+   "Pip and the app icon are fixed brand art (allow-listed). Pip sits on no disc, never on lime, a tint, the numbers cards, a safety note or next to a logo, and may sit on ink.",
+   "The stroke scale has five widths: 1px structural lines; 1.5px every control edge, destructive included; 2px chosen edges, tick and radio rings, today's ring, the allergy note border and a wrong field; 3px focus and coach rings; 4px banner left bars.",
+   "Edges are real CSS borders, so they survive forced-colours mode, with 2px of space reserved so states never shift the layout. Ticks are SVGs drawn in currentColor.",
+   "Contrast: text at least 4.5:1 (aim 7:1); control edges, ticks, chosen edges and progress at least 3:1 against what is next to them. Check every new pair on page, card, line and both tints, and on ink.",
+   "Every colour comes from a token in globals.css. No raw hex, Tailwind palette colour or bg-[#…] in app components outside the allow-list (Pip, app icon, water, FSA lights, Apple/Google buttons, the map 'you' dot). A test enforces this.",
+   "Shadows are faint on cards and stronger only on floating layers (sheets, toasts, sticky bars, photo chips).",
+   "Accessibility modes: prefers-contrast: more switches line to #7a817d, edge to #4a4f4c, text-2 to #0b1a12 and placeholder to #4a4f4c. inverted-colors re-inverts images and logos. prefers-reduced-motion stops the logo wall, confetti and animated bars. Pinch zoom stays allowed.",
+   "Light appearance only."
+  ],
+  "changes_from_today": [
+   "Tokens first, in web/app/globals.css (.app-surface), keeping the existing names. --muted becomes #4a4f4c; --line becomes solid #d9dedb; --fill becomes var(--background); --soft-strong becomes #d9dedb (an alias of line); --bar becomes #4d7c0f; --ring-track becomes #6b716e; --scrim becomes rgba(0,0,0,0.5). Add --ink #1d2320, --ink-pressed #3d4642, --on-ink #fff, --on-ink-2 #c9d1cc, --edge #7a817d, --placeholder #6b716e, --card #fff, --tint-plan, --tint-cook, --note-bg, --note-edge, --danger #b42318 and --danger-bg #fef3f2. Register all of them in @theme inline (bg-ink, border-edge, bg-tint-plan and so on), delete the dead dark-mode values, and lighten --card-shadow to 0 1px 2px rgba(0,0,0,0.04).",
+   "Rebuild the shared pieces once and use them everywhere:\n- Button: primary ink with ink-pressed and 0.97 scale; secondary white with a 1.5px edge; a real red danger variant (today a grey pill at 6 call sites); disabled as line fill plus a reason slot; busy as ink plus spinner and words.\n- Chip, CHIP and CHIP_ON (groceries/PageBits.tsx), Segmented and Toggle.\n- inputClass with the edge and a visible label; redraw the select arrow SVG (it has %235f6361 baked in) with currentColor.\n- One PremiumBadge (shown only when GATING_ENABLED && !pro), plus Note (allergy), InfoBanner, ErrorBanner, Toast, Spinner and EmptyState.\n- One PageHeader that renders Back, the page action, ShoppingListPill and SettingsGear (with the word 'Settings'). Merge ListLink into ShoppingListPill.",
+   "Put the Settings cog on every page. Replace the roughly 22 hand-made Back buttons with PageHeader, replace Eat out's 'Settings' text pill with the cog, and keep the Shopping list pill on Home, Groceries and Eat out.\n- Recipe page: Save moves into the sheet beside the title; the cog becomes a photo chip.\n- Restaurant page: the favourite star moves into the header card.\n- No cog on Settings itself, in sheets or on full-screen camera.\n- On Home, the date heading becomes the calendar button.",
+   "Make 'chosen' ink become lime with the edge and a tick. Change these:\n- Best for you 'Which meal?' segment.\n- Meal plan day chips.\n- 'What do you fancy?' chips.\n- CHIP_ON uses: allergens, portion chips, shop switcher.\n- The chosen leaderboard tile.\n- The ink tick discs on the Meat and Meals rows.\n- The Who step's grey age tiles become the choice style.\nAlso add the 2px #052e16 edge and the mandatory tick or dot to every existing lime chosen item: today, '3 of us', ticked items, radios, Reminders 'Done today', Compare's added state and the builder's Double toggle. Give unchosen choices an empty tick ring and reserve the tick's space.",
+   "Move every working #e9ecea grey pill to the secondary style: Back, Change, Select, Choose a product, the − / + steppers, Skip, Skip tour, Stop the tips, Keep my plan, Your earlier plans, Change my numbers, Swap, and the ghost Cancel (green words). Turn the grey adds ink: the Shopping list's Add (always on, focusing the field when empty) and 'Add the other 2 to my list'.",
+   "Replace the 14 opacity-faded disabled controls with line fill and a written reason: RecipeDetail ROUND_BUTTON opacity-40, the fridge 'Make me a recipe' opacity-60, NicheFields, PresetPills with 0 results, the map pill, Compare add, AppStorePlans restore, and the others found by searching for opacity- on buttons.",
+   "Take accent green off every figure, price and status line, and use #0b1a12 instead:\n- NutritionPanel kcal (line 35)\n- ProductScreen price (236) and 'Added' line (301)\n- ShopItemScreen price (83) and line 119\n- RecipeDetail kcal, cost a serving and '£x used' (368, 466, 515)\n- Today's eaten figure (177)\n- The welcome protein figure and stripes (859-862, TargetsStep 87)\n- The Truth card Protein score and ScoreDots (TruthBody 270)\n- The dish hero protein figure (Nutrition.tsx ItemHero)\n- Loyalty prices and the 'Lowest' MARK tags\n- list/page.tsx lines 281 and 475\nMove MealPicker's error (recipes/MealPicker 120), map location errors, builder notices and purchase errors to ErrorBanner.",
+   "Take lime off every action and decoration:\n- Actions: the Scan card's 'Calories and macros' (becomes ink) and the Scan Premium badge; 'Make a new plan' (plan/page.tsx 963, becomes secondary); the fridge 'Make me a recipe' (ink) and its lime Premium pill.\n- Badges and markers: Badge tone=accent ('New'), the 'You avoid' badge (Allergens.tsx 67, becomes the amber note), Best for you rank 1 (BestForYou.tsx 98), the Truth Smart Swap banner (TruthBody 184), ProteinScreen's 'Cheaper' ring and badge.\n- Discs and tiles: the Recipes More tile; the Groceries and Eat out icon circles, meal-row flame tiles and the TruthButton flame disc (TruthButton.tsx 46), which become page-fill wells; the Near me selected-card pin disc (SelectedCard.tsx 204); Pip's avatar discs; the paywall feature-tile discs.\n- Pills, bullets, cards and circles: the paywall trial pill; Premium intro tick bullets (page.tsx 138); the Shopping list cook card (becomes cream); Submit.tsx's bare lime success circle (gains the edge and tick); the toast's Undo (becomes white).",
+   "On Home:\n- Week strip: the chosen day is lime with edge and dot; today, when not chosen, gets a 2px ring and always shows the word 'Today'; past days are white with the 1.5px edge and an ink dot only when food was logged; days ahead are plain text-2.\n- Dial: put '1,580 left' or '120 over' in the centre, drop the clamped percentage (page.tsx 109 Math.min), stop Gauge.tsx drawing its centre disc with --ring-track, and add aria-valuetext.\n- Macro card: figures at least 15px, bars 8px, and an 'over' line in words.\n- The mint 'See Pro' becomes a secondary button.",
+   "Use one allergy note everywhere: the ChainScreen.tsx 238 inline #fffbeb/#d97706/#3b2a06 and every allergen line (#d97706, #b45309, #92400e, #3b2a06) become Note, with a full 2px #b45309 border, a triangle icon and #0b1a12 words. Use it on the plan check (first, only when allergies are set), the plan week peanut line, the recipe page (top of the ingredients, only on a match), the dish page and 'not checked for your diet'. Generic 'check the label' lines become info tags.",
+   "Saved and favourite: the heart (#e11d48) and the star (accent) become ink, outline when not saved and filled when saved. The recipe Save shows 'Save'/'Saved'; the restaurant favourite shows its word on both states. On recipe-tile photo chips the state goes in the spoken name only.",
+   "Progress on light surfaces becomes #4d7c0f on #d9dedb: the plan step bar (ink today), the making-plan bar, the ingredient match bar and the budget slider's best-fit band and dot. Spinners become ink on a line track.",
+   "Use the same ink numbers card in Today's signed-in diary (a light card with an accent figure today) and in its locked preview (#8cc63f on grey today). The diary bin gains the word 'Remove' and a 44pt target, and a day with a photo estimate says 'includes 1 estimate' in on-ink-2.",
+   "Logos: the dark tile bg-[#111] (ChainMark.tsx 47) and the #0b0b0b map markers become ink with the 1px line. Padding becomes 12% of the tile at the 28/48/64/80px sizes, with the radius on the tile and no overflow clipping of the file. The logo price strip (ShopPrices.tsx) shows shop names in words and puts every price in #0b1a12 at 12px or more.",
+   "Text: spaced small capitals (STEP 1 OF 9, BURGERS, ANY SHOP, WHICH MEAL?, BREAKFAST, ACCOUNT) become sentence case semibold text-2 at 13px or more. Paragraphs people must read (plan week cost card, privacy summary, servings line) become #0b1a12. The restaurant source sentence becomes one short underlined link plus text-2.",
+   "Pip's tips: replace the 0.55 dimming with rgba(0,0,0,0.2) and ring the lit control in 3px ink with a 2px white gap. Change the sheet scrim to neutral rgba(0,0,0,0.5) and unify the six overlay values. The status band goes only over hero photos.",
+   "Meal plan: the 'Added to Breakfast' plan-tint box becomes the ink toast, and the add button shows the Added state. Pip's portion line moves into his white bubble. The 'Servings each' line becomes #0b1a12 with names in bold. Pip's mood is fixed and no longer 'think' when over budget (plan/page.tsx 978). Blocking notices become InfoBanner. The day-chip fade is removed and a pinned '›' button added.",
+   "Paywall (PremiumOffer.tsx, AppStorePlans):\n- Hero: raw #1d2320 becomes the ink token; sub-lines become on-ink-2.\n- Timeline: the day-7 ring becomes 2px on-ink-2 and the connector #6b716e.\n- Plan cards: they get the edge, the chosen one is lime with edge and tick, and the 'First 7 days free' accent line becomes #0b1a12.\n- Purchase errors use ErrorBanner, and the small print is at least 15px.",
+   "Add enforcement tests in web/tests:\n- Fail on raw hex, rgba, Tailwind palette colours (bg-white, text-white/75, bg-black/60) and bg-[#…] in app/app and lib/mm components outside the allow-list.\n- Check every declared foreground/background token pair (page, card, line, both tints, note-bg, danger-bg, ink) against 4.5:1 for text and 3:1 for edges, with protan/deutan simulation.\nThen re-run axe in e2e.",
+   "Accessibility and platform settings:\n- Add prefers-contrast: more, inverted-colors (re-invert img, video and logo tiles) and prefers-reduced-motion blocks.\n- Set -webkit-tap-highlight-color: transparent, ::selection to sun with on-sun text, and caret-color and accent-color to accent.\n- Keep pinch zoom.",
+   "Retire the six recipe pastels: the recipe picture and thumbnail fallback (RecipeTile.tsx, RecipeThumb.tsx, which use bg-soft-strong today) becomes page fill with an ink plate glyph, and the pastels are deleted once nothing uses them.",
+   "Water: add a 1.5px #7a817d outline to the bottle drawing and its level line.",
+   "Photo chips: the tappable ones get a 1px #7a817d edge and the kcal pill a 1px #d9dedb edge.",
+   "The Truth dark theme (.truth-dark) and the share and social images move to ink, sun and white. Replace #09090b, the zinc greys, #bef264, #4d6127, the #047857-#0f766e gradient, #eef6f1 and #55645b in truth-card.ts, share-card.ts and web/design/og.html. Exempt Mascot.tsx and icon.svg from every sweep.",
+   "Sticky ink buttons get a 16px opaque page band above the tab bar, and toasts keep the same gap. The floating 'Best for you' jump pill becomes secondary.",
+   "Unmodified pieces still to add with the next iPhone build (not a website deploy): MenuMacros/Features/WebApp/WebAppView.swift's web view background becomes #f4f5f6 instead of .systemBackground, and the AccentColor asset becomes #046c4f.",
+   "Delivery: all of this stays on the iap branch until the founder says go live. Re-shoot the store screenshots with the ink frame (web/e2e/store-shots.mjs). The iPhone app gets it only in a build after 1.1's review. Log the decisions in docs/PROGRESS_LOG.md."
+  ],
+  "founder_questions": [
+   "Scan your food card: OK to make 'Calories and macros' dark, with 'Make it at home' white with an outline? This replaces the lime button from 19 November, and nearly all 25 specialists recommend it.",
+   "Chosen things (Dinner on a restaurant page, Thursday on the meal plan, the 'What do you fancy?' chips) would change from dark to lime with a dark edge and a tick, so they stop looking like buttons. This undoes the 15 October look. OK once you've seen before and after pictures and we've checked with Frank, Harold and Irene?",
+   "Home's week strip: past days become white with an outline and a small dot when food was logged, instead of solid dark circles. Frank, Barbara and Stan each said the dark days outshout today. OK?",
+   "The lime circles behind icons on Groceries, Eat out and the meal rows would become light grey with green icons, so lime only ever means 'chosen'. OK, or keep lime? It is a one-line switch.",
+   "Every card gets a thin light outline (your 15 October look had none), so cards stay visible outdoors. OK?",
+   "The word 'Settings' under the cog on every page, and the date on Home becoming the calendar button instead of a separate calendar circle (to make room). OK?",
+   "Should the Shopping list button also sit on Recipes, so all four tabs have the same top right? That means moving My recipes into the page.",
+   "New words the colour plan needs. They also need translating into the 11 languages. Do you approve them?\n- 'On' and 'Off' on switches\n- 'Save' and 'Saved'\n- the restaurant favourite's word\n- an 'Allergy' heading on allergy notes\n- 'Added to your list'\n- 'Remove' on the diary bin\n- '18 g over' for protein, carbs and fat\n- 'Working…' on busy buttons",
+   "Generic 'always check the label' lines would become calm grey info lines, keeping amber only for your own or your household's allergies, so people don't stop noticing amber. OK?",
+   "'Pro' or 'Premium': which one name should the single badge and the upsell buttons carry?",
+   "The FSA traffic lights on the Truth card are the only red, amber and green on food. Keep them, with Low, Medium or High printed in every pill? And may we check their exact shades against the official front-of-pack guidance?",
+   "Recipe pictures: regenerate them with Nano Banana on warm oak or stone backgrounds, without the mint backdrops, teal plates and red-striped napkins (which clash with the app's lime)? This matches what docs/RECIPE_IMAGE_PROMPTS.md already asks for.",
+   "Pip: OK to give him a thin dark-green outline when he is small, so he doesn't melt into light backgrounds? And should he stop pulling his 'thinking' face when a meal plan is over budget?",
+   "Make it at home (your 17 November design): only the current step's number circle would stay lime; the others and the 'Recommended for accuracy' tag become white outlines on the dark card. OK?",
+   "Should we remove the three small 'share of macros' bars on the supermarket product page? They look like the progress bars on Home, so people read them as progress towards their target.",
+   "App icon: keep it exactly as it is, or test a dark-and-lime version against it in App Store Connect?",
+   "Going live: this stays on the iap branch until you say so, and the iPhone app gets it only in a build after 1.1 is reviewed. Should numbite.com's public pages take the same colours later too?"
+  ],
+  "average_score": 7.72
+ }
+}

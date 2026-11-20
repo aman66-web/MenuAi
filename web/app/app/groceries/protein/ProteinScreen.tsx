@@ -40,11 +40,12 @@ function ValueLine({ v }: { v: ProteinValue }) {
   );
 }
 
-/** One side of a pair: the shop's own photo of the product, its name, and what 10 g of protein costs in it. The cheaper side gets a lime ring and says so (price only). */
+/** One side of a pair: the shop's own photo of the product, its name, and what 10 g of protein costs in it. Both sides look the same (colour meeting, 19 November
+ *  2026: no colour on a price); the word "Cheaper" on the cheaper side carries it (price only). */
 function PairSide({ file, v, label, cheaper }: { file: ShopFile; v: ProteinValue; label: string; cheaper: boolean }) {
   const t = useT();
   return (
-    <div className={`flex min-w-0 flex-col rounded-[1.25rem] p-3 ${cheaper ? "bg-white ring-2 ring-[var(--bar)]" : "bg-[var(--fill)]"}`}>
+    <div className="flex min-w-0 flex-col rounded-[1.25rem] bg-[var(--fill)] p-3">
       {/* the same height on both sides, so the two photos and prices line up */}
       <span className="block min-h-[2.25rem] text-[0.75rem] font-bold uppercase leading-snug tracking-wide text-muted">{label}</span>
       <span className="relative mt-1 block">

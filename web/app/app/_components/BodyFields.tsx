@@ -6,7 +6,7 @@ import { tk } from "@/lib/mm/i18n";
 import {
   heightCmOf, switchHeightUnit, switchWeightUnit, typeHeight, typeWeight, weightKgOf, type HeightAnswer, type WeightAnswer,
 } from "@/lib/mm/onboardingPlan";
-import { ACTIVITY_LABEL, planNoteText, type Activity, type PlanNote, type Sex } from "@/lib/mm/targets";
+import { ACTIVITY_HINT, ACTIVITY_LABEL, planNoteText, type Activity, type PlanNote, type Sex } from "@/lib/mm/targets";
 import { site } from "@/site.config";
 import { useT } from "../_lib/i18n";
 import { PickTile } from "./DietPicker";
@@ -87,7 +87,9 @@ export function SexTiles({ value, onChange }: { value: Sex; onChange: (s: Sex) =
   );
 }
 
-const BOX = `${inputClass} app-numbers text-[1.25rem] font-medium`;
+// scroll-mb: a box scrolled into view as it is tapped (the keyboard opening) stops clear of the onboarding's bottom bar (a reason line, Continue and
+// "Skip these questions"), never under it
+const BOX = `${inputClass} app-numbers scroll-mb-52 text-[1.25rem] font-medium`;
 
 export function AgeField({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const t = useT();
@@ -100,7 +102,7 @@ export function AgeField({ value, onChange }: { value: string; onChange: (v: str
       <input
         id={`${id}-age`}
         className={BOX}
-        placeholder={t("Your age, like 75")}
+        placeholder={t("Your age in years")}
         inputMode="numeric"
         autoComplete="off"
         value={value}
@@ -193,43 +195,62 @@ export function HeightField({ value, onChange }: { value: HeightAnswer; onChange
 
 const ACTIVITIES = Object.keys(ACTIVITY_LABEL) as Activity[];
 
-/** How active a normal week is: the four existing choices as tiles. `compact` is the two-by-two block for the Settings form; the onboarding's are big, one a row. */
-export function ActivityTiles({ value, onChange, compact }: { value: Activity; onChange: (a: Activity) => void; compact?: boolean }) {
+/**
+ * How active a normal week is: the four existing choices as tiles. `compact` is the two-by-two block for the Settings form; the onboarding's are big, one a
+ * row, each with an everyday example under its name (read as the tile's description, so its name stays the activity's). `value` null = none picked yet
+ * (onboarding picks nothing for the person): no tile is ticked and the first is the one the keyboard reaches.
+ */
+export function ActivityTiles({ value, onChange, compact }: { value: Activity | null; onChange: (a: Activity) => void; compact?: boolean }) {
   const t = useT();
   const id = useId();
   return (
     <div>
       {compact && <BlockLabel id={id}>{t("Activity")}</BlockLabel>}
       <div role="radiogroup" aria-label={compact ? undefined : t("Activity")} aria-labelledby={compact ? id : undefined} className={compact ? "grid grid-cols-[repeat(auto-fit,minmax(8.5rem,1fr))] gap-2.5" : "space-y-2.5"}>
-        {ACTIVITIES.map((a, i) => (
-          <PickTile
-            key={a}
-            on={a === value}
-            tall={!compact}
-            role="radio"
-            aria-checked={a === value}
-            tabIndex={a === value ? 0 : -1}
-            onClick={() => onChange(a)}
-            onKeyDown={(e) => radioKeyNav(e, i, ACTIVITIES.length, (n) => onChange(ACTIVITIES[n]!))}
-            className={compact ? "text-[0.9375rem] font-semibold leading-snug" : "w-full text-[1.0625rem] font-bold leading-tight tracking-[-0.01em]"}
-          >
-            {t(ACTIVITY_LABEL[a])}
-          </PickTile>
-        ))}
+        {ACTIVITIES.map((a, i) => {
+          const on = a === value;
+          return (
+            <PickTile
+              key={a}
+              on={on}
+              tall={!compact}
+              role="radio"
+              aria-checked={on}
+              aria-labelledby={compact ? undefined : `${id}-${a}`}
+              aria-describedby={compact ? undefined : `${id}-${a}-hint`}
+              tabIndex={on || (value === null && i === 0) ? 0 : -1}
+              onClick={() => onChange(a)}
+              onKeyDown={(e) => radioKeyNav(e, i, ACTIVITIES.length, (n) => onChange(ACTIVITIES[n]!))}
+              className={compact ? "text-[0.9375rem] font-semibold leading-snug" : "w-full text-[1.0625rem] font-bold leading-tight tracking-[-0.01em]"}
+            >
+              {compact ? t(ACTIVITY_LABEL[a]) : (
+                <>
+                  <span id={`${id}-${a}`} className="block">{t(ACTIVITY_LABEL[a])}</span>
+                  <span id={`${id}-${a}-hint`} className={`mt-0.5 block text-sm font-normal leading-snug tracking-normal ${on ? "text-background/80" : "text-muted"}`}>{t(ACTIVITY_HINT[a])}</span>
+                </>
+              )}
+            </PickTile>
+          );
+        })}
       </div>
     </div>
+  );
+}
+
+/** A line with the shield beside it, in the page's ink: what is and isn't kept. */
+export function ShieldNote({ children, className = "mt-4" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <p className={`${className} flex items-start gap-2.5 text-[0.9375rem] leading-snug text-foreground`}>
+      <ShieldIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+      <span>{children}</span>
+    </p>
   );
 }
 
 /** Says, truthfully, that the answers are not kept: they stay in this screen's memory, are used to work out the numbers and are never saved or sent. */
 export function BodyPrivacyNote() {
   const t = useT();
-  return (
-    <p className="mt-4 flex items-start gap-2.5 text-[0.9375rem] leading-snug text-muted">
-      <ShieldIcon aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-      <span>{t("Your answers are only used to work out your numbers. They aren't saved or sent anywhere.")}</span>
-    </p>
-  );
+  return <ShieldNote>{t("Your answers are only used to work out your numbers. They aren't saved or sent anywhere.")}</ShieldNote>;
 }
 
 /** The lines under suggested targets (the plan's notes), calm and plain: check the measurements, the 1,200 floor, a doctor or dietitian first, the medicine plan, the diet's protein. */

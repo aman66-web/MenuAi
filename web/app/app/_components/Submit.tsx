@@ -224,11 +224,11 @@ function ReportForm({ target, onClose }: { target: ReportTarget; onClose: () => 
             type="file"
             accept="image/*"
             onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
-            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-0 file:bg-soft-strong file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="block min-h-11 w-full rounded-full text-[0.9375rem] text-muted file:me-3 file:min-h-11 file:cursor-pointer file:rounded-full file:border-[1.5px] file:border-solid file:border-[color:var(--edge)] file:bg-soft file:px-5 file:py-2.5 file:text-[0.9375rem] file:font-semibold file:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           />
         </Row>
       </Group>
-      {error && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug text-accent">{error}</p>}
+      {error && <p role="alert" className="text-[0.9375rem] font-semibold leading-snug text-foreground">{error}</p>}
       <Button type="submit" full className={submitClass} disabled={busy}>{t("Send report")}</Button>
     </form>
   );

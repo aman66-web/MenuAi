@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { AI_RECIPES_ENABLED, PRO_ENABLED } from "../lib/mm/config";
 import { isPro, needsPaywall, paywallCopy, type PaywallTrigger } from "../lib/mm/entitlements";
 
@@ -27,6 +27,44 @@ describe("free launch switches (founder 2026-10-12)", () => {
   });
   it("Pip's AI recipe maker is off, and is a constant (no environment variable or key can turn it on)", () => {
     expect(AI_RECIPES_ENABLED).toBe(false);
+  });
+});
+
+describe("the paid tier (PAID_TIER_ONLY) and LOG_IS_PAID", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.resetModules();
+  });
+  // [build, env]: where real paid access is on without the older all-or-nothing Pro switch (the iPhone app's In-App Purchase build, the website with Stripe)
+  const paidTierBuilds: Array<[string, Record<string, string>]> = [
+    ["iPhone In-App Purchase", { NEXT_PUBLIC_APP_BUILD: "1", NEXT_PUBLIC_IAP: "1" }],
+    ["website paid access", { NEXT_PUBLIC_WEB_PRO: "1" }],
+  ];
+
+  it("keeps adding a meal free in the paid-tier-only build: needsPaywall('log', { pro: false }) is false there, and so is LOG_IS_PAID", async () => {
+    for (const [name, env] of paidTierBuilds) {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+      for (const [k, v] of Object.entries(env)) vi.stubEnv(k, v);
+      const m = await import("../lib/mm/entitlements");
+      expect(m.PAID_TIER_ONLY, name).toBe(true);
+      expect(m.needsPaywall("log", { pro: false }), name).toBe(false);
+      expect(m.needsPaywall("orderBuilder", { pro: false }), name).toBe(false);
+      expect(m.needsPaywall("bestForYou", { pro: false }), name).toBe(true);
+      expect(m.LOG_IS_PAID, name).toBe(false);
+    }
+  });
+
+  it("LOG_IS_PAID is true only where logging is behind the paywall (Pro on), never on a build with no gating, where bare needsPaywall still says true", async () => {
+    for (const [env, paid] of [[{}, false], [{ NEXT_PUBLIC_PRO: "1" }, true], [{ NEXT_PUBLIC_PRO: "1", NEXT_PUBLIC_WEB_PRO: "1" }, true]] as Array<[Record<string, string>, boolean]>) {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+      for (const [k, v] of Object.entries(env)) vi.stubEnv(k, v);
+      const m = await import("../lib/mm/entitlements");
+      const { GATING_ENABLED } = await import("../lib/mm/config");
+      expect(m.LOG_IS_PAID, JSON.stringify(env)).toBe(paid);
+      if (!GATING_ENABLED) expect(m.needsPaywall("log", { pro: false })).toBe(true);
+    }
   });
 });
 

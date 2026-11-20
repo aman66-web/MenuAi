@@ -93,7 +93,7 @@ export default function GroceriesPage() {
               </Link>
               {/* "Select" at the tile's bottom right (a separate button beside the link, never inside it): ticks the shop for the button at the foot of the screen. Its words are
                   visible; the shop's name is spoken after them ("Select Tesco"), so the name always contains what is drawn. */}
-              <button type="button" onClick={() => pick(r.id)} className={`absolute bottom-3 end-3 inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3.5 text-[0.9375rem] font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${picked.includes(r.id) ? "border-transparent bg-foreground text-background" : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-white text-foreground hover:bg-soft-strong"}`}>
+              <button type="button" onClick={() => pick(r.id)} className={`absolute bottom-3 end-3 inline-flex min-h-11 items-center gap-1.5 rounded-full border-[1.5px] px-3.5 text-[0.9375rem] font-semibold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${picked.includes(r.id) ? "border-transparent bg-ink text-on-ink" : "border-[color:var(--edge)] bg-white text-foreground hover:bg-[var(--fill)]"}`}>
                 {picked.includes(r.id) && <CheckIcon className="h-4 w-4" />}
                 <span>{picked.includes(r.id) ? t("Selected") : t("Select")}</span>
                 <span className="sr-only"> {r.name}</span>

@@ -19,13 +19,13 @@ import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { halalFor, HALAL_CAUTION } from "@/lib/mm/halal";
 import { ChainMark } from "../_components/ChainMark";
-import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, InfoIcon, SearchIcon, StarIcon } from "../_components/icons";
+import { ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, CloseIcon, SearchIcon, StarIcon } from "../_components/icons";
 import { ItemThumb } from "../_components/ItemPhoto";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
 import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { PresetPills } from "../_components/truth/PresetPills";
 import { ReportSheet } from "../_components/Submit";
-import { Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
+import { AllergyNote, Badge, Button, Chip, EmptyState, ErrorBox, SampleBadge, Sheet, Spinner } from "../_components/ui";
 import { backName, useBack } from "../_lib/backNav";
 import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
@@ -62,7 +62,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   const back = useBack(EAT_OUT); // the page before (Eat out, Search, Home, the map, a dish...) when there is one in the app, else Eat out
   return (
     <div>
-      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+      <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       {children}
     </div>
   );
@@ -172,10 +172,10 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
-        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to restaurants"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
         {/* a small grey circle like Home's calendar button, inside a full 44 px tap area, with what the tap did written beside it */}
         <div className="flex min-w-0 items-center gap-1.5">
-          <p aria-hidden className={`min-w-0 text-end text-[0.8125rem] font-semibold leading-snug text-accent transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>
+          <p aria-hidden className={`min-w-0 text-end text-[0.8125rem] font-semibold leading-snug text-foreground transition-opacity duration-300 motion-reduce:transition-none ${favNote?.shown ? "opacity-100" : "opacity-0"}`}>{favText}</p>
           <span role="status" className="sr-only">{favNote?.shown ? favText : ""}</span>
           <button
             type="button"
@@ -184,7 +184,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             aria-label={isFavorite ? t("Remove {chain} from favourites", { chain: chain.name }) : t("Add {chain} to favourites", { chain: chain.name })}
             className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95"
           >
-            <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] ${isFavorite ? "text-accent" : "text-foreground"}`}>
+            <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] text-foreground`}>
               <StarIcon filled={isFavorite} />
             </span>
           </button>
@@ -208,7 +208,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <div>
               <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                 <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
-                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full bg-[var(--fill)] ps-4 pe-3 font-semibold text-accent transition hover:bg-soft-strong active:scale-[0.98]">
+                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft ps-4 pe-3 font-semibold text-foreground transition hover:bg-[var(--fill)] active:scale-[0.98]">
                   {t("What {chain} says", { chain: chain.name })}
                   <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
                 </button>
@@ -235,20 +235,17 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       </div>
 
       {anyUnchecked(unchecked) && (
-        <div role="note" className="mt-3 flex gap-3 rounded-[1.25rem] border-2 border-[#d97706] bg-[#fffbeb] p-4 text-[0.9375rem] leading-snug text-[#3b2a06]">
-          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#b45309]" />
-          <div className="min-w-0">
-            <p className="font-bold">{allergiesUnchecked && (unchecked.vegetarian || unchecked.vegan) ? t("Not checked for your diet or allergies") : allergiesUnchecked ? t("Allergens aren't checked here") : t("Not checked for your diet")}</p>
-            {unchecked.vegetarian && prefs.vegetarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat or fish are left out.", { chain: chain.name })}</p>}
-            {unchecked.vegetarian && prefs.pescatarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat are left out.", { chain: chain.name })}</p>}
-            {unchecked.vegan && <p className="mt-1">{unchecked.vegetarianMarks
-              ? t("{chain} doesn't say which dishes are vegan, so only dishes it marks vegetarian are shown, and of those, dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })
-              : t("{chain} doesn't say which dishes are vegan, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })}</p>}
-            {allergiesUnchecked && <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so only dishes whose names or menu sections mention {allergens} are left out.", { chain: chain.name, allergens: allergyNames })}</p>}
-            <p className="mt-1 font-semibold">{t("Check the rest with {chain} before you order.", { chain: chain.name })}</p>
-            {allergiesUnchecked && chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center font-semibold text-[#92400e] ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
-          </div>
-        </div>
+        <AllergyNote className="mt-3">
+          <p className="font-bold">{allergiesUnchecked && (unchecked.vegetarian || unchecked.vegan) ? t("Not checked for your diet or allergies") : allergiesUnchecked ? t("Allergens aren't checked here") : t("Not checked for your diet")}</p>
+          {unchecked.vegetarian && prefs.vegetarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat or fish are left out.", { chain: chain.name })}</p>}
+          {unchecked.vegetarian && prefs.pescatarianOnly && <p className="mt-1">{t("{chain} doesn't mark which dishes are vegetarian, so only dishes whose names, menu sections or labels say meat are left out.", { chain: chain.name })}</p>}
+          {unchecked.vegan && <p className="mt-1">{unchecked.vegetarianMarks
+            ? t("{chain} doesn't say which dishes are vegan, so only dishes it marks vegetarian are shown, and of those, dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })
+            : t("{chain} doesn't say which dishes are vegan, so only dishes whose names, menu sections or labels say meat, fish, dairy or eggs are left out.", { chain: chain.name })}</p>}
+          {allergiesUnchecked && <p className="mt-1">{t("{chain} doesn't publish allergen details we can read, so only dishes whose names or menu sections mention {allergens} are left out.", { chain: chain.name, allergens: allergyNames })}</p>}
+          <p className="mt-1 font-semibold">{t("Check the rest with {chain} before you order.", { chain: chain.name })}</p>
+          {allergiesUnchecked && chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center font-semibold text-foreground ${QUIET_LINK}`}>{t("See its own allergen information")}</a>}
+        </AllergyNote>
       )}
       <PresetPills chain={chain} items={filtered} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
       {recent.length > 0 && (

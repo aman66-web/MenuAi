@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { isPlainLaunch, OWN_DATA_KEYS, storedData, TOUR_GATE_SCRIPT, TOUR_VERSION, tourDue, trialOfferDue } from "../lib/mm/tour";
 
 // The welcome tour (lib/mm/tour.ts, app/app/welcome/Tour.tsx): the gate a first plain launch goes through, the iPhone app's trial offer after it, and the words
-// Pip says on each stop. The two app modules the tour's stops read through "@/" paths are replaced here (the words come back as they are).
+// Pip says on each stop (and the rows the replay shows). The two app modules the tour's stops read through "@/" paths are replaced here (the words come back as they are).
 vi.mock("../app/app/_lib/i18n", () => ({ useT: () => (s: string) => s }));
 vi.mock("../app/app/welcome/parts", () => ({ CAPS: "" }));
 
@@ -121,6 +121,8 @@ describe("the tour's stops", () => {
   });
 
   const lines = (stop: { says: string; rows: ReadonlyArray<{ text: string }> }) => [stop.says, ...stop.rows.map((r) => r.text)];
+  /** How many sentences a line has: each ends in ".", "?" or "!" followed by a space or the end. */
+  const sentences = (line: string) => line.split(/[.?!](?:\s|$)/).filter((part) => part.trim() !== "").length;
 
   it("has one stop per tab, in the bar's order", async () => {
     const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
@@ -129,6 +131,7 @@ describe("the tour's stops", () => {
     expect(TOUR_STOPS.map((s) => s.id)).toEqual(TABS.map((t) => ids[t.href]));
   });
 
+  // the rows show in the replay only (Settings › Help › "Show me around again"; the first run has Pip's line alone)
   it("shows three or four things to do on each tab (Community: the food blogs, and friends when they are on)", async () => {
     const { TOUR_STOPS, visibleRows } = await import("../app/app/welcome/Tour");
     const { COMMUNITY_FRIENDS_ENABLED } = await import("../lib/mm/config");
@@ -170,7 +173,7 @@ describe("the tour's stops", () => {
     vi.resetModules();
     const noFriends = (await import("../app/app/welcome/Tour")).TOUR_STOPS;
     expect((noFriends.find((s) => s.id === "community")?.rows ?? []).filter((r) => r.when !== false).some((r) => r.text.includes("friends"))).toBe(false);
-    expect(noFriends.find((s) => s.id === "community")?.says).toBe("Short articles to read, all in one place!");
+    expect(noFriends.find((s) => s.id === "community")?.says).toBe("Short articles to read, all in one place.");
 
     vi.stubEnv("NEXT_PUBLIC_COMMUNITY_FRIENDS", "1");
     vi.stubEnv("NEXT_PUBLIC_PHOTO_RECIPES", "1");
@@ -181,7 +184,29 @@ describe("the tour's stops", () => {
     expect(onRows("home")).toContain("Scan your food: take a photo of a meal for its calories and macros, or for a recipe to make it at home. It's part of Premium.");
     expect(onRows("home")).toContain("Under your numbers: let Meal plan make your week, or cook with what you already have. Meal plan is part of Premium.");
     expect(onRows("community")).toContain("Sign in to add friends with a code, then send each other shopping lists.");
-    expect(on.find((s) => s.id === "community")?.says).toBe("Read short food articles, and send your shopping list to friends!");
+    expect(on.find((s) => s.id === "community")?.says).toBe("Read short food articles, and send your shopping list to friends.");
+    // the onboarding meeting's checks hold for both Community lines too
+    for (const stop of [...on, ...noFriends]) {
+      expect(stop.says, stop.says).not.toContain("!");
+      expect(sentences(stop.says), stop.says).toBeLessThanOrEqual(2);
+    }
+  });
+
+  // The onboarding meeting (19 November): every stop line ended in "!", which read like a children's presenter, and the lines are kept short now the first run
+  // has no rows under them.
+  it("Pip's line on each stop has no '!' and is at most two sentences", async () => {
+    const { TOUR_STOPS, BAR_LINE } = await import("../app/app/welcome/Tour");
+    for (const stop of TOUR_STOPS) {
+      expect(stop.says, stop.id).not.toContain("!");
+      expect(sentences(stop.says), stop.says).toBeLessThanOrEqual(2);
+    }
+    expect(BAR_LINE).not.toContain("!");
+    expect(BAR_LINE).toContain("{names}");
+  });
+
+  it("Pip waves on Home and points down at his tab on every other stop", async () => {
+    const { TOUR_STOPS } = await import("../app/app/welcome/Tour");
+    expect(TOUR_STOPS.map((s) => s.mood)).toEqual(TOUR_STOPS.map((s) => (s.id === "home" ? "wave" : "point")));
   });
 
   it("every line is a tk() key, listed in keys.json", async () => {
@@ -195,5 +220,8 @@ describe("the tour's stops", () => {
       }
       expect(keys.has(stop.says), stop.says).toBe(true);
     }
+    const { BAR_LINE } = await import("../app/app/welcome/Tour");
+    expect(source).toContain(`tk(${JSON.stringify(BAR_LINE)})`);
+    expect(keys.has(BAR_LINE), BAR_LINE).toBe(true);
   });
 });

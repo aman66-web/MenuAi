@@ -60,9 +60,9 @@ function Working({ photoUrl, finished }: { photoUrl: string | null; finished: bo
             {i < shown ? (
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
             ) : i === shown ? (
-              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
             ) : (
-              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-[rgba(17,24,20,0.1)]" />
+              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-line" />
             )}
             <span>{t(line)}</span>
           </li>
@@ -190,7 +190,7 @@ function ScanScreen() {
   return (
     <div className="pb-6">
       {step !== "camera" && (
-        <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to Home"), nav.cameFromApp)} className="glass inline-flex min-h-11 items-center gap-1 rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95">
+        <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), t("Back to Home"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 items-center gap-1 rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95">
           <ChevronLeftIcon className="h-5 w-5" />
           <span>{t("Back")}</span>
         </Link>
@@ -291,7 +291,7 @@ function ScanScreen() {
             <div role="radiogroup" aria-label={t("Which meal?")} className="mt-3 grid grid-cols-2 gap-2">
               {/* the three meals and Snacks (founder 2026-11-19), two by two so each word stays whole */}
               {LOG_MEALS.map((m) => (
-                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => { setMeal(m); setLogged(null); }} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "bg-foreground text-background" : "bg-soft-strong"}`}>{t(LOG_MEAL_LABEL[m])}</button>
+                <button key={m} type="button" role="radio" aria-checked={meal === m} onClick={() => { setMeal(m); setLogged(null); }} className={`min-h-12 rounded-full px-2 text-[0.9375rem] font-bold transition active:scale-95 ${meal === m ? "border-[1.5px] border-transparent bg-ink text-on-ink" : "border-[1.5px] border-[color:var(--edge)] bg-soft"}`}>{t(LOG_MEAL_LABEL[m])}</button>
               ))}
             </div>
             {logged === meal ? (

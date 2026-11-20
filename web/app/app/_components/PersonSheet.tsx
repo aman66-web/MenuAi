@@ -45,7 +45,7 @@ export function PersonSheet({ target, onClose, onDone }: { target: ReportTarget 
           {view === "report" && <ReportForm target={target} onCancel={() => go("menu")} onSent={(blocked) => { if (blocked) { close(); onDone?.("blocked", target.username); } else { onDone?.("reported", target.username); go("thanks"); } }} />}
           {view === "thanks" && (
             <>
-              <p ref={thanks} tabIndex={-1} role="status" className="flex items-start gap-2 text-base font-semibold leading-snug text-accent outline-none"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={3} />{t("Thank you. We'll look at your report.")}</p>
+              <p ref={thanks} tabIndex={-1} role="status" className="flex items-start gap-2 text-base font-semibold leading-snug text-foreground outline-none"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={3} />{t("Thank you. We'll look at your report.")}</p>
               <Button full className="mt-5 min-h-12 text-base" onClick={close}>{t("Done")}</Button>
             </>
           )}

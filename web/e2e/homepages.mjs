@@ -135,8 +135,11 @@ await step("the one demonstration slide: plays once on a first visit, never whil
   await still.ctx.close();
 });
 
-await step("someone who can't log yet sees the empty frames and one plain sentence: no bars, no figures, no target line", async () => {
+// Home, the week and the labels page follow the real gate (needsPaywall("log")): on this NEXT_PUBLIC_PRO=1 build logging is paid, so someone without Pro sees the
+// log card and the "once you log" sentences. On a build where logging is free (the 1.1 In-App Purchase one) none of them shows; e2e/iap.mjs checks that side.
+await step("someone who can't log yet (logging paid on this build) sees the log card, the empty frames and one plain sentence: no bars, no figures, no target line", async () => {
   const { ctx, page } = await open({ pro: false });
+  expect(await page.getByText("Log your meals to see what's left today.").count() === 1, "the log card on Home (run this script on a NEXT_PUBLIC_PRO=1 build, where logging is paid)");
   await dot(page, "Calories and protein this week").click();
   const week = await page.getByRole("group", { name: "Calories and protein this week, 2 of 3" }).innerText();
   expect(week.includes("Each day's calories show here once you log your meals.") && !week.includes("Your target") && !/\d{3}/.test(week), week);

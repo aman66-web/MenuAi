@@ -113,7 +113,7 @@ function ShopsButton({ shop, onClick }: { shop: string | null; onClick: () => vo
       onClick={onClick}
       aria-haspopup="dialog"
       aria-label={name ? `${t("Shopping at")}: ${name}` : t("Shopping at")}
-      className="glass inline-flex min-h-[3.25rem] max-w-[46%] shrink-0 items-center gap-2 rounded-full ps-2 pe-3 transition hover:bg-soft-strong active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-[3.25rem] max-w-[46%] shrink-0 items-center gap-2 rounded-full ps-2 pe-3 transition hover:bg-[var(--fill)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
       {shop ? <span aria-hidden><ShopMark shopId={shop} size="sm" /></span> : <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-soft-strong"><BasketIcon className="h-5 w-5" /></span>}
       {name && <span aria-hidden className="min-w-0 truncate text-[0.9375rem] font-bold">{name}</span>}
@@ -144,9 +144,9 @@ function ShopsWorking({ onDone }: { onDone: () => void }) {
             {i < step ? (
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sun text-[var(--on-accent)]"><CheckIcon className="h-4 w-4" /></span>
             ) : i === step ? (
-              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] motion-reduce:animate-none" />
+              <span className="h-7 w-7 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink motion-reduce:animate-none" />
             ) : (
-              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-[rgba(17,24,20,0.1)]" />
+              <span className="h-7 w-7 shrink-0 rounded-full border-[3px] border-line" />
             )}
             <span>{t(line)}</span>
           </li>
@@ -269,7 +269,7 @@ function RecipesScreen() {
             how many are saved, opening My meals at its Recipes tab (the recipes saved with a card's heart and the ones made for the person) */}
         {/* My recipes, then the Settings gear at the top right as on every tab (founder 2026-11-19) */}
         <div className="-me-1 flex max-w-full flex-wrap items-center justify-end gap-0.5">
-        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-soft-strong ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)] active:scale-95">
+        <Link href="/app/meals?tab=recipes" data-coach="recipes-mine" aria-label={savedCount > 0 ? `${t("My recipes")} · ${savedCount}` : t("My recipes")} className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft ps-3 pe-3.5 text-[0.9375rem] font-bold transition hover:bg-[var(--fill)] active:scale-95">
           <HeartIcon aria-hidden className="h-[18px] w-[18px]" />
           <span aria-hidden>{t("My recipes")}</span>
           {savedCount > 0 && <span aria-hidden className="app-numbers grid h-5 min-w-5 place-items-center rounded-full bg-foreground px-1 text-[0.6875rem] font-bold leading-none text-background">{savedCount}</span>}
@@ -404,13 +404,13 @@ function RecipesScreen() {
             </div>
             <div className="glass flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[1.25rem] p-4">
               <p className="min-w-0 flex-1 text-[0.9375rem] leading-snug"><span className="font-bold">{t("Your diet:")}</span> {words.length ? words.join(" · ") : t("nothing left out")}</p>
-              <Link href="/app/settings#diet" className={`${PILL} bg-[var(--fill)]`}>{t("Change")}</Link>
+              <Link href="/app/settings#diet" className={`${PILL} border-[1.5px] border-[color:var(--edge)] bg-soft`}>{t("Change")}</Link>
             </div>
           </div>
         </div>
         {/* stays at the bottom while the sheet scrolls */}
         <div className="sticky bottom-[calc(-1*max(1.75rem,env(safe-area-inset-bottom)))] z-10 -mx-5 -mb-[max(1.75rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 bg-white px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-10px_18px_-14px_rgba(17,24,20,0.3)]">
-          {filtering && <button type="button" onClick={clearAll} className={`${PILL} bg-[var(--fill)]`}>{t("Clear all")}</button>}
+          {filtering && <button type="button" onClick={clearAll} className={`${PILL} border-[1.5px] border-[color:var(--edge)] bg-soft`}>{t("Clear all")}</button>}
           <Button full className="min-h-12 flex-1" onClick={() => setMore(false)}>
             <span className="app-numbers">{shown.length === 0 && filtering ? t("No recipes match.") : shown.length === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n: shown.length })}</span>
           </Button>

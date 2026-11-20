@@ -51,7 +51,7 @@ const INSET_LIST = "inset-card divide-y divide-line overflow-hidden rounded-2xl"
 /** A sheet's list of choices: one light grey block with fine lines between the rows (no shadow: it sits on the white sheet). */
 const SHEET_LIST = "divide-y divide-line overflow-hidden rounded-2xl bg-[var(--fill)]";
 /** A round 44 px icon button in a row. */
-const ICON_BUTTON = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:bg-soft-strong hover:text-foreground disabled:opacity-40";
+const ICON_BUTTON = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:not-disabled:bg-soft-strong hover:not-disabled:text-foreground disabled:cursor-not-allowed disabled:bg-soft-strong";
 
 type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; savedId?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
 
@@ -89,7 +89,7 @@ export function BuilderScreen(props: { chainId: string; itemId?: string; pickId?
   // the page before (the dish, a saved meal, Today...) when there is one in the app, else the restaurant's menu (Eat out when the link names no restaurant)
   const nav = useBack(props.chainId ? chainHref(props.chainId) : "/app/eat-out");
   const back = (
-    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), props.chainId ? t("Back to menu") : t("Back to restaurants"), nav.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+    <Link href={nav.href} onClick={nav.onClick} aria-label={backName(t("Back"), props.chainId ? t("Back to menu") : t("Back to restaurants"), nav.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
   );
   if (!hydrated || status === "loading") return (<div>{back}<Spinner label={t("Loading")} /></div>);
   if (!pro) {
@@ -203,7 +203,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   return (
     <div>
       <div className="flex items-center justify-between">
-        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to menu"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
+        <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to menu"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>
       </div>
       <p className="kicker mt-5">{chain.name}</p>
       <h1 className={`mt-1.5 ${TITLE}`}>{t("Build your order")}</h1>
@@ -246,7 +246,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
       </Button>
 
       {/* Empty (and no height) until there's something to say; it stays in the page so a screen reader hears it. */}
-      <p role="alert" className="mt-3 px-1 text-sm font-semibold text-accent empty:mt-0">{notice}</p>
+      <p role="alert" className="mt-3 px-1 text-sm font-semibold text-foreground empty:mt-0">{notice}</p>
 
       <div className="mt-5"><AllergenSection chain={ix.chain} allergens={allergens?.allergens} changesNotCovered={allergens?.changesNotCovered} title={t("Allergens in this order")} /></div>
 
@@ -368,7 +368,7 @@ function ComponentLineEditor({ ix, line, onDouble, onRemove, onSwap, onAdd }: {
         </section>
       ))}
       {addableComponents(ix, line).size > 0 && (
-        <Button variant="ghost" className="mt-2 -ms-3" onClick={onAdd}><PlusIcon className="h-5 w-5" /> {t("Add ingredient")}</Button>
+        <Button variant="ghost" className="mt-2" onClick={onAdd}><PlusIcon className="h-5 w-5" /> {t("Add ingredient")}</Button>
       )}
     </div>
   );
@@ -384,9 +384,9 @@ function ItemLineEditor({ ix, line, onQty, onToggle }: { ix: ChainIndex; line: I
       <div className="flex items-center justify-between gap-3">
         <span className="app-numbers font-mono text-[0.8125rem] text-muted">{total ? formatCalories(total.calories) : ""}</span>
         <div className="flex items-center gap-1" role="group" aria-label={t("Quantity")}>
-          <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 disabled:opacity-40"><MinusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Decrease quantity")} disabled={line.qty <= 1} onClick={() => onQty(line.qty - 1)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95 disabled:cursor-not-allowed disabled:active:scale-100 disabled:opacity-100 disabled:border-transparent disabled:bg-soft-strong disabled:text-muted"><MinusIcon className="h-5 w-5" /></button>
           <span className="app-numbers w-8 text-center text-lg font-semibold" aria-live="polite">{line.qty}</span>
-          <button type="button" aria-label={t("Increase quantity")} onClick={() => onQty(line.qty + 1)} className="glass inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95"><PlusIcon className="h-5 w-5" /></button>
+          <button type="button" aria-label={t("Increase quantity")} onClick={() => onQty(line.qty + 1)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex h-11 w-11 items-center justify-center rounded-full transition active:scale-95"><PlusIcon className="h-5 w-5" /></button>
         </div>
       </div>
       {item.modifiers.length > 0 && (

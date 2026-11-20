@@ -87,13 +87,13 @@ const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] ga
 const CARD = "glass rounded-[1.25rem]";
 const LABEL = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
 const HEADING = "text-xl font-[800] tracking-[-0.01em]";
-/** A small grey circle inside a 44 px tap area, like Home's calendar button. */
-const ROUND_BUTTON = "group grid h-11 w-11 shrink-0 place-items-center rounded-full transition active:scale-90 disabled:opacity-40 disabled:active:scale-100";
-const ROUND_FACE = "grid h-9 w-9 place-items-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]";
+/** A small white circle with the 1.5 px edge inside a 44 px tap area, like Home's calendar button; at a limit the face is the quiet "can't press yet" fill, never faded. */
+const ROUND_BUTTON = "group grid h-11 w-11 shrink-0 place-items-center rounded-full transition active:scale-90 disabled:cursor-not-allowed disabled:active:scale-100";
+const ROUND_FACE = "grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft transition-colors group-hover:bg-[var(--fill)] group-disabled:border-transparent group-disabled:bg-soft-strong group-disabled:text-muted";
 /** A fact about the recipe beside the servings stepper (minutes, meal, no meat or fish): a white pill as tall as the stepper. */
 const INFO_CHIP = "glass inline-flex min-h-[3.25rem] items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold";
 /** A secondary action inside a white card: a light grey pill. */
-const SOFT_PILL = "inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-soft-strong";
+const SOFT_PILL = "inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]";
 
 /** A figure from the full label ("56.1 g", "688 kcal · 2,880 kJ"): the numbers in DM Mono like Home's rows, each unit in the text face, so the
  *  mono font's wide space doesn't open a gap before the "g". */
@@ -328,7 +328,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             <span className="kicker">{recipe.ai ? t("Made by Pip") : t("Recipe")}</span>
             <span aria-hidden className="kicker">·</span>
             {onChangeShops ? (
-              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={`${t("Shopping at")}: ${first.name}`} className="inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 rounded-full bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)] transition active:scale-95 hover:bg-soft-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+              <button type="button" onClick={onChangeShops} aria-haspopup="dialog" aria-label={`${t("Shopping at")}: ${first.name}`} className="inline-flex min-h-11 min-w-0 max-w-full items-center gap-2 rounded-full border-[1.5px] border-[color:var(--edge)] bg-white py-1 pe-3.5 ps-1 shadow-[0_1px_3px_rgba(17,24,20,0.12)] transition active:scale-95 hover:bg-[var(--fill)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                 <ShopMark shopId={first.retailer} size="sm" />
                 <span className="min-w-0 text-[0.9375rem] font-bold leading-tight [overflow-wrap:anywhere]">{first.name}</span>
                 <span aria-hidden className="text-muted">▾</span>
@@ -365,7 +365,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 {/* The figure comes first in reading order ("688 kcal, per serving"; the e2e test reads the group's text from its first number);
                     the label is drawn above it, top left like Home's "CALORIES", and the figure sits centred in the rest of the card. */}
                 <p className="flex flex-1 flex-col items-center justify-center text-center [overflow-wrap:anywhere]">
-                  <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-accent">{kcalAll(totals.perServing.kcal)}</span>
+                  <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-foreground">{kcalAll(totals.perServing.kcal)}</span>
                   <span className="mt-1.5 text-[1.0625rem] font-normal leading-tight">kcal</span>
                 </p>
                 <p className={`order-first ${LABEL}`}>{forPeople}</p>
@@ -463,7 +463,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               <div className={PAIR}>
                 <div className={`${CARD} p-4`}>
                   <p className={LABEL}>{t("a serving")}</p>
-                  <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em] text-accent">{totals.costPerServing !== null ? formatPrice(totals.costPerServing) : "–"}</p>
+                  <p className="mt-2.5 text-[1.75rem] font-medium leading-none tracking-[-0.02em] text-foreground">{totals.costPerServing !== null ? formatPrice(totals.costPerServing) : "–"}</p>
                 </div>
                 <div className={`${CARD} p-4`}>
                   <p className={LABEL}>{t("to buy it all")}</p>
@@ -512,13 +512,13 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                             <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
                                 in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (the serving's price is then "–" too) */}
-                            {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-accent">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
+                            {p.usedCost !== null && <span className="app-numbers text-[0.9375rem] font-semibold text-foreground">{t("{price} used", { price: formatUsedPrice(p.usedCost) })}</span>}
                             {!(spec.cupboard && spec.pantry) && (
-                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "bg-sun text-on-accent" : "bg-[var(--fill)] hover:bg-soft-strong"}`}>
+                              <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { flipHave(spec.key); setAdded(null); }} className={`ms-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]"}`}>
                                 {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
                               </button>
                             )}
-                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className={`${spec.cupboard && spec.pantry ? "ms-auto " : ""}inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-[var(--fill)] px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-soft-strong`}>
+                            <button type="button" onClick={() => setSwapping(spec.key)} aria-label={t("Swap {name}", { name: t(spec.label) })} className={`${spec.cupboard && spec.pantry ? "ms-auto " : ""}inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-semibold transition active:scale-95 hover:bg-[var(--fill)]`}>
                               <SwapIcon className="h-4 w-4" />{t("Swap")}
                             </button>
                           </div>
@@ -533,7 +533,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                   {p && spec.cupboard && spec.pantry && (
                     <div className="mt-3 flex flex-wrap items-center justify-end gap-x-3 gap-y-2 rounded-[1rem] bg-[var(--fill)] py-1.5 pe-1.5 ps-3.5">
                       <span className="min-w-0 flex-1 basis-32 text-[0.875rem] leading-snug text-muted">{hasIt(spec) ? t("Left off your list and the price to buy it all.") : t("You may have this already.")}</span>
-                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "bg-sun text-on-accent" : "bg-white hover:bg-soft-strong"}`}>
+                      <button type="button" aria-pressed={hasIt(spec)} aria-label={t("I have this: {name}", { name: t(spec.label).toLowerCase() })} onClick={() => { toggleCupboard(spec.pantry!); setAdded(null); }} className={`inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full px-4 text-[0.9375rem] font-bold transition active:scale-95 ${hasIt(spec) ? "border-[1.5px] border-[color:var(--on-accent)] bg-sun text-on-accent" : "border-[1.5px] border-[color:var(--edge)] bg-white hover:bg-[var(--fill)]"}`}>
                         {hasIt(spec) && <CheckIcon className="h-4 w-4" />}{t("I have this")}
                       </button>
                     </div>
@@ -644,8 +644,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 {t("Add all to my shopping list")}
               </Button>
             )}
-            <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-accent">
-              {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="underline underline-offset-2">{t("See list")}</Link></span>}
+            <p role="status" aria-live="polite" className="px-2 text-center text-[0.875rem] font-semibold text-foreground">
+              {added && <span className="mt-2 block">{added} <Link href="/app/groceries/list" className="text-accent underline underline-offset-2">{t("See list")}</Link></span>}
             </p>
           </div>
         )}

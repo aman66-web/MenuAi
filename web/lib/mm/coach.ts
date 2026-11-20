@@ -1,13 +1,18 @@
 // Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"): the first time each tab opens after the welcome
 // screens, Pip dims the page, lights up one real button at a time and says what it does (app/app/_components/CoachMarks.tsx). This file is the plain logic:
-// which tab a page is, whether its tips are still due, and what is kept on the phone (only which tabs' tips have been seen; nothing is sent anywhere).
+// which tab a page is, whether its tips are still due, and what is kept on the phone (only which tabs' tips have been seen, and whether the tour was walked; nothing is sent anywhere).
 
 export type CoachScreen = "home" | "eatOut" | "groceries" | "recipes";
 
-/** `armed`: the tips are switched on (the welcome screens' end, or Settings › "Show me the buttons"); `seen`: the tabs whose tips have been shown. */
+/**
+ * `armed`: the tips are switched on (the welcome screens' end, or Settings › "Show me the buttons"); `seen`: the tabs whose tips have been shown;
+ * `afterTour`: set only when the welcome screens ended after Pip's walk round the tabs, so a tip the walk already taught (the tab bar) isn't said twice
+ * (onboarding meeting, 19 November: "teach each button once"). Settings' COACH_ARMED leaves it out, so every tip shows.
+ */
 export interface CoachState {
   armed: boolean;
   seen: CoachScreen[];
+  afterTour?: boolean;
 }
 
 export const COACH_SCREENS: readonly CoachScreen[] = ["home", "eatOut", "groceries", "recipes"];
@@ -33,10 +38,13 @@ export function coachScreenFor(pathname: string): CoachScreen | null {
 
 /**
  * The end of the welcome screens switches the tips on, unless this phone has already been through all of them or stopped them ("Stop the tips" means stop:
- * setting up again doesn't bring them back; Settings › "Show me the buttons on each screen" always does, with COACH_ARMED).
+ * setting up again doesn't bring them back; Settings › "Show me the buttons on each screen" always does, with COACH_ARMED). `walkedTour`: the person walked
+ * the tour to its end (not "Skip tour"), so the tips the tour covered are left out. The end of the questions and "Look around first" both pass it (false after
+ * "Skip tour"); only the replay's Done passes no options, and then nothing is left out.
  */
-export function coachAfterWelcome(state: CoachState): CoachState {
-  return !state.armed && COACH_SCREENS.every((s) => state.seen.includes(s)) ? state : COACH_ARMED;
+export function coachAfterWelcome(state: CoachState, opts?: { walkedTour?: boolean }): CoachState {
+  if (!state.armed && COACH_SCREENS.every((s) => state.seen.includes(s))) return state;
+  return opts?.walkedTour === true ? { ...COACH_ARMED, afterTour: true } : COACH_ARMED;
 }
 
 /** True when this tab's tips should show now. */
@@ -47,12 +55,12 @@ export function coachDue(state: CoachState, screen: CoachScreen | null): screen 
 /** After a tab's tips: that tab is seen; once every tab is, the tips switch themselves off. */
 export function coachSeen(state: CoachState, screen: CoachScreen): CoachState {
   const seen = state.seen.includes(screen) ? state.seen : [...state.seen, screen];
-  return { armed: state.armed && COACH_SCREENS.some((s) => !seen.includes(s)), seen };
+  return { ...state, armed: state.armed && COACH_SCREENS.some((s) => !seen.includes(s)), seen };
 }
 
 export function sanitizeCoach(raw: unknown): CoachState {
   if (!raw || typeof raw !== "object") return NO_COACH;
-  const r = raw as { armed?: unknown; seen?: unknown };
+  const r = raw as { armed?: unknown; seen?: unknown; afterTour?: unknown };
   const seen = Array.isArray(r.seen) ? COACH_SCREENS.filter((s) => (r.seen as unknown[]).includes(s)) : [];
-  return { armed: r.armed === true, seen };
+  return r.afterTour === true ? { armed: r.armed === true, seen, afterTour: true } : { armed: r.armed === true, seen };
 }

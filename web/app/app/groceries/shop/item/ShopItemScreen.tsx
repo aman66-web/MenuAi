@@ -80,7 +80,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {foodDietProblem({ name: product.name, category: product.category }, prefs) && <p className="mt-4 flex items-start gap-2.5 rounded-2xl bg-[var(--fill)] px-4 py-3 text-[0.9375rem] leading-snug"><InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-muted" />{t("This product doesn't fit your diet settings, going by its name, type and label.")}</p>}
         {product.price !== null ? (
           <p className="app-numbers mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-accent">{formatPrice(product.price)}</span>
+            <span className="text-[2.75rem] font-medium leading-none tracking-[-0.03em] text-foreground">{formatPrice(product.price)}</span>
             {product.unitPrice !== null && product.unit && <span className="text-[0.9375rem] text-muted">{formatPrice(product.unitPrice)} {product.unit}</span>}
           </p>
         ) : (
@@ -95,7 +95,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         )}
         {product.member && (
           <p className="app-numbers mt-4 rounded-2xl bg-[var(--fill)] px-4 py-3 text-base">
-            <span className="font-bold text-accent">{formatPrice(product.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: product.member.scheme.replace(/ price$/i, "") })}</span>
+            <span className="font-bold text-foreground">{formatPrice(product.member.amount)}</span> <span className="font-semibold">{t("with {scheme}", { scheme: product.member.scheme.replace(/ price$/i, "") })}</span>
             <span className={`mt-0.5 block ${NOTE}`}>{t("Needs {shopPossessive} loyalty card.", { shopPossessive: poss(file.name) })} {t("The regular price above is what everyone pays.")}</span>
           </p>
         )}
@@ -116,7 +116,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>
       {/* takes no room until there is something to say, so no empty band sits between the buttons and the next card */}
-      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-accent [&:not(:empty)]:mt-3">{added && <>{added.text}{onLists === 0 && <> <Link href={added.href} className="underline underline-offset-2">{t("See list")}</Link></>}</>}</p>
+      <p role="status" aria-live="polite" className="text-center text-sm font-medium text-foreground [&:not(:empty)]:mt-3">{added && <>{added.text}{onLists === 0 && <> <Link href={added.href} className="text-accent underline underline-offset-2">{t("See list")}</Link></>}</>}</p>
       {sheet}
 
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>
@@ -134,7 +134,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         ) : inCatalogue ? (
           <>
             <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We have calories, protein, carbs, fat and allergens for this product.")}</p>
-            <Link href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-foreground px-5 text-[0.9375rem] font-bold text-background transition active:scale-[0.97] hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)]">{t("See the nutrition")}</Link>
+            <Link href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-5 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] hover:bg-[var(--ink-pressed)]">{t("See the nutrition")}</Link>
           </>
         ) : (
           <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.", { shopPossessive: poss(file.name) })}</p>

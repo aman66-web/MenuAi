@@ -24,7 +24,7 @@ const SIZES: ReadonlyArray<{ value: MealSize; label: string }> = [
 const QUESTION = "text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted";
 /** The two secondary choices under the sizes: full-width light grey pills of equal width on the white card, like "Done" under it. */
 const PILL_BASE = "inline-flex min-h-11 w-full items-center justify-center rounded-full px-4 py-2.5 text-center text-[0.9375rem] font-bold leading-tight transition active:scale-[0.98]";
-const LINK_PILL = `${PILL_BASE} bg-[var(--fill)] hover:bg-soft-strong`;
+const LINK_PILL = `${PILL_BASE} border-[1.5px] border-[color:var(--edge)] bg-soft hover:bg-[var(--fill)]`;
 
 function Choice({ on, onClick, onKeyDown, title, sub, label, focusable, numbers }: { on: boolean; onClick: () => void; onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void; title: string; sub: string; label: string; focusable?: boolean; numbers?: boolean }) {
   return (
@@ -117,7 +117,7 @@ export function MealPicker({ summary = true }: { summary?: boolean } = {}) {
           <label className="block text-[0.8125rem] font-semibold">{t("Protein (g)")}<input className={`${inputClass} mt-1 min-h-12 text-lg`} inputMode="numeric" placeholder={t("Optional")} value={protein} onChange={(e) => setProtein(e.target.value)} /></label>
           <label className="block text-[0.8125rem] font-semibold">{t("Carbs, at most (g)")}<input className={`${inputClass} mt-1 min-h-12 text-lg`} inputMode="numeric" placeholder={t("Optional")} value={carbs} onChange={(e) => setCarbs(e.target.value)} /></label>
           <label className="block text-[0.8125rem] font-semibold">{t("Fat, at most (g)")}<input className={`${inputClass} mt-1 min-h-12 text-lg`} inputMode="numeric" placeholder={t("Optional")} value={fat} onChange={(e) => setFat(e.target.value)} /></label>
-          {!valid && <p role="alert" className="col-span-2 text-sm font-medium text-accent">{t("Calories should be 150 to 2,500; the others above 0.")}</p>}
+          {!valid && <p role="alert" className="col-span-2 text-sm font-medium text-foreground">{t("Calories should be 150 to 2,500; the others above 0.")}</p>}
           <Button type="submit" className="col-span-2" disabled={!valid}>{t("Use my numbers")}</Button>
         </form>
       )}

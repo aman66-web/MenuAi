@@ -7,6 +7,7 @@ import { localeInfo } from "@/lib/mm/i18n";
 import { ADD_TO, ADDED_TO } from "@/lib/mm/addFood";
 import { entryMeal, loggedGaps, loggedToday, isSameLocalDay, LOG_MEALS, LOG_MEAL_LABEL } from "@/lib/mm/budget";
 import { PAYMENTS_ENABLED } from "@/lib/mm/config";
+import { needsPaywall } from "@/lib/mm/entitlements";
 import { formatCalories, formatGrams, formatInt } from "@/lib/mm/format";
 import { macroTargets } from "@/lib/mm/targets";
 import { deleteLogEntry, logStore, moveLogEntry, restoreLogEntry, savedStore, setLogPortion } from "@/lib/mm/stores";
@@ -26,7 +27,8 @@ import { useChainIndexes, useHydrated, useIsPro, useNow, useSettings, useStore }
 import { useLanguage, useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
 
-// SPEC §7.8, reached from Home's "today" card. Free: explainer + the paywall. Pro: totals against targets and today's entries.
+// SPEC §7.8, reached from Home's "today" card. Where logging is paid for this person (needsPaywall("log"), as Home's + checks: a NEXT_PUBLIC_PRO=1 build
+// without Pro): explainer + the paywall. Otherwise (Pro, or a build where logging is free, as the 1.1 In-App Purchase one): totals against targets and the day's entries.
 // Look (founder 2026-10-15, "the rest of the app should match [Home's] elegance"): one summary card in Home's voice (Home's calories dial,
 // the figures in a regular weight with the eaten one in the accent, then Home's protein, carbs and fat rows with their targets and thin
 // bars, so the same day reads the same on both screens), then what was eaten under Breakfast, Lunch and Dinner (SPEC §6.3 mealSlotFor,
@@ -50,7 +52,7 @@ function MacroRow({ label, eaten, target }: { label: string; eaten: number; targ
         <span className="app-numbers whitespace-nowrap font-mono text-[0.6875rem] font-normal">{formatGrams(eaten)}{target ? ` / ${formatGrams(target)}` : null}</span>
       </p>
       {target ? (
-        <div className="mt-3 h-1 overflow-hidden rounded-full bg-[var(--ring-track)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
+        <div className="mt-3 h-1 overflow-hidden rounded-full bg-[var(--line)]" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(fraction * 100)}>
           <div className="h-full rounded-full bg-[var(--bar)] transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${fraction * 100}%` }} />
         </div>
       ) : null}
@@ -71,6 +73,8 @@ function TodayScreen() {
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const timeFormat = new Intl.DateTimeFormat(htmlLang, { hour: "2-digit", minute: "2-digit" });
   const pro = useIsPro();
+  // the same gate as Home's + (lib/mm/entitlements.ts): where logging is free, Today is open to everyone
+  const logPaid = needsPaywall("log", { pro });
   const { showPaywall } = useGate();
   const settings = useSettings();
   const log = useStore(logStore);
@@ -91,7 +95,7 @@ function TodayScreen() {
   const todays = log.filter((e) => isSameLocalDay(new Date(e.loggedAt), day)).sort((a, b) => Date.parse(a.loggedAt) - Date.parse(b.loggedAt));
   const saved = useStore(savedStore);
   // only for entries logged before entries kept their picture: their dish is looked up in its chain's menu
-  const indexes = useChainIndexes(pro ? todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId) : []);
+  const indexes = useChainIndexes(!logPaid ? todays.filter((e) => e.chainId && !e.image && !e.recipeId && !e.photo).map((e) => e.chainId) : []);
 
   // a food put under the wrong meal moves to another (usability test 2026-11-19), said in a status line
   const [moving, setMoving] = useState<LogEntry | null>(null);
@@ -104,7 +108,7 @@ function TodayScreen() {
 
   if (!hydrated) return null;
 
-  if (!pro) {
+  if (logPaid) {
     return (
       <div>
         <BackHome />
@@ -114,9 +118,9 @@ function TodayScreen() {
           <div aria-hidden className="mb-5 flex items-center gap-5">
             <Ring id="today-preview" label="" fraction={0.68} size={92} stroke={10} />
             <div className="flex-1 space-y-4">
-              <div className="h-1.5 w-4/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-3/5 rounded-full bg-[var(--bar)]" /></div>
-              <div className="h-1.5 w-3/5 rounded-full bg-[var(--ring-track)]"><div className="h-full w-2/5 rounded-full bg-[var(--bar)]" /></div>
-              <div className="h-1.5 w-2/3 rounded-full bg-[var(--ring-track)]"><div className="h-full w-1/2 rounded-full bg-[var(--bar)]" /></div>
+              <div className="h-1.5 w-4/5 rounded-full bg-[var(--line)]"><div className="h-full w-3/5 rounded-full bg-[var(--bar)]" /></div>
+              <div className="h-1.5 w-3/5 rounded-full bg-[var(--line)]"><div className="h-full w-2/5 rounded-full bg-[var(--bar)]" /></div>
+              <div className="h-1.5 w-2/3 rounded-full bg-[var(--line)]"><div className="h-full w-1/2 rounded-full bg-[var(--bar)]" /></div>
             </div>
           </div>
           <p className="text-xl font-[800] leading-snug tracking-[-0.01em]"><Rich text={t("Keep track of what you eat {today}")} values={{ today: <span className="serif-em sun-text pe-0.5">{t("today")}</span> }} /></p>
@@ -170,11 +174,11 @@ function TodayScreen() {
       <Card className="app-numbers mt-5 px-4 pb-5 pt-4">
         <p className="text-[0.6875rem] font-bold uppercase tracking-[0.07em] text-muted">{t("Calories")}</p>
         <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <Gauge id="today" label={t("Calories")} fraction={calFraction} size={100} stroke={17} disc>
+          <Gauge id="today" label={t("Calories")} fraction={calFraction} size={100} stroke={17} disc className="[--ring-track:var(--line)]">
             <span aria-hidden className="text-[23px] font-[800] leading-none tracking-tight">{Math.round(calFraction * 100)}%</span>
           </Gauge>
           <p className="min-w-0 flex-1 font-normal leading-tight [overflow-wrap:anywhere]">
-            <span className="block text-[2rem] leading-none tracking-[-0.02em] text-accent">{formatInt(totals.calories)}</span>{" "}
+            <span className="block text-[2rem] leading-none tracking-[-0.02em] text-foreground">{formatInt(totals.calories)}</span>{" "}
             <span className="mt-2 block text-[1.0625rem]">/ {formatCalories(settings.dailyCalories)}</span>
             {/* what's left, as on Home (usability test 2026-11-19: George had to go back to Home to find it) */}
             <span className="mt-1.5 block text-[0.9375rem] font-bold">{Math.round(totals.calories) <= settings.dailyCalories ? t("{n} left", { n: formatInt(settings.dailyCalories - Math.round(totals.calories)) }) : t("{n} over", { n: formatInt(Math.round(totals.calories) - settings.dailyCalories) })}</span>
@@ -209,14 +213,14 @@ function TodayScreen() {
                   </div>
                   {/* each meal has exactly one "Add to …": this + once something is in it, the wide button below while it is empty */}
                   {isToday && entries.length > 0 && (
-                    <button type="button" onClick={() => setAddTo(meal)} aria-label={t(ADD_TO[meal])} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-soft-strong transition active:scale-95 hover:bg-accent-soft hover:text-accent">
+                    <button type="button" onClick={() => setAddTo(meal)} aria-label={t(ADD_TO[meal])} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink transition active:scale-95 hover:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                       <PlusIcon className="h-5 w-5" />
                     </button>
                   )}
                 </div>
                 {entries.length === 0 ? (
                   <div className="px-4 pb-4 pt-2">
-                    <button type="button" onClick={() => setAddTo(meal)} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-soft-strong px-4 text-base font-bold transition active:scale-[0.98] hover:bg-accent-soft hover:text-accent">
+                    <button type="button" onClick={() => setAddTo(meal)} className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-base font-bold transition active:scale-[0.98] hover:bg-[var(--fill)]">
                       <PlusIcon aria-hidden className="h-5 w-5" />
                       {t(ADD_TO[meal])}
                     </button>
@@ -237,11 +241,11 @@ function TodayScreen() {
                             <p className="app-numbers mt-1.5 font-mono text-[0.75rem] font-normal text-muted" aria-label={t("{calories} calories, {protein} grams protein", { calories: Math.round(e.nutrients.calories), protein: Math.round(e.nutrients.protein) })}>{t("{kcal} · {protein} protein", { kcal: formatCalories(e.nutrients.calories), protein: formatGrams(e.nutrients.protein) })}</p>
                           )}
                         </div>
-                        <button type="button" aria-label={t("Change {name}", { name: e.name })} onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-soft-strong px-3.5 text-[0.875rem] font-bold transition active:scale-95">
+                        <button type="button" aria-label={t("Change {name}", { name: e.name })} onClick={() => setMoving(e)} className="inline-flex min-h-11 shrink-0 items-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-3.5 text-[0.875rem] font-bold transition active:scale-95">
                           {t("Change")}
                         </button>
                         <button type="button" aria-label={t("Delete {name}", { name: e.name })} onClick={() => remove(e)} className="group -me-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong text-foreground transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
+                          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground transition-colors group-hover:bg-[var(--fill)]"><TrashIcon className="h-[18px] w-[18px]" /></span>
                         </button>
                       </li>
                     ))}
@@ -281,27 +285,27 @@ function TodayScreen() {
           </div>
         )}
       </Sheet>
-      {moved && <p role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto max-w-md rounded-full bg-foreground px-5 py-3 text-[0.9375rem] leading-snug text-background shadow-lg">{moved}</p>}
+      {moved && <p role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto max-w-md rounded-full bg-ink px-5 py-3 text-[0.9375rem] leading-snug text-on-ink shadow-lg">{moved}</p>}
 
       {added && (
         // At the top, clear of the meals and their + buttons, as on Home: a second tap on the same + must never land on Undo.
-        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+        <div role="status" className="fixed inset-x-4 top-[max(0.75rem,env(safe-area-inset-top))] z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-[1.75rem] bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t(ADDED_TO[added.meal], { name: added.entry.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={() => { deleteLogEntry(added.entry.id); setAdded(null); }}>{t("Undo")}</button>
         </div>
       )}
 
       {undo && (
-        <div role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-foreground py-1.5 ps-5 pe-2 text-background shadow-lg">
+        <div role="status" className="fixed inset-x-4 bottom-28 z-30 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-ink py-1.5 ps-5 pe-2 text-on-ink shadow-lg">
           <span className="min-w-0 text-[0.9375rem] leading-snug [overflow-wrap:anywhere]">{t("Deleted “{name}”.", { name: undo.name })}</span>
-          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-[var(--sun)] transition hover:bg-white/10" onClick={() => { restoreLogEntry(undo); setUndo(null); }}>{t("Undo")}</button>
+          <button type="button" className="min-h-11 shrink-0 rounded-full px-3.5 text-[0.9375rem] font-bold text-on-ink underline underline-offset-2 transition hover:bg-white/10" onClick={() => { restoreLogEntry(undo); setUndo(null); }}>{t("Undo")}</button>
         </div>
       )}
     </div>
   );
 }
 
-const DAY_PILL = "glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full text-base font-bold transition active:scale-95 hover:bg-soft-strong";
+const DAY_PILL = "glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]";
 
 /** Previous day and Next day side by side (stacked when the text is large: the minimum width is in rem); Next day is greyed on today. */
 function DayNav({ day, now }: { day: Date; now: Date }) {
@@ -322,5 +326,5 @@ function DayNav({ day, now }: { day: Date; now: Date }) {
 function BackHome() {
   const t = useT();
   const back = useBack("/app"); // the page before (Home, a meal row, the order builder...) when there is one in the app, else Home
-  return <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-soft-strong"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>;
+  return <Link href={back.href} onClick={back.onClick} aria-label={backName(t("Back"), t("Back to home"), back.cameFromApp)} className="glass border-[1.5px] border-[color:var(--edge)] bg-soft inline-flex min-h-11 shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full ps-2.5 pe-4 text-base font-bold transition active:scale-95 hover:bg-[var(--fill)]"><ChevronLeftIcon className="h-5 w-5" /><span>{t("Back")}</span></Link>;
 }

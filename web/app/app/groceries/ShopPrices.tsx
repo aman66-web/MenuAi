@@ -32,7 +32,7 @@ export function ShopPrices({ items }: { items: readonly ShopPrice[] }) {
             <span className={`app-numbers whitespace-nowrap text-[0.75rem] leading-none ${s.price !== null && s.price === cheapest ? "font-extrabold text-foreground" : "font-semibold text-muted"}`}>
               {s.price !== null ? formatPrice(s.price) : t("In store")}
             </span>
-            {s.member && <span className="app-numbers whitespace-nowrap text-[0.6875rem] font-semibold leading-none text-accent">{card(s.member)}</span>}
+            {s.member && <span className="app-numbers whitespace-nowrap text-[0.6875rem] font-semibold leading-none text-foreground">{card(s.member)}</span>}
           </span>
         ))}
       </span>

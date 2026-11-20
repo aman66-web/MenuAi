@@ -141,7 +141,7 @@ function ScoreDots({ score }: { score: number }) {
   return (
     <span aria-hidden className="mt-2 flex gap-1.5">
       {[1, 2, 3, 4, 5].map((n) => (
-        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-accent" : "bg-soft-strong"}`} />
+        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-ink [.truth-dark_&]:bg-accent" : "border border-edge bg-transparent"}`} />
       ))}
     </span>
   );
@@ -267,7 +267,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
         <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-[var(--fill)] p-5">
           <h3 id="truth-score" className="text-base font-bold uppercase tracking-wide text-muted">{t("Protein score")}</h3>
           <p className="mt-1 flex items-baseline gap-2">
-            <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight text-accent ${creator ? "text-8xl" : "text-7xl"}`}>{scoreShown}</span>
+            <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight text-foreground ${creator ? "text-8xl" : "text-7xl"}`}>{scoreShown}</span>
             <span aria-hidden className="text-4xl font-bold text-muted">/ 5</span>
             <span className="sr-only">{t("{score} out of 5", { score: truth.score.score })}</span>
           </p>
@@ -299,7 +299,7 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
           <ImageDownIcon className="h-6 w-6" />
           {t("Save image card")}
         </Button>
-        <p role="status" aria-live="polite" className="text-center text-base font-semibold text-accent empty:hidden">{saved}</p>
+        <p role="status" aria-live="polite" className="text-center text-base font-semibold text-foreground empty:hidden">{saved}</p>
       </div>
 
       <p className="mt-5 text-base leading-snug text-muted">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, type ButtonHTMLAttributes, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { useT } from "../_lib/i18n";
-import { CloseIcon } from "./icons";
+import { CloseIcon, WarningIcon } from "./icons";
 import "../_lib/inputModality"; // focus rings only after a keyboard is used (no box after a tap)
 import "../_lib/statusBar"; // a page-coloured strip behind the clock once the page has scrolled (iPhone)
 
@@ -12,24 +12,28 @@ const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean)
 // The primitives follow Home's language (founder 2026-10-15: "the rest of the app should match that elegance"): white cards with
 // 20 px corners on the light grey page, one black pill for the main action, light grey fills for anything sitting on a white card,
 // lime only for what is selected or on, and no gradients, tints or coloured shadows. Every role, name and prop is unchanged.
+// The colour meeting (19 November 2026, globals.css): the dark fill is the ink token, and a button or round control you can tap that isn't the
+// main one is white with the 1.5 px edge, never a grey pill.
 // Text sizes are in rem, never px, so the Large and Extra large text settings (which scale the root font size) reach every control.
 
 // ---- buttons (44 pt minimum tap targets everywhere) ----
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
+// Every other button is white with a 1.5 px mid-grey edge wherever it sits, on the page, on a card or in a sheet (colour meeting, 19 November 2026: testers
+// said the grey pills looked broken); pressed or hovered it takes the page's light grey.
+const SECONDARY = "border-[1.5px] border-edge bg-card text-foreground font-semibold active:scale-[0.97] hover:not-disabled:bg-background active:not-disabled:bg-background disabled:border-transparent disabled:bg-soft-strong disabled:text-muted";
 const variants: Record<Variant, string> = {
-  // The main action is a black pill, like Home's "Open"; the lime is kept for what is selected or highlighted.
-  primary: "bg-foreground text-background font-bold active:scale-[0.97] hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] disabled:bg-soft-strong disabled:text-muted",
-  // Secondary actions are white pills on the page and light grey pills inside a card or a sheet (globals.css and the Sheet do the
-  // fill); inside a grey card in a sheet, or an inset list, they are white again so they still show.
-  secondary: "glass text-foreground font-semibold active:scale-[0.97] hover:not-disabled:bg-soft-strong disabled:text-muted [.sheet-panel_:is(.glass,.hero-card)_&]:bg-white [.app-surface_.inset-card_&]:bg-white",
-  // A quiet text action ("Cancel"): the accent green, with a neutral grey wash on hover rather than a green tint.
-  ghost: "text-accent font-semibold hover:not-disabled:bg-soft-strong disabled:text-muted",
-  // A destructive action is never the dark pill: a quiet grey one, with the words doing the work.
-  danger: "bg-soft-strong text-foreground font-bold active:scale-[0.97] hover:not-disabled:bg-[color-mix(in_srgb,var(--foreground)_12%,var(--soft-strong))] disabled:text-muted",
+  // The main action is the one dark fill, ink, with white words; pressed or hovered it lightens to ink-pressed (a change you can see) as it shrinks a touch.
+  // The lime is kept for what is selected or highlighted.
+  primary: "bg-ink text-on-ink font-bold active:scale-[0.97] hover:not-disabled:bg-ink-pressed active:not-disabled:bg-ink-pressed disabled:bg-soft-strong disabled:text-muted",
+  secondary: SECONDARY,
+  // A quiet action ("Cancel", "Stop"): the secondary look, never green words (green words mean a link).
+  ghost: SECONDARY,
+  // A destructive action is never the dark pill: white with the red edge and red words (6.57:1), red being kept for errors and for deleting things.
+  danger: "border-[1.5px] border-danger bg-card text-danger font-bold active:scale-[0.97] hover:not-disabled:bg-background active:not-disabled:bg-background disabled:border-transparent disabled:bg-soft-strong disabled:text-muted",
 };
 // Unavailable (disabled) is a quiet grey pill with muted words, never a faded one: no opacity, so the words keep AA contrast (muted
-// on --soft-strong is 5.1:1), like iOS. `hover:not-disabled:` rather than `enabled:`, which a LinkButton (an <a>) never matches.
+// on --soft-strong is 7:1), like iOS. `hover:not-disabled:` rather than `enabled:`, which a LinkButton (an <a>) never matches.
 const buttonBase =
   "inline-flex items-center justify-center gap-2 rounded-full leading-snug transition duration-150 disabled:cursor-not-allowed disabled:active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 /**
@@ -125,7 +129,7 @@ export function Spinner({ label }: { label?: string }) {
   const text = label ?? t("Loading");
   return (
     <div role="status" aria-live="polite" className="flex items-center justify-center gap-3 py-10 text-[0.9375rem] font-medium text-muted [button_&]:gap-2 [button_&]:py-0 [button_&]:[font:inherit] [button_&]:text-inherit">
-      <span className="h-6 w-6 shrink-0 animate-spin rounded-full border-[3px] border-[rgba(17,24,20,0.1)] border-t-[var(--bar)] [button_&]:h-[1.125rem] [button_&]:w-[1.125rem] [button_&]:border-2 [button_&]:border-current/25 [button_&]:border-t-current" aria-hidden />
+      <span className="h-6 w-6 shrink-0 animate-spin rounded-full border-[3px] border-line border-t-ink [button_&]:h-[1.125rem] [button_&]:w-[1.125rem] [button_&]:border-2 [button_&]:border-current/25 [button_&]:border-t-current" aria-hidden />
       {/(…|\.\.\.)$/.test(text) ? text : `${text}…`}
     </div>
   );
@@ -146,8 +150,23 @@ export function ErrorBox({ message, onRetry }: { message: string; onRetry?: () =
 }
 
 /**
- * An outlined pill that fills dark when selected (the founder's reference pictures: a fine grey outline, medium-weight words, the
- * chosen one solid); `segment` is the quiet, borderless kind. The weight stays the same when selected so a row never shifts.
+ * The one allergy note (colour meeting, 19 November 2026), the same on every screen: a pale amber fill, a full 2 px amber edge, a triangle and the
+ * words in the body's ink (17.3:1). Amber is kept for the person's or household's own allergies, Contains matches and "not checked for your diet",
+ * at most one per screen view, so people keep noticing it. It adds no words of its own: the caller's words go inside.
+ */
+export function AllergyNote({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <div role="note" className={cx("flex gap-3 rounded-[1.25rem] border-2 border-note-edge bg-note-bg p-4 text-[0.9375rem] leading-snug text-foreground", className)}>
+      <WarningIcon className="mt-0.5 h-5 w-5 shrink-0 text-note-edge" />
+      <div className="min-w-0">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * An outlined pill that fills dark when selected (the founder's reference pictures: a grey outline, medium-weight words, the chosen one
+ * solid); the outline is the 1.5 px edge of every control you can tap (colour meeting, 19 November 2026). `segment` is the quiet, borderless kind.
+ * The weight and the edge's width stay the same when selected so a row never shifts.
  */
 export function Chip({ selected, children, onClick, className, segment, size = "md", ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { selected?: boolean; segment?: boolean; size?: ControlSize }) {
   return (
@@ -156,13 +175,13 @@ export function Chip({ selected, children, onClick, className, segment, size = "
       aria-pressed={selected}
       onClick={onClick}
       className={cx(
-        "inline-flex max-w-full shrink-0 items-center rounded-full border py-2 text-start text-base font-medium leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+        "inline-flex max-w-full shrink-0 items-center rounded-full border-[1.5px] py-2 text-start text-base font-medium leading-snug transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
         size === "lg" ? "min-h-12 px-5 font-semibold" : "min-h-11 px-4",
         selected
-          ? "border-transparent bg-foreground text-background"
+          ? "border-transparent bg-ink text-on-ink"
           : segment
             ? "border-transparent text-muted hover:text-foreground"
-            : "border-[color-mix(in_srgb,var(--foreground)_22%,transparent)] bg-transparent text-foreground hover:bg-soft-strong",
+            : "border-edge bg-transparent text-foreground hover:bg-soft-strong",
         className,
       )}
       {...rest}
@@ -278,7 +297,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
             "min-h-11 min-w-0 flex-[1_1_0%] rounded-full px-3 py-2 text-center text-[0.9375rem] font-semibold leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-accent",
             "group-data-[fit=content]/seg:flex-auto group-data-[fit=content]/seg:px-2 group-data-[fit=grid]/seg:rounded-2xl group-data-[fit=stack]/seg:flex-none group-data-[fit=stack]/seg:rounded-2xl",
             // In one row the unchosen words are grey, like iOS; stacked or in a block they are in ink so they read as live choices.
-            o.value === value ? "bg-foreground text-background" : "text-muted hover:bg-soft-strong hover:text-foreground group-data-[fit=stack]/seg:text-foreground group-data-[fit=grid]/seg:text-foreground",
+            o.value === value ? "bg-ink text-on-ink" : "text-muted hover:bg-soft-strong hover:text-foreground group-data-[fit=stack]/seg:text-foreground group-data-[fit=grid]/seg:text-foreground",
           )}
         >
           {o.label}
@@ -288,7 +307,11 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
   );
 }
 
-/** A switch: a grey track with a white knob; on, the track is lime and the knob dark, like the open tab in the tab bar. */
+/**
+ * A switch. Off: a white track with the 1.5 px edge of every control you can tap and a mid-grey knob (colour meeting, 19 November 2026: the old white knob on a
+ * light grey track was 1.19:1 on a white card). On: the track is lime and the knob dark, like the open tab in the tab bar. The edge is there in both states
+ * (transparent when on, so the lime fills the whole track) and the knob sits 1.5 px further in, so neither the track nor the knob moves when it flips.
+ */
 export function Toggle({ checked, onChange, label, description }: { checked: boolean; onChange: (v: boolean) => void; label: string; description?: string }) {
   return (
     <label className="flex min-h-11 cursor-pointer items-center justify-between gap-4 py-2">
@@ -297,7 +320,7 @@ export function Toggle({ checked, onChange, label, description }: { checked: boo
         {description && <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{description}</span>}
       </span>
       <input type="checkbox" role="switch" checked={checked} onChange={(e) => onChange(e.target.checked)} className="peer sr-only" />
-      <span aria-hidden className="relative h-8 w-14 shrink-0 rounded-full bg-soft-strong transition-colors peer-checked:[background:var(--sun)] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-1 after:top-1 after:h-6 after:w-6 after:rounded-full after:bg-white after:shadow-[0_1px_3px_rgba(17,24,20,0.25)] after:transition-[transform,background-color] peer-checked:after:translate-x-6 peer-checked:after:bg-foreground peer-checked:after:shadow-none" />
+      <span aria-hidden className="relative h-8 w-14 shrink-0 rounded-full border-[1.5px] border-edge bg-card transition-colors peer-checked:border-transparent peer-checked:[background:var(--sun)] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent after:absolute after:left-[calc(0.25rem_-_1.5px)] after:top-[calc(0.25rem_-_1.5px)] after:h-6 after:w-6 after:rounded-full after:bg-[var(--edge)] after:transition-[transform,background-color] peer-checked:after:translate-x-6 peer-checked:after:bg-ink" />
     </label>
   );
 }
@@ -325,14 +348,15 @@ const ON_FILL = "[.sheet-panel_:is(.glass,.hero-card)_&]:bg-white [.app-surface_
  * with the text inset, instead of the browser's arrow jammed against the edge. A select that already has its own chevron icon right
  * after it (Submit.tsx's SelectField) is left alone, so it never shows two.
  */
-const SELECT = "[&:is(select):not(:has(+svg))]:appearance-none [&:is(select):not(:has(+svg))]:pe-11 [&:is(select):not(:has(+svg))]:bg-no-repeat [&:is(select):not(:has(+svg))]:bg-[length:1.25rem] [&:is(select):not(:has(+svg))]:bg-[position:right_1rem_center] rtl:[&:is(select):not(:has(+svg))]:bg-[position:left_1rem_center] [&:is(select):not(:has(+svg))]:bg-[url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27%235f6361%27%20stroke-width=%271.8%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M6%209l6%206%206-6%27/%3E%3C/svg%3E)]";
+const SELECT = "[&:is(select):not(:has(+svg))]:appearance-none [&:is(select):not(:has(+svg))]:pe-11 [&:is(select):not(:has(+svg))]:bg-no-repeat [&:is(select):not(:has(+svg))]:bg-[length:1.25rem] [&:is(select):not(:has(+svg))]:bg-[position:right_1rem_center] rtl:[&:is(select):not(:has(+svg))]:bg-[position:left_1rem_center] [&:is(select):not(:has(+svg))]:bg-[url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27%234a4f4c%27%20stroke-width=%271.8%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M6%209l6%206%206-6%27/%3E%3C/svg%3E)]";
 
 export const inputClass = `min-h-12 w-full rounded-2xl border border-line bg-soft px-4 text-base text-foreground placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${ON_WHITE} ${ON_FILL} ${SELECT}`;
 
 // ---- bottom sheet on the native <dialog> element: focus trap, Escape and backdrop come for free ----
 
-// Inside the white sheet every "soft" surface (an input, a card, a tile, a secondary button, a picker's unselected buttons) takes the
-// light grey fill instead of white, flat with no shadow, the same way globals.css treats things sitting on a white card.
+// Inside the white sheet every "soft" surface (an input, a card, a tile, a picker's unselected buttons) takes the light grey fill instead
+// of white, flat with no shadow, the same way globals.css treats things sitting on a white card. Buttons stay white with their edge (--card).
+// Behind the sheet, the neutral scrim (rgba(0,0,0,0.5)), so food photos don't turn olive.
 const sheetSurface = { "--soft": "var(--fill)", "--tile": "var(--fill)", "--card-shadow": "none" } as CSSProperties;
 
 /** `dark`: the high-contrast #09090B card theme of the Truth screens (globals.css .truth-dark), for filming; every colour inside follows its variables. */
@@ -357,7 +381,7 @@ export function Sheet({ open, onClose, title, children, dark }: { open: boolean;
       onClick={(e) => {
         if (e.target === ref.current) onClose();
       }}
-      className="fixed inset-x-0 bottom-0 top-auto m-0 mx-auto max-h-[92dvh] w-full max-w-md overflow-visible rounded-t-[1.75rem] bg-transparent p-0 text-foreground backdrop:bg-[rgba(17,24,20,0.42)] backdrop:backdrop-blur-[3px]"
+      className="fixed inset-x-0 bottom-0 top-auto m-0 mx-auto max-h-[92dvh] w-full max-w-md overflow-visible rounded-t-[1.75rem] bg-transparent p-0 text-foreground backdrop:bg-[var(--scrim)] backdrop:backdrop-blur-[3px]"
     >
       {open && (
         <div
@@ -370,7 +394,7 @@ export function Sheet({ open, onClose, title, children, dark }: { open: boolean;
             <div className="flex items-center justify-between gap-3">
               <h2 tabIndex={-1} className="min-w-0 flex-1 text-xl font-[800] leading-tight tracking-[-0.01em] outline-none">{title}</h2>
               <button type="button" onClick={onClose} aria-label={t("Close")} className="group -me-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-soft-strong transition-colors group-hover:bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]"><CloseIcon className="h-[1.125rem] w-[1.125rem]" /></span>
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border-[1.5px] border-edge bg-card transition-colors group-hover:bg-background group-active:bg-background"><CloseIcon className="h-[1.125rem] w-[1.125rem]" /></span>
               </button>
             </div>
           </div>
