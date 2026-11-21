@@ -3827,3 +3827,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   never shown or saved (the founder's go-ahead: "can you do it all for me"). **Never change it** (every email hash would change and everyone could have a second
   free week). `vercel link` in web/ also downloaded a `.env.local`; it was deleted unread (gitignored). The Xcode test store and its test have no introductory
   offer now.
+- (00:22, 21 Nov) **numbite.com deployed** (founder: "can you do it all for me"): `main` fast-forwarded to `iap` (d2ffa1ce); the website build passed first in a
+  clean copy. Checked live: POST /api/v1/entitlement/account answers 401 without an account, /app/targets and /app/plan load, the privacy page has the free week.
+  The free week stays off until `supabase/migrations/20261121120000_free_week.sql` runs (waits for Claude in Chrome, disconnected since about 00:50).
