@@ -20,18 +20,19 @@ class MemoryStorage implements KeyValueStorage {
 }
 
 describe("the permission (mm.v1.aiOk)", () => {
-  it("is asked for each feature, kept on this phone, and forgotten by reset (Settings › Clear data)", () => {
+  it("is asked once for all of Pip (founder 2026-11-21), kept on this phone, and forgotten by reset (Settings › Clear data)", () => {
     const storage = new MemoryStorage();
     const store = createAiConsentStore(storage);
     expect(store.get()).toEqual([]);
-    store.update((l) => withAiAllowed(l, "scan"));
+    for (const f of AI_FEATURES) expect(aiAllowed(store.get(), f)).toBe(false);
     store.update((l) => withAiAllowed(l, "scan"));
     const back = createAiConsentStore(storage).get();
-    expect(back).toEqual(["scan"]);
-    expect(aiAllowed(back, "scan")).toBe(true);
-    // allowing Scan your food doesn't allow the features that send more (diet, allergies, the shop's list)
-    expect(aiAllowed(back, "photoRecipe")).toBe(false);
-    expect(aiAllowed(back, "fridgeRecipe")).toBe(false);
+    expect(back).toEqual([...AI_FEATURES]);
+    // one Allow, from any feature, covers every feature
+    for (const f of AI_FEATURES) expect(aiAllowed(back, f), f).toBe(true);
+    // someone who allowed one feature before the change is asked once more, with the sheet for all
+    expect(aiAllowed(["scan"], "scan")).toBe(false);
+    expect(aiAllowed(["mealPlan"], "mealPlan")).toBe(false);
     expect(AI_CONSENT_KEY).toBe("mm.v1.aiOk");
     store.reset();
     expect(storage.data.has(AI_CONSENT_KEY)).toBe(false);

@@ -4207,3 +4207,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   to), then "About £52 a week." and, when the cupboard makes it dearer, "Your first shop is about £82: it also stocks your cupboard." with what lasts; each
   day's card says its own food ("£7.58 food"; "food for 3" in a household). The check screen and the example week: "Your food: about £7.50 a day", then
   "Your first shop: about £82". e2e mealplan 13/13, household 6/6, showcase 14/14 (run with NEXT_PUBLIC_PRO=1), smoke updated.
+- (21 Nov, late evening) **A double tap can't jump the meal plan's questions; one Pip permission for all** (founder, on the training question: "the app just
+  teleported to another page"; no crash on the phone that evening). The big button sits in the same place on every step and is "Make my plan" on the last, so
+  a quick second tap, or iOS sending the tap again as the screen changed, skipped a question or made the plan: each step's buttons (and Back) now wait 500 ms
+  after it appears (SETTLE_MS; automated browsers don't wait, e2e/planAi.mjs checks two taps with a browser that looks like a phone). And (founder, on the
+  sheet before a meal plan: "You don't need to put this", then "Ask once for all Pip"): Pip's permission is asked once for all its features, "Pip uses AI":
+  "Pip's meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: your plan answers, a photo you take,
+  or the foods you list, with your diet and meal sizes. Never your name, email or account. Anthropic may keep requests for a short time under its own
+  terms." One Allow covers every feature (App Review 5.1.2(i) still met); someone who allowed one feature before is asked once more. e2e planAi 7/7.

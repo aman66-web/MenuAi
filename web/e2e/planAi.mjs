@@ -126,9 +126,10 @@ await step("each question opens with nothing chosen; the answers come back to th
 await step("Make my plan: Pip's permission first, then 'Pip is reading your answers'; the request holds the answers and no names", async () => {
   await page.getByRole("button", { name: "Make my plan" }).and(page.locator(":enabled")).waitFor({ timeout: 180000 });
   await page.getByRole("button", { name: "Make my plan" }).click();
-  const sheet = page.getByRole("dialog", { name: "Pip uses AI for this" });
+  // one permission for all of Pip (founder 2026-11-21: "Ask once for all Pip")
+  const sheet = page.getByRole("dialog", { name: "Pip uses AI" });
   await sheet.waitFor();
-  await sheet.getByText(/your answers to Pip's meal plan questions/).waitFor();
+  await sheet.getByText(/^Pip's meal plans, food scans and recipes use AI from Anthropic/).waitFor();
   await shot("09-permission");
   await sheet.getByRole("button", { name: "Allow" }).click();
   await h1("Making your plan").waitFor({ timeout: 30000 });
@@ -229,6 +230,33 @@ await step("leaving while Pip works (founder 2026-11-21: \"If the person clicks 
   await page.getByText("A steady week that keeps your cooking short on weekdays.").waitFor();
   expect((await page.getByText("Your meal plan is ready").count()) === 0, "the notice goes once the week is open");
   expect(errors.length === 0, errors.join(" | "));
+});
+
+await step("a double tap can't reach the next screen's button (founder 2026-11-21: \"the app just teleported to another page\"): Skip twice on a question opened from the check screen lands on the check screen, never on Make my plan", async () => {
+  // a browser that doesn't say it is automated, as a phone doesn't (the screens skip their wait for automated browsers)
+  const c2 = await context();
+  await c2.addInitScript(() => { Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false, configurable: true }); });
+  const p2 = await c2.newPage();
+  await p2.goto(BASE + "/app/plan");
+  await p2.getByRole("heading", { level: 1, name: "Ready to make your plan?", exact: true }).waitFor({ timeout: 120000 });
+  await p2.getByRole("button", { name: "Make my plan" }).and(p2.locator(":enabled")).waitFor({ timeout: 180000 });
+  await p2.getByRole("button", { name: /^Change: How often you train|^Change: Training/ }).first().click();
+  await p2.getByRole("heading", { level: 1, name: "How often do you train?", exact: true }).waitFor();
+  await p2.waitForTimeout(700);
+  // two taps 120 ms apart on the same spot: the first goes back to the check screen, the second lands where "Make my plan" now is
+  const skip = p2.locator(".sticky").getByRole("button").last();
+  const box = await skip.boundingBox();
+  await p2.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  await p2.waitForTimeout(120);
+  await p2.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  await p2.getByRole("heading", { level: 1, name: "Ready to make your plan?", exact: true }).waitFor();
+  await p2.waitForTimeout(1500);
+  expect((await p2.getByRole("heading", { level: 1, name: "Making your plan" }).count()) === 0, "the second tap made the plan");
+  // a tap after the wait works as ever
+  await p2.waitForTimeout(600);
+  await p2.getByRole("button", { name: /^Change: How often you train|^Change: Training/ }).first().click();
+  await p2.getByRole("heading", { level: 1, name: "How often do you train?", exact: true }).waitFor();
+  await c2.close();
 });
 
 await ctx.close();

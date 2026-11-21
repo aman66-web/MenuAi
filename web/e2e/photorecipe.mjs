@@ -152,9 +152,10 @@ await step("Pip's AI permission: the first Next asks once what is sent to Anthro
   await toDescribe(page);
   await fillDish(page);
   await page.getByRole("button", { name: "Next", exact: true }).tap();
-  const sheet = page.getByRole("dialog", { name: "Pip uses AI for this" });
+  // one permission for all of Pip since 21 November evening (founder: "Ask once for all Pip")
+  const sheet = page.getByRole("dialog", { name: "Pip uses AI" });
   await sheet.waitFor({ timeout: 5000 });
-  await sheet.getByText(/^Pip uses AI from Anthropic \(the company that makes Claude\)\. We send: /).waitFor();
+  await sheet.getByText(/^Pip's meal plans, food scans and recipes use AI from Anthropic \(the makers of Claude\)\. /).waitFor();
   await sheet.getByRole("button", { name: "Not now", exact: true }).tap();
   await sheet.waitFor({ state: "hidden", timeout: 5000 });
   await page.getByLabel("Name of the dish").waitFor();
@@ -164,7 +165,7 @@ await step("Pip's AI permission: the first Next asks once what is sent to Anthro
   await sheet.getByRole("button", { name: "Allow", exact: true }).tap();
   await page.locator("dialog[open]").filter({ has: page.getByRole("heading", { name: "Scan your food" }) }).waitFor({ timeout: 5000 });
   const kept = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.aiOk") ?? "null")?.data);
-  expect(JSON.stringify(kept) === '["photoRecipe"]', "the permission isn't kept: " + JSON.stringify(kept));
+  expect(JSON.stringify(kept) === '["scan","photoRecipe","fridgeRecipe","mealPlan"]', "the permission isn't kept for all of Pip: " + JSON.stringify(kept));
   expect((sent.describe?.length ?? 0) === 0 && sent.recipe.length === 0, "something was sent before a photo");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();

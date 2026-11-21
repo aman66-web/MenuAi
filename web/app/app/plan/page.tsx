@@ -73,6 +73,8 @@ const RECIPE_MAX_SERVINGS = 12;
 const asPrefs = (d: DietPrefs): Preferences => ({ ...NO_PREFERENCES, ...d, avoidAllergens: d.avoidAllergens ? [...d.avoidAllergens] : undefined });
 /** "£126" for a whole-pound budget (the slider's), "£126.40" otherwise. */
 const pounds = (n: number) => (Number.isInteger(n) ? `£${n}` : formatPrice(n));
+/** How long a new step's buttons wait before they act (Questions: a double tap can't reach the next screen's button). */
+const SETTLE_MS = 500;
 /**
  * The budget is asked and said as a day's food (founder 2026-11-21, on "£104 a week for 2 meals a day? Surely that's crazy instead ask for their budget per day
  * on food they'd like to spend"), in 50p steps; the plan keeps it as a week (seven days) and holds the food's cost week after week to it (mealPlan.ts
@@ -426,7 +428,13 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     if (shops !== null || !shopsAll.length) return;
     setShops(recipeShopSet(manifest, null, settings.shops)); // eslint-disable-line react-hooks/set-state-in-effect -- the answer starts from the person's shops once the list arrives
   }, [shopsAll, shops, settings.shops, manifest]);
-  useLayoutEffect(() => { window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, [step]);
+  // a tap meant for the screen before can't act on this one (founder 2026-11-21, on a question screen: "the app just teleported to another page"): the big
+  // button is in the same place on every step and is "Make my plan" on the last, so a quick second tap, or iOS sending the tap again as the screen changed,
+  // skipped a question or made the plan; for SETTLE_MS after a step appears its buttons wait
+  const shownAt = useRef(0);
+  useLayoutEffect(() => { shownAt.current = performance.now(); window.scrollTo({ top: 0 }); heading.current?.focus({ preventScroll: true }); }, [step]);
+  // an automated browser (the e2e tests) clicks as soon as a screen is drawn: no wait for it (e2e/planAi.mjs checks the wait itself with a real-looking browser)
+  const settled = () => (typeof navigator !== "undefined" && navigator.webdriver) || performance.now() - shownAt.current >= SETTLE_MS;
 
   const chosen = (shops ?? []).filter((id) => shopsAll.some((s) => s.id === id) || !shopsAll.length);
   const flip = (id: string) => setLeaveOut((l) => (l.includes(id) ? l.filter((x) => x !== id) : [...l, id]));
@@ -769,7 +777,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   return (
     <div className="pb-6">
       <PageHeader
-        back={fromCheck && id !== "check" ? { onPress: backToCheck, label: t("Back to the check screen") } : step > 1 && !direct ? { onPress: () => moveTo(step - 1), label: t("Back to the previous step") } : { href: "/app", label: t("Back to Home") }}
+        back={fromCheck && id !== "check" ? { onPress: () => { if (settled()) backToCheck(); }, label: t("Back to the check screen") } : step > 1 && !direct ? { onPress: () => { if (settled()) moveTo(step - 1); }, label: t("Back to the previous step") } : { href: "/app", label: t("Back to Home") }}
         action={onKeep && <Button variant="secondary" className="px-4" onClick={onKeep}>{t("Keep my plan")}</Button>}
       />
       {/* the steps done in the deep green on the line (progress on a light surface), the step in words for a screen reader; none on a first open's check screen,
@@ -978,7 +986,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
             {noneWays}
           </div>
         ) : (
-          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => (id === "check" ? make() : fromCheck ? backToCheck() : moveTo(step + 1))}>{nextLabel}</Button>
+          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "check") make(); else if (fromCheck) backToCheck(); else moveTo(step + 1); }}>{nextLabel}</Button>
         )}
       </div>
       {/* Pip's permission, the first time his AI would plan the week: Allow plans with him; Not now makes the week on this phone */}

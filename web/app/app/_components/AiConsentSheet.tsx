@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { AI_CONSENT_TEXT, AI_MESSAGES, AI_SENDS, aiAllowed, aiConsentStore, withAiAllowed, type AiFeature } from "@/lib/mm/aiConsent";
+import { AI_CONSENT_TEXT, AI_MESSAGES, aiAllowed, aiConsentStore, withAiAllowed, type AiFeature } from "@/lib/mm/aiConsent";
 import { useT } from "../_lib/i18n";
 import { InfoBanner } from "./Note";
 import { Button, Sheet } from "./ui";
@@ -32,12 +32,12 @@ export function OfflineBanner({ className }: { className?: string }) {
   return <InfoBanner className={className} heading={null}>{t(AI_MESSAGES.offline)}</InfoBanner>;
 }
 
-export function AiConsentSheet({ open, feature, shop, onAllow, onClose }: { open: boolean; feature: AiFeature; shop?: string; onAllow: () => void; onClose: () => void }) {
+// one sheet for all of Pip since 21 November evening (lib/mm/aiConsent.ts): `feature` and `shop` are kept for the callers, the words are the same everywhere
+export function AiConsentSheet({ open, onAllow, onClose }: { open: boolean; feature?: AiFeature; shop?: string; onAllow: () => void; onClose: () => void }) {
   const t = useT();
-  const sends = t(AI_SENDS[feature], { shop: shop ?? t("your shop") });
   return (
-    <Sheet open={open} onClose={onClose} title={t("Pip uses AI for this")}>
-      <p className="text-base leading-snug text-foreground">{t(AI_CONSENT_TEXT, { sends })}</p>
+    <Sheet open={open} onClose={onClose} title={t("Pip uses AI")}>
+      <p className="text-base leading-snug text-foreground">{t(AI_CONSENT_TEXT)}</p>
       <div className="mt-5 grid gap-2.5">
         <Button full size="lg" onClick={onAllow}>{t("Allow")}</Button>
         <Button full size="lg" variant="secondary" onClick={onClose}>{t("Not now")}</Button>

@@ -1,9 +1,10 @@
 // Pip's AI features (Scan your food, Make it at home, Cook with what you have, and Meal plan with Pip since 21 November 2026): the person's permission before anything is sent to Anthropic, and what
 // the screens say when Pip can't answer. Pure apart from the store, and unit-tested (tests/aiConsent.test.ts).
 //
-// Permission (App Review 5.1.2(i), the 20 November 2026 audit): the first time someone uses one of the three, a sheet (app/app/_components/AiConsentSheet.tsx)
-// says that Pip uses AI from Anthropic and exactly what that feature sends, with "Allow" and "Not now"; nothing is sent until they allow it. Each feature asks
-// for itself, because each sends different things. The answer is kept on this phone only (mm.v1.aiOk: never synced, never sent), so Settings › Clear data and
+// Permission (App Review 5.1.2(i), the 20 November 2026 audit): the first time someone uses any of them, a sheet (app/app/_components/AiConsentSheet.tsx)
+// says that Pip uses AI from Anthropic and what is sent, with "Allow" and "Not now"; nothing is sent until they allow it. Since 21 November evening one Allow
+// covers all of Pip (founder, on the sheet before a meal plan: "You don't need to put this", then "Ask once for all Pip"): it names every feature and what each
+// sends, so it is asked once, never again. Someone who allowed one feature before is asked once more, with the sheet for all. The answer is kept on this phone only (mm.v1.aiOk: never synced, never sent), so Settings › Clear data and
 // a new phone ask again. The wording is for the founder's approval (CLAUDE.md rule 8).
 //
 // Failures (the same audit): when Anthropic can't be reached (the monthly spending cap, an outage, a timeout) the server answers 503 "busy" and the screens say
@@ -31,12 +32,13 @@ export function createAiConsentStore(storage?: KeyValueStorage | null): Store<Ai
 /** This phone's answers. `.reset()` forgets them (Settings › Clear data). */
 export const aiConsentStore = createAiConsentStore();
 
-export const aiAllowed = (allowed: readonly AiFeature[], feature: AiFeature): boolean => allowed.includes(feature);
-/** The list with `feature` allowed (once). */
-export const withAiAllowed = (allowed: readonly AiFeature[], feature: AiFeature): AiFeature[] => sanitizeAiConsent([...allowed, feature]);
+/** Pip may be used: every feature allowed (one Allow covers all; `feature` stays for the callers that name theirs). */
+export const aiAllowed = (allowed: readonly AiFeature[], feature?: AiFeature): boolean => AI_FEATURES.every((f) => allowed.includes(f)) && (!feature || allowed.includes(feature));
+/** Everything allowed: one Allow is for all of Pip (whichever feature asked). */
+export const withAiAllowed = (allowed: readonly AiFeature[], feature?: AiFeature): AiFeature[] => sanitizeAiConsent([...allowed, ...(feature ? [feature] : []), ...AI_FEATURES]);
 
-/** The sheet's sentence; {sends} is the feature's own list below. */
-export const AI_CONSENT_TEXT = tk("Pip uses AI from Anthropic (the company that makes Claude). We send: {sends}. No name, email or account is sent, and we don't keep it; Anthropic may keep requests for a limited time under its own terms.");
+/** The sheet's words: every feature and what it sends, in one go (asked once for all of Pip). */
+export const AI_CONSENT_TEXT = tk("Pip's meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: your plan answers, a photo you take, or the foods you list, with your diet and meal sizes. Never your name, email or account. Anthropic may keep requests for a short time under its own terms.");
 
 /** What each feature sends, in the order the screens ask for it ({shop}: the supermarket's name). */
 export const AI_SENDS: Readonly<Record<AiFeature, string>> = {
