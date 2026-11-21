@@ -4104,3 +4104,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   and lentils, tofu, cheese, with counts; mealBalance main), Leave out (no eggs, cheese, bread, fish, pork, beef; mealBalance featured and bread) and
   Cuisine with counts. A tile or chip shows only when it would change the list. lib/mm/swapPicker.ts (SwapExtra, SwapMain, SwapAvoid), tests/swapPicker.test.ts
   (3 new); e2e mealplan 13/13. On `iap`, next build.
+- (21 Nov, evening) **A barcode photo is inside Scan a barcode** (founder, on Add to Dinner: "Barcode from a photo should be inside ... someone can press
+  the bottom right photo, and then they'll be able to do it. You don't have to do a separate tab for it"). Add food lists one "Scan a barcode" ("For food in a
+  pack, or from a photo"); the separate "Barcode from a photo" row and its photo-only screen are gone. In the iPhone app the iPhone's own scanner has a
+  "Photo" button at its bottom right (BarcodeScanner.swift): the photo library (PHPicker: no permission asked, only the chosen photo comes back), read on
+  the phone by Apple's Vision (EAN-13, EAN-8, UPC-E); no barcode in it gives "No barcode found" and the live scanner again. A browser's camera view has the
+  same Photo button bottom right, "Type the number instead" on the left. e2e/barcodephoto.mjs 6/6 (through Scan a barcode › Photo, with a fake camera);
+  Vision checked on the test photo (reads 5063089019924; none in the blank photo). The live scanner can't run in the Simulator: to try on the phone.

@@ -165,14 +165,15 @@ function CameraView({ onCode, onClose, onType, onFallback }: { onCode: (code: st
 
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
         <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{t("Point the camera at the barcode")}</p>
-        <div className="flex flex-wrap items-center justify-center gap-2.5">
-          <button type="button" onClick={onType} className="inline-flex min-h-12 items-center justify-center rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
+        <div className="flex w-full max-w-md items-end justify-between gap-3">
+          <button type="button" onClick={onType} className="mb-2 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-full bg-card px-5 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
             {t("Type the number instead")}
           </button>
-          {/* a photo of the barcode instead (founder 2026-11-21): read on the phone; one with no code goes to the sheet with a line saying so */}
-          <button type="button" disabled={readingPhoto} onClick={() => photo.current?.click()} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background disabled:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
-            <PhotoIcon aria-hidden className="h-5 w-5" />
-            {readingPhoto ? t("Reading the photo") : t("Choose a photo")}
+          {/* a photo of the barcode, bottom right (founder 2026-11-21: "someone can press the bottom right photo"): read on the phone; one with no code goes to
+              the sheet with a line saying so */}
+          <button type="button" disabled={readingPhoto} onClick={() => photo.current?.click()} aria-label={readingPhoto ? t("Reading the photo") : t("Choose a photo")} className="flex shrink-0 flex-col items-center gap-1 rounded-[1rem] text-sm font-bold transition active:scale-95 disabled:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
+            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-card text-ink">{readingPhoto ? <span className="h-5 w-5 animate-spin rounded-full border-2 border-ink border-t-transparent" /> : <PhotoIcon aria-hidden className="h-6 w-6" />}</span>
+            <span aria-hidden className="[text-shadow:0_1px_8px_var(--scrim)]">{t("Photo")}</span>
           </button>
           <input ref={photo} type="file" accept="image/*" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void fromPhoto(e.target.files?.[0]); e.target.value = ""; }} />
         </div>

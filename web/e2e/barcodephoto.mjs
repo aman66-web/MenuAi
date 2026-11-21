@@ -3,7 +3,9 @@
 // e2e/fixtures/barcode-photo-5063089019924.png: an EAN-13 drawn from the standard tables, small in a big 2400 x 1800 picture, for ASDA British Milk Semi Skimmed
 // 2 L (in Asda's full list with Asda's own label per 100 ml, as e2e/scandiary.mjs uses). Add food › Barcode from a photo › Choose a photo brings up the
 // milk's How much?; Measure › glass, 2 glasses, "= 500 ml", Add puts 5 x the label's figures in the diary. A photo with no barcode says so calmly. Groceries ›
-// Scan a barcode (no camera in this browser) offers Choose a photo on its sheet, which opens the product page.
+// Scan a barcode (no camera in this browser) offers Choose a photo on its sheet, which opens the product page. Since 21 November evening the photo is the
+// camera's own button, bottom right (founder: "Barcode from a photo should be inside ... You don't have to do a separate tab for it"): Add food › Scan a
+// barcode › Photo; the browser here has a fake camera, so the camera view is up.
 // Run against a dev or test server: BASE=http://localhost:3005 node e2e/barcodephoto.mjs
 import { chromium } from "playwright-core";
 import { readFileSync } from "node:fs";
@@ -12,7 +14,7 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 const CODE = "5063089019924";
 const PHOTO = new URL("./fixtures/barcode-photo-5063089019924.png", import.meta.url).pathname;
 const BLANK = new URL("./fixtures/photo-no-barcode.png", import.meta.url).pathname;
-const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox", "--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream"] });
 const settings = { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: {}, hasCompletedOnboarding: true, shops: ["asda"], devProOverride: true };
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n")[0]); } }
@@ -26,8 +28,8 @@ const asdaFile = JSON.parse(readFileSync(new URL("../public/groceries/all/asda.j
 const row = asdaRow && asdaFile.products.find((p) => p[0] === asdaRow[1]);
 const label = row?.[10];
 
-async function newPage() {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: "block" });
+async function newPage({ camera = true } = {}) {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: "block", permissions: camera ? ["camera"] : [] });
   await ctx.addInitScript((s) => {
     if (sessionStorage.getItem("seeded")) return;
     sessionStorage.setItem("seeded", "1");
@@ -42,20 +44,28 @@ async function newPage() {
 }
 const dlg = (page) => page.locator("dialog[open]").last();
 const log = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.log") ?? "null")?.data ?? []);
+// Add food › Scan a barcode: the camera view, with Photo at its bottom right; returns the camera's dialog
+async function cameraFromAddFood(page, meal) {
+  await page.getByRole("button", { name: `Add to ${meal}`, exact: true }).tap({ timeout: 90000 });
+  expect((await page.getByRole("button", { name: /Barcode from a photo/ }).count()) === 0, "no separate Barcode from a photo row");
+  await page.getByRole("button", { name: /^Scan a barcode/ }).tap();
+  const cam = page.locator("dialog[open]").filter({ has: page.locator("video") }).last();
+  await cam.waitFor({ timeout: 20000 });
+  const photo = cam.getByRole("button", { name: "Choose a photo" });
+  const box = await photo.boundingBox();
+  expect(box && box.x > 390 * 0.6 && box.y > 844 * 0.7, "Photo sits at the bottom right: " + JSON.stringify(box));
+  return cam;
+}
 
 await step("the barcode is in Asda's full list with a label per 100 ml (the data this test relies on)", async () => {
   expect(row && label && label.length >= 4, "Asda's row for the milk with its label");
 });
 
-await step("Add food › Barcode from a photo › Choose a photo: the milk comes up; Measure › glass, 2 glasses = 500 ml; Add logs 5 x the label", async () => {
+await step("Add food › Scan a barcode › Photo (bottom right): the milk comes up; Measure › glass, 2 glasses = 500 ml; Add logs 5 x the label", async () => {
   const { ctx, page, errors } = await newPage();
   await page.goto(BASE + "/app");
-  await page.getByRole("button", { name: "Add to Breakfast", exact: true }).tap({ timeout: 90000 });
-  await page.getByRole("button", { name: /Barcode from a photo/ }).tap();
-  await page.getByRole("heading", { name: "Barcode from a photo", exact: true }).waitFor();
-  // no camera opens on this choice
-  expect((await page.locator("video").count()) === 0, "no camera on Barcode from a photo");
-  await dlg(page).locator('input[type="file"]').setInputFiles(PHOTO);
+  const cam = await cameraFromAddFood(page, "Breakfast");
+  await cam.locator('input[type="file"]').setInputFiles(PHOTO);
   await dlg(page).getByText("How much?").waitFor({ timeout: 60000 });
   await dlg(page).getByRole("radio", { name: /^Glass \(250 ml\)$/ }).tap();
   await dlg(page).getByRole("button", { name: "2 glasses", exact: true }).tap();
@@ -74,9 +84,8 @@ await step("Add food › Barcode from a photo › Choose a photo: the milk comes
 await step("any amount, any measure (founder: \"about 1/5 of a carton ... put anything they want down\"): Pack › ⅕ pack = 400 ml; the unit in the box switches to glass; 1 1/2 typed = 375 ml; Add logs it", async () => {
   const { ctx, page, errors } = await newPage();
   await page.goto(BASE + "/app");
-  await page.getByRole("button", { name: "Add to Dinner", exact: true }).tap({ timeout: 90000 });
-  await page.getByRole("button", { name: /Barcode from a photo/ }).tap();
-  await dlg(page).locator('input[type="file"]').setInputFiles(PHOTO);
+  const cam = await cameraFromAddFood(page, "Dinner");
+  await cam.locator('input[type="file"]').setInputFiles(PHOTO);
   await dlg(page).getByText("How much?").waitFor({ timeout: 60000 });
   await dlg(page).getByRole("radio", { name: /^Pack \(2000 ml\)$/ }).tap();
   await dlg(page).getByRole("button", { name: "⅕ pack", exact: true }).tap();
@@ -97,16 +106,15 @@ await step("any amount, any measure (founder: \"about 1/5 of a carton ... put an
 await step("a photo with no barcode says so calmly, and another photo can be chosen", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");
-  await page.getByRole("button", { name: "Add to Lunch", exact: true }).tap({ timeout: 90000 });
-  await page.getByRole("button", { name: /Barcode from a photo/ }).tap();
-  await dlg(page).locator('input[type="file"]').setInputFiles(BLANK);
+  const cam = await cameraFromAddFood(page, "Lunch");
+  await cam.locator('input[type="file"]').setInputFiles(BLANK);
   await dlg(page).getByText(/No barcode found in that photo/).waitFor({ timeout: 30000 });
   await dlg(page).getByRole("button", { name: /Choose a photo/ }).waitFor();
   await ctx.close();
 });
 
 await step("Groceries › Scan a barcode: with no camera, the sheet offers Choose a photo, and the photo opens the product's page", async () => {
-  const { ctx, page } = await newPage();
+  const { ctx, page } = await newPage({ camera: false });
   await page.goto(BASE + "/app/groceries");
   await page.getByRole("button", { name: /Scan a barcode/ }).first().tap({ timeout: 90000 });
   // this browser has no camera: the camera view hands over to the sheet, or the person taps "Type the number instead"
