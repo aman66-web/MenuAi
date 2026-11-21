@@ -4215,3 +4215,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   "Pip's meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: your plan answers, a photo you take,
   or the foods you list, with your diet and meal sizes. Never your name, email or account. Anthropic may keep requests for a short time under its own
   terms." One Allow covers every feature (App Review 5.1.2(i) still met); someone who allowed one feature before is asked once more. e2e planAi 7/7.
+- (23:48, 21 Nov) **iPhone 1.1 build 18 uploaded to App Store Connect** (founder: "also upload the latest build to the app store please too"): CURRENT_PROJECT_VERSION
+  17 → 18 (62ab6ac9), packed in a clean copy (no screenshot test key), archived (`build/Numbite-1.1-build18.xcarchive`) and uploaded; "Upload succeeded",
+  processing. Not submitted: build 11 is still the one in App Review. The phone wasn't reachable for a direct install, so build 18 reaches it through TestFlight.
+  Has everything of 21 November: the chef-made recipes, Meal plan with Pip, 5 or 7 a day, the daily budget and food a day, the plan carrying on with a notice,
+  the double-tap guard, one Pip permission, the free week sheet and pill, the barcode photo button, everyday sizes. Apple's usual warning: from April 2027
+  uploads need the iOS 27 SDK (Xcode 27).
