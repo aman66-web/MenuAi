@@ -3887,3 +3887,15 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Recipes, Home, Groceries and Eat out), and the card fades in beside it. vitest coach 22/22; e2e/coach.mjs 6/6 (run with NEXT_PUBLIC_PRO=1
   NEXT_PUBLIC_PHOTO_RECIPES=1 as the dev server is; without them its Premium checks expect a free build and fail, before and after this change).
   New: tools/groceries/briefs/labels-aldi.md (the Waitrose brief for Aldi, 5 rounds). On `iap` only.
+- (03:00, 21 Nov) **Recipes for the low shops: what holds each back** (founder: "many of them should have recipes ... Aldi, M&S, Co-op, Lidl, Tesco. Please try and
+  add as many recipes as you can"). Recipes a shop can make today (lib/mm/recipeCoverage.ts, 293 recipes): Sainsbury's 293, Morrisons 289, Waitrose 240, Iceland
+  228, Asda 218, **Aldi 63, M&S 31, Tesco 4, Lidl 0**, Co-op not in the lists (no prices). Measured blockers: **M&S** prints its liquids' labels "per 100 g"
+  (its own lemon juice page: "per 100g"), so olive oil (131 recipes), lemon juice (81), vegetable oil, milk, soy sauce never fit a recipe's ml; counting them by
+  weight would give M&S **135**. **Aldi**: garlic (115 recipes; it sells only bulbs), lemon juice (its page says just "per 100": no unit, left out), and
+  basmati rice, basil pesto, tinned chickpeas and vegetable stock cubes whose own pages print no table at all. **Tesco**: its list lacks black pepper, chopped
+  tomatoes and plain rice (Tesco blocks the readers). **Lidl** prints no nutrition online. **Done:** Aldi's last 32 unread pages read (a Sonnet helper,
+  tools/groceries/briefs/labels-aldi.md; all fresh produce with no table, no block), ingested, Aldi's list rebuilt (`build_all_products.py --only aldi`): 1,906
+  products with numbers (was 1,874), 64 with the government's produce figures, its loose garlic among them (CoFID 13-244). **Held, not committed:** a
+  "fresh-garlic" kind as garlic purée's substitute (scratchpad patch): Aldi 63 to 81, but with only 16 lunches and 14 dinners its Meal plan can't fill a week
+  with no diet (tests/planPreview.test.ts), so it waits for the founder's answer on liquids' labels (Aldi's lemon juice would make 44 breakfasts, 27 lunches,
+  22 dinners, 13 snacks). vitest 3,600 pass.

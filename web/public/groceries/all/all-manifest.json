@@ -43,11 +43,11 @@
    "file": "aldi.json",
    "count": 3207,
    "checkedOn": "2026-10-08",
-   "nutrition": 1874,
+   "nutrition": 1906,
    "community": 1,
    "sameProduct": 1,
    "priced": 3207,
-   "sha256": "67eb81c972d7f04e71d0140f572caef1c65e39fe8dd75b627f4cd8b170f97ba6"
+   "sha256": "1ffe1d34e3c57c6c1227a09adc61aeec6011bae7f2dc9779aaaf80882f4a0cda"
   },
   {
    "id": "lidl",
