@@ -3973,3 +3973,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   as the app shows them (CLAUDE.md rule 2 and docs/STORE.md updated); every screenshot with a logo carries "Not affiliated with any restaurant or shop
   shown." Photos stay out. Shot 1 is now Eat out's Popular logos; Best for you uses Harvester (no dish photos, so no empty photo boxes). The set without
   logos is kept in web/e2e/shots/store-v2/no-logos/ (`NO_LOGOS=1`). The headline words are drafts to go through with the founder. Nothing uploaded.
+- (21 Nov, afternoon) **Logos next to the names, and the milk's photo** (founder: "The thing that has Asda ... should have the Asda logo and also an image of
+  ... the food itself, and also the one that says Nando's. You should do the Nando's logos. We need logos everywhere"). In the app (on `iap`, next build):
+  the Truth card shows the chain's logo tile next to its name (never in Creator View or on the dark card, which are filmed and posted); How much? shows the
+  shop's logo next to its name. Store screenshots: the scanned Asda milk shows its photo from Asda's own image server (store-shots-v2.mjs PHOTO_SHOTS);
+  dish photos stay out. Shots 2 and 4 now carry the not-affiliated line too. CLAUDE.md rule 2 and docs/STORE.md updated (founder's accepted risk).

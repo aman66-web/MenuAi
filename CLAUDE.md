@@ -55,8 +55,8 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    resized only (never cropped in the file, recoloured, retouched or generated), taken only from the chain's own official
    menu/nutrition pages or feeds (never third parties, aggregators or stock), attached only when that page names the item
    exactly, stored in `web/public/menu-images/` with `images.csv` + `web/public/menu-images/SOURCES.md` recording the page;
-   fetched politely (robots.txt honoured, never round a block); captioned "Photo from the {chain} website"; never in marketing,
-   the share card, the app icon or store screenshots; a chain's photos come down the day it asks (delete its folder + `images.csv`). Founder's decision (2026-10-06, "make sure to add
+   fetched politely (robots.txt honoured, never round a block); captioned "Photo from the {chain} website"; never in marketing, the share card or the app icon, and in store screenshots
+   only a supermarket's own product photo where the app shows it (founder 2026-11-21, the scanned Asda milk: "an image of like the food itself"); a chain's photos come down the day it asks (delete its folder + `images.csv`). Founder's decision (2026-10-06, "make sure to add
    them"): photos are installed for every chain even where its terms restrict reuse (the founder's accepted risk); the agent still
    reads the terms and quotes the clause in its report and `docs/IMAGE_TERMS.md`. Founder's decision (2026-10-10, "I'll use nano banana
    later to make images for them"): **our own recipes only** (`web/lib/mm/recipeBook/`) may show an illustration made with AI, (founder 2026-11-17: no visible caption; screen readers hear
@@ -72,7 +72,7 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    day its owner asks). Founder's decision (2026-10-12, free App Store launch, "Keep, with safeguards"): a logo (and, since 2026-10-14, that chain's item photos or that shop's product photos) can be taken
    down without an app update by listing its chain id (or `shop:<id>`) in `web/public/logos/hidden.json` and deploying the website; the iPhone
    app's welcome wall showed names only until 2026-10-18, when the founder decided "it has to be the logos too" (accepted risk): the wall now follows the same `appLogos` switch as the rest of the app
-   (`web/app-content.json`; false = names and cuisine icons everywhere, the one-line fallback if App Review objects under 5.2.1); store screenshots never show a photo; founder 2026-11-21 ("if they have logo things, they should also show the logo", accepted risk under App Review 2.3.9): they may show the official logo files as the app shows them, with the line "Not affiliated with any restaurant or shop shown." on each screenshot that has one (`web/e2e/store-shots-v2.mjs`, `store-frames.mjs`; `NO_LOGOS=1` makes the fallback set without logos if App Review objects).
+   (`web/app-content.json`; false = names and cuisine icons everywhere, the one-line fallback if App Review objects under 5.2.1); store screenshots show no dish photo; founder 2026-11-21 ("if they have logo things, they should also show the logo", "We need logos everywhere", accepted risk under App Review 2.3.9): they show the official logo files as the app shows them (and a shop's own product photo, see the photo rule), with the line "Not affiliated with any restaurant or shop shown." on each screenshot that has one (`web/e2e/store-shots-v2.mjs`, `store-frames.mjs`; `NO_LOGOS=1` makes the fallback set without logos if App Review objects).
 3. **No medical claims.** GLP-1 copy is "smaller, protein-first orders". Never call food good/bad/healthy.
    Reminder names and times are the person's own: the app gives no medication guidance and never calls a reminder missed or late.
 4. **Privacy:** **everyone signs in** (founder 2026-11-17, "Sign up screen shouldn't be skippable, required for everyone"): `SIGN_IN_REQUIRED` in `web/lib/mm/config.ts`
