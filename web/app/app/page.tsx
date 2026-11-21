@@ -2,6 +2,7 @@
 
 import { StartPrompt } from "./_components/StartPrompt";
 import { ToldUsCard } from "./_components/ToldUsCard";
+import { FreeWeekPill } from "./_components/FreeWeekNote";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -141,6 +142,8 @@ export default function HomePage() {
           </>
         }
       />
+      {/* the free week, every time Home opens while it runs (founder 2026-11-21: "they just know that they've got a 7-day trial") */}
+      <FreeWeekPill className="mt-1" />
       {/* founder 2026-11-20: the one-line intro under the date ("Your food today: what you've eaten and what's left.") and the word "Today" under today's circle are
           gone, and the week and the numbers move up, so the first screen reaches the Meal plan */}
       <ol aria-label={t("This week")} className="mt-2 grid grid-cols-7 gap-2 text-center">

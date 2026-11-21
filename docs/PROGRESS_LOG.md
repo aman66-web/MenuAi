@@ -4111,3 +4111,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   the phone by Apple's Vision (EAN-13, EAN-8, UPC-E); no barcode in it gives "No barcode found" and the live scanner again. A browser's camera view has the
   same Photo button bottom right, "Type the number instead" on the left. e2e/barcodephoto.mjs 6/6 (through Scan a barcode › Photo, with a fake camera);
   Vision checked on the test photo (reads 5063089019924; none in the blank photo). The live scanner can't run in the Simulator: to try on the phone.
+- (21 Nov, evening) **The free week, said so** (founder: "when the person goes into the app for the first time, they should be notified that they've got
+  a 7-day trial ... they just know that they've got a 7-day trial"). The one toast when it started ("Premium is yours free for 7 days.", easily missed) is now
+  a sheet on Home, once on this phone: "Your free week has started", a lime card "7 days of Premium, free / Until {weekday date}", "No card needed, and nothing
+  to cancel." (true: the free week is our server's, nothing is bought, it simply ends), What Premium adds (PremiumOffer, the one list) and "Start exploring".
+  Pip's tips wait for it (data-coach-wait). While the week runs, Home shows a lime pill under the date every time it opens, "Free week: {n} days left" (the
+  words Settings › Subscription already uses; last day "Free week: 1 day left"), opening the plans page. iPhone app only (the website sells nothing).
+  e2e/freeweek.mjs 7/7 (its plans-page step expected the old "Get more with Premium" headline, changed earlier the same day: fixed). New words (rule 8):
+  "Your free week has started", "{days} days of Premium, free", "Until {date}", "No card needed, and nothing to cancel.", "Start exploring".

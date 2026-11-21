@@ -3,7 +3,7 @@ import { ACCOUNT_REFRESH_GAP_MS, forgetAccountAccess, refreshAccountAccess, rese
 import { refreshAppStoreAccess } from "../lib/payments/iap";
 import { generateKeyPair, signClaims, type EntitlementClaims } from "../lib/payments/token";
 import {
-  FREE_WEEK_DAYS, FREE_WEEK_ENDED, FREE_WEEK_LAST_DAY, FREE_WEEK_LEFT, FREE_WEEK_NOTE, NO_FREE_WEEK, PREMIUM_GIFT, freeWeekDaysLeft, freeWeekEnded, freeWeekHad, sanitizeFreeWeek,
+  FREE_WEEK_DAYS, FREE_WEEK_DAYS_FREE, FREE_WEEK_ENDED, FREE_WEEK_LAST_DAY, FREE_WEEK_LEFT, FREE_WEEK_NO_CARD, FREE_WEEK_STARTED, NO_FREE_WEEK, PREMIUM_GIFT, freeWeekDaysLeft, freeWeekEnded, freeWeekHad, sanitizeFreeWeek,
 } from "../lib/mm/freeWeek";
 import { format } from "../lib/mm/i18n";
 import { cleanNativeResult, type NativeResult } from "../lib/mm/native";
@@ -204,7 +204,9 @@ describe("what the phone keeps and the screens read", () => {
   });
 
   it("the words: the line when it starts, Settings, and the paywall once it has ended (one free week, never two)", () => {
-    expect(format(FREE_WEEK_NOTE, { days: FREE_WEEK_DAYS })).toBe("Premium is yours free for 7 days.");
+    expect(format(FREE_WEEK_STARTED)).toBe("Your free week has started");
+    expect(format(FREE_WEEK_DAYS_FREE, { days: FREE_WEEK_DAYS })).toBe("7 days of Premium, free");
+    expect(format(FREE_WEEK_NO_CARD)).toBe("No card needed, and nothing to cancel.");
     expect(format(FREE_WEEK_LEFT, { n: 3 })).toBe("Free week: 3 days left");
     expect(FREE_WEEK_LAST_DAY).toBe("Free week: 1 day left");
     expect(PREMIUM_GIFT).toBe("Premium, a gift");

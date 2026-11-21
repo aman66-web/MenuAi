@@ -1,6 +1,8 @@
 // The free week and gifts of Premium (founder, 20 November 2026) in the iPhone app 1.1's packed web app, with a pretend iPhone (the bridge: StoreKit with NO
 // introductory offer, as App Store Connect will have it, and Apple's DeviceCheck token) and a pretend server (the signed-in account's session, sync, and
-// POST /api/v1/entitlement/account signing with a THROWAWAY key from e2e/paykey.mjs): a signed-in account gets Premium with nothing to type, Home says so once,
+// POST /api/v1/entitlement/account signing with a THROWAWAY key from e2e/paykey.mjs): a signed-in account gets Premium with nothing to type, Home says so once
+// in a sheet ("Your free week has started", since 21 November evening; founder: "they should be notified that they've got a 7-day trial") and keeps a "Free
+// week: 7 days left" pill at its top while it runs,
 // Settings says how many days are left and keeps See plans, the plans page shows the plans (not "Premium is on"), nothing offers a second free week; once the
 // week has ended the paywall says "Your free week has ended"; a gift; a purchase wins (the account isn't asked); signing out forgets it.
 // The same build as e2e/iap.mjs:
@@ -106,10 +108,22 @@ async function axe(page, where) {
 }
 const stored = (page, key) => page.evaluate((k) => JSON.parse(localStorage.getItem(k) ?? "null")?.data ?? null, key);
 
-await step("a signed-in account: the app asks once with the session and this iPhone's DeviceCheck token, Premium is on with nothing to type, and Home says so once", async () => {
+await step("a signed-in account: the app asks once with the session and this iPhone's DeviceCheck token, Premium is on with nothing to type, and Home says so once in a sheet, then keeps a pill", async () => {
   const { ctx, page, asked } = await newPage({ answer: trial(Date.now() + 7 * DAY) });
   await page.goto(BASE + "/app");
-  await page.getByText("Premium is yours free for 7 days.").waitFor({ timeout: 10_000 });
+  const sheet = page.getByRole("dialog", { name: "Your free week has started" });
+  await sheet.waitFor({ timeout: 10_000 });
+  await sheet.getByText("7 days of Premium, free").waitFor();
+  await sheet.getByText(/^Until \w+day \d+ \w+$/).waitFor();
+  await sheet.getByText("No card needed, and nothing to cancel.").waitFor();
+  await sheet.getByRole("heading", { name: "What Premium adds" }).waitFor();
+  // Pip's tips wait for the sheet
+  expect((await page.getByText(/^Tip 1 of/).count()) === 0, "no tip over the sheet");
+  await axe(page, "the free week sheet");
+  await sheet.getByRole("button", { name: "Start exploring" }).click();
+  await sheet.waitFor({ state: "hidden" });
+  const pill = page.getByRole("link", { name: "Free week: 7 days left" });
+  await pill.waitFor();
   expect(asked.length >= 1 && asked[0].auth === "Bearer at-1", `the session was sent: ${JSON.stringify(asked[0])}`);
   expect(asked[0].body?.deviceToken === DEVICE_TOKEN && asked[0].body?.deviceEnv === "production", `the DeviceCheck token was sent: ${JSON.stringify(asked[0].body)}`);
   expect((await stored(page, "mm.v1.paid"))?.plan === "trial", "the free week's token is kept as a purchase's is");
@@ -119,7 +133,10 @@ await step("a signed-in account: the app asks once with the session and this iPh
   expect((await page.getByRole("dialog", { name: "Numbite Premium" }).count()) === 0, "no paywall in the free week");
   await page.goto(BASE + "/app");
   await page.waitForTimeout(3500);
-  expect((await page.getByText("Premium is yours free for 7 days.").count()) === 0, "said once on this phone");
+  expect((await page.getByRole("dialog", { name: "Your free week has started" }).count()) === 0, "said once on this phone");
+  // the pill stays every time Home opens while the week runs, and opens the plans page
+  await pill.click();
+  await page.waitForURL(/\/app\/pro/);
   await ctx.close();
 });
 
@@ -130,7 +147,8 @@ await step("Settings › Subscription: 'Free week: 7 days left' and See plans; t
   await page.getByRole("link", { name: "See plans" }).click();
   await page.waitForURL(/\/app\/pro/);
   await page.getByRole("radiogroup", { name: "Choose a plan" }).waitFor();
-  await page.getByRole("heading", { name: "Get more with Premium" }).waitFor();
+  // the plans' headline says the free week is on (the meeting of 21 November 2026, Tara and Bea: it said "Get more with Premium" and never that Premium was on)
+  await page.getByRole("heading", { name: "Free week: 7 days left" }).waitFor();
   await page.getByRole("button", { name: "Subscribe for £49.99 a year" }).waitFor();
   const text = await page.locator("main").innerText();
   expect(!/First 7 days free|How your free trial works|Try Premium free|Premium is on\.|still have a/i.test(text), `no second free week, no "Premium is on": ${text.match(/First 7 days free|How your free trial works|Try Premium free|Premium is on\.|still have a/i)?.[0]}`);

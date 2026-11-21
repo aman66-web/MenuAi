@@ -4,7 +4,7 @@ import { tk } from "./i18n";
 // need to type any details"): every account has Premium for its first FREE_WEEK_DAYS days from its first sign-in in the iPhone app, given by our server as the
 // same signed token a purchase gives (plan "trial"; a gift of Premium from the founder is plan "gift"). The server decides who may have it and stops a second
 // one (lib/payments/freeWeek.ts); this file is only what the phone remembers about it, so the screens can say so: Settings › Subscription ("Free week: {n} days
-// left", "Premium, a gift"), the one line on Home when it starts, and the paywall's headline once it has ended. It belongs to the account signed in on this
+// left", "Premium, a gift"), Home's sheet when it starts and its pill while it runs, and the paywall's headline once it has ended. It belongs to the account signed in on this
 // phone (`user`), and is forgotten with the account (sign out, Delete my account, Clear data). Pure: the store is in stores.ts, the calls in
 // lib/payments/accountAccess.ts.
 
@@ -21,7 +21,7 @@ export interface FreeWeekState {
   status: FreeWeekStatus;
   /** When the free week ends or ended (ms), when known. */
   endsAt: number | null;
-  /** The one line on Home ("Premium is yours free for 7 days.") is owed: the free week started with this phone's own request. */
+  /** Home's "Your free week has started" sheet is owed: the free week started with this phone's own request. */
   welcomeDue: boolean;
 }
 
@@ -59,8 +59,12 @@ export function freeWeekHad(s: FreeWeekState, userId: string | null): boolean {
 
 // ---- the words (rule 8: listed in the report)
 
-/** The one line on Home when the free week starts. */
-export const FREE_WEEK_NOTE = tk("Premium is yours free for {days} days.");
+/** Home's sheet when the free week starts (founder 2026-11-21: "they should be notified that they've got a 7-day trial"; until then one toast,
+ *  "Premium is yours free for {days} days.", easily missed). "Nothing to cancel" is true: the free week is our server's, nothing is bought and it simply ends. */
+export const FREE_WEEK_STARTED = tk("Your free week has started");
+export const FREE_WEEK_DAYS_FREE = tk("{days} days of Premium, free");
+export const FREE_WEEK_UNTIL = tk("Until {date}");
+export const FREE_WEEK_NO_CARD = tk("No card needed, and nothing to cancel.");
 /** Settings › Subscription while it runs. */
 export const FREE_WEEK_LEFT = tk("Free week: {n} days left");
 export const FREE_WEEK_LAST_DAY = tk("Free week: 1 day left");

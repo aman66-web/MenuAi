@@ -107,7 +107,7 @@ async function run({ userId, request, call = nativeCall, nowMs = Date.now(), for
   return "none";
 }
 
-/** Home has said "Premium is yours free for 7 days." once: not again on this phone. */
+/** Home has shown "Your free week has started" once: not again on this phone. */
 export function welcomeSaid(): void {
   const s = freeWeekStore.get();
   if (s.welcomeDue) freeWeekStore.set({ ...s, welcomeDue: false });
