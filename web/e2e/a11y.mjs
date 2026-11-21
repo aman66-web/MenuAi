@@ -113,7 +113,7 @@ const pages = [
     must((await p.locator("#plan-calories").evaluate((el) => el.closest(".group\\/step")?.querySelector("[aria-live='polite']")?.textContent)) === "", "your plan: typing a number still has the live region speaking");
     await p.waitForTimeout(500);
   }],
-  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toPlan(p); await p.getByRole("button", { name: /^(Save my plan|Save and go to Home)$/ }).click(); await p.getByRole("heading", { level: 1, name: /^Save your plan/ }).waitFor(); await p.waitForTimeout(800); }],
+  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toPlan(p); await p.getByRole("button", { name: /^(Save my numbers|Save and go to Home)$/ }).click(); await p.getByRole("heading", { level: 1, name: /^Save your plan/ }).waitFor(); await p.waitForTimeout(800); }],
   // Settings › Help › "Show me what Numbite can do" (it replaced the tour's replay)
   ["welcome: replay 1 of 2 (Settings › Help)", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 1); }],
   ["welcome: replay 2 of 2", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 2); }],

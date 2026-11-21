@@ -3871,3 +3871,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   server: e2e/freeweek.mjs 7/7 (Premium on with nothing to type, "Free week: 7 days left", "1 day left", "Your free week has ended" with the plans, gift,
   purchase wins, sign-out forgets), e2e/iap.mjs 11/12 (the one failure is the stale step about the old trial pop-up's timing, from before the free week; buying,
   cancel, Ask to Buy, restore and refund pass). Not tried by Claude: a real sign-in on a real iPhone (the founder's own sign-in) and an Apple sandbox purchase.
+- (02:08, 21 Nov) **Your plan's button: "Save my numbers"** (was "Save my plan"; founder, testing the TestFlight build: "It shouldn't save their plan automatically. It
+  should just say an example ... this shouldn't be their save plan"). The button only ever saved the calories and protein (saveTargets); the example week is never
+  saved (exampleWeek.ts), but the old words said otherwise. Signed in it still says "Save and go to Home". keys.json updated (WRITE_I18N); the browser tests that
+  press it renamed. vitest 3,600 pass; e2e smoke 24/24 on the dev server. On `iap` only: not in build 10 (in review) nor on numbite.com.

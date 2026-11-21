@@ -661,7 +661,7 @@ function Welcome() {
             onDish={setFirstDish}
             targets={{ fields: target.fields, setField: target.setField, reading: targetReading, starting: planStarting, under18: answers.under18, notes: planNotes, save: saveTargets }}
             bottom={{
-              next: run.signedIn ? t("Save and go to Home") : t("Save my plan"),
+              next: run.signedIn ? t("Save and go to Home") : t("Save my numbers"),
               onNext: () => {
                 // the numbers as they stand (worked out, starting or typed) are saved; a box left wrong while changing them keeps the person here
                 if (!answers.under18 && !saveTargets()) return;

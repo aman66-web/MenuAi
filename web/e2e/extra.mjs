@@ -58,7 +58,7 @@ await step("GLP-1 onboarding keeps the default comfortable meal size (450) when 
   await vis(page.getByRole("heading", { name: /^About you/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // About you and How active are you?, to Your plan
   await vis(page.getByRole("heading", { name: /^Your plan/ }));
-  await page.getByRole("button", { name: "Save my plan" }).click();
+  await page.getByRole("button", { name: "Save my numbers" }).click();
   await vis(page.getByRole("heading", { name: /^Save your plan/ }));
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);
@@ -87,7 +87,7 @@ await step("onboarding offers Other as a goal (full width, ticked when tapped; n
   await page.getByRole("button", { name: "Continue", exact: true }).click();
   await vis(page.getByRole("heading", { name: /^About you/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click();
-  await page.getByRole("button", { name: "Save my plan" }).click();
+  await page.getByRole("button", { name: "Save my numbers" }).click();
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);
   await page.goto(BASE + "/app/settings");

@@ -71,7 +71,7 @@ for (const scale of [1, 1.5, 2]) {
   await press("Change");
   await check("7 your plan, changing the numbers");
   await press("Save");
-  await press("Save my plan");
+  await press("Save my numbers");
   await check("8 save your plan");
   await c.close();
 }

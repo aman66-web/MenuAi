@@ -238,7 +238,7 @@ await step("(f) Back keeps the answers about the person in the page (How active 
   await ctx.close();
 });
 
-await step("(g) Change on Your plan: the − and + go to the next round number (1,530 is 1,500 and 1,550); a wrong number is said and keeps the boxes open; Save keeps a typed number as the person's own; 'Save my plan' saves it too", async () => {
+await step("(g) Change on Your plan: the − and + go to the next round number (1,530 is 1,500 and 1,550); a wrong number is said and keeps the boxes open; Save keeps a typed number as the person's own; 'Save my numbers' saves it too", async () => {
   const { ctx, page } = await fresh();
   await toPlan(page, A);
   await go(page, "Change");
@@ -263,7 +263,7 @@ await step("(g) Change on Your plan: the − and + go to the next round number (
   await W.planNext(page);
   await W.onStep(page, "save");
   s = await settingsOf(page);
-  expect(s.dailyCalories === 1800, "Save my plan changed the number: " + s.dailyCalories);
+  expect(s.dailyCalories === 1800, "Save my numbers changed the number: " + s.dailyCalories);
   await ctx.close();
 });
 
@@ -438,7 +438,7 @@ await step("(k) skipped questions stay starting numbers (Home asks for targets);
   await W.recipes(r.page);
   await W.skipBody(r.page);
   expect((await W.planNumbers(r.page)).calories === 1900, "the saved calories: " + JSON.stringify(await W.planNumbers(r.page)));
-  await r.page.getByRole("button", { name: /^(Save my plan|Save and go to Home)$/ }).click();
+  await r.page.getByRole("button", { name: /^(Save my numbers|Save and go to Home)$/ }).click();
   await r.page.waitForTimeout(800);
   const kept = await settingsOf(r.page);
   expect(kept.hasSetTargets === true && kept.dailyCalories === 1900, "the targets set before stay set: " + JSON.stringify({ set: kept.hasSetTargets, kcal: kept.dailyCalories }));

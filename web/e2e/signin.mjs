@@ -107,9 +107,9 @@ async function changeCalories(page, kcal) {
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await page.getByRole("button", { name: "Change", exact: true }).waitFor();
 }
-/** From Your plan: "Save my plan", to the account step. */
+/** From Your plan: "Save my numbers", to the account step. */
 async function toAccount(page) {
-  await page.getByRole("button", { name: "Save my plan" }).click();
+  await page.getByRole("button", { name: "Save my numbers" }).click();
   await setupGate(page).waitFor();
 }
 /** "Step n of N", heard with the step's headline (never written on screen). */
