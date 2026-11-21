@@ -759,7 +759,7 @@ export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: num
   const best = makePlan(cands, null, slots, variety, limits);
   if (!best) return null;
   if (budget === null) return { ...best, better: [] };
-  if (best.week.shoppingCost > budget) {
+  if (budgetCost(best.week) > budget) {
     const cheaper = makePlan(cands, budget, slots, variety, limits);
     return cheaper ? { ...cheaper, better: [] } : null;
   }
@@ -779,12 +779,12 @@ export function upgradeWithin(ids: PlanIds, week: WeekPlan, cands: Map<MealType,
   let out = week;
   // cheapest additions first
   const added = options
-    .map((o) => ({ ...o, extra: (buildWeek(ids, withBetter(cands, new Map([[o.key, o.b]])), budget, slots)?.shoppingCost ?? Infinity) - week.shoppingCost }))
+    .map((o) => ({ ...o, extra: (() => { const w = buildWeek(ids, withBetter(cands, new Map([[o.key, o.b]])), budget, slots); return w ? budgetCost(w) : Infinity; })() - budgetCost(week) }))
     .sort((a, b) => a.extra - b.extra || a.key.localeCompare(b.key));
   for (const o of added) {
     const trial = new Map(chosen).set(o.key, o.b);
     const w = buildWeek(ids, withBetter(cands, trial), budget, slots);
-    if (w && w.shoppingCost <= budget + 0.005) {
+    if (w && budgetCost(w) <= budget + 0.005) {
       chosen.set(o.key, o.b);
       out = w;
     }
@@ -798,8 +798,8 @@ export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c:
   const cheapest = makePlan(cands, 0.01, slots, variety, limits);
   if (!best || !cheapest) return null;
   const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf, slots, variety, limits);
-  const min = Math.min(cheapest.week.shoppingCost, best.week.shoppingCost);
-  return { min, best: best.week.shoppingCost, max: Math.max(best.week.shoppingCost, all?.week.shoppingCost ?? 0) };
+  const min = Math.min(budgetCost(cheapest.week), budgetCost(best.week));
+  return { min, best: budgetCost(best.week), max: Math.max(budgetCost(best.week), all ? budgetCost(all.week) : 0) };
 }
 
 /** The plan as recipe ids: days × meals (PLAN_MEALS order). */
@@ -884,7 +884,7 @@ export function buildWeek(ids: PlanIds, candidates: Map<MealType, PlanCandidate[
   const shoppingCost = money(shopping.reduce((s, l) => s + l.cost, 0));
   const fresh = shopping.filter((l) => !l.keeps);
   return {
-    days, mealsCost: money(days.reduce((s, d) => s + d.cost, 0)), shopping, shoppingCost, shops, budget, overBudget: budget !== null && shoppingCost > budget,
+    days, mealsCost: money(days.reduce((s, d) => s + d.cost, 0)), shopping, shoppingCost, shops, budget, overBudget: budget !== null && budgetCost({ shopping, shoppingCost }) > budget + 0.005,
     fresh: { bought: money(fresh.reduce((s, l) => s + l.cost, 0)), eaten: money(fresh.reduce((s, l) => s + l.used, 0)) },
   };
 }
@@ -934,7 +934,7 @@ const COST_WEIGHT = 0.3;
 const FIT_WEIGHT = 3;
 
 /** buildWeek's sums without the days, for the search: the bill, the fresh food left in the packs, and how far the meals are from their sizes, added up. */
-function packScore(ids: PlanIds, byId: ReadonlyMap<string, PlanCandidate>, slots: readonly MealType[], memo: Map<string, { cost: number; left: number }>): { cost: number; left: number; fit: number } {
+function packScore(ids: PlanIds, byId: ReadonlyMap<string, PlanCandidate>, slots: readonly MealType[], memo: Map<string, PackCost>): { cost: number; after: number; left: number; fit: number } {
   const need = new Map<string, { pick: IngredientPick; amount: number }>();
   let fit = 0;
   for (const dayIds of ids) {
@@ -951,6 +951,7 @@ function packScore(ids: PlanIds, byId: ReadonlyMap<string, PlanCandidate>, slots
     }
   }
   let cost = 0;
+  let after = 0;
   let left = 0;
   for (const [key, { pick, amount }] of need) {
     const a = Math.ceil(amount);
@@ -958,14 +959,27 @@ function packScore(ids: PlanIds, byId: ReadonlyMap<string, PlanCandidate>, slots
     let r = memo.get(mk);
     if (!r) {
       const p = pickFor({ ...pick.spec, amount: a }, pick.product);
-      r = { cost: p.basketCost, left: keepsWell(pick.spec, pick.product) ? 0 : Math.max(0, p.basketCost - (p.usedCost ?? p.basketCost)) };
+      const keeps = keepsWell(pick.spec, pick.product);
+      const used = p.usedCost ?? p.basketCost;
+      r = { cost: p.basketCost, after: keeps ? Math.min(used, p.basketCost) : p.basketCost, left: keeps ? 0 : Math.max(0, p.basketCost - used) };
       memo.set(mk, r);
     }
     cost += r.cost;
+    after += r.after;
     left += r.left;
   }
-  return { cost, left, fit };
+  return { cost, after, left, fit };
 }
+
+/** One product's packs for a week: the whole packs' price, what a later week pays (weekCosts: the share eaten of what keeps), and the fresh food left over. */
+interface PackCost { cost: number; after: number; left: number }
+
+/**
+ * What a budget is measured against (founder 2026-11-21, on a £104 week for two meals a day: "Surely that's crazy instead ask for their budget per day on food
+ * they'd like to spend"): what the week's food costs week after week (weekCosts `after`: the fresh food in whole packs, and of what keeps, the share eaten), not
+ * the first shop, which also stocks the cupboard (oil, rice, spices) for weeks. The plan says both figures (TwoWeeks).
+ */
+export const budgetCost = (week: Pick<WeekPlan, "shopping" | "shoppingCost">): number => weekCosts(week).after;
 
 /**
  * A varied week (founder 2026-11-20: "a lot of them are to do with wraps ... You want kind of like a varied diet ... You can't just do wraps every single day"):
@@ -1130,7 +1144,7 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
   // a budget the week with no budget already fits: that week (so a budget never changes a week it doesn't have to)
   if (budget !== null) {
     const free = makePlan(candidates, null, slots, variety, limits);
-    if (free && free.week.shoppingCost <= budget) return { ids: free.ids, week: buildWeek(free.ids, candidates, budget, slots)! };
+    if (free && budgetCost(free.week) <= budget) return { ids: free.ids, week: buildWeek(free.ids, candidates, budget, slots)! };
   }
   const each = Math.max(1, Math.min(PLAN_DAYS, Math.round(variety)));
   // a meal that comes more than once a day (two snacks) rotates through more recipes, so the day's two are different
@@ -1159,7 +1173,7 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     varietyRepair(candidates, chosen, counts, types, () => { const now = ids(); return balancedOf(now) + (farthest(now) > fitCap ? 1000 : 0); }, () => packOf(ids()));
   }
   let best = buildWeek(ids(), candidates, budget, slots)!;
-  for (let round = 0; budget !== null && best.shoppingCost > budget && round < 40; round++) {
+  for (let round = 0; budget !== null && budgetCost(best) > budget && round < 40; round++) {
     let improved = false;
     // the dearest recipe in use, across the day's meals
     const inUse = types.flatMap((m) => chosen.get(m)!.slice(0, counts.get(m)!).map((c, i) => ({ m, c, i }))).sort((a, b) => b.c.cost - a.c.cost);
@@ -1175,7 +1189,7 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
       trial[i] = cheaper;
       chosen.set(m, trial);
       const week = buildWeek(ids(), candidates, budget, slots)!;
-      if (week.shoppingCost < best.shoppingCost) { best = week; improved = true; break; }
+      if (budgetCost(week) < budgetCost(best)) { best = week; improved = true; break; }
       chosen.set(m, before);
     }
     if (improved) continue;
@@ -1186,7 +1200,7 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     chosen.set(m, list);
     counts.set(m, counts.get(m)! - 1);
     const week = buildWeek(ids(), candidates, budget, slots)!;
-    if (week.shoppingCost < best.shoppingCost) best = week;
+    if (budgetCost(week) < budgetCost(best)) best = week;
     else { counts.set(m, counts.get(m)! + 1); break; }
   }
   fillPacks(candidates, chosen, counts, types, slots, ids, budget, budget === null ? balancedOf : faultsOf);
@@ -1210,12 +1224,12 @@ const BALANCED_CHEAPEST_EXTRA = 0.2;
 function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number, formFaultsOf: (ids: PlanIds) => number, balancedOf: (ids: PlanIds) => number, tieBreak: () => number): void {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
-  const memo = new Map<string, { cost: number; left: number }>();
-  const billOf = (now: PlanIds) => packScore(now, byId, slots, memo).cost;
+  const memo = new Map<string, PackCost>();
+  const billOf = (now: PlanIds) => packScore(now, byId, slots, memo).after;
   const farthest = (now: PlanIds) => Math.max(0, ...now.flatMap((d) => d.map((id, i) => byId.get(`${slots[i]}:${id}`)?.distance ?? 0)));
   const start = ids();
   const forms = formFaultsOf(start);
-  if (balancedOf(start) - FORM_FAULT * forms < 1e-9) return; // already balanced
+  if (balancedOf(start) < 1e-9) return; // already balanced, dish forms and all
   const bill = billOf(start);
   // within the budget, never over it; already over it (the cheapest week the choices allow), up to BALANCED_CHEAPEST_EXTRA more for a balanced week
   const billCap = (bill <= budget ? Math.min(budget, bill * 1.05) : bill * (1 + BALANCED_CHEAPEST_EXTRA)) + 0.005;
@@ -1223,7 +1237,8 @@ function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
   varietyRepair(candidates, chosen, counts, types, () => {
     const now = ids();
     const f = formFaultsOf(now);
-    return (f > forms ? 1000 : 0) + (balancedOf(now) - FORM_FAULT * f) + (billOf(now) > billCap ? 1000 : 0) + (farthest(now) > fitCap ? 1000 : 0);
+    // the dish forms count too (balancedOf weighs each FORM_FAULT), so a repeat the cheapest steps left can go; never one more than the week had
+    return (f > forms ? 1000 : 0) + balancedOf(now) + (billOf(now) > billCap ? 1000 : 0) + (farthest(now) > fitCap ? 1000 : 0);
   }, tieBreak, 60, [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]);
 }
 
@@ -1231,7 +1246,7 @@ function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
 function packScorer(candidates: Map<MealType, PlanCandidate[]>, slots: readonly MealType[]): (ids: PlanIds) => number {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
-  const memo = new Map<string, { cost: number; left: number }>();
+  const memo = new Map<string, PackCost>();
   return (ids) => { const s = packScore(ids, byId, slots, memo); return s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit; };
 }
 
@@ -1239,22 +1254,23 @@ function packScorer(candidates: Map<MealType, PlanCandidate[]>, slots: readonly 
 function fillPacks(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number | null, faultsOf: (ids: PlanIds) => number): void {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
-  const memo = new Map<string, { cost: number; left: number }>();
+  const memo = new Map<string, PackCost>();
   // variety first (VARIETY_WEIGHT a fault), then the packs, the bill and the fit
-  const score = (s: { cost: number; left: number; fit: number; faults: number }) => VARIETY_WEIGHT * s.faults + s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit;
+  const score = (s: { cost: number; after: number; left: number; fit: number; faults: number }) => VARIETY_WEIGHT * s.faults + s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit;
   const measure = () => { const now = ids(); return { ...packScore(now, byId, slots, memo), faults: faultsOf(now) }; };
   for (const m of types) chosen.set(m, chosen.get(m)!.slice());
   const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
   const limit = new Map(types.map((m) => [m, Math.max(PACK_FIT_LIMIT, ...chosen.get(m)!.slice(0, size(m)).map((c) => c.distance))]));
   const start = measure();
-  const cap = (budget !== null ? Math.max(budget, start.cost) : start.cost) + 0.005;
+  // the budget is the week-after cost (budgetCost); with no budget the bill never grows
+  const cap = (budget !== null ? Math.max(budget, start.after) : start.cost) + 0.005;
   let current = score(start);
   for (let round = 0; round < 40; round++) {
     let move: { m: MealType; i: number; j?: number; x?: PlanCandidate } | null = null;
     let bestScore = current - 0.01;
     const tryIt = (m: MealType, i: number, j?: number, x?: PlanCandidate) => {
       const s = measure();
-      if (s.cost <= cap && score(s) < bestScore) { bestScore = score(s); move = { m, i, j, x }; }
+      if ((budget !== null ? s.after : s.cost) <= cap && score(s) < bestScore) { bestScore = score(s); move = { m, i, j, x }; }
     };
     for (const m of types) {
       const pool = chosen.get(m)!;

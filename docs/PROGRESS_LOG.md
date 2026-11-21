@@ -4187,3 +4187,18 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   nuggets" and two McNuggets lines (one real Opus call, 3 s); /api/v1/plan/ai refuses an unreadable plan (400) before anything else; the privacy page has
   "Meal plan with Pip" and "Search help"; /app/plan, /app/recipes, a new recipe picture, app-switches.json and the menus manifest answer 200. Pip's plan with
   a real account still to try on the founder's phone (build 15). Rollback: dpl_48AZNPw9AEZVtP1TeYwEVjSUuPcT (91a01dcf).
+- (21 Nov, evening) **The budget is asked as a day's food, and held against what the food costs week after week** (founder, on the budget step's "£104 for
+  the week's shopping" for two meals a day: "Surely that's crazy instead ask for their budget per day on food they'd like to spend"). The £104 was the first
+  shop, which also stocks the cupboard: at 2,800 kcal, two meals a day at Sainsbury's, the first shop £100, each week after £76, the food eaten £57. Now the step
+  is "Your food budget a day" ("What would you like to spend on food a day?"), a slider in 50p steps ("£10 a day for your food", "about £70 a week"; Best
+  fit, Cheapest, Pricier products a day), kept as seven days; and the planner measures a budget against the week-after cost (mealPlan.ts budgetCost: the fresh
+  food in whole packs, and of what keeps only the share eaten), never the first shop, everywhere it compared the shopping bill (planForBudget, upgradeWithin,
+  budgetRange, buildWeek's overBudget, the cheapest-week steps, fillPacks, balanceRepair, Pip's check). The lines say it a day: "Both are within your budget of
+  £10 a day.", "Each week after is within your budget of £10 a day; the first shop also stocks your cupboard.", "£4.20 a week over your budget of £9 a day:
+  the cheapest week our recipes allow." Pip's prompt says the budget the same way. balanceRepair now also takes away a dish-form repeat the cheapest steps
+  left. Tests: mealPlan's budget tests on budgetCost; e2e mealplan 13/13.
+- (21 Nov, evening) **A plan Pip is making carries on when you leave the screen** (founder: "If the person clicks off their plan will still be made like if
+  they go into a different screen they can still see their plan progress is loading at the top of the screen like a notification and will say when ready").
+  Pip's request is no longer stopped when Meal plan closes (only by the next plan); _lib/planMaking.ts keeps its progress in memory, and PlanMakingBanner, at
+  the top of every screen but "Making your plan", says "Pip is making your plan…" with a bar and See it, then "Your meal plan is ready" with Open and a close
+  button; opening the week puts it away. e2e/planAi.mjs 6/6 (a new step leaves for Recipes while Pip works).

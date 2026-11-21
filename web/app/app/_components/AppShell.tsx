@@ -31,6 +31,7 @@ import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
 import { refreshFreeWeek } from "../_lib/freeWeek";
 import { FreeWeekNote } from "./FreeWeekNote";
+import { PlanMakingBanner } from "./PlanMakingBanner";
 import { afterSignInGate } from "@/lib/mm/premiumFeatures";
 import { welcomeProgressStore } from "@/lib/mm/welcomeSteps";
 import { CoachMarks } from "./CoachMarks";
@@ -253,6 +254,8 @@ export function AppShell({ children }: { children: ReactNode }) {
       {gate === "open" && !fullScreen && <CoachMarks />}
       {gate === "open" && <TrialOffer />}
       {gate === "open" && <FreeWeekNote />}
+      {/* a plan Pip is still making, on every screen (founder 2026-11-21) */}
+      {gate === "open" && <PlanMakingBanner />}
       {gate === "open" && <RatingPrompt />}
     </PaywallProvider>
   );

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, fitsDietNow, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, PER_MEAL_RECIPES, weekForms, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
+import { budgetCost, BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, fitsDietNow, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, PER_MEAL_RECIPES, weekForms, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
 import { MAX_WRAPS_A_WEEK, dishForm, varietyReport } from "../lib/mm/dishForm";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { ALLERGEN_KEYS } from "../lib/mm/types";
@@ -83,15 +83,17 @@ describe("the week", () => {
     for (const d of tight.week.days) for (const m of d.meals) expect(m.candidate.distance, m.candidate.recipe.name).toBeLessThanOrEqual(Math.max(0.3, cands.get(m.meal)![3]!.distance));
   });
 
+  // a budget is what the food costs week after week (budgetCost: founder 2026-11-21, "ask for their budget per day on food they'd like to spend"), not the
+  // first shop that also stocks the cupboard
   it("with a budget, makes the bill cheaper, and says when even the cheapest plan is over it", () => {
-    const free = plan.week.shoppingCost;
+    const free = budgetCost(plan.week);
     const tight = makePlan(cands, Math.round(free * 0.7))!;
-    expect(tight.week.shoppingCost).toBeLessThan(free);
+    expect(budgetCost(tight.week)).toBeLessThan(free);
     const impossible = makePlan(cands, 1)!;
     expect(impossible.week.overBudget).toBe(true);
     const easy = makePlan(cands, free + 100)!;
     expect(easy.week.overBudget).toBe(false);
-    expect(easy.week.shoppingCost).toBe(free);
+    expect(easy.week.shoppingCost).toBe(plan.week.shoppingCost);
   });
 
   it("swaps one meal for the next recipe, keeping the rest", () => {
@@ -180,18 +182,18 @@ describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green
     const r = budgetRange(cands, betterOf)!;
     expect(r.min).toBeLessThanOrEqual(r.best);
     expect(r.max).toBeGreaterThan(r.best);
-    expect(planForBudget(cands, null, betterOf)!.week.shoppingCost).toBeCloseTo(r.best, 2);
+    expect(budgetCost(planForBudget(cands, null, betterOf)!.week)).toBeCloseTo(r.best, 2);
   });
 
   it("under the best fit: cheaper recipes; at or over it: better products while the bill fits; never under what the goal needs", () => {
     const r = budgetRange(cands, betterOf)!;
     const low = planForBudget(cands, Math.round((r.min + r.best) / 2), betterOf)!;
     expect(low.better).toEqual([]);
-    expect(low.week.shoppingCost).toBeLessThan(r.best + 0.01);
+    expect(budgetCost(low.week)).toBeLessThan(r.best + 0.01);
     const high = planForBudget(cands, Math.round((r.best + r.max) / 2), betterOf)!;
     expect(high.better.length).toBeGreaterThan(0);
-    expect(high.week.shoppingCost).toBeLessThanOrEqual(Math.round((r.best + r.max) / 2) + 0.01);
-    expect(high.week.shoppingCost).toBeGreaterThanOrEqual(r.best - 0.01);
+    expect(budgetCost(high.week)).toBeLessThanOrEqual(Math.round((r.best + r.max) / 2) + 0.01);
+    expect(budgetCost(high.week)).toBeGreaterThanOrEqual(r.best - 0.01);
     const top = planForBudget(cands, r.max, betterOf)!;
     expect(top.better.length).toBeGreaterThanOrEqual(high.better.length);
     // the meals still fit the meal size: upgrades change products, not recipes
@@ -206,7 +208,7 @@ describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green
     expect(spot.week.overBudget).toBe(false);
     const cheapest = planForBudget(cands, Math.ceil(r.min), betterOf)!;
     expect(cheapest.week.overBudget).toBe(false);
-    expect(cheapest.week.shoppingCost).toBeLessThanOrEqual(Math.ceil(r.min) + 0.005);
+    expect(budgetCost(cheapest.week)).toBeLessThanOrEqual(Math.ceil(r.min) + 0.005);
   });
 
   it("keeps which recipes use better products when the plan is saved", () => {
@@ -318,7 +320,7 @@ describe("using up the packs (founder 2026-11-18: \"by the end of the week, all 
     const range = budgetRange(cands, () => null, slots)!;
     const budget = Math.round((range.min + range.best) / 2);
     const plan = planForBudget(cands, budget, () => null, slots)!;
-    expect(plan.week.shoppingCost).toBeLessThanOrEqual(budget + 0.01);
+    expect(budgetCost(plan.week)).toBeLessThanOrEqual(budget + 0.01);
   });
 
   it("rotates through as many recipes as the variety asks: a different one every day, some repeats, or meal prep", () => {
@@ -608,7 +610,7 @@ describe("a varied week", () => {
         expect(r.wraps, `${variety} ${budget}`).toBeLessThanOrEqual(MAX_WRAPS_A_WEEK);
       }
     }
-  });
+  }, 30_000); // about 2 s alone, but over the 5 s default when the whole suite runs at once
 
   it("two snacks a day: the day's two snacks are different dishes too", () => {
     const plan = makePlan(sized, null, SNACKS, PER_MEAL_RECIPES)!;

@@ -193,14 +193,16 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
 });
 
 await step("the budget slider: from the cheapest week for the goal to pricier products, a green spot at the best fit, the plain line follows the slider", async () => {
-  await change("Your budget", "Your budget for the week", 8);
-  const slider = page.getByRole("slider", { name: "Budget for the week" });
+  // asked as a day's food since 21 November evening (founder: "ask for their budget per day on food they'd like to spend")
+  await change("Your budget", "Your food budget a day", 8);
+  const slider = page.getByRole("slider", { name: "Food budget a day" });
   await slider.waitFor({ timeout: 180000 });
   const [min, max, now] = await Promise.all(["min", "max", "value"].map((a) => slider.evaluate((el, a) => Number(el[a]), a)));
   expect(min < max && now >= min && now <= max, `range ${min}-${max}, at ${now}`);
   await page.getByText("The green spot: the best week for your goal.").waitFor();
   for (const w of ["Cheapest", "Best fit", "Pricier products"]) await page.getByText(w, { exact: true }).first().waitFor(); // "pricier", never "better" (CLAUDE.md rule 3)
-  expect(/^£\d+ a week$/.test(await slider.getAttribute("aria-valuetext")), "VoiceOver hears the amount");
+  expect(/^£\d+(\.\d\d)? a day$/.test(await slider.getAttribute("aria-valuetext")), "VoiceOver hears the amount a day");
+  await page.getByText(/^about £\d+ a week$/).waitFor();
   // the best fit can be the cheapest week too (the recipes decide): then the slider starts at its low end and still says the green spot
   const best = now;
   await slider.focus();
@@ -227,7 +229,7 @@ await step("the budget slider: from the cheapest week for the goal to pricier pr
   const budgetRow = page.locator("main ul li", { hasText: "Your budget" });
   const w = await twoWeeks(budgetRow, 180000);
   expect(w.first > w.after, "the check screen's two figures: " + JSON.stringify(w));
-  await budgetRow.getByText(/^(Both are within your £\d+ budget\.|Only your first shop is over your £\d+ budget\.|£[\d.]+ over your £\d+ budget: the cheapest week our recipes allow\.)$/).waitFor();
+  await budgetRow.getByText(/^(Both are within your budget of £[\d.]+ a day\.|Each week after is within your budget of £[\d.]+ a day; the first shop also stocks your cupboard\.|£[\d.]+ a week over your budget of £[\d.]+ a day: the cheapest week our recipes allow\.)$/).waitFor();
   await page.getByRole("button", { name: "Make my plan" }).click();
 });
 
@@ -251,7 +253,7 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
   expect((await page.getByText(/for the week's shopping/).count()) === 0, "the one figure as well as the two");
   // no Pip on the money card (founder 2026-11-20: "keep him as the guide, not the decoration")
   const money = page.locator("div").filter({ has: page.getByText(/^Your first shop: about £/) }).filter({ hasText: /budget/ }).last();
-  await money.getByText(/^(Both are within your £\d+ budget\.|Only your first shop is over your £\d+ budget\.|£[\d.]+ over your £\d+ budget(: the cheapest week our recipes allow| with your swaps)\.)$/).waitFor();
+  await money.getByText(/^(Both are within your budget of £[\d.]+ a day\.|Each week after is within your budget of £[\d.]+ a day; the first shop also stocks your cupboard\.|£[\d.]+ a week over your budget of £[\d.]+ a day(: the cheapest week our recipes allow| with your swaps)\.)$/).waitFor();
   expect((await money.locator("svg, img").count()) === 0, "no Pip on the money card");
   const days = page.getByRole("radiogroup", { name: "Day" }).getByRole("radio");
   expect((await days.count()) === 7, "seven days");

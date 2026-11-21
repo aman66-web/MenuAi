@@ -9,7 +9,7 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, upgradeWithin, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
+import { budgetCost, DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, upgradeWithin, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
 import { aiAllowed, aiConsentStore, withAiAllowed } from "@/lib/mm/aiConsent";
 import { cleanWhy, hasPipAnswers, PLAN_AI_ENABLED, sanitizeAnswers, type PlanAnswers } from "@/lib/mm/planAi";
 import { budgetKept, mergeAiWeek, planAiRequest, planLimits, servingPortions } from "@/lib/mm/planAiWeek";
@@ -53,6 +53,7 @@ import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, S
 import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, LeftoversStep, NotesStep, SkipCuisines, SpiceStep, TrainingStep, pipAnswerLines } from "./PipSteps";
 import { SwapPicker } from "./SwapPicker";
 import { WeekSummary } from "./WeekSummary";
+import { clearPlanMaking, finishPlanMaking, planMakingStore, planMakingWatchedStore, startPlanMaking } from "../_lib/planMaking";
 
 // The meal plan (founder 2026-11-18; lib/mm/mealPlan.ts has the rules). Premium ("a third icon, which has meal plan, and that has pro on it"). Pip asks one thing
 // a screen ("they just got to type in all their stuff, like Pip's guiding them through"): the daily numbers from the person's own plan, their diet and allergies,
@@ -73,15 +74,24 @@ const asPrefs = (d: DietPrefs): Preferences => ({ ...NO_PREFERENCES, ...d, avoid
 /** "£126" for a whole-pound budget (the slider's), "£126.40" otherwise. */
 const pounds = (n: number) => (Number.isInteger(n) ? `£${n}` : formatPrice(n));
 /**
+ * The budget is asked and said as a day's food (founder 2026-11-21, on "£104 a week for 2 meals a day? Surely that's crazy instead ask for their budget per day
+ * on food they'd like to spend"), in 50p steps; the plan keeps it as a week (seven days) and holds the food's cost week after week to it (mealPlan.ts
+ * budgetCost), never the first shop, which also stocks the cupboard.
+ */
+const DAY_STEP = 0.5;
+const dayOf = (week: number) => Math.ceil(week / 7 / DAY_STEP - 1e-9) * DAY_STEP;
+const weekOf = (day: number) => Math.round(day * 7 * 100) / 100;
+const aDay = (week: number) => pounds(Math.round((week / 7) * 2) / 2);
+/**
  * Where the first shop and each week after sit against a budget (founder 2026-11-20: "even though their budget's like £65 a week, the week after they need to know
  * that'll probably be about £40"), in plain dark words: both within it, only the first shop over it, or both over it (how much the first is over, and why).
  * The plan still keeps the first shop's bill to the budget (planForBudget), as before.
  */
 function twoWeeksBudget(t: ReturnType<typeof useT>, costs: WeekCosts, budget: number, swapped?: boolean): string {
-  if (costs.first <= budget) return t("Both are within your {budget} budget.", { budget: pounds(budget) });
-  if (costs.after <= budget) return t("Only your first shop is over your {budget} budget.", { budget: pounds(budget) });
-  const values = { over: formatPrice(costs.first - budget), budget: pounds(budget) };
-  return swapped ? t("{over} over your {budget} budget with your swaps.", values) : t("{over} over your {budget} budget: the cheapest week our recipes allow.", values);
+  if (costs.first <= budget + 0.005) return t("Both are within your budget of {budget} a day.", { budget: aDay(budget) });
+  if (costs.after <= budget + 0.005) return t("Each week after is within your budget of {budget} a day; the first shop also stocks your cupboard.", { budget: aDay(budget) });
+  const values = { over: formatPrice(costs.after - budget), budget: aDay(budget) };
+  return swapped ? t("{over} a week over your budget of {budget} a day with your swaps.", values) : t("{over} a week over your budget of {budget} a day: the cheapest week our recipes allow.", values);
 }
 /**
  * A row you choose from a list (a shop, a kind of week, the meat answer), in the choice look of the colour meeting (19 November 2026, approved by the founder
@@ -545,8 +555,10 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
       setRanged({ key: rangeKey, range });
       if (range) setPick((p) => {
         // whole pounds rounded up, as the slider shows them (BudgetSlider): rounded down, the best week and the cheapest came out over their own budget
-        const want = p ?? (saved && JSON.stringify(saved.home?.others ?? []) === homeKey ? saved.budget : null) ?? Math.ceil(range.best);
-        return Math.min(Math.ceil(range.max), Math.max(Math.ceil(range.min), Math.round(want)));
+        const want = p ?? (saved && JSON.stringify(saved.home?.others ?? []) === homeKey ? saved.budget : null) ?? weekOf(dayOf(range.best));
+        // whole 50p a day, within the slider's ends (BudgetSlider)
+        const day = Math.min(dayOf(range.max), Math.max(dayOf(range.min), Math.round(want / 7 / DAY_STEP) * DAY_STEP));
+        return weekOf(day);
       });
     }, 0);
     return () => clearTimeout(timer);
@@ -574,8 +586,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const [consentOpen, setConsentOpen] = useState(false);
   // the sheet's own close event follows Allow too (Sheet closes its dialog): only the first answer counts
   const consentAnswered = useRef(false);
-  const aiAbort = useRef<AbortController | null>(null);
-  useEffect(() => () => aiAbort.current?.abort(), []);
+  // Pip's request is not stopped when this screen closes (founder 2026-11-21: "If the person clicks off their plan will still be made"): the next plan stops
+  // it (_lib/planMaking.ts), and PlanMakingBanner shows its progress on every other screen
   // `declined`: "Not now" on Pip's permission (the week is the phone's, and the plan doesn't say Pip couldn't)
   const make = (withPip = pipWanted && online, declined = false) => {
     if (!ready || !prep) return;
@@ -609,7 +621,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
         snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
         t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
         budget === null ? t("Pricing the best week for your goal: {cost}", { cost: formatPrice(w.shoppingCost) })
-          : w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: pounds(budget) }),
+          : w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping your food to {budget} a day", { budget: aDay(budget) }),
         household ? t("Writing your shopping list for {people} people: {n} products", { people: count, n: w.shopping.length }) : t("Writing your shopping list: {n} products", { n: w.shopping.length }),
       ];
     };
@@ -632,20 +644,19 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     const req = planAiRequest({
       answers: kept, style, cuisines: cuisinesUsed, slots, targets, daily: day, start: new Date(), variety, budget, cands,
       household: household ? { others: home.others.map((o) => ({ group: o.group, portion: o.portion })) } : null,
-      draft: { ids: plan.ids, cost: plan.week.shoppingCost },
+      draft: { ids: plan.ids, cost: budgetCost(plan.week) },
     });
     const sent = Object.values(req.candidates).reduce((n, l) => n + (l?.length ?? 0), 0);
     const first = [t("Pip is reading your answers"), t("Pip is choosing your week from {n} recipes", { n: formatInt(sent) })];
     setMaking({ steps: first, more: true, pip: true });
-    const stop = new AbortController();
-    aiAbort.current = stop;
-    void askPipForWeek(req, stop.signal).then((reply) => {
-      if (stop.signal.aborted) return;
+    const { run, signal } = startPlanMaking();
+    void askPipForWeek(req, signal).then((reply) => {
+      if (signal.aborted) return;
       const merged = mergeAiWeek(reply, req, cands);
       let final: BudgetPlan | null = null;
       if (merged.source === "pip") {
         const week = buildWeek(merged.ids, cands, budget, slots);
-        if (week && budgetKept(budget, week.shoppingCost, plan.week.shoppingCost)) final = budget === null ? { ids: merged.ids, week, better: [] } : upgradeWithin(merged.ids, week, cands, budget, betterOf, slots);
+        if (week && budgetKept(budget, budgetCost(week), budgetCost(plan.week))) final = budget === null ? { ids: merged.ids, week, better: [] } : upgradeWithin(merged.ids, week, cands, budget, betterOf, slots);
       }
       // Pip's week replaces the phone's only while the phone's is still the plan
       const now = mealPlanStore.get();
@@ -653,6 +664,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
         const why = final ? cleanWhy(reply?.why) : null;
         save(final ?? plan, final ? (why ? { why } : {}) : { pipMissed: true });
       }
+      finishPlanMaking(run, !final);
       setMaking({ steps: [...first, ...(final ? [] : [t("Pip couldn't plan with your answers this time")]), ...workSteps((final ?? plan).week)], more: false, pip: true });
     });
   };
@@ -678,7 +690,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const TITLES: Record<StepId, string> = {
     count: t("How many people are you cooking for?"), who: t("Who's eating with you?"), meals: t("Your meals and snacks"), shops: t("Where you shop"),
     diet: t("Your diet and allergies"), style: t("How do you like to eat?"), cuisine: t("The food you like"), allergies: t("Any food allergies at home?"), homeDiet: t("Any diets at home?"),
-    leaveOut: household ? t("Anything someone won't eat?") : t("Foods you'd rather not have"), budget: t("Your budget for the week"), check: t("Ready to make your plan?"),
+    leaveOut: household ? t("Anything someone won't eat?") : t("Foods you'd rather not have"), budget: t("Your food budget a day"), check: t("Ready to make your plan?"),
     aim: t("What's your aim?"), fruitVeg: t("Fruit and veg a day"), training: t("How often do you train?"), cookTime: t("How long can you cook for?"), leftovers: t("Cook once, eat twice?"),
     breakfast: t("What do you like for breakfast?"), bread: t("How often do you like bread?"), spice: t("How hot do you like it?"), notes: t("Anything else Pip should know?"),
   };
@@ -704,7 +716,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     allergies: t("Anything ticked is left out for everyone. Always check the label."),
     homeDiet: t("Tick every diet anyone follows. Every meal will fit them all."),
     leaveOut: household ? t("I'll leave them out for everyone.") : t("I'll leave them out."),
-    budget: t("Keep No budget, or slide to set one. The green spot is the best fit."),
+    budget: t("What would you like to spend on food a day? Keep No budget, or slide to set one. The green spot is the best fit."),
     check: direct ? t("I've filled this in from your settings.") : t("Here's what you picked."),
     aim: t("I'll choose the meals that suit it."),
     // plain words here (a figure on the screen): the NHS's own way of counting
@@ -923,7 +935,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
               ["shops", t("Where you shop"), chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : t("No shop chosen"), shopNote],
               ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any"), [widenedNote, skipNote].filter(Boolean).join(" ") || undefined]]),
               ["leaveOut", household ? t("Left out for everyone") : t("Foods left out"), leaveOut.length ? leaveOut.map((x) => t(LEAVE_OUT.find((c) => c.id === x)?.label ?? x)).join(", ") : t("Nothing")],
-              ["budget", t("Your budget"), noBudget ? t("No budget: the best week for your goal") : pick !== null ? t("{budget} a week", { budget: pounds(pick) }) : t("Not set yet"),
+              ["budget", t("Your budget"), noBudget ? t("No budget: the best week for your goal") : pick !== null ? t("{budget} a day", { budget: aDay(pick) }) : t("Not set yet"),
                 checkWeek && checkCosts && showsWeekAfter(checkCosts) ? (
                   <>
                     <TwoWeeks costs={checkCosts} week={checkWeek} className="mt-2" />
@@ -1134,11 +1146,21 @@ function Making({ steps, more = false, pip = false, onDone }: { steps: string[];
   const done = useRef(onDone);
   useEffect(() => { done.current = onDone; }, [onDone]);
   useLayoutEffect(() => { window.scrollTo({ top: 0 }); }, []);
+  // while this screen shows, the notice at the top (PlanMakingBanner) stays away; leaving it, the notice carries on
+  useEffect(() => {
+    planMakingWatchedStore.set(true);
+    return () => planMakingWatchedStore.set(false);
+  }, []);
   // with Pip (Meal plan with Pip): his two steps first, the second spinning until his week is back and checked (`more`), then the rest at half the pace
   const waiting = pip ? 2 : 0;
   useEffect(() => {
     if (more && at >= steps.length - 1) return; // the last step so far keeps working until the next ones come
-    const id = setTimeout(() => (at >= steps.length ? done.current() : setAt(at + 1)), at >= steps.length ? 600 : pip && at >= waiting ? MAKING_STEP_MS / 2 : MAKING_STEP_MS);
+    const id = setTimeout(() => {
+      if (at < steps.length) return setAt(at + 1);
+      // the week opens here: nothing for the notice to say
+      if (planMakingStore.get()?.state === "ready") clearPlanMaking();
+      done.current();
+    }, at >= steps.length ? 600 : pip && at >= waiting ? MAKING_STEP_MS / 2 : MAKING_STEP_MS);
     return () => clearTimeout(id);
   }, [at, steps.length, more, pip, waiting]);
   const shown = Math.min(at, steps.length - 1);
@@ -1180,32 +1202,36 @@ function Making({ steps, more = false, pip = false, onDone }: { steps: string[];
  */
 function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: number; onChange: (v: number) => void }) {
   const t = useT();
-  // whole pounds rounded up (the 21 November meeting, Kemi): rounded down, "Cheapest" was a budget its own week is over, and the green spot made a different,
-  // cheaper week than the best fit
-  const min = Math.ceil(range.min);
-  const max = Math.max(min + 1, Math.ceil(range.max));
-  const best = Math.min(max, Math.max(min, Math.ceil(range.best)));
+  // a day's food in 50p steps (founder 2026-11-21: "ask for their budget per day on food they'd like to spend"), rounded up (the 21 November meeting, Kemi:
+  // rounded down, "Cheapest" was a budget its own week is over, and the green spot made a different, cheaper week than the best fit); `value` and onChange
+  // are the week the plan keeps (seven days)
+  const min = dayOf(range.min);
+  const max = Math.max(min + DAY_STEP, dayOf(range.max));
+  const best = Math.min(max, Math.max(min, dayOf(range.best)));
+  const day = Math.min(max, Math.max(min, Math.round(value / 7 / DAY_STEP) * DAY_STEP));
+  const set = (d: number) => onChange(weekOf(d));
   const at = (v: number) => (v - min) / (max - min);
   // the thumb is 2.25rem wide, so its middle runs from 1.125rem in from each end: the spot and the track line up with it
   const along = (v: number) => `calc(1.125rem + (100% - 2.25rem) * ${at(v)})`;
   // "pricier", never "better" (CLAUDE.md rule 3: food is never called good or bad)
   // the best fit can be the cheapest week too (21 November evening, with the world recipes): there the green spot's words win, as that is what the spot is
-  const zone = value <= min && best > min ? t("The cheapest week for your goal: lower-cost recipes and everyday products.")
-    : value < best - 1 ? t("Cheaper than the best fit: some meals are lower-cost recipes, still sized to your goal.")
-    : value <= best + 1 ? t("The green spot: the best week for your goal.")
-    : value < max ? t("More to spend: some meals are made with pricier products, like the shops' best ranges, organic or free range.")
+  const zone = day <= min && best > min ? t("The cheapest week for your goal: lower-cost recipes and everyday products.")
+    : day < best - DAY_STEP ? t("Cheaper than the best fit: some meals are lower-cost recipes, still sized to your goal.")
+    : day <= best + DAY_STEP ? t("The green spot: the best week for your goal.")
+    : day < max ? t("More to spend: some meals are made with pricier products, like the shops' best ranges, organic or free range.")
     : t("Pricier products wherever your shops have them.");
   return (
     <div>
-      <p className="app-numbers text-center text-[2.75rem] font-[800] leading-none tracking-[-0.02em]">£{value}</p>
-      <p className="mt-1 text-center text-[0.9375rem] font-semibold text-muted">{t("for the week's shopping")}</p>
+      <p className="app-numbers text-center text-[2.75rem] font-[800] leading-none tracking-[-0.02em]">{pounds(day)}</p>
+      <p className="mt-1 text-center text-[0.9375rem] font-semibold text-muted">{t("a day for your food")}</p>
+      <p className="app-numbers mt-0.5 text-center text-[0.875rem] text-muted">{t("about {week} a week", { week: pounds(Math.round(day * 7)) })}</p>
       {/* "Best fit" stands over the green spot itself, wherever it is on the track (usability test 2026-11-19: in the middle of the row below, it was
           far from the spot when the best fit sat near one end) */}
       <div aria-hidden className="relative mt-5 h-7">
         {/* a tag you can't tap, on the page: white with the card line and 6 px corners */}
         <span className="app-numbers absolute bottom-0 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-[0.375rem] border border-line bg-card px-2.5 py-0.5 text-[0.875rem] leading-snug"
           style={{ left: `clamp(4.5rem, ${along(best)}, calc(100% - 4.5rem))` }}>
-          <span className="h-2.5 w-2.5 rounded-full bg-bar" /><span className="text-muted">{t("Best fit")}</span><span className="font-bold">£{best}</span>
+          <span className="h-2.5 w-2.5 rounded-full bg-bar" /><span className="text-muted">{t("Best fit")}</span><span className="font-bold">{pounds(best)}</span>
         </span>
       </div>
       <div className="relative mt-1 h-12">
@@ -1219,24 +1245,24 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
           type="range"
           min={min}
           max={max}
-          step={1}
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
-          aria-label={t("Budget for the week")}
-          aria-valuetext={t("£{n} a week", { n: value })}
+          step={DAY_STEP}
+          value={day}
+          onChange={(e) => set(Number(e.target.value))}
+          aria-label={t("Food budget a day")}
+          aria-valuetext={t("{n} a day", { n: pounds(day) })}
           className="absolute inset-0 h-12 w-full cursor-pointer appearance-none bg-transparent focus-visible:outline-none [&::-moz-range-thumb]:h-9 [&::-moz-range-thumb]:w-9 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-card [&::-moz-range-thumb]:bg-ink [&::-webkit-slider-thumb]:h-9 [&::-webkit-slider-thumb]:w-9 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-card [&::-webkit-slider-thumb]:bg-ink [&::-webkit-slider-thumb]:shadow-[var(--shadow-lift)] focus-visible:[&::-webkit-slider-thumb]:ring-4 focus-visible:[&::-webkit-slider-thumb]:ring-accent"
         />
       </div>
       <div className="app-numbers mt-1 flex justify-between gap-3 text-[0.875rem] leading-snug">
-        <span><span className="block font-bold">£{min}</span><span className="text-muted">{t("Cheapest")}</span></span>
+        <span><span className="block font-bold">{pounds(min)}</span><span className="text-muted">{t("Cheapest")}</span></span>
         {/* the best fit is said over its spot above; for a screen reader, here */}
-        <span className="sr-only">{t("Best fit")} £{best}</span>
-        <span className="text-end"><span className="block font-bold">£{max}</span><span className="text-muted">{t("Pricier products")}</span></span>
+        <span className="sr-only">{t("Best fit")} {pounds(best)}</span>
+        <span className="text-end"><span className="block font-bold">{pounds(max)}</span><span className="text-muted">{t("Pricier products")}</span></span>
       </div>
       <p aria-live="polite" className="glass mt-4 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{zone}</p>
-      {Math.abs(value - best) > 1 && (
-        <Button variant="secondary" onClick={() => onChange(best)} className="mt-3 px-4">
-          <span aria-hidden className="h-3 w-3 rounded-full bg-bar" />{t("Back to the green spot (£{n})", { n: best })}
+      {Math.abs(day - best) > DAY_STEP && (
+        <Button variant="secondary" onClick={() => set(best)} className="mt-3 px-4">
+          <span aria-hidden className="h-3 w-3 rounded-full bg-bar" />{t("Back to the green spot ({n})", { n: pounds(best) })}
         </Button>
       )}
     </div>
@@ -1463,9 +1489,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   // the budget in plain dark words, within it or over it alike (money is never green or red); a budget is whole pounds
   const budgetLine = week.budget === null ? t("No budget set.")
     : twoWeeks ? twoWeeksBudget(t, costs, week.budget, saved.swapped)
-    : week.overBudget && saved.swapped ? t("{over} over your {budget} budget with your swaps.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
-    : week.overBudget ? t("{over} over your {budget} budget: the cheapest week our recipes allow.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
-    : t("Within your {budget} budget.", { budget: pounds(week.budget) });
+    : week.overBudget && saved.swapped ? t("{over} a week over your budget of {budget} a day with your swaps.", { over: formatPrice(budgetCost(week) - week.budget), budget: aDay(week.budget) })
+    : week.overBudget ? t("{over} a week over your budget of {budget} a day: the cheapest week our recipes allow.", { over: formatPrice(budgetCost(week) - week.budget), budget: aDay(week.budget) })
+    : t("Within your budget of {budget} a day.", { budget: aDay(week.budget) });
   // the seven days across the screen: each its short name, its date and a picture of its main meal (the last that isn't a snack: dinner when there is one),
   // never of a meal hidden because the diet changed
   const htmlLang = localeInfo(language).htmlLang;

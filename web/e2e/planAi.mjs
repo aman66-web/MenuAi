@@ -194,6 +194,43 @@ await step("Pip unreachable: the phone's own week, with one plain line saying so
   await shot("13-week-pip-missed");
 });
 
+await step("leaving while Pip works (founder 2026-11-21: \"If the person clicks off their plan will still be made\"): a notice at the top of other screens, then 'Your meal plan is ready' and Open", async () => {
+  await page.unroute("**/api/v1/plan/ai");
+  let answered = false;
+  await page.route("**/api/v1/plan/ai", async (route) => {
+    const body = route.request().postDataJSON();
+    await new Promise((r) => setTimeout(r, 8000));
+    answered = true;
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ plan: { ids: body.draft, why: "A steady week that keeps your cooking short on weekdays." } }) });
+  });
+  await page.getByRole("button", { name: "Make a new plan" }).first().click();
+  for (let i = 0; i < 30; i++) {
+    if (await h1("Ready to make your plan?").isVisible()) break;
+    const next = page.locator(".sticky").getByRole("button").last();
+    await next.and(page.locator(":enabled")).waitFor({ timeout: 180000 });
+    await next.click();
+    await page.waitForTimeout(150);
+  }
+  await page.getByRole("button", { name: "Make my plan" }).and(page.locator(":enabled")).waitFor({ timeout: 180000 });
+  await page.getByRole("button", { name: "Make my plan" }).click();
+  await h1("Making your plan").waitFor({ timeout: 30000 });
+  // no notice over Making your plan itself
+  expect((await page.getByText("Pip is making your plan…").count()) === 0, "no notice on the Making screen");
+  // off to Recipes by the tab bar while Pip works
+  await page.getByRole("link", { name: "Recipes" }).last().click();
+  await page.waitForURL(/\/app\/recipes/);
+  await page.getByRole("status").filter({ hasText: "Pip is making your plan…" }).waitFor({ timeout: 10000 });
+  expect(!answered, "the notice shows while Pip is still working");
+  await shot("14-notice-working");
+  await page.getByRole("status").filter({ hasText: "Your meal plan is ready" }).waitFor({ timeout: 30000 });
+  await shot("15-notice-ready");
+  await page.getByRole("status").getByRole("link", { name: "Open" }).click();
+  await h1("Your meal plan").waitFor({ timeout: 60000 });
+  await page.getByText("A steady week that keeps your cooking short on weekdays.").waitFor();
+  expect((await page.getByText("Your meal plan is ready").count()) === 0, "the notice goes once the week is open");
+  expect(errors.length === 0, errors.join(" | "));
+});
+
 await ctx.close();
 await browser.close();
 console.log(`\n${passed} passed, ${failed} failed`);
