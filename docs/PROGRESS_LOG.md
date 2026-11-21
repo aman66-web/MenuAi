@@ -3966,3 +3966,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   (menumacros-dw0txbftk). Checked live: /, /app, /app/targets, /privacy (dated 21 November 2026, with the free week), /terms ("The free week") answer 200;
   POST /api/v1/entitlement/account 401 without an account; a new recipe picture 200; /api/v1/barcode answers. Rollback: the previous production deployment
   menumacros-4i9o78xw0 (aa767bd5).
+- (21 Nov, afternoon) **App Store screenshots, version 2** (founder: "make 10 screenshots ... annotate them"; then "if they have logo things, they should also
+  show the logo"). `web/e2e/store-shots-v2.mjs` captures 10 screens from a test copy of the iPhone app (Premium through the throwaway key; food and product
+  photos refused, and a screenshot with one drawn is not saved); `web/e2e/store-frames.mjs` puts each in a phone outline under a headline and subline,
+  1320 x 2868, Urbanist, the app's colours. **Rule change (founder's accepted risk, App Review 2.3.9):** store screenshots may now show the official logo files
+  as the app shows them (CLAUDE.md rule 2 and docs/STORE.md updated); every screenshot with a logo carries "Not affiliated with any restaurant or shop
+  shown." Photos stay out. Shot 1 is now Eat out's Popular logos; Best for you uses Harvester (no dish photos, so no empty photo boxes). The set without
+  logos is kept in web/e2e/shots/store-v2/no-logos/ (`NO_LOGOS=1`). The headline words are drafts to go through with the founder. Nothing uploaded.

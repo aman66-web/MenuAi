@@ -13,7 +13,7 @@ const font = readFileSync(new URL("../app/fonts/Urbanist-latin.woff2", import.me
 
 // *word* is drawn in the app's green
 export const CAPTIONS = {
-  "01-menu": ["Know what's *in your order*", "Official nutrition from 241 UK chains"],
+  "01-eatout": ["Know what's *in your order*", "Official figures from 241 UK restaurants"],
   "02-truth": ["See the *truth* about a dish", "Protein score and traffic lights"],
   "03-best": ["*Top picks* for your goal", "The most protein for the calories, meal by meal"],
   "04-scan": ["Scan it. *Log it.*", "Pick a glass, a can or grams"],
@@ -24,6 +24,10 @@ export const CAPTIONS = {
   "09-fridge": ["Cook with *what you have*", "Tap what's in your fridge"],
   "10-groceries": ["*Top 20* supermarket lists", "Most protein, cheapest protein, most fibre"],
 };
+
+// screens that show a chain's or shop's official logo carry the welcome wall's line (CLAUDE.md rule 2)
+const LOGO_SHOTS = new Set((process.env.LOGO_SHOTS ?? "01-eatout,06-recipes,07-recipe,10-groceries").split(",").filter(Boolean));
+const NOT_AFFILIATED = "Not affiliated with any restaurant or shop shown.";
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const words = (s) => esc(s).replace(/\*(.+?)\*/g, '<span class="hi">$1</span>');
@@ -43,9 +47,11 @@ p { margin-top: 30px; font-size: 54px; line-height: 1.2; font-weight: 600; color
 .phone { position: absolute; left: 50%; top: 640px; transform: translateX(-50%); width: 1010px; padding: 22px; border-radius: 132px; background: #0b1a12;
   box-shadow: 0 60px 120px rgba(11, 26, 18, 0.22), 0 0 0 4px #2a3530 inset; }
 .phone img { display: block; width: 966px; height: auto; border-radius: 112px; }
+.note { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; font-size: 34px; font-weight: 600; color: #4a5750; }
 </style></head><body>
 <div class="text"><h1>${words(head)}</h1><p>${esc(sub)}</p></div>
 <div class="phone"><img src="data:image/png;base64,${img}"></div>
+${LOGO_SHOTS.has(name) ? `<div class="note">${NOT_AFFILIATED}</div>` : ""}
 </body></html>`;
 }
 
@@ -55,7 +61,7 @@ for (const name of Object.keys(CAPTIONS)) {
   if (only.length && !only.includes(name)) continue;
   await page.setContent(html(name), { waitUntil: "load" });
   await page.evaluate(() => document.fonts.ready);
-  await page.screenshot({ path: `${OUT}${name}.png` });
+  await page.screenshot({ path: `${OUT}${name}.png`, type: "png", omitBackground: false });
   console.log("framed", name);
 }
 await browser.close();

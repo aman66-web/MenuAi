@@ -1,7 +1,9 @@
 // The raw screens for the App Store screenshots (founder 2026-11-21: "make 10 screenshots ... annotate them"): the iPhone app's copy of the web app, 6.9-inch
-// iPhone (440 x 956 points, 1320 x 2868 pixels), light, English, with NO restaurant or supermarket logos and NO food or product photos (CLAUDE.md rule 2; App
-// Review 2.3.9): every logo is taken down through the taken-down list and every photo request is refused, as e2e/store-shots.mjs does. Premium is on through a
-// THROWAWAY key (e2e/paykey.mjs), so the build must be a test copy built with that key (never the App Store build):
+// iPhone (440 x 956 points, 1320 x 2868 pixels), light, English. The chains' and shops' official logo files show as they do in the app (founder 2026-11-21:
+// "if they have logo things, they should also show the logo"; accepted risk under App Review 2.3.9, see CLAUDE.md rule 2); NO food or product photos (every
+// photo request is refused, and a screenshot with one drawn is not saved). NO_LOGOS=1 makes the fallback set without logos (every logo taken down through the
+// taken-down list, as e2e/store-shots.mjs does). Premium is on through a THROWAWAY key (e2e/paykey.mjs), so the build must be a test copy built with that key
+// (never the App Store build):
 //   cd web && KEY=$(node e2e/paykey.mjs) && NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com \
 //     NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" NEXT_PUBLIC_SIGN_IN_REQUIRED=0 npm run build:app && (PORT=3103 node e2e/serve-app.mjs .next-app &)
 //   BASE=http://localhost:3103 node e2e/store-shots-v2.mjs [names...]   → e2e/shots/store-v2/raw/<name>.png ; then e2e/store-frames.mjs frames them
@@ -10,13 +12,14 @@ import { mkdirSync, readFileSync } from "node:fs";
 
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
-const OUT = new URL("./shots/store-v2/raw/", import.meta.url).pathname;
+const OUT = new URL(process.env.NO_LOGOS === "1" ? "./shots/store-v2/no-logos/raw/" : "./shots/store-v2/raw/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
 const manifest = JSON.parse(readFileSync(new URL("../public/menus/menus-manifest.json", import.meta.url), "utf8"));
 const shops = ["sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer", "coop", "ocado"];
-const hidden = [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
+const LOGOS = process.env.NO_LOGOS !== "1";
+const hidden = LOGOS ? [] : [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
 const { privateJwk } = JSON.parse(readFileSync(new URL("./.paykey.json", import.meta.url), "utf8"));
 const DAY = 86_400_000;
 const JWS = "eyJhbGciOiJFUzI1NiJ9.eyJwcm9kdWN0SWQiOiJhbm51YWwifQ.c2lnbmF0dXJl";
@@ -78,10 +81,11 @@ async function page() {
 
 async function save(p, name) {
   await p.waitForTimeout(1200);
-  const drawn = await p.evaluate(() => [...document.images].filter((i) => /\/logos\/|menu-images|grocery-images/.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
-  if (drawn) throw new Error(`${name}: ${drawn} logo or photo images on screen`);
+  const drawn = await p.evaluate((logos) => [...document.images].filter((i) => (logos ? /menu-images|grocery-images/ : /\/logos\/|menu-images|grocery-images/).test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length, LOGOS);
+  if (drawn) throw new Error(`${name}: ${drawn} ${LOGOS ? "photo" : "logo or photo"} images on screen`);
+  const logos = await p.evaluate(() => [...document.images].filter((i) => /\/logos\//.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
   await p.screenshot({ path: `${OUT}${name}.png` });
-  console.log("saved", name);
+  console.log("saved", name, logos ? `(${logos} logos)` : "");
 }
 
 const scrollTo = async (p, heading, above = 70) => {
@@ -91,11 +95,17 @@ const scrollTo = async (p, heading, above = 70) => {
 };
 
 const SHOTS = {
+  // Eat out: the restaurant chains with their own logos
+  "01-eatout": async (p) => {
+    await p.goto(BASE + "/app/eat-out");
+    await scrollTo(p, "All restaurants", 24);
+    await p.waitForTimeout(3000);
+  },
   // a restaurant's menu: dish rows with their calories and protein
   "01-menu": async (p) => {
     await p.goto(BASE + "/app/chain?id=" + (process.env.MENU_CHAIN ?? "wagamama"));
     await p.getByRole("heading", { level: 1 }).waitFor({ timeout: 30000 });
-    await scrollTo(p, "Full menu", 24);
+    if (process.env.MENU_TOP !== "1") await scrollTo(p, "Full menu", 24);
   },
   // the Truth card of a dish that scores well (Best for you's first lunch pick), never a dish shown in a poor light
   "02-truth": async (p) => {
@@ -105,7 +115,7 @@ const SHOTS = {
     await p.waitForTimeout(1500);
   },
   "03-best": async (p) => {
-    await p.goto(BASE + "/app/chain?id=nandos");
+    await p.goto(BASE + "/app/chain?id=" + (process.env.BEST_CHAIN ?? "harvester"));
     await p.getByRole("heading", { level: 1 }).waitFor({ timeout: 30000 });
     await scrollTo(p, "Best for you", 24);
   },

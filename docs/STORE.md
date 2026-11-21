@@ -17,8 +17,10 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 | Price | Free, with In-App Purchase (Annual, Monthly) |
 | Availability | United Kingdom first (the data is UK only) |
 
-**Never** put a restaurant's or supermarket's name or logo in the app name, subtitle, keywords, icon or screenshots (App Review 2.3.7,
-2.3.9, 4.1(c); CLAUDE.md rule 2). Never call food healthy, good or bad (rule 3); GLP-1 copy is "smaller, protein-first orders".
+**Never** put a restaurant's or supermarket's name or logo in the app name, subtitle, keywords or icon (App Review 2.3.7, 4.1(c); CLAUDE.md rule 2).
+**Screenshots** (founder 2026-11-21, accepted risk under 2.3.9): app screens may show chains' and shops' names and their official logo files as the app
+shows them, never a food or product photo; each one with a logo carries "Not affiliated with any restaurant or shop shown." A set without logos is kept
+(`NO_LOGOS=1 node web/e2e/store-shots-v2.mjs`) in case App Review objects. Never call food healthy, good or bad (rule 3); GLP-1 copy is "smaller, protein-first orders".
 
 ## Description (draft)
 
