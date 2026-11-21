@@ -18,8 +18,9 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let notifications: any NotificationScheduling
     private let purchases: any PurchaseService
     private let session: any SessionStoring
+    private let deviceCheck: any DeviceChecking
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore()) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore(), deviceCheck: any DeviceChecking = FakeDeviceCheck(outcome: .unavailable)) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
@@ -28,6 +29,7 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         self.notifications = notifications
         self.purchases = purchases
         self.session = session
+        self.deviceCheck = deviceCheck
         super.init()
         // A purchase that arrives while the app is open (StoreKitPurchaseService's updates listener posts this on the main actor): the page checks Apple's list
         // at once (web/app/app/_components/AppShell.tsx listens for "menumath:purchases") instead of at the next return to the front.
@@ -132,6 +134,11 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         case .sessionSave(_, let value):
             session.save(value)
             return BridgeReply(done: true)
+        case .deviceCheckToken:
+            switch await deviceCheck.token() {
+            case .token(let token, let environment): return BridgeReply(deviceToken: token, deviceEnv: environment)
+            case .unavailable: return .failure("unavailable")
+            }
         }
     }
 }

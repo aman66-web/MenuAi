@@ -10,6 +10,7 @@ import { createSyncAdapters } from "@/lib/mm/syncStores";
 import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
 import { withoutArrival } from "@/lib/mm/homePages";
+import { forgetAccountAccess } from "@/lib/payments/accountAccess";
 import { compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, logStore, mealPlanStore, myRecipesStore, recentStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
@@ -147,6 +148,7 @@ function forgetAccountsOwn(): void {
   mealPlanStore.reset(); // the week's plan and the earlier ones are made for those people
   earlierPlansStore.reset();
   homePagesStore.set(withoutArrival(homePagesStore.get())); // Home's Start here card and toast from the welcome screens belong to the account just left
+  forgetAccountAccess(); // the account's free week or gift of Premium (a bought one stays: lib/payments/accountAccess.ts)
 }
 
 /** Leave the account on this device. `tellServer`: also end the session there (not needed when the server already ended it). */

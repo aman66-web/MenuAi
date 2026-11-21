@@ -28,6 +28,8 @@ import { GATING_ENABLED, IAP_ENABLED } from "@/lib/mm/config";
 import { signInGate } from "@/lib/mm/signInGate";
 import { hasNative } from "@/lib/mm/native";
 import { refreshAppStoreAccess } from "@/lib/payments/iap";
+import { refreshFreeWeek } from "../_lib/freeWeek";
+import { FreeWeekNote } from "./FreeWeekNote";
 import { afterSignInGate } from "@/lib/mm/premiumFeatures";
 import { welcomeProgressStore } from "@/lib/mm/welcomeSteps";
 import { CoachMarks } from "./CoachMarks";
@@ -109,7 +111,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     const checked = recheckStoredToken();
     if (!IAP_ENABLED || !hasNative()) return;
     void checked.then(() => refreshAppStoreAccess());
-    const back = () => { if (document.visibilityState === "visible") void refreshAppStoreAccess(); };
+    // back to the front: Apple's list first (a purchase wins), then the account's own free week or gift (_lib/freeWeek.ts; at most every half hour)
+    const back = () => { if (document.visibilityState === "visible") void refreshAppStoreAccess().then(() => refreshFreeWeek()); };
     // a purchase that arrives while the app is open (an Ask to Buy approval, a renewal, a purchase on another device): the iPhone says so at once
     // (StoreKitPurchaseService's updates listener → WebAppView), and Apple's list decides as on a return to the front
     const arrived = () => void refreshAppStoreAccess();
@@ -120,6 +123,14 @@ export function AppShell({ children }: { children: ReactNode }) {
       window.removeEventListener(PURCHASES_EVENT, arrived);
     };
   }, [hydrated]);
+
+  // The account's own Premium (founder, 20 November 2026: every new account has a free week; a gift of Premium from the founder): asked at start-up and
+  // straight after signing in, once Apple's list of purchases has been read (a purchase wins and the account then isn't asked). In-App Purchase app only.
+  const userId = user?.id ?? null;
+  useEffect(() => {
+    if (!hydrated || !userId || !IAP_ENABLED || !hasNative()) return;
+    void recheckStoredToken().then(() => refreshAppStoreAccess()).then(() => refreshFreeWeek(true));
+  }, [hydrated, userId]);
 
   // Signed in? (Optional: with no account nothing is sent anywhere.) Asks the server who this device is signed in as and starts syncing.
   useEffect(() => {
@@ -214,6 +225,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
       {gate === "open" && !fullScreen && <CoachMarks />}
       {gate === "open" && <TrialOffer />}
+      {gate === "open" && <FreeWeekNote />}
       {gate === "open" && <RatingPrompt />}
     </PaywallProvider>
   );

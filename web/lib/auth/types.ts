@@ -58,4 +58,7 @@ export interface AuthPort {
   deleteUser(userId: string): Promise<void>;
   /** Tell Apple the person's Sign in with Apple is over (App Review 5.1.1(v)). Absent or false when the Apple key isn't set up. Never throws. */
   revokeApple?(authorizationCode: string): Promise<boolean>;
+  /** Sign in with Apple's user id ("sub") for this account, or null when it doesn't sign in with Apple. Only the free week asks (lib/payments/freeWeek.ts: a
+   *  second account on the same Apple ID gets no second free week); it is never sent to the app or the browser. */
+  appleSubject?(userId: string): Promise<string | null>;
 }

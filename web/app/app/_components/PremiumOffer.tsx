@@ -1,7 +1,9 @@
 "use client";
 
 import type { ComponentType, ReactNode, SVGProps } from "react";
+import { FREE_WEEK_ENDED } from "@/lib/mm/freeWeek";
 import { headlineFeatures, moreFeatures, type PremiumFeature, type PremiumIcon } from "@/lib/mm/premiumFeatures";
+import { useFreeWeekEnded } from "../_lib/freeWeek";
 import { useT } from "../_lib/i18n";
 import { BoltIcon, BookmarkIcon, CalendarIcon, CameraIcon, FridgeIcon, PodiumIcon, PotIcon, ShrinkIcon, StarIcon, SwapIcon } from "./icons";
 import { FeaturePicture, PICTURED, PremiumHeroPicture } from "./PremiumPictures";
@@ -94,15 +96,17 @@ export function PremiumOffer({ level = "h3" }: { level?: "h2" | "h3" } = {}) {
  */
 export function PremiumHero({ trial, price, per, waiting, reason, level = "h3" }: { trial: number | null; price: string | null; per: string; waiting: boolean; reason?: ReactNode; level?: "h2" | "h3" }) {
   const t = useT();
+  // the account's free week is over (lib/mm/freeWeek.ts): said plainly, before anything about a trial
+  const ended = useFreeWeekEnded();
   const Heading = level;
   return (
     <div className="mb-5">
       <PremiumHeroPicture />
       {/* never larger than the billed amount under the plans (2rem): App Review 3.1.2(c) */}
       <Heading className={`mt-4 text-balance text-[1.625rem] font-[800] leading-[1.15] tracking-[-0.02em] ${waiting ? "invisible" : ""}`}>
-        {trial && !waiting ? t("Try Premium free for {days} days", { days: trial }) : t("Get more with Premium")}
+        {ended ? t(FREE_WEEK_ENDED) : trial && !waiting ? t("Try Premium free for {days} days", { days: trial }) : t("Get more with Premium")}
       </Heading>
-      {trial && price && !waiting && <p className="app-numbers mt-1 text-[1.125rem] font-bold leading-snug">{t("Then {price} {per}.", { price, per })}</p>}
+      {trial && price && !waiting && !ended && <p className="app-numbers mt-1 text-[1.125rem] font-bold leading-snug">{t("Then {price} {per}.", { price, per })}</p>}
       {reason && <p className="mt-2 text-base leading-snug text-muted">{reason}</p>}
     </div>
   );

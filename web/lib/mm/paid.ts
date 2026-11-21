@@ -3,16 +3,16 @@
 //
 //  - `token`  the signed access token the server gave after a payment (lib/payments/token.ts). It is checked with the public key before it counts.
 //  - `until`  when that checked token ends (ms), kept so the app can ask "is this device paid?" without checking a signature on every screen.
-//  - `plan`   which plan it was, for Settings.
+//  - `plan`   which plan it was, for Settings: a paid one, or "trial" (the account's free week) or "gift" (Premium the founder gave the account).
 //  - `unlockUntil`  the 48 hours given for sharing on WhatsApp. A WhatsApp link opens another app, so a share can't be verified: this is a soft, honest nudge (said
 //                   in the code and the privacy text), not a lock. It is given at most once while one is running.
 
-import type { PlanId } from "../payments/plans";
 import { PLAN_IDS } from "../payments/plans";
+import { isAccountPlan, type AccessPlan } from "../payments/token";
 
 export interface PaidState {
   token: string | null;
-  plan: PlanId | null;
+  plan: AccessPlan | null;
   until: number | null;
   unlockUntil: number | null;
 }
@@ -31,13 +31,17 @@ export function sanitizePaid(raw: unknown): PaidState {
   if (typeof raw !== "object" || raw === null) return NO_PAID;
   const r = raw as Record<string, unknown>;
   const token = typeof r.token === "string" && r.token.length > 20 && r.token.length < 2000 && /^[A-Za-z0-9._-]+$/.test(r.token) ? r.token : null;
-  const plan = typeof r.plan === "string" && (PLAN_IDS as readonly string[]).includes(r.plan) ? (r.plan as PlanId) : null;
+  const plan = typeof r.plan === "string" && ((PLAN_IDS as readonly string[]).includes(r.plan) || isAccountPlan(r.plan)) ? (r.plan as AccessPlan) : null;
   return { token, plan: token ? plan : null, until: token ? num(r.until) : null, unlockUntil: num(r.unlockUntil) };
 }
 
 /** Paid and not run out. */
 export const paidActive = (p: PaidState, nowMs: number): boolean => p.until !== null && p.until > nowMs;
 export const shareUnlockActive = (p: PaidState, nowMs: number): boolean => p.unlockUntil !== null && p.unlockUntil > nowMs;
+/** Premium that was bought (on the website or from the App Store) and hasn't run out: not the account's free week or a gift. */
+export const boughtActive = (p: PaidState, nowMs: number): boolean => paidActive(p, nowMs) && !isAccountPlan(p.plan);
+/** The account's free week or a gift, running. */
+export const accountAccessActive = (p: PaidState, nowMs: number): boolean => paidActive(p, nowMs) && isAccountPlan(p.plan);
 /** Access of either kind (a payment, or the 48 hours given for sharing). */
 export const hasAccess = (p: PaidState, nowMs: number): boolean => paidActive(p, nowMs) || shareUnlockActive(p, nowMs);
 
@@ -47,7 +51,7 @@ export function grantShareUnlock(p: PaidState, nowMs: number): PaidState {
 }
 
 /** A token that checked out: keep it with its end date and plan. */
-export function withVerifiedToken(p: PaidState, token: string, plan: PlanId, untilMs: number): PaidState {
+export function withVerifiedToken(p: PaidState, token: string, plan: AccessPlan, untilMs: number): PaidState {
   return { ...p, token, plan, until: untilMs };
 }
 

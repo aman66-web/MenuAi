@@ -13,7 +13,8 @@ import { sanitizeComparePicks, type PickEntry } from "./comparePick";
 import { EMPTY_RATING, sanitizeRating, type RatingState } from "./ratingPrompt";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
-import type { PlanId } from "../payments/plans";
+import type { AccessPlan } from "../payments/token";
+import { NO_FREE_WEEK, sanitizeFreeWeek, type FreeWeekState } from "./freeWeek";
 import type { LogMeal } from "./types";
 import { IAP_ENABLED } from "./config";
 import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
@@ -32,6 +33,9 @@ import {
 export const settingsStore = createStore<UserSettings>("mm.v1.settings", DEFAULT_SETTINGS, { sanitize: sanitizeSettings });
 /** Paid access on this device: the signed token and when it ends, plus the 48 hours given for sharing (lib/mm/paid.ts). Not personal data and not synced; "Clear data" leaves a purchase alone. */
 export const paidStore = createStore<PaidState>("mm.v1.paid", NO_PAID, { sanitize: sanitizePaid });
+/** What the server last said about the signed-in account's free week or gift of Premium (lib/mm/freeWeek.ts). The account's, not the phone's: forgotten with
+ *  the account (sign out, Delete my account, Clear data). Never synced. */
+export const freeWeekStore = createStore<FreeWeekState>("mm.v1.freeWeek", NO_FREE_WEEK, { sanitize: sanitizeFreeWeek });
 /** The different dishes' Truth cards a free person has opened today (lib/mm/paid.ts). */
 export const truthDayStore = createStore<TruthDay>("mm.v1.truthDay", NO_TRUTH_DAY, { sanitize: sanitizeTruthDay });
 /** The iPhone app has shown its one-time "try Premium free" offer after setup on this phone (founder 2026-11-16). Never synced: it belongs to the phone. */
@@ -256,7 +260,7 @@ export function clearReminders(): void {
 }
 
 /** A payment's token that checked out: keep it with its end date. */
-export function keepPaidToken(token: string, plan: PlanId, untilMs: number) {
+export function keepPaidToken(token: string, plan: AccessPlan, untilMs: number) {
   paidStore.update((p) => withVerifiedToken(p, token, plan, untilMs));
 }
 /** A stored token that no longer checks out (changed, run out). */

@@ -10,7 +10,7 @@ import { API_BASE } from "../mm/config";
 import { nativeCall, type NativeAction, type NativeProduct, type NativeResult } from "../mm/native";
 import { forgetPaidToken, paidStore } from "../mm/stores";
 import { acceptToken, publicKey } from "./client";
-import { verifyToken } from "./token";
+import { isAccountPlan, verifyToken } from "./token";
 
 /**
  * The plans the iPhone app sells: Annual and Monthly, two auto-renewable subscriptions in the group "Numbite Premium", each with a free first week
@@ -119,8 +119,9 @@ export function refreshAppStoreAccess(call: Call = nativeCall, fetchImpl: Fetch 
       const r = await call("iap.entitlements", {}, 30_000);
       if (!r.transactions) return;
       if (r.transactions.length === 0) return await forgetAppleToken(nowMs);
-      const { until } = paidStore.get();
-      if (until !== null && until - nowMs > REFRESH_BEFORE_MS) return;
+      // the account's own free week or gift never stands in for a purchase Apple holds: the purchase's token replaces it at once
+      const { until, plan } = paidStore.get();
+      if (until !== null && until - nowMs > REFRESH_BEFORE_MS && !isAccountPlan(plan)) return;
       await claimTransactions(r.transactions, fetchImpl);
     } finally {
       running = null;

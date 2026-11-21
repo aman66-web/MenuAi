@@ -7,6 +7,7 @@ import {
   myRecipesStore, outbox, ratingStore, recentStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, waterStore,
 } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS } from "@/lib/mm/user-data";
+import { forgetAccountAccess } from "@/lib/payments/accountAccess";
 import { leaveForClearing } from "./account";
 import { clearRecipePhotos } from "./recipePhotos";
 
@@ -62,6 +63,7 @@ const CLEARED: Record<string, () => void> = {
   "mm.v1.recentSearches": () => localStorage.removeItem("mm.v1.recentSearches"),
   "mm.v1.mapArea": () => localStorage.removeItem("mm.v1.mapArea"), // the area typed for Near me
   "mm.v1.welcomeProgress": () => localStorage.removeItem("mm.v1.welcomeProgress"),
+  "mm.v1.freeWeek": () => forgetAccountAccess(), // the account's free week or gift (and its token; a bought one stays in mm.v1.paid)
 };
 
 /** This tab's own notes (session storage): where browsing was, a list just added from a link. */

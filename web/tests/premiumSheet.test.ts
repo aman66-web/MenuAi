@@ -44,7 +44,12 @@ describe("the free trial and the price on the sheet (App Review 3.1.2)", () => {
     const billed = PLANS.match(/<span className="(text-\[[\d.]+rem\]) font-extrabold tracking-tight">\{selected\.price\}/)?.[1] ?? "";
     expect(rem(headline)).toBeGreaterThan(20);
     expect(rem(billed)).toBeGreaterThan(rem(headline));
-    expect(OFFER).toMatch(/t\("Try Premium free for \{days\} days", \{ days: trial \}\)[\s\S]{0,200}<\/Heading>\s*\{trial && price && !waiting && <p[^>]*>\{t\("Then \{price\} \{per\}\.", \{ price, per \}\)\}/);
+    expect(OFFER).toMatch(/t\("Try Premium free for \{days\} days", \{ days: trial \}\)[\s\S]{0,200}<\/Heading>\s*\{trial && price && !waiting && !ended && <p[^>]*>\{t\("Then \{price\} \{per\}\.", \{ price, per \}\)\}/);
+  });
+
+  it("once the account's free week has ended the headline says so, before anything about a trial, and the price-after-the-trial line goes", () => {
+    expect(OFFER).toMatch(/\{ended \? t\(FREE_WEEK_ENDED\) : trial && !waiting \? t\("Try Premium free for \{days\} days"/);
+    expect(OFFER).toMatch(/const ended = useFreeWeekEnded\(\);/);
   });
 
   it("the prices come from StoreKit through AppStorePlans, never typed", () => {

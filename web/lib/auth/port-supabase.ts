@@ -125,6 +125,14 @@ export function supabaseAuthPort(config: SupabaseAuthConfig): AuthPort {
       if (error) throw toAuthError(error);
     },
 
+    async appleSubject(userId) {
+      const { data, error } = await db().auth.admin.getUserById(userId);
+      if (error) throw toAuthError(error);
+      const apple = (data.user?.identities ?? []).find((i) => i.provider === "apple");
+      const sub = (apple?.identity_data as { sub?: unknown } | undefined)?.sub ?? apple?.id;
+      return typeof sub === "string" && sub.trim() !== "" ? sub.trim() : null;
+    },
+
     async revokeApple(authorizationCode) {
       if (!config.apple) return false;
       try {

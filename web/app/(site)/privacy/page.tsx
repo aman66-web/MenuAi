@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
+import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
 import { AI_RECIPES_ENABLED, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
@@ -342,6 +343,13 @@ export default function Privacy() {
               </>
             : <>There is nothing to buy: every feature is free, in the iPhone app and the web app.</>}
         </p>
+        {APP_PREMIUM && (
+          <p className={para}>
+            <strong>Free week:</strong> every new account has Premium free for {FREE_WEEK_DAYS} days in the iPhone app. To stop a second free week we keep a one-way code made
+            from your email address (and your Apple ID, if you sign in with Apple) that can&apos;t be turned back into it, even after you delete your account, and use it for
+            nothing else; and Apple&apos;s DeviceCheck marks the iPhone as having had it (Apple runs it, and it tells us nothing about you). Premium we give you as a gift is kept with your account.
+          </p>
+        )}
         {WEB_PRO_ENABLED && (
           <p className={para}>
             On your device we keep a small signed token that says your access runs until a date (it holds no name or email), the 48-hour unlock if you shared, and, if you have no paid access, which dishes&apos; Truth cards you opened today. A creator code from a link
@@ -415,7 +423,7 @@ export default function Privacy() {
         <p className={para}>
           Reports, requests and support messages are kept while they help us maintain accurate menus and support you.
           Waitlist emails are used only to send you one email when what you signed up for is ready (the iPhone app
-          launch{PRO_ENABLED ? ", or Premium in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account. Community data is kept until you delete it or your account; shopping lists sent to a friend are deleted after 30 days, and reports are kept as described under Community. You can ask us to delete anything you&apos;ve sent at any time.
+          launch{PRO_ENABLED ? ", or Premium in the web app" : ""}), and are deleted after that (or sooner if you ask). Your account and its synced data are kept until you delete your account{APP_PREMIUM ? <>, except the free week&apos;s one-way code (see &ldquo;Purchases&rdquo;)</> : null}. Community data is kept until you delete it or your account; shopping lists sent to a friend are deleted after 30 days, and reports are kept as described under Community. You can ask us to delete anything you&apos;ve sent at any time.
         </p>
       </Section>
 

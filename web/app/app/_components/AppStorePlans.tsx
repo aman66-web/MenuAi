@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { tk } from "@/lib/mm/i18n";
-import { paidActive } from "@/lib/mm/paid";
+import { boughtActive, paidActive } from "@/lib/mm/paid";
 import { paidStore } from "@/lib/mm/stores";
 import { buyPlan, manageSubscriptions, restorePurchases, type IapPlanId, type RestoreResult, type StoreProduct } from "@/lib/payments/iap";
 import { site } from "@/site.config";
@@ -101,7 +101,8 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
   const selected = listed ? (listed.find((p) => p.plan === chosen) ?? listed[0] ?? null) : null;
   const perOf = (p: StoreProduct) => (p.period === "year" ? t("a year") : p.period === "month" ? t("a month") : t("one payment"));
 
-  const active = paidActive(paid, now.getTime());
+  // bought Premium (the account's own free week or gift still shows the plans: Settings › Subscription keeps See plans)
+  const active = boughtActive(paid, now.getTime());
   const subscribed = active && (paid.plan === "annual" || paid.plan === "monthly");
   // just switched on here: the box says it once (and Manage subscription waits for a later visit)
   const justOn = active && note !== null && UNLOCKED.includes(note.key);

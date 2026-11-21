@@ -27,6 +27,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     /// The account's sign-in, kept in the Keychain (Services/SessionStore.swift) so killing the app can't lose it: read it, or keep a new one (nil forgets it).
     case sessionLoad(id: String)
     case sessionSave(id: String, value: String?)
+    /// Apple's DeviceCheck token for this iPhone (Services/DeviceCheckService.swift), so our server can tell whether this iPhone already had the free week.
+    case deviceCheckToken(id: String)
 
     /// The longest session text the page may hand over (Supabase's tokens are about 2 KB together).
     static let maxSessionLength = 16_384
@@ -39,7 +41,7 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
              .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id), .hideKeyboard(let id),
              .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id), .requestReview(let id),
-             .sessionLoad(let id), .sessionSave(let id, _): id
+             .sessionLoad(let id), .sessionSave(let id, _), .deviceCheckToken(let id): id
         }
     }
 
@@ -100,6 +102,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             } else {
                 return nil
             }
+        case "deviceCheck.token":
+            self = .deviceCheckToken(id: id)
         default:
             return nil
         }
@@ -171,6 +175,9 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     var pending: Bool?
     /// "session.load": the saved session text ("session.load" with nothing saved answers `done` without it).
     var session: String?
+    /// "deviceCheck.token": Apple's DeviceCheck token (base64) and the DeviceCheck server it is for ("development" or "production").
+    var deviceToken: String?
+    var deviceEnv: String?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }

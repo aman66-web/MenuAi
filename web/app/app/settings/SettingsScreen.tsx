@@ -10,6 +10,8 @@ import { formatDate } from "@/lib/mm/format";
 import { mailtoFor } from "@/lib/mm/outbox";
 import { COACH_ARMED } from "@/lib/mm/coach";
 import { paidActive, shareUnlockActive } from "@/lib/mm/paid";
+import { FREE_WEEK_LAST_DAY, FREE_WEEK_LEFT, PREMIUM_GIFT, freeWeekDaysLeft } from "@/lib/mm/freeWeek";
+import { useFreeWeekHad } from "../_lib/freeWeek";
 import { manageSubscriptions } from "@/lib/payments/iap";
 import { YOUR_DATA_SYNCED } from "@/lib/mm/syncStores";
 import { coachStore, paidStore, logStore, outbox, outboxStore, tourStore, updateSettings, homePagesStore } from "@/lib/mm/stores";
@@ -184,6 +186,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const paid = useStore(paidStore);
   // the free trial this Apple ID can still have (iPhone app only): the Subscription link offers it (founder 2026-11-16: "they can claim the free trial later")
   const trial = trialDaysOf(useStoreProducts(IAP_ENABLED).products);
+  const hadFreeWeek = useFreeWeekHad();
   const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
@@ -264,6 +267,9 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const nowPremium = isPro(settings, paid, nowMs);
   const paying = paidActive(paid, nowMs);
   const subscribed = paying && (paid.plan === "annual" || paid.plan === "monthly");
+  // the account's own Premium (iPhone app): its free week or a gift; "See plans" stays for both
+  const freeWeek = paying && paid.plan === "trial" && paid.until ? freeWeekDaysLeft(paid.until, nowMs) : 0;
+  const gifted = paying && paid.plan === "gift";
 
   /**
    * Everything else on this page saves on the tap, but typed targets save with "Save targets" ("Use these" saves at once): a typed change is said to be not
@@ -489,6 +495,8 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
               {!nowPremium ? t("Your plan: Free")
                 : PRO_PREVIEW_FROM_ENV || settings.devProOverride ? t("Premium (preview, for testing)")
                 : subscribed ? (paid.plan === "annual" ? t("Premium · Annual") : t("Premium · Monthly"))
+                : freeWeek > 0 ? (freeWeek === 1 ? t(FREE_WEEK_LAST_DAY) : t(FREE_WEEK_LEFT, { n: freeWeek }))
+                : gifted ? t(PREMIUM_GIFT)
                 : t("Premium")}
             </p>
             {subscribed && nowPremium && !(PRO_PREVIEW_FROM_ENV || settings.devProOverride) && (
@@ -501,10 +509,11 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
             {PAID_ACCESS_ENABLED ? (
               subscribed ? (
                 IAP_ENABLED && <Button className="mt-3 min-h-12 px-6 text-base" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>
-              ) : !paying && (
+              ) : (!paying || freeWeek > 0 || gifted) && (
                 <>
                   <LinkButton href="/app/pro" className="mt-3 min-h-12 px-6 text-base">{t("See plans")}</LinkButton>
-                  {trial && !nowPremium && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("You can still have a {days}-day free trial.", { days: trial })}</p>}
+                  {/* never beside the account's own free week, running or ended: nobody is offered two */}
+                  {trial && !nowPremium && !hadFreeWeek && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("You can still have a {days}-day free trial.", { days: trial })}</p>}
                 </>
               )
             ) : !PAYMENTS_ENABLED && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Premium isn't on the web yet.")}</p>}

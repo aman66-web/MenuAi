@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
 import { claimSession } from "@/lib/payments/client";
-import { PLANS } from "@/lib/payments/plans";
+import { isPlanId, PLANS } from "@/lib/payments/plans";
 import { paidStore } from "@/lib/mm/stores";
 import { PageHeader } from "../../_components/PageHeader";
 import { Button, LinkButton, Spinner } from "../../_components/ui";
@@ -39,7 +39,7 @@ function Thanks() {
       {state === "done" && (
         <div role="status" className="mt-4 space-y-3">
           <p className="text-lg font-semibold leading-snug">
-            {paid.plan ? t("You have {plan}.", { plan: t(PLANS[paid.plan].label) }) : t("You're in.")}{" "}
+            {paid.plan && isPlanId(paid.plan) && PLANS[paid.plan] ? t("You have {plan}.", { plan: t(PLANS[paid.plan].label) }) : t("You're in.")}{" "}
             {paid.until ? t("Access until {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) }) : ""}
           </p>
           <LinkButton href="/app" size="lg">{t("Back to the app")}</LinkButton>

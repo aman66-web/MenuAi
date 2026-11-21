@@ -14,10 +14,12 @@ final class AppEnvironment {
     let purchases: any PurchaseService
     /// The account's sign-in, kept in the Keychain (SessionStore.swift).
     let session: any SessionStoring
+    /// Apple's DeviceCheck: whether this iPhone already had the free week (DeviceCheckService.swift).
+    let deviceCheck: any DeviceChecking
     /// Links the app is opened with (a shared shopping list): MenuMacrosApp hands them in, the web view shows them.
     let links = LinkInbox()
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore()) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore(), deviceCheck: any DeviceChecking = FakeDeviceCheck(outcome: .unavailable)) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
@@ -26,15 +28,16 @@ final class AppEnvironment {
         self.notifications = notifications
         self.purchases = purchases
         self.session = session
+        self.deviceCheck = deviceCheck
     }
 
     /// The real iPhone services.
     static func live() -> AppEnvironment {
-        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler(), purchases: StoreKitPurchaseService(), session: KeychainSessionStore())
+        AppEnvironment(scanner: VisionKitBarcodeScanner(), location: CoreLocationService(), sharer: ActivityShareService(), appleSignIn: AuthorizationAppleSignIn(), webSignIn: AuthenticationSessionWebSignIn(), notifications: UserNotificationScheduler(), purchases: StoreKitPurchaseService(), session: KeychainSessionStore(), deviceCheck: AppleDeviceCheck())
     }
 
     /// Fakes, for previews and tests.
     static func preview() -> AppEnvironment {
-        AppEnvironment(scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(), appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler(), purchases: FakePurchaseService())
+        AppEnvironment(scanner: FakeBarcodeScanner(), location: FakeLocationService(), sharer: FakeShareService(), appleSignIn: FakeAppleSignIn(), webSignIn: FakeWebSignIn(), notifications: FakeNotificationScheduler(), purchases: FakePurchaseService(), deviceCheck: FakeDeviceCheck())
     }
 }

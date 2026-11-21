@@ -26,7 +26,8 @@ export type NativeAction =
   | "iap.manage"
   | "review.request"
   | "session.load"
-  | "session.save";
+  | "session.save"
+  | "deviceCheck.token";
 
 /** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
 export interface NativeProduct {
@@ -64,6 +65,10 @@ export interface NativeResult {
   pending?: boolean;
   /** "session.load": the account's saved sign-in as the page handed it to "session.save" (kept in the iPhone's Keychain). */
   session?: string;
+  /** "deviceCheck.token": Apple's one-time DeviceCheck token for this iPhone (base64), and which of Apple's DeviceCheck servers it is for (a build run from
+   *  Xcode uses the development one). Sent only to our server, which asks Apple whether this iPhone had the free week (lib/payments/freeWeek.ts). */
+  deviceToken?: string;
+  deviceEnv?: "development" | "production";
   /** "denied" (the person said no in Settings), "unavailable" (this iPhone can't), "cancelled", "timeout". */
   error?: "denied" | "unavailable" | "cancelled" | "timeout";
 }
@@ -121,8 +126,12 @@ export function cleanNativeResult(raw: unknown): NativeResult {
   if (Array.isArray(r.transactions) && r.transactions.length <= 20 && r.transactions.every((t) => typeof t === "string" && t.length <= 20_000 && JWS.test(t))) out.transactions = r.transactions as string[];
   if (r.pending === true) out.pending = true;
   if (typeof r.session === "string" && r.session.length > 0 && r.session.length <= 16_384) out.session = r.session;
+  if (typeof r.deviceToken === "string" && r.deviceToken.length >= 16 && r.deviceToken.length <= 12_000 && /^[A-Za-z0-9+/=]+$/.test(r.deviceToken)) {
+    out.deviceToken = r.deviceToken;
+    if (r.deviceEnv === "development" || r.deviceEnv === "production") out.deviceEnv = r.deviceEnv;
+  }
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.session && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.session && !out.deviceToken && !out.error) out.error = "unavailable";
   return out;
 }
 
