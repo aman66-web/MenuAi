@@ -3875,3 +3875,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   should just say an example ... this shouldn't be their save plan"). The button only ever saved the calories and protein (saveTargets); the example week is never
   saved (exampleWeek.ts), but the old words said otherwise. Signed in it still says "Save and go to Home". keys.json updated (WRITE_I18N); the browser tests that
   press it renamed. vitest 3,600 pass; e2e smoke 24/24 on the dev server. On `iap` only: not in build 10 (in review) nor on numbite.com.
+- (02:20, 21 Nov) **Your plan: "Continue", and "An example of what you can make."** (founder, a minute later: "it should just say ... an example plan. And ...
+  they can press continue, basically. And it's just showing them an example of what they can make"). The button is "Continue" signed out and signed in (it
+  still keeps the calories and protein, saveTargets; nothing of the week); the line under Meal plan is "An example of what you can make." (was "An example
+  week."). Replaces the 02:08 "Save my numbers". keys.json refreshed; tests and browser tests updated. vitest 3,600 pass; e2e smoke 24/24, showcase 14/14
+  (run with NEXT_PUBLIC_PRO=1, as the dev server is). On `iap` only.

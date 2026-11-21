@@ -46,7 +46,7 @@ import { useTargetFields } from "./useTargetFields";
 // speech bubbles). lib/mm/welcomeSteps.ts holds the order:
 //    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan · the account
 // A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step,
-// and Your plan's button is "Save and go to Home". Skip (top right) on 1 to 3 skips that question; on 5 and 6 it skips both, to Your plan with the starting
+// and Your plan's button is "Continue" (founder 2026-11-21: the week is only an example; just the numbers are kept). Skip (top right) on 1 to 3 skips that question; on 5 and 6 it skips both, to Your plan with the starting
 // numbers (and an age under 18 goes from 5 to 7 too). Back goes to the last screen actually shown.
 // - The cover (Cover.tsx): Get started, or "Carry on from step {n}" with "Start again" for someone who left part-way (mm.v1.welcomeProgress, written at each
 //   step; the questions about the body resume at About you, because those answers are never kept), the status line after Clear data (?cleared=1), after
@@ -661,7 +661,7 @@ function Welcome() {
             onDish={setFirstDish}
             targets={{ fields: target.fields, setField: target.setField, reading: targetReading, starting: planStarting, under18: answers.under18, notes: planNotes, save: saveTargets }}
             bottom={{
-              next: run.signedIn ? t("Save and go to Home") : t("Save my numbers"),
+              next: t("Continue"),
               onNext: () => {
                 // the numbers as they stand (worked out, starting or typed) are saved; a box left wrong while changing them keeps the person here
                 if (!answers.under18 && !saveTargets()) return;

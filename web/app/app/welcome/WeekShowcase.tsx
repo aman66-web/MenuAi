@@ -22,7 +22,7 @@ import { ShowcaseWindow } from "./ShowcaseWindow";
 // It is an EXAMPLE of Meal plan, never a week worked out for the person (founder, 20 November 2026: "We shouldn't calculate the meal plan. This should just be
 // an example of their meal plan, showing ... how it works ... because it depends if you want to make it a premium feature"; until then it was the real week
 // from their shop, sized to their numbers and priced, which gave Meal plan away). So: no calories a day, nothing sized to them, nothing saved; only recipes
-// that suit their diet and allergies (lib/mm/exampleWeek.ts). Headed "Meal plan" with the one Premium badge where Premium is sold, and "An example week." under
+// that suit their diet and allergies (lib/mm/exampleWeek.ts). Headed "Meal plan" with the one Premium badge where Premium is sold, and "An example of what you can make." under
 // it; then two small cards for what Meal plan does with it: one shopping list, the shop's own prices.
 // Under the timetable, what that example's shopping comes to at their recipe shop (founder, 20 November 2026, about 21:55: "week one cost and then the week
 // afterwards costs, and explain it to them ... they need to understand that we are helping them save a lot of money"): "Your first shop: about £…", "Each week
@@ -105,7 +105,7 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
             <div className="mb-3 flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <h2 className="text-[1.125rem] font-bold leading-tight">{t("Meal plan")}</h2>
-                <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("An example week.")}</p>
+                <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("An example of what you can make.")}</p>
               </div>
               {premium && <PremiumBadge />}
             </div>

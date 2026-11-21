@@ -175,10 +175,10 @@ export async function planNumbers(page) {
     return { calories: read("Calories a day"), protein: read("Protein a day") };
   });
 }
-/** Your plan's button: "Save my numbers" (a run started signed out, to the account) or "Save and go to Home" (signed in). */
+/** Your plan's button: "Continue" (signed out, to the account; signed in, to Home). */
 export async function planNext(page) {
   await onStep(page, "plan");
-  await page.getByRole("button", { name: /^(Save my numbers|Save and go to Home)$/ }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
 }
 /** The account step where sign-in is optional: "Not now", to Home. */
 export async function notNow(page) {
@@ -186,7 +186,7 @@ export async function notNow(page) {
   await press(page, "Not now");
   await page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/", { timeout: 30000 });
 }
-/** From Your plan to Home where sign-in is optional: Save my numbers, then Not now. */
+/** From Your plan to Home where sign-in is optional: Continue, then Not now. */
 export async function finishFromPlan(page) {
   await planNext(page);
   await notNow(page);

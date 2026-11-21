@@ -15,7 +15,7 @@
 // - (d) vegan with milk avoided: the recipes, the week and the restaurant dishes fit; (e) GLP-1's note under the tiles and on Your plan;
 // - (f) leaving and coming back: "Carry on from step {n}" (About you for the questions about the person, the account with "Welcome back. Your plan is still
 //   here."), "Start again", and a note left by the eleven-step screens (eatOut, week) read in the new steps;
-// - (g) a run that starts signed in (7 steps, "Save and go to Home"); (h) an existing account signing in at the account step (its own settings win) through a
+// - (g) a run that starts signed in (7 steps, "Continue" on Your plan); (h) an existing account signing in at the account step (its own settings win) through a
 //   fake backend that uses the real merge rules;
 // - (i) no connection for the menus or the shops' files (plain lines, no digits) and the account step offline;
 // - (j) 375x667 and 320x568: the account's three ways on screen without scrolling, no sideways scroll; (k) Reduce Motion; (l) 200% text at 360x780: no sideways
@@ -116,7 +116,7 @@ const digitsIn = (page, name) => page.getByRole("region", { name, exact: true })
 const writtenCounter = (page) => page.evaluate(() => [...document.querySelectorAll("main *")].some((el) => !el.closest(".sr-only") && [...el.childNodes].some((n) => n.nodeType === 3 && /Step \d+ of \d+/.test(n.textContent ?? ""))));
 const home = (page) => page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/", { timeout: 30000 });
 /** Your plan's week, once it is made (its two chips), or its words-only line. */
-const weekSettled = (page) => page.getByText("An example week.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+const weekSettled = (page) => page.getByText("An example of what you can make.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
 /** The restaurant row's dishes, once they are there (each card's screen-reader line: "{dish} at {chain}: {kcal} calories."). */
 const dishLines = (page) => page.getByRole("region", { name: "Restaurants", exact: true }).locator("li .sr-only").allInnerTexts();
 /** Email sign-in on the full screens (the account step): "What's your email?", Continue, "Enter the code" (it goes on with the sixth digit). */
@@ -206,7 +206,7 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   expect(days.length === 7 && days.every((d) => /^\w+day: .+\.$/.test(d) && !/calories/.test(d)), "the week: " + JSON.stringify(days.slice(0, 2)));
   await page.getByText("Your shop's prices", { exact: true }).waitFor();
   // its shopping at Sainsbury's (founder 2026-11-20, "week one cost and then the week afterwards costs"): the first shop more than each week after, why, and
-  // the shop's own shelf prices; still "An example week."
+  // the shop's own shelf prices; still "An example of what you can make."
   const weekBox = page.getByRole("region", { name: "Your week", exact: true });
   const firstShop = weekBox.getByText(/^Your first shop: about £[\d,]+$/);
   await firstShop.waitFor({ timeout: 60000 });
@@ -215,7 +215,7 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   expect(weekOne > weekAfter && weekAfter > 0, `the first shop £${weekOne}, each week after £${weekAfter}`);
   await weekBox.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).waitFor();
   await weekBox.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
-  await weekBox.getByText("An example week.", { exact: true }).waitFor();
+  await weekBox.getByText("An example of what you can make.", { exact: true }).waitFor();
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/kcal yet/).count()) === 0, "a worked-out week (a price or a calorie gap) on Your plan");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).locator("img").count()) >= 7, "the week's pictures");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).getByText("Premium", { exact: true }).count()) === (GATED ? 1 : 0), "Meal plan's Premium badge");
@@ -416,7 +416,7 @@ await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again
   }
 });
 
-await step("(g) a run that starts signed in: 'Step 1 of 7' with 7 segments; Your plan's button 'Save and go to Home'; no account step; Home says 'You're signed in. Your goal and daily numbers are saved.'", async () => {
+await step("(g) a run that starts signed in: 'Step 1 of 7' with 7 segments; Your plan's button 'Continue'; no account step; Home says 'You're signed in. Your goal and daily numbers are saved.'", async () => {
   const { ctx, page } = await phone({ signIn: true });
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Already have an account? Sign in" }).click({ timeout: 120000 });
@@ -433,7 +433,7 @@ await step("(g) a run that starts signed in: 'Step 1 of 7' with 7 segments; Your
   await W.recipes(page);
   await W.skipBody(page);
   await W.expectCounter(page, 7, 7);
-  await page.getByRole("button", { name: "Save and go to Home", exact: true }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await home(page);
   await page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." }).waitFor({ timeout: 20000 });
   expect((await settingsOf(page)).hasCompletedOnboarding === true, "not set up");
@@ -481,7 +481,7 @@ await step("(i) no connection for the menus or the shops' files: step 4 says so 
   await W.recipes(page);
   await W.skipBody(page);
   // the week is an example from the recipe book (founder 2026-11-20), so it needs no shop file and still shows, with no price
-  await page.getByText("An example week.", { exact: true }).waitFor({ timeout: 30000 });
+  await page.getByText("An example of what you can make.", { exact: true }).waitFor({ timeout: 30000 });
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/^(Your first shop|Each week after): /).count()) === 0, "a price on the example week");
   expect((await page.getByRole("region", { name: "Restaurants", exact: true }).locator("li").count()) === 0, "restaurant dishes without the menus");
   await W.planNext(page);

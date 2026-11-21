@@ -72,7 +72,7 @@ async function toPlan(p) {
   await p.getByRole("radio", { name: "Lightly active", exact: true }).click();
   await p.getByRole("button", { name: "See my plan" }).click();
   await p.getByRole("heading", { level: 1, name: /^Your plan/ }).waitFor();
-  await p.getByText("An example week.", { exact: true }).or(p.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+  await p.getByText("An example of what you can make.", { exact: true }).or(p.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
 }
 /** The replay's screen n (1-2) of Settings › Help › "Show me what Numbite can do": Recipes from {shop}, then Your plan. */
 async function toReplay(p, n) {
@@ -113,7 +113,7 @@ const pages = [
     must((await p.locator("#plan-calories").evaluate((el) => el.closest(".group\\/step")?.querySelector("[aria-live='polite']")?.textContent)) === "", "your plan: typing a number still has the live region speaking");
     await p.waitForTimeout(500);
   }],
-  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toPlan(p); await p.getByRole("button", { name: /^(Save my numbers|Save and go to Home)$/ }).click(); await p.getByRole("heading", { level: 1, name: /^Save your plan/ }).waitFor(); await p.waitForTimeout(800); }],
+  ["welcome: save your plan", "/app/welcome", false, async (p) => { await toPlan(p); await p.getByRole("button", { name: "Continue", exact: true }).click(); await p.getByRole("heading", { level: 1, name: /^Save your plan/ }).waitFor(); await p.waitForTimeout(800); }],
   // Settings › Help › "Show me what Numbite can do" (it replaced the tour's replay)
   ["welcome: replay 1 of 2 (Settings › Help)", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 1); }],
   ["welcome: replay 2 of 2", "/app/welcome?showcase=1", false, async (p) => { await toReplay(p, 2); }],

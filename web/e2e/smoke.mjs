@@ -104,7 +104,7 @@ await step("onboarding: goal → avoid → shops → a first recipe → about yo
   await visible(page.getByText(/^Your first shop: about £[\d,]+$/), 45000);
   await visible(page.getByText(/^Each week after: about £[\d,]+$/));
   await shot("04-onboarding-plan");
-  await page.getByRole("button", { name: "Save my numbers" }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   // 8: the account (optional on this build: "Not now")
   await visible(page.getByRole("heading", { name: /^Save your plan/ }));
   await visible(text(`Waiting for you on Home: ${recipe}.`));

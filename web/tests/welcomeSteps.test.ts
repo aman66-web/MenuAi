@@ -83,7 +83,7 @@ describe("the steps and the bar", () => {
     }
   });
 
-  it("ends after the account, or after Your plan in a signed-in run ('Save and go to Home')", () => {
+  it("ends after the account, or after Your plan in a signed-in run ('Continue')", () => {
     expect(moveOn(signedOut, NO_ANSWERS, "plan").to).toBe("save");
     expect(moveOn(signedOut, NO_ANSWERS, "save").to).toBe("home");
     expect(moveOn(signedIn, NO_ANSWERS, "plan").to).toBe("home");

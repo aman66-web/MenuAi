@@ -85,7 +85,7 @@ describe("the welcome screens' words when their data is missing", () => {
   it("Your plan's week is an example, never worked out or sized for the person (founder 2026-11-20: \"We shouldn't calculate the meal plan\")", () => {
     const week = source("WeekShowcase.tsx");
     expect(week).toContain("exampleWeek(");
-    expect(week).toContain("An example week.");
+    expect(week).toContain("An example of what you can make.");
     // the shop's file is read only to price the example (23:05); the week itself is never a plan worked out or sized for them
     for (const worked of ["weekPreview", "dailyCalories", "kcal"]) expect(week, worked).not.toContain(worked);
   });

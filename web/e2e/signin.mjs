@@ -107,9 +107,9 @@ async function changeCalories(page, kcal) {
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await page.getByRole("button", { name: "Change", exact: true }).waitFor();
 }
-/** From Your plan: "Save my numbers", to the account step. */
+/** From Your plan: "Continue", to the account step. */
 async function toAccount(page) {
-  await page.getByRole("button", { name: "Save my numbers" }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await setupGate(page).waitFor();
 }
 /** "Step n of N", heard with the step's headline (never written on screen). */
@@ -355,7 +355,7 @@ await step("someone who leaves part-way comes back to the welcome cover on the n
   await ctx.close();
 });
 
-await step("signed in at a page's gate (a link) with nothing set up: the next plain start runs the signed-in steps, step 1 of 7, and ends with 'Save and go to Home'", async () => {
+await step("signed in at a page's gate (a link) with nothing set up: the next plain start runs the signed-in steps, step 1 of 7, and ends with 'Continue' on Your plan", async () => {
   const { ctx, page } = await newPhone();
   await page.goto(BASE + "/app/eat-out");
   await gate(page).waitFor();
@@ -367,7 +367,7 @@ await step("signed in at a page's gate (a link) with nothing set up: the next pl
   await heardStep(page, 1, 7);
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await toPlanFromAvoid(page);
-  await page.getByRole("button", { name: "Save and go to Home" }).click();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
   await page.waitForURL((u) => /^\/app\/?$/.test(new URL(u).pathname), { timeout: 15000 });
   expect((await settingsOn(page))?.hasCompletedOnboarding === true, "set up after the signed-in run");
   await ctx.close();

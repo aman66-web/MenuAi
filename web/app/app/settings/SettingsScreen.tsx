@@ -414,7 +414,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
       {only === "targets" ? targetsCard : (<>
 
       {/* The guided setup again (the welcome screens as a signed-in run of 10 steps: the questions with the saved answers ticked, the three feature screens and
-          "Save and go to Home"), for anyone who skipped it or wants to go through it again (the onboarding meeting, 20 November 2026). */}
+          "Continue"), for anyone who skipped it or wants to go through it again (the onboarding meeting, 20 November 2026). */}
       <Link href="/app/welcome" className="glass mt-5 flex min-h-[4.75rem] items-center gap-3.5 rounded-[1.25rem] px-4 py-3 transition-colors hover:bg-background active:bg-background">
         {/* Pip bare, on no disc (he melts into one) */}
         <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={44} /></span>
