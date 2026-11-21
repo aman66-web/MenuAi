@@ -158,7 +158,7 @@ const SHOTS = {
         while (sc && !(sc.scrollHeight > sc.clientHeight + 4 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) sc = sc.parentElement;
         if (sc) sc.scrollTop += el.getBoundingClientRect().top - sc.getBoundingClientRect().top - off;
         else window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - off);
-      }, Number(process.env.RECIPE_OFF ?? 16));
+      }, Number(process.env.RECIPE_OFF ?? 292));
       await p.waitForTimeout(2500);
     }
   },
