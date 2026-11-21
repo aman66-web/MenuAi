@@ -126,7 +126,7 @@ const SHOTS = {
     await p.waitForTimeout(1500);
   },
   "03-best": async (p) => {
-    await p.goto(BASE + "/app/chain?id=" + (process.env.BEST_CHAIN ?? "harvester"));
+    await p.goto(BASE + "/app/chain?id=" + (process.env.BEST_CHAIN ?? "nandos"));
     await p.getByRole("heading", { level: 1 }).waitFor({ timeout: 30000 });
     await scrollTo(p, "Best for you", 24);
   },
@@ -156,6 +156,8 @@ const SHOTS = {
     await p.getByRole("heading", { name: "Making your plan" }).waitFor({ timeout: 30000 });
     await p.getByRole("heading", { name: "Making your plan" }).waitFor({ state: "detached", timeout: 90000 });
     await p.waitForTimeout(2500);
+    // the week as picture tiles and the day's first meal card (the summary sits above)
+    if (process.env.PLAN_TOP !== "1") await scrollTo(p, /^Today, /, Number(process.env.PLAN_OFF ?? 150));
   },
   // Cook with what you have: three things at home, and the recipes that use them
   "09-fridge": async (p) => {

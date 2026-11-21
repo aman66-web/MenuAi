@@ -26,7 +26,7 @@ export const CAPTIONS = {
 };
 
 // screens that show a chain's or shop's official logo carry the welcome wall's line (CLAUDE.md rule 2)
-const LOGO_SHOTS = new Set((process.env.LOGO_SHOTS ?? "01-eatout,02-truth,04-scan,06-recipes,07-recipe,10-groceries").split(",").filter(Boolean));
+const LOGO_SHOTS = new Set((process.env.LOGO_SHOTS ?? "01-eatout,02-truth,03-best,04-scan,06-recipes,07-recipe,08-plan,10-groceries").split(",").filter(Boolean));
 const NOT_AFFILIATED = "Not affiliated with any restaurant or shop shown.";
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
