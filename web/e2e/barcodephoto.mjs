@@ -71,6 +71,29 @@ await step("Add food › Barcode from a photo › Choose a photo: the milk comes
   await ctx.close();
 });
 
+await step("any amount, any measure (founder: \"about 1/5 of a carton ... put anything they want down\"): Pack › ⅕ pack = 400 ml; the unit in the box switches to glass; 1 1/2 typed = 375 ml; Add logs it", async () => {
+  const { ctx, page, errors } = await newPage();
+  await page.goto(BASE + "/app");
+  await page.getByRole("button", { name: "Add to Dinner", exact: true }).tap({ timeout: 90000 });
+  await page.getByRole("button", { name: /Barcode from a photo/ }).tap();
+  await dlg(page).locator('input[type="file"]').setInputFiles(PHOTO);
+  await dlg(page).getByText("How much?").waitFor({ timeout: 60000 });
+  await dlg(page).getByRole("radio", { name: /^Pack \(2000 ml\)$/ }).tap();
+  await dlg(page).getByRole("button", { name: "⅕ pack", exact: true }).tap();
+  await dlg(page).getByText("= 400 ml", { exact: true }).waitFor();
+  await dlg(page).getByRole("combobox", { name: "Measure" }).selectOption("glass");
+  await dlg(page).locator("input[inputmode=decimal]").first().fill("1 1/2");
+  await dlg(page).getByText("= 375 ml", { exact: true }).waitFor();
+  const before = (await log(page)).length;
+  await dlg(page).getByRole("button", { name: /^Add to Dinner$/ }).tap();
+  await page.waitForFunction((n) => (JSON.parse(localStorage.getItem("mm.v1.log") ?? "null")?.data ?? []).length > n, before);
+  const entry = (await log(page)).at(-1);
+  expect(/\(375 ml\)$/.test(entry.name), "the entry says 375 ml: " + entry.name);
+  expect(Math.abs(entry.nutrients.calories - Math.round(label[0] * 3.75)) <= 1, `calories ${entry.nutrients.calories}`);
+  expect(errors.length === 0, "page errors: " + errors.join(" | "));
+  await ctx.close();
+});
+
 await step("a photo with no barcode says so calmly, and another photo can be chosen", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app");

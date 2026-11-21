@@ -3978,3 +3978,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   the Truth card shows the chain's logo tile next to its name (never in Creator View or on the dark card, which are filmed and posted); How much? shows the
   shop's logo next to its name. Store screenshots: the scanned Asda milk shows its photo from Asda's own image server (store-shots-v2.mjs PHOTO_SHOTS);
   dish photos stay out. Shots 2 and 4 now carry the not-affiliated line too. CLAUDE.md rule 2 and docs/STORE.md updated (founder's accepted risk).
+- (21 Nov, afternoon) **How much?: any measure, any amount** (founder: "there needs to be a way that they can change the measurement ... if this is a whole
+  carton of milk, they can do about 1/5 of a carton ... They're able to put anything they want down"). The whole pack offers ⅕ ¼ ⅓ ½ and 1 pack; the box
+  reads decimals, "1/5", "1 1/2" and the fraction signs, from a tenth of a measure; − and + go ⅕ ¼ ⅓ ½ ¾ below one, then by halves; the unit in the box
+  ("glass ▾") opens the phone's list of measures, next to the Measure row. Error copy's lowest amount 0.5 → 0.1 (same sentence). portions.test.ts and
+  e2e/barcodephoto.mjs (6 of 6) cover it. On `iap`, next build.

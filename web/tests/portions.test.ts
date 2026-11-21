@@ -1,6 +1,6 @@
 // Measures for "How much?" (lib/mm/portions.ts; founder 2026-11-21): only fixed amounts of the label's own unit, never a density guess.
 import { describe, expect, it } from "vitest";
-import { amountIn, countIn, countText, measuresFor, measureStep, QUICK_COUNTS } from "../lib/mm/portions";
+import { amountIn, countIn, countText, measuresFor, parseCount, PACK_COUNTS, QUICK_COUNTS, quickCounts, readCount, stepCount } from "../lib/mm/portions";
 
 const keys = (p: Parameters<typeof measuresFor>[0]) => measuresFor(p).map((m) => `${m.key}:${m.one}`);
 
@@ -37,9 +37,37 @@ describe("counting in a measure", () => {
     expect(amountIn({ key: "oz", one: 28.35 }, 2)).toBe(56.7);
   });
 
-  it("steps half a measure; g and ml keep the box's own steps", () => {
-    expect(measureStep(glass)).toBe(0.5);
-    expect(measureStep({ key: "unit", one: 1 })).toBeNull();
+  it("− and + go through ⅕ ¼ ⅓ ½ ¾ below one, then by halves", () => {
+    expect(stepCount(1, -1)).toBe(0.75);
+    expect(stepCount(0.5, -1)).toBeCloseTo(1 / 3);
+    expect(stepCount(0.2, -1)).toBe(0.2);
+    expect(stepCount(0.2, 1)).toBe(0.25);
+    expect(stepCount(0.75, 1)).toBe(1);
+    expect(stepCount(1, 1)).toBe(1.5);
+    expect(stepCount(2.5, -1)).toBe(2);
+    expect(stepCount(0.3, 1)).toBeCloseTo(1 / 3);
+  });
+
+  it("reads any amount people type: decimals, fractions and the fraction signs (founder: \"They're able to put anything they want down\")", () => {
+    expect(readCount("0.2")).toBe(0.2);
+    expect(readCount("0,2")).toBe(0.2);
+    expect(readCount("1/5")).toBe(0.2);
+    expect(readCount("1 1/2")).toBe(1.5);
+    expect(readCount("⅕")).toBe(0.2);
+    expect(readCount("1½")).toBe(1.5);
+    expect(readCount("abc")).toBeNaN();
+    expect(readCount("1/0")).toBeNaN();
+    const carton = { key: "pack" as const, one: 2000 };
+    expect(parseCount("1/5", carton, 5000)).toBe(0.2);
+    expect(parseCount("⅓", carton, 5000)).toBeCloseTo(1 / 3, 3);
+    expect(parseCount("0.05", carton, 5000)).toBeNull();
+    expect(parseCount("3", carton, 5000)).toBeNull();
+  });
+
+  it("a whole pack offers ⅕ ¼ ⅓ ½ and all of it; other measures ½, 1, 2", () => {
+    expect(quickCounts({ key: "pack", one: 2000 }).map(countText)).toEqual(["⅕", "¼", "⅓", "½", "1"]);
+    expect(quickCounts(glass)).toBe(QUICK_COUNTS);
+    expect(PACK_COUNTS.length).toBe(5);
   });
 
   it("says counts as people do", () => {

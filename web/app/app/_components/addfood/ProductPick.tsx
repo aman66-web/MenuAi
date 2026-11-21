@@ -4,7 +4,7 @@ import { needsPaywall } from "@/lib/mm/entitlements";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO, amountChoices, amountNutrients, amountText, loggableFromShop, MAX_AMOUNT, MIN_AMOUNT, parseAmount, productEntry, startAmount, stepAmount, withShopLabel, type AmountChoice, type LoggableProduct } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
-import { amountIn, countText, MEASURE_WORDS, measuresFor, parseCount, QUICK_COUNTS, type Measure, type MeasureKey } from "@/lib/mm/portions";
+import { amountIn, countText, MEASURE_WORDS, measuresFor, MIN_COUNT, parseCount, quickCounts, sameCount, stepCount, type Measure, type MeasureKey } from "@/lib/mm/portions";
 import { barcodeDigits, barcodeShown, validGs1 } from "@/lib/mm/barcodes";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { retailerName, withPhoto } from "@/lib/mm/groceries";
@@ -15,7 +15,7 @@ import type { LogMeal, Nutrients } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { ShopMark } from "../ChainMark";
 import { NumberDone } from "../SearchDone";
-import { AlertCircleIcon, MinusIcon, PencilIcon, PlusIcon, ScanIcon } from "../icons";
+import { AlertCircleIcon, ChevronDownIcon, MinusIcon, PencilIcon, PlusIcon, ScanIcon } from "../icons";
 import { InfoLine } from "../Note";
 import { useGate } from "../Paywall";
 import { PremiumBadge } from "../PremiumBadge";
@@ -256,11 +256,13 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
   const fromName = product.shop ? retailerName(product.shop) : product.brand || t("Groceries");
   const step = (direction: 1 | -1) => {
     if (inUnit) return setText(String(stepAmount(amount ?? parseAmount(text.replace(/[^\d.,]/g, "")), direction)));
-    // half a measure at a time, never below a half
-    const next = Math.max(0.5, Math.round(((count ?? 1) + direction * 0.5) * 2) / 2);
-    if (next * measure.one <= MAX_AMOUNT) setText(String(next));
+    // the fractions below one (⅕ ¼ ⅓ ½ ¾), then half a measure at a time
+    const next = stepCount(count, direction);
+    if (next * measure.one <= MAX_AMOUNT) setText(countText(next));
   };
-  const word = (m: Measure, c: number) => (m.key === "unit" ? unit : t(MEASURE_WORDS[m.key][c === 1 || c === 0.5 ? 0 : 1]));
+  // "1 glass", "½ glass", "⅕ pack", "2 glasses"
+  const word = (m: Measure, c: number) => (m.key === "unit" ? unit : t(MEASURE_WORDS[m.key][c <= 1 + 1e-9 ? 0 : 1]));
+  const measureLabel = (m: Measure) => (m.key === "unit" ? unit : m.key === "oz" ? "oz" : t("{measure} ({amount})", { measure: capitalised(word(m, 1)), amount: amountText(m.one, unit) }));
   const pickMeasure = (m: Measure) => {
     setMeasureKey(m.key);
     // back to g or ml keeps what the measure came to; a measure starts at one of it
@@ -301,17 +303,17 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
             <div className="flex flex-wrap gap-2">
               {measures.map((m) => (
                 <Chip key={m.key} role="radio" aria-checked={m.key === measure.key} aria-pressed={undefined} selected={m.key === measure.key} onClick={() => pickMeasure(m)}>
-                  {m.key === "unit" ? unit : m.key === "oz" ? "oz" : t("{measure} ({amount})", { measure: capitalised(word(m, 1)), amount: amountText(m.one, unit) })}
+                  {measureLabel(m)}
                 </Chip>
               ))}
             </div>
           </div>
         )}
-        {/* in a measure: a half, one or two of it */}
+        {/* in a measure: a half, one or two of it; of the whole pack, a fifth to all of it */}
         {!inUnit && (
           <div role="group" aria-label={t("Amounts")} className="mb-3.5 flex flex-wrap gap-2">
-            {QUICK_COUNTS.map((c) => (
-              <Chip key={c} selected={count === c} onClick={() => setText(String(c))}>{`${countText(c)} ${word(measure, c)}`}</Chip>
+            {quickCounts(measure).map((c) => (
+              <Chip key={c} selected={sameCount(count, c)} onClick={() => setText(countText(c))}>{`${countText(c)} ${word(measure, c)}`}</Chip>
             ))}
           </div>
         )}
@@ -324,7 +326,7 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
           </div>
         )}
         <div className="flex items-center gap-2.5">
-          <button type="button" className={STEP} aria-label={t("Less")} disabled={inUnit ? amount !== null && amount <= MIN_AMOUNT : count !== null && count <= 0.5} onClick={() => step(-1)}><MinusIcon aria-hidden className="h-5 w-5" /></button>
+          <button type="button" className={STEP} aria-label={t("Less")} disabled={inUnit ? amount !== null && amount <= MIN_AMOUNT : count !== null && count <= 0.2 + 1e-9} onClick={() => step(-1)}><MinusIcon aria-hidden className="h-5 w-5" /></button>
           <div className="relative min-w-0 flex-1">
             <input
               id={id}
@@ -337,9 +339,21 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
               autoComplete="off"
               aria-invalid={bad || undefined}
               aria-describedby={bad ? `${id}-bad` : undefined}
-              className="app-numbers min-h-14 w-full rounded-2xl border-[1.5px] border-edge bg-card ps-4 pe-12 text-center text-[1.75rem] font-[800] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-[invalid=true]:border-danger aria-[invalid=true]:shadow-[0_0_0_0.5px_var(--danger)]"
+              className={`app-numbers min-h-14 w-full rounded-2xl border-[1.5px] border-edge bg-card ${measures.length > 1 ? "ps-6 pe-36" : "ps-4 pe-12"} text-center text-[1.75rem] font-[800] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-[invalid=true]:border-danger aria-[invalid=true]:shadow-[0_0_0_0.5px_var(--danger)]`}
             />
-            <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-muted">{inUnit ? unit : word(measure, count ?? 1)}</span>
+            {/* the unit in the box is the measure too (founder 2026-11-21: "there needs to be a way that they can change the measurement"): tap it to count in
+                another one; the word shows, the phone's own list chooses */}
+            {measures.length > 1 ? (
+              <span className="absolute end-1.5 top-1/2 flex -translate-y-1/2 items-center gap-0.5 rounded-xl px-2.5 py-2 text-lg font-semibold text-muted has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent">
+                <span aria-hidden>{inUnit ? unit : word(measure, count ?? 1)}</span>
+                <ChevronDownIcon aria-hidden className="h-4 w-4" />
+                <select aria-label={t("Measure")} value={measure.key} onChange={(e) => { const m = measures.find((x) => x.key === e.target.value); if (m) pickMeasure(m); }} className="absolute inset-0 cursor-pointer appearance-none opacity-0">
+                  {measures.map((m) => <option key={m.key} value={m.key}>{measureLabel(m)}</option>)}
+                </select>
+              </span>
+            ) : (
+              <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-muted">{inUnit ? unit : word(measure, count ?? 1)}</span>
+            )}
           </div>
           <button type="button" className={STEP} aria-label={t("More")} disabled={inUnit ? amount !== null && amount >= MAX_AMOUNT : count !== null && (count + 0.5) * measure.one > MAX_AMOUNT} onClick={() => step(1)}><PlusIcon aria-hidden className="h-5 w-5" /></button>
         </div>
@@ -350,7 +364,7 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
             <AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
             <span className="min-w-0">{inUnit
               ? t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })
-              : t("Type an amount from {min} to {max}.", { min: "0.5", max: Math.floor(MAX_AMOUNT / measure.one).toLocaleString("en-GB") })}</span>
+              : t("Type an amount from {min} to {max}.", { min: String(MIN_COUNT), max: Math.floor(MAX_AMOUNT / measure.one).toLocaleString("en-GB") })}</span>
           </p>
         )}
       </div>
