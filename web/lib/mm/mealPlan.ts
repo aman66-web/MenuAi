@@ -653,7 +653,7 @@ export function betterForPeople(betterOf: (c: PlanCandidate) => PlanCandidate | 
 export interface HouseholdSizing {
   targets: Partial<Record<MealType, MealTarget>>;
   yourDailyKcal: number;
-  others: readonly Pick<HomePerson, "group" | "portion">[];
+  others: readonly Pick<HomePerson, "group" | "portion" | "kcal" | "protein">[];
   /**
    * Each meal for a grown-up's 2,000 kcal reference day (householdReference): the others' portions are sized from these, never from the user's own meal, so a
    * GLP-1 meal size (which keeps only the user's meals small) doesn't shrink everyone else's. Absent: from the user's meal scaled to 2,000 kcal, as before.
@@ -690,8 +690,29 @@ export function householdCandidate(c: PlanCandidate, s: HouseholdSizing): PlanCa
     cost: plain.cost * plates.total,
     perServing: { kcal: ps.kcal * you, protein: ps.protein * you, carbs: ps.carbs * you, fat: ps.fat * you },
     ...(plain.label ? { label: scaleLabel(plain.label, you) } : {}),
-    distance: yourPortionDistance(ps, you, target),
+    distance: yourPortionDistance(ps, you, target) + othersProteinGap(c.meal, ps.protein, plates.servings.slice(1), s),
   };
+}
+
+/**
+ * How far the others' portions fall short of their own protein (founder 2026-11-21: "how many calories and how much protein ... each person's different"),
+ * added to the recipe's distance at PROTEIN_GAP_WEIGHT, so for a household with a high-protein eater the recipes that give them more of it come first. Each
+ * person's meal share of their day's protein is that meal's share of a 2,000 kcal day (householdReference); a person with no protein typed counts nothing.
+ */
+const PROTEIN_GAP_WEIGHT = 0.3;
+function othersProteinGap(meal: MealType, servingProtein: number, servings: readonly number[], s: HouseholdSizing): number {
+  const ref = s.referenceTargets?.[meal]?.kcal;
+  if (!ref || meal === "snack") return 0;
+  let gap = 0;
+  let n = 0;
+  s.others.forEach((p, i) => {
+    if (!p.protein) return;
+    const want = (p.protein * ref) / ADULT_REFERENCE_KCAL;
+    const got = servingProtein * (servings[i] ?? 0);
+    gap += Math.max(0, want - got) / want;
+    n++;
+  });
+  return n ? (PROTEIN_GAP_WEIGHT * gap) / n : 0;
 }
 
 const householdMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<string, Map<MealType, PlanCandidate[]>>>();

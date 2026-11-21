@@ -4079,3 +4079,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   fading as a screenshot would). The sign-up previews (recipes to cook first, the example week, Your plan's restaurant dishes) suit the diet and allergies
   just told (warnPreferences): a preview, nothing in the app hidden (a vegan had been shown chicken korma once sign-up answers stopped being filters).
   e2e showcase 14/14, firstvisit 10/10; unit tests 4,003. On `iap`, next build.
+- (21 Nov, evening) **Each person's own calories and protein in a household plan** (founder: "when you add someone, you should put how many calories and
+  how much protein ... because each person's different"). Who's eating with you? › each card: "Their numbers (optional)": Calories a day (600-5,000 kcal)
+  and Protein a day (10-300 g), a number out of range said and not kept. Calories size their portions instead of the age group and portion size ("Their
+  portions are sized to {kcal} kcal a day."); protein leans the household's recipes towards enough for them (mealPlan.ts othersProteinGap: their shortfall
+  for that meal's share of their day, at 0.3 of the fit distance). The Who's eating line shows them ("Sam (adult, 2,800 kcal, 180 g protein)"). Kept on
+  the phone only, like names. Tests: household.test.ts (3 new), e2e household 6/6. On `iap`, next build.

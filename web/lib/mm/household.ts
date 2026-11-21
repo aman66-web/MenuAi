@@ -31,6 +31,13 @@ export interface HomePerson {
   /** Optional, at most NAME_MAX letters: "Sam". Never sent anywhere. */
   name?: string;
   portion: PortionSize;
+  /**
+   * Their own calories a day, typed on their card (founder 2026-11-21: "when you add someone, you should put how many calories and how much protein ... because
+   * each person's different"). When set it sizes their portions instead of their age group and portion size. Never sent anywhere.
+   */
+  kcal?: number;
+  /** Their own protein a day in grams: the plan leans to recipes that give them nearer to it (mealPlan.ts householdCandidate). Never sent anywhere. */
+  protein?: number;
 }
 
 export interface Household {
@@ -59,8 +66,16 @@ export const PORTION_STEP = 0.25;
 /** The reference intake on UK labels: a grown-up's day, for sizing other grown-ups' portions. */
 export const ADULT_REFERENCE_KCAL = 2000;
 
-/** A person's share of a grown-up's portion: their age group's, a quarter less or more for Smaller or Bigger, never under a quarter. */
-export function personShare(p: Pick<HomePerson, "group" | "portion">): number {
+/** The calories and protein a person's card takes (their own numbers, from a small child's to an athlete's). */
+export const PERSON_KCAL_MIN = 600;
+export const PERSON_KCAL_MAX = 5000;
+export const PERSON_PROTEIN_MIN = 10;
+export const PERSON_PROTEIN_MAX = 300;
+
+/** A person's share of a grown-up's portion: their own calories a day against the 2,000 kcal reference when they typed them, else their age group's, a quarter
+ *  less or more for Smaller or Bigger, never under a quarter. */
+export function personShare(p: Pick<HomePerson, "group" | "portion" | "kcal">): number {
+  if (p.kcal) return p.kcal / ADULT_REFERENCE_KCAL;
   const base = GROUP_SHARE[p.group];
   const step = p.portion === "smaller" ? -PORTION_STEP : p.portion === "bigger" ? PORTION_STEP : 0;
   return Math.max(PORTION_STEP, base + step);
@@ -165,7 +180,10 @@ export function sanitizeHousehold(raw: unknown): Household {
     const group = AGE_GROUPS.includes(o.group as AgeGroup) ? (o.group as AgeGroup) : "adult";
     const portion = PORTIONS.includes(o.portion as PortionSize) ? (o.portion as PortionSize) : "usual";
     const name = typeof o.name === "string" ? o.name.replace(/\s+/g, " ").trim().slice(0, NAME_MAX) : "";
-    others.push({ id: o.id, group, portion, ...(name ? { name } : {}) });
+    const within = (v: unknown, min: number, max: number) => (typeof v === "number" && Number.isFinite(v) && v >= min && v <= max ? Math.round(v) : undefined);
+    const kcal = within(o.kcal, PERSON_KCAL_MIN, PERSON_KCAL_MAX);
+    const protein = within(o.protein, PERSON_PROTEIN_MIN, PERSON_PROTEIN_MAX);
+    others.push({ id: o.id, group, portion, ...(name ? { name } : {}), ...(kcal ? { kcal } : {}), ...(protein ? { protein } : {}) });
   }
   const allergies = Array.isArray(r.allergies) ? [...new Set(r.allergies.filter((a): a is AllergenKey => ALLERGEN_KEYS.includes(a as AllergenKey)))] : [];
   return { others, allergies, diets: sanitizeHomeDiets(r.diets, r.meat) };

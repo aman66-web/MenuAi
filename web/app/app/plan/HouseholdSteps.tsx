@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { assetUrl } from "@/lib/mm/config";
-import { AGE_GROUPS, ALL_HOME_DIETS, HOME_DIETS, MAX_PEOPLE, MORE_HOME_DIETS, NAME_MAX, PORTIONS, noMeatLeft, personShare, shareWords, toggleHomeDiet, type AgeGroup, type HomeDiet, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
+import { AGE_GROUPS, ALL_HOME_DIETS, HOME_DIETS, MAX_PEOPLE, MORE_HOME_DIETS, NAME_MAX, PERSON_KCAL_MAX, PERSON_KCAL_MIN, PERSON_PROTEIN_MAX, PERSON_PROTEIN_MIN, PORTIONS, noMeatLeft, personShare, shareWords, toggleHomeDiet, type AgeGroup, type HomeDiet, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
 import { tk } from "@/lib/mm/i18n";
 import { EATING_STYLES, HIGH_FIBRE_MIN_G, HIGH_PROTEIN_MIN, KETO_CARBS_MAX, LOW_FAT_MAX, LOWER_CARB_MAX, LOWER_SALT_MAX_G, LOWER_SUGAR_MAX_G, styleInDiet, stylePicture, type EatingStyle } from "@/lib/mm/mealPlan";
 import { QUICK_MINUTES } from "@/lib/mm/recipes";
@@ -93,15 +93,47 @@ export function WhoStep({ others, onChange }: { others: HomePerson[]; onChange: 
                 </button>
               ))}
             </div>
+            {/* their own numbers, if they have them (founder 2026-11-21: "you should put how many calories and how much protein they can change ... because
+                each person's different"): calories size their portions instead of the choices above; protein steers the recipes towards enough for them */}
+            <p className="mt-4 text-[1.0625rem] font-[800]">{t("Their numbers (optional)")}</p>
+            <div className="mt-2 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2">
+              <PersonNumber id={`kcal-${p.id}`} label={t("Calories a day")} unit="kcal" value={p.kcal} min={PERSON_KCAL_MIN} max={PERSON_KCAL_MAX} onChange={(kcal) => set(i, { kcal })} />
+              <PersonNumber id={`protein-${p.id}`} label={t("Protein a day")} unit="g" value={p.protein} min={PERSON_PROTEIN_MIN} max={PERSON_PROTEIN_MAX} onChange={(protein) => set(i, { protein })} />
+            </div>
             {/* their portion in one plain line (read out when it changes); one Pip a screen, at the top */}
             <p aria-live="polite" className="mt-3 flex items-start gap-2 text-[0.9375rem] font-semibold leading-snug">
               <ForkIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-ink" />
-              <span className="min-w-0">{share === 1 ? t("They get a grown-up's portion.") : t("They get {share} of a grown-up's portion.", { share: shareWords(share) })}</span>
+              <span className="min-w-0">{p.kcal ? t("Their portions are sized to {kcal} kcal a day.", { kcal: p.kcal.toLocaleString("en-GB") }) : share === 1 ? t("They get a grown-up's portion.") : t("They get {share} of a grown-up's portion.", { share: shareWords(share) })}</span>
             </p>
           </li>
         );
       })}
     </ul>
+  );
+}
+
+/** One of a person's own numbers: empty is "not set"; a number out of range is said and not kept. */
+function PersonNumber({ id, label, unit, value, min, max, onChange }: { id: string; label: string; unit: string; value: number | undefined; min: number; max: number; onChange: (v: number | undefined) => void }) {
+  const t = useT();
+  const [text, setText] = useState(value ? String(value) : "");
+  const n = Number(text.replace(/[,\s]/g, ""));
+  const bad = text.trim() !== "" && !(Number.isFinite(n) && n >= min && n <= max);
+  return (
+    <div>
+      <label htmlFor={id} className="block text-[0.9375rem] font-semibold leading-snug text-muted">{label}</label>
+      <div className="relative mt-1">
+        <input id={id} value={text} inputMode="numeric" autoComplete="off" aria-invalid={bad || undefined} aria-describedby={bad ? `${id}-bad` : undefined}
+          onChange={(e) => {
+            const v = e.target.value.replace(/[^\d,]/g, "").slice(0, 5);
+            setText(v);
+            const x = Number(v.replace(/,/g, ""));
+            onChange(v.trim() !== "" && Number.isFinite(x) && x >= min && x <= max ? Math.round(x) : undefined);
+          }}
+          className={`${inputClass} app-numbers w-full pe-12`} />
+        <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-[0.9375rem] font-semibold text-muted">{unit}</span>
+      </div>
+      {bad && <p id={`${id}-bad`} role="alert" className="mt-1 text-[0.875rem] font-semibold leading-snug text-danger">{t("Type a number from {min} to {max}.", { min: min.toLocaleString("en-GB"), max: max.toLocaleString("en-GB") })}</p>}
+    </div>
   );
 }
 
@@ -269,6 +301,8 @@ export function StyleStep({ value, onChange, diet, note, short = {} }: { value: 
 
 /** "You, Alex (Adult) and Sam (Child)". */
 export function whoWords(t: (s: string, v?: Record<string, string | number>) => string, h: Household): string {
-  const names = [t("You"), ...h.others.map((p, i) => `${personName(t, p, i)} (${t(GROUP_LABEL[p.group]).toLowerCase()})`)];
+  // each other person with their own numbers when they have them: "Sam (adult, 2,500 kcal, 150 g protein)"
+  const own = (p: HomePerson) => [p.kcal ? `${p.kcal.toLocaleString("en-GB")} kcal` : "", p.protein ? t("{n} g protein", { n: p.protein }) : ""].filter(Boolean);
+  const names = [t("You"), ...h.others.map((p, i) => `${personName(t, p, i)} (${[t(GROUP_LABEL[p.group]).toLowerCase(), ...own(p)].join(", ")})`)];
   return new Intl.ListFormat("en-GB", { type: "conjunction" }).format(names);
 }

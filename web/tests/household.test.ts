@@ -173,3 +173,32 @@ describe("what is kept", () => {
     expect(old?.home).toEqual({ others: [{ group: "adult", portion: "usual" }], allergies: [], diets: ["vegetarianOnly"] });
   });
 });
+
+// Each person's own numbers (founder 2026-11-21: "when you add someone, you should put how many calories and how much protein ... each person's different")
+import { platesFor as platesForOwn, sanitizeHousehold as sanitizeOwn, personShare as shareOwn } from "../lib/mm/household";
+import { householdCandidate as hcOwn, type PlanCandidate as PCOwn } from "../lib/mm/mealPlan";
+describe("a person's own calories and protein", () => {
+  it("keeps them only in range, whole numbers", () => {
+    const h = sanitizeOwn({ others: [{ id: "a", group: "adult", portion: "usual", kcal: 2512.4, protein: 150 }, { id: "b", group: "adult", portion: "usual", kcal: 99, protein: 9000 }] });
+    expect(h.others[0]).toMatchObject({ kcal: 2512, protein: 150 });
+    expect(h.others[1]!.kcal).toBeUndefined();
+    expect(h.others[1]!.protein).toBeUndefined();
+  });
+  it("sizes their portions from their calories instead of the age group and portion size", () => {
+    expect(shareOwn({ group: "child", portion: "smaller", kcal: 3000 })).toBe(1.5);
+    const plates = platesForOwn("dinner", 500, { kcal: 700, protein: 40 }, 2000, [{ id: "a", group: "adult", portion: "usual", kcal: 3000 }, { id: "b", group: "adult", portion: "usual" }], 700);
+    expect(plates.servings[1]).toBeCloseTo((700 * 1.5) / 500);
+    expect(plates.servings[2]).toBeCloseTo(700 / 500);
+  });
+  it("leans the recipes towards enough protein for someone who typed theirs: a low-protein recipe is further off", () => {
+    const sizing = { targets: { dinner: { kcal: 700, protein: 40 } }, yourDailyKcal: 2000, others: [{ id: "a", group: "adult" as const, portion: "usual" as const, protein: 200 }], referenceTargets: { dinner: { kcal: 700, protein: 0 } } };
+    const plain = { kcal: 500, protein: 40, carbs: 50, fat: 15 };
+    const cand = (protein: number) => ({ meal: "dinner", servings: 4, cost: 8, perServing: { ...plain, protein }, picks: [], recipe: { id: "x" } }) as unknown as PCOwn;
+    const without = { ...sizing, others: [{ id: "a", group: "adult", portion: "usual" }] };
+    // what their protein adds to a recipe's distance: more for a low-protein recipe than for a high-protein one, nothing when they typed none
+    const added = (protein: number) => hcOwn(cand(protein), sizing as never).distance - hcOwn(cand(protein), without as never).distance;
+    expect(added(10)).toBeGreaterThan(added(60));
+    expect(added(10)).toBeGreaterThan(0);
+    expect(hcOwn(cand(10), without as never).distance).toBe(hcOwn(cand(10), without as never).distance);
+  });
+});
