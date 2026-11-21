@@ -2,9 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, type MouseEvent, type RefObject } from "react";
-import { canGoBack, queryOf, stateFor, withQuery } from "@/lib/mm/navDepth";
+// Relative (not "@/"), so the unit tests can load this file (tests/tabMemory.test.ts checks the address event).
+import { canGoBack, queryOf, stateFor, withQuery } from "../../../lib/mm/navDepth";
 
-export { backName } from "@/lib/mm/navDepth";
+export { backName } from "../../../lib/mm/navDepth";
 
 // The window half of "Back goes to the page before" (lib/mm/navDepth.ts has the reasoning). installBackDepth() wraps history.pushState/replaceState once so every
 // history entry the app makes carries its depth in history.state; useBack(fallback) is what a Back button uses: the browser's own Back when this page was reached
@@ -18,6 +19,14 @@ const BACK_TIMEOUT_MS = 600;
 let backing = false;
 
 /**
+ * Fired on the window after every history entry the app pushes or replaces (the browser has no event of its own for these). The tab bar listens for it to
+ * remember a change to the query alone, which keeps the same page (Dina, the 30-person meeting, 21 November 2026: "Tab memory misses changes made only to the
+ * query: Recipes filters and search, and the list chosen on the Shopping list"). It fires inside Next.js's own address change, so a listener does its work a
+ * moment later (AppShell).
+ */
+export const ADDRESS_EVENT = "mm:address";
+
+/**
  * Call once in the app shell. Safe to call again (React runs effects twice in development). It is never undone: Next.js patches the same two functions
  * around ours and puts back what it found when it unmounts, so undoing ours as well would fight with that.
  */
@@ -29,10 +38,12 @@ export function installBackDepth(): void {
   const push = window.history.pushState.bind(window.history);
   const replace = window.history.replaceState.bind(window.history);
   window.history.pushState = function pushState(data: unknown, unused: string, url?: string | URL | null) {
-    return push(stateFor("push", data, window.history.state), unused, url);
+    push(stateFor("push", data, window.history.state), unused, url);
+    window.dispatchEvent(new Event(ADDRESS_EVENT));
   };
   window.history.replaceState = function replaceState(data: unknown, unused: string, url?: string | URL | null) {
-    return replace(stateFor("replace", data, window.history.state), unused, url);
+    replace(stateFor("replace", data, window.history.state), unused, url);
+    window.dispatchEvent(new Event(ADDRESS_EVENT));
   };
 }
 

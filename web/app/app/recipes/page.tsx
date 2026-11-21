@@ -8,7 +8,7 @@ import { mealSlotFor } from "@/lib/mm/budget";
 import { AI_RECIPES_ENABLED, SAMPLES_ENABLED } from "@/lib/mm/config";
 import { needsPaywall } from "@/lib/mm/entitlements";
 import { formatDate } from "@/lib/mm/format";
-import { RETAILERS } from "@/lib/mm/groceries";
+import { RETAILERS, type ShoppingItem } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { toggleAllergen } from "@/lib/mm/menu-view";
@@ -17,7 +17,7 @@ import { inPriceRange, pounds, rangeFromAddress, rangeToAddress, servingPriceBou
 import { cuisineOptions, matchesNiche, nicheCounts, occasionOptions } from "@/lib/mm/recipeNiche";
 import { matchesRecipeSearch, recipeSearchExtras, QUICK_TESTS as TOGGLE_TEST, type QuickFilter as Toggle } from "@/lib/mm/recipeSearch";
 import { MEAL_TYPES, type MealType, type Recipe } from "@/lib/mm/recipes";
-import { recipeShops } from "@/lib/mm/shopProducts";
+import { recipeShops, type ShopManifest } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
@@ -32,7 +32,7 @@ import { useIsPro, useNow, useSettings, useStore } from "../_lib/hooks";
 import { usePossessive, useT } from "../_lib/i18n";
 import { recipeShopSetFor, useRecipeCards, useRecipeMakerEnabled, useRecipeShopSet, type RecipeCard } from "../_lib/recipes";
 import { useListRecipes } from "../_lib/listRecipes";
-import { useShopManifest } from "../_lib/shopProducts";
+import { useShopManifestState } from "../_lib/shopProducts";
 import { MealPicker, targetSentence } from "./MealPicker";
 import { FilterTile as Tile, QUICK_FILTERS as TOGGLES } from "./FilterTile";
 import { FilterChip, NicheFields } from "./NicheFields";
@@ -68,6 +68,11 @@ const PICKS = 8;
 // The cuisines on offer are decided by the whole book (not by a person's diet or shop), so a choice never comes and goes; the occasions by the book and today's date.
 const RECIPE_IDS = RECIPES.map((r) => r.id);
 const CUISINE_OPTIONS = cuisineOptions(RECIPE_IDS);
+
+/** No list items: the shopping list's recipes wait until this page's own cards are worked out (see fromList below). */
+const NO_ITEMS: ShoppingItem[] = [];
+/** A shop list that couldn't load reads as no shops (as useShopManifest gives), while the page says it couldn't load (manifestFailed below). */
+const NO_SHOPS: ShopManifest = { v: 1, retailers: [] };
 
 /** The meals, the toggles and the sort as the address writes them (?meal=dinner,lunch&only=vegan,meat-free&sort=price). */
 const TOGGLE_WORD: Record<Toggle, string> = { quick: "quick", meatFree: "meat-free", vegan: "vegan" };
@@ -161,13 +166,17 @@ function RecipesScreen() {
   const poss = usePossessive();
   const asked = useSearchParams().get("r");
   const settings = useSettings();
-  const manifest = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  // Whether the list of shops loaded, failed or is loading (the second sort of the 21 November meeting, Violet: a list that couldn't load said "No supermarket list
+  // yet." with no Try again). `manifest` is the ready list, none on an error (as useShopManifest gave), null while loading; Try again loads it again.
+  const manifestState = useShopManifestState(retry);
+  const manifest = manifestState.status === "ready" ? manifestState.manifest : manifestState.status === "error" ? NO_SHOPS : null;
+  const manifestFailed = manifestState.status === "error";
   // founder 2026-11-17: the ingredients come from the person's shops whose labels we've read, the first ticked first (a link's ?r= counts only while none of
   // theirs can make recipes, and not once the shops are changed here); every card is worked out from those shops' products together (lib/mm/recipes.ts: another shop fills in only what the first doesn't sell)
   const [ownShops, setOwnShops] = useState(false);
   const shopIds = recipeShopSetFor(manifest, ownShops ? null : asked, settings.shops);
   const shop = shopIds[0] ?? null;
-  const [retry, setRetry] = useState(0);
   const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
@@ -258,8 +267,10 @@ function RecipesScreen() {
   const picks = useMemo(() => sortCards(cards.filter((c) => c.recipe.meal === slot), target ? "fit" : "protein").slice(0, PICKS), [cards, slot, target]);
   // how many recipes the shopping list can help make, and the first three (their pictures go on the card)
   // worked out exactly as its page, /app/groceries/list/recipes, works them out (useListRecipes: the person's recipe shops, never this page's ?r=), so the
-  // count and the pictures are always what that page lists
-  const fromList = useListRecipes(shopping).matches ?? [];
+  // count and the pictures are always what that page lists. Only once this page's cards are worked out (the second sort of the 21 November meeting, Xena: with
+  // anything on the list the tab froze on first open), so the products' matches are already worked out by then; it is worked out again only when the list's
+  // products change, never for a tick (useListRecipes)
+  const fromList = useListRecipes(cardsReady ? shopping : NO_ITEMS).matches ?? [];
   const listRecipes = fromList.length;
   const nameOf = (id: string) => manifest?.retailers.find((r) => r.id === id)?.name ?? "";
   const shopName = shop ? nameOf(shop) : "";
@@ -555,7 +566,9 @@ function RecipesScreen() {
 
         <p role="status" className="sr-only">{liveLine}</p>
 
-        {loadingList ? (
+        {manifestFailed ? (
+          <div className="mt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
+        ) : loadingList ? (
           <Spinner label={t("Loading recipes")} />
         ) : !shop ? (
           <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>

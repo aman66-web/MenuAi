@@ -12,8 +12,9 @@ import { avoidedAllergens, foodDietNotChecked, foodDietProblem } from "@/lib/mm/
 import { nutritionBasis, shopListItem, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
 import type { LogMeal } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
-import { DiaryButton, DiaryToast } from "../../../_components/addfood/ProductPick";
-import { CheckIcon, ExternalIcon } from "../../../_components/icons";
+import { DiaryButton, DiaryToast, useTypedDiary } from "../../../_components/addfood/ProductPick";
+import { CheckIcon, ExternalIcon, PencilIcon } from "../../../_components/icons";
+import { PremiumBadge } from "../../../_components/PremiumBadge";
 import { InfoLine } from "../../../_components/Note";
 import { PageHeader } from "../../../_components/PageHeader";
 import { Toast } from "../../../_components/Toast";
@@ -36,9 +37,10 @@ import { addedText, listHref, useAddToList } from "../../ListChoice";
 // (NutritionPanel); the price as one big figure, extra bold in the body's ink (colour meeting, 19 November 2026: never the link green); the one main action as
 // the ink pill; what is already on a list said in words with a tick, and each add confirmed by the one toast. The order is the same on both product pages
 // (2026-11-20): picture and name, nutrition, price, Add to my list, Add to my food diary, compare. Reached by a scan (?scan=1), "Add to my food diary" comes
-// first, under the product, as the page's one ink button (the design review of 2026-11-20), and "Add to my list" is the white one.
+// first, under the product, as the page's one ink button (the design review of 2026-11-20), and "Add to my list" is the white one. A product we have no numbers
+// for offers "Type the numbers from the pack" in the food diary button's place (the second pass, 21 November 2026, Yusuf #38).
 /** A product with no barcode: no catalogue record to look up. */
-const NO_RECORD = { key: "", here: null, allergens: null } as const;
+const NO_RECORD = { key: "", allergens: null } as const;
 
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
@@ -64,14 +66,14 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const mine = product ? listed.filter((x) => x.retailer === shop && (x.shopId === product.id || (!!gtin && x.gtin === gtin))) : [];
   const onLists = mine.reduce((n, x) => n + x.qty, 0);
   const holder = mine.length > 0 ? listOf(mine[mine.length - 1]!) : "";
-  // This barcode's record in the older barcode catalogue (where it is: the barcode file, then the first catalogue file that holds it, this shop's first): this shop's
-  // own record says whether "See the nutrition" has numbers to show, and any record's allergens are checked against the person's (the 30-person meeting, 21 November
-  // 2026, Maya: every scan lands here, and it never warned about her allergens). undefined while it loads; allergens null when no record has them.
-  const needHere = !product?.nutrition;
-  const recKey = `${shop}|${gtin}|${needHere}|${avoidKey}|${mineKey}`;
-  const [rec, setRec] = useState<{ key: string; here: GroceryProduct | null; allergens: GroceryProduct["allergens"] } | null>(null);
+  // This barcode's record in the older barcode catalogue (where it is: the barcode file, then the first catalogue file that holds it, this shop's first), looked up
+  // only for its allergens, checked against the person's (the 30-person meeting, 21 November 2026, Maya: every scan lands here, and it never warned about her
+  // allergens). undefined while it loads; allergens null when no record has them. Never for its numbers: a product here with none and a catalogue record has
+  // them held back by the build on purpose, so "See the nutrition" is gone (the second pass, Yusuf #38: Nesquik powder came back at 64.1 kcal through it).
+  const recKey = `${shop}|${gtin}|${avoidKey}|${mineKey}`;
+  const [rec, setRec] = useState<{ key: string; allergens: GroceryProduct["allergens"] } | null>(null);
   useEffect(() => {
-    if (!gtin || (!needHere && !avoidKey)) return;
+    if (!gtin || !avoidKey) return;
     let cancelled = false;
     (async () => {
       let ids: string[];
@@ -88,13 +90,16 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
           found = (await loadRetailer(from)).products.find((p) => sameBarcode(p.gtin, gtin)) ?? null;
         } catch { /* that file can't load: no record */ }
       }
-      if (!cancelled) setRec({ key: recKey, here: found && from === shop ? found : null, allergens: found?.allergens ?? null });
+      if (!cancelled) setRec({ key: recKey, allergens: found?.allergens ?? null });
     })();
     return () => { cancelled = true; };
-  }, [recKey, shop, gtin, needHere, avoidKey, mineKey]);
+  }, [recKey, shop, gtin, avoidKey, mineKey]);
   // a product with no barcode has no record to look up
   const record = !gtin ? NO_RECORD : rec?.key === recKey ? rec : undefined;
-  const inCatalogue = !!record?.here;
+  // a product we have no numbers for: the person types them from the pack, as Add food offers (the second pass, Yusuf #38 and Xena #37: a scan landed on a page
+  // with no way into the food diary)
+  const diaryAdded = (entry: LogEntry, meal: LogMeal) => { setAdded(null); setDiary({ entry, meal }); };
+  const typed = useTypedDiary(diaryAdded);
 
   const back = <PageHeader back={{ href: `/app/groceries/shop?r=${shop}`, label: t("Back to the full list") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
@@ -108,6 +113,12 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const nutrition = product.nutrition;
   const compareItem = compareFoodFromShop(file, product);
   const loggable = loggableFromShop(file, product);
+  // with no numbers to add, "Type the numbers from the pack" takes the diary button's place: the ink one when reached by a scan, else the white one
+  const typeIt = (main: boolean, className: string) => (
+    <Button variant={main ? "primary" : "secondary"} full className={className} onClick={() => typed.type(product.name)}>
+      <PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}{typed.paid ? <PremiumBadge /> : null}
+    </Button>
+  );
   const notChecked = foodDietNotChecked(prefs, t);
   // the person's avoided allergens the record lists (said once it has loaded); with no record, that it can't be checked
   const avoided = avoid.length > 0 && record ? avoidedAllergens(record.allergens, avoid) : undefined;
@@ -142,7 +153,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
       </div>
 
-      {scan && <DiaryButton main product={loggable} className="mt-3.5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+      {scan && (loggable
+        ? <DiaryButton main product={loggable} className="mt-3.5 min-h-[3.25rem] text-base" onAdded={diaryAdded} />
+        : typeIt(true, "mt-3.5 min-h-[3.25rem] text-base"))}
 
       <section aria-labelledby="nutrition-heading" className={`${CARD} mt-3.5 p-5`}>
         <h2 id="nutrition-heading" className={HEADING}>{nutrition ? t("Nutrition {basis}", { basis: nutritionBasis(nutrition, t) }) : t("Nutrition")}</h2>
@@ -156,15 +169,10 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
             </div>
             <p className={`mt-4 ${NOTE}`}>{nutrition.govFood ? t("Fresh fruit and vegetables don't have to carry a nutrition label, and {shopPossessive} page shows none, so these are the UK government's figures for {food}.", { shopPossessive: poss(file.name), food: nutrition.govFood }) : nutrition.community ? t("Numbers from Open Food Facts contributors (community data), not the supermarket.") : nutrition.sameAs ? t("Read from the same product's page on {shopPossessive} website.", { shopPossessive: poss(retailerName(nutrition.sameAs)) }) : file.nutritionCheckedOn ? t("Read from the product's own page on {shopPossessive} website, checked {date}.", { shopPossessive: poss(file.name), date: formatDate(file.nutritionCheckedOn, t) }) : t("Read from the product's own page on {shopPossessive} website.", { shopPossessive: poss(file.name) })} {t("Allergens aren't shown for this product yet: check the pack or the page.")}</p>
           </>
-        ) : inCatalogue ? (
-          <>
-            {/* allergens only where the record has them (the 30-person meeting, 21 November 2026, Maya: 36 of the 86 products this showed on had none) */}
-            <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{record?.here?.allergens ? t("We have calories, protein, carbs, fat and allergens for this product.") : t("We have calories, protein, carbs and fat for this product.")}</p>
-            {/* secondary: "Add to my list" below stays the screen's one ink button */}
-            <LinkButton href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} variant="secondary" className="mt-4">{t("See the nutrition")}</LinkButton>
-          </>
         ) : (
-          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We haven't read the nutrition for this product yet. The label on the pack has it, and so does the product's page on {shopPossessive} website.", { shopPossessive: poss(file.name) })}</p>
+          // true for every product with none: a page not read yet, a page that printed no table, Lidl (which publishes none) and the numbers the build held back
+          // (the second pass, Yusuf #40: "and so does the product's page on {shop}'s website" was untrue for most of them)
+          <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We don't have the nutrition for this product. The label on the pack has it.")}</p>
         )}
         <a href={page} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 text-[0.9375rem] font-semibold text-accent underline underline-offset-4">
           {t("Open it on {shopPossessive} website", { shopPossessive: poss(file.name) })} <ExternalIcon className="h-4 w-4" /><span className="sr-only"> {t("(opens in a new tab)")}</span>
@@ -205,15 +213,17 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
             <Link href={listHref(holder || null)} className="text-accent underline underline-offset-[3px]">{t("See list")}</Link>
           </p>
         )}
-        {scan && loggable ? (
+        {/* reached by a scan, the food diary's button above is the page's one ink button */}
+        {scan ? (
           <Button variant="secondary" full className="min-h-[3.25rem] text-base" onClick={() => add(shopListItem(file, product))}>{onLists > 0 ? t("Add one more") : t("Add to my list")}</Button>
         ) : (
           <MainButton onClick={() => add(shopListItem(file, product))}>
             {onLists > 0 ? t("Add one more") : t("Add to my list")}
           </MainButton>
         )}
-        {/* the food diary: the same "How much?" step as Add food (founder 2026-11-20); only where we have the numbers, and at the top when reached by a scan */}
-        {!scan && <DiaryButton product={loggable} className="min-h-12" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+        {/* the food diary: the same "How much?" step as Add food (founder 2026-11-20) where we have the numbers, else typing them from the pack; at the top when
+            reached by a scan */}
+        {!scan && (loggable ? <DiaryButton product={loggable} className="min-h-12" onAdded={diaryAdded} /> : typeIt(false, "min-h-12"))}
         {/* in its own block, so the compare button's own (empty) status line isn't a row of this grid with a gap above it */}
         {compareItem && <div><CompareButton full item={compareItem} /></div>}
       </div>
@@ -222,6 +232,7 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
       {added && <Toast key={added.n} onClose={() => setAdded(null)}>{added.text}</Toast>}
       <DiaryToast added={diary} onClose={() => setDiary(null)} />
       {sheet}
+      {typed.sheet}
 
       <FootNote>{t("Not affiliated with {shop}.", { shop: file.name })}</FootNote>
     </div>

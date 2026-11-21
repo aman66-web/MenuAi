@@ -68,8 +68,9 @@ export function RecipeChoice({ chosen, onChoose }: { chosen: string | null; onCh
   const { shop, shopName, left } = useRecipeShop();
   const state = useRecipeShopSet(shopIds);
   const products = state.status === "ready" ? state.products : null;
-  // shown as written: no target before "Your daily targets"
-  const { cards } = useRecipeCards(null, products, settings.preferences, null);
+  // shown as written: no target before "Your daily targets"; the book a few recipes at a time, so the step never freezes (the second sort of the 21 November
+  // meeting, Xena)
+  const { cards, ready: cardsReady } = useRecipeCards(null, products, settings.preferences, null, { chunked: true });
   const now = useNow();
   const slot = mealSlotFor(now);
   const smaller = settings.goal === "lose" || settings.goal === "glp1" ? SMALLER_MEAL_KCAL : undefined;
@@ -80,8 +81,8 @@ export function RecipeChoice({ chosen, onChoose }: { chosen: string | null; onCh
     const id = window.setTimeout(() => setWaited(true), SHOP_WAIT_MS);
     return () => window.clearTimeout(id);
   }, []);
-  // still working out which shop and which recipes: the manifest, then the shop's list
-  const working = manifest === null || (shop !== null && state.status === "loading");
+  // still working out which shop and which recipes: the manifest, then the shop's list, then the recipes (else noneFit would flash "nothing fits")
+  const working = manifest === null || (shop !== null && (state.status === "loading" || (state.status === "ready" && !cardsReady)));
   const loading = working && !waited;
   const ready = !working && shop !== null && picks.length > 0;
   // the shop's list came but nothing suits the diet: said so, never blamed on the connection

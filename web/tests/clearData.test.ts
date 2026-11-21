@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 
 // Settings › "Clear data on this device" (app/app/_lib/clearData.ts) must empty every store the app keeps about the person. This reads the code: every
 // createStore("mm.v1.…") in lib/mm and app/app has to be in clearData.ts's CLEARED table, its LEFT_WITH_THE_ACCOUNT list or its KEPT_ON_CLEAR list (kept on
@@ -83,5 +83,45 @@ describe("Clear data on this device", () => {
     const list = screen.slice(screen.indexOf("const CLEAR_LIST"), screen.indexOf("];", screen.indexOf("const CLEAR_LIST")));
     expect(list).toContain('tk("Your goal, daily targets, diet and allergies")');
     expect(list).toContain('tk("Your supermarkets")');
+  });
+});
+
+// Dina, the 30-person meeting, 21 November 2026: "'Clear data on this device' leaves the tab memory, so tabs reopen cleared pages".
+describe("Clear data forgets where each tab was", () => {
+  afterEach(() => {
+    delete (globalThis as Record<string, unknown>).sessionStorage;
+  });
+
+  it("clearDeviceData calls forgetTabs, and forgets the order half built in the builder", () => {
+    const text = readFileSync(CLEAR_FILE, "utf8");
+    const body = text.slice(text.indexOf("export async function clearDeviceData"));
+    expect(text).toContain('import { forgetTabs } from "./tabMemoryStore";');
+    expect(body).toContain("forgetTabs();");
+    const notes = text.slice(text.indexOf("const TAB_NOTES"), text.indexOf("];", text.indexOf("const TAB_NOTES")));
+    expect(notes).toContain('"mm.builderDraft"');
+    expect(readFileSync(join(ROOT, "app/app/builder/BuilderScreen.tsx"), "utf8")).toContain('const DRAFT_KEY = "mm.builderDraft";');
+  });
+
+  it("forgetTabs empties the memory and its copy in session storage", async () => {
+    const kept = new Map<string, string>();
+    Object.defineProperty(globalThis, "sessionStorage", {
+      value: { getItem: (k: string) => kept.get(k) ?? null, setItem: (k: string, v: string) => void kept.set(k, v), removeItem: (k: string) => void kept.delete(k) },
+      configurable: true,
+    });
+    const { forgetTabs, noteTabPage } = await import("../app/app/_lib/tabMemoryStore");
+    const tabs = [{ href: "/app/eat-out", match: (p: string) => p.startsWith("/app/eat-out") || p.startsWith("/app/chain") }];
+    noteTabPage(tabs, "/app/chain", "?id=kfc");
+    expect(JSON.parse(kept.get("mm.tabs") ?? "{}")).toEqual({ "/app/eat-out": "/app/chain?id=kfc" });
+    forgetTabs();
+    expect(kept.has("mm.tabs")).toBe(false);
+    // nothing comes back: the next page noted starts from an empty memory
+    noteTabPage(tabs, "/app/eat-out", "");
+    expect(kept.has("mm.tabs")).toBe(false);
+    const more = [...tabs, { href: "/app/groceries", match: (p: string) => p.startsWith("/app/groceries") }];
+    noteTabPage(more, "/app/groceries/list", "?l=abc");
+    expect(JSON.parse(kept.get("mm.tabs") ?? "{}")).toEqual({ "/app/groceries": "/app/groceries/list?l=abc" });
+    // storage blocked: it still never throws
+    Object.defineProperty(globalThis, "sessionStorage", { value: { removeItem: () => { throw new Error("blocked"); } }, configurable: true });
+    expect(() => forgetTabs()).not.toThrow();
   });
 });

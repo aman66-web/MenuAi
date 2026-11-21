@@ -173,8 +173,13 @@ export function pricePerKgOrLitre(item: Pick<CompareItem, "basis" | "unitPrice" 
   return null;
 }
 
-/** Grams of protein £1 buys: protein per 100 g x 10 (per kg) / the shop's price per kg. Only from figures shown; null otherwise. */
-export function proteinForAPound(item: Pick<CompareItem, "basis" | "unitPrice" | "unit" | "numbers">): number | null {
+/**
+ * Grams of protein £1 buys: protein per 100 g x 10 (per kg) / the shop's price per kg. Only from figures shown; null otherwise, and null for a label for the
+ * cooked or prepared food (`note`): its protein is per 100 g cooked, the price per kg as sold, so the two don't go together (the second pass, 21 November 2026,
+ * Yusuf #42: grilled bacon's protein was put against the raw pack's price). A dish has no price per kg, so its note never matters here.
+ */
+export function proteinForAPound(item: Pick<CompareItem, "basis" | "unitPrice" | "unit" | "numbers" | "note">): number | null {
+  if (item.note) return null;
   const perKg = pricePerKgOrLitre(item);
   const p = item.numbers.protein;
   if (perKg === null || perKg <= 0 || p === null) return null;

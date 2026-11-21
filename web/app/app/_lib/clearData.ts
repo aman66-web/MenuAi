@@ -10,6 +10,7 @@ import { DEFAULT_SETTINGS } from "@/lib/mm/user-data";
 import { forgetAccountAccess } from "@/lib/payments/accountAccess";
 import { leaveForClearing } from "./account";
 import { clearRecipePhotos } from "./recipePhotos";
+import { forgetTabs } from "./tabMemoryStore";
 
 // Settings › "Clear data on this device": everything this device keeps about the person, in one place, so nothing new is missed. tests/clearData.test.ts reads
 // this file and fails if a store in lib/mm or app/app (a createStore("mm.v1.…") key) is in none of the three lists below: CLEARED, LEFT_WITH_THE_ACCOUNT
@@ -66,8 +67,8 @@ const CLEARED: Record<string, () => void> = {
   "mm.v1.freeWeek": () => forgetAccountAccess(), // the account's free week or gift (and its token; a bought one stays in mm.v1.paid)
 };
 
-/** This tab's own notes (session storage): where browsing was, a list just added from a link. */
-const TAB_NOTES = ["mm.browseType", "mm.finder", "mm.sharedAdded", "mm.welcomeSignIn", "mm.signInHash"];
+/** This tab's own notes (session storage): where browsing was, a list just added from a link, an order half built in the order builder (BuilderScreen.tsx). */
+const TAB_NOTES = ["mm.browseType", "mm.finder", "mm.sharedAdded", "mm.welcomeSignIn", "mm.signInHash", "mm.builderDraft"];
 
 /** Empty this device: leave the account here first (the synced copy stays in the account), then every store. It never throws. */
 export async function clearDeviceData(): Promise<void> {
@@ -85,5 +86,11 @@ export async function clearDeviceData(): Promise<void> {
     } catch {
       // storage blocked
     }
+  }
+  // where each tab was (Dina, the 30-person meeting, 21 November 2026: the tabs reopened pages whose data had just been cleared)
+  try {
+    forgetTabs();
+  } catch {
+    // a listener failed: the rest is cleared
   }
 }

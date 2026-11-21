@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { anyFoodDiet, foodDietCaution, foodDietProblem, listedFacts, namedPescatarian, type FoodFacts } from "../lib/mm/foodDiet";
+import { anyFoodDiet, foodDietCaution, foodDietProblem, groceryDietLine, listedFacts, namedPescatarian, type FoodFacts } from "../lib/mm/foodDiet";
 import { NO_PREFERENCES, type Preferences } from "../lib/mm/types";
 
 const veg: Preferences = { ...NO_PREFERENCES, vegetarianOnly: true };
@@ -119,6 +119,15 @@ describe("helpers", () => {
   it("the caution names what can't be promised", () => {
     expect(foodDietCaution(NO_PREFERENCES)).toBeNull();
     expect(foodDietCaution({ ...veg, halalOnly: true })).toBe("We go by each product's name, type and label, so this can't promise a product is vegetarian or halal. Always check the pack.");
+  });
+  it("says 'name and aisle' for the lists read only by those (Search every shop, the selected shops: the second pass, Zara #52)", () => {
+    expect(foodDietCaution({ ...veg, halalOnly: true }, undefined, { byName: true })).toBe("We go by each product's name and aisle, so this can't promise a product is vegetarian or halal. Always check the pack.");
+    expect(groceryDietLine(veg, true, undefined, { byName: true })).toBe("We go by each product's name and aisle, so this can't promise a product is vegetarian. Always check the pack.");
+    // a shop's own list keeps its line, and the filter off says nothing to promise
+    expect(groceryDietLine(veg, true)).toBe("We go by each product's name, type and label, so this can't promise a product is vegetarian. Always check the pack.");
+    expect(groceryDietLine(veg, false, undefined, { byName: true })).toBeNull();
+    // the newer diets aren't checked either way, and are said after it
+    expect(groceryDietLine({ ...veg, jain: true }, true, undefined, { byName: true })).toBe("We go by each product's name and aisle, so this can't promise a product is vegetarian. Always check the pack. Products aren't checked for “Jain”.");
   });
 });
 

@@ -8,6 +8,7 @@
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { chromium } from "playwright-core";
+import { planNext, recipes, shops, skipBody } from "./welcome-steps.mjs";
 
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
@@ -178,7 +179,11 @@ await step("never straight after setup: no offer on the welcome steps or on Home
     await page.getByRole("heading", { name: "What's your goal?" }).waitFor();
     await page.getByRole("button", { name: "Skip", exact: true }).click();
     await page.getByRole("button", { name: "Nothing to avoid" }).click();
-    await page.getByRole("button", { name: "Skip setup and make my account" }).click();
+    // the seven-screen welcome has no "Skip setup and make my account" (20 November 2026): through the shops, recipes, the questions about you and Your plan
+    await shops(page);
+    await recipes(page);
+    await skipBody(page);
+    await planNext(page);
     expect((await page.getByRole("dialog").count()) === 0, "an offer on the welcome steps");
     // this build makes signing in optional (NEXT_PUBLIC_SIGN_IN_REQUIRED=0): "Not now" ends the steps
     await page.getByRole("button", { name: "Not now" }).click();

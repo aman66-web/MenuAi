@@ -30,7 +30,7 @@ You ─────────────────────────�
 - Spam control: input validation (zod + database constraints), a honeypot field on web forms, and
   per-caller rate limits using a salted SHA-256 of the IP address. Those hashes are cleared after 30
   days by a daily Vercel Cron job (`/api/cron/cleanup`).
-- No user accounts, no tracking. The privacy policy (`web/app/privacy/page.tsx`) describes exactly this.
+- Sign-in is required (accounts and sync: see below); no tracking. The privacy policy is `web/app/(site)/privacy/page.tsx`.
 
 ## API contract (for the iOS app)
 
@@ -281,7 +281,8 @@ Do **not** delete the person's account to remove them: that lets the same Apple,
   penny per new pair; set a monthly spend limit in the Anthropic console. Not Premium-only (the founder hasn't asked for that); the rate limit and the cache are the cost control.
 
 ### Rate limits (per caller per hour)
-Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`.
+Reports 30 · chain requests 30 · support 5 · waitlist 5. Constants: `web/lib/handlers.ts`. Barcode lookups (`GET /api/v1/barcode/{code}`, `web/lib/barcodeLookup.ts`):
+15 new barcodes a minute per caller and 50 for the whole server (answered `503 busy`; a barcode already looked up that day is never counted), added 21 November 2026.
 
 ## Database (Supabase)
 
@@ -292,7 +293,7 @@ Tables (all in `public`, see the migration for every column and constraint):
 `open_community_reports` (see the weekly routine).
 
 Change the schema only with a new file in `supabase/migrations/` (`supabase migration new <name>`),
-never by clicking in the dashboard, so the repo stays the source of truth. Apply with `supabase db push`.
+never by clicking in the dashboard, so the repo stays the source of truth. The founder applies each migration in Supabase's SQL Editor; never `supabase db push`.
 
 ## Your weekly routine (10 minutes)
 

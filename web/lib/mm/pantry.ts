@@ -218,7 +218,8 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "mozzarella", label: "Mozzarella", unit: "g", role: "other", animal: true, contains: ["milk"],
-    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated", "gnocchi", "filled", "pasta", "girasoli", "salami", "sourdough", "ciabatta", "rocket", "flatbread", "flatbreads", "onion"], kcal: [180, 320] },
+    // never Morrisons' "Italpizza Prosciutto E Mozzarella" pizza (found while checking the second sort of the 21 November meeting's meat-free rule)
+    match: { all: ["mozzarella"], none: ["pizza", "sticks", "pearls with", "tomato", "basil", "bites", "breaded", "arancini", "with", "garlic", "cheddar", "grated", "gnocchi", "filled", "pasta", "girasoli", "salami", "sourdough", "ciabatta", "rocket", "flatbread", "flatbreads", "onion", "italpizza", "prosciutto"], kcal: [180, 320] },
   },
   {
     // eggs: Grana Padano is made with egg lysozyme (every Grana Padano label read declares egg). Parmigiano Reggiano and Grana Padano are made with animal
@@ -346,7 +347,8 @@ const KINDS: PantryKind[] = [
     match: { all: [], any: ["weetabix", "wheat biscuits", "wholewheat biscuits"], none: ["chocolate", "choco", "crunch", "bran", "banana", "golden syrup", "minis", "protein", "drink", "crispy", "bites", "on the go"], kcal: [320, 380] },
   },
   {
-    key: "lasagne-sheets", label: "Dried lasagne sheets", unit: "g", role: "carb", note: "dried", contains: ["gluten", "eggs"],
+    // animal: the eggs in them (the second sort of the 21 November meeting, Zara: a vegan lasagne let in egg sheets)
+    key: "lasagne-sheets", label: "Dried lasagne sheets", unit: "g", role: "carb", note: "dried", contains: ["gluten", "eggs"], animal: true,
     match: { all: ["lasagne", "sheets"], none: ["fresh", "free from", "gluten free"], kcal: [300, 400] },
   },
   // ---- everything else stays as written when a recipe is fitted
@@ -372,7 +374,8 @@ const KINDS: PantryKind[] = [
   { key: "pesto", allium: true, label: "Green pesto", unit: "g", role: "other", animal: true, rennet: true, contains: ["milk", "nuts", "eggs"], match: { all: ["pesto"], any: ["green", "basil", "genovese"], none: ["red", "sun dried", "vegan", "free from", "pasta", "chicken", "rosso", "chilli", "tomato", "breadsticks"], kcal: [300, 600] },
     vegetarian: { label: "Vegetarian green pesto", match: { all: ["pesto"], any: ["vegan", "vegetarian", "free from", "plant"], none: ["red", "sun dried", "tomato", "rosso", "chilli", "pasta", "chicken", "breadsticks", "escalope", "escalopes", "melts", "quorn", "mozzarella", "grana", "parmigiano", "pecorino"], kcal: [300, 600] } } },
   { key: "light-mayo", label: "Light mayonnaise", unit: "g", role: "other", animal: true, contains: ["eggs", "mustard", "milk"], match: { all: ["mayonnaise"], any: ["light", "lighter", "reduced fat"], none: ["garlic", "chilli", "vegan", "sriracha", "lemon", "chipotle", "truffle", "egg free"], kcal: [200, 400] } },
-  { key: "sweet-chilli", allium: true, label: "Sweet chilli sauce", unit: "g", role: "other", contains: [], match: { all: ["sweet", "chilli", "sauce"], none: ["crisps", "chicken", "noodle", "prawn", "houmous", "dip pot", "mayo", "rice", "stir fry", "garlic"], kcal: [150, 280] } },
+  // never Asda's "Mackerel Fillets in a Sweet Chilli Sauce" (found while checking the second sort of the 21 November meeting's meat-free rule)
+  { key: "sweet-chilli", allium: true, label: "Sweet chilli sauce", unit: "g", role: "other", contains: [], match: { all: ["sweet", "chilli", "sauce"], none: ["crisps", "chicken", "noodle", "prawn", "houmous", "dip pot", "mayo", "rice", "stir fry", "garlic", "mackerel"], kcal: [150, 280] } },
   { key: "bbq-sauce", allium: true, label: "Barbecue sauce", unit: "g", role: "other", contains: ["gluten", "mustard"], match: { all: [], any: ["bbq sauce", "barbecue sauce"], none: ["crisps", "chicken", "pork", "ribs", "pulled", "beans", "marinade", "wings", "pizza", "dip pot", "with", "mac", "sausage", "duck", "jack daniel", "jack daniels", "whiskey", "whisky", "bourbon"], kcal: [100, 220] } },
   { key: "salsa", allium: true, label: "Tomato salsa", unit: "g", role: "other", contains: [], match: { all: ["salsa"], none: ["verde", "crisps", "chips", "nachos", "dip pot", "mango", "pineapple", "chipotle", "cheese"], kcal: [20, 80] } },
   // alcohol, allium, root: 7 of the 13 teriyaki sauces the shops sell print wine, mirin or spirit, and 8 print garlic, onion or ginger (checked 20 November 2026)
@@ -393,7 +396,9 @@ const KINDS: PantryKind[] = [
   { key: "black-pepper", label: "Ground black pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "black", "pepper"], none: ["tuna", "croutons", "butter", "crackers"], kcal: [200, 350] } },
   { key: "white-pepper", label: "Ground white pepper", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "white", "pepper"], kcal: [200, 350] } },
   { key: "cumin", label: "Ground cumin", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cumin"], kcal: [300, 500] } },
-  { key: "paprika", label: "Paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpeas", "bites", "almonds", "flatbread", "flatbreads", "onion"], kcal: [250, 400] } },
+  // never a food that names the spice (the second sort of the 21 November meeting, Zara: Aldi's "Black Pepper & Paprika Mini Roule Cheese", Tesco's "Sardines
+  // In Paprika & Tomato Sauce"; and, checked over every shop's list that night, Aldi's "Paprika Chicken Shakerz" and Morrisons' "Houmous Chickpea and Paprika")
+  { key: "paprika", label: "Paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["paprika"], none: ["smoked", "hot", "crisps", "chips", "cassava", "lentil", "seasoning", "rice", "crunchers", "chickpea", "bites", "almonds", "flatbread", "flatbreads", "onion", "cheese", "roule", "sardines", "chicken", "houmous"], kcal: [250, 400] } },
   { key: "smoked-paprika", label: "Smoked paprika", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["smoked", "paprika"], none: ["chickpeas", "bites", "crisps", "almonds", "houmous", "melts", "cheese", "onion"], kcal: [250, 400] } },
   { key: "chilli-powder", allium: true, label: "Chilli powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["chilli", "powder"], none: ["con carne", "mix", "noodles"], kcal: [250, 500] } },
   { key: "chilli-flakes", label: "Crushed chilli flakes", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: [], any: ["crushed chillies", "chilli flakes"], none: ["ancho", "chipotle", "oil"], kcal: [300, 450] } },
@@ -406,12 +411,17 @@ const KINDS: PantryKind[] = [
   { key: "curry-powder", allium: true, label: "Curry powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
   // never a seasoning mix that names herbs (the 21 November meeting, Jamal: "Dried mixed herbs" matched a chicken seasoning mix)
   { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], none: ["olives", "cheese", "bread", "stuffing", "recipe mix", "maggi", "chicken"], kcal: [150, 350] } },
-  { key: "oregano", label: "Dried oregano", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
-  { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken"], kcal: [200, 500] } },
-  { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough"], kcal: [250, 400] } },
-  { key: "dill", label: "Dried dill", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["dill"], none: ["sauerkraut", "pickle", "gherkin", "sauce", "salmon"], kcal: [250, 400] } },
-  { key: "chives", allium: true, label: "Dried chives", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chives"], none: ["living", "crackers", "cheddar", "pizzelle", "cheese"], kcal: [250, 400] } },
-  { key: "mint", label: "Dried mint", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mint"], none: ["chewy", "dragees", "truffle", "assortment", "toffee", "rolls", "reindeer", "living", "sauce", "chocolate", "tea", "lamb", "minted", "ice cream", "magnum", "cheese", "halloumi", "hellim", "yogurt"], kcal: [250, 330] } },
+  // A dried herb is the herb, never a food that names it (the second sort of the 21 November meeting, Zara: M&S's "Dried oregano" was "Diced Greek Feta Cheese
+  // with Olive Oil and Oregano 150 g" in 29 recipes; Pip's tools took Double Gloucester with chives, Whipped Feta & Mint, Mint Jelly, olives and rollitos with
+  // rosemary, sardines with dill). Checked against every shop's list that night: Waitrose's "Rosemary & Thyme Pitta Chips" and "Honey & Rosemary Pork
+  // Chipolatas", Aldi's "Rosemary & Sea Salt Flatbread Thins", Asda's "Lemon & Dill Fish Seasoning" and Tesco's "Minton & Donello ... Dates" too. The words are
+  // compared without accents, so "salchichon" is M&S's "Salchichón". A shop with no plain jar has none (the recipe uses the kind's substitute, or says it's missing).
+  { key: "oregano", label: "Dried oregano", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza", "feta", "cheese", "olives"], kcal: [200, 400] } },
+  { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken", "pitta", "chips"], kcal: [200, 500] } },
+  { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough", "olives", "cheddar", "rollitos", "salchichon", "pork", "chipolatas", "flatbread"], kcal: [250, 400] } },
+  { key: "dill", label: "Dried dill", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["dill"], none: ["sauerkraut", "pickle", "gherkin", "sauce", "salmon", "sardines", "brisling", "seasoning"], kcal: [250, 400] } },
+  { key: "chives", allium: true, label: "Dried chives", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["chives"], none: ["living", "crackers", "cheddar", "pizzelle", "cheese", "gloucester"], kcal: [250, 400] } },
+  { key: "mint", label: "Dried mint", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["mint"], none: ["chewy", "dragees", "truffle", "assortment", "toffee", "rolls", "reindeer", "living", "sauce", "chocolate", "tea", "lamb", "minted", "ice cream", "magnum", "cheese", "halloumi", "hellim", "yogurt", "feta", "whipped", "jelly", "minton"], kcal: [250, 330] } },
   { key: "sesame-seeds", label: "Sesame seeds", unit: "g", role: "other", cupboard: true, contains: ["sesame"], match: { all: ["sesame", "seeds"], none: ["black", "roasted", "bagel", "bread", "bun", "crackers", "bar", "snaps", "oil"], kcal: [500, 700] } },
   { key: "mustard", alcohol: true, label: "Mustard (English, Dijon or wholegrain)", unit: "g", role: "other", cupboard: true, contains: ["mustard", "sulphites", "gluten"], match: { all: ["mustard"], any: ["english", "dijon", "wholegrain"], none: ["seed", "powder", "mayo", "honey", "sauce", "cress", "pork", "sausage", "chicken", "ham"], kcal: [100, 250] } },
   { key: "horseradish", root: true, label: "Horseradish sauce", unit: "ml", role: "other", cupboard: true, contains: ["mustard", "milk", "eggs"], animal: true, match: { all: ["horseradish", "sauce"], none: ["creamy", "mackerel", "beef", "crisps"], kcal: [100, 300] } },
@@ -479,7 +489,9 @@ const KINDS: PantryKind[] = [
   { key: "cooked-chestnuts", label: "Cooked chestnuts", unit: "g", role: "other", contains: [], match: { all: ["chestnuts"], none: ["mushroom", "stuffing", "puree", "pizza", "chocolate"], kcal: [150, 200] } },
   // not one made with port (M&S "Cranberry and Port Sauce"; Morrisons' "The Best" prints Port on its ingredients), so a "No alcohol" or halal Christmas is right
   { key: "cranberry-sauce", label: "Cranberry sauce", unit: "g", role: "other", contains: [], match: { all: ["cranberry", "sauce"], none: ["mulled", "jelly", "chicken", "turkey", "stuffing", "brie", "orange", "port", "the best"], kcal: [140, 260] } },
-  { key: "apple-sauce", allium: true, alcohol: true, label: "Apple sauce", unit: "g", role: "other", contains: ["sulphites", "milk", "mustard"], match: { all: ["apple", "sauce"], none: ["pineapple", "sweet", "bens", "pork", "chicken"], kcal: [90, 190] } },
+  // animal: the milk its contains already names (the second sort of the 21 November meeting, Zara: a vegan recipe let it in); never a cider one (the meeting: M&S's
+  // "Bramley Apple and Cider Sauce" has chicken stock and cream, so it suited no vegetarian), nor M&S's jalapeño hot sauce, the one apple product left there then
+  { key: "apple-sauce", allium: true, alcohol: true, animal: true, label: "Apple sauce", unit: "g", role: "other", contains: ["sulphites", "milk", "mustard"], match: { all: ["apple", "sauce"], none: ["pineapple", "sweet", "bens", "pork", "chicken", "cider", "jalapeno"], kcal: [90, 190] } },
   { key: "mincemeat", label: "Mincemeat", unit: "g", role: "other", contains: [], match: { all: ["mincemeat"], none: ["pie", "tart", "cake", "brandy", "amaretto", "cherry"], kcal: [250, 340] } },
   { key: "dried-cranberries", label: "Dried cranberries", unit: "g", role: "other", contains: [], match: { all: ["cranberries"], any: ["dried", "whole cranberries"], none: ["cheese", "cheddar", "wensleydale", "flakes", "sauce", "juice", "clusters"], kcal: [300, 380] } },
   { key: "mixed-spice", label: "Ground mixed spice", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "mixed", "spice"], none: ["juice"], kcal: [250, 350] } },

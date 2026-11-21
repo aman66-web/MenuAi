@@ -55,7 +55,9 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
   const state = useRecipeShopSet(shopIds, retry);
   const products = state.status === "ready" ? state.products : null;
   const target = mealTargetFor(settings);
-  const { cards } = useRecipeCards(null, products, settings.preferences, target);
+  // the book a few recipes at a time, behind the spinner (the second sort of the 21 November meeting, Xena: worked out in one block it froze the sheet), as on the
+  // Recipes tab, whose cards it shares once worked out
+  const { cards, ready } = useRecipeCards(null, products, settings.preferences, target, { chunked: true });
   const saved = useStore(myRecipesStore);
   const dietKey = JSON.stringify(settings.preferences);
   const mine = useMemo(() => saved.map((s) => savedToRecipe(s, JSON.parse(dietKey))).filter((r): r is Recipe => !!r), [saved, dietKey]);
@@ -88,7 +90,7 @@ export function RecipePick({ meal, onAdd }: { meal: LogMeal; onAdd: (entry: NewE
     );
   };
 
-  if (!manifest || (shop && state.status === "loading")) return <div className="pt-4"><Spinner label={t("Loading recipes")} /></div>;
+  if (!manifest || (shop && state.status === "loading") || (state.status === "ready" && !ready)) return <div className="pt-4"><Spinner label={t("Loading recipes")} /></div>;
   if (!shop || state.status === "error") return <div className="pt-4"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>;
 
   return (

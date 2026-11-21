@@ -198,12 +198,21 @@ export function foodDietNotChecked(prefs: Preferences, t: T = englishT): string 
 export const anyFoodDiet = (p: Preferences): boolean =>
   p.vegetarianOnly || p.noPork || p.noBeef || Boolean(p.veganOnly) || Boolean(p.pescatarianOnly) || Boolean(p.halalOnly) || Boolean(p.avoidAllergens?.length);
 
+/** How a list's products are read for the diet settings: `byName` when only each product's name and aisle are (the shops' full lists, searched across shops). */
+export interface DietLineOptions {
+  byName?: boolean;
+}
+
 /** The calm line under a grocery list while the diet filter is on (null when no diet word applies), with the diets products aren't checked for after it. */
-export function foodDietCaution(prefs: Preferences, t: T = englishT): string | null {
+export function foodDietCaution(prefs: Preferences, t: T = englishT, { byName = false }: DietLineOptions = {}): string | null {
   const promises = [prefs.vegetarianOnly && t("vegetarian"), prefs.veganOnly && t("vegan"), prefs.pescatarianOnly && t("pescatarian"), prefs.halalOnly && t("halal"), prefs.noPork && t("pork-free"), prefs.noBeef && t("beef-free")].filter((p): p is string => Boolean(p));
   if (promises.length === 0) return foodDietNotChecked(prefs, t);
   const what = promises.reduce((a, b) => t("{a} or {b}", { a, b }));
-  const caution = t("We go by each product's name, type and label, so this can't promise a product is {what}. Always check the pack.", { what });
+  // Search every shop and the selected shops read only each product's name and aisle (the second pass, 21 November 2026, Zara #52: they said "name, type and
+  // label", which only the barcode catalogue's lists have)
+  const caution = byName
+    ? t("We go by each product's name and aisle, so this can't promise a product is {what}. Always check the pack.", { what })
+    : t("We go by each product's name, type and label, so this can't promise a product is {what}. Always check the pack.", { what });
   const more = moreDietsOn(prefs);
   return more.length ? `${caution} ${t("Products aren't checked for {diets}.", { diets: dietNameList(more, t) })}` : caution;
 }
@@ -221,8 +230,8 @@ export function listedFacts(p: Pick<FoodFacts, "name" | "brand" | "category" | "
  * "Fits my diet" filter is on and a setting it acts on is set, what it can't promise (foodDietCaution); otherwise, whenever any of the six is on, that products
  * aren't checked for them (they are never filtered, so the line shows whether the chip is on or off). null when there is nothing to say.
  */
-export function groceryDietLine(prefs: Preferences, filterOn: boolean, t: T = englishT): string | null {
-  return filterOn && anyFoodDiet(prefs) ? foodDietCaution(prefs, t) : foodDietNotChecked(prefs, t);
+export function groceryDietLine(prefs: Preferences, filterOn: boolean, t: T = englishT, options: DietLineOptions = {}): string | null {
+  return filterOn && anyFoodDiet(prefs) ? foodDietCaution(prefs, t, options) : foodDietNotChecked(prefs, t);
 }
 
 /** Which of the person's avoided allergens a product's record lists: as an ingredient, and as "may contain" (never both). null when it has no allergen record. */

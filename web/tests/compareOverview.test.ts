@@ -33,8 +33,23 @@ describe("compare overview", () => {
   });
   it("never compares per 100 g with per 100 ml, and needs two items", () => {
     const o = compareOverview([food("Milk", { basis: "ml", unit: "per litre" }), food("Bar")]);
-    expect(o).toEqual({ entries: [], mixed: true });
+    expect(o).toEqual({ entries: [], mixed: "basis" });
     expect(compareOverview([food("A")]).entries).toEqual([]);
+  });
+  it("never crowns a label for the cooked food beside one as sold, and says which kind of mix it is (the second pass, Yusuf #42)", () => {
+    // grilled bacon's figures beside a raw pack's: "Best for protein" would crown the cooked one only because cooking takes the water out
+    const raw = food("Raw bacon", { unitPrice: 9, n: { kcal: 215, protein: 16 } });
+    const grilled = food("Grilled bacon", { unitPrice: 9, note: "grilled", n: { kcal: 287, protein: 24 } });
+    expect(compareOverview([raw, grilled])).toEqual({ entries: [], mixed: "cooked" });
+    // g beside ml says that first, whatever the labels' states
+    expect(compareOverview([food("Milk", { basis: "ml", unit: "per litre" }), grilled]).mixed).toBe("basis");
+    // all cooked: compared as usual, but protein for £1 is never worked out from a cooked figure
+    const o = compareOverview([grilled, food("Grilled gammon", { unitPrice: 12, note: "grilled", n: { kcal: 160, protein: 30 } })]);
+    expect(o.mixed).toBe(false);
+    expect(by(o, "protein")).toMatchObject({ winners: [1], value: 30 });
+    expect(by(o, "proteinMoney")).toBeUndefined();
+    // dishes carry a serving note ("1 burger"): never a mix
+    expect(compareOverview([dish("Big", { kcal: 900 }), { ...dish("Small", { kcal: 300 }), note: "1 burger" }]).mixed).toBe(false);
   });
   it("dishes: protein, protein for the calories, fewest calories and lowest sugars where published", () => {
     const big = dish("Big", { kcal: 900, protein: 40, sugars: 10 });

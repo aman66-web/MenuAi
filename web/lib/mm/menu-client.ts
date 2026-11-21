@@ -85,6 +85,9 @@ export class MenuClient {
   private compactFrom = new Map<string, string>();
   private searchFellBack = false;
   private onlineHooked = false;
+  /** Counts the search and numbers reads begun: a read that a newer one has replaced (a new manifest, the signal back) stops there and changes nothing. */
+  private searchReads = 0;
+  private numbersReads = 0;
 
   constructor(private opts: MenuClientOptions) {}
 
@@ -144,7 +147,8 @@ export class MenuClient {
 
   /**
    * After a file was taken from the packed copy because the website couldn't be reached: look at the website again when the phone comes back online, and read
-   * its search file again if that fell back too.
+   * the search file again after it whenever search had been read or was being read (the meeting of 21 November 2026, Violet #20: only a search that had fallen
+   * back was read again, so one under way on the weak signal stayed on the packed copy), unless the new manifest has already begun its own read.
    */
   private refreshWhenOnline() {
     const target = globalThis as { addEventListener?: (type: string, listener: () => void, options?: { once?: boolean }) => void };
@@ -152,9 +156,10 @@ export class MenuClient {
     this.onlineHooked = true;
     target.addEventListener("online", () => {
       this.onlineHooked = false;
+      const hadSearch = this.searchFellBack || this.compactIndex !== null || this.searchPromise !== null;
+      const reads = this.searchReads;
       void this.ensureManifest(true).then(() => {
-        if (!this.searchFellBack) return;
-        this.searchFellBack = false;
+        if (!hadSearch || this.searchReads !== reads) return;
         this.searchPromise = null;
         void this.ensureSearch();
       });
@@ -183,7 +188,9 @@ export class MenuClient {
   }
 
   private async loadManifests(): Promise<void> {
-    this.set({ status: "loading", error: undefined });
+    // "loading" only while nothing is listed yet: a second look (the signal back, Refresh menus) keeps the restaurants on screen meanwhile (the meeting of
+    // 21 November 2026, Violet #20: getting signal back put Eat out and Near me behind a spinner)
+    if (this.state.chains.length === 0) this.set({ status: "loading", error: undefined });
     const results = await Promise.all(this.opts.sources.map(async (s) => [s, await this.fetchManifest(s)] as const));
     const merged = new Map<string, CatalogChain>();
     const alternates = new Map<string, CatalogChain[]>();
@@ -233,23 +240,41 @@ export class MenuClient {
     }
     if (unreachable && results.some(([s, m]) => s.id === "live" && m === "unreachable")) this.refreshWhenOnline();
     this.alternates = alternates;
-    // A new manifest may mean new search files: forget a search index built from the old ones.
+    // A new manifest may mean new search files: a search that had been read (or was being read) is read again from them, and the index from the old ones
+    // stays in use until then (the meeting of 21 November 2026, Violet #20: it was dropped and never read again, so search covered only the menus opened).
+    // Not on the first load: a search request already waiting on this manifest must stand.
+    let searchAgain = false;
     if (JSON.stringify(searchEntries) !== JSON.stringify(this.searchEntries)) {
       if (this.searchEntries.length > 0) {
-        this.searchPromise = null; // (not on the first load: a search request already waiting on this manifest must stand)
-        this.compactIndex = null;
+        searchAgain = this.compactIndex !== null || this.searchPromise !== null;
+        this.searchPromise = null;
       }
       this.searchEntries = searchEntries;
     }
-    // ...and the numbers paired with it
+    // ...and the numbers paired with it. When the search is read again its new index reads them again too (loadSearch); otherwise they are read again here.
+    let numbersAgain = false;
+    let numbersPatch: Partial<MenuState> = {};
     if (JSON.stringify(numbersEntries) !== JSON.stringify(this.numbersEntries)) {
-      if (this.numbersEntries.length > 0) {
-        this.numbersPromise = null;
-        this.set({ numbers: null, numbersStatus: "idle" });
+      if (this.numbersEntries.length > 0 && !searchAgain) {
+        numbersAgain = this.forgetNumbers();
+        if (numbersAgain) numbersPatch = { numbers: null, numbersStatus: "idle" };
       }
       this.numbersEntries = numbersEntries;
     }
-    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, reachedAll: !unreachable, error: undefined, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
+    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, reachedAll: !unreachable, error: undefined, ...numbersPatch, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
+    if (searchAgain) void this.ensureSearch();
+    if (numbersAgain) void this.ensureNumbers();
+  }
+
+  /**
+   * The numbers are paired with the compact search index dish by dish, so they are forgotten whenever that index is replaced: a read still under way stops
+   * (it would sit the numbers against the wrong dishes). True when they had been read or were being read, so the caller reads them again.
+   */
+  private forgetNumbers(): boolean {
+    const wanted = this.state.numbers !== null || this.numbersPromise !== null;
+    this.numbersPromise = null;
+    this.numbersReads++;
+    return wanted;
   }
 
   // ---- chains
@@ -301,6 +326,10 @@ export class MenuClient {
         await this.ensureManifest(true); // refresh once
         continue;
       }
+      // Offline, the copy kept from an earlier visit is the only one, and waiting won't bring the newer one: say what will (the meeting of 21 November 2026,
+      // Violet #25: a saved menu that changed in a newer publish said "Menus are updating")
+      const noSignal = typeof navigator !== "undefined" && navigator.onLine === false;
+      if (stale && noSignal) throw new MenuLoadError(tk("Couldn't load this menu. Check your connection and try again."));
       if (stale) throw new MenuLoadError(tk("Menus are updating. Please try again in a moment."));
       throw new MenuLoadError(offline ? tk("Couldn't load this menu. Check your connection and try again.") : tk("Couldn't load this menu. Please try again."));
     }
@@ -315,6 +344,15 @@ export class MenuClient {
   ensureSearch(): Promise<void> {
     this.searchPromise ??= this.loadSearch();
     return this.searchPromise;
+  }
+
+  /** Waits for the search to be read, and for a newer read a new manifest began meanwhile: the numbers are paired with the newest index. */
+  private async searchSettled(): Promise<void> {
+    let p: Promise<void> | null = this.ensureSearch();
+    while (p) {
+      await p;
+      p = this.searchPromise !== p ? this.searchPromise : null;
+    }
   }
 
   private compactIndex: SearchIndex | null = null;
@@ -380,19 +418,30 @@ export class MenuClient {
   }
 
   private async loadSearch(): Promise<void> {
+    const read = ++this.searchReads;
     await this.ensureManifest();
     const got = this.state.chains.length > 0 ? await this.readCompact<CompactSearchChain>(this.searchEntries, (c) => c.baseUrl) : null;
+    if (read !== this.searchReads) return; // a newer read has begun (a new manifest, the signal back): that one stands
     if (!got || got.chains.length === 0) {
       this.searchPromise = null; // a later visit may succeed
+      if (this.compactIndex) {
+        // the index from the menus before, kept while this was read: it doesn't match the new menus, so search covers what is loaded, as on a first look,
+        // and the numbers paired with it go too
+        const hadNumbers = this.forgetNumbers();
+        this.compactIndex = null;
+        this.compactFrom = new Map();
+        this.set({ searchReady: false, searchIndex: buildSearchIndex([...this.state.indexes.values()].map((i) => i.chain)), ...(hadNumbers ? { numbers: null, numbersStatus: "unavailable" as const } : {}) });
+      }
       return this.loadAll();
     }
-    if (got.fellBack) {
-      this.searchFellBack = true;
-      this.refreshWhenOnline();
-    }
+    this.searchFellBack = got.fellBack;
+    if (got.fellBack) this.refreshWhenOnline();
+    // replacing an index read before: the numbers paired with it go in the same step (never shown against the new index's dishes) and are read again
+    const numbersAgain = this.compactIndex !== null && this.forgetNumbers();
     this.compactFrom = got.from;
     this.compactIndex = buildSearchIndexFromCompact(got.chains);
-    this.set({ searchIndex: this.compactIndex, searchReady: true });
+    this.set({ searchIndex: this.compactIndex, searchReady: true, ...(numbersAgain ? { numbers: null, numbersStatus: "idle" as const } : {}) });
+    if (numbersAgain) void this.ensureNumbers();
   }
 
   /**
@@ -406,8 +455,10 @@ export class MenuClient {
   }
 
   private async loadNumbers(): Promise<void> {
+    const read = ++this.numbersReads;
     this.set({ numbersStatus: "loading" });
-    await this.ensureSearch();
+    await this.searchSettled();
+    if (read !== this.numbersReads) return; // a newer read has begun (a new search index): that one stands
     const compact = this.compactIndex;
     if (!compact || this.numbersEntries.length === 0) {
       this.numbersPromise = null; // a later visit may find the search file
@@ -417,6 +468,7 @@ export class MenuClient {
     // each chain's numbers from the source its search entry came from (they are paired item by item); every source that lists chains must give its
     // numbers: a list built from some of them would quietly leave restaurants out
     const got = await this.readCompact<CompactNumbersChain>(this.numbersEntries, (c) => this.compactFrom.get(c.id) ?? c.baseUrl);
+    if (read !== this.numbersReads || compact !== this.compactIndex) return; // ...and never paired with an index they weren't read for
     if (!got || got.chains.length === 0) {
       this.numbersPromise = null;
       this.set({ numbersStatus: "unavailable" });

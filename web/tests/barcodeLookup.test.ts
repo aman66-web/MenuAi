@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { makeBarcodeLookup, OFF_FIELDS, OFF_USER_AGENT, offProductUrl } from "../lib/barcodeLookup";
+import { makeBarcodeLookup, OFF_FIELDS, OFF_USER_AGENT, offProductUrl, PER_CALLER_PER_MINUTE } from "../lib/barcodeLookup";
 import { loggableFromOff } from "../lib/mm/addFood";
 import { barcodeDigits, barcodeShown, energyAgrees, offAnswerFrom, offAnswerFromOff, offLabel, scannedItemHref } from "../lib/mm/barcodes";
 
@@ -203,5 +203,30 @@ describe("GET /api/v1/barcode/{code} (lib/barcodeLookup.ts)", () => {
     expect(asked).toHaveLength(50);
     later(61_000);
     expect((await lookup(ean("500000009999"))).status).toBe(200);
+  });
+
+  it("one caller gets at most 15 new barcodes a minute, so it can't spend everyone's allowance; cache hits and other callers are never held back", async () => {
+    // the meeting of 21 November 2026 (Umar): one caller could use the whole server's Open Food Facts allowance
+    expect(PER_CALLER_PER_MINUTE).toBe(15);
+    const { lookup, asked, later } = fakeOff(() => json(CORNFLAKES));
+    for (let i = 0; i < 15; i++) expect((await lookup(ean(`50000001${String(i).padStart(4, "0")}`), "caller-a")).status).toBe(200);
+    const refused = await lookup(ean("500000019999"), "caller-a");
+    // a 503 "busy", as when the server is busy (the app shows "Couldn't look it up just now. Try again."): never a 429, which the app reads as offline
+    expect(refused).toEqual({ status: 503, body: { error: "busy", message: "Try again in a minute." } });
+    expect(asked).toHaveLength(15);
+    expect((await lookup(ean("500000010000"), "caller-a")).status).toBe(200); // already kept: no new request, not counted
+    expect((await lookup(ean("500000019999"), "caller-b")).status).toBe(200);
+    expect(asked).toHaveLength(16);
+    // the refused barcode was never asked, so it spent none of the server's 50 either
+    later(61_000);
+    expect((await lookup(ean("500000019998"), "caller-a")).status).toBe(200);
+  });
+
+  it("a caller held back by the server's own minute limit keeps its own share", async () => {
+    const { lookup, later } = fakeOff(() => json(CORNFLAKES));
+    for (let i = 0; i < 50; i++) expect((await lookup(ean(`50000002${String(i).padStart(4, "0")}`))).status).toBe(200);
+    for (let i = 0; i < 20; i++) expect((await lookup(ean(`50000003${String(i).padStart(4, "0")}`), "caller-c")).status).toBe(503);
+    later(61_000);
+    for (let i = 0; i < 15; i++) expect((await lookup(ean(`50000004${String(i).padStart(4, "0")}`), "caller-c")).status).toBe(200);
   });
 });

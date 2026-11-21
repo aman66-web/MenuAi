@@ -27,8 +27,9 @@ export const TABS: ReadonlyArray<(typeof ALL_TABS)[number]> = ALL_TABS.filter((t
 /** Pages opened from several tabs: a recipe (from Recipes, from Home's meal plan or cooking tools, from Groceries' list), and My meals (Home's, and My recipes
  *  from Recipes: it lit Home there, Hassan in the 30-person meeting, 21 November 2026). They keep lit the tab the person came from (founder 2026-11-20: "This
  *  should still be part of the homepage ... all of that"); opened first, with nowhere before, their own tab is lit. A tab remembers one only while it is the
- *  tab lit (lib/mm/tabMemory.ts shouldRemember). */
-export const SHARED_PAGES = ["/app/recipes/view", "/app/meals"];
+ *  tab lit (lib/mm/tabMemory.ts shouldRemember). Compare too (Dina, the same meeting: "Compare lights no tab"): it opens from Eat out's and Groceries'
+ *  shortcuts and keeps that tab lit; it belongs to no tab, so opened first it lights none and no tab ever remembers it. */
+export const SHARED_PAGES = ["/app/recipes/view", "/app/meals", "/app/compare"];
 
 /** The tab to light: on a shared page the tab lit on the page before (`cameFrom`), else the tab whose pages these are. */
 export function litTab(pathname: string, cameFrom: string | null): string | null {

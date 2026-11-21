@@ -354,7 +354,7 @@ function Overview({ items }: { items: readonly CompareItem[] }) {
     <section aria-labelledby="overview-heading" className="mt-8">
       <h2 id="overview-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Overview")}</h2>
       {mixed ? (
-        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("Some are per 100 g and some per 100 ml, so there's no overview.")}</p>
+        <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{mixed === "basis" ? t("Some are per 100 g and some per 100 ml, so there's no overview.") : t("Some labels are for the cooked food, so there's no overview.")}</p>
       ) : entries.length === 0 ? (
         <p className="glass mt-3 rounded-[1.25rem] px-4 py-3 text-[0.9375rem] leading-snug">{t("These match on every figure, or too few figures are published, so no one leads.")}</p>
       ) : (

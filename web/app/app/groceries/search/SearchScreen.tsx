@@ -83,7 +83,10 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const deferred = useDeferredValue(query);
   // a barcode typed in, as printed (leading zeros kept: 2026-11-20, 01318180 sent as 1318180 wasn't found)
   const code = barcodeDigits(deferred);
-  const lists = useShopLists(manifest ? ids : [], retry);
+  // All shops loads nothing until something is typed, as Add food's search (the second pass, 21 November 2026, Xena #36: it loaded, sorted and grouped all nine
+  // lists, 74,303 products, before a letter was typed); one shop or the person's own load at once, so the list shows as before
+  const wantLists = scope !== "all" || !!code || deferred.trim().length >= 2;
+  const lists = useShopLists(manifest && wantLists ? ids : [], retry);
   const loaded = lists.status === "ready" ? lists.loaded : null;
   const files = useMemo(() => new Map((loaded ?? []).map((l) => [l.file.retailer, l.file])), [loaded]);
   // every loaded product tagged with its shop, once for the set of shops (the lists themselves are shared and never changed)
@@ -95,12 +98,13 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   // the diet settings, by each product's own name and aisle (allergens aren't read for these lists), worked out once for the shops and the settings
   const unsuited = useMemo(() => (filtering ? new Set(pool.filter((p) => foodDietProblem({ name: p.name, category: p.category }, prefs))) : null), [pool, prefs, filtering]);
   const results = useMemo(() => {
-    if (code) return [];
+    if (code || !wantLists) return [];
     const found = searchShopProducts(pool, { query: deferred, nutrition, sort });
     const kept = diet && unsuited ? found.filter((p) => !unsuited.has(p)) : found;
     return groupProducts(kept.map((p) => ({ shop: p.shop ?? "", product: p })), groupsOf);
-  }, [pool, deferred, nutrition, sort, diet, unsuited, code, groupsOf]);
-  const dietLine = groceryDietLine(prefs, diet, t);
+  }, [pool, deferred, nutrition, sort, diet, unsuited, code, groupsOf, wantLists]);
+  // what the diet filter can promise: these lists are read by each product's name and aisle only (the second pass, Zara #52: it said "name, type and label")
+  const dietLine = groceryDietLine(prefs, diet, t, { byName: true });
   // allergens aren't read for these lists, so the allergy settings hide nothing here: said whether or not the filter is on, as on a shop's own list (the 30-person
   // meeting, 21 November 2026, Maya)
   const avoid = prefs.avoidAllergens ?? [];
@@ -146,7 +150,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           <span className="min-w-0 flex-1 text-base font-bold leading-snug">{t("Open the product with barcode {code}", { code })}</span>
           <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
         </Link>
-      ) : !manifest || lists.status === "loading" ? (
+      ) : !wantLists ? null : !manifest || lists.status === "loading" ? (
         <Spinner label={t("Loading products")} />
       ) : loaded && loaded.length === 0 ? (
         <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>

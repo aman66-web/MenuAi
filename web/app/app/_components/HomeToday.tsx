@@ -57,8 +57,10 @@ export function MacroRow({ label, eaten, target, onDark = false }: { label: stri
   return (
     <div>
       <p className={`text-[0.8125rem] font-semibold leading-snug ${onDark ? "text-on-ink-2" : "text-muted"}`}>{label}</p>
-      {/* the app's own sans with even-width figures, like the dial (never the mono face: its slashed zero read as "Øg / 1ØØg") */}
-      <p className="app-numbers mt-0.5 text-[0.9375rem] leading-snug">
+      {/* the app's own sans with even-width figures, like the dial (never the mono face: its slashed zero read as "Øg / 1ØØg"). With a target the bar's
+          words say both figures, so these are hidden from screen readers (the second pass, Sam #0: "read twice ... '56g slash 150g', then the bar"); with
+          none they are the only words */}
+      <p className="app-numbers mt-0.5 text-[0.9375rem] leading-snug" aria-hidden={target ? true : undefined}>
         <span className={onDark ? "text-sun" : "text-foreground"}>{formatGrams(eaten)}</span>
         {target ? <span className={onDark ? "text-on-ink" : "text-muted"}> / {formatGrams(target)}</span> : null}
       </p>

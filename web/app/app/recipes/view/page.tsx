@@ -3,7 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { MAX_RECIPE_SERVINGS, type MealTarget } from "@/lib/mm/recipes";
-import { ErrorBox, Spinner } from "../../_components/ui";
+import { PageHeader } from "../../_components/PageHeader";
+import { EmptyState, LinkButton, Spinner } from "../../_components/ui";
 import { useT } from "../../_lib/i18n";
 import { RecipeScreen } from "./RecipeScreen";
 
@@ -35,7 +36,14 @@ function RecipeRoute() {
   const protein = numberParam(params.get("p"), 1, 400);
   const planTarget: MealTarget | null = kcal !== undefined ? { kcal: Math.round(kcal), ...(protein !== undefined ? { protein: Math.round(protein) } : {}) } : null;
   const better = params.get("better") === "1";
-  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} have={have} servings={servings} asWritten={asWritten} planTarget={planTarget} better={better} /> : <ErrorBox message={t("Choose a recipe first.")} />;
+  return okId || okMine ? <RecipeScreen id={okId} mine={okMine} shop={shop && /^[a-z0-9-]{2,40}$/.test(shop) ? shop : null} have={have} servings={servings} asWritten={asWritten} planTarget={planTarget} better={better} /> : (
+    // a link with no recipe id or a bad one: a missing page with the way back, as a restaurant link with none (chain/page.tsx), never a bare red error (the second
+    // sort of the 21 November meeting, Arjun)
+    <div>
+      <PageHeader back={{ href: "/app/recipes", label: t("Back to recipes") }} />
+      <div className="mt-4"><EmptyState title={t("Choose a recipe first.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} /></div>
+    </div>
+  );
 }
 
 export default function RecipePage() {

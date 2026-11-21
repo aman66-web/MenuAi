@@ -144,7 +144,7 @@ await step("a seeded week: each day's calories, a dash for a day with nothing, a
   if (days === 2) {
     expect(text.includes("2,225") && text.includes("kcal a day") && text.includes("From the 2 days you logged, not counting today."), `averages: ${text}`);
     expect(text.includes("75g") && text.includes("protein a day"), `protein over the days that gave it ((90g + 60g) / 2): ${text}`);
-    expect(text.includes("Some meals this week have no protein entered, so protein counts only the rest."), "the protein note");
+    expect(text.includes("Some foods this week don't list protein, so protein counts only the foods that do."), "the protein note");
   }
   expect(text.includes("Your target: 2,000 kcal"), "the target's legend");
   expect(text.includes("560"), `today's bar so far: ${text}`);

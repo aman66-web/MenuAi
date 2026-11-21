@@ -17,6 +17,14 @@
 set -euo pipefail
 here="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$here/web"
+# next build reads these files on its own and would pack whatever they hold (a test key, a local address, optional sign-in) into the App Store app, past the
+# clearing below (the meeting of 21 November 2026, Cal). Only .env.example may be here.
+for f in .env .env.local .env.production .env.production.local; do
+  if [ -e "$f" ]; then
+    echo "Remove web/$f first: next build would read it into the app." >&2
+    exit 1
+  fi
+done
 # The address people can write to: shown in Settings › Contact us, the privacy policy, terms and support pages inside the app. A local build
 # does not get the website's Vercel value, so it must be given here, and it must not be a placeholder or a test address (App Review: guideline 1.5).
 if [ -z "${NEXT_PUBLIC_SUPPORT_EMAIL:-}" ] || [[ "$NEXT_PUBLIC_SUPPORT_EMAIL" == *example.com* ]] || [[ "$NEXT_PUBLIC_SUPPORT_EMAIL" == test@* ]]; then

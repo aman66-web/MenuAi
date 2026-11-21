@@ -3934,3 +3934,18 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   (rule 8 or production data): breakfast dishes in dinner picks, Home's 25/35/40 meal split against the plan's equal meals, Larger Text, the words about buying
   during the free week, a Premium gift for the review account, vegan dishes counting as vegetarian, removing a gift starting a free week, a low budget cutting
   variety, and the Keychain sign-in surviving a delete; see the doc's "Not tonight".
+- (04:10-05:20, 21 Nov) **The meeting's second pass, barcode from a photo, measures, all tests** (founder: "make sure the app is perfect"; "allow people to upload a
+  photo ... of the barcode"; "they can [set] the portion ... Allow them to choose measurements too"). Second chair Riya sorted the 83 unsorted findings: 17
+  already fixed by the first pass, 64 fixes in 6 batches (21 left with reasons), all in docs/MEETING_2026-11-21.md; the blocker (Dina: open a recipe, tap Home,
+  tap Recipes: the recipe came back with Home lit and the list couldn't be reached) is fixed; Xena's freezes (Choose a recipe, welcome step 4, every tick on the
+  shopping list redoing 333 recipes); Zara: M&S recipes buying feta for dried oregano, vegans offered egg lasagne sheets, halal letting alcohol through at
+  restaurants; Arjun: "Added to dinner" adding again; Yusuf: numbers the data build threw out coming back. Lead: every scan asks again after "Couldn't look it
+  up"; the Swift StoreKit test expects no introductory offer. **Barcode from a photo**: Add food's new choice "Barcode from a photo" and "Choose a photo" on every
+  scan sheet and under the live camera (web/app/app/groceries/PhotoBarcode.tsx; lib/mm/barcodePhoto.ts reads the whole photo, its middle and nine parts on the
+  phone; nothing is sent). **Measures on How much?** (lib/mm/portions.ts): Measure: g or ml, the label's serving, one item, the pack (never for a cooked,
+  prepared or drained label), and for drinks Glass 250 ml, Can 330 ml, Pint 568 ml, Tablespoon 15 ml, Teaspoon 5 ml, for food oz; ½, 1, 2 of it, − and + by
+  halves, "= 500 ml" under the box; only fixed amounts of the label's own unit. Browser tests: new e2e/barcodephoto.mjs 5/5 (a drawn EAN-13 small in a 2400 x
+  1800 photo: the milk, 2 glasses = 500 ml, 5 x the label in the diary); scandiary 9/9, barcodediary 11/11 (its made-up barcodes given real check digits, and
+  "no connection" made a real lost connection, after the first pass's correct changes), addfood 16/16, scan 8/8. All: tsc and eslint clean, vitest 3,974,
+  Python 257, Swift unit tests pass. keys.json and recipeCoverage.ts regenerated (Tesco 3). Server-side fixes (auth, barcode lookup, the scan route, the privacy
+  page) reach numbite.com only with a deploy, which waits for the founder.

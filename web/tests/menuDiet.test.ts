@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { anyUnchecked, chainForDiet, namesAllergen, passesDiet, passesMenuDiet, uncheckedDiet } from "../lib/mm/menu-view";
+import { anyUnchecked, chainForDiet, filterCaution, namesAllergen, passesDiet, passesMenuDiet, restaurantDietNote, uncheckedDiet } from "../lib/mm/menu-view";
 import { buildSearchIndex, search } from "../lib/mm/search";
 import { showcaseCandidates, showcasePrefs } from "../lib/mm/showcase";
 import { NO_PREFERENCES, type Chain, type MenuItem, type Preferences } from "../lib/mm/types";
@@ -405,5 +405,34 @@ describe("Halal on a restaurant's menu (the 21 November 2026 meeting: Halal was 
     expect(anyUnchecked(uncheckedDiet(menu, halal, "shahs-halal-food"))).toBe(false);
     // No pork chosen as well is the person's own choice: still unchecked where pork isn't marked
     expect(uncheckedDiet(menu, P({ halalOnly: true, noPork: true }), "shahs-halal-food").pork).toBe(true);
+  });
+  // the second pass of the 21 November 2026 meeting (Zara #49): the first pass did pork only, though Halal's tile says "Halal meat, no alcohol"
+  it("leaves out drinks named as alcohol, as No alcohol does, and keeps the ones that say they are alcohol-free", () => {
+    const menu = [item("Mojito", { category: "Cocktails" }), item("Virgin Mojito", { category: "Cocktails" }), item("Pint of Lager", { category: "Drinks" }), item("Ginger Beer", { category: "Soft drinks" }), item("Chicken Wrap")];
+    expect(shown(menu, halal)).toEqual(["Virgin Mojito", "Ginger Beer", "Chicken Wrap"]);
+    expect(shown(menu, halal)).toEqual(shown(menu, P({ noAlcohol: true, noPork: true })));
+    expect(passesDiet(menu[0]!, halal)).toBe(false);
+    const chain = { id: "test", items: menu, combinations: [] } as unknown as Chain;
+    expect(chainForDiet(chain, halal).items.map((i) => i.name)).toEqual(["Virgin Mojito", "Ginger Beer", "Chicken Wrap"]);
+  });
+  it("at Bella Italia the gin cocktail and the cider are left out on the page, in Best for you and in search", () => {
+    const bella = load("bella-italia");
+    const drinks = ["Basil Gin Smash", "Old Mout Cider: Berries & Cherries"];
+    for (const name of drinks) expect(bella.items.some((i) => i.name === name), name).toBe(true);
+    const page = shown(bella.items, halal);
+    const best = chainForDiet(bella, halal).items.map((i) => i.name);
+    for (const name of drinks) {
+      expect(page, name).not.toContain(name);
+      expect(best, name).not.toContain(name);
+    }
+    const index = buildSearchIndex([bella]);
+    expect(search(index, "old mout cider", 40).items.map((i) => i.name)).toContain("Old Mout Cider: Berries & Cherries");
+    expect(search(index, "old mout cider", 40, halal).items.map((i) => i.name)).not.toContain("Old Mout Cider: Berries & Cherries");
+  });
+  it("the diet notes still say only what the person chose: Halal alone never names No alcohol", () => {
+    expect(restaurantDietNote(halal)).toBeNull();
+    expect(filterCaution(halal)).not.toContain("No alcohol");
+    expect(filterCaution(halal)).toContain("pork-free");
+    expect(filterCaution(P({ halalOnly: true, noAlcohol: true }))).toContain("“No alcohol” leaves out drinks named as alcohol; alcohol used in cooking can't be checked.");
   });
 });

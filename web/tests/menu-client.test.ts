@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { describe, expect, it } from "vitest";
-import { dataVersionDate, MenuClient, webCryptoSha256, type MenuSource } from "../lib/mm/menu-client";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { dataVersionDate, MenuClient, webCryptoSha256, type MenuSource, type MenuState } from "../lib/mm/menu-client";
 import { search } from "../lib/mm/search";
 import type { Manifest } from "../lib/mm/types";
 
@@ -327,6 +327,95 @@ describe("MenuClient", () => {
       await c.ensureManifest();
       expect(c.getSnapshot().chains.map((x) => x.id)).toEqual(["bowl-and-co", "cluck-house"]);
       expect(c.getSnapshot().reachedAll).toBe(false);
+    });
+  });
+  // The meeting of 21 November 2026 (Violet #20, #25): getting signal back put Eat out and Near me behind a spinner, dropped the search index and never read it
+  // again (search then covered only the menus opened), and offline a saved menu that changed in a newer publish said "Menus are updating".
+  describe("the signal coming back, and a saved menu offline", () => {
+    const LIVE = "https://live.example/menus/";
+    const both: MenuSource[] = [{ id: "live", baseUrl: LIVE }, { id: "release", baseUrl: "/menus-sample/" }];
+    const enc = (text: string) => new TextEncoder().encode(text).buffer as ArrayBuffer;
+    const changedCluck = readFileSync(samples + "chain-cluck-house.json", "utf8").replace('"Classic chicken sandwich"', '"Classic chicken sandwich royale"');
+    const liveSearch = readFileSync(samples + "menus-search.json", "utf8").replace('"Classic chicken sandwich"', '"Classic chicken sandwich royale"');
+    afterEach(() => vi.unstubAllGlobals());
+
+    /** The website's manifest: Cluck House changed (its menu and its search entry), the numbers file the same bytes as the packed one. */
+    async function liveManifest() {
+      const live = JSON.parse(manifestText) as Manifest;
+      const cluckSha = await webCryptoSha256(enc(changedCluck));
+      live.chains = live.chains.map((c) => (c.id === "cluck-house" ? { ...c, sha256: cluckSha } : c));
+      live.search = { file: "menus-search.json", sha256: await webCryptoSha256(enc(liveSearch)) };
+      return live;
+    }
+
+    it("an 'online' refresh keeps the restaurants listed and 'ready' throughout, and search ends on the website's full index", async () => {
+      const online: Array<() => void> = [];
+      vi.stubGlobal("addEventListener", (type: string, fn: () => void) => { if (type === "online") online.push(fn); });
+      let signal = false;
+      const { fetchFn, hits } = cdn({ [`${LIVE}menus-manifest.json`]: JSON.stringify(await liveManifest()), [`${LIVE}menus-search.json`]: liveSearch, [`${LIVE}chain-cluck-house.json`]: changedCluck });
+      const weak = (async (input: string, init?: RequestInit) => {
+        if (!signal && String(input).startsWith(LIVE)) throw new TypeError("offline");
+        return fetchFn(input, init);
+      }) as unknown as typeof fetch;
+      const c = new MenuClient({ sources: both, includeSamples: true, fetch: weak, sha256: webCryptoSha256, liveTimeouts: { manifest: 200, file: 200 } });
+      await c.ensureManifest();
+      await c.ensureNumbers(); // reads the search first
+      expect(c.getSnapshot().searchReady).toBe(true);
+      expect(c.getSnapshot().numbersStatus).toBe("ready");
+      expect(online).toHaveLength(1); // the website couldn't be reached: look again when the signal is back
+      const seen: MenuState[] = [];
+      c.subscribe(() => seen.push(c.getSnapshot()));
+
+      signal = true;
+      online.forEach((f) => f());
+      await vi.waitFor(() => {
+        expect(search(c.getSnapshot().searchIndex, "royale").items.length).toBeGreaterThan(0);
+        expect(c.getSnapshot().numbersStatus).toBe("ready");
+      });
+
+      expect(seen.length).toBeGreaterThan(0);
+      for (const s of seen) {
+        expect(s.status).toBe("ready");
+        expect(s.chains.map((x) => x.id)).toEqual(["bowl-and-co", "cluck-house"]);
+        expect(s.searchReady).toBe(true); // the earlier index stays in use until the new one is in
+      }
+      const end = c.getSnapshot();
+      expect(end.reachedAll).toBe(true);
+      expect(end.chains.find((x) => x.id === "cluck-house")!.baseUrl).toBe(LIVE);
+      expect(search(end.searchIndex, "chicken bowl").items.map((i) => i.itemId)).toContain("chicken-bowl"); // covers the restaurant never opened
+      expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toEqual([]); // and no menu was downloaded to search
+      expect(hits.filter((h) => h === `${LIVE}menus-search.json`)).toHaveLength(1);
+      // the numbers are paired with the search index dish by dish: never shown against an index they weren't read for
+      const pairedWith = new Map<unknown, unknown>();
+      for (const s of seen) {
+        if (!s.numbers) continue;
+        if (!pairedWith.has(s.numbers)) pairedWith.set(s.numbers, s.searchIndex);
+        expect(pairedWith.get(s.numbers)).toBe(s.searchIndex);
+      }
+      expect(end.numbers).not.toBeNull();
+      expect(pairedWith.get(end.numbers)).toBe(end.searchIndex);
+    });
+
+    it("Refresh menus with restaurants listed never shows 'loading' again; the first look still does", async () => {
+      const c = client(cdn().fetchFn);
+      const statuses: string[] = [];
+      c.subscribe(() => statuses.push(c.getSnapshot().status));
+      await c.ensureManifest();
+      expect(statuses[0]).toBe("loading");
+      statuses.length = 0;
+      c.invalidate();
+      await c.ensureManifest(true);
+      expect(statuses).not.toContain("loading");
+      expect(c.getSnapshot().status).toBe("ready");
+    });
+
+    it("offline, a kept menu from an earlier publish says to check the connection, not 'Menus are updating'", async () => {
+      const older = readFileSync(samples + "chain-cluck-house.json", "utf8").replace('"Classic chicken sandwich"', '"Classic chicken sandwich (older)"');
+      const kept = () => client(cdn({ "/menus-sample/chain-cluck-house.json": older }).fetchFn);
+      vi.stubGlobal("navigator", { onLine: false });
+      await expect(kept().loadChain("cluck-house")).rejects.toThrow("Couldn't load this menu. Check your connection and try again.");
+      vi.stubGlobal("navigator", { onLine: true });
+      await expect(kept().loadChain("cluck-house")).rejects.toThrow("Menus are updating. Please try again in a moment."); // online, a new publish is on its way
     });
   });
 });

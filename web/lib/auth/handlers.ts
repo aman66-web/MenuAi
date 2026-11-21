@@ -249,7 +249,9 @@ export async function handleSignOut(headers: Headers, ctx: AuthCtx): Promise<Htt
   const jar = parseCookies(headers.get("cookie"));
   const bearer = headers.get("authorization");
   const token = bearer?.toLowerCase().startsWith("bearer ") ? bearer.slice(7).trim() : jar[ACCESS_COOKIE];
-  if (token && !bearer && !ctx.sameOrigin) return json(403, { error: "forbidden" }); // a cookie sign-out must come from this site's own pages
+  // A sign-out without the app's token must come from this site's own pages or the app's, with or without a cookie: the clearing cookies alone would sign a
+  // visitor out, so any website could (the meeting of 21 November 2026, Umar: a cross-site POST that carried no cookie still got them).
+  if (!bearer && !ctx.sameOrigin && !ctx.fromApp) return json(403, { error: "forbidden" });
   if (token) {
     try {
       await ctx.port.signOut(token);

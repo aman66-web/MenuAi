@@ -153,8 +153,24 @@ export function addedNote(placed: Placed, nameOf: (list: string) => string): { t
 }
 
 /**
+ * What matching reads of the list, as one string: each item's shop, its shop id, whether it was typed in and its name (itemCovers in lib/mm/listRecipes.ts,
+ * and recipesFromShopSet's shop lookup), never whether it is ticked or how many. The second sort of the 21 November meeting (Xena): the recipes were worked
+ * out again from the whole `list`, so every tick or quantity change redid all 333 recipes, and the Recipes tab froze on first open.
+ */
+export function coverKey(list: readonly ShoppingItem[]): string {
+  return JSON.stringify(list.map((i) => [i.retailer, i.shopId ?? "", i.custom ? 1 : 0, i.name]));
+}
+
+/** The items back from coverKey, with only what matching reads (the rest blank): recipesFromShopSet gives the same recipes for them as for the list. */
+export function coverItems(key: string): ShoppingItem[] {
+  return (JSON.parse(key) as Array<[string, string, 0 | 1, string]>).map(([retailer, shopId, custom, name]) => ({
+    gtin: "", retailer, name, brand: "", size: "", qty: 1, addedAt: "", ...(shopId ? { shopId } : {}), ...(custom ? { custom: true as const } : {}),
+  }));
+}
+
+/**
  * The recipes for the list. `listShop`: the shop of the list being looked at (an extra list's own shop): its recipes come first when it is in recipes;
- * when it isn't, `usesOther` names it, so the screen can say which shop the recipes use.
+ * when it isn't, `usesOther` names it, so the screen can say which shop the recipes use. Worked out again only when coverKey changes (a tick never does it).
  */
 export function useListRecipes(list: readonly ShoppingItem[], listShop?: string | null): { shop: string | null; state: ListShopsState | null; matches: ListMatch[] | null; usesOther: string | null } {
   const settings = useSettings();
@@ -167,12 +183,13 @@ export function useListRecipes(list: readonly ShoppingItem[], listShop?: string 
   const products = set.status === "ready" ? set.products : null;
   const files = set.status === "ready" ? set.files : null;
   const dietKey = JSON.stringify(settings.preferences);
+  const itemsKey = coverKey(list);
   const matches = useMemo(() => {
     if (!products || !files?.length) return null;
     const diet = JSON.parse(dietKey) as DietPrefs;
     const recipes = RECIPES.map((r) => recipeForDiet(r, diet)).filter((r): r is Recipe => !!r);
-    return recipesFromShopSet(list, recipes, products).map((m): ListMatch => withOwnPhotos({ ...m, files }, files));
-  }, [list, products, files, dietKey]);
+    return recipesFromShopSet(coverItems(itemsKey), recipes, products).map((m): ListMatch => withOwnPhotos({ ...m, files }, files));
+  }, [itemsKey, products, files, dietKey]);
   const state: ListShopsState | null = !manifest ? { status: "loading" } : !shop ? null
     : set.status === "ready" ? { status: "ready", file: set.files[0]!, files: set.files, products: set.products } : set;
   const usesOther = listShop && manifest && !inRecipes && shop ? listShop : null;

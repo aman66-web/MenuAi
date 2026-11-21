@@ -9,11 +9,12 @@ import { analytics } from "@/lib/mm/analytics";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { needsPaywall } from "@/lib/mm/entitlements";
 import { tk } from "@/lib/mm/i18n";
+import { isOrderSaved } from "@/lib/mm/menu-view";
 import { hasMacros } from "@/lib/mm/nutrients";
 import { describeOrder, lineFromItem, orderName, orderNutrients } from "@/lib/mm/order";
 import { builderHref, chainHref } from "@/lib/mm/routes";
-import { addLogEntry, addSavedOrder, countProAction, deleteLogEntry, noteItemViewed } from "@/lib/mm/stores";
-import type { Allergens, Chain, LogMeal } from "@/lib/mm/types";
+import { addLogEntry, addSavedOrder, countProAction, deleteLogEntry, noteItemViewed, savedStore } from "@/lib/mm/stores";
+import type { Allergens, Chain, LogMeal, Nutrients } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { useGate } from "../_components/Paywall";
 import { PremiumBadge } from "../_components/PremiumBadge";
@@ -29,7 +30,7 @@ import { CompareButton } from "../_components/CompareButton";
 import { compareDish } from "../_lib/compare";
 import { ReportSheet } from "../_components/Submit";
 import { AllergyNote, Badge, Button, Chip, EmptyState, ErrorBox, LinkButton, Sheet, Spinner } from "../_components/ui";
-import { useChain, useIsPro, useMenu, useSettings } from "../_lib/hooks";
+import { useChain, useIsPro, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 
 // SPEC §7.5: name, serving, big calories, then protein/carbs/fat, then the optional nutrients ("not published").
@@ -111,6 +112,8 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const [mealSheet, setMealSheet] = useState(0);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal; key: number } | null>(null);
   const adding = useRef(false);
+  // My meals, so Save knows when this dish is already there (isOrderSaved below)
+  const savedOrders = useStore(savedStore);
   const found = status === "ready" && !!index?.items.get(itemId);
   useEffect(() => { if (found) noteItemViewed(chainId, itemId); }, [found, chainId, itemId]); // "Recently viewed" on the restaurant's page for a day
 
@@ -145,6 +148,22 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   const line = lineFromItem(index, item.id);
   const lines = line ? [line] : [];
   const description = describeOrder(index, lines) || item.name;
+  // Save adds the dish to My meals once (the second pass of the 21 November 2026 meeting, Arjun #56: "Dish page Save adds a duplicate on every tap, using up
+  // the 3 free saves"): once it is there the button says Saved, its heart filled, and a tap does nothing; the check inside reads the store as it is now, so
+  // a quick double tap saves once too
+  const alreadySaved = isOrderSaved(savedOrders, chain.id, lines);
+  const save = (nutrients: Nutrients, name: string) => {
+    if (alreadySaved) return;
+    gate("saveLimit", () => {
+      if (isOrderSaved(savedStore.get(), chain.id, lines)) return;
+      addSavedOrder({ chainId: chain.id, chainName: chain.name, name, lines, nutrients, dataVersionAtSave: menu.dataVersion ?? 0 });
+      analytics.track({ name: "orderSaved" });
+      countProAction();
+      setAdded(null);
+      setMessage(tk("Saved to My meals."));
+    });
+  };
+  const saveLabel = alreadySaved ? t("Saved") : t("Save");
 
   return (
     <div>
@@ -194,23 +213,10 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
               {t("Change the order")}
               {builderPaid && <PremiumBadge />}
             </Button>
-            <Button
-              variant="secondary"
-              full
-              onClick={() =>
-                gate("saveLimit", () => {
-                  const total = orderNutrients(index, lines) ?? item.nutrients;
-                  addSavedOrder({ chainId: chain.id, chainName: chain.name, name: orderName(index, lines) || item.name, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 });
-                  analytics.track({ name: "orderSaved" });
-                  countProAction();
-                  setAdded(null);
-                  setMessage(tk("Saved to My meals."));
-                })
-              }
-            >
-              {/* the heart, as on recipes: one sign for keeping something in My meals */}
-              <HeartIcon aria-hidden className="h-5 w-5" />
-              {t("Save")}
+            <Button variant="secondary" full aria-disabled={alreadySaved || undefined} onClick={() => save(orderNutrients(index, lines) ?? item.nutrients, orderName(index, lines) || item.name)}>
+              {/* the heart, as on recipes: one sign for keeping something in My meals; filled once it is there */}
+              <HeartIcon aria-hidden filled={alreadySaved} className="h-5 w-5" />
+              {saveLabel}
             </Button>
             <ShareButton full chainName={chain.name} orderName={item.name} description={description} nutrients={item.nutrients} />
             <CompareButton full item={compareDish(chain, item)} />
@@ -226,15 +232,9 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             {logPaid && <PremiumBadge onInk />}
           </Button>
           <div className="mt-2.5 grid grid-cols-2 gap-2.5 @max-[14rem]:grid-cols-1">
-            <Button variant="secondary" full onClick={() => gate("saveLimit", () => {
-              addSavedOrder({ chainId: chain.id, chainName: chain.name, name: item.name, lines, nutrients: item.nutrients, dataVersionAtSave: menu.dataVersion ?? 0 });
-              analytics.track({ name: "orderSaved" });
-              countProAction();
-              setAdded(null);
-              setMessage(tk("Saved to My meals."));
-            })}>
-              <HeartIcon aria-hidden className="h-5 w-5" />
-              {t("Save")}
+            <Button variant="secondary" full aria-disabled={alreadySaved || undefined} onClick={() => save(item.nutrients, item.name)}>
+              <HeartIcon aria-hidden filled={alreadySaved} className="h-5 w-5" />
+              {saveLabel}
             </Button>
             <CompareButton full item={compareDish(chain, item)} />
           </div>
@@ -246,9 +246,9 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
 
       <div className="mt-3.5"><AllergenSection chain={chain} allergens={item.allergens} itemName={item.name} /></div>
 
-      {/* "More detail" opens inside its own card: one box, not two. */}
+      {/* "More detail" opens inside its own card: one box, not two. The button names the table only while it is on the page (the second pass, Sam #1). */}
       <div className="glass mt-3.5 overflow-hidden rounded-[1.25rem]">
-        <button type="button" aria-expanded={detail} aria-controls="more-detail" onClick={() => setDetail((d) => !d)} className="flex min-h-16 w-full items-center gap-3 px-4 py-3.5 text-start transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
+        <button type="button" aria-expanded={detail} aria-controls={detail ? "more-detail" : undefined} onClick={() => setDetail((d) => !d)} className="flex min-h-16 w-full items-center gap-3 px-4 py-3.5 text-start transition hover:bg-[var(--fill)] active:bg-[var(--fill)]">
           <span className="min-w-0 flex-1">
             <span className="block text-lg font-[800] leading-snug tracking-[-0.01em]">{t("More detail")}</span>
             <span className="mt-0.5 block text-[0.9375rem] leading-snug text-muted">{t("Saturated fat, salt, sugar and fibre")}</span>

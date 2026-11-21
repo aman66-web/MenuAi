@@ -19,7 +19,7 @@ vi.mock("@/lib/mm/stores", () => ({ shoppingStore: { get: () => [], update: () =
 vi.mock("../app/app/_lib/hooks", () => ({ useSettings: () => ({}) }));
 vi.mock("../app/app/_lib/recipes", () => ({ recipeShopSetFor: () => [], useRecipeShopSet: () => ({ status: "loading" }) }));
 vi.mock("../app/app/_lib/shopProducts", () => ({ useShopManifest: () => null }));
-const { recipesFromShopSet, missingItems, fileForProduct, withOwnPhotos, addedNote, placeItems, targetList } = await import("../app/app/_lib/listRecipes");
+const { recipesFromShopSet, missingItems, fileForProduct, withOwnPhotos, addedNote, placeItems, targetList, coverKey, coverItems } = await import("../app/app/_lib/listRecipes");
 
 const sainsburysFile = JSON.parse(readFileSync("public/groceries/all/sainsburys.json", "utf8")) as ShopFile;
 const morrisonsFile = JSON.parse(readFileSync("public/groceries/all/morrisons.json", "utf8")) as ShopFile;
@@ -119,6 +119,51 @@ describe("recipes from the shopping list", () => {
     const list = addToList([], customItem("chicken")!);
     expect(recipesFromList(list, vegan, products, "sainsburys").some((m) => m.recipe.id === curry.id)).toBe(false);
     expect(recipesFromList([], RECIPES, products, "sainsburys")).toEqual([]);
+  });
+});
+
+// The second sort of the 21 November meeting (Xena): useListRecipes worked the whole book out again for every tick or quantity change. It now works it out only
+// when coverKey changes (what matching reads of each item), from coverItems(coverKey(list)), which must give the same recipes as the list itself.
+describe("the shopping list's recipes are worked out again only when its products change", () => {
+  const sainsOnly = tagShopProducts([{ shop: "sainsburys", products }]);
+  const first = resolveRecipe(curry, products).picks[0]!;
+  const list = addToList(addToList(addToList([], { gtin: "5000000000000", shopId: first.product.id, retailer: "sainsburys", name: first.product.name, brand: "Brand", size: "320g", price: 4 }), customItem("red kidney beans")!), customItem("rice")!);
+  const code = (i: number) => itemCode(list[i]!);
+  const shape = (ms: { recipe: Recipe; have: number[]; missing: number[] }[]) => ms.map((m) => [m.recipe.id, m.have, m.missing]);
+
+  it("ticking an item or changing how many leaves the key, so the memo hands back the very same matches array", () => {
+    const key = coverKey(list);
+    const ticked = toggleDone(list, code(0), "sainsburys");
+    const more = setQty(list, code(1), list[1]!.retailer, 3);
+    expect(ticked[0]!.done).toBe(true);
+    expect(more[1]!.qty).toBe(3);
+    expect(coverKey(ticked)).toBe(key);
+    expect(coverKey(more)).toBe(key);
+    expect(coverKey(toggleDone(ticked, code(0), "sainsburys"))).toBe(key);
+  });
+
+  it("a product added or taken off changes the key", () => {
+    const key = coverKey(list);
+    expect(coverKey(addToList(list, customItem("chicken")!))).not.toBe(key);
+    expect(coverKey(setQty(list, code(2), list[2]!.retailer, 0))).not.toBe(key);
+  });
+
+  it("the items rebuilt from the key give exactly the recipes the list gives", () => {
+    const items = coverItems(coverKey(list));
+    expect(items.map((i) => [i.retailer, i.shopId, i.custom, i.name])).toEqual(list.map((i) => [i.retailer, i.shopId, i.custom, i.name]));
+    const fromList = recipesFromShopSet(list, RECIPES, sainsOnly);
+    expect(fromList.length).toBeGreaterThan(0);
+    expect(shape(recipesFromShopSet(items, RECIPES, sainsOnly))).toEqual(shape(fromList));
+    expect(shape(recipesFromShopSet(toggleDone(list, code(0), "sainsburys"), RECIPES, sainsOnly))).toEqual(shape(fromList));
+  });
+
+  it("the Recipes tab asks for them only once its own cards are worked out, with one empty list that never changes", () => {
+    const page = readFileSync("app/app/recipes/page.tsx", "utf8");
+    expect(page).toMatch(/^const NO_ITEMS: ShoppingItem\[\] = \[\];$/m);
+    expect(page).toContain("useListRecipes(cardsReady ? shopping : NO_ITEMS)");
+    const hook = readFileSync("app/app/_lib/listRecipes.ts", "utf8");
+    expect(hook).toContain("}, [itemsKey, products, files, dietKey]);");
+    expect(hook).toContain("recipesFromShopSet(coverItems(itemsKey), recipes, products)");
   });
 });
 

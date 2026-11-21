@@ -268,14 +268,15 @@ export function DietPicker({ value, onChange, halal = true, allergies = true, al
       <div role="group" aria-label={t("Your diet")} className={pictures ? PICTURE_GRID : GRID}>
         {DIETS.filter((d) => halal || d.key !== "halalOnly").map(dietTile)}
       </div>
-      {/* one plain button opens the other six (white with the control edge, an ink chevron that turns); with one of them on, their label instead */}
+      {/* one plain button opens the other six (white with the control edge, an ink chevron that turns); with one of them on, their label instead. It names
+          the tiles only while they are on the page (the second pass, Sam #1) */}
       {anyMore ? (
         <p className="mb-2 mt-4 px-1 text-[0.8125rem] font-semibold leading-snug text-muted">{t("More diets")}</p>
       ) : (
         <button
           type="button"
           aria-expanded={showMore}
-          aria-controls={`${id}-more`}
+          aria-controls={showMore ? `${id}-more` : undefined}
           onClick={() => setMoreOpen((v) => !v)}
           className={`${pictures ? "mt-3 min-h-12 text-[1.0625rem]" : "mt-2 min-h-11 text-[0.9375rem]"} flex w-full items-center justify-between gap-2 rounded-[1.25rem] border-[1.5px] border-edge bg-card py-2.5 pe-3 ps-3.5 text-start font-semibold leading-snug text-foreground transition hover:bg-background active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent`}
         >

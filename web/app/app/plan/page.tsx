@@ -1208,6 +1208,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     });
   };
   const logMine = (c: PlanCandidate, slot: MealType, key: string) => gate("log", () => {
+    // a portion already added stays added until Undo (the second pass, Arjun #55: "tapping the lime 'Added to {meal}' pill logs the portion again")
+    if (loggedKeys.has(key)) return;
     // the whole label where every product printed it (sugar, salt, fibre...: Home's third page), as Add food's recipes log it
     const nutrients = recipeNutrients({ perServing: c.perServing, label: c.label ?? { kj: null, saturates: null, sugars: null, fibre: null, salt: null } }, 1);
     const entry = addLogEntry({ chainId: "", chainName: t("Recipe"), name: t(c.recipe.name), source: "recipe", recipeId: c.recipe.id, meal: slot, nutrients });
@@ -1529,7 +1531,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
               {/* today's meals only go into today's food diary (another day's would be logged today); every add is a compact ink pill; once tapped it shows
                   Added (lime with the dark green edge and a tick) until the toast's Undo */}
               {day === todayIndex && (
-                <button type="button" onClick={() => logMine(m.candidate, m.meal, addKey)}
+                <button type="button" aria-disabled={isAdded || undefined} onClick={() => { if (!isAdded) logMine(m.candidate, m.meal, addKey); }}
                   className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isAdded ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-transparent bg-ink text-on-ink hover:bg-ink-pressed"}`}>
                   {isAdded ? <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4" /> : <PlusIcon aria-hidden className="h-4 w-4" />}
                   {isAdded ? t("Added to {meal}", { meal }) : t("Add my portion to {meal}", { meal })}

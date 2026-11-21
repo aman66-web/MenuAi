@@ -9,7 +9,7 @@ import { coachDue, coachScreenFor } from "@/lib/mm/coach";
 import { coachStore, favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
 import { shouldRemember, tabTarget } from "@/lib/mm/tabMemory";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
-import { installBackDepth } from "../_lib/backNav";
+import { ADDRESS_EVENT, installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
 import { refreshAppSwitches, useSignInRequired } from "../_lib/appSwitches";
 import { menuClient } from "../_lib/menu";
@@ -90,13 +90,36 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [menu.status, menu.chains, ownChains]);
 
   // Tabs remember where you were (lib/mm/tabMemory.ts): coming back to a tab opens the page last seen in it; the open tab's own link goes to its first page.
-  // A shared page (a recipe, My meals) is remembered only under the tab lit on it: a recipe opened from Home stuck the Recipes tab on it (shouldRemember).
-  // A tab whose tips are still due opens its first page, where the tips are (coach.ts).
+  // A recipe is never remembered (Dina, the 30-person meeting, 21 November 2026: tapped from Home, the Recipes tab reopened the recipe with Home still lit, and
+  // the list couldn't be reached; tabMemory.ts NOT_REMEMBERED), so the Recipes tab always opens its list. Any other shared page is remembered only under the
+  // tab lit on it (shouldRemember). A tab whose tips are still due opens its first page, where the tips are (coach.ts).
   const tabMemory = useTabMemory();
   const coach = useStore(coachStore);
+  // the page on screen and the tab lit on it, for the query listener below (it runs outside React's renders)
+  const shown = useRef<{ path: string; lit: string | null } | null>(null);
   useEffect(() => {
+    shown.current = { path: pathname, lit };
     if (hydrated && shouldRemember(TABS, SHARED_PAGES, pathname, lit)) noteTabPage(TABS, pathname, window.location.search);
   }, [hydrated, pathname, lit]);
+  // A change to the query alone keeps the same page, so the effect above never saw it (Dina: "Tab memory misses changes made only to the query: Recipes
+  // filters and search, and the list chosen on the Shopping list"). Every history entry the app makes says so (_lib/backNav.ts ADDRESS_EVENT), and so do the
+  // browser's Back and Forward (popstate). Only a change on the page on screen is noted here: on a move to another page the address is already the new one
+  // while `shown` is still the old page, and the effect above notes the new page. A moment later, not at once: Next.js changes the address inside a React
+  // insertion effect, where nothing may update the screen.
+  useEffect(() => {
+    if (!hydrated) return;
+    const noteQuery = () =>
+      queueMicrotask(() => {
+        const now = shown.current;
+        if (now && window.location.pathname === now.path && shouldRemember(TABS, SHARED_PAGES, now.path, now.lit)) noteTabPage(TABS, now.path, window.location.search);
+      });
+    window.addEventListener(ADDRESS_EVENT, noteQuery);
+    window.addEventListener("popstate", noteQuery);
+    return () => {
+      window.removeEventListener(ADDRESS_EVENT, noteQuery);
+      window.removeEventListener("popstate", noteQuery);
+    };
+  }, [hydrated]);
 
   // Text size from Settings / onboarding (the layout's inline script applies it before the first paint too).
   useEffect(() => {

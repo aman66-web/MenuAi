@@ -71,6 +71,15 @@ describe("compare: the rows", () => {
     expect(rows.find((r) => r.id === "proteinPound")!.values).toEqual([22.9, 15.4, null]);
     expect(compareRows([dish("x", 463), dish("y", 500)]).some((r) => r.id === "perKg")).toBe(false);
   });
+  it("never puts a cooked label's protein against the price per kg as sold (the second pass, Yusuf #42)", () => {
+    const raw = food("raw", 215, 16, { price: 2.5, unitPrice: 8.33, unit: "per kg" });
+    const grilled = food("grilled", 287, 24, { price: 2.5, unitPrice: 8.33, unit: "per kg", note: "grilled" });
+    expect(proteinForAPound(raw)).toBe(19.2);
+    expect(proteinForAPound(grilled)).toBeNull();
+    // the price per kg itself is the pack's, cooked label or not
+    expect(compareRows([raw, grilled]).find((r) => r.id === "proteinPound")!.values).toEqual([19.2, null]);
+    expect(compareRows([raw, grilled]).find((r) => r.id === "perKg")!.values).toEqual([8.33, 8.33]);
+  });
   it("marks Highest and Lowest on the figures as printed, so two that read the same are never marked apart", () => {
     // Three Sainsbury's beans: salt 0.58, 0.6 and 0.6 (the table used to print all three as 0.6 and still mark one lowest, one highest).
     const salt = (id: string, v: number) => food(id, 78, 4.7, { numbers: { ...food(id, 78, 4.7).numbers, salt: v } });

@@ -1,7 +1,8 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { readMemory, remember, type TabDef, type TabMemory } from "@/lib/mm/tabMemory";
+// Relative (not "@/"), so the unit tests can load this file (tests/clearData.test.ts checks that clearing forgets it).
+import { readMemory, remember, type TabDef, type TabMemory } from "../../../lib/mm/tabMemory";
 
 // Where each tab was last (lib/mm/tabMemory.ts), kept for this tab of the browser only.
 const KEY = "mm.tabs";
@@ -25,6 +26,17 @@ export function noteTabPage(tabs: readonly TabDef[], path: string, search: strin
     try { sessionStorage.setItem(KEY, JSON.stringify(memory)); } catch { /* ignore */ }
     listeners.forEach((fn) => fn());
   }
+}
+
+/**
+ * Forget every tab's page: Settings › "Clear data on this device" (Dina, the 30-person meeting, 21 November 2026: clearing left the tab memory, so tabs
+ * reopened pages whose data had just been cleared).
+ */
+export function forgetTabs(): void {
+  memory = {};
+  loaded = true; // nothing is read back from storage after this
+  try { sessionStorage.removeItem(KEY); } catch { /* storage blocked: there was nothing kept in it */ }
+  listeners.forEach((fn) => fn());
 }
 
 const subscribe = (fn: () => void) => {

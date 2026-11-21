@@ -10,8 +10,14 @@ export interface TabDef {
 export type TabMemory = Record<string, string>;
 
 // Settings is never a tab's remembered page (2026-11-19: it opens from Home and from Eat out, and no tab must reopen it: the usability test of 2026-11-19 found
-// Home's tab opening Settings)
-const NOT_REMEMBERED = ["/app/welcome", "/app/offline", "/app/settings", "/app/targets"];
+// Home's tab opening Settings).
+// Nor is a recipe (Dina, the 30-person meeting, 21 November 2026: "after one recipe, the Recipes tab reopens that recipe with Home lit, and the list can't be
+// reached"): a recipe is a page opened from several tabs (app/app/_lib/tabs.ts SHARED_PAGES), so the Recipes tab that reopened it, tapped from Home, landed on a
+// page that kept Home lit; the Recipes tab was then not the open one, its link was that same page, and tapping it did nothing. The Recipes tab now always opens
+// its list (or the list as it was left: its filters and search are in the query).
+// Nor a page whose content is after the "#", which is never remembered (Dina: a shared shopping list came back as "nothing to show in this link"): a friend's
+// shared list, and Friends opened from an invite link (its friend code).
+const NOT_REMEMBERED = ["/app/welcome", "/app/offline", "/app/settings", "/app/targets", "/app/recipes/view", "/app/groceries/list/shared", "/app/community/friends"];
 /** Tabs that always open their first page (usability test 2026-11-19: Home's tab opened Settings, the page last seen there, and Frank thought he was lost). */
 const ALWAYS_FIRST = ["/app"];
 
@@ -47,7 +53,8 @@ export function remember(memory: TabMemory, tabs: readonly TabDef[], path: strin
 /**
  * Whether the page just opened is filed under its own tab. A page opened from several tabs (`shared`: app/app/_lib/tabs.ts SHARED_PAGES, a recipe from Home's
  * meal plan or Groceries' list) is, only while its own tab is the one lit: a recipe opened with Home lit and filed under Recipes made the Recipes tab reopen
- * that recipe, so the tab did nothing there and Recipes' first page and its tips never came back (Quinn, the 30-person meeting, 21 November 2026).
+ * that recipe, so the tab did nothing there and Recipes' first page and its tips never came back (Quinn, the 30-person meeting, 21 November 2026). Since
+ * Dina's finding the same day a recipe is never remembered at all (NOT_REMEMBERED); this stays as the rule for any other shared page.
  */
 export function shouldRemember(tabs: readonly TabDef[], shared: readonly string[], path: string, lit: string | null): boolean {
   if (!shared.some((p) => path.startsWith(p))) return true;

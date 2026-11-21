@@ -52,13 +52,15 @@ export function ScanFood({ meal, onAdd, onBack, onType, header, fromPhoto = fals
           if (!d) return;
           got.current = true;
           setDigits(d);
+          // every scan asks again, even for the same code after "Couldn't look it up" (the meeting, Arjun)
+          setRetry((n) => n + 1);
         }}
       />
       {!digits ? (
         <div className="space-y-3">
           {fromPhoto && <p className="text-[0.9375rem] leading-snug text-muted">{t("Pick a photo where the barcode is sharp and fills a good part of the picture.")}</p>}
           {photoNote && <p role="status" className="text-[0.9375rem] leading-snug">{t(photoNote)}</p>}
-          {fromPhoto && <PhotoBarcodeButton variant="primary" onNote={setPhotoNote} onCode={(raw) => { const d = barcodeDigits(raw); if (!d) return; got.current = true; setDigits(d); }} />}
+          {fromPhoto && <PhotoBarcodeButton variant="primary" onNote={setPhotoNote} onCode={(raw) => { const d = barcodeDigits(raw); if (!d) return; got.current = true; setDigits(d); setRetry((n) => n + 1); }} />}
           <Button full variant={fromPhoto ? "secondary" : "primary"} className="min-h-12 text-base" onClick={scanAgain}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan a barcode")}</Button>
         </div>
       ) : !found || found.status === "loading" ? (

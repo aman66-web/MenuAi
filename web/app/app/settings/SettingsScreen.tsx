@@ -295,7 +295,8 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   }
 
   // Carbs and fat that were the worked-out figures follow a change of calories (usability test 2026-11-19: Barbara changed 2,000 to 1,400 and carbs and fat
-  // stayed at 190 and 50): they are emptied, so the boxes show the new worked-out figures; ones the person typed themselves are kept.
+  // stayed at 190 and 50): they are emptied, so the boxes show the new worked-out figures; ones the person typed themselves are kept. A change of protein too
+  // (the meeting of 21 November 2026, Arjun: the split is worked out from calories and protein, so a new protein left the old carbs and fat saved).
   function followCalories() {
     const was = suggestCarbFat(settings.dailyCalories, settings.dailyProtein);
     if (carbs === null && settings.dailyCarbs !== undefined && Math.abs(settings.dailyCarbs - was.carbs) <= 5) setCarbs("");
@@ -383,7 +384,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
             <NumberDone />
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2.5">
               <TargetTile label={t("Calories")} invalid={targetsMessage?.field === "calories"} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); setPlanNotes([]); followCalories(); }} />
-              <TargetTile auto label={t("Protein (g)")} invalid={targetsMessage?.field === "protein"} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); setPlanNotes([]); }} />
+              <TargetTile auto label={t("Protein (g)")} invalid={targetsMessage?.field === "protein"} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); setPlanNotes([]); followCalories(); }} />
               <TargetTile auto label={t("Carbs (g)")} invalid={targetsMessage?.field === "carbs"} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); setPlanNotes([]); }} />
               <TargetTile auto label={t("Fat (g)")} invalid={targetsMessage?.field === "fat"} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); setPlanNotes([]); }} />
               <TargetTile wide label={t("Water (ml)")} invalid={targetsMessage?.field === "water"} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); setPlanNotes([]); }} />

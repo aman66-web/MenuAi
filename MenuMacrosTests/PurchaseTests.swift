@@ -227,10 +227,10 @@ struct StoreKitConfigurationFileTests {
         #expect(renewing.map { $0["productID"] as? String } == AppConfig.iapProductIDs)
         #expect(renewing.map { $0["displayPrice"] as? String } == ["49.99", "4.99"])
         #expect(renewing.map { $0["recurringSubscriptionPeriod"] as? String } == ["P1Y", "P1M"])
-        // both subscriptions start with a free week
+        // no introductory offer: the free week is the account's own (21 Nov 2026; Apple's 7-day offer was deleted in App Store Connect)
         for sub in renewing {
-            let offer = try #require(sub["introductoryOffer"] as? [String: Any])
-            #expect(offer["paymentMode"] as? String == "free" && offer["subscriptionPeriod"] as? String == "P1W")
+            #expect(sub["introductoryOffer"] is NSNull)
+            #expect((sub["introductoryOffers"] as? [Any])?.isEmpty == true)
         }
         // nothing else is sold: no non-renewing pass, no one-off products
         let nonRenewing = try #require(root["nonRenewingSubscriptions"] as? [[String: Any]])

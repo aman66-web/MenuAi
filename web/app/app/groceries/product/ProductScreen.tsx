@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromShop, withShopLabel, type LoggableProduct } from "@/lib/mm/addFood";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
-import { barcodeDigits, barcodeShown, hasLabel, labelledHits, normaliseBarcode, sameBarcode, scanHref, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
+import { barcodeDigits, barcodeShown, labelledHits, normaliseBarcode, sameBarcode, scanHref, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
 import { cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { avoidedAllergens, foodDietNotChecked, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
@@ -16,7 +16,7 @@ import type { CompareItem } from "@/lib/mm/compare";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
-import { shopNameFor, useOpenFoodFacts } from "../../_components/addfood/findByBarcode";
+import { shopNameFor, shopRowFor, useOpenFoodFacts } from "../../_components/addfood/findByBarcode";
 import { DiaryButton, DiaryToast, NotFound, SourceNote, useTypedDiary } from "../../_components/addfood/ProductPick";
 import { PremiumBadge } from "../../_components/PremiumBadge";
 import { CopyIcon, ExternalIcon, InfoIcon, PencilIcon, PlusIcon, ScanIcon } from "../../_components/icons";
@@ -240,10 +240,12 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         }
         if (cancelled) return;
         // a scan of a product in a shop's full list opens that shop's own page for it where a row there has its numbers (the person's own shop first); so does a link
-        // to a barcode only those lists hold. A scan whose rows have no numbers goes on to the catalogue's record, else to Open Food Facts and "Type the numbers from
-        // the pack" (the 30-person meeting, 21 November 2026, Maya and Grace: it opened a page with no numbers and no food diary, and Open Food Facts was never asked)
+        // to a barcode only those lists hold. A scan whose rows have no numbers goes on to Open Food Facts and "Type the numbers from the pack" (the 30-person
+        // meeting, 21 November 2026, Maya and Grace: it opened a page with no numbers and no food diary, and Open Food Facts was never asked). Where the catalogue
+        // holds it too, the build left its numbers out on purpose, so the shop's page opens, scan or link, and the person types them from the pack (the second pass,
+        // Yusuf #38: "Numbers the build threw out on purpose come back", Nesquik powder at 64.1 kcal)
         if (found && found.shops.length > 0) {
-          const target = scan ? found.shops.find(hasLabel) : found.catalogue.length === 0 ? found.shops.find((h) => h.shop === retailerHint) || found.shops[0] : undefined;
+          const target = shopRowFor(found, { scan, hint: retailerHint, mine });
           if (target) {
             // a scan says so, and that page then puts "Add to my food diary" first
             router.replace(scan ? scannedItemHref(target) : shopItemHref(target));
@@ -318,6 +320,9 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const containsCount = p.allergens?.contains.length ?? 0;
   const dietProblem = foodDietProblem(listedFacts(listed), prefs);
   const avoided = dietProblem === "allergen" ? avoidedAllergens(p.allergens, prefs.avoidAllergens ?? []) : null;
+  // the other diet settings (vegetarian, halal...) on their own: the allergy check comes first and stops there, so they are asked again without it, and a
+  // vegetarian who avoids nuts still hears the chicken doesn't fit (the second pass, Zara #53: the diet line was hidden whenever an allergy was set and the record had none)
+  const dietOnly = dietProblem === "allergen" ? foodDietProblem(listedFacts(listed), { ...prefs, avoidAllergens: [] }) : dietProblem;
   const names = (keys: readonly (keyof typeof ALLERGEN_LABEL)[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(keys.map((k) => t(ALLERGEN_LABEL[k])));
   const notChecked = foodDietNotChecked(prefs, t);
   const outLink = "font-semibold text-accent underline underline-offset-4";
@@ -347,14 +352,15 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         {p.brand && <p className="kicker">{p.brand}</p>}
         <h1 className={`${p.brand ? "mt-1.5" : ""} ${productTitleClass(p.name)}`}>{p.name}</h1>
         {p.size && <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{p.size}</p>}
-        {/* the person's own allergens: the one amber note, naming them; any other diet setting (vegetarian, halal...): the calm info line */}
-        {dietProblem === "allergen" ? (
+        {/* the person's own allergens: the one amber note, naming them; any other diet setting (vegetarian, halal...): the calm info line, under the note when both apply */}
+        {dietProblem === "allergen" && (
           <AllergyNote className="mt-4"><p>{avoided === null
             ? t("No allergen record for this product, so we can't check it for your allergies. Check the pack.")
             : avoided.contains.length > 0
               ? t("Contains {allergens}, which you avoid.", { allergens: names(avoided.contains) })
               : t("May contain {allergens}.", { allergens: names(avoided.mayContain) })}</p></AllergyNote>
-        ) : dietProblem ? <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine> : null}
+        )}
+        {dietOnly && <InfoLine heading={null} className={dietProblem === "allergen" ? "mt-3" : "mt-4"}>{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine>}
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
         {/* reached by a scan: the food diary is why, so its button is the page's one ink button, under the name and any allergy note (the design review of 2026-11-20) */}
         {scan && !labelLoading && <DiaryButton main product={loggable} className="mt-5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
@@ -447,7 +453,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
                 return (
                   <li key={r} className="flex min-h-14 items-center justify-between gap-3 py-2.5">
                     <span className="min-w-0">
-                      <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className="text-[0.9375rem] font-bold underline-offset-4 hover:underline">{retailerName(r)}</Link>
+                      <Link href={`/app/groceries/product?code=${listed.gtin}&r=${r}`} replace prefetch={false} className="inline-flex min-h-11 items-center text-[0.9375rem] font-bold underline underline-offset-4">{retailerName(r)}</Link>
                       {price && cheapest === r && pricedCount > 1 && <span className={`ms-2 ${MARK} py-0.5`}>{t("Lowest")}</span>}
                       {price && cardLowest(r) && <span className={`ms-2 ${MARK} py-0.5`}>{t("Lowest with card")}</span>}
                       <span className="block text-[0.8125rem] text-muted">{price ? t("checked {date}", { date: formatDate(price.checkedOn, t) }) : t("price not read yet")}</span>
@@ -455,7 +461,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
                     <span className="app-numbers shrink-0 text-end">
                       {price ? (
                         <>
-                          <a className="inline-flex items-center gap-1 text-base font-bold text-foreground underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<ExternalIcon aria-hidden className="h-3.5 w-3.5 shrink-0" /><span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
+                          <a className="inline-flex min-h-11 items-center gap-1 text-base font-bold text-foreground underline underline-offset-4" href={price.url} target="_blank" rel="noopener noreferrer">{formatPrice(price.amount)}<ExternalIcon aria-hidden className="h-3.5 w-3.5 shrink-0" /><span className="sr-only"> {t("at {shop} (opens in a new tab)", { shop: retailerName(r) })}</span></a>
                           {diff !== null && diff !== 0 && <span className="block text-[0.8125rem] text-muted">{diff < 0 ? t("{price} cheaper", { price: formatPrice(Math.abs(diff)) }) : t("{price} more", { price: formatPrice(Math.abs(diff)) })}</span>}
                           {diff === 0 && <span className="block text-[0.8125rem] text-muted">{t("same price")}</span>}
                           {price.member && <span className="block text-[0.8125rem] font-semibold text-foreground">{t("{price} with {scheme}", { price: formatPrice(price.member.amount), scheme: price.member.scheme.replace(/ price$/i, "") })}</span>}

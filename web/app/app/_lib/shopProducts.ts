@@ -59,7 +59,9 @@ export function loadShopFile(id: string): Promise<{ file: ShopFile; products: Sh
     })
     .then((f) => {
       if (!isShopFile(f)) throw new Error("full list is not valid");
-      return { file: f, products: decodeShopProducts(f) };
+      // the raw rows are let go once decoded: only decodeShopProducts reads them, and keeping both came to about 22 MB for nine lists (the second pass, 21
+      // November 2026, Xena #35). The file kept is everything else (its name, pages, photos, schemes) with no rows.
+      return { file: { ...f, products: [] }, products: decodeShopProducts(f) };
     })
     .catch((e: unknown) => {
       if (filePromises.get(id) === p) filePromises.delete(id);

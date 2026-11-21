@@ -32,6 +32,8 @@ export async function POST(request: Request) {
     refs: () => scanRefs(new URL(request.url).origin),
     premium: who.premium,
     allow: () => limit(who.who()),
+    // an AI outage gives the scan back, so it doesn't use up the person's daily scans (the photo, describe and fridge routes already do: lib/photoRecipeRoute.ts)
+    giveBack: () => limit.release(who.who()),
     timeLeft: () => maxDuration * 1000 - (Date.now() - started),
   };
   const res = await withJsonBody(request, (body) => handleFoodScan(body, ctx), 1_700 * 1024);

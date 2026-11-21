@@ -1,3 +1,4 @@
+import { foodSignals } from "./foodDiet";
 import { formatInt } from "./format";
 import { PANTRY, kindExcluded, kindForDiet, type DietPrefs, type IngredientMatch, type IngredientRole, type PantryKind, mixesMeatAndDairy } from "./pantry";
 import { normalizeForSearch } from "./search";
@@ -156,6 +157,23 @@ export const countsSuit = (pantry: string | undefined, productName: string | und
 
 const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
 const MEAT_WORDS = ["chicken", "beef", "pork", "lamb", "turkey", "bacon", "ham", "sausage", "salmon", "tuna", "prawn", "fish", "anchov", "chorizo", "pepperoni", "cod"];
+/**
+ * The product's own name names meat or fish by the diet rule every product screen uses (foodSignals on the name alone), and still does without the kind's own
+ * words (`own`: its match.all and match.any), which name the ingredient, never what else is in it: "Lasagne Pasta Sheets" are sheets, not the dish lasagne.
+ * Both must say so, as the whole name keeps the rule's own exceptions ("Oyster Mushrooms" are mushrooms).
+ */
+function namesMeatOrFish(name: string, own: RegExp | null): boolean {
+  const says = (text: string) => {
+    const s = foodSignals({ name: text });
+    return s.meat || s.fish;
+  };
+  return says(name) && (!own || says(name.replace(own, " ")));
+}
+/** The kind's own words as one pattern (each a word start, any ending, any case), for namesMeatOrFish. */
+function ownWords(m: IngredientMatch): RegExp | null {
+  const words = [...m.all, ...(m.any ?? [])].filter(Boolean).map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  return words.length ? new RegExp(`\\b(?:${words.join("|")})\\w*`, "gi") : null;
+}
 
 // ---- diet
 
@@ -440,6 +458,7 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
   if (cached) return cached;
   const m = spec.match;
   const list: PricedProduct[] = [];
+  let own: RegExp | null | undefined; // made on first use (only a meat-free recipe's matched products need it)
   for (const raw of products) {
     if (!hasPrice(raw)) continue; // a recipe prices every ingredient: a product the shop shows no price for can't be used
     // a liquid whose label is printed per 100 g counts for the ml a recipe uses, by its weight (the kind's density; founder 2026-11-21)
@@ -462,6 +481,10 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
       const w = pieceWeight(p.name);
       if (w === null ? !soldByThePiece(p, spec) : w < m.pieceWeight[0] || w > m.pieceWeight[1]) continue;
     }
+    // a meat-free recipe never takes a product whose own name says meat or fish by the products' diet rule (lib/mm/foodDiet.ts), beyond the few words above
+    // (the second sort of the 21 November meeting, Zara: herb and spice kinds took sardines and chipolatas that name rosemary or dill). Last, so it runs only on
+    // the few products that match everything else.
+    if (meatFree && namesMeatOrFish(p.name, own === undefined ? (own = ownWords(m)) : own)) continue;
     list.push(p);
   }
   byRule.set(rule, list);

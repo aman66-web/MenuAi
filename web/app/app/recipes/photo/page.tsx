@@ -35,7 +35,8 @@ import { PhotoCamera } from "./PhotoCamera";
 
 // Make it at home (founder 2026-11-16, new order 2026-11-17): the name of the dish and a short description (they help Pip choose the right ingredients), then the
 // camera with a scanning look (PhotoCamera.tsx), then straight to the supermarket (no "Scanning" screen: founder 2026-11-20), Next, a loading screen while Pip writes it, and the recipe
-// with the person's photo on top from real products at the shop, every number worked out from their labels (lib/mm/photoRecipe.ts).
+// with the person's photo on top from real products at the shop, every number worked out from their numbers (lib/mm/photoRecipe.ts: their labels, or community
+// or UK government figures where a product has none, each named on the recipe page).
 // Premium only, and the whole page exists only while PHOTO_RECIPES_ENABLED (lib/mm/config.ts). The photo is made smaller on the phone first (_lib/photo.ts).
 // The 20 November 2026 audit: Pip's permission sheet before the camera opens (nothing is sent before it: AiConsentSheet.tsx), an offline line and no camera
 // while offline, the food check given at most 8 s (then the flow carries on), "Pip can't do this right now" when Anthropic can't answer, the plans (never an
@@ -117,8 +118,9 @@ function Working({ dish, about, shopName, productCount, target, avoid, photoUrl,
           {[
             made.ingredients === 1 ? t("1 ingredient chosen from {shop}", { shop: shopName }) : t("{n} ingredients chosen from {shop}", { n: made.ingredients, shop: shopName }),
             made.steps === 1 ? t("1 step written") : t("{n} steps written", { n: made.steps }),
-            // the amounts are Pip's and the prices the shop's, so only the figures come from the labels (meeting 21 November 2026, Priya; a correction)
-            t("Every figure worked out from the products' own labels"),
+            // the amounts are Pip's and the prices the shop's, so only the figures come from the products (meeting 21 November 2026, Priya; a correction); and not
+            // always their own labels: some are community numbers or the UK government's figures (the second sort of that meeting, Tara; a correction)
+            t("Every figure added up from the products' numbers"),
           ].map((line) => (
             <li key={line} className="flex items-center gap-3 text-[1rem] font-semibold leading-snug">
               <span className={DONE_TICK}><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
@@ -127,7 +129,7 @@ function Working({ dish, about, shopName, productCount, target, avoid, photoUrl,
           ))}
         </ul>
       ) : (
-        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Pip picks a real {shop} product for each part of the dish, then works out every figure from their labels. It can take up to a minute.", { shop: shopName })}</p>
+        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{t("Pip picks a real {shop} product for each part of the dish, then works out every figure from their numbers. It can take up to a minute.", { shop: shopName })}</p>
       )}
     </div>
   );
@@ -481,7 +483,7 @@ function PhotoScreen() {
                 const open = allergiesOpen ?? chosen.length > 0;
                 return (
                   <>
-                    <button type="button" aria-expanded={open} aria-controls="exclude-allergies" onClick={() => setAllergiesOpen(!open)} className="mt-3 flex min-h-12 w-full items-center justify-between gap-3 rounded-[1.25rem] bg-[var(--fill)] px-4 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+                    <button type="button" aria-expanded={open} aria-controls={open ? "exclude-allergies" : undefined} onClick={() => setAllergiesOpen(!open)} className="mt-3 flex min-h-12 w-full items-center justify-between gap-3 rounded-[1.25rem] bg-[var(--fill)] px-4 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
                       <span className="text-[0.9375rem] font-bold">{t("Allergies to avoid")}{chosen.length > 0 && <span className="ms-2 font-semibold text-muted">{t("{n} chosen", { n: chosen.length })}</span>}</span>
                       <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-muted transition-transform ${open ? "rotate-90" : "rtl:rotate-180"}`} />
                     </button>
@@ -536,8 +538,9 @@ function PhotoScreen() {
             <div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>
           ) : (
             <>
+              {/* "(each one says where)", not "the products' labels": some are community or UK government figures (the second sort of the 21 November meeting, Tara) */}
               <p className="mt-5 text-[0.8125rem] leading-snug text-muted">
-                {t("Pip uses AI from Anthropic. We send your photo (made smaller), your words, your diet and allergies, the meal size and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products' labels.", { shop: shopName })}
+                {t("Pip uses AI from Anthropic. We send your photo (made smaller), your words, your diet and allergies, the meal size and the {shop} product list; never your name, email or account. We don't keep it. The numbers come from the products (each one says where).", { shop: shopName })}
               </p>
               <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-3">
                 {/* a Next that can't be pressed yet says why above it (colour meeting: never a silent grey button) */}

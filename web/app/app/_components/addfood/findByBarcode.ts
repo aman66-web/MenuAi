@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromOff, loggableFromShop, type LoggableProduct } from "@/lib/mm/addFood";
-import { hasLabel, offAnswerFrom, validGs1, type BarcodeHit, type OffProduct } from "@/lib/mm/barcodes";
+import { hasLabel, offAnswerFrom, validGs1, type BarcodeHit, type OffProduct, type ShopHit } from "@/lib/mm/barcodes";
 import { API_BASE } from "@/lib/mm/config";
 import { mergeProducts } from "@/lib/mm/groceries";
 import { loadRetailer } from "../../_lib/groceries";
@@ -100,6 +100,26 @@ export async function shopNameFor(hit: BarcodeHit | null): Promise<string> {
   }
 }
 
+/**
+ * A barcode whose figures the build left out on purpose: a shop list holds it with no label, and the older catalogue holds it with community numbers. The build
+ * (tools/groceries/build_all_products.py) rejected every such pairing on purpose (held back, outside its kind, names that disagree, a cooked figure), so neither the
+ * catalogue's numbers nor Open Food Facts' (where they came from) are shown for it: the person types the numbers from the pack (the 30-person meeting, 21 November
+ * 2026, Yusuf: 98 such rows, Nesquik powder 7613031513031 at 64.1 kcal and Bisto gravy powder at 12 kcal, came back through the catalogue page and Add food).
+ */
+export const labelHeldBack = (hit: BarcodeHit): boolean => hit.shops.length > 0 && !hit.shops.some(hasLabel) && hit.catalogue.length > 0;
+
+/**
+ * The shop list row the Groceries product page hands a barcode on to (lib/mm/barcodes.ts shopItemHref), or undefined to show the catalogue's record (or Open Food
+ * Facts) itself. A scan opens the first row with numbers (the person's own shops come first); a link opens the shop it names, else the person's own, else the first,
+ * when no catalogue file holds it. A barcode whose figures the build held back (labelHeldBack) always opens a shop's row, so the numbers it left out never show.
+ */
+export function shopRowFor(hit: BarcodeHit, { scan, hint, mine }: { scan: boolean; hint: string | null; mine: readonly string[] }): ShopHit | undefined {
+  if (hit.shops.length === 0) return undefined;
+  const own = hit.shops.find((h) => mine.includes(h.shop)) ?? hit.shops[0];
+  if (scan) return hit.shops.find(hasLabel) ?? (labelHeldBack(hit) ? own : undefined);
+  return hit.catalogue.length === 0 || labelHeldBack(hit) ? hit.shops.find((h) => h.shop === hint) ?? own : undefined;
+}
+
 /** Everything we can find for a barcode's digits (leading zeros kept), in the order above. `unnamed`: the name for an Open Food Facts record with none. */
 export async function lookupBarcodeEverywhere(digits: string, mine: readonly string[], unnamed: string): Promise<BarcodeLookup> {
   let shopName = "";
@@ -107,7 +127,10 @@ export async function lookupBarcodeEverywhere(digits: string, mine: readonly str
     const ours = await productsForBarcode(digits, mine);
     if (ours.length > 0) return { status: "found", products: ours };
     // a shop list holds it without numbers: its name for the typed entry, where Open Food Facts knows none
-    shopName = await shopNameFor(await findBarcode(digits, mine).catch(() => null));
+    const hit = await findBarcode(digits, mine).catch(() => null);
+    shopName = await shopNameFor(hit);
+    // figures the build held back on purpose: Open Food Facts isn't asked, as it would only give them back (Yusuf #38)
+    if (hit && labelHeldBack(hit)) return { status: "missing", name: shopName };
   } catch {
     // our files couldn't load: Open Food Facts may still answer
   }

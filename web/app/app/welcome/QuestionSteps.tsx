@@ -102,8 +102,9 @@ export function AvoidStep({ prefs, setPrefs, onContinue, counter }: { prefs: Pre
       <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Anything you avoid?")}<CounterText text={counter} /></h1>
       <div className={GAP}>
         {/* the allergies first, in the first view before "Nothing to avoid" (the common ones, then "More"), with their caution under them, never under the
-            bottom button; then the diets' pictures */}
-        <DietPicker value={prefs} onChange={setPrefs} allergyCautionFirst pictures={pictureSources()} chips allergyCaution={t("Filters use each restaurant's own allergen guide. Always check with staff.")} />
+            bottom button; then the diets' pictures. The caution names all three places the answers filter (the meeting of 21 November 2026, Tara: it spoke only
+            of restaurants, though recipes and products follow the same answers; a safety correction, rule 8) */}
+        <DietPicker value={prefs} onChange={setPrefs} allergyCautionFirst pictures={pictureSources()} chips allergyCaution={t("Restaurants: from their allergen guide. Recipes and products: from their ingredients. Always check the pack or ask staff.")} />
       </div>
       <div aria-hidden className="h-6 shrink-0" />
       <Bottom>

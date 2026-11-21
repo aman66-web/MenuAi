@@ -23,7 +23,7 @@ import { MAX_RECIPE_SERVINGS, MEAL_TYPES, candidates, countsSuit, fitOutcome, ha
 import { mealTargetFor } from "@/lib/mm/mealTarget";
 import { USUAL_PORTION, portionReason, samePortion } from "@/lib/mm/recipePortion";
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
-import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
+import { nutritionBasis, productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
 import { addLogEntry, countProAction, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
 import { analytics } from "@/lib/mm/analytics";
@@ -882,8 +882,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
           {logButton && <div className="mt-4">{logButton}</div>}
         </section>
 
+        {/* not "the products' labels": some figures are community numbers or the UK government's, and the page names them (the second sort of the 21 November
+            meeting, Tara; a correction) */}
         {recipe.ai && (
-          <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.875rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{t("Pip wrote this recipe with AI from real products at {shop}; the numbers come from the products' labels. Read the steps before you cook, and cook meat and fish until piping hot.", { shop: listNames(shown.map((f) => f.name)) })}</span></p>
+          <p className={`${CARD} mt-4 flex gap-3 p-4 text-[0.875rem] leading-snug`}><InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span>{t("Pip wrote this recipe with AI from real products at {shop}; the numbers come from the products (each one says where). Read the steps before you cook, and cook meat and fish until piping hot.", { shop: listNames(shown.map((f) => f.name)) })}</span></p>
         )}
 
         {actions && <div className="mt-5 space-y-2">{actions}</div>}
@@ -1013,8 +1015,14 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                         </span>
                         <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{formatPrice(o.basketCost)}{o.packs > 1 ? ` ${t("for {n}", { n: o.packs })}` : ""}{servingCost(o) !== null ? ` · ${t("{price} a serving", { price: formatPrice(servingCost(o)!) })}` : ""}</span>
                         {o.product.nutrition && (
-                          // a liquid counted by weight (ShopNutrition.byWeight) shows its label as the shop prints it, per 100 g, never the per 100 ml it was turned into
-                          <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal / (o.product.nutrition.byWeight ?? 1))} kcal · {t("{n} g protein per 100 {unit}", { n: Math.round((o.product.nutrition.protein / (o.product.nutrition.byWeight ?? 1)) * 10) / 10, unit: o.product.nutrition.byWeight ? "g" : o.product.nutrition.per })}</span>
+                          // a liquid counted by weight (ShopNutrition.byWeight) shows its label as the shop prints it, per 100 g, never the per 100 ml it was turned into;
+                          // the basis says a drained label (nutritionBasis: "per 100 g (drained)"), and where the figures aren't the shop's own label it says so, as the
+                          // shop's lists do (the second sort of the 21 November meeting, Yusuf: community and government figures looked like shop labels here)
+                          <>
+                            <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal / (o.product.nutrition.byWeight ?? 1))} kcal · {t("{n} g protein", { n: Math.round((o.product.nutrition.protein / (o.product.nutrition.byWeight ?? 1)) * 10) / 10 })} {nutritionBasis({ per: o.product.nutrition.byWeight ? "g" : o.product.nutrition.per, state: o.product.nutrition.state }, t)}</span>
+                            {o.product.nutrition.community && <span className={`block text-[0.8125rem] leading-snug ${selected ? "" : "text-muted"}`}>{t("community numbers")}</span>}
+                            {o.product.nutrition.govFood && <span className={`block text-[0.8125rem] leading-snug ${selected ? "" : "text-muted"}`}>{t("UK government figures")}</span>}
+                          </>
                         )}
                       </span>
                       <ChoiceMark on={selected} kind="circle" />

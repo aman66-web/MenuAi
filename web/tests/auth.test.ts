@@ -411,6 +411,25 @@ describe("sign out and delete my account", () => {
     expect(t.state.signedOut).toEqual([]);
   });
 
+  it("another site's page gets no clearing cookies either, even when its POST carries no cookie; the website's and the app's own sign-outs still work", async () => {
+    // the meeting of 21 November 2026 (Umar): a cross-site POST with no cookie was answered 200 with the two clearing cookies, so any website could sign a visitor out
+    const cross = setup({ sameOrigin: false, fromApp: false });
+    const refused = await handleSignOut(asHeaders({}), cross.ctx);
+    expect(refused.status).toBe(403);
+    expect(setCookies(refused)).toEqual([]);
+
+    const web = setup({ sameOrigin: true, fromApp: false });
+    const own = await handleSignOut(asHeaders({}), web.ctx);
+    expect(own.status).toBe(200);
+    expect(setCookies(own).length).toBe(2);
+
+    const app = setup({ sameOrigin: false, fromApp: true });
+    const s = app.issue(app.userFor("a@example.com"));
+    const fromApp = await handleSignOut(asHeaders({}, { authorization: `Bearer ${s.accessToken}` }), app.ctx);
+    expect(fromApp.status).toBe(200);
+    expect(app.state.signedOut).toEqual([s.accessToken]);
+  });
+
   it("sign out never fails, even if Supabase does", async () => {
     const t = setup();
     t.port.signOut = async () => {

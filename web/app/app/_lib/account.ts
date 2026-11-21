@@ -244,14 +244,27 @@ export async function bootAccount(): Promise<void> {
   // Someone who never signed in sends the server nothing: ask only if this device already knows an account, the iPhone app holds a session,
   // or the browser has just come back from Google or Apple sign-in (the callback adds ?signin=ok).
   if (!userStore.get() && !RETURNING && !(APP_BUILD && tokensStore.get())) return doneChecking();
+  // The question has no time limit of its own, and a weak signal could leave the whole app on "Loading…" (the meeting of 21 November 2026, Violet #23): after
+  // 8 seconds the screens open (the sign-in screen when nobody is known yet), and a late answer that someone is signed in still opens the app (signedIn below).
+  const giveUp = setTimeout(doneChecking, 8000);
+  const before = userStore.get()?.id ?? null;
   try {
     const user = await accountApi().session();
+    // someone signed in on the sign-in screen while this waited: that sign-in stands (a late "nobody" must not sign them out again)
+    if ((userStore.get()?.id ?? null) !== before) return;
     if (user) signedIn(user);
     else if (userStore.get()) await leave(false);
   } catch {
     const known = userStore.get();
     if (known) startLoop(); // offline: stay signed in as far as we know and sync when the network is back
+    // the iPhone app holds a session it couldn't ask about (no signal): ask once more when the signal is back, unless someone has signed in by then
+    else if (tokensStore.get()) window.addEventListener("online", () => {
+      if (userStore.get()) return;
+      booted = false;
+      void bootAccount();
+    }, { once: true });
   } finally {
+    clearTimeout(giveUp);
     doneChecking();
   }
 }

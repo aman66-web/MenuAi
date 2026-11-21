@@ -57,7 +57,8 @@ export function MultiShopScreen({ shops }: { shops: string[] }) {
   const names = new Intl.ListFormat("en-GB", { type: "conjunction" }).format((loaded ?? []).map((l) => l.file.name));
   const avoid = prefs.avoidAllergens ?? [];
   const avoidNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(avoid.map((k) => t(ALLERGEN_LABEL[k])));
-  const dietLine = groceryDietLine(prefs, diet, t);
+  // these lists are read by each product's name and aisle only (the second pass, Zara #52: it said "name, type and label")
+  const dietLine = groceryDietLine(prefs, diet, t, { byName: true });
   // the title shows at once, with the shops' logos, while their lists load (2026-11-20: the page had no heading until every list was in)
   const title = (
     <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">

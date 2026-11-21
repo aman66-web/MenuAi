@@ -181,14 +181,16 @@ describe("the screens (Dev, Priya, Sam)", () => {
     expect(fridge).toContain("resultsHeading.current?.focus({ preventScroll: true });");
   });
 
-  it("Make it at home: Stop works during the photo check, and the done line says only the figures come from the labels", () => {
+  it("Make it at home: Stop works during the photo check, and the done line says only the figures come from the products, not always their labels", () => {
     const write = photo.slice(photo.indexOf("const write = async"));
     expect(write.indexOf("abort.current = ctrl;")).toBeGreaterThan(-1);
     expect(write.indexOf("abort.current = ctrl;")).toBeLessThan(write.indexOf("await (foodCheck.current"));
     expect(write).toContain("if (ctrl.signal.aborted) { setStep(\"shops\"); return; }");
     expect(write).toContain("signal: ctrl.signal");
-    expect(photo).toContain('t("Every figure worked out from the products\' own labels")');
+    // the second sort of the meeting (Tara): some figures are community numbers or the UK government's, so never "the products' own labels"
+    expect(photo).toContain('t("Every figure added up from the products\' numbers")');
     expect(photo).not.toContain("Every amount, price and figure");
+    expect(photo).not.toContain("products' own labels");
   });
 
   it("the plans: while a purchase is confirmed the buy button stays busy and the other plan can't be picked", () => {

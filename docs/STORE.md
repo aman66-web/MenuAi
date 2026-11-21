@@ -13,14 +13,17 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 | Subtitle (30) | **UK menus, shops & recipes** (25) |
 | Keywords (100) | `macros,nutrition,restaurant,counter,diet,grocery,takeaway,supermarket,cooking,meal,food` (87; words already in the name and subtitle are indexed anyway, so they aren't repeated) |
 | Primary / secondary category | Food & Drink / Health & Fitness |
-| Promotional text (170) | Menu items from 241 UK restaurants and 68,000 supermarket products, with calories and protein. Free and works offline. Only friends need an account. (148) |
-| Price | Free (no in-app purchases in this version) |
+| Promotional text (170) | **1.0 only, superseded: don't paste for 1.1** (everyone signs in, and Premium is sold). Menu items from 241 UK restaurants and 68,000 supermarket products, with calories and protein. Free and works offline. Only friends need an account. (148) |
+| Price | Free, with In-App Purchase (Annual, Monthly) |
 | Availability | United Kingdom first (the data is UK only) |
 
 **Never** put a restaurant's or supermarket's name or logo in the app name, subtitle, keywords, icon or screenshots (App Review 2.3.7,
 2.3.9, 4.1(c); CLAUDE.md rule 2). Never call food healthy, good or bad (rule 3); GLP-1 copy is "smaller, protein-first orders".
 
 ## Description (draft)
+
+**1.0 only, superseded: don't paste for 1.1.** (It says no account is needed and every feature is free, both untrue in 1.1: before submitting, check
+App Store Connect's description doesn't still say so. Its free-week sentence is under "Version 1.1 (next build)" at the end of this file.)
 
 Know the numbers before you eat. Numbite shows the calories, protein, carbs and fat for menu items at 241 UK restaurants, cafés and
 pubs, taken from each chain's own published nutrition information, with the source and the date we checked shown on every menu.
@@ -293,12 +296,12 @@ requests for a limited time under its own terms. Both types are already in the q
 
 Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what you have, Scan your food, everyone signing in and the fixes from the usability tests.
 
-**What's New in This Version:**
+**What's New in This Version** (build 11: the founder pastes this block):
 
 ```
 What's new in 1.1
 
-• Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at chains that publish protein, the full Cheapest protein list, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Try it free for 7 days, then choose Monthly or Annual. Everything that was free stays free.
+• Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at chains that publish protein, the full Nutrition leaderboards, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Your first 7 days of Premium are free (one free week per person and iPhone), then choose Monthly or Annual. Every menu, recipe and label stays free, and so does your food diary.
 
 • Meal plan (Premium): a week of meals from our recipes for your goal, diet, budget and the food you like, with the shopping list, from one supermarket or several.
 
@@ -310,28 +313,32 @@ What's new in 1.1
 
 • See the truth, Smart Swap and Quick answers on every menu, and what 10 g of protein costs at the shops.
 
-• Supermarkets: labels for thousands more products, with each shop's logo and price side by side.
+• Supermarkets: labels for thousands more products, with each shop's price side by side.
 
-• A free account keeps your plan, meals and lists on all your devices: Sign in with Apple, Google or an email code.
+• A free account keeps your goal, saved meals and lists on all your devices: Sign in with Apple, Google or an email code.
 
 • Easier to use: bigger buttons, plainer words and many small fixes from testing with older people.
 
-Every figure comes from each restaurant's or shop's own published information, except Scan your food, which is always marked as an estimate. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
+Every figure comes from each restaurant's or shop's own published information (where a shop prints none, Open Food Facts or the UK government's figures, each named on screen), except Scan your food, which is always marked as an estimate. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
 ```
 
 **Corrected 21 November 2026 (the 30-person meeting; rule 8, untrue words):** the 90-day pass is not sold (removed from "Try it free for 7 days, then choose
 Monthly or Annual."), and only about half the restaurants publish protein, so the Top 5 picks are "at chains that publish protein", not "at every chain".
 **Build 10 is in review with the old words.** Before build 11 is submitted, the founder changes App Store Connect › Numbite › 1.1 › What's New in This Version
 to the text above. Nobody touched App Store Connect on 21 November.
+**Corrected again 21 November (second pass, rule 8):** the free week is no Apple trial and comes once per person and iPhone (the words of the description's
+fix at the end of this file); 1.1 keeps Best for you to 2 picks and saved orders to 3 for free, so "Everything that was free stays free" was untrue (menus,
+recipes, labels and the food diary are); "Cheapest protein" is now the Nutrition leaderboards; store words never promise logos (CLAUDE.md rule 2); the
+meal plan isn't synced; and products with no label of their own use Open Food Facts or the government's figures, named on screen.
 
-**Added to the Notes for App Review:**
+**Added to the Notes for App Review** (build 11: the founder pastes this block, with its In-App Purchase paragraph replaced by the one at the end of this file):
 
 ```
 New in 1.1. Sign-in: Numbite needs a free account; Sign in with Apple works with any Apple ID (Google and a 6-digit email code are also offered). Settings > Account has Sign out and Delete my account.
 
 In-App Purchase: three products, Annual and Monthly (auto-renewable, one group, each with a 7-day free trial as an introductory offer) and a Founding Member 90-Day Pass (non-renewing). To see the plans: Settings (gear on Home) > Subscription > See plans, or open "See the truth" on four different menu items, or Recipes > Make it at home. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work.
 
-Make it at home, Scan your food and Pip's recipe in Cook with what you have (all Premium) send what the person chooses (a photo, a short description, or the list of food they typed, with their diet choices) to our server, which asks Anthropic's Claude to answer; nothing is kept on our server. Every amount, price and nutrition figure in a recipe is worked out by the app from the products' own labels. Scan your food is the one place the app shows an estimate: the screen always says "Estimate from your photo", and the entry is logged as "(estimate)".
+Make it at home, Scan your food and Pip's recipe in Cook with what you have (all Premium) send what the person chooses (a photo, a short description, or the list of food they typed, with their diet choices) to our server, which asks Anthropic's Claude to answer; nothing is kept on our server. Every amount, price and nutrition figure in a recipe is worked out by the app from the products' numbers. Scan your food is the one place the app shows an estimate: the screen always says "Estimate from your photo", and the entry is logged as "(estimate)".
 ```
 
 ## Release checklist (free launch)

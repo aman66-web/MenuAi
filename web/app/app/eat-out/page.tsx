@@ -131,8 +131,9 @@ export default function EatOutPage() {
             <h2 className="text-xl font-[800] tracking-[-0.01em]">{t("All restaurants")}</h2>
             {realCount > 0 && <p className="app-numbers text-sm text-muted">{t("{n} UK restaurants", { n: realCount })}</p>}
           </div>
+          {/* each opener names its panel only while the panel is on the page (the second pass, Sam #1: "aria-controls at an element that isn't on the page") */}
           {types.length > 1 && (
-            <button type="button" aria-expanded={moreOpen} aria-controls="more-ways" onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-background active:bg-background">
+            <button type="button" aria-expanded={moreOpen} aria-controls={moreOpen ? "more-ways" : undefined} onClick={toggleMore} className="glass mt-3.5 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition-colors hover:bg-background active:bg-background">
               <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><GridIcon className="h-[18px] w-[18px]" /></span>
               <span className="min-w-0 flex-1">{t("More ways to find a restaurant")}</span>
               <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform rtl:scale-x-100! ${moreOpen ? "-rotate-90" : "rotate-90"}`} />
@@ -152,7 +153,7 @@ export default function EatOutPage() {
           )}
 
           {/* a second way in, of its own: type calories, protein, carbs or fat and pick allergies, and only the restaurants with dishes that fit are listed */}
-          <button type="button" aria-expanded={finder.open} aria-controls="find-by-numbers" onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition hover:bg-background active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <button type="button" aria-expanded={finder.open} aria-controls={finder.open ? "find-by-numbers" : undefined} onClick={toggleFinder} className="glass mt-3 flex min-h-[3.75rem] w-full items-center gap-3.5 rounded-[1.25rem] px-4 py-2 text-start text-base font-bold leading-snug transition hover:bg-background active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <span aria-hidden className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fill text-accent"><ScaleIcon className="h-5 w-5" /></span>
             <span className="min-w-0 flex-1">{t("Find by numbers or allergies")}</span>
             <ChevronRightIcon aria-hidden className={`h-5 w-5 shrink-0 text-ink transition-transform rtl:scale-x-100! ${finder.open ? "-rotate-90" : "rotate-90"}`} />

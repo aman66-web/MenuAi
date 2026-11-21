@@ -29,7 +29,8 @@ export function MyCodeCard({ username, code }: { username: string; code: string 
   };
   const share = async () => {
     if (hasNative()) {
-      const r = await nativeCall("share", { title: site.name, text: message }); // the iPhone's own share sheet
+      // the iPhone's own share sheet, open as long as the person likes (15 minutes, as buying a plan; the meeting of 21 November 2026, Will #29)
+      const r = await nativeCall("share", { title: site.name, text: message }, 15 * 60_000);
       if (r.done || r.error === "cancelled") return;
     }
     try {

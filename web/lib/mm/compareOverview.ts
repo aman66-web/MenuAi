@@ -1,8 +1,8 @@
 // The overview under Compare's table (founder 2026-11-17: "an overview ... best for price, best for protein, best for whatever ... you can just use the numbers and
 // do some algorithm"). No AI: for each figure that has an official, plain meaning (price per kg or litre, protein, protein for £1, calories, sugars, salt) it
 // names the item that is highest or lowest on the figures the table prints, and for dishes the protein for the calories. Ties name every item that ties; a
-// figure only one item has, or that all items share, gives no entry. Items measured differently (per 100 g beside per 100 ml) are never compared. The wording is
-// about one figure at a time, never about food being good or bad (CLAUDE.md rule 3): the screen says so.
+// figure only one item has, or that all items share, gives no entry. Items measured differently (per 100 g beside per 100 ml, or a label for the cooked food beside
+// one as sold) are never compared. The wording is about one figure at a time, never about food being good or bad (CLAUDE.md rule 3): the screen says so.
 import { compareRows, shownFigure, type CompareItem, type CompareRow } from "./compare";
 import { tk } from "./i18n";
 
@@ -20,10 +20,12 @@ export interface OverviewEntry {
   notLabel?: true;
 }
 
+/** Why nothing is compared: "basis", some foods are per 100 g and some per 100 ml; "cooked", some labels are for the cooked or prepared food and some as sold. */
+export type OverviewMix = "basis" | "cooked" | false;
+
 export interface Overview {
   entries: OverviewEntry[];
-  /** Some foods are per 100 g and some per 100 ml: nothing is compared. */
-  mixed: boolean;
+  mixed: OverviewMix;
 }
 
 function leaders(values: ReadonlyArray<number | null>, pick: "highest" | "lowest"): { winners: number[]; value: number } | null {
@@ -39,7 +41,9 @@ function leaders(values: ReadonlyArray<number | null>, pick: "highest" | "lowest
 
 export function compareOverview(items: readonly CompareItem[]): Overview {
   const foods = items.filter((i) => i.kind === "food");
-  if (new Set(foods.map((i) => i.basis)).size > 1) return { entries: [], mixed: true };
+  if (new Set(foods.map((i) => i.basis)).size > 1) return { entries: [], mixed: "basis" };
+  // a cooked label beside one as sold: 100 g of grilled bacon isn't 100 g of the raw pack, so no figure crowns either (the second pass, 21 November 2026, Yusuf #42)
+  if (foods.some((i) => i.note) && foods.some((i) => !i.note)) return { entries: [], mixed: "cooked" };
   if (items.length < 2) return { entries: [], mixed: false };
   const rows = new Map<string, CompareRow>(compareRows(items).map((r) => [r.id, r]));
   const entries: OverviewEntry[] = [];

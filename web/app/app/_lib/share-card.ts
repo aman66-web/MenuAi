@@ -297,8 +297,11 @@ export async function deliverImage(blob: Blob, opts: { fileName: string; title: 
       reader.onerror = () => reject(reader.error);
       reader.readAsDataURL(blob);
     });
-    const r = await nativeCall("share", { title: opts.title, text: opts.text, imageDataUrl });
-    if (r.done || r.error === "cancelled") return r.done ? "shared" : "cancelled";
+    // The share sheet stays open as long as the person likes (15 minutes, as buying a plan): after the default 2 minutes the page went on to a download, which
+    // the app's web view refuses (WebAppView.swift), and said "Image saved to your downloads." (the meeting of 21 November 2026, Will #29)
+    const r = await nativeCall("share", { title: opts.title, text: opts.text, imageDataUrl }, 15 * 60_000);
+    if (r.done) return "shared";
+    if (r.error === "cancelled" || r.error === "timeout") return "cancelled";
   }
   try {
     if (navigator.canShare?.({ files: [file] })) {
@@ -308,6 +311,8 @@ export async function deliverImage(blob: Blob, opts: { fileName: string; title: 
   } catch (e) {
     if (e instanceof DOMException && e.name === "AbortError") return "cancelled";
   }
+  // nor any other answer the app gives: its web view refuses downloads, so "saved to your downloads" would be untrue there
+  if (hasNative()) return "cancelled";
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;

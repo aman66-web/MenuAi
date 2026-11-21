@@ -271,7 +271,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
             <div>
               <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                 <span className="font-semibold">{halal.scope === "some" ? t("Halal (some):") : t("Halal:")}</span>
-                <button type="button" aria-expanded={halalOpen} aria-controls="halal-quote" onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full border-[1.5px] border-edge bg-card ps-4 pe-3 font-semibold text-foreground transition hover:bg-background active:scale-[0.98]">
+                <button type="button" aria-expanded={halalOpen} aria-controls={halalOpen ? "halal-quote" : undefined} onClick={() => setHalalOpen((o) => !o)} className="inline-flex min-h-11 items-center gap-1 rounded-full border-[1.5px] border-edge bg-card ps-4 pe-3 font-semibold text-foreground transition hover:bg-background active:scale-[0.98]">
                   {t("What {chain} says", { chain: chain.name })}
                   <ChevronRightIcon className={`h-4 w-4 transition-transform ${halalOpen ? "-rotate-90" : "rotate-90"}`} />
                 </button>

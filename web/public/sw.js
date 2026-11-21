@@ -3,10 +3,11 @@
  * Goal: after you've opened something once, it keeps working with a poor or no connection.
  *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
  *  - /menu-images/*, /grocery-images/* and /recipe-images/*: cache-first in their own capped cache (photos are named by content hash, so they never go stale)
- *  - /menus/*, /menus-sample/*, /branches/*, /groceries/* and /logos/*: network-first, falling back to the last copy
+ *  - /menus/*, /menus-sample/*, /branches/* and /groceries/*: network-first, falling back to the last copy
+ *  - /logos/*: network-first too, in their own capped cache, so scrolling Eat out's hundreds of logos never pushes out the menus kept for offline
  *  - /app/* pages (and their data requests): network-first, falling back to the last copy
- *  - /app/chain, /app/item and /app/builder are static shells that read their ids from the query string, so ONE cached
- *    copy (keyed without the query) opens every restaurant, item and order offline
+ *  - /app/chain, /app/item, /app/builder and the other QUERY_SHELLS are static shells that read their ids from the query string, so ONE
+ *    cached copy (keyed without the query) opens every restaurant, item, order, shopping list and so on offline
  * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
  * Bump VERSION to drop all old caches.
  */
@@ -15,10 +16,15 @@ const STATIC = `${VERSION}-static`;
 const PAGES = `${VERSION}-pages`;
 const DATA = `${VERSION}-data`;
 const IMAGES = `${VERSION}-images`;
-const MAX_ENTRIES = { [PAGES]: 120, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150 };
+// The logos have their own cache (the meeting of 21 November 2026, Violet #21: they shared DATA's 120 places, so scrolling Eat out pushed out the menus kept
+// for offline). Its name starts with VERSION, so the activate step keeps it, and VERSION stays as it is: a bump would delete everyone's offline copies.
+const LOGOS = `${VERSION}-logos`;
+const MAX_ENTRIES = { [PAGES]: 120, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150, [LOGOS]: 520 };
 const NETWORK_TIMEOUT_MS = 5000;
 const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shops", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/groceries/protein", "/app/recipes", "/app/recipes/view", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline", "/app/eat-out/favourites", "/app/groceries/leaderboards", "/app/plan", "/app/recipes/fridge", "/app/stats", "/app/targets"];
-const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shops", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/meals", "/app/compare", "/app/today", "/app/community/blog", "/app/community/blog/view", "/app/community/inbox/view", "/app/stats"];
+// Every screen opened with a query (?list=, ?tab=, ?cleared=1, ...) is a static shell in SHELLS: keyed without the query, its one copy opens offline (the meeting
+// of 21 November 2026, Violet #22: an extra shopping list, its recipes, the leaderboards, welcome and settings opened the "hasn't been opened yet" page)
+const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shops", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/meals", "/app/compare", "/app/today", "/app/community/blog", "/app/community/blog/view", "/app/community/inbox/view", "/app/stats", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/leaderboards", "/app/welcome", "/app/settings"];
 
 /** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
 function cacheKey(request) {
@@ -65,7 +71,13 @@ async function precacheShells() {
   await Promise.all(
     [...assets].map(async (url) => {
       try {
-        if (await statics.match(url)) return;
+        // already kept: put back so it counts as the newest (trim drops the oldest first, and after a few deploys these were the oldest: the current pages'
+        // own scripts were thrown away while older deploys' stayed; the meeting of 21 November 2026, Violet #24)
+        const hit = await statics.match(url);
+        if (hit) {
+          await statics.put(url, hit);
+          return;
+        }
         const response = await fetch(url);
         if (response.ok) await statics.put(url, response);
       } catch {
@@ -154,7 +166,9 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(request));
   } else if (path.startsWith("/menu-images/") || path.startsWith("/grocery-images/") || path.startsWith("/recipe-images/")) {
     event.respondWith(cacheFirst(request, IMAGES));
-  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/logos/") || path.startsWith("/branches/") || path.startsWith("/groceries/")) {
+  } else if (path.startsWith("/logos/")) {
+    event.respondWith(networkFirst(request, LOGOS));
+  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/branches/") || path.startsWith("/groceries/")) {
     event.respondWith(networkFirst(request, DATA));
   } else if (path === "/app" || path.startsWith("/app/")) {
     event.respondWith(networkFirst(request, PAGES));

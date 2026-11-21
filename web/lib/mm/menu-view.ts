@@ -3,9 +3,11 @@ import { foodDietProblem, foodSignals, MORE_DIET_LABEL, moreDietsOn, namedPescat
 import { isAllHalal } from "./halal";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
+import type { OrderLine } from "./order";
 import { passesPreferences } from "./ranking";
 import { normalizeForSearch } from "./search";
 import { ALLERGEN_KEYS, type AllergenKey, type Chain, type MenuItem, type Preferences } from "./types";
+import type { SavedOrder } from "./user-data";
 
 // SPEC §7.4: sort, filter and tags on the chain page.
 
@@ -62,7 +64,8 @@ export function freeOfAllergens(item: Pick<MenuItem, "allergens">, avoid: readon
 /**
  * Every diet and allergy filter the user has on (vegetarian, no pork/beef, vegan, allergens, and the newer diets as far as a menu can tell: restaurantPrefs).
  * Pork, beef, lamb and alcohol are also left out where the dish's own name says so (namesPork, namesBeef...): a restaurant's tags miss many ("Big Mac",
- * "Sausage Butty"), and these rules only ever leave dishes out. Halal is chain-level (lib/mm/halal.ts); on a menu it leaves out pork (restaurantPrefs).
+ * "Sausage Butty"), and these rules only ever leave dishes out. Halal is chain-level (lib/mm/halal.ts); on a menu it leaves out pork and drinks named as
+ * alcohol (restaurantPrefs).
  */
 export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
   const p = restaurantPrefs(prefs);
@@ -78,15 +81,18 @@ export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
  * The person's diet as a restaurant's own data can check it, the one mapping every restaurant screen uses (the menu, search, Best for you, the order
  * builder, Home's Start here and the welcome showcase): Jain is checked as vegetarian (onion, garlic and root vegetables can't be), No red meat as no pork and
  * no beef (and no lamb by name, namesRedMeat), Kosher style and Halal as no pork (the 21 November 2026 meeting: someone who chose Halal was offered pork dishes
- * as Best for you; whether the rest is halal stays chain-level, lib/mm/halal.ts). No alcohol leaves out drinks named as alcohol (passesDiet). No onion or garlic,
- * No halal or kosher meat and Kosher style's other rules can't be checked at all (uncheckableDiets): Best for you doesn't pick for them.
+ * as Best for you; whether the rest is halal stays chain-level, lib/mm/halal.ts). No alcohol leaves out drinks named as alcohol (passesDiet), and so does Halal
+ * (the second pass, Zara #49: "Halal at restaurants still allows drinks named as alcohol", though its tile promises no alcohol; products and recipes already
+ * leave alcohol out for Halal, lib/mm/pantry.ts). No onion or garlic, No halal or kosher meat and Kosher style's other rules can't be checked at all
+ * (uncheckableDiets): Best for you doesn't pick for them. The diet notes read the person's own choices, never these, so Halal alone never names No alcohol.
  */
 export function restaurantPrefs(prefs: Preferences): Preferences {
   const vegetarianOnly = prefs.vegetarianOnly || prefs.jain === true;
   const noPork = prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true || prefs.halalOnly === true;
   const noBeef = prefs.noBeef || prefs.noRedMeat === true;
-  if (vegetarianOnly === prefs.vegetarianOnly && noPork === prefs.noPork && noBeef === prefs.noBeef) return prefs;
-  return { ...prefs, vegetarianOnly, noPork, noBeef };
+  const noAlcohol = Boolean(prefs.noAlcohol) || prefs.halalOnly === true;
+  if (vegetarianOnly === prefs.vegetarianOnly && noPork === prefs.noPork && noBeef === prefs.noBeef && noAlcohol === Boolean(prefs.noAlcohol)) return prefs;
+  return { ...prefs, vegetarianOnly, noPork, noBeef, noAlcohol };
 }
 
 /** The newer diets a restaurant's menu can't be checked for at all (menus list no ingredients): Best for you doesn't pick for them. Jain's onion, garlic and
@@ -513,4 +519,19 @@ export function toggleDiet(prefs: Preferences, key: DietKey): Preferences {
   }
   if (next[key] && (key === "halalOnly" || key === "kosherStyle")) next.noHalalKosherMeat = false;
   return next;
+}
+
+// A saved order's lines, compared whatever order their keys come back in (a synced copy is stored as JSON in the database, which may reorder them).
+const sameShape = (value: unknown): string =>
+  JSON.stringify(value, (_key, v: unknown) => (v && typeof v === "object" && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) : v));
+
+/**
+ * This order (the dish page's Save: one line for the dish as it stands) is already in My meals: the same restaurant and the same lines. The dish page then
+ * says Saved and doesn't add it again (the second pass of the 21 November 2026 meeting, Arjun #56: "Dish page Save adds a duplicate on every tap, using up the
+ * 3 free saves"). No lines never counts as saved.
+ */
+export function isOrderSaved(saved: readonly Pick<SavedOrder, "chainId" | "lines">[], chainId: string, lines: readonly OrderLine[]): boolean {
+  if (lines.length === 0) return false;
+  const these = sameShape(lines);
+  return saved.some((o) => o.chainId === chainId && o.lines.length === lines.length && sameShape(o.lines) === these);
 }

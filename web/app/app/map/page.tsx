@@ -108,7 +108,9 @@ export default function NearbyPage() {
     if (hasNative()) {
       // In the iPhone app the iPhone finds the location (one system prompt); it stays on the phone like in the browser.
       if (!quietly) setLocating({ state: "locating" });
-      void nativeCall("locate", { onlyIfAllowed: quietly }, 20_000).then((r) => {
+      // a tap's limit includes iOS's first "Allow location?" question, which a person answers in their own time: as long as the other permission questions
+      // (lib/mm/native.ts), not the 20 seconds a quiet look gets (the meeting of 21 November 2026, Will #28, Arjun #57)
+      void nativeCall("locate", { onlyIfAllowed: quietly }, quietly ? 20_000 : 120_000).then((r) => {
         if (r.lat !== undefined && r.lng !== undefined) return found(r.lat, r.lng);
         if (quietly) return;
         setLocating({

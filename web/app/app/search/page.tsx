@@ -233,11 +233,13 @@ function Highlight({ text, query }: { text: string; query: string }) {
   );
 }
 
-/** Shown while the search index is still arriving, so typing never looks like "no results". */
+/** Shown while the search index is still arriving, so typing never looks like "no results". The status carries its words inside it, as the first child: a
+ *  status's name isn't read out, only its contents (the second pass, Sam #3: "'Loading search' is never spoken"). */
 function SearchSkeleton() {
   const t = useT();
   return (
-    <div role="status" aria-label={t("Loading search")} className={chainGroupClass}>
+    <div role="status" className={chainGroupClass}>
+      <span className="sr-only">{t("Loading search")}</span>
       {[0, 1, 2, 3].map((n) => (
         <div key={n} aria-hidden className="flex min-h-14 items-center gap-3 px-4">
           <span className="h-4 animate-pulse rounded-full bg-fill" style={{ width: `${70 - n * 12}%` }} />

@@ -232,7 +232,9 @@ export default function Privacy() {
           next place, and show no picture if none loads.{" "}
           {SIGN_IN_REQUIRED ? "Your shopping lists sync to your account." : "Your shopping lists stay on your device, unless you sign in to sync them."}{" "}
           If you scan a barcode, the camera picture is read on your device and is never sent anywhere.{" "}
-          A barcode we don&apos;t have is looked up at Open Food Facts through our server: only the barcode is sent, and nothing about you is kept.
+          {/* the per-caller limit of 21 November 2026 (lib/barcodeLookup.ts PER_CALLER_PER_MINUTE) counts a scramble of the IP address, so it is said here */}
+          A barcode we don&apos;t have is looked up at Open Food Facts through our server: only the barcode is sent to it. A one-way scramble of your IP address, held
+          only in our server&apos;s memory for a day at most, stops one person asking too often.
         </p>
         <p className={para}>
           If you share your shopping list as a link, the app makes a link and hands it to whatever you choose to send it with (Messages, WhatsApp, email). The list is inside the link,
@@ -257,6 +259,8 @@ export default function Privacy() {
           day at most, to stop one person asking too often.
         </p>
         )}
+        {/* the three Premium AI features' rate limit counts the Premium token (lib/photoRecipeRoute.ts limitKey), not the IP address: corrected 21 November 2026
+            (the meeting, Umar: "the same one-way scramble of your IP address" was untrue for them) */}
         {PHOTO_RECIPES_API_ENABLED && (
         <p className={para}>
           If you use Make it at home (part of Premium), the photo you choose is made smaller on your device first, and then that photo, what you typed about the dish (its name and
@@ -265,7 +269,7 @@ export default function Privacy() {
           photo stays on your device: only the one photo you take is sent. No name, account, location or anything else is sent. We don&apos;t keep the photo. The recipe Pip
           writes is saved in My recipes, on your device and in your account so it is on your other devices; deleting it there, or deleting your account, removes it. The small
           copy of your photo that is its picture stays on your device only, and is deleted with the recipe or by Clear data. To check you have Premium, your device sends
-          its access token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
+          its access token, which holds no personal details. A one-way scramble of details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
         </p>
         )}
         {PHOTO_RECIPES_API_ENABLED && (
@@ -274,7 +278,7 @@ export default function Privacy() {
           and allergy choices, the size of your meal and the list of the shop&apos;s products it may use are sent to our server, which passes them to Anthropic to write
           the recipe. No name, account, location or anything else is sent. We don&apos;t keep the list. The recipe Pip writes is saved in My recipes, on your device and in
           your account so it is on your other devices; deleting it there, or deleting your account, removes it. Finding our own recipes for what you have happens on your device only and sends nothing. To check you have Premium, your
-          device sends its access token, which holds no personal details, and the same one-way scramble of your IP address stops one person asking too often.
+          device sends its access token, which holds no personal details, and a one-way scramble of details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
         </p>
         )}
         {FOOD_SCAN_API_ENABLED && (
@@ -283,7 +287,7 @@ export default function Privacy() {
           server, which passes them to Anthropic, the company that makes the Claude AI, to see what food is on the plate and estimate its calories, protein, carbs and
           fat. Only the one photo you take or choose and those words are sent: no name, account, location or anything else. We don&apos;t keep the photo or the estimate: the estimate comes straight back to your
           device. If you add it to your day&apos;s log, it is kept like any meal you log (its name and its four numbers, not the photo). To check you have Premium,
-          your device sends its access token, which holds no personal details. The same one-way scramble of your IP address stops one person asking too often.
+          your device sends its access token, which holds no personal details. A one-way scramble of details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
         </p>
         )}
       </Section>

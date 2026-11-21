@@ -5,7 +5,7 @@ import { savedToRecipe, type SavedRecipe } from "@/lib/mm/aiRecipe";
 import { homeDiet } from "@/lib/mm/household";
 import { dietClashes, recipeForDiet, resolveRecipe, type MealTarget } from "@/lib/mm/recipes";
 import { RECIPES } from "@/lib/mm/recipeBook";
-import { recipeShops, recipeShopsFrom, tagShopProducts } from "@/lib/mm/shopProducts";
+import { recipeShops, recipeShopsFrom } from "@/lib/mm/shopProducts";
 import { mealPlanStore, myRecipesStore, updateSettings } from "@/lib/mm/stores";
 import { InfoIcon, TrashIcon } from "../../_components/icons";
 import { PageHeader } from "../../_components/PageHeader";
@@ -81,7 +81,9 @@ export function RecipeScreen({ id, mine, shop: asked, have, servings, asWritten,
   const canMake = useMemo(() => {
     if (!allLoaded || state.status !== "ready" || !recipe) return null;
     const out = new Map<string, boolean>();
-    state.files.forEach((f, i) => out.set(f.retailer, resolveRecipe(recipe, tagShopProducts([{ shop: f.retailer, products: state.lists[i]! }])).complete));
+    // each shop's own list as it is, not a tagged copy of it (the second pass, Xena #35: a copy of every product of every shop, made only to say yes or no; a
+    // recipe can be made from a list whichever shop's it is, so the answer is the same: tests/secondPassGroceries.test.ts)
+    state.files.forEach((f, i) => out.set(f.retailer, resolveRecipe(recipe, state.lists[i]!).complete));
     return out;
   }, [allLoaded, state, recipe]);
   const openShops = () => { setWantOthers(true); setShopsOpen(true); };

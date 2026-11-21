@@ -14,7 +14,7 @@ import type { T } from "@/lib/mm/i18n";
 import { itemImageUrl } from "@/lib/mm/images";
 import {
   addComponent, addableComponents, afterThis, afterThisText, describeOrder, GROUP_LABEL, isOrderAvailable, lineFromItem, lineNutrients,
-  linesFromCombination, lineName, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
+  linesFromCombination, lineName, MAX_ITEM_QTY, orderName, orderNutrients, removeComponent, setComponentQty, setItemQty, sortedComponents, swapComponent,
   swapOptions, toggleModifier, validateOrder, type ComponentLine, type ItemLine, type OrderLine, type Result,
 } from "@/lib/mm/order";
 import { addLogEntry, addSavedOrder, countProAction, deleteLogEntry, logStore, savedStore, updateSavedOrder } from "@/lib/mm/stores";
@@ -59,6 +59,45 @@ const SHEET_LIST = "divide-y divide-line overflow-hidden rounded-2xl bg-[var(--f
 const ICON_BUTTON = "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted transition hover:not-disabled:bg-soft-strong hover:not-disabled:text-foreground disabled:cursor-not-allowed disabled:bg-soft-strong";
 
 type Start = { kind: "item" | "pick" | "saved"; lines: OrderLine[]; savedName?: string; savedId?: string; source: LogSource } | { kind: "error"; message: string } | { kind: "unavailable"; saved: SavedOrder };
+
+/**
+ * The order half built on this visit (Dina, the 30-person meeting, 21 November 2026: "The order builder throws away a half-built order on any tab tap, and Eat
+ * out then reopens a fresh builder"): every move builds the page again from nothing, so its lines and name are kept in this tab of the browser (sessionStorage,
+ * nothing outlives the visit), one order at a time and only for the same address (the same restaurant and dish, pick or saved order). Forgotten once the order
+ * is saved or added to today, and by Settings › Clear data (_lib/clearData.ts TAB_NOTES).
+ */
+const DRAFT_KEY = "mm.builderDraft";
+type Draft = { lines: OrderLine[]; customName: string | null };
+
+/** A line as the builder makes it (order.ts ItemLine, ComponentLine): anything else in storage is ignored. */
+function isOrderLine(value: unknown): value is OrderLine {
+  if (!value || typeof value !== "object") return false;
+  const l = value as Record<string, unknown>;
+  if (typeof l.itemId !== "string") return false;
+  const count = (n: unknown, max: number) => typeof n === "number" && Number.isInteger(n) && n >= 1 && n <= max;
+  if (l.kind === "item") return count(l.qty, MAX_ITEM_QTY) && Array.isArray(l.modifierIds) && l.modifierIds.every((m) => typeof m === "string");
+  if (l.kind === "components") {
+    return Array.isArray(l.components) && l.components.length > 0 && l.components.every((c) => !!c && typeof c === "object" && typeof (c as Record<string, unknown>).id === "string" && count((c as Record<string, unknown>).qty, 2));
+  }
+  return false;
+}
+
+/** The draft kept for this address, if it is well formed and everything in it is still on the menu (else the builder starts as it always did). */
+function readDraft(ix: ChainIndex): Draft | null {
+  try {
+    const d = JSON.parse(sessionStorage.getItem(DRAFT_KEY) ?? "null") as unknown;
+    if (!d || typeof d !== "object") return null;
+    const { search, lines, customName } = d as Record<string, unknown>;
+    if (search !== window.location.search || !Array.isArray(lines) || lines.length === 0 || !lines.every(isOrderLine) || !isOrderAvailable(ix, lines)) return null;
+    return { lines, customName: typeof customName === "string" ? customName.slice(0, 120) : null };
+  } catch {
+    return null; // storage blocked or the note unreadable: a fresh builder
+  }
+}
+
+function forgetDraft(): void {
+  try { sessionStorage.removeItem(DRAFT_KEY); } catch { /* storage blocked: nothing was kept */ }
+}
 
 function resolveStart(ix: ChainIndex, props: { itemId?: string; pickId?: string; savedId?: string }, saved: SavedOrder[], t: T): Start {
   if (props.savedId) {
@@ -149,13 +188,20 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
   const now = useNow();
   const { chain } = ix;
 
-  const [lines, setLines] = useState<OrderLine[]>(start.lines);
-  const [customName, setCustomName] = useState<string | null>(start.savedName ?? null);
+  // the order as it was left on this visit, if the person went to another tab and came back (DRAFT_KEY above)
+  const [draft] = useState(() => readDraft(ix));
+  const [lines, setLines] = useState<OrderLine[]>(() => draft?.lines ?? start.lines);
+  const [customName, setCustomName] = useState<string | null>(() => (draft ? draft.customName : start.savedName ?? null));
+  useEffect(() => {
+    try { sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ search: window.location.search, lines, customName })); } catch { /* storage blocked: the order is just not kept */ }
+  }, [lines, customName]);
   const [notice, setNotice] = useState<string | null>(null);
   // "Add to today" asks which meal, then stays here with a toast and Undo (it used to jump to Today with no word); a double tap never logs twice
   const [mealSheet, setMealSheet] = useState(0);
   const [added, setAdded] = useState<{ entry: LogEntry; meal: LogMeal; key: number } | null>(null);
   const adding = useRef(false);
+  // Save leaves the page, so a second tap before the move lands must not save the order twice (Arjun, the 30-person meeting, 21 November 2026)
+  const saving = useRef(false);
   const [picker, setPicker] = useState<null | { type: "add"; lineIndex: number } | { type: "swap"; lineIndex: number; componentId: string } | { type: "item" }>(null);
 
   useEffect(() => {
@@ -290,17 +336,24 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
                 variant="secondary"
                 full
                 onClick={() => {
+                  if (saving.current) return; // already saved: the move to My meals is on its way
                   const entry = { chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, lines, nutrients: total, dataVersionAtSave: menu.dataVersion ?? 0 };
                   if (start.savedId) {
+                    saving.current = true;
                     // Editing a saved order: update it in place (no duplicate, and it never counts against the free limit).
                     updateSavedOrder(start.savedId, { name: entry.name, lines, nutrients: total, dataVersionAtSave: entry.dataVersionAtSave });
+                    forgetDraft();
                     // My meals is the page just below (it is the only page that opens a saved order): go back to it. Pushing it again would leave the finished
                     // builder in the history, with Home three Backs away. Opened by address, there is nothing below: it takes the builder's place.
                     if (!travelBack(router, MEALS_RESTAURANT)) router.replace(MEALS_RESTAURANT);
                     return;
                   }
                   gate("saveLimit", () => {
+                    // set here, not before the gate: a tap that only opened Premium's sheet has saved nothing
+                    if (saving.current) return;
+                    saving.current = true;
                     addSavedOrder(entry);
+                    forgetDraft();
                     analytics.track({ name: "orderSaved" });
                     countProAction();
                     setNotice(null);
@@ -334,6 +387,7 @@ function Builder({ ix, start }: { ix: ChainIndex; start: Extract<Start, { lines:
             setMealSheet(0);
             const image = linesImage(ix, lines); // the first dish in the order with a photo, shown beside it on Home and Today
             const entry = addLogEntry({ chainId: chain.id, chainName: chain.name, name: name.trim() || defaultName, nutrients: total, source: currentSource(), meal, ...(image ? { image } : {}) });
+            forgetDraft(); // added: the next visit starts afresh (a change made after this keeps a new draft)
             analytics.track({ name: "mealLogged" });
             countProAction();
             setAdded((a) => ({ entry, meal, key: (a?.key ?? 0) + 1 }));
@@ -450,7 +504,9 @@ function PickerSheets({ ix, picker, lines, onClose, onPickComponent, onPickItem 
   const prefs = useSettings().preferences;
   const [dietOn, setDietOn] = useState(true);
   const diet = anyDietFilter(prefs) && dietOn;
-  const unchecked = useMemo(() => uncheckedDiet(ix.chain.items, prefs), [ix.chain.items, prefs]);
+  // with the restaurant's id, as on its menu page (ChainScreen): at a restaurant that says all its food is halal, a Halal person isn't told its dishes can't be
+  // checked for pork (first pass of the 30-person meeting, 21 November 2026)
+  const unchecked = useMemo(() => uncheckedDiet(ix.chain.items, prefs, ix.chain.id), [ix.chain.items, prefs, ix.chain.id]);
   // the diets a menu can't be checked for (Jain, Kosher style...) are said plainly beside the chip, so "Fits my diet" never claims them
   const notChecked = restaurantDietNote(prefs, t);
   const dietChip = anyDietFilter(prefs) || notChecked ? (
