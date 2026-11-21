@@ -41,6 +41,9 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
+- **21 November evening, on `iap` (build 14 installed on the founder's iPhone 21 Nov ~18:30, not uploaded):** Meal plan with Pip (nine questions, Opus picks
+  the week, the phone checks it), 5 or 7 a day, 49 world recipes (382 in all), a balanced cheapest week on a tight budget, the free week sheet and pill, a
+  barcode photo inside Scan a barcode, everyday sizes in recipe ingredients ("80 g / ½ pepper"). Details in docs/PROGRESS_LOG.md.
 - **Overnight 20 November (read `docs/MORNING_REPORT_2026-11-20.md` first):** three waves of the meetings' changes committed on `iap` (new onboarding that shows the app working, account last; Start here; two Home pages; More diets; every recipe priced; Premium everywhere). The 30-person audit stopped after 8 of 30 areas (the Claude app's tool check slowed every action to 10 minutes); its findings are in `docs/audit-findings-2026-11-20-partial.json`, not yet fixed. Blocker: the published menus are older than `data/source` (republish).
 - **App Store:** Numbite 1.0 (build 4) is live in the UK store since 12 November 2026. **1.1 build 11 submitted for App Review on 21 November 2026 at 06:06** (replacing build 10, 01:40; founder: "after all of the jobs upload and submit the new build"; read docs/MORNING_REPORT_2026-11-21.md first) (founder: "also submit for review, please"), replacing build 7: the account's free week (Supabase tables made, DeviceCheck key BDJV2ZFAM8 in Vercel), Apple's 7-day introductory offer deleted from both plans, new description, review notes and plan screenshots; manual release. History of build 7 below. **1.1 (build 7) was uploaded to App Store Connect on 19 November
   2026 at 03:01** (founder: "I want to upload the newest version ... even though ... we are still working on some stuff"): Premium through Apple In-App Purchase
@@ -99,6 +102,10 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Meal plan with Pip and search help need numbite.com updated** (21 Nov evening, on `iap`, build 14 on your phone): until `main` is deployed with
+  `/api/v1/plan/ai` and `/api/v1/search/help`, Pip's plan falls back to the phone's own week ("Pip couldn't plan with your answers this time"). Say "deploy it"
+  and Claude merges `iap` into `main` and deploys. **Before the next submission, App Privacy:** Meal plan with Pip sends the person's plan answers (and any
+  note they type) to our server and Anthropic, not linked to them; add it next to the search-help item below
 - [ ] **App Privacy, before the next submission:** search help (21 Nov) sends the typed words of a search that found nothing to our server and Anthropic, kept for up to a day, not linked to the person. In App Store Connect › App Privacy, add Search History (not linked to you, App Functionality), or tell Claude to switch search help off for the app (`NEXT_PUBLIC_SEARCH_HELP=0`)
 
 - [ ] **Before April 2027: update Xcode to Xcode 27 (Mac App Store) and rebuild the app** (Apple's ITMS-90725 warning on 1.1 build 7: from April 2027 uploads must use the iOS 27 SDK). Free plenty of disk first (an Xcode update needs tens of GB; the Mac had about 6 GB free on 19 Nov). Build 7 itself is fine to test and submit until then
