@@ -4057,3 +4057,14 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   restaurant stuff"): 1 Recipes priced at your shop, 2 Every ingredient ready to buy, 3 A week of meals one list, 4 Cook with what you have, 5 Scan it Log it,
   6 Top 20 supermarket lists, 7 Your day at a glance, 8 Know what's in your order, 9 See the truth about a dish, 10 Top picks for your goal
   ("App Store screenshots 1.1", files numbered in that order).
+- (21 Nov, late afternoon) **A balanced meal plan** (founder: "everything on it is cheesy stuff. Fix it"; "salmon every day, or chicken every day, or beef
+  every day ... balanced diets"). New lib/mm/mealBalance.ts: each lunch and dinner's main (chicken, turkey, beef, pork, lamb, salmon, tuna, white fish, oily
+  fish, prawns, tofu, beans, lentils; cheese or eggs when nothing else leads), from the recipe's own ingredients, and whether it is cheese-heavy (35 g of
+  cheese a serving, or a cheese dish by name with some cheese). Faults: the same main twice in a day, in a meal two days running, any main over 3 times a
+  week, cheese-heavy more than once a day or 2 times a week (cheese faults weigh double); a dish-form fault weighs 10 balance faults, so dish forms stay first.
+  makePlan: with no budget, the balance is repaired after the dish forms (never taking a meal further from its size than the week already is) and weighed in
+  the packs step; a budget the free week already fits gives that week; a budget that changes the week runs the budget steps as before, then a short balance
+  pass (never adding a dish-form fault or moving a meal off its size; within the budget it meets, or 5% over an unmeetable one). Measured: weeks with no
+  budget at Sainsbury's, Asda, Morrisons all balanced; for two on £40 (the cheapest real week is £77-85) no main twice a day or two days running, a main
+  at most 5 times, cheese at most 4 times. tests/mealBalance.test.ts (9); every earlier plan test passes. Also the sign-up "Anything you avoid?" screen
+  opens with nothing ticked (founder: "Options shouldn't be selected ... when someone goes on the screen"). On `iap`, next build.

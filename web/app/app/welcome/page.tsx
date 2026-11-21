@@ -1,6 +1,6 @@
 "use client";
 
-import { NO_PREFERENCES } from "@/lib/mm/types";
+import { NO_PREFERENCES, type Preferences } from "@/lib/mm/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
@@ -192,7 +192,9 @@ function Welcome() {
   const [goalSkipped, setGoalSkipped] = useState(false);
   const target = useTargetFields(initial);
   // the sign-up answers about diet and allergies: kept as what the person told us, never switched on as filters (founder 2026-11-21)
-  const [prefs, setPrefs] = useState(initial.toldUs ?? NO_PREFERENCES);
+  // nothing ticked when the screen opens (founder 2026-11-21: "Options shouldn't be selected ... when someone goes on the screen"); a choice made in this run
+  // stays ticked if the person goes on and comes Back
+  const [prefs, setPrefs] = useState<Preferences>(NO_PREFERENCES);
   const [shops, setShops] = useState<string[]>(initial.shops ?? []);
   // The answers about the person (screens 5 and 6): React state only, never saved or sent; dropped with this page when the welcome screens end.
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
@@ -349,7 +351,7 @@ function Welcome() {
         // November 2026, Ada)
         const now = settingsStore.get();
         setGoal(now.goal);
-        setPrefs(now.toldUs ?? NO_PREFERENCES);
+        setPrefs(NO_PREFERENCES);
         setShops(now.shops ?? []);
         target.resetTo(now);
         runStart.current = now;
@@ -529,7 +531,7 @@ function Welcome() {
       setGoalTouched(false);
       setGoalSkipped(!wasOnboarded);
     } else if (step === "avoid") {
-      setPrefs(settingsStore.get().toldUs ?? NO_PREFERENCES);
+      setPrefs(NO_PREFERENCES);
     } else if (step === "shops") {
       setShops(settingsStore.get().shops ?? []);
       preloadRestaurantRow();

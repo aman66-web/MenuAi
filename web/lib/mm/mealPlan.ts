@@ -1,4 +1,5 @@
 import { dishFormOf, MAX_WRAPS_A_WEEK, varietyFaults, type DishForm } from "./dishForm";
+import { balanceFaults, mealBalanceOf, type MealBalance } from "./mealBalance";
 import { tk } from "./i18n";
 import { ADULT_REFERENCE_KCAL, ALL_HOME_DIETS, platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
 import { ALLERGEN_KEYS, type AllergenKey } from "./types";
@@ -957,7 +958,24 @@ export function weekForms(ids: PlanIds, candidates: ReadonlyMap<MealType, readon
   return ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`)));
 }
 
-const faultsWith = (formOf: ReadonlyMap<string, DishForm>, slots: readonly MealType[]) => (ids: PlanIds): number => varietyFaults(ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`))));
+/** Each candidate's main and cheese (mealBalance.ts), by "meal:id". */
+function balancesOf(candidates: ReadonlyMap<MealType, readonly PlanCandidate[]>): Map<string, MealBalance> {
+  const out = new Map<string, MealBalance>();
+  for (const [m, list] of candidates) for (const c of list) out.set(`${m}:${c.recipe.id}`, mealBalanceOf(c.recipe));
+  return out;
+}
+
+/** A week's mains and cheese, days × slots (mealBalance.ts), from its ids and the candidates it was made from. */
+export function weekBalance(ids: PlanIds, candidates: ReadonlyMap<MealType, readonly PlanCandidate[]>, slots: readonly MealType[] = PLAN_MEALS): Array<Array<MealBalance | undefined>> {
+  const balOf = balancesOf(candidates);
+  return ids.map((d) => d.map((id, i) => balOf.get(`${slots[i]}:${id}`)));
+}
+
+// A week's faults: its dish forms (dishForm.ts) and, with `balOf`, its balance (mealBalance.ts: the same main day after day, cheese at every meal; founder
+// 2026-11-21), a dish-form fault weighing FORM_FAULT balance faults, so where the recipes can't give both (a style with few recipes) the dish forms stay varied.
+const FORM_FAULT = 10;
+const faultsWith = (formOf: ReadonlyMap<string, DishForm>, slots: readonly MealType[], balOf?: ReadonlyMap<string, MealBalance>) => (ids: PlanIds): number =>
+  (balOf ? FORM_FAULT : 1) * varietyFaults(ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`)))) + (balOf ? balanceFaults(ids.map((d) => d.map((id, i) => balOf.get(`${slots[i]}:${id}`))), slots) : 0);
 
 /** The recipes a meal's choice for variety is made from: the closest VARIETY_SHORTLIST within `slack` of the `n` closest (PACK_FIT_LIMIT at least). */
 function varietyWindow(list: readonly PlanCandidate[], n: number, slack = VARIETY_FIT_SLACK): PlanCandidate[] {
@@ -1001,13 +1019,13 @@ function varietyPools(candidates: Map<MealType, PlanCandidate[]>, types: readonl
  * fresh food left, bill and fit; `tieBreak`): two of a meal's recipes swap turns, or one is changed for another from the variety window, or, when neither
  * helps, one is changed and two then swap turns. First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
  */
-function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], faults: () => number, tieBreak: () => number): void {
+function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], faults: () => number, tieBreak: () => number, maxRounds = 40, slacks: readonly number[] = [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]): void {
   const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
   const flip = (pool: PlanCandidate[], a: number, b: number) => { [pool[a], pool[b]] = [pool[b]!, pool[a]!]; };
   let current = faults();
-  for (const slack of [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]) {
+  for (const slack of slacks) {
     const windows = new Map(types.map((m) => [m, varietyWindow(candidates.get(m)!, size(m), slack)]));
-    for (let round = 0; current > 0 && round < 40; round++) {
+    for (let round = 0; current > 0 && round < maxRounds; round++) {
       let best: { f: number; t: number; redo: () => void } | null = null;
       // called with the move made; `redo` makes it again
       const look = (redo: () => void) => {
@@ -1073,12 +1091,20 @@ export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: num
 function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[], variety: number): { ids: PlanIds; week: WeekPlan } | null {
   const types = [...new Set(slots)];
   if (!slots.length || types.some((m) => !(candidates.get(m)?.length))) return null;
+  // a budget the week with no budget already fits: that week (so a budget never changes a week it doesn't have to)
+  if (budget !== null) {
+    const free = makePlan(candidates, null, slots, variety);
+    if (free && free.week.shoppingCost <= budget) return { ids: free.ids, week: buildWeek(free.ids, candidates, budget, slots)! };
+  }
   const each = Math.max(1, Math.min(PLAN_DAYS, Math.round(variety)));
   // a meal that comes more than once a day (two snacks) rotates through more recipes, so the day's two are different
   const per = new Map<MealType, number>(types.map((m) => [m, slots.filter((x) => x === m).length]));
   // varied from the start (VARIETY_FIT_SLACK): each meal's closest recipes whose dish forms differ
   const formOf = formsOf(candidates);
   const faultsOf = faultsWith(formOf, slots);
+  // with no budget the week is balanced as it is made (founder 2026-11-21: "salmon every day, or chicken every day ... balanced diets"; "everything on it is
+  // cheesy stuff"); with a budget the budget's steps run as before and the balance comes last (balanceRepair)
+  const balancedOf = faultsWith(formOf, slots, balancesOf(candidates));
   const chosen = varietyPools(candidates, types, per, each, formOf);
   const counts = new Map<MealType, number>(types.map((m) => [m, each * per.get(m)!]));
   const nth = slots.map((m, i) => slots.slice(0, i).filter((x) => x === m).length);
@@ -1088,6 +1114,14 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
   }));
   const packOf = packScorer(candidates, slots);
   varietyRepair(candidates, chosen, counts, types, () => faultsOf(ids()), () => packOf(ids()));
+  if (budget === null) {
+    // then the balance, never taking a meal further from its size than the week already is (PACK_FIT_LIMIT at least), and never at the dish forms' cost
+    const distanceOf = new Map<string, number>();
+    for (const [m, list] of candidates) for (const c of list) distanceOf.set(`${m}:${c.recipe.id}`, c.distance);
+    const farthest = (now: PlanIds) => Math.max(0, ...now.flatMap((d) => d.map((id, i) => distanceOf.get(`${slots[i]}:${id}`) ?? 0)));
+    const fitCap = Math.max(PACK_FIT_LIMIT, farthest(ids())) + 1e-9;
+    varietyRepair(candidates, chosen, counts, types, () => { const now = ids(); return balancedOf(now) + (farthest(now) > fitCap ? 1000 : 0); }, () => packOf(ids()));
+  }
   let best = buildWeek(ids(), candidates, budget, slots)!;
   for (let round = 0; budget !== null && best.shoppingCost > budget && round < 40; round++) {
     let improved = false;
@@ -1119,9 +1153,36 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     if (week.shoppingCost < best.shoppingCost) best = week;
     else { counts.set(m, counts.get(m)! + 1); break; }
   }
-  fillPacks(candidates, chosen, counts, types, slots, ids, budget, faultsOf);
+  fillPacks(candidates, chosen, counts, types, slots, ids, budget, budget === null ? balancedOf : faultsOf);
+  if (budget !== null) balanceRepair(candidates, chosen, counts, types, slots, ids, budget, faultsOf, balancedOf, () => packOf(ids()));
   const finalIds = ids();
   return { ids: finalIds, week: buildWeek(finalIds, candidates, budget, slots)! };
+}
+
+/**
+ * makePlan's last step for a week a budget has changed (founder 2026-11-21: a tight budget made it tuna or cheese at nearly every meal): the week is made as
+ * balanced as the recipes allow (mealBalance.ts), a few varietyRepair moves at most, never adding a dish-form fault, never taking a meal further from its size
+ * than the week already is (PACK_FIT_LIMIT at least), and never over the budget it meets (5% over the bill at most), and a bill already over its budget 5% more at most.
+ * Changes `chosen` in place.
+ */
+function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number, formFaultsOf: (ids: PlanIds) => number, balancedOf: (ids: PlanIds) => number, tieBreak: () => number): void {
+  const byId = new Map<string, PlanCandidate>();
+  for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
+  const memo = new Map<string, { cost: number; left: number }>();
+  const billOf = (now: PlanIds) => packScore(now, byId, slots, memo).cost;
+  const farthest = (now: PlanIds) => Math.max(0, ...now.flatMap((d) => d.map((id, i) => byId.get(`${slots[i]}:${id}`)?.distance ?? 0)));
+  const start = ids();
+  const forms = formFaultsOf(start);
+  if (balancedOf(start) - FORM_FAULT * forms < 1e-9) return; // already balanced
+  const bill = billOf(start);
+  // within the budget, never over it; already over it (the cheapest week the choices allow), up to 5% more for a balanced week
+  const billCap = (bill <= budget ? Math.min(budget, bill * 1.05) : bill * 1.05) + 0.005;
+  const fitCap = Math.max(PACK_FIT_LIMIT, farthest(start)) + 1e-9;
+  varietyRepair(candidates, chosen, counts, types, () => {
+    const now = ids();
+    const f = formFaultsOf(now);
+    return (f > forms ? 1000 : 0) + (balancedOf(now) - FORM_FAULT * f) + (billOf(now) > billCap ? 1000 : 0) + (farthest(now) > fitCap ? 1000 : 0);
+  }, tieBreak, 20, [VARIETY_FIT_SLACK]);
 }
 
 /** The pack search's score for a week (packScore weighed: fresh food left, the bill at COST_WEIGHT, the fit at FIT_WEIGHT), with its own memo. */
