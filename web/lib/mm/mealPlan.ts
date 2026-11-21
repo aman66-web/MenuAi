@@ -1,10 +1,11 @@
+import { dishFormOf, MAX_WRAPS_A_WEEK, varietyFaults, type DishForm } from "./dishForm";
 import { tk } from "./i18n";
 import { ADULT_REFERENCE_KCAL, ALL_HOME_DIETS, platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
 import { ALLERGEN_KEYS, type AllergenKey } from "./types";
 import type { DietPrefs } from "./pantry";
 import { PANTRY } from "./pantry";
-import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, pickFor, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe, type RecipeTotals } from "./recipes";
-import { CUISINES, type CuisineId } from "./recipeBook/niches";
+import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, isQuick, pickFor, PLAIN_SALT, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe, type RecipeTotals } from "./recipes";
+import { CUISINES, nicheOf, type CuisineId } from "./recipeBook/niches";
 import { matchesNiche } from "./recipeNiche";
 import { normalizeForSearch } from "./search";
 import { productKey, type PricedProduct, type ShopProduct } from "./shopProducts";
@@ -285,18 +286,31 @@ export function withBetter(cands: Map<MealType, PlanCandidate[]>, better: Readon
 // ---------- how the person likes to eat ----------
 
 /**
- * How the person likes to eat (founder 2026-11-20, 12:48: a step "How do you like to eat?" with picture tiles): Balanced, any of our recipes; High protein, at
- * least HIGH_PROTEIN_MIN of a serving's calories from protein; Lower carb, at most LOWER_CARB_MAX from carbs. Judged on each meal's own figures as the plan
- * makes it (the shop's labels, the recipe fitted to the meal, or as written for a household; never a figure of ours). Not keto (only 9 of our recipes have a
- * tenth of their calories or less from carbs at Sainsbury's, not one a lunch or dinner) and not Mediterranean (no recipe is tagged Mediterranean, and Italian
- * and Middle Eastern together have one breakfast): tests/eatingStyle.test.ts measures both.
+ * How the person likes to eat (founder 2026-11-20, 12:48: a step "How do you like to eat?" with picture tiles; 22:00: "Give more options like keto or whatever,
+ * like as many options as you can think about people would choose"; 22:25: "make the most longevity-backed diet ... that's the one that I want to see"). Each
+ * style is a plain rule judged on each meal as the plan makes it: the shop's own labels for the recipe fitted to the meal (as written, for a household), never
+ * a figure of ours (CLAUDE.md rule 1); its tile says only that rule (rule 3). In the order the step shows them: Balanced, Longevity (the founder's own pick),
+ * the kinds most people choose, then the rest. A style is offered only while our recipes give at least STYLE_MIN_RECIPES breakfasts, lunches and dinners of
+ * it at Sainsbury's (tests/eatingStyle.test.ts measures every style per meal there and at Morrisons). Not offered: dairy-free and gluten-free, which the
+ * allergy step's Milk and Gluten already do (milk 36/43/91 and gluten 20/31/54 at Sainsbury's would have been enough).
  */
-export const EATING_STYLES = ["balanced", "highProtein", "lowerCarb"] as const;
+export const EATING_STYLES = [
+  "balanced", "longevity", "highProtein", "lowerCarb", "keto", "mediterranean", "vegetarian", "vegan", "pescatarian", "paleo", "quick", "lowFat", "highFibre", "lowerSugar", "lowerSalt",
+] as const;
 export type EatingStyle = (typeof EATING_STYLES)[number];
+/** A style is offered only with at least this many breakfasts, lunches and dinners of it at Sainsbury's (tests/eatingStyle.test.ts). */
+export const STYLE_MIN_RECIPES = 6;
+/** At the person's own shops, for their diet: a style with fewer than this many of one of their day's meals is shown greyed, with the reason (styleTooFew). */
+export const STYLE_MIN_AT_SHOP = 3;
+
 /** High protein: at least this share of a serving's calories from protein (4 kcal a gram). */
 export const HIGH_PROTEIN_MIN = 0.3;
 /** Lower carb: at most this share of a serving's calories from carbs (4 kcal a gram). */
 export const LOWER_CARB_MAX = 0.25;
+/** Keto: at most this share of a serving's calories from carbs (4 kcal a gram). A fat-of-at-least-half rule was tried as well: it changed nothing on our recipes. */
+export const KETO_CARBS_MAX = 0.1;
+/** Low fat: at most this share of a serving's calories from fat (9 kcal a gram). No UK per-meal claim to follow; UK advice caps fat at 35% of food energy. */
+export const LOW_FAT_MAX = 0.2;
 /**
  * High protein and Lower carb fit each meal to at least this share of its calories from protein (the person's own protein for the meal when that is more), a
  * little over the line so a fitted serving lands over it; carbs make way. Measured at Sainsbury's for a 2,000 kcal day: high-protein dinners go from 7 to 44 of
@@ -304,19 +318,197 @@ export const LOWER_CARB_MAX = 0.25;
  */
 export const STYLE_PROTEIN_FIT = 0.32;
 
-/** Whether a serving's figures are of this style (Balanced: every serving). */
-export function fitsStyle(s: { kcal: number; protein: number; carbs: number }, style: EatingStyle): boolean {
-  if (style === "balanced") return true;
-  if (!(s.kcal > 0)) return false;
-  return style === "highProtein" ? (4 * s.protein) / s.kcal >= HIGH_PROTEIN_MIN : (4 * s.carbs) / s.kcal <= LOWER_CARB_MAX;
+/**
+ * Longevity (founder 2026-11-20, 22:25: "the most longevity-backed diet ... scientifically proven for longevity"): the pattern the long-term studies of how
+ * people eat and how long they live agree on, as plain rules on each meal; never on screen as a claim (the tile says what is in the meals). Basis: PREDIMED
+ * (Estruch et al., NEJM 2013, re-analysed 2018); Trichopoulou et al., NEJM 2003 (Mediterranean diet adherence and mortality); the Blue Zones (Buettner & Skemp,
+ * Am J Lifestyle Med 2016); Adventist Health Study-2 (Orlich et al., JAMA Intern Med 2013: vegetarian and pesco-vegetarian patterns); the EAT-Lancet Commission
+ * (Willett et al., Lancet 2019); GBD 2017 Diet Collaborators (Lancet 2019: high sodium, low whole grains, fruit, nuts and seeds, vegetables and omega-3 seafood
+ * among the leading diet risks); SACN Carbohydrates and Health 2015; SACN Saturated fats and health 2019; the NHS salt and 5 A Day pages. A meal is of it when
+ * ALL of these hold:
+ *   1. no meat (no kind with `meat`: beef, lamb, pork, bacon, ham, chicken or turkey); fish, eggs and dairy are in;
+ *   2. at least one of the foods those studies share: pulses, nuts and seeds, oily fish or whole grains (LONGEVITY_FOODS);
+ *   3. a meal (not a snack) has at least VEG_FRUIT_MIN_G of vegetables and fruit a serving by the recipe's own amounts (VEG_FRUIT; potatoes and pulses don't count);
+ *   4. nothing sweetened (SWEETENED);
+ *   5. olive oil is the only oil (no vegetable oil or oil spray);
+ *   6. the fibre its products print adds up to at least LONGEVITY_FIBRE_PER_100KCAL a 100 kcal (SACN/NHS 30 g a day at 2,000 kcal);
+ *   7. the saturates they print stay at or under LONGEVITY_SATURATES_MAX of its calories (9 kcal a gram; SACN 2019);
+ *   8. the salt they print stays at or under LONGEVITY_SALT_PER_100KCAL a 100 kcal (NHS 6 g a day at 2,000 kcal).
+ * 6 to 8 are worked out from the picks themselves (printedPer100), so a household's sizing can't skew them; a figure a label doesn't print counts as none, so
+ * fibre is never claimed above what the labels show.
+ */
+export const LONGEVITY_FIBRE_PER_100KCAL = 1.5;
+export const LONGEVITY_SATURATES_MAX = 0.1;
+export const LONGEVITY_SALT_PER_100KCAL = 0.3;
+/** Vegetables and fruit a meal of Longevity or Mediterranean has at least, a serving, by the recipe's own amounts (an NHS 5 A Day portion). */
+export const VEG_FRUIT_MIN_G = 80;
+/** Mediterranean: at most this much cheese a serving (keeps out the cheese bakes; a saturated-fat limit was tried instead, and kept out olive-oil and salmon dishes too). */
+export const MEDITERRANEAN_CHEESE_MAX_G = 40;
+/** High fibre: at least this much fibre printed on a meal's products (a third of the NHS/SACN 30 g a day), or HIGH_FIBRE_SNACK_MIN_G for a snack (the UK "source of fibre" figure). */
+export const HIGH_FIBRE_MIN_G = 10;
+export const HIGH_FIBRE_SNACK_MIN_G = 3;
+/** Lower sugar: at most this much total sugars a meal (labels give no added-sugar figure), or LOWER_SUGAR_SNACK_MAX_G a snack; the NHS: 30 g of free sugars a day at most. */
+export const LOWER_SUGAR_MAX_G = 10;
+export const LOWER_SUGAR_SNACK_MAX_G = 5;
+/** Lower salt: at most this much salt a meal (a sixth of the NHS 6 g a day; the UK front-of-pack red line is 1.8 g a portion), or LOWER_SALT_SNACK_MAX_G a snack. */
+export const LOWER_SALT_MAX_G = 1;
+export const LOWER_SALT_SNACK_MAX_G = 0.3;
+
+/** Vegetables and fruit, by pantry kind (an NHS 5 A Day portion is 80 g; potatoes and pulses don't count). */
+export const VEG_FRUIT: ReadonlySet<string> = new Set([
+  "onion", "red-onion", "spring-onions", "carrots", "peppers", "fresh-chilli", "spinach", "cherry-tomatoes", "tomatoes", "cucumber", "lettuce", "salad-leaves", "green-beans", "broccoli",
+  "mangetout", "beansprouts", "mushrooms", "stir-fry-veg", "banana", "apple", "berries", "chopped-tomatoes", "passata", "sweetcorn", "peas", "mixed-veg", "brussels-sprouts", "parsnips",
+  "red-cabbage", "raisins", "dried-cranberries",
+]);
+const PULSES = ["chickpeas", "kidney-beans", "black-beans", "butter-beans", "green-lentils", "red-lentils", "baked-beans", "edamame", "houmous"];
+const NUTS_SEEDS = ["almonds", "mixed-seeds", "sesame-seeds", "peanut-butter"];
+const OILY_FISH = ["salmon", "smoked-salmon", "tinned-salmon", "mackerel"];
+/** The foods the longevity studies share: pulses, nuts and seeds, oily fish and whole grains (oats, the wholemeal loaf, wholewheat biscuits). */
+export const LONGEVITY_FOODS: ReadonlySet<string> = new Set([...PULSES, ...NUTS_SEEDS, ...OILY_FISH, "oats", "bread", "wheat-biscuits"]);
+/** Kinds sweetened with sugar or honey, or dried fruit sugared as sold. */
+export const SWEETENED: ReadonlySet<string> = new Set(["honey", "sweet-chilli", "bbq-sauce", "teriyaki", "granola", "cranberry-sauce", "mincemeat", "apple-sauce", "dried-cranberries"]);
+const OTHER_OILS: ReadonlySet<string> = new Set(["vegetable-oil", "oil-spray"]);
+const CHEESES: ReadonlySet<string> = new Set(["cheddar", "mozzarella", "soft-cheese", "cottage-cheese", "parmesan", "feta", "halloumi", "paneer"]);
+/** Mediterranean: at least one of olive oil, fish, pulses or nuts and seeds. */
+const MEDITERRANEAN_FOODS: ReadonlySet<string> = new Set(["olive-oil", ...PULSES, ...NUTS_SEEDS]);
+/** Cuisines whose dishes aren't Mediterranean, whatever is in them (niches.ts). */
+const NOT_MEDITERRANEAN: ReadonlySet<string> = new Set(["chinese", "indian", "mexican"]);
+/**
+ * Paleo: meat, fish, eggs, vegetables, fruit, nuts and seeds, olive oil and plain seasonings. So no grains, beans or peanuts, no soy, dairy or potatoes, no
+ * sweeteners or sauces, no bacon or ham, no vegetable oils and no stock cubes. Every ingredient of a paleo meal is one of these kinds.
+ */
+export const PALEO_KINDS: ReadonlySet<string> = new Set([
+  "chicken", "chicken-thigh", "beef-mince", "turkey-mince", "lamb-mince", "beef-steak", "turkey-breast",
+  "salmon", "cod", "tuna", "prawns", "smoked-salmon", "tinned-salmon", "mackerel", "white-fish", "eggs",
+  ...[...VEG_FRUIT].filter((k) => !["sweetcorn", "peas", "raisins", "dried-cranberries"].includes(k)),
+  "almonds", "mixed-seeds", "sesame-seeds", "olive-oil", "coconut-milk", "chopped-tomato-puree",
+  "salt", "black-pepper", "white-pepper", "cumin", "paprika", "smoked-paprika", "chilli-powder", "chilli-flakes", "cinnamon", "turmeric", "curry-powder", "mixed-herbs", "oregano",
+  "thyme", "rosemary", "dill", "chives", "mint", "mixed-spice", "nutmeg", "garlic", "ginger", "lemon-juice", "lime-juice", "fresh-coriander", "fresh-parsley", "fresh-basil",
+]);
+
+/** The meal sizes each style's recipes are fitted to (styleTargets): the person's own, protein raised, carbs capped (keto) or fat capped (low fat). */
+export type StyleFit = "own" | "protein" | "keto" | "lowFat";
+export const STYLE_FIT: Record<EatingStyle, StyleFit> = {
+  balanced: "own", longevity: "own", highProtein: "protein", lowerCarb: "protein", keto: "keto", mediterranean: "own", vegetarian: "own", vegan: "own", pescatarian: "own",
+  paleo: "own", quick: "own", lowFat: "lowFat", highFibre: "own", lowerSugar: "own", lowerSalt: "own",
+};
+
+/** A serving's own figures, for a list already of the style: only the figure rules are judged (the rest need the candidate's products and recipe). */
+export type StyleServing = { kcal: number; protein: number; carbs: number; fat?: number };
+
+/** The kinds a candidate is made of: what was bought (a substitute in an ingredient's place counts as itself), else the recipe's own. */
+const kindsOf = (c: PlanCandidate): string[] => (c.picks.length ? c.picks.map((p) => p.spec.pantry ?? p.spec.key) : c.recipe.ingredients.map((i) => i.pantry ?? i.key));
+
+/** Grams a serving of these kinds, by the recipe's own amounts (as fitted; a household's plan is as written). */
+function gramsOf(c: PlanCandidate, kinds: ReadonlySet<string>): number {
+  const specs = c.picks.length ? c.picks.map((p) => p.spec) : c.recipe.ingredients;
+  return specs.reduce((g, s) => g + (kinds.has(s.pantry ?? s.key) ? s.amount : 0), 0) / Math.max(1, c.recipe.servings);
 }
 
-/** The meal sizes the recipes are fitted to for a style: the same calories, protein raised to STYLE_PROTEIN_FIT of them (Balanced: the same object). */
+/**
+ * What a serving's products print of a nutrient for every 100 kcal they print (a figure a label leaves out counts as 0; salt with no label as table salt, as
+ * recipeTotals counts it). From the picks themselves, so the servings cancel out and a household's sizing can't skew it. Null when they print no calories.
+ */
+export function printedPer100(c: Pick<PlanCandidate, "picks">, k: "fibre" | "saturates" | "salt"): number | null {
+  let kcal = 0;
+  let v = 0;
+  for (const p of c.picks) {
+    const n = p.product.nutrition ?? (p.spec.pantry === "salt" ? PLAIN_SALT : null);
+    if (!n) continue;
+    kcal += n.kcal * p.spec.amount;
+    v += (n[k] ?? 0) * p.spec.amount;
+  }
+  return kcal > 0 ? (100 * v) / kcal : null;
+}
+
+/** The fibre printed on a serving's products, for the person's own serving (printedPer100 times its calories). */
+const servingFibre = (c: PlanCandidate): number => ((printedPer100(c, "fibre") ?? 0) * c.perServing.kcal) / 100;
+
+/**
+ * Whether a meal is of this style (Balanced: every meal). Given a plan candidate, every rule is judged; given only a serving's figures (a list already of the
+ * style), only the figure rules, and the rest count as met.
+ */
+export function fitsStyle(x: PlanCandidate | StyleServing, style: EatingStyle): boolean {
+  if (style === "balanced") return true;
+  const c = "perServing" in x ? x : null;
+  const s: StyleServing = c ? c.perServing : (x as StyleServing);
+  const share = (grams: number, kcalPerGram: number) => (s.kcal > 0 ? (kcalPerGram * grams) / s.kcal : NaN);
+  switch (style) {
+    case "highProtein": return share(s.protein, 4) >= HIGH_PROTEIN_MIN;
+    case "lowerCarb": return share(s.carbs, 4) <= LOWER_CARB_MAX;
+    case "keto": return share(s.carbs, 4) <= KETO_CARBS_MAX;
+    case "lowFat": return s.fat !== undefined && share(s.fat, 9) <= LOW_FAT_MAX;
+  }
+  if (!c) return true;
+  const snack = c.meal === "snack";
+  const kinds = kindsOf(c);
+  const kind = (k: string) => PANTRY.get(k);
+  switch (style) {
+    case "longevity": {
+      if (kinds.some((k) => kind(k)?.meat || SWEETENED.has(k) || OTHER_OILS.has(k))) return false;
+      if (!kinds.some((k) => LONGEVITY_FOODS.has(k))) return false;
+      if (!snack && gramsOf(c, VEG_FRUIT) < VEG_FRUIT_MIN_G) return false;
+      const fibre = printedPer100(c, "fibre");
+      const sat = printedPer100(c, "saturates");
+      const salt = printedPer100(c, "salt");
+      return fibre !== null && fibre >= LONGEVITY_FIBRE_PER_100KCAL && (9 * (sat ?? 0)) / 100 <= LONGEVITY_SATURATES_MAX && (salt ?? 0) <= LONGEVITY_SALT_PER_100KCAL;
+    }
+    case "mediterranean": {
+      if (kinds.some((k) => { const m = kind(k)?.meat; return m === "beef" || m === "lamb" || m === "pork"; }) || kinds.some((k) => OTHER_OILS.has(k))) return false;
+      if (!kinds.some((k) => MEDITERRANEAN_FOODS.has(k) || (kind(k)?.fish && kind(k)?.role === "protein"))) return false;
+      if (!snack && gramsOf(c, VEG_FRUIT) < VEG_FRUIT_MIN_G) return false;
+      if (gramsOf(c, CHEESES) > MEDITERRANEAN_CHEESE_MAX_G) return false;
+      return !NOT_MEDITERRANEAN.has(nicheOf(c.recipe.id).cuisine ?? "");
+    }
+    // the diets as the person's own diet picker applies them; Vegetarian also never with a cheese usually made with animal rennet, unless the person's own diet
+    // already chose the version without it (recipeForDiet's `vegetarian`)
+    case "vegetarian": return recipeForDiet(c.base, { vegetarianOnly: true }) !== null && (!!c.base.vegetarian || !kinds.some((k) => kind(k)?.rennet));
+    case "vegan": return recipeForDiet(c.base, { veganOnly: true }) !== null;
+    case "pescatarian": return recipeForDiet(c.base, { pescatarianOnly: true }) !== null;
+    case "paleo": return kinds.every((k) => PALEO_KINDS.has(k));
+    case "quick": return isQuick(c.base);
+    // a figure no label prints never counts as low: an unknown is no claim of a maximum
+    case "highFibre": return servingFibre(c) >= (snack ? HIGH_FIBRE_SNACK_MIN_G : HIGH_FIBRE_MIN_G);
+    case "lowerSugar": return c.label?.sugars != null && c.label.sugars <= (snack ? LOWER_SUGAR_SNACK_MAX_G : LOWER_SUGAR_MAX_G);
+    case "lowerSalt": return c.label?.salt != null && c.label.salt <= (snack ? LOWER_SALT_SNACK_MAX_G : LOWER_SALT_MAX_G);
+  }
+  return true;
+}
+
+/**
+ * The meal sizes the recipes are fitted to for a style (STYLE_FIT): the same calories, with protein raised to STYLE_PROTEIN_FIT of them (High protein, Lower
+ * carb), carbs capped at KETO_CARBS_MAX of them (Keto) or fat at LOW_FAT_MAX (Low fat). The person's own sizes come back as the same object.
+ */
 export function styleTargets(targets: Partial<Record<MealType, MealTarget>>, style: EatingStyle): Partial<Record<MealType, MealTarget>> {
-  if (style === "balanced") return targets;
+  const fit = STYLE_FIT[style];
+  if (fit === "own") return targets;
   const out: Partial<Record<MealType, MealTarget>> = {};
-  for (const [m, t] of Object.entries(targets) as Array<[MealType, MealTarget]>) out[m] = { ...t, protein: Math.max(t.protein ?? 0, Math.round((t.kcal * STYLE_PROTEIN_FIT) / 4)) };
+  for (const [m, t] of Object.entries(targets) as Array<[MealType, MealTarget]>) {
+    out[m] = fit === "protein" ? { ...t, protein: Math.max(t.protein ?? 0, Math.round((t.kcal * STYLE_PROTEIN_FIT) / 4)) }
+      : fit === "keto" ? { ...t, carbsMax: Math.max(1, Math.round((t.kcal * KETO_CARBS_MAX) / 4)) }
+      : { ...t, fatMax: Math.max(1, Math.round((t.kcal * LOW_FAT_MAX) / 9)) };
+  }
   return out;
+}
+
+/** Whether the person's own diet already is this style, so its tile isn't shown: Vegetarian for a vegetarian, vegan or Jain diet, Vegan for a vegan one, Pescatarian for any diet without meat. */
+export function styleInDiet(style: EatingStyle, diet: DietPrefs): boolean {
+  const noMeat = !!(diet.vegetarianOnly || diet.veganOnly || diet.jain);
+  return style === "vegetarian" ? noMeat : style === "vegan" ? !!diet.veganOnly : style === "pescatarian" ? noMeat || !!diet.pescatarianOnly : false;
+}
+
+/** How many of a style's own recipes each meal has among these candidates. */
+export function styleCount(cands: ReadonlyMap<MealType, readonly PlanCandidate[]>, style: EatingStyle, meal: MealType): number {
+  return (cands.get(meal) ?? []).filter((c) => fitsStyle(c, style)).length;
+}
+
+/**
+ * The meals of the person's day (never the snacks: a short snack takes any) that have fewer than STYLE_MIN_AT_SHOP of the style at their shops for their diet,
+ * so its tile is shown greyed with the reason; empty when it can be chosen. Balanced is never short.
+ */
+export function styleTooFew(cands: ReadonlyMap<MealType, readonly PlanCandidate[]>, style: EatingStyle, slots: readonly MealType[]): MealType[] {
+  if (style === "balanced") return [];
+  return PLAN_MEALS.filter((m) => slots.includes(m) && styleCount(cands, style, m) < STYLE_MIN_AT_SHOP);
 }
 
 const styleMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<EatingStyle, Map<MealType, PlanCandidate[]>>>();
@@ -332,7 +524,7 @@ export function styleCandidates(cands: Map<MealType, PlanCandidate[]>, style: Ea
   let out = byStyle.get(style);
   if (!out) {
     out = new Map([...cands].map(([meal, list]) => {
-      const fit = list.filter((c) => fitsStyle(c.perServing, style));
+      const fit = list.filter((c) => fitsStyle(c, style));
       return [meal, fit.length ? fit : list];
     }));
     byStyle.set(style, out);
@@ -349,7 +541,7 @@ export function styleShortfall(cands: Map<MealType, PlanCandidate[]>, style: Eat
   for (const meal of [...new Set(slots)]) {
     const list = cands.get(meal) ?? [];
     if (!list.length) continue; // no recipe at all: the plan says so its own way
-    const n = list.filter((c) => fitsStyle(c.perServing, style)).length;
+    const n = list.filter((c) => fitsStyle(c, style)).length;
     if (n === 0) out.none.push(meal);
     else if (n < variety * slots.filter((x) => x === meal).length) out.few.push({ meal, n });
   }
@@ -361,19 +553,32 @@ export function styleBetter(betterOf: (c: PlanCandidate) => PlanCandidate | null
   if (style === "balanced") return betterOf;
   return (c) => {
     const b = betterOf(c);
-    return b && fitsStyle(c.perServing, style) && !fitsStyle(b.perServing, style) ? null : b;
+    return b && fitsStyle(c, style) && !fitsStyle(b, style) ? null : b;
   };
 }
 
 /**
  * Each style's picture on its tile: one of our own recipes of that style (CLAUDE.md rule 2: our recipes' pictures), the first that suits the person's diet as
- * it is (no ingredient swapped for the diet, so the picture shows what they'd eat). tests/eatingStyle.test.ts checks each is of its style at Sainsbury's and
- * has a picture. None suits (High protein for a vegan): no picture.
+ * it is (no ingredient swapped for the diet, so the picture shows what they'd eat): a dish most people can eat first (so the first tiles don't all show
+ * salmon), then a vegetarian and a vegan one where the style has them. No recipe is on two styles' lists, so no picture is on two tiles.
+ * tests/eatingStyle.test.ts checks each is of its style at Sainsbury's and has a picture. None suits (High protein for a vegan): no picture.
  */
 export const STYLE_PICTURES: Record<EatingStyle, readonly string[]> = {
-  balanced: ["salmon-new-potatoes-peas", "mexican-bean-rice-bowl", "chickpea-rice-bowl"],
-  highProtein: ["lemon-garlic-chicken-potatoes", "mushroom-cheddar-omelette"],
-  lowerCarb: ["pepper-spinach-cheddar-frittata", "paprika-roasted-almonds"],
+  balanced: ["salmon-new-potatoes-peas", "mexican-bean-rice-bowl", "chickpea-rice-bowl", "coconut-rice-pudding-berries"],
+  longevity: ["salmon-chickpea-lemon-salad", "egg-chickpea-spinach-salad", "crushed-chickpeas-tomatoes-toast", "peanut-butter-banana-toast", "bean-potato-hash"],
+  highProtein: ["lemon-garlic-chicken-potatoes", "beans-poached-eggs", "bacon-tomato-sandwich"],
+  lowerCarb: ["shakshuka", "pesto-salmon-crushed-potatoes", "paprika-roasted-almonds"],
+  keto: ["pepper-spinach-cheddar-frittata", "mushroom-cheddar-omelette", "ham-pepper-egg-cups"],
+  mediterranean: ["lemony-chickpea-potato-salad", "salmon-lemon-rice-broccoli", "tomato-olive-oil-toast-eggs", "crispy-potatoes-garlic-mushrooms", "bircher-muesli"],
+  vegetarian: ["spanish-omelette", "bean-chilli", "apple-cinnamon-baked-oats"],
+  vegan: ["coconut-vegetable-curry", "moroccan-chickpea-stew", "berry-almond-porridge", "curried-rice-salad"],
+  pescatarian: ["tuna-bean-salad", "salmon-potato-salad-cucumber-yogurt", "apple-cinnamon-porridge"],
+  paleo: ["smoked-salmon-eggs"],
+  quick: ["scrambled-eggs-on-toast", "garlic-mushrooms-on-toast", "cottage-cheese-berries"],
+  lowFat: ["chicken-rice-bowl", "bean-tomato-soup", "wheat-biscuits-berries", "rice-stuffed-peppers"],
+  highFibre: ["chickpea-potato-traybake", "smoky-tomato-beans-toast", "wheat-biscuits-banana-almonds"],
+  lowerSugar: ["boiled-eggs-toast-soldiers", "chickpea-tomato-salad", "cheese-tomato-on-toast"],
+  lowerSalt: ["carrot-raisin-porridge", "banana-berry-overnight-oats", "potato-pea-curry"],
 };
 
 export function stylePicture(style: EatingStyle, diet: DietPrefs, recipeById: (id: string) => Recipe | undefined): string | null {
@@ -703,15 +908,133 @@ function packScore(ids: PlanIds, byId: ReadonlyMap<string, PlanCandidate>, slots
   return { cost, left, fit };
 }
 
+/**
+ * A varied week (founder 2026-11-20: "a lot of them are to do with wraps ... You want kind of like a varied diet ... You can't just do wraps every single day"):
+ * each meal's recipes are chosen from those this much further from the meal size than the plan's own (fitDistance units, about a tenth more off the meal size)
+ * so its dish forms differ (dishForm.ts), and the search counts each variety fault (dishForm.ts varietyFaults: a form twice in a day, a form in the same meal
+ * two days running, a third wrap) as VARIETY_WEIGHT pounds, so it gives up packs, price and fit before variety, never the budget.
+ */
+export const VARIETY_FIT_SLACK = 0.1;
+/** Where that still leaves the week with faults, a second look goes this much further (a quarter more off the meal size or its protein, at most). */
+export const VARIETY_WIDE_SLACK = 0.25;
+const VARIETY_WEIGHT = 100;
+/** How many of a meal's closest recipes are looked through for variety. */
+const VARIETY_SHORTLIST = 60;
+
+/** Each candidate's dish form, by "meal:id". */
+function formsOf(candidates: ReadonlyMap<MealType, readonly PlanCandidate[]>): Map<string, DishForm> {
+  const out = new Map<string, DishForm>();
+  for (const [m, list] of candidates) for (const c of list) out.set(`${m}:${c.recipe.id}`, dishFormOf(c.recipe));
+  return out;
+}
+
+/** A week's dish forms, days × slots (dishForm.ts), from its ids and the candidates it was made from (undefined: a recipe not among them). */
+export function weekForms(ids: PlanIds, candidates: ReadonlyMap<MealType, readonly PlanCandidate[]>, slots: readonly MealType[] = PLAN_MEALS): Array<Array<DishForm | undefined>> {
+  const formOf = formsOf(candidates);
+  return ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`)));
+}
+
+const faultsWith = (formOf: ReadonlyMap<string, DishForm>, slots: readonly MealType[]) => (ids: PlanIds): number => varietyFaults(ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`))));
+
+/** The recipes a meal's choice for variety is made from: the closest VARIETY_SHORTLIST within `slack` of the `n` closest (PACK_FIT_LIMIT at least). */
+function varietyWindow(list: readonly PlanCandidate[], n: number, slack = VARIETY_FIT_SLACK): PlanCandidate[] {
+  if (!list.length) return [];
+  const limit = Math.max(PACK_FIT_LIMIT, list[Math.min(n, list.length) - 1]!.distance) + slack;
+  return list.filter((c) => c.distance <= limit).slice(0, VARIETY_SHORTLIST);
+}
+
+/**
+ * Each meal's first choice of recipes: the closest ones whose dish forms differ, from the variety window, and a wrap only while the week's wraps stay within
+ * MAX_WRAPS_A_WEEK (a recipe in a pool of n comes round about 7 ÷ n times); then the closest of the rest, if the window runs short.
+ */
+function varietyPools(candidates: Map<MealType, PlanCandidate[]>, types: readonly MealType[], per: ReadonlyMap<MealType, number>, each: number, formOf: ReadonlyMap<string, DishForm>): Map<MealType, PlanCandidate[]> {
+  const out = new Map<MealType, PlanCandidate[]>();
+  let wraps = 0;
+  for (const m of types) {
+    const list = candidates.get(m)!;
+    const n = each * per.get(m)!;
+    const comes = Math.ceil((PLAN_DAYS * per.get(m)!) / Math.max(1, Math.min(n, list.length)));
+    const pool: PlanCandidate[] = [];
+    const forms = new Set<DishForm>();
+    for (const c of varietyWindow(list, n)) {
+      if (pool.length >= n) break;
+      const f = formOf.get(`${m}:${c.recipe.id}`)!;
+      if (forms.has(f) || (f === "wrap" && wraps + comes > MAX_WRAPS_A_WEEK)) continue;
+      pool.push(c);
+      forms.add(f);
+      if (f === "wrap") wraps += comes;
+    }
+    for (const c of list) {
+      if (pool.length >= n) break;
+      if (!pool.includes(c)) pool.push(c);
+    }
+    out.set(m, pool);
+  }
+  return out;
+}
+
+/**
+ * Makes the week as varied as the recipes allow, one move at a time, the move that removes most faults first (ties: the one the pack search likes best, its
+ * fresh food left, bill and fit; `tieBreak`): two of a meal's recipes swap turns, or one is changed for another from the variety window, or, when neither
+ * helps, one is changed and two then swap turns. First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
+ */
+function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], faults: () => number, tieBreak: () => number): void {
+  const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
+  const flip = (pool: PlanCandidate[], a: number, b: number) => { [pool[a], pool[b]] = [pool[b]!, pool[a]!]; };
+  let current = faults();
+  for (const slack of [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]) {
+    const windows = new Map(types.map((m) => [m, varietyWindow(candidates.get(m)!, size(m), slack)]));
+    for (let round = 0; current > 0 && round < 40; round++) {
+      let best: { f: number; t: number; redo: () => void } | null = null;
+      // called with the move made; `redo` makes it again
+      const look = (redo: () => void) => {
+        const f = faults();
+        if (f >= current || (best && f > best.f)) return;
+        const t = tieBreak();
+        if (!best || f < best.f || t < best.t) best = { f, t, redo };
+      };
+      for (const m of types) {
+        const pool = chosen.get(m)!;
+        const n = size(m);
+        for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => flip(pool, a, b)); flip(pool, a, b); }
+      }
+      for (const compound of [false, true]) {
+        if (best) break;
+        for (const m of types) {
+          const pool = chosen.get(m)!;
+          const n = size(m);
+          const inPool = new Set(pool.slice(0, n).map((c) => c.recipe.id));
+          for (let i = 0; i < n; i++) {
+            const was = pool[i]!;
+            for (const x of windows.get(m)!) {
+              if (inPool.has(x.recipe.id)) continue;
+              pool[i] = x;
+              if (!compound) look(() => { pool[i] = x; });
+              else for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => { pool[i] = x; flip(pool, a, b); }); flip(pool, a, b); }
+            }
+            pool[i] = was;
+          }
+        }
+      }
+      if (!best) break;
+      const move = best as { f: number; redo: () => void };
+      move.redo();
+      current = move.f;
+    }
+  }
+}
+
 // makePlan's answers for one set of candidates (the budget step asks for the same week several times)
 const planMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<string, { ids: PlanIds; week: WeekPlan } | null>>();
 
 /**
- * The best week the recipes allow: for each meal, the recipes closest to the meal size, `variety` of them in turn (VARIETIES). With a budget, while the shopping
- * bill is over it the dearest recipe still in the plan is swapped for the cheapest one of that meal not yet used (and, failing that, a meal rotates through
- * fewer recipes, so more packs are shared); it stops when the bill fits or nothing makes it cheaper. Then the packs are used up (founder 2026-11-18: "by the end
- * of the week, all the ingredients shall be basically almost complete"): a recipe is changed for another close to the meal size, or two swap which comes round
- * more often, whenever that leaves less fresh food in the packs (weighed with the bill and the fit), never making the bill more than the budget or, with no
+ * The best week the recipes allow: for each meal, the recipes closest to the meal size, `variety` of them in turn (VARIETIES), chosen and ordered so the week is
+ * varied (founder 2026-11-20: never the same dish form twice in a day, never the same form in the same meal two days running, at most MAX_WRAPS_A_WEEK wraps,
+ * as far as the recipes allow: varietyPools, varietyRepair). With a budget, while the shopping bill is over it the dearest recipe still in the plan is swapped
+ * for the cheapest one of that meal not yet used that keeps the week as varied (else the cheapest), and, failing that, a meal rotates through fewer recipes, so
+ * more packs are shared; it stops when the bill fits or nothing makes it cheaper. Then the packs are used up (founder 2026-11-18: "by the end of the week, all
+ * the ingredients shall be basically almost complete"): a recipe is changed for another close to the meal size, or two swap which comes round more often,
+ * whenever that leaves less fresh food in the packs (weighed with the bill and the fit, after variety), never making the bill more than the budget or, with no
  * budget, more than it was. Null when a meal has no recipe at all for these choices.
  */
 export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES): { ids: PlanIds; week: WeekPlan } | null {
@@ -730,13 +1053,18 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
   const each = Math.max(1, Math.min(PLAN_DAYS, Math.round(variety)));
   // a meal that comes more than once a day (two snacks) rotates through more recipes, so the day's two are different
   const per = new Map<MealType, number>(types.map((m) => [m, slots.filter((x) => x === m).length]));
-  const chosen = new Map<MealType, PlanCandidate[]>(types.map((m) => [m, candidates.get(m)!.slice(0, each * per.get(m)!)]));
+  // varied from the start (VARIETY_FIT_SLACK): each meal's closest recipes whose dish forms differ
+  const formOf = formsOf(candidates);
+  const faultsOf = faultsWith(formOf, slots);
+  const chosen = varietyPools(candidates, types, per, each, formOf);
   const counts = new Map<MealType, number>(types.map((m) => [m, each * per.get(m)!]));
   const nth = slots.map((m, i) => slots.slice(0, i).filter((x) => x === m).length);
   const ids = () => idsFrom(slots.map((m, i) => {
     const pool = Math.max(1, Math.min(counts.get(m)!, chosen.get(m)!.length));
     return rotate(chosen.get(m)!, counts.get(m)!, nth[i]! * Math.floor(pool / per.get(m)!));
   }));
+  const packOf = packScorer(candidates, slots);
+  varietyRepair(candidates, chosen, counts, types, () => faultsOf(ids()), () => packOf(ids()));
   let best = buildWeek(ids(), candidates, budget, slots)!;
   for (let round = 0; budget !== null && best.shoppingCost > budget && round < 40; round++) {
     let improved = false;
@@ -744,11 +1072,14 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     const inUse = types.flatMap((m) => chosen.get(m)!.slice(0, counts.get(m)!).map((c, i) => ({ m, c, i }))).sort((a, b) => b.c.cost - a.c.cost);
     for (const { m, c, i } of inUse) {
       const used = new Set(chosen.get(m)!.map((x) => x.recipe.id));
-      const cheaper = candidates.get(m)!.filter((x) => !used.has(x.recipe.id) && x.cost < c.cost && x.distance <= Math.max(MAX_SWAP_DISTANCE, c.distance)).sort((a, b) => a.cost - b.cost || a.distance - b.distance)[0];
-      if (!cheaper) continue;
-      const trial = chosen.get(m)!.slice();
-      trial[i] = cheaper;
+      const options = candidates.get(m)!.filter((x) => !used.has(x.recipe.id) && x.cost < c.cost && x.distance <= Math.max(MAX_SWAP_DISTANCE, c.distance)).sort((a, b) => a.cost - b.cost || a.distance - b.distance);
+      if (!options.length) continue;
       const before = chosen.get(m)!;
+      // the cheapest that keeps the week as varied as it is, else the cheapest
+      const was = faultsOf(ids());
+      const cheaper = options.find((x) => { const t = before.slice(); t[i] = x; chosen.set(m, t); const f = faultsOf(ids()); chosen.set(m, before); return f <= was; }) ?? options[0]!;
+      const trial = before.slice();
+      trial[i] = cheaper;
       chosen.set(m, trial);
       const week = buildWeek(ids(), candidates, budget, slots)!;
       if (week.shoppingCost < best.shoppingCost) { best = week; improved = true; break; }
@@ -765,28 +1096,38 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
     if (week.shoppingCost < best.shoppingCost) best = week;
     else { counts.set(m, counts.get(m)! + 1); break; }
   }
-  fillPacks(candidates, chosen, counts, types, slots, ids, budget);
+  fillPacks(candidates, chosen, counts, types, slots, ids, budget, faultsOf);
   const finalIds = ids();
   return { ids: finalIds, week: buildWeek(finalIds, candidates, budget, slots)! };
 }
 
-/** makePlan's last step (see there): changes `chosen` in place, one move at a time, the move that helps most first, until no move helps. */
-function fillPacks(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number | null): void {
+/** The pack search's score for a week (packScore weighed: fresh food left, the bill at COST_WEIGHT, the fit at FIT_WEIGHT), with its own memo. */
+function packScorer(candidates: Map<MealType, PlanCandidate[]>, slots: readonly MealType[]): (ids: PlanIds) => number {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
   const memo = new Map<string, { cost: number; left: number }>();
-  const score = (s: { cost: number; left: number; fit: number }) => s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit;
+  return (ids) => { const s = packScore(ids, byId, slots, memo); return s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit; };
+}
+
+/** makePlan's last step (see there): changes `chosen` in place, one move at a time, the move that helps most first, until no move helps. */
+function fillPacks(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number | null, faultsOf: (ids: PlanIds) => number): void {
+  const byId = new Map<string, PlanCandidate>();
+  for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
+  const memo = new Map<string, { cost: number; left: number }>();
+  // variety first (VARIETY_WEIGHT a fault), then the packs, the bill and the fit
+  const score = (s: { cost: number; left: number; fit: number; faults: number }) => VARIETY_WEIGHT * s.faults + s.left + COST_WEIGHT * s.cost + FIT_WEIGHT * s.fit;
+  const measure = () => { const now = ids(); return { ...packScore(now, byId, slots, memo), faults: faultsOf(now) }; };
   for (const m of types) chosen.set(m, chosen.get(m)!.slice());
   const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
   const limit = new Map(types.map((m) => [m, Math.max(PACK_FIT_LIMIT, ...chosen.get(m)!.slice(0, size(m)).map((c) => c.distance))]));
-  const start = packScore(ids(), byId, slots, memo);
+  const start = measure();
   const cap = (budget !== null ? Math.max(budget, start.cost) : start.cost) + 0.005;
   let current = score(start);
   for (let round = 0; round < 40; round++) {
     let move: { m: MealType; i: number; j?: number; x?: PlanCandidate } | null = null;
     let bestScore = current - 0.01;
     const tryIt = (m: MealType, i: number, j?: number, x?: PlanCandidate) => {
-      const s = packScore(ids(), byId, slots, memo);
+      const s = measure();
       if (s.cost <= cap && score(s) < bestScore) { bestScore = score(s); move = { m, i, j, x }; }
     };
     for (const m of types) {

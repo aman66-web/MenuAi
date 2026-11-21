@@ -73,16 +73,21 @@ describe("the welcome screens' words when their data is missing", () => {
     expect(words).not.toMatch(/\d/);
   });
 
-  it("shows prices only with the shelf-price line (step 4); Your plan's example week shows no price at all", () => {
+  it("shows prices only with the shelf-price line (step 4, and Your plan's example week: its first shop and each week after)", () => {
     expect(source("RecipeChoice.tsx")).toContain("Prices are {shop}'s shelf prices and vary by store.");
-    expect(source("WeekShowcase.tsx")).not.toMatch(/£|formatPrice|total\b/);
+    // founder 2026-11-20, 23:05 ("week one cost and then the week afterwards costs"): the example week is priced at the person's shop, as Meal plan says it
+    const week = source("WeekShowcase.tsx");
+    expect(week).toContain("<TwoWeeks ");
+    expect(week).toContain("Prices are {shop}'s shelf prices, checked {date}, and vary by store.");
+    expect(week).not.toMatch(/formatPrice|total\b/);
   });
 
-  it("Your plan's week is an example, never worked out for the person (founder 2026-11-20: \"We shouldn't calculate the meal plan\")", () => {
+  it("Your plan's week is an example, never worked out or sized for the person (founder 2026-11-20: \"We shouldn't calculate the meal plan\")", () => {
     const week = source("WeekShowcase.tsx");
     expect(week).toContain("exampleWeek(");
     expect(week).toContain("An example week.");
-    for (const worked of ["weekPreview", "loadShopFile", "dailyCalories", "kcal"]) expect(week, worked).not.toContain(worked);
+    // the shop's file is read only to price the example (23:05); the week itself is never a plan worked out or sized for them
+    for (const worked of ["weekPreview", "dailyCalories", "kcal"]) expect(week, worked).not.toContain(worked);
   });
 
   it("captions every restaurant photo with where it comes from (CLAUDE.md rule 2), and never shows Costa's (it has none)", () => {

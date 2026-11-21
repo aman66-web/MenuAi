@@ -8,6 +8,8 @@ import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
+// the style step's screenshots (402 x 874 and 375 x 667) go here; SHOTS=<folder> to choose another
+const SHOTS = process.env.SHOTS ?? "/tmp";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 // devProOverride: a build with Premium switched on lets this tester in (the dev server's Premium preview); a build without it ignores it
 const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, dailyProtein: 120, hasSetTargets: true, devProOverride: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"], ...patch } });
@@ -124,21 +126,43 @@ await step("Pip asks one thing a screen, each opened by its Change and back with
   await done();
   await change("Your diet and allergies", "Your diet and allergies", 4);
   await done();
-  // how they like to eat (founder 2026-11-20): three picture tiles, Balanced to start with; High protein chosen, then Balanced again
+  // how they like to eat (founder 2026-11-20): a picture tile for every style (22:00, "as many options as you can think about people would choose"), Balanced
+  // first and to start with, Longevity second (22:25, his own pick), never the same picture twice, none greyed at Sainsbury's with no diet; High protein
+  // chosen, then Longevity, then Balanced again
   await change("How you like to eat", "How do you like to eat?", 5);
   const styles = page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio");
-  expect((await styles.count()) === 3, "three ways to eat: " + (await styles.count()));
+  expect((await styles.count()) === 15, "fifteen ways to eat: " + (await styles.count()));
+  expect((await styles.nth(0).innerText()).startsWith("Balanced") && (await styles.nth(1).innerText()).startsWith("Longevity"), "Balanced, then Longevity");
   expect((await page.getByRole("radio", { name: /^Balanced/ }).getAttribute("aria-checked")) === "true", "Balanced to start with");
-  // on a short phone (375 x 667) the pictures are flatter, so all three tiles show whole above the pinned Done (Lower carb was cut off, 20 November 2026)
+  for (const [name, line] of [["Longevity", "Vegetables, beans, nuts, olive oil and fish"], ["Keto", "Carbs: at most 10% of calories"], ["Pescatarian", "fish, no meat"], ["Quick", "Ready in 20 minutes or less"], ["Lower salt", "Salt: at most 1 g a meal"]]) {
+    await page.getByRole("radio", { name: new RegExp(`^${name}`) }).getByText(line, { exact: true }).waitFor();
+  }
+  const pictures = await page.getByRole("radiogroup", { name: "How do you like to eat?" }).locator("img").evaluateAll((els) => els.map((e) => e.getAttribute("src")));
+  expect(pictures.length === 15 && new Set(pictures).size === pictures.length, "a picture on every tile, never one twice: " + pictures.join(" "));
+  await page.waitForTimeout(3000);
+  expect((await page.locator('[role="radio"][aria-disabled="true"]').count()) === 0, "nothing greyed at Sainsbury's with no diet");
+  await page.setViewportSize({ width: 402, height: 874 });
+  await page.screenshot({ path: `${SHOTS}/style-402x874.png` });
+  // on a short phone (375 x 667) the pictures are flatter: the first row shows whole above the pinned Done, and the last tile scrolls up clear of it
   await page.setViewportSize({ width: 375, height: 667 });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(300);
-  const band = await page.getByRole("button", { name: "Done", exact: true }).last().evaluate((el) => el.closest(".sticky").getBoundingClientRect().top);
+  await page.screenshot({ path: `${SHOTS}/style-375x667.png` });
+  const band = async () => page.getByRole("button", { name: "Done", exact: true }).last().evaluate((el) => el.closest(".sticky").getBoundingClientRect().top);
+  const second = await styles.nth(1).boundingBox();
+  expect(second.y + second.height <= (await band()) + 0.5, `the first row shows whole above the pinned Done at 375 x 667: ${JSON.stringify(second)}`);
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: `${SHOTS}/style-375x667-end.png` });
   const lowest = await styles.last().boundingBox();
-  expect(lowest.y + lowest.height <= band + 0.5, `Lower carb is under the pinned Done at 375 x 667: ${JSON.stringify({ lowest, band })}`);
+  expect(lowest.y + lowest.height <= (await band()) + 0.5, `the last tile scrolls clear of the pinned Done at 375 x 667: ${JSON.stringify(lowest)}`);
+  const width = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(width <= 375, "no sideways scroll at 375: " + width);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("radio", { name: /^High protein/ }).click();
   expect((await page.getByRole("radio", { name: /^High protein/ }).getAttribute("aria-checked")) === "true", "High protein chosen");
+  await page.getByRole("radio", { name: /^Longevity/ }).click();
+  expect((await page.getByRole("radio", { name: /^Longevity/ }).getAttribute("aria-checked")) === "true", "Longevity chosen");
   await page.getByRole("radio", { name: /^Balanced/ }).click();
   await done();
   // the food they like (founder 2026-11-19: "choose the cuisine or have the option to do any cuisine"): Any to start with, then Italian and Indian

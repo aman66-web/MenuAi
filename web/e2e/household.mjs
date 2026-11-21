@@ -6,6 +6,8 @@
 // Run against a server with Premium previewed: BASE=http://localhost:3005 node e2e/household.mjs
 import { chromium } from "playwright-core";
 const BASE = process.env.BASE ?? "http://localhost:3101";
+// the style step's screenshot goes here; SHOTS=<folder> to choose another
+const SHOTS = process.env.SHOTS ?? "/tmp";
 const AXE = new URL("./node_modules/axe-core/axe.min.js", import.meta.url).pathname;
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 let passed = 0, failed = 0;
@@ -84,9 +86,21 @@ await step("meals, shops, then the home's allergies (the button says the usual a
   expect((await page.getByRole("button", { name: /^No onion or garlic/ }).getAttribute("aria-pressed")) === "true", "ticked");
   await axe("diets at home");
   await tap("Continue");
-  // how they like to eat (founder 2026-11-20): three picture tiles, Balanced to start with
+  // how they like to eat (founder 2026-11-20): a tile for every style, Balanced to start with; the home's diets (No onion or garlic, no peanuts) leave some
+  // too few dinners at Sainsbury's: those are greyed with the reason, never hidden, and can't be chosen
   await h1("How do you like to eat?").waitFor();
-  expect((await page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio").count()) === 3, "three ways to eat");
+  expect((await page.getByRole("radiogroup", { name: "How do you like to eat?" }).getByRole("radio").count()) === 15, "fifteen ways to eat");
+  expect((await page.getByRole("radio", { name: /^Balanced/ }).getAttribute("aria-checked")) === "true", "Balanced to start with");
+  const greyed = page.locator('[role="radio"][aria-disabled="true"]');
+  await greyed.first().waitFor({ timeout: 120000 });
+  expect((await greyed.first().innerText()).includes("for your diet"), "the reason: " + (await greyed.first().innerText()));
+  const keto = page.getByRole("radio", { name: /^Keto/ });
+  expect((await keto.getAttribute("aria-disabled")) === "true" && (await keto.innerText()).includes("Too few dinners for your diet"), "Keto greyed: " + (await keto.innerText()));
+  await keto.click({ force: true }); // Playwright waits for an aria-disabled control: a tap goes through and does nothing
+  expect((await keto.getAttribute("aria-checked")) === "false", "a greyed style can't be chosen");
+  expect((await page.getByRole("radio", { name: /^Mediterranean/ }).getAttribute("aria-disabled")) === null, "Mediterranean has enough for the home");
+  await keto.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: `${SHOTS}/style-household-greyed-390x844.png` });
   await axe("how you like to eat");
   await tap("Continue");
   await h1("Anything someone won't eat?").waitFor();
@@ -109,7 +123,9 @@ await step("the budget, then the check screen: who's eating, the allergies in th
 await step("the week: for 3, only the user's numbers, the allergy sentence, each meal's servings for everyone, Add my portion; the plan keeps no names", async () => {
   // "Making your plan" takes about 20 seconds (founder 2026-11-20)
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
-  await page.getByText(/for the week's shopping for 3 people/).waitFor();
+  // the money card: one figure "for the week's shopping for 3 people", or, when packs that keep make the first shop dearer, the first shop and each week after
+  // (TwoWeeks, 20 November 2026), which doesn't name the people
+  await page.getByText(/for the week's shopping for 3 people|^Your first shop: about £[\d,]+$/).first().waitFor();
   await page.getByText(/Every meal fits your diet: .*No onion or garlic/).waitFor();
   await page.getByText("Recipes made with peanuts are left out. Always check the label.").waitFor();
   const card = page.locator("li", { hasText: "Servings each" }).first();

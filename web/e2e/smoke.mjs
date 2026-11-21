@@ -100,7 +100,9 @@ await step("onboarding: goal → avoid → shops → a first recipe → about yo
   await page.locator("#plan-protein").fill("150");
   await page.getByRole("button", { name: "Save", exact: true }).click();
   await visible(page.getByText("2,400", { exact: true }).first());
-  await visible(page.getByText(/^About £[\d,]+ for the week$/), 45000);
+  // the example week priced at the person's shop: the first shop, then each week after (founder 2026-11-20, 23:05)
+  await visible(page.getByText(/^Your first shop: about £[\d,]+$/), 45000);
+  await visible(page.getByText(/^Each week after: about £[\d,]+$/));
   await shot("04-onboarding-plan");
   await page.getByRole("button", { name: "Save my plan" }).click();
   // 8: the account (optional on this build: "Not now")

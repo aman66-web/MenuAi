@@ -5,7 +5,8 @@ import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { assetUrl } from "@/lib/mm/config";
 import { AGE_GROUPS, ALL_HOME_DIETS, HOME_DIETS, MAX_PEOPLE, MORE_HOME_DIETS, NAME_MAX, PORTIONS, noMeatLeft, personShare, shareWords, toggleHomeDiet, type AgeGroup, type HomeDiet, type HomePerson, type Household, type PortionSize } from "@/lib/mm/household";
 import { tk } from "@/lib/mm/i18n";
-import { EATING_STYLES, HIGH_PROTEIN_MIN, LOWER_CARB_MAX, stylePicture, type EatingStyle } from "@/lib/mm/mealPlan";
+import { EATING_STYLES, HIGH_FIBRE_MIN_G, HIGH_PROTEIN_MIN, KETO_CARBS_MAX, LOW_FAT_MAX, LOWER_CARB_MAX, LOWER_SALT_MAX_G, LOWER_SUGAR_MAX_G, styleInDiet, stylePicture, type EatingStyle } from "@/lib/mm/mealPlan";
+import { QUICK_MINUTES } from "@/lib/mm/recipes";
 import type { DietPrefs } from "@/lib/mm/pantry";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { RECIPE_IMAGES } from "@/lib/mm/recipeImages";
@@ -185,51 +186,77 @@ export function allergyLine(t: (s: string, v?: Record<string, string | number>) 
 }
 
 /**
- * Each eating style's name (lib/mm/mealPlan.ts EATING_STYLES), and its one line on the tile, with the figure from the rule itself: the nutrient first, so the
- * line keeps to two lines on a half-width tile at 375 px.
+ * Each eating style's name (lib/mm/mealPlan.ts EATING_STYLES), and its one line on the tile: the plain rule, with the figure from the rule itself and the
+ * nutrient first (so the line keeps to two lines on a half-width tile at 375 px), or what is in the meals. Never "healthy" or any claim (CLAUDE.md rule 3).
  */
-export const STYLE_LABEL: Record<EatingStyle, string> = { balanced: tk("Balanced"), highProtein: tk("High protein"), lowerCarb: tk("Lower carb") };
-const styleLine = (t: (s: string, v?: Record<string, string | number>) => string, style: EatingStyle): string =>
-  style === "highProtein" ? t("Protein: at least {pct}% of calories", { pct: Math.round(HIGH_PROTEIN_MIN * 100) })
-    : style === "lowerCarb" ? t("Carbs: at most {pct}% of calories", { pct: Math.round(LOWER_CARB_MAX * 100) })
-    : t("Any of our recipes");
+export const STYLE_LABEL: Record<EatingStyle, string> = {
+  balanced: tk("Balanced"), longevity: tk("Longevity"), highProtein: tk("High protein"), lowerCarb: tk("Lower carb"), keto: tk("Keto"), mediterranean: tk("Mediterranean"),
+  vegetarian: tk("Vegetarian"), vegan: tk("Vegan"), pescatarian: tk("Pescatarian"), paleo: tk("Paleo"), quick: tk("Quick"), lowFat: tk("Lower fat"), highFibre: tk("More fibre"),
+  lowerSugar: tk("Lower sugar"), lowerSalt: tk("Lower salt"),
+};
+const pct = (share: number) => Math.round(share * 100);
+function styleLine(t: (s: string, v?: Record<string, string | number>) => string, style: EatingStyle): string {
+  switch (style) {
+    case "balanced": return t("Any of our recipes");
+    case "longevity": return t("Vegetables, beans, nuts, olive oil and fish");
+    case "highProtein": return t("Protein: at least {pct}% of calories", { pct: pct(HIGH_PROTEIN_MIN) });
+    case "lowerCarb": return t("Carbs: at most {pct}% of calories", { pct: pct(LOWER_CARB_MAX) });
+    case "keto": return t("Carbs: at most {pct}% of calories", { pct: pct(KETO_CARBS_MAX) });
+    case "mediterranean": return t("Olive oil, vegetables, fish and beans");
+    case "vegetarian": return t("No meat or fish");
+    case "vegan": return t("Nothing from animals");
+    // the home diets' own words for it (HOME_DIET_HINT), capitalised by the tile
+    case "pescatarian": return t("fish, no meat");
+    case "paleo": return t("Meat, fish, eggs, vegetables, fruit and nuts");
+    case "quick": return t("Ready in {n} minutes or less", { n: QUICK_MINUTES });
+    case "lowFat": return t("Fat: at most {pct}% of calories", { pct: pct(LOW_FAT_MAX) });
+    case "highFibre": return t("Fibre: at least {g} g a meal", { g: HIGH_FIBRE_MIN_G });
+    case "lowerSugar": return t("Sugars: at most {g} g a meal", { g: LOWER_SUGAR_MAX_G });
+    case "lowerSalt": return t("Salt: at most {g} g a meal", { g: LOWER_SALT_MAX_G });
+  }
+}
 
 /**
  * How the person likes to eat (founder 2026-11-20: "How do you like to eat?", big picture tiles; laid out as the founder's example of the same day, "provide
- * images of the diet": two to a row, the picture filling each tile's top, the name in bold and one short grey line under it). Each picture is one of our own
- * recipes of that style that suits the diet (mealPlan.ts stylePicture; none for High protein and a vegan diet, or a picture that can't load: the plate
- * drawing). The choice look on a picture tile: the ring (a tick when chosen) on the picture's corner, and the chosen tile lime with the dark green edge. An odd
- * last tile sits in the middle of its row, the same size as the others. On a short screen (under 700 px high, a 375 x 667 phone) the pictures are flatter
- * (5:2), so the third tile shows whole above the pinned Done. Never "healthy" (CLAUDE.md rule 3). `note`: what the shops' recipes leave short for this style,
- * said under the tiles as it is known.
+ * images of the diet": two to a row, the picture filling each tile's top, the name in bold and one short grey line under it; 22:00: "as many options as you can
+ * think about people would choose"). Balanced first, Longevity second (the founder's own pick), then the rest in EATING_STYLES' order; a style the person's own
+ * diet already is (Vegetarian for a vegan) has no tile (mealPlan.ts styleInDiet). Each picture is one of our own recipes of that style that suits the diet,
+ * never the same picture on two tiles (mealPlan.ts stylePicture; none for High protein and a vegan diet, or a picture that can't load: the plate drawing).
+ * The choice look on a picture tile: the ring (a tick when chosen) on the picture's corner, and the chosen tile lime with the dark green edge. A style the
+ * person's shops have too few of for their diet (`short`: its reason, mealPlan.ts styleTooFew) is greyed, its picture faded, the reason in place of its line,
+ * and can't be chosen (it stays chosen if it already was, so nothing changes behind the person's back). An odd last tile sits in the middle of its row, the
+ * same size as the others. On a short screen (under 700 px high, a 375 x 667 phone) the pictures are flatter (5:2). `note`: what the shops' recipes leave short
+ * for the chosen style, said under the tiles as it is known.
  */
-export function StyleStep({ value, onChange, diet, note }: { value: EatingStyle; onChange: (s: EatingStyle) => void; diet: DietPrefs; note?: string | null }) {
+export function StyleStep({ value, onChange, diet, note, short = {} }: { value: EatingStyle; onChange: (s: EatingStyle) => void; diet: DietPrefs; note?: string | null; short?: Partial<Record<EatingStyle, string>> }) {
   const t = useT();
   // a picture that couldn't load (offline before it was seen once): the plate drawing instead
   const [failed, setFailed] = useState<readonly string[]>([]);
-  const odd = EATING_STYLES.length % 2 === 1;
+  const shown = EATING_STYLES.filter((s) => s === value || !styleInDiet(s, diet));
+  const odd = shown.length % 2 === 1;
   return (
     <div>
       <div role="radiogroup" aria-label={t("How do you like to eat?")} className="grid grid-cols-2 gap-2.5">
-        {EATING_STYLES.map((s, i) => {
+        {shown.map((s, i) => {
           const on = value === s;
+          const greyed = short[s];
           const id = stylePicture(s, diet, (x) => RECIPE_BY_ID.get(x));
           const src = id ? RECIPE_IMAGES[id] ?? RECIPE_THUMBS[id] : undefined;
-          const shown = src && !failed.includes(src) ? src : undefined;
-          const last = odd && i === EATING_STYLES.length - 1;
+          const pic = src && !failed.includes(src) ? src : undefined;
+          const last = odd && i === shown.length - 1;
           return (
-            <button key={s} type="button" role="radio" aria-checked={on} onClick={() => onChange(s)}
-              className={`flex flex-col overflow-hidden rounded-[1.25rem] border-[1.5px] text-start transition active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${last ? "col-span-2 w-[calc(50%-0.3125rem)] justify-self-center" : ""} ${on ? TILE_ON : TILE_OFF}`}>
+            <button key={s} type="button" role="radio" aria-checked={on} aria-disabled={greyed && !on ? true : undefined} onClick={() => { if (!greyed || on) onChange(s); }}
+              className={`flex flex-col overflow-hidden rounded-[1.25rem] border-[1.5px] text-start transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${greyed && !on ? "cursor-default border-line bg-background text-muted" : `active:scale-[0.98] ${on ? TILE_ON : TILE_OFF}`} ${last ? "col-span-2 w-[calc(50%-0.3125rem)] justify-self-center" : ""}`}>
               <span aria-hidden className="relative grid aspect-[8/5] w-full shrink-0 place-items-center overflow-hidden bg-fill [@media(max-height:700px)]:aspect-[5/2]">
-                {shown
+                {pic
                   // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash; decorative, the style's name is under it
-                  ? <img src={assetUrl(shown)} alt="" width={800} height={600} decoding="async" onError={() => setFailed((f) => [...f, shown])} className="h-full w-full object-cover" />
+                  ? <img src={assetUrl(pic)} alt="" width={800} height={600} decoding="async" loading={i < 4 ? "eager" : "lazy"} onError={() => setFailed((f) => [...f, pic])} className={`h-full w-full object-cover ${greyed ? "opacity-45 grayscale" : ""}`} />
                   : <span className="grid h-14 w-14 place-items-center rounded-full border border-line bg-card text-ink"><ForkIcon className="h-7 w-7" strokeWidth={1.6} /></span>}
-                <span className="absolute end-2 top-2 rounded-full shadow-[var(--photo-chip-shadow)]"><ChoiceMark on={on} kind="circle" /></span>
+                {!(greyed && !on) && <span className="absolute end-2 top-2 rounded-full shadow-[var(--photo-chip-shadow)]"><ChoiceMark on={on} kind="circle" /></span>}
               </span>
               <span className="block flex-1 px-3.5 pb-3.5 pt-2.5">
                 <span className="block text-[1.125rem] font-[800] leading-tight">{t(STYLE_LABEL[s])}</span>
-                <span className={`mt-1 block text-[0.9375rem] leading-snug ${on ? "" : "text-muted"}`}>{styleLine(t, s)}</span>
+                <span className={`mt-1 block text-[0.9375rem] leading-snug first-letter:uppercase ${on ? "" : greyed ? "font-semibold" : "text-muted"}`}>{greyed ?? styleLine(t, s)}</span>
               </span>
             </button>
           );

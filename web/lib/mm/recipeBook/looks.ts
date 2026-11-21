@@ -4,8 +4,15 @@
 // own ingredients; never cutlery, hands, writing, packaging, brand names, steam or any claim about health. A test checks every recipe has one and the words.
 
 import { EVERYDAY_BREAKFAST_LOOKS } from "./everydayBreakfast";
+import { EVERYDAY_LUNCHES_LOOKS } from "./everydayLunches";
 import { GLUTEN_FREE_LOOKS } from "./glutenFree";
+import { KETO_MEALS_LOOKS } from "./ketoMeals";
+import { LONGEVITY_DINNERS_LOOKS } from "./longevityDinners";
+import { LONGEVITY_MORNING_LOOKS } from "./longevityMorning";
+import { MEDITERRANEAN_LOOKS } from "./mediterranean";
 import { MORE_MAINS_LOOKS } from "./moreMains";
+import { PALEO_MEALS_LOOKS } from "./paleoMeals";
+import { QUICK_DINNERS_LOOKS } from "./quickDinners";
 import { VEGAN_MAINS_LOOKS } from "./veganMains";
 import { VEGAN_MORNING_LOOKS } from "./veganMorning";
 
@@ -133,4 +140,15 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   ...GLUTEN_FREE_LOOKS,
   ...MORE_MAINS_LOOKS,
   ...EVERYDAY_BREAKFAST_LOOKS,
+  // founder 2026-11-20, 22:25 ("make the most longevity-backed diet ... that's the one that I want to see")
+  ...LONGEVITY_MORNING_LOOKS,
+  ...LONGEVITY_DINNERS_LOOKS,
+  // founder 2026-11-20, 22:00 ("Give more options like keto or whatever ... make new recipes")
+  ...KETO_MEALS_LOOKS,
+  // founder 2026-11-20, 22:00 ("as many options as you can think about people would choose"): paleo, then Mediterranean-style
+  ...PALEO_MEALS_LOOKS,
+  ...MEDITERRANEAN_LOOKS,
+  // founder 2026-11-20 ("You can't just do [wraps] every single day"; "You want kind of like a varied diet"): lunches that aren't wraps, quick dinners
+  ...EVERYDAY_LUNCHES_LOOKS,
+  ...QUICK_DINNERS_LOOKS,
 };

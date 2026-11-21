@@ -1,9 +1,10 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, PER_MEAL_RECIPES, weekForms, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
+import { MAX_WRAPS_A_WEEK, dishForm, varietyReport } from "../lib/mm/dishForm";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { ALLERGEN_KEYS } from "../lib/mm/types";
-import { isVegan } from "../lib/mm/recipes";
+import { isVegan, type MealType } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
 // A week's meal plan from our own recipes (founder 2026-11-18), worked out on Sainsbury's real list.
@@ -574,5 +575,62 @@ describe("week 1 and each week after (founder 2026-11-20: \"week one cost and th
       expect(lastingThings(w).names.length).toBeGreaterThan(0);
       for (const l of w.shopping) expect(l.label.length).toBeGreaterThan(0);
     }
+  });
+});
+
+// A varied week (founder 2026-11-20: "a lot of them are to do with wraps ... You want kind of like a varied diet ... You can't just do wraps every single
+// day"): never the same dish form twice in a day, never the same form in the same meal two days running, at most two wraps, where the recipes allow it.
+// Every style is measured in tests/eatingStyle.test.ts; these are the plan's other answers.
+describe("a varied week", () => {
+  const forms = (ids: string[][], cands: Parameters<typeof weekForms>[1], slots: readonly MealType[]) => varietyReport(weekForms(ids, cands, slots));
+  const SNACKS = planSlots({ meals: ["breakfast", "lunch", "dinner"], snacks: 2 });
+  const sized = planCandidates(RECIPES, products, none, slotTargets({ meals: ["breakfast", "lunch", "dinner"], snacks: 2 }, { kcal: 2000, protein: 100 }, null), [], "sainsburys");
+
+  it("one size for every meal, each way of repeating, with no budget and the cheapest week", () => {
+    const cands = planCandidates(RECIPES, products, none, target, []);
+    for (const variety of VARIETIES) {
+      for (const budget of [null, 1]) {
+        const plan = makePlan(cands, budget, PLAN_MEALS, variety)!;
+        const r = forms(plan.ids, cands, PLAN_MEALS);
+        expect(r, `${variety} ${budget}`).toEqual({ sameDay: 0, dayAfter: 0, wraps: expect.any(Number) });
+        expect(r.wraps, `${variety} ${budget}`).toBeLessThanOrEqual(MAX_WRAPS_A_WEEK);
+      }
+    }
+  });
+
+  it("two snacks a day: the day's two snacks are different dishes too", () => {
+    const plan = makePlan(sized, null, SNACKS, PER_MEAL_RECIPES)!;
+    const r = forms(plan.ids, sized, SNACKS);
+    expect(r.sameDay).toBe(0);
+    expect(r.wraps).toBeLessThanOrEqual(MAX_WRAPS_A_WEEK);
+    for (const d of plan.ids) expect(d[3]).not.toBe(d[4]);
+  });
+
+  it("a vegetarian at Morrisons and a household's plan (as written) are varied too", () => {
+    const veg = planCandidates(RECIPES, morrisons, { vegetarianOnly: true }, target, [], "morrisons");
+    const vegPlan = makePlan(veg, null)!;
+    expect(forms(vegPlan.ids, veg, PLAN_MEALS)).toEqual({ sameDay: 0, dayAfter: 0, wraps: expect.any(Number) });
+    const written = planCandidates(RECIPES, products, none, { breakfast: { kcal: 500 }, lunch: { kcal: 600 }, dinner: { kcal: 700 } }, [], "sainsburys", true);
+    const home = makePlan(written, null)!;
+    const r = forms(home.ids, written, PLAN_MEALS);
+    expect(r).toEqual({ sameDay: 0, dayAfter: 0, wraps: expect.any(Number) });
+    expect(r.wraps).toBeLessThanOrEqual(MAX_WRAPS_A_WEEK);
+  });
+
+  it("with only wraps to choose from, still makes the week (as varied as the recipes allow)", () => {
+    const cands = planCandidates(RECIPES, products, none, target, []);
+    const wrapsOnly = new Map([...cands].map(([m, l]) => [m, l.filter((c) => c.recipe.ingredients.some((i) => i.pantry === "wraps"))]));
+    const plan = makePlan(wrapsOnly, null)!;
+    expect(plan.week.days).toHaveLength(PLAN_DAYS);
+    expect(forms(plan.ids, wrapsOnly, PLAN_MEALS).wraps).toBe(PLAN_DAYS * PLAN_MEALS.length);
+  });
+
+  it("names each day's dish forms from the candidates the week was made from", () => {
+    const cands = planCandidates(RECIPES, products, none, target, []);
+    const plan = makePlan(cands, null)!;
+    const week = weekForms(plan.ids, cands);
+    expect(week).toHaveLength(PLAN_DAYS);
+    plan.ids.forEach((d, i) => d.forEach((id, j) => expect(week[i]![j]).toBe(dishForm(byId.get(id)!))));
+    expect(weekForms([["not-a-recipe", "x", "y"]], cands)[0]).toEqual([undefined, undefined, undefined]);
   });
 });

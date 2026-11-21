@@ -9,7 +9,7 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, withBetter, fitsStyle, weekCosts, showsWeekAfter, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
 import { localDay } from "@/lib/mm/paid";
 import { betterFor, loadShops as loadShopsWith, previewShop, recipesFor, weekPreview, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -97,6 +97,8 @@ const STEP_PIP: Partial<Record<StepId, PipMood>> = { count: "wave", who: "point"
 const personId = () => `p${Math.random().toString(36).slice(2, 10)}`;
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
 const MEAL_ONE: Record<MealType, string> = { breakfast: tk("breakfast"), lunch: tk("lunch"), dinner: tk("dinner"), snack: tk("snack") };
+/** The ways the eating styles size their meals (mealPlan.ts STYLE_FIT), each worked out once on the style step. */
+const FITS: readonly StyleFit[] = [...new Set(Object.values(STYLE_FIT))];
 
 /**
  * What a style leaves short at the shops chosen, in one short line (founder 2026-11-20: where a meal has too few, say so, and repeat rather than leave a gap;
@@ -435,6 +437,40 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   // the meals with none or few of the style at these shops (mealPlan.ts styleShortfall), once their recipes are worked out
   const short = prep && prep.key === prepKey ? styleShortfall(prep.cands, style, slots, variety) : null;
   const styleNote = short ? styleShortLine(t, style, short) : null;
+  // every style's recipes at these shops for this diet, for the style step (founder 2026-11-20: a style the diet or the shops leave too few recipes for is
+  // greyed with the reason, never hidden): worked out once the chosen style's are, for each way the styles size their meals (mealPlan.ts STYLE_FIT; a
+  // household's are as written, so the same for all), after the screen has drawn
+  const styleKey = workKey(chosen, prefs, ownTargets, leaveOut, cuisinesUsed, household) + slots.join("|");
+  const [byFit, setByFit] = useState<{ key: string; cands: Partial<Record<StyleFit, Candidates>> } | null>(null);
+  const prepReady = !!prep && prep.key === prepKey;
+  useEffect(() => {
+    if (id !== "style" || !prep || !prepReady || byFit?.key === styleKey) return;
+    let live = true;
+    (async () => {
+      const cands: Partial<Record<StyleFit, Candidates>> = {};
+      for (const fit of FITS) {
+        cands[fit] = household || fit === STYLE_FIT[style] ? prep.cands
+          : await workOut(prep.loaded, prefs, styleTargets(ownTargets, EATING_STYLES.find((s) => STYLE_FIT[s] === fit)!), leaveOut, cuisinesUsed, undefined, false);
+        if (!live) return;
+      }
+      setByFit({ key: styleKey, cands });
+    })();
+    return () => { live = false; };
+  }, [id, prepReady, styleKey]); // eslint-disable-line react-hooks/exhaustive-deps -- the keys hold the answers they depend on
+  // each greyed style's reason: "Too few lunches for your diet", or with no diet "Too few lunches at Morrisons" (mealPlan.ts styleTooFew)
+  const styleShort = (() => {
+    const out: Partial<Record<EatingStyle, string>> = {};
+    if (id !== "style" || !byFit || byFit.key !== styleKey) return out;
+    const hasDiet = Object.keys(cleanDiet(prefs)).length > 0;
+    const where = chosen.length === 1 ? names(shopsAll, chosen) : t("your shops");
+    for (const s of EATING_STYLES) {
+      const few = styleTooFew(byFit.cands[STYLE_FIT[s]] ?? new Map(), s, slots);
+      if (!few.length) continue;
+      const meals = new Intl.ListFormat("en-GB", { type: "disjunction" }).format(few.map((m) => t(MEAL_PLURAL[m]!)));
+      out[s] = hasDiet ? t("Too few {meals} for your diet", { meals }) : t("Too few {meals} at {shop}", { meals, shop: where });
+    }
+    return out;
+  })();
   const styleCheckNote = short ? styleShortLine(t, style, short, false) : null;
   // the slider's range for these prices and these people, worked out after the screen has drawn (the spinner shows meanwhile); on the budget step always
   // (the slider shows beside "No budget"), elsewhere only once there is a budget (with none, the week is the best fit)
@@ -476,7 +512,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     const w = plan.week;
     const recipes = new Set([...prep.cands.values()].flat().map((c) => c.recipe.id)).size;
     // how many of them are of the style (its own recipes only, not a meal's any-recipe fallback)
-    const ofStyle = new Set([...prep.cands.values()].flat().filter((c) => fitsStyle(c.perServing, style)).map((c) => c.recipe.id)).size;
+    const ofStyle = new Set([...prep.cands.values()].flat().filter((c) => fitsStyle(c, style)).map((c) => c.recipe.id)).size;
     // the protein the meals are fitted to: the person's own, or more for High protein and Lower carb (styleTargets)
     const fitProtein = style === "balanced" ? daily.protein : slots.reduce((n, m) => n + (targets[m]?.protein ?? 0), 0);
     const products = prep.loaded.reduce((n, l) => n + l.products.length, 0);
@@ -638,7 +674,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
         )}
 
         {/* the person's own diet, or the home's, picks each tile's picture (a recipe they'd eat) */}
-        {id === "style" && <StyleStep value={style} onChange={setStyle} diet={prefs} note={styleNote} />}
+        {id === "style" && <StyleStep value={style} onChange={setStyle} diet={prefs} note={styleNote} short={styleShort} />}
 
         {id === "cuisine" && <CuisinePicker value={cuisines} onChange={setCuisines} diet={prefs} leaveOut={leaveOut} slots={slots} />}
 

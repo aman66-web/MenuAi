@@ -40,7 +40,7 @@ export function swapRows(
   ids.forEach((d, i) => d.forEach((id, j) => { if (i !== day || j !== mealIndex) used.add(id); }));
   return (candidates.get(meal) ?? [])
     .filter((c) => c.recipe.id !== current && fits(c.recipe.id))
-    .map((c) => ({ candidate: c, inPlan: used.has(c.recipe.id), fitsStyle: fitsStyle(c.perServing, style) }));
+    .map((c) => ({ candidate: c, inPlan: used.has(c.recipe.id), fitsStyle: fitsStyle(c, style) })); // the whole candidate, so the ingredient rules (Longevity, Paleo, the diets...) count too
 }
 
 /** What the person has chosen to narrow the list: the search (a test from the screen, matchesRecipeSearch), the quick filters, the cuisines and a price range. */

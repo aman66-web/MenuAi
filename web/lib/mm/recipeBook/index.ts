@@ -5,9 +5,16 @@ import { CORE } from "./core";
 import { DINNER_HOME } from "./dinnerHome";
 import { DINNER_WORLD } from "./dinnerWorld";
 import { EVERYDAY_BREAKFAST } from "./everydayBreakfast";
+import { EVERYDAY_LUNCHES } from "./everydayLunches";
 import { GLUTEN_FREE } from "./glutenFree";
+import { KETO_MEALS } from "./ketoMeals";
+import { LONGEVITY_DINNERS } from "./longevityDinners";
+import { LONGEVITY_MORNING } from "./longevityMorning";
 import { LUNCH } from "./lunch";
+import { MEDITERRANEAN } from "./mediterranean";
 import { MORE_MAINS } from "./moreMains";
+import { PALEO_MEALS } from "./paleoMeals";
+import { QUICK_DINNERS } from "./quickDinners";
 import { SNACKS } from "./snacks";
 import { VEGAN_MAINS } from "./veganMains";
 import { VEGAN_MORNING } from "./veganMorning";
@@ -31,4 +38,18 @@ import { VEGAN_MORNING } from "./veganMorning";
 // for the diets with the fewest recipes (vegan, gluten-free, vegetarian, fish and halal-friendly).
 export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...DINNER_WORLD, ...DINNER_HOME, ...SNACKS, ...CHRISTMAS, ...VEGAN_MORNING, ...VEGAN_MAINS, ...GLUTEN_FREE, ...MORE_MAINS,
   // founder 2026-11-20 ("maybe add some more breakfast items"): everyday British breakfasts, most of them on toast
-  ...EVERYDAY_BREAKFAST];
+  ...EVERYDAY_BREAKFAST,
+  // founder 2026-11-20, 22:25 ("make the most longevity-backed diet ... that's the one that I want to see"): the Longevity style's breakfasts and lunches
+  ...LONGEVITY_MORNING,
+  // founder 2026-11-20, 22:25 (the same "most longevity-backed diet"): its dinners and snacks
+  ...LONGEVITY_DINNERS,
+  // founder 2026-11-20, 22:00 ("Give more options like keto or whatever ... make new recipes"): keto lunches and dinners, which the book had none of
+  ...KETO_MEALS,
+  // founder 2026-11-20, 22:00 ("as many options as you can think about people would choose"): paleo meals (no grains, beans or dairy)
+  ...PALEO_MEALS,
+  // founder 2026-11-20, 22:00 ("as many options as you can think about people would choose"): Mediterranean-style chicken, fish and bean dishes
+  ...MEDITERRANEAN,
+  // founder 2026-11-20 ("a lot of them are to do with [wraps] ... You can't just do [wraps] every single day"): lunches that aren't wraps
+  ...EVERYDAY_LUNCHES,
+  // founder 2026-11-20 ("You want kind of like a varied diet"): weeknight dinners in 20 minutes or less, so the Quick style has one for every night
+  ...QUICK_DINNERS];

@@ -1,0 +1,221 @@
+import { ing, type Recipe } from "../recipes";
+
+// Everyday lunches that aren't wraps (founder 2026-11-20 on the meal plan: "a lot of them are to do with [wraps] ... You want kind of like a varied diet ...
+// You can't just do [wraps] every single day"; 13 of the book's 41 lunches were wraps): sandwiches on wholemeal bread, soups with toast, crushed new
+// potatoes, rice bowls, omelettes and pasta. See lib/mm/recipeBook/index.ts for the rules every recipe follows.
+
+export const EVERYDAY_LUNCHES: readonly Recipe[] = [
+  {
+    id: "tuna-sweetcorn-cucumber-sandwiches", meal: "lunch", tags: ["Quick", "Fish", "British"], name: "Tuna, sweetcorn and cucumber sandwiches", blurb: "Tuna and sweetcorn mayonnaise with crisp cucumber in wholemeal bread.", servings: 2, minutes: 15,
+    ingredients: [ing("bread", 160), ing("tuna", 160), ing("sweetcorn", 100), ing("light-mayo", 30), ing("cucumber", 80), ing("black-pepper", 1)],
+    method: [
+      "Get the sweetcorn ready: Drain tinned sweetcorn in a sieve. If it is frozen, cook it in a small pan of boiling water for 2 to 3 minutes, drain it and cool it under the cold tap.",
+      "Drain the tuna: Open the tins and press the lids down firmly over the sink to squeeze out all the liquid. Tip the tuna into a bowl and break it into flakes with a fork.",
+      "Mix the filling: Add the sweetcorn, the mayonnaise and a good grind of black pepper to the tuna and stir until everything is coated.",
+      "Slice the cucumber: Wash the cucumber and cut it into thin rounds, about as thick as a pound coin.",
+      "Fill the sandwiches: Lay half the bread on a board. Spread the tuna filling evenly over it, right to the edges, then lay the cucumber slices on top.",
+      "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Eat straight away, or wrap them and keep them in the fridge to eat the same day.",
+    ],
+  },
+  {
+    id: "chicken-salad-sandwiches", meal: "lunch", tags: ["British"], name: "Chicken salad sandwiches", blurb: "Pan-fried chicken breast with lettuce, tomato and mayonnaise in wholemeal bread.", servings: 2, minutes: 20,
+    ingredients: [ing("bread", 160), ing("chicken", 200), ing("lettuce", 60), ing("tomatoes", 120), ing("light-mayo", 30), ing("olive-oil", 5), ing("black-pepper", 1)],
+    method: [
+      "Get the salad ready: Wash the lettuce and tomatoes and shake them dry. Shred the lettuce and cut the tomatoes into thin slices.",
+      "Thin the chicken: Lay the chicken on a board and slice each fillet in half sideways, so it is thinner and cooks evenly. Wash your hands, the board and the knife after touching raw chicken.",
+      "Fry the chicken: Heat the oil in a non-stick frying pan on a medium-high heat. Fry the chicken for 4 to 5 minutes on each side, until golden.",
+      "Check the chicken: Cut into the thickest piece. It must be piping hot all the way through, with no pink left and clear juices. Cook it a little longer if not, then leave it to cool for 5 minutes.",
+      "Slice the chicken: Cut the chicken into thin slices and add a good grind of black pepper.",
+      "Fill the sandwiches: Lay half the bread on a board and spread the mayonnaise over it. Add the lettuce, then the chicken, then the tomato slices.",
+      "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Keep any for later in the fridge and eat it the same day.",
+    ],
+  },
+  {
+    id: "egg-mayo-lettuce-sandwiches", meal: "lunch", tags: ["Eggs", "British"], name: "Egg mayonnaise and lettuce sandwiches", blurb: "Mashed boiled eggs in mayonnaise with shredded lettuce in wholemeal bread.", servings: 2, minutes: 15,
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("light-mayo", 40), ing("lettuce", 40), ing("bread", 160), ing("black-pepper", 1)],
+    method: [
+      "Boil the eggs: Half-fill a saucepan with water and bring it to the boil. Lower the eggs in gently on a spoon and boil them for 9 to 10 minutes, until the whites and yolks are completely set. Wash your hands after touching raw eggs.",
+      "Cool the eggs: Drain the eggs and run cold water over them for 2 to 3 minutes, until they are cool enough to hold.",
+      "Peel the eggs: Tap each egg on the worktop, roll it gently to crack the shell all over and peel it off under the cold tap.",
+      "Mix the filling: Mash the eggs in a bowl with a fork, then stir in the mayonnaise and a good grind of black pepper.",
+      "Get the lettuce ready: Wash the lettuce, shake it dry and shred it thinly.",
+      "Fill the sandwiches: Lay half the bread on a board and spread the egg mayonnaise over it, right to the edges. Scatter the lettuce on top.",
+      "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Keep any for later in the fridge and eat it the same day.",
+    ],
+  },
+  {
+    id: "cheddar-apple-spinach-sandwiches", meal: "lunch", tags: ["Quick", "No cook", "British"], name: "Cheddar, apple and spinach sandwiches", blurb: "Mature cheddar, thin apple slices and spinach with a little mustard in wholemeal bread.", servings: 2, minutes: 10,
+    ingredients: [ing("bread", 160), ing("cheddar", 60), ing("apple", 150, { note: "about 1 apple" }), ing("spinach", 40), ing("mustard", 5)],
+    method: [
+      "Get ready: Rinse the spinach unless the bag says it is ready washed and shake it dry. Wash the apple.",
+      "Slice the apple: Cut the apple into quarters and cut out the core. Slice each quarter thinly, skin and all.",
+      "Slice the cheese: Cut the cheddar into thin slices with a sharp knife, or grate it on the coarse side of a grater.",
+      "Spread the mustard: Lay half the bread on a board and spread the mustard very thinly over it.",
+      "Fill the sandwiches: Cover the mustard with the spinach, then the apple slices, then the cheese, right to the edges.",
+      "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Eat them soon, before the apple turns brown.",
+    ],
+  },
+  {
+    id: "mushroom-soup-toast", meal: "lunch", tags: ["Soup", "Make ahead"], name: "Mushroom soup with toast", blurb: "A smooth mushroom and onion soup with wholemeal toast on the side.", servings: 4, minutes: 30,
+    ingredients: [ing("mushrooms", 500), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("milk", 300), ing("stock-cube", 6), ing("olive-oil", 15), ing("mixed-herbs", 1), ing("black-pepper", 1), ing("bread", 320)],
+    method: [
+      "Get ready: Peel and chop the onion. Wipe the mushrooms clean and slice them.",
+      "Soften the onion: Heat the oil in a large saucepan on a medium heat. Fry the onion for 5 minutes, stirring now and then, until soft but not brown.",
+      "Cook the mushrooms: Add the mushrooms, the garlic purée and the dried herbs. Cook for 8 to 10 minutes, stirring often, until the mushrooms are soft and most of their liquid has gone.",
+      "Add the stock: Crumble the stock cube into a heatproof jug and stir in 500 ml of boiling water until it dissolves. Pour it into the pan.",
+      "Simmer the soup: Bring it to the boil, then turn the heat down and simmer gently for 10 minutes.",
+      "Blend the soup: Take the pan off the heat, pour in the milk and blend with a stick blender until smooth. Warm it on a low heat for 2 minutes without letting it boil, then add black pepper.",
+      "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
+      "Serve: Ladle the soup into warm bowls and serve the toast on the side. Cool any left over quickly, keep it in the fridge and eat it within 2 days.",
+    ],
+  },
+  {
+    id: "chicken-vegetable-soup", meal: "lunch", tags: ["Soup", "Make ahead", "British"], name: "Chicken and vegetable soup with toast", blurb: "Chunks of chicken, carrot, onion and peas in a herby broth, with wholemeal toast.", servings: 4, minutes: 40,
+    ingredients: [ing("chicken", 400), ing("carrots", 300, { note: "about 3 carrots" }), ing("onion", 150, { note: "about 1 onion" }), ing("peas", 200), ing("stock-cube", 12), ing("mixed-herbs", 1), ing("olive-oil", 10), ing("black-pepper", 1), ing("bread", 320)],
+    method: [
+      "Get ready: Peel and chop the onion. Peel the carrots and cut them into small cubes, about 1 cm across.",
+      "Cut the chicken: Cut the chicken into small pieces, about 2 cm across. Wash your hands, the board and the knife after touching raw chicken.",
+      "Soften the onion and carrots: Heat the oil in a large saucepan on a medium heat. Fry the onion and carrots for 5 minutes, stirring now and then, until the onion is soft.",
+      "Add the chicken: Add the chicken and cook for 3 to 4 minutes, stirring, until it is white all over.",
+      "Add the stock: Crumble the stock cubes into a heatproof jug and stir in 900 ml of boiling water until they dissolve. Pour it into the pan and stir in the dried herbs.",
+      "Simmer the soup: Bring it to the boil, then turn the heat down, cover and simmer for 15 minutes, until the carrots are soft.",
+      "Add the peas: Stir in the peas and simmer for 3 to 4 minutes more. Cut into a few of the biggest pieces of chicken: they must be piping hot all the way through with no pink left.",
+      "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
+      "Serve: Add a grind of black pepper, ladle the soup into warm bowls and serve the toast on the side. Cool any left over quickly, keep it in the fridge and eat it within 2 days.",
+    ],
+  },
+  {
+    id: "crushed-potatoes-tuna-sweetcorn", meal: "lunch", tags: ["Quick", "Fish"], name: "Crushed new potatoes with tuna and sweetcorn", blurb: "Warm crushed new potatoes and sweetcorn topped with tuna, spring onion and yogurt.", servings: 2, minutes: 20,
+    ingredients: [ing("new-potatoes", 500), ing("tuna", 160), ing("sweetcorn", 150), ing("greek-yogurt", 80), ing("spring-onions", 30), ing("salad-leaves", 60), ing("black-pepper", 1)],
+    method: [
+      "Warm the potatoes: Drain the potatoes, put them in a saucepan and cover them with boiling water from the kettle. Simmer for 2 minutes on a medium heat.",
+      "Add the sweetcorn: Drain the sweetcorn if it is tinned. Tip it into the pan with the potatoes and simmer for 3 to 4 minutes more, until everything is hot all the way through.",
+      "Make the topping: Meanwhile, drain the tuna well and flake it into a bowl. Slice the spring onions thinly and stir them in with the yogurt and a good grind of black pepper.",
+      "Crush the potatoes: Drain the potatoes and sweetcorn in a colander and tip them back into the pan. Press each potato with a fork so it splits open but keeps some shape.",
+      "Get the leaves ready: Rinse the salad leaves unless the bag says they are ready washed and shake them dry.",
+      "Serve: Spread the salad leaves on plates, spoon the warm potatoes and sweetcorn on top and finish with the tuna and yogurt topping.",
+    ],
+  },
+  {
+    id: "cheesy-beans-crushed-potatoes", meal: "lunch", tags: ["Quick", "British"], name: "Cheesy beans with crushed new potatoes", blurb: "Crushed new potatoes under hot baked beans and spinach, with melting cheddar on top.", servings: 2, minutes: 20,
+    ingredients: [ing("new-potatoes", 500), ing("baked-beans", 400), ing("cheddar", 40), ing("spinach", 60), ing("black-pepper", 1)],
+    method: [
+      "Warm the potatoes: Drain the potatoes, put them in a saucepan and cover them with boiling water from the kettle. Simmer on a medium heat for 5 to 6 minutes, until hot all the way through.",
+      "Get ready: Meanwhile, grate the cheddar on the coarse side of a grater. Rinse the spinach unless the bag says it is ready washed.",
+      "Warm the beans: Tip the beans into a small saucepan and warm them on a medium heat for 4 to 5 minutes, stirring now and then, until bubbling and steaming hot.",
+      "Wilt the spinach: Stir the spinach into the beans for 1 to 2 minutes, until soft and dark green. Add a good grind of black pepper.",
+      "Crush the potatoes: Drain the potatoes and tip them back into their pan. Press each one with a fork so it splits open but keeps some shape.",
+      "Serve: Spoon the potatoes on to warm plates, pour the beans and spinach over them and scatter the cheese on top so it starts to melt.",
+    ],
+  },
+  {
+    id: "tuna-cucumber-rice-bowl", meal: "lunch", tags: ["Quick", "Fish", "Bowl"], name: "Tuna, cucumber and sweetcorn rice bowl", blurb: "Warm rice topped with tuna, cucumber, sweetcorn and spring onion, with a soy and lemon dressing.", servings: 2, minutes: 20,
+    ingredients: [ing("rice", 150), ing("tuna", 160), ing("cucumber", 150), ing("sweetcorn", 100), ing("soy", 10), ing("spring-onions", 30), ing("lemon-juice", 10)],
+    method: [
+      "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water and simmer for 10 to 12 minutes, until soft with no hard centre.",
+      "Add the sweetcorn: For the last 3 minutes, add the sweetcorn to the rice pan so it heats through. Drain them together well in the sieve.",
+      "Chop the cucumber: Meanwhile, cut the cucumber into small cubes, about 1 cm across, and slice the spring onions thinly.",
+      "Make the dressing: Stir the soy sauce and lemon juice together in a cup.",
+      "Drain the tuna: Open the tins, press the lids down over the sink to squeeze out the liquid and break the tuna into flakes.",
+      "Serve: Spoon the rice and sweetcorn into bowls. Top with the tuna, cucumber and spring onions and spoon the dressing over. Eat straight away, or cool any left within an hour, keep it in the fridge and eat it within a day.",
+    ],
+  },
+  {
+    id: "ham-pea-cheddar-omelette", meal: "lunch", tags: ["Eggs", "Quick"], name: "Ham, pea and cheddar omelette", blurb: "A folded omelette filled with ham, peas and melting cheddar.", servings: 1, minutes: 15,
+    ingredients: [ing("eggs", 180, { note: "about 3 eggs" }), ing("ham", 50), ing("peas", 60), ing("cheddar", 20, { role: "carb" }), ing("olive-oil", 5), ing("black-pepper", 1)],
+    method: [
+      "Cook the peas: Put the peas in a small pan of boiling water from the kettle and simmer for 2 to 3 minutes, until hot. Drain them well.",
+      "Get the filling ready: Tear the ham into small pieces and grate the cheddar on the coarse side of a grater.",
+      "Beat the eggs: Crack the eggs into a jug, picking out any shell. Add a grind of black pepper and beat with a fork until smooth. Wash your hands after touching raw eggs.",
+      "Start the omelette: Heat the oil in a non-stick frying pan, about 20 cm across, on a medium heat. Pour in the eggs and tilt the pan so they cover the bottom.",
+      "Cook the eggs: Cook for 1 to 2 minutes, pulling the set edges into the middle with a spatula and tipping the runny egg into the gaps.",
+      "Add the filling: While the top is still a little runny, scatter the ham, peas and cheese over one half. Cook for 1 to 2 minutes more, until the egg is completely set with no runny egg left.",
+      "Serve: Fold the omelette in half over the filling with the spatula and slide it on to a warm plate.",
+    ],
+  },
+  {
+    id: "chicken-rice-spinach-lemon-bowl", meal: "lunch", tags: ["Bowl", "One pan"], name: "Lemon chicken, rice and spinach bowl", blurb: "Golden garlic and lemon chicken with peas and wilted spinach on rice.", servings: 2, minutes: 25,
+    ingredients: [ing("chicken", 240), ing("rice", 140), ing("spinach", 100), ing("peas", 100), ing("lemon-juice", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("olive-oil", 10), ing("black-pepper", 1)],
+    method: [
+      "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water and simmer for 10 to 12 minutes, until soft with no hard centre.",
+      "Cut the chicken: Meanwhile, cut the chicken into bite-sized pieces, about 2 cm across. Wash your hands, the board and the knife after touching raw chicken.",
+      "Fry the chicken: Heat the oil in a large non-stick frying pan on a medium-high heat. Fry the chicken for 6 to 8 minutes, turning it now and then, until golden on all sides.",
+      "Check the chicken: Cut into the biggest piece. It must be piping hot all the way through with no pink left. Cook it a little longer if not.",
+      "Add the garlic and peas: Turn the heat down to medium. Stir in the garlic purée and the peas and cook for 2 to 3 minutes, until the peas are hot.",
+      "Wilt the spinach: Add the spinach a handful at a time and stir for about 2 minutes, until soft and dark green. Stir in the lemon juice and a grind of black pepper.",
+      "Serve: Drain the rice well, spoon it into warm bowls and pile the chicken, peas and spinach on top with the pan juices.",
+    ],
+  },
+  {
+    id: "tomato-soup-cheese-on-toast", meal: "lunch", tags: ["Soup", "British"], name: "Tomato soup with cheese on toast", blurb: "A smooth tomato, onion and carrot soup with bubbling cheddar on wholemeal toast.", servings: 4, minutes: 30,
+    ingredients: [ing("chopped-tomatoes", 800), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 150), ing("garlic", 10, { note: "about 2 cloves" }), ing("stock-cube", 6), ing("olive-oil", 15), ing("mixed-herbs", 1), ing("bread", 320), ing("cheddar", 80), ing("black-pepper", 1)],
+    method: [
+      "Get ready: Peel and chop the onion. Peel the carrots and slice them thinly, so they soften quickly.",
+      "Soften the onion and carrots: Heat the oil in a large saucepan on a medium heat. Fry the onion and carrots for 8 minutes, stirring now and then, until the onion is soft.",
+      "Add the garlic: Stir in the garlic purée and the dried herbs and cook for 1 minute, stirring so the garlic doesn't burn.",
+      "Add the stock: Crumble the stock cube into a heatproof jug and stir in 300 ml of boiling water until it dissolves. Pour it into the pan with the chopped tomatoes.",
+      "Simmer the soup: Bring it to the boil, then turn the heat down and simmer for 15 minutes, until the carrots are soft.",
+      "Blend the soup: Take the pan off the heat and blend with a stick blender until smooth. Add black pepper and keep it warm on a low heat.",
+      "Make the cheese on toast: Turn the grill to medium-high and grate the cheddar. Toast the bread on one side for 1 to 2 minutes, turn it, cover with the cheese and grill for 2 to 3 minutes, until bubbling and golden.",
+      "Serve: Ladle the soup into warm bowls and serve the cheese on toast on the side. Leave the toast for a minute first, as the cheese is very hot.",
+    ],
+  },
+  {
+    id: "pea-ham-potato-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "New potato, ham and pea salad", blurb: "New potatoes, ham, peas and spring onion in a mustard yogurt dressing on crisp lettuce.", servings: 2, minutes: 20,
+    ingredients: [ing("new-potatoes", 400), ing("ham", 100), ing("peas", 120), ing("spring-onions", 30), ing("greek-yogurt", 80), ing("mustard", 5), ing("lettuce", 60), ing("black-pepper", 1)],
+    method: [
+      "Cook the peas: Bring a small saucepan of water to the boil, add the peas and cook for 3 minutes. Drain them in a sieve and cool them under the cold tap.",
+      "Prepare the potatoes: Drain the potatoes, cut any large ones in half and put them in a large bowl.",
+      "Make the dressing: Stir the yogurt, mustard and a good grind of black pepper together in a mug until smooth.",
+      "Chop the rest: Slice the spring onions thinly and tear the ham into bite-sized pieces. Wash the lettuce, shake it dry and shred it.",
+      "Mix the salad: Add the peas, spring onions and ham to the potatoes, spoon the dressing over and turn everything gently until coated.",
+      "Serve: Spread the lettuce on plates and pile the salad on top. Keep any for later covered in the fridge and eat it within a day.",
+    ],
+  },
+  {
+    id: "spinach-tomato-cheddar-pasta", meal: "lunch", tags: ["Pasta", "Quick", "Italian"], name: "Spinach, tomato and cheddar pasta", blurb: "Pasta in a creamy garlic sauce with spinach, warm cherry tomatoes and cheddar.", servings: 2, minutes: 20,
+    // the sauce follows the pasta, so there is always enough to coat it
+    ingredients: [ing("pasta-shapes", 160), ing("spinach", 100), ing("cherry-tomatoes", 150), ing("cheddar", 50), ing("soft-cheese", 60, { follows: "pasta-shapes" }), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1)],
+    method: [
+      "Cook the pasta: Bring a large pan of water to the boil. Add the pasta and cook it for the time on the pack, usually 10 to 12 minutes, stirring once or twice, until soft with no hard centre.",
+      "Get ready: Meanwhile, cut the cherry tomatoes in half and grate the cheddar finely. Rinse the spinach unless the bag says it is ready washed.",
+      "Save some water: Scoop out a mugful of the pasta water, then drain the pasta in a colander.",
+      "Make the sauce: Put the empty pan on a low heat. Add the soft cheese, the garlic purée and a splash of the pasta water and stir for 1 to 2 minutes, until smooth.",
+      "Add the spinach and tomatoes: Stir in the spinach and cherry tomatoes for 2 to 3 minutes, until the spinach is soft and dark green and the tomatoes are warm.",
+      "Mix it together: Tip the pasta back in with most of the cheddar and stir until every piece is coated. Add a little more pasta water if it is too thick.",
+      "Serve: Spoon the pasta into warm bowls, scatter the rest of the cheddar on top and add a grind of black pepper.",
+    ],
+  },
+  {
+    id: "sweetcorn-pepper-fritters-salad", meal: "lunch", tags: ["Eggs", "Brunch"], name: "Sweetcorn and pepper fritters with salad", blurb: "Golden sweetcorn, pepper and spring onion fritters with salad leaves and tomato salsa.", servings: 2, minutes: 25,
+    ingredients: [ing("sweetcorn", 200), ing("peppers", 160, { note: "about 1 pepper" }), ing("eggs", 120, { note: "about 2 eggs" }), ing("oats", 60), ing("spring-onions", 30), ing("olive-oil", 15), ing("salad-leaves", 60), ing("salsa", 40), ing("black-pepper", 1)],
+    method: [
+      "Get the vegetables ready: Drain tinned sweetcorn, or thaw frozen sweetcorn in a sieve under the cold tap and shake it dry. Cut the pepper into small cubes, about 1 cm across, and slice the spring onions thinly.",
+      "Make the batter: Crack the eggs into a large bowl, picking out any shell, and beat them with a fork. Stir in the oats and leave for 5 minutes to soften. Wash your hands after touching raw eggs.",
+      "Add the vegetables: Stir the sweetcorn, pepper, spring onions and a good grind of black pepper into the batter until well mixed.",
+      "Heat the pan: Heat half the oil in a large non-stick frying pan on a medium heat for 1 minute.",
+      "Fry the fritters: Drop in heaped tablespoons of the mixture, spaced well apart, and flatten each one a little. Fry for 3 to 4 minutes on each side, until golden and the egg is completely set in the middle.",
+      "Cook the rest: Keep the first fritters warm on a plate. Add the rest of the oil to the pan and fry the rest of the mixture the same way.",
+      "Serve: Pile the salad leaves on plates, add the fritters and spoon the salsa on the side.",
+    ],
+  },
+];
+
+// How each looks from directly above, for its picture (docs/RECIPE_IMAGE_PROMPTS.md): one portion, only the recipe's own foods, served as the method says.
+export const EVERYDAY_LUNCHES_LOOKS: Readonly<Record<string, string>> = {
+  "tuna-sweetcorn-cucumber-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing a creamy tuna and yellow sweetcorn filling under thin green-edged cucumber rounds.",
+  "chicken-salad-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the cut edges showing golden slices of pan-fried chicken, crisp shredded green lettuce, red tomato slices and a thin layer of mayonnaise.",
+  "egg-mayo-lettuce-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing a thick pale yellow egg mayonnaise filling with shredded green lettuce, flecked with black pepper.",
+  "cheddar-apple-spinach-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the cut edges showing layers of dark green spinach leaves, thin red-skinned apple slices and pale orange mature cheddar.",
+  "mushroom-soup-toast": "A round white bowl of smooth, creamy pale brown mushroom soup flecked with tiny dark specks of herbs and black pepper, beside two slices of golden wholemeal toast on a small white plate.",
+  "chicken-vegetable-soup": "A round white bowl of golden broth filled with small cubes of orange carrot, soft onion, bright green peas and pale chunks of chicken, flecked with dried herbs, beside two slices of golden wholemeal toast.",
+  "crushed-potatoes-tuna-sweetcorn": "Warm crushed new potatoes with bright yellow sweetcorn on a bed of green salad leaves on a round white plate, topped with flaked tuna in thick white yogurt and thin green spring onion slices, flecked with black pepper.",
+  "cheesy-beans-crushed-potatoes": "Crushed new potatoes on a round white plate under glossy orange-red baked beans and dark green wilted spinach, topped with a scatter of grated orange cheddar just starting to melt and flecks of black pepper.",
+  "tuna-cucumber-rice-bowl": "A round white bowl of white rice topped in neat sections with flaked tuna, small green-edged cubes of cucumber and bright yellow sweetcorn, scattered with thin green spring onion slices and a glossy brown dressing.",
+  "ham-pea-cheddar-omelette": "A golden folded omelette on a round white plate, its open edge showing pink pieces of ham, bright green peas and melted orange cheddar, with a few flecks of black pepper on top.",
+  "chicken-rice-spinach-lemon-bowl": "A round white bowl of white rice topped with golden pieces of pan-fried chicken, bright green peas and dark green wilted spinach, glistening with pan juices and flecked with black pepper.",
+  "tomato-soup-cheese-on-toast": "A round white bowl of smooth, deep orange-red tomato soup flecked with dried herbs and black pepper, beside two slices of wholemeal toast covered with bubbling, golden-brown melted cheddar on a small white plate.",
+  "pea-ham-potato-salad": "Halved new potatoes, pink pieces of ham, bright green peas and thin spring onion slices coated in a creamy pale mustard yogurt dressing, piled on shredded green lettuce on a round white plate.",
+  "spinach-tomato-cheddar-pasta": "A round white bowl of pasta shapes in a creamy pale sauce with dark green wilted spinach and halved red cherry tomatoes, topped with finely grated orange cheddar and flecks of black pepper.",
+  "sweetcorn-pepper-fritters-salad": "Four round golden-brown fritters dotted with yellow sweetcorn, red pepper and green spring onion on a round white plate, beside a heap of mixed green salad leaves and a small pile of red tomato salsa.",
+};

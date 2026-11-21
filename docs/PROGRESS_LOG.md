@@ -3807,3 +3807,19 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   new "Then {price} {per}.", "Get more with Premium" (no trial left for this Apple ID), "How your free trial works"; removed "See everything Premium adds" and,
   on the trial offer, "You can still have a {days}-day free trial.". `PremiumPictures.tsx`, tests/premiumSheet.test.ts; e2e iap 11/12 (the one left clicks the
   old welcome screens). The free-until switch and the trial offer before Home were built then removed at the founder's change of plan.
+- (about 00:40, 21 Nov) **15 eating styles, 115 new recipes, and varied weeks** (founder: "Give more options like keto ... as many options as you can think about
+  people would choose ... make new recipes and use the Higgsfield connector ... about 100 more recipes"; "make the most longevity-backed diet ... that's the one
+  that I want to see"; "a lot of them are to do with [wraps] ... You can't just do [wraps] every single day"). Meal plan's "How do you like to eat?": Balanced,
+  **Longevity** (second; rule: no meat other than fish, at least one of pulses, nuts or seeds, oily fish or whole grains, 80 g of vegetables and fruit a meal, no
+  sweetened kinds, olive oil only, fibre at least 1.5 g per 100 kcal, saturates under 10% of calories, salt under 0.3 g per 100 kcal; the studies (PREDIMED,
+  Trichopoulou 2003, Blue Zones, Adventist Health Study-2, EAT-Lancet, GBD 2017) in the code comment only; the tile says "Vegetables, beans, nuts, olive oil and
+  fish", never that it makes anyone live longer: **the name "Longevity" is the founder's accepted risk under rule 3**), High protein, Lower carb, Mediterranean,
+  Keto (carbs at most 10% of calories), Paleo, Vegetarian, Vegan, Pescatarian, Quick, **Lower fat** and **More fibre** (renamed from "Low fat" and "High fibre":
+  those are UK-regulated claim words whose legal thresholds are stricter than our rules), Lower sugar, Lower salt; each a picture tile, greyed with a reason when
+  the person's diet or shop leaves too few. 115 recipes in 7 new files (recipeBook/longevityMorning, longevityDinners, ketoMeals, paleoMeals, mediterranean,
+  everydayLunches, quickDinners): 293 in the book; Sainsbury's makes 293, Morrisons 289, Waitrose 240, Iceland 228, Asda 218. **Variety**: lib/mm/dishForm.ts (27
+  dish forms), the plan never repeats a form in a day or in a meal two days running, at most 2 wraps a week (MAX_WRAPS_A_WEEK), and Your plan's example the same.
+  New constants for the founder's yes: LONGEVITY_FIBRE_PER_100KCAL 1.5, LONGEVITY_SALT_PER_100KCAL 0.3, LONGEVITY_SATURATES_MAX 0.1, VEG_FRUIT_MIN_G 80,
+  MEDITERRANEAN_CHEESE_MAX_G 40, KETO_CARBS_MAX 0.10, MAX_WRAPS_A_WEEK 2. Pictures: 12 made in Higgsfield (now 1 credit each, not 0.5); the other 103 next.
+  Swap now judges a style on the whole recipe (ingredient rules too). Tests: vitest 3,600 pass; e2e mealplan 13/13, household 6/6, showcase 14/14, recipes 17/17,
+  photorecipe 18/18, smoke 24/24.
