@@ -3858,3 +3858,16 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   screen, "Numbite Premium", £49.99 a year / £4.99 a month, no trial; the old one said "Numbite Pro" and "First 7 days free"). What's New kept ("Try it free
   for 7 days" is still true). Manual release kept. A draft submission holds the 4 items (iOS App 1.1 (10), Annual, Monthly, the Numbite Premium group);
   **Submit for Review waits for the founder's word.**
+- (01:34-01:50, 21 Nov) **DeviceCheck key, build 10 submitted, the payments tried** (founder: "tell me how to do the device check key ... do as much as you can",
+  then "run it, and also submit for review, please", then "can you try out the payments? Make sure the 7-day free trial is there, and ... they don't get another").
+  **DeviceCheck:** key "Numbite DeviceCheck" (Key ID BDJV2ZFAM8, DeviceCheck only) made in Apple Developer › Keys, its file downloaded once to the founder's
+  Downloads (`AuthKey_BDJV2ZFAM8.p8`, 257 bytes; never opened or shown; the founder keeps it as the backup); Vercel Production: `DEVICECHECK_KEY_ID`,
+  `DEVICECHECK_TEAM_ID` (S7G6ZHHK59) and `DEVICECHECK_PRIVATE_KEY` (Sensitive, read straight from the file with `vercel env add ... --sensitive < file`, no
+  overwrite); numbite.com redeployed (`vercel redeploy` of the production deployment, ready in 1 minute, aliased); live POST /api/v1/entitlement/account answers
+  401 with no session and with a forged one. **App Review:** the draft (iOS App 1.1 (10), Annual, Monthly, the Numbite Premium group) submitted at about 01:40:
+  "4 Items Submitted", 1.1 "Waiting for Review", manual release. **The payments tried:** vitest freeWeek, accountAccess, entitlements, iap, premiumFeatures,
+  premiumSheet 77/77 (first sign-in gets 7 days; asking again keeps the same end; after it, no token and the plans; never twice for one email, a deleted account,
+  a +tag, one Apple ID, or one iPhone by DeviceCheck; gifts; purchases win); browser tests on a test copy of build 10's packed app with a pretend iPhone and
+  server: e2e/freeweek.mjs 7/7 (Premium on with nothing to type, "Free week: 7 days left", "1 day left", "Your free week has ended" with the plans, gift,
+  purchase wins, sign-out forgets), e2e/iap.mjs 11/12 (the one failure is the stale step about the old trial pop-up's timing, from before the free week; buying,
+  cancel, Ask to Buy, restore and refund pass). Not tried by Claude: a real sign-in on a real iPhone (the founder's own sign-in) and an Apple sandbox purchase.
