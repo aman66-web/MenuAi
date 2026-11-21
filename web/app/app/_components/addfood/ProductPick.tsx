@@ -13,6 +13,7 @@ import { normalizeForSearch } from "@/lib/mm/search";
 import { addLogEntry, countProAction, deleteLogEntry } from "@/lib/mm/stores";
 import type { LogMeal, Nutrients } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
+import { ShopMark } from "../ChainMark";
 import { NumberDone } from "../SearchDone";
 import { AlertCircleIcon, MinusIcon, PencilIcon, PlusIcon, ScanIcon } from "../icons";
 import { InfoLine } from "../Note";
@@ -277,7 +278,8 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
       <div className="flex items-center gap-3.5">
         <PhotoTile sources={product.photos} />
         <div className="min-w-0 flex-1">
-          <p className="text-[0.875rem] font-semibold leading-snug text-muted [overflow-wrap:anywhere]">{fromName}</p>
+          {/* the shop's own logo next to its name (founder 2026-11-21: "We need logos everywhere"); a brand or "Groceries" has none */}
+          <p className="flex items-center gap-1.5 text-[0.875rem] font-semibold leading-snug text-muted [overflow-wrap:anywhere]">{product.shop && <ShopMark shopId={product.shop} size="xs" />}<span className="min-w-0">{fromName}</span></p>
           <p className="mt-0.5 text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{product.name}</p>
         </div>
       </div>

@@ -19,6 +19,10 @@ const only = process.argv.slice(2);
 const manifest = JSON.parse(readFileSync(new URL("../public/menus/menus-manifest.json", import.meta.url), "utf8"));
 const shops = ["sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "waitrose", "iceland", "marks-and-spencer", "coop", "ocado"];
 const LOGOS = process.env.NO_LOGOS !== "1";
+// shots that show a product's own photo as the app does (founder 2026-11-21, on the Asda milk: "should have the Asda logo and also an image of ... the food
+// itself"): the supermarket's picture from its own image server or our stored copy of it; every other photo stays refused
+const PHOTO_SHOTS = new Set(LOGOS ? (process.env.PHOTO_SHOTS ?? "04-scan").split(",").filter(Boolean) : []);
+const PHOTO_HOST = /^https:\/\/(asdagroceries\.scene7\.com|assets\.sainsburys-groceries\.co\.uk|groceries\.morrisons\.com|ecom-su-static-prod\.wtrecom\.com|assets\.iceland\.co\.uk|assets\.digitalcontent\.marksandspencer\.app|dm\.emea\.cms\.aldi\.cx)\//;
 const hidden = LOGOS ? [] : [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
 const { privateJwk } = JSON.parse(readFileSync(new URL("./.paykey.json", import.meta.url), "utf8"));
 const DAY = 86_400_000;
@@ -44,7 +48,7 @@ const log = JSON.stringify({ v: 1, data: [
 
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
-async function page() {
+async function page(name) {
   const ctx = await browser.newContext({ viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, colorScheme: "light", isMobile: true, hasTouch: true, serviceWorkers: "block" });
   await ctx.addInitScript(([s, h, p, l]) => {
     if (sessionStorage.getItem("seeded")) return;
@@ -76,12 +80,17 @@ async function page() {
   await p.route(`${LIVE}/**`, (r) => r.abort());
   await p.route(/\/(menu-images|grocery-images)\//, (r) => r.abort());
   await p.route((url) => url.protocol === "https:" && url.origin !== new URL(LIVE).origin, (r) => r.abort());
+  if (PHOTO_SHOTS.has(name)) {
+    await p.route(/\/grocery-images\//, (r) => r.continue());
+    await p.route((url) => PHOTO_HOST.test(url.href), (r) => r.continue());
+  }
   return { ctx, p };
 }
 
 async function save(p, name) {
   await p.waitForTimeout(1200);
-  const drawn = await p.evaluate((logos) => [...document.images].filter((i) => (logos ? /menu-images|grocery-images/ : /\/logos\/|menu-images|grocery-images/).test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length, LOGOS);
+  const photos = PHOTO_SHOTS.has(name);
+  const drawn = await p.evaluate(([logos, photos]) => [...document.images].filter((i) => (logos ? (photos ? /menu-images/ : /menu-images|grocery-images|scene7|groceries-co|wtrecom|iceland|marksandspencer|aldi\.cx|morrisons/) : /\/logos\/|menu-images|grocery-images/).test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length, [LOGOS, photos]);
   if (drawn) throw new Error(`${name}: ${drawn} ${LOGOS ? "photo" : "logo or photo"} images on screen`);
   const logos = await p.evaluate(() => [...document.images].filter((i) => /\/logos\//.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
   await p.screenshot({ path: `${OUT}${name}.png` });
@@ -164,7 +173,7 @@ const SHOTS = {
 
 for (const [name, go] of Object.entries(SHOTS)) {
   if (only.length && !only.includes(name)) continue;
-  const { ctx, p } = await page();
+  const { ctx, p } = await page(name);
   try { await go(p); await save(p, name); } catch (e) { console.log("FAILED", name, String(e.message).split("\n")[0]); }
   await ctx.close();
 }

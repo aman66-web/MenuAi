@@ -19,6 +19,7 @@ import { useT } from "../../_lib/i18n";
 import { setLastTruthMessage } from "../../_lib/lastTruth";
 import { deliverImage } from "../../_lib/share-card";
 import { renderTruthCard } from "../../_lib/truth-card";
+import { ChainMark } from "../ChainMark";
 import { ItemThumb } from "../ItemPhoto";
 import { MenuSourcesLink } from "../MenuSourcesLink";
 import { Button } from "../ui";
@@ -247,14 +248,15 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
 
   return (
     <div key={replay} className="pb-4">
-      {photos && itemImageUrl(item.image) ? (
-        <div className="flex items-center gap-3.5">
-          <span className="shrink-0 empty:hidden [.truth-dark_&]:hidden"><ItemThumb image={item.image} /></span>
-          <p className="min-w-0 flex-1 text-base font-semibold text-muted [overflow-wrap:anywhere]">{chain.name}</p>
-        </div>
-      ) : (
-        <p className="text-base font-semibold text-muted [overflow-wrap:anywhere]">{chain.name}</p>
-      )}
+      {/* the chain's own logo next to its name (founder 2026-11-21: "You should do the Nando's logos. We need logos everywhere"), never in Creator View or on the
+          dark card, which are filmed and posted (CLAUDE.md rule 2: no logo on what is shared) */}
+      <div className="flex items-center gap-3.5">
+        {photos && itemImageUrl(item.image) && <span className="shrink-0 empty:hidden [.truth-dark_&]:hidden"><ItemThumb image={item.image} /></span>}
+        <p className="flex min-w-0 flex-1 items-center gap-2 text-base font-semibold text-muted [overflow-wrap:anywhere]">
+          {photos && <span className="shrink-0 [.truth-dark_&]:hidden"><ChainMark chainId={chain.id} cuisine={chain.cuisine} size="sm" /></span>}
+          <span className="min-w-0">{chain.name}</span>
+        </p>
+      </div>
 
       <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-fill p-5">
         <h3 id="truth-calories" className="text-base font-semibold text-muted">{t("Calories")}</h3>
