@@ -3958,3 +3958,5 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   build 11 attached, What's New, the description sentence and the In-App Purchase review note pasted from docs/STORE.md, the description's "Top 5 picks ...
   at every chain" corrected to "at chains that publish protein" (the same untrue words the meeting corrected in What's New), manual release kept; the version,
   Annual, Monthly and the Numbite Premium group submitted together: "4 Items Submitted", 06:06. Morning report: docs/MORNING_REPORT_2026-11-21.md.
+- (11:27, 21 Nov) **Tesco check: security page again** ("Powered and protected by"), at the end of the 6-hour wait after the 05:27 block. Nothing more was done; the
+  check tab was closed. New 6-hour wait: no Tesco reader before about 17:27.
