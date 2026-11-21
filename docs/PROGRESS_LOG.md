@@ -3823,14 +3823,14 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   MEDITERRANEAN_CHEESE_MAX_G 40, KETO_CARBS_MAX 0.10, MAX_WRAPS_A_WEEK 2. Pictures: 12 made in Higgsfield (now 1 credit each, not 0.5); the other 103 next.
   Swap now judges a style on the whole recipe (ingredient rules too). Tests: vitest 3,600 pass; e2e mealplan 13/13, household 6/6, showcase 14/14, recipes 17/17,
   photorecipe 18/18, smoke 24/24.
-- (about 01:10, 21 Nov) **`FREE_WEEK_HASH_SECRET` set in Vercel (Production, Sensitive)**: made with `openssl rand -base64 48` and piped straight into `vercel env add`,
+- (about 00:18, 21 Nov) **`FREE_WEEK_HASH_SECRET` set in Vercel (Production, Sensitive)**: made with `openssl rand -base64 48` and piped straight into `vercel env add`,
   never shown or saved (the founder's go-ahead: "can you do it all for me"). **Never change it** (every email hash would change and everyone could have a second
   free week). `vercel link` in web/ also downloaded a `.env.local`; it was deleted unread (gitignored). The Xcode test store and its test have no introductory
   offer now.
 - (00:22, 21 Nov) **numbite.com deployed** (founder: "can you do it all for me"): `main` fast-forwarded to `iap` (d2ffa1ce); the website build passed first in a
   clean copy. Checked live: POST /api/v1/entitlement/account answers 401 without an account, /app/targets and /app/plan load, the privacy page has the free week.
   The free week stays off until `supabase/migrations/20261121120000_free_week.sql` runs (waits for Claude in Chrome, disconnected since about 00:50).
-- (about 01:30, 21 Nov) **Every recipe has a picture; keto and paleo made realistic** (follows the review of the 115 new recipes). 103 Higgsfield pictures
+- (00:54, 21 Nov; on the iPhone 00:55, numbite.com 00:57) **Every recipe has a picture; keto and paleo made realistic** (follows the review of the 115 new recipes). 103 Higgsfield pictures
   (GPT Image 2.6, medium, 1k, 4:3, the three scenes in turn; two remade: a pasta with two shapes, a tuna that looked like beef): 293 of 293 recipes. Higgsfield
   now charges 1 credit a picture (0.5 before): 117 credits in all for the 115, 2,876.5 left on the plan; nothing bought. Recipe fixes: oil about 1 tbsp a pan
   and written as a fixed amount (it no longer grows with the meal size; in keto dishes the cheese does), almonds out where a UK cook wouldn't use them (salads,
@@ -3839,3 +3839,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   with the egg); the meatballs are no longer keto (still paleo). **Effect to know:** Paleo and lean keto meals now fit smaller (about 280-540 kcal for a 600 kcal
   meal), so those days come in under the person's calories and the plan says how far; a vegan two-recipe meal-prep week can have 3 wraps (as varied as the
   recipes allow; the test says so). Tests: vitest 3,600 pass.
+- (01:03, 21 Nov) **iPhone 1.1 build 10 uploaded to App Store Connect** (founder: "can you do it all for me"): build number 9 → 10 (25371787), packed in the
+  clean copy with the In-App Purchase flags ("Packed 1.1 (10)": 99.4 MB web app, recipe pictures in, menu and product photos from the website), Release archive
+  `build/Numbite-1.1-build10.xcarchive` (checked inside: version 1.1 (10), the free-week call, 294 files in recipe-images), uploaded with
+  `xcodebuild -exportArchive` and `build/ExportOptionsUpload.plist` ("Upload succeeded"). **Not yet done (need Claude in Chrome, disconnected, or the founder
+  signed in):** the free-week tables in Supabase, removing Apple's 7-day introductory offer from both subscriptions, swapping build 7 for build 10 in the
+  review submission with the new review notes (docs/STORE.md "Version 1.1 (next build)"), then Submit (Claude messages the founder first). Until the tables
+  exist the free week simply doesn't start (the route answers 500; the app shows the plans as before).
