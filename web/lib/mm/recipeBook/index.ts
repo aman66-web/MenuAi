@@ -6,6 +6,7 @@ import { DINNER_HOME } from "./dinnerHome";
 import { DINNER_WORLD } from "./dinnerWorld";
 import { EVERYDAY_BREAKFAST } from "./everydayBreakfast";
 import { EVERYDAY_LUNCHES } from "./everydayLunches";
+import { EVERY_SHOP } from "./everyShop";
 import { GLUTEN_FREE } from "./glutenFree";
 import { KETO_MEALS } from "./ketoMeals";
 import { LONGEVITY_DINNERS } from "./longevityDinners";
@@ -52,4 +53,7 @@ export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...D
   // founder 2026-11-20 ("a lot of them are to do with [wraps] ... You can't just do [wraps] every single day"): lunches that aren't wraps
   ...EVERYDAY_LUNCHES,
   // founder 2026-11-20 ("You want kind of like a varied diet"): weeknight dinners in 20 minutes or less, so the Quick style has one for every night
-  ...QUICK_DINNERS];
+  ...QUICK_DINNERS,
+  // founder 2026-11-21 ("all the shops, like, they should have recipes ... why does the ones that have ingredients not have recipes"): lunches and dinners
+  // made only from what nearly every supermarket in the app sells
+  ...EVERY_SHOP];

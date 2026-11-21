@@ -5,6 +5,7 @@
 
 import { EVERYDAY_BREAKFAST_LOOKS } from "./everydayBreakfast";
 import { EVERYDAY_LUNCHES_LOOKS } from "./everydayLunches";
+import { EVERY_SHOP_LOOKS } from "./everyShop";
 import { GLUTEN_FREE_LOOKS } from "./glutenFree";
 import { KETO_MEALS_LOOKS } from "./ketoMeals";
 import { LONGEVITY_DINNERS_LOOKS } from "./longevityDinners";
@@ -151,4 +152,6 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   // founder 2026-11-20 ("You can't just do [wraps] every single day"; "You want kind of like a varied diet"): lunches that aren't wraps, quick dinners
   ...EVERYDAY_LUNCHES_LOOKS,
   ...QUICK_DINNERS_LOOKS,
+  // founder 2026-11-21 ("all the shops, like, they should have recipes"): lunches and dinners nearly every supermarket can make
+  ...EVERY_SHOP_LOOKS,
 };

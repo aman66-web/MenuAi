@@ -88,6 +88,14 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
   ...cuisine("mexican", "beef-pepper-quick-chilli-rice", "chicken-fajita-rice-pan"),
   // eggs baked in a cumin and paprika tomato sauce are shakshuka's kind of dish, like shakshuka and chickpea-spinach-egg-stew above
   ...cuisine("middle-eastern", "roasted-pepper-houmous-sandwiches", "houmous-tomato-spinach-toast", "spiced-bean-pepper-baked-eggs", "spiced-tomato-baked-eggs-spinach"),
+  // the recipes added 2026-11-21 that nearly every shop can make (everyShop.ts). Mulligatawny is an Anglo-Indian soup and the bean curry an Indian-spiced one;
+  // the Greek-, Korean-style and stroganoff dishes, the satay and the chicken and egg rice bowl stay unlabelled (no such cuisine on offer), and so do the bowls,
+  // salads and pasta dishes that are no one cuisine's kind of food. The naan pizzas go where the wrap pizzas went
+  ...cuisine("british", "pea-ham-soup-toast", "welsh-rarebit-tomatoes", "baked-bean-cheese-toastie", "ploughmans-salad-cheddar-ham", "hunters-style-chicken-rice-peas", "crispy-chicken-goujons-peas", "cheese-tomato-bread-bake", "savoury-mince-rice-peas"),
+  ...cuisine("chinese", "tomato-egg-noodle-soup", "cold-peanut-noodles-cucumber-egg", "chinese-style-beef-lettuce-cups", "egg-foo-young-rice", "chicken-almond-stir-fry-rice"),
+  ...cuisine("indian", "mulligatawny-chicken-rice-soup", "chicken-tikka-masala-style-curry", "mushroom-pea-coconut-curry", "baked-bean-spinach-curry-naan"),
+  ...cuisine("italian", "tomato-mozzarella-naan-pizzas", "mushroom-carbonara-pasta", "chicken-arrabbiata-pasta"),
+  ...cuisine("middle-eastern", "beef-koftas-cucumber-yogurt-naan", "mushroom-tomato-houmous-traybake"),
 ];
 
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
@@ -112,6 +120,12 @@ export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion:
   ...occasion("lunchbox", "tuna-sweetcorn-cucumber-sandwiches", "chicken-salad-sandwiches", "egg-mayo-lettuce-sandwiches", "cheddar-apple-spinach-sandwiches", "smashed-chickpea-carrot-sandwiches", "salmon-cucumber-soft-cheese-sandwiches", "bean-sweetcorn-pepper-rice-salad", "chicken-pepper-pesto-pasta-salad", "chicken-chickpea-tomato-oregano-salad", "pea-ham-potato-salad", "bacon-mushroom-cheddar-frittata", "pepper-spinach-egg-muffins"),
   ...occasion("picnic", "tuna-sweetcorn-cucumber-sandwiches", "chicken-salad-sandwiches", "egg-mayo-lettuce-sandwiches", "cheddar-apple-spinach-sandwiches", "smashed-chickpea-carrot-sandwiches", "salmon-cucumber-soft-cheese-sandwiches", "bean-sweetcorn-pepper-rice-salad", "chicken-pepper-pesto-pasta-salad", "chicken-chickpea-tomato-oregano-salad", "pea-ham-potato-salad", "bacon-mushroom-cheddar-frittata", "pepper-spinach-egg-muffins"),
   ...occasion("summer-barbecue", "bean-sweetcorn-pepper-rice-salad", "chicken-pepper-pesto-pasta-salad", "pea-ham-potato-salad"),
+  // the recipes added 2026-11-21 (everyShop.ts): the soups for Bonfire Night; the pasta salads and the cold noodles go in a box or a picnic; the koftas and
+  // the satay skewers are grilled, and the pasta salads keep, so they go beside a barbecue too
+  ...occasion("bonfire-night", "pea-ham-soup-toast", "mulligatawny-chicken-rice-soup", "creamy-chicken-mushroom-soup"),
+  ...occasion("lunchbox", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad", "cold-peanut-noodles-cucumber-egg"),
+  ...occasion("picnic", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad", "cold-peanut-noodles-cucumber-egg"),
+  ...occasion("summer-barbecue", "beef-koftas-cucumber-yogurt-naan", "chicken-satay-skewers-rice", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad"),
 ];
 
 /** Every recipe's niche, by recipe id (a recipe in neither table is not here). Built from the two tables above; whoever writes a recipe adds its lines there. */
