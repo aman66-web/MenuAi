@@ -4049,3 +4049,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (21 Nov, afternoon) **Morrisons: the recipe queue is read** (last 97 pages; 3 landed on Morrisons' "Oops" page). Held back: Laila pomace olive oil 3L
   (115790399, per-100 ml figures headed per 100g; the 5L, headed per 100 ml, is kept) and Manischewitz medium egg noodles (100385622, protein 1.4 g).
   Kept: Shazans chicken breast 113158576 (only its cooked-serving column is odd).
+- (21 Nov, about 15:00) **1.1 build 12 archived, not uploaded** (founder: "Build again"): `build/Numbite-1.1-build12.xcarchive` from `iap` at 4b2af0dd (today's
+  truth card, meal plan, How much? measures, no filtering from sign-up, restaurant "Show dishes that fit my diet" and "My diet", forgiving search and
+  search help, logos next to names, Morrisons labels). Pack checked: no screenshot test key, today's screens present. The 10 store screenshots are in
+  "App Store screenshots 1.1". Waiting for the founder's go-ahead to upload, deploy numbite.com and swap it into review.
