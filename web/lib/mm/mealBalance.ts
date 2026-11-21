@@ -1,3 +1,4 @@
+import { dayPortions, fivePortionsOf, type FivePortions } from "./fiveADay";
 import type { MealType, Recipe } from "./recipes";
 
 // A balanced week (founder 2026-11-21, on Meal plan: "everything on it is cheesy stuff ... there's a lot of repetition ... salmon every day, or chicken every
@@ -43,6 +44,8 @@ export function breadLimit(like: BreadLike | null | undefined): number {
 }
 export interface BalanceLimits {
   breadWeek?: number;
+  /** Fruit and veg portions a day the person aims for (Meal plan's question, fiveADay.ts: 5 or 7); absent = no aim, never counted. */
+  fruitVeg?: number;
 }
 
 /** An ingredient leads part of a meal from this much a serving (meat, fish, tofu, beans), one egg, or this much cheese. */
@@ -68,6 +71,8 @@ export interface MealBalance {
   featured: MainKind[];
   /** Made with bread, wraps, naan or the like (founder 2026-11-21: "who wants to have bread every single day"): at most one a day, and breadLimit a week. */
   bread: boolean;
+  /** Fruit and veg portions in one serving (fiveADay.ts), for a day's count against the person's aim. */
+  five?: FivePortions;
 }
 
 /** The recipe's main and whether it is cheese-heavy, per serving as written. */
@@ -94,7 +99,7 @@ export function mealBalance(r: Pick<Recipe, "name" | "ingredients" | "servings">
   const featured: MainKind[] = [...grams].filter(([, g]) => g >= FEATURE_GRAMS).map(([k]) => k);
   if (eggs >= FEATURE_EGG_GRAMS) featured.push("eggs");
   if (cheese >= FEATURE_CHEESE_GRAMS) featured.push("cheese");
-  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)), featured, bread: bread >= BREAD_GRAMS };
+  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)), featured, bread: bread >= BREAD_GRAMS, five: fivePortionsOf(r) };
 }
 
 const memo = new WeakMap<object, MealBalance>();
@@ -113,11 +118,11 @@ export function balanceFaults(week: ReadonlyArray<ReadonlyArray<MealBalance | un
   const r = balanceReport(week, slots, limits);
   // too much cheese weighs double (it was the founder's own complaint: "everything on it is cheesy stuff")
   // the same main twice in a day weighs double too: it is the repeat people notice most (salmon for lunch and dinner)
-  return 2 * r.sameDay + r.dayAfter + r.overWeek + r.sharedDay + r.breadDay + r.breadWeek + 2 * (r.cheesyDay + r.cheesyWeek);
+  return 2 * r.sameDay + r.dayAfter + r.overWeek + r.sharedDay + r.breadDay + r.breadWeek + 2 * (r.cheesyDay + r.cheesyWeek) + r.fruitVegShort;
 }
 
 /** The parts of balanceFaults, for tests. */
-export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[], limits: BalanceLimits = {}): { sameDay: number; dayAfter: number; overWeek: number; sharedDay: number; breadDay: number; breadWeek: number; cheesyDay: number; cheesyWeek: number } {
+export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[], limits: BalanceLimits = {}): { sameDay: number; dayAfter: number; overWeek: number; sharedDay: number; breadDay: number; breadWeek: number; cheesyDay: number; cheesyWeek: number; fruitVegShort: number } {
   let sameDay = 0;
   let sharedDay = 0;
   let breadDay = 0;
@@ -125,6 +130,8 @@ export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | un
   let dayAfter = 0;
   let cheesyDay = 0;
   let cheesy = 0;
+  // whole portions short of the person's fruit and veg aim, day by day (founder 2026-11-21: "5 a day, 7 a day is also a thing that matters")
+  let fruitVegShort = 0;
   const count = new Map<MainKind, number>();
   week.forEach((day, d) => {
     const seen = new Set<MainKind>();
@@ -147,8 +154,9 @@ export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | un
     const breadToday = day.filter((b) => b?.bread).length;
     breadDay += Math.max(0, breadToday - 1);
     breadMeals += breadToday;
+    if (limits.fruitVeg) fruitVegShort += Math.ceil(Math.max(0, limits.fruitVeg - dayPortions(day.map((b) => b?.five))) - 1e-9);
   });
   let overWeek = 0;
   for (const n of count.values()) overWeek += Math.max(0, n - MAX_SAME_MAIN_A_WEEK);
-  return { sameDay, dayAfter, overWeek, sharedDay, breadDay, breadWeek: Math.max(0, breadMeals - (limits.breadWeek ?? MAX_BREAD_A_WEEK)), cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK) };
+  return { sameDay, dayAfter, overWeek, sharedDay, breadDay, breadWeek: Math.max(0, breadMeals - (limits.breadWeek ?? MAX_BREAD_A_WEEK)), cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK), fruitVegShort };
 }

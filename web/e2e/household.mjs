@@ -39,10 +39,11 @@ await step("the first open's check screen: Who's eating: Just me first; its Chan
   expect(first.includes("Who's eating") && first.includes("Just me"), "Who's eating first: " + first);
   await tap("Change: Who's eating");
   await h1("How many people are you cooking for?").waitFor();
-  await page.getByText("Step 1 of 9").waitFor();
+  // nine steps (eighteen with Pip's extra questions of 21 November 2026, after the budget)
+  await page.getByText(/^Step 1 of (9|18)$/).waitFor();
   expect((await page.getByRole("radio", { name: "Just me" }).getAttribute("aria-checked")) === "true", "Just me to begin with");
   await page.getByRole("radio", { name: "3 of us" }).click();
-  await page.getByText("Step 1 of 10").waitFor();
+  await page.getByText(/^Step 1 of (10|19)$/).waitFor();
   await tap("Continue");
 });
 
@@ -111,6 +112,8 @@ await step("the budget, then the check screen: who's eating, the allergies in th
   await h1("Your budget for the week").waitFor();
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await tap("Continue");
+  // Pip's extra questions (21 November 2026), nothing chosen: each one skipped
+  while (await page.getByRole("button", { name: "Skip", exact: true }).count()) await tap("Skip");
   await h1("Ready to make your plan?").waitFor();
   const rows = await page.locator("main ul li").allInnerTexts();
   expect(rows[0].includes("You, Person 2 (adult) and Sam (child)"), "who's eating first: " + rows[0]);

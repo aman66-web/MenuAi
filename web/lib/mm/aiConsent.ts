@@ -1,4 +1,4 @@
-// Pip's three AI features (Scan your food, Make it at home, Cook with what you have): the person's permission before anything is sent to Anthropic, and what
+// Pip's AI features (Scan your food, Make it at home, Cook with what you have, and Meal plan with Pip since 21 November 2026): the person's permission before anything is sent to Anthropic, and what
 // the screens say when Pip can't answer. Pure apart from the store, and unit-tested (tests/aiConsent.test.ts).
 //
 // Permission (App Review 5.1.2(i), the 20 November 2026 audit): the first time someone uses one of the three, a sheet (app/app/_components/AiConsentSheet.tsx)
@@ -12,7 +12,7 @@
 import { tk } from "./i18n";
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
-export const AI_FEATURES = ["scan", "photoRecipe", "fridgeRecipe"] as const;
+export const AI_FEATURES = ["scan", "photoRecipe", "fridgeRecipe", "mealPlan"] as const;
 export type AiFeature = (typeof AI_FEATURES)[number];
 
 export const AI_CONSENT_KEY = "mm.v1.aiOk";
@@ -43,6 +43,8 @@ export const AI_SENDS: Readonly<Record<AiFeature, string>> = {
   scan: tk("your photo (made smaller on your phone first) and the words you typed about it"),
   photoRecipe: tk("your photo (made smaller on your phone first), the words you typed about it, your diet and allergy choices, the meal size and the list of {shop} products it may use"),
   fridgeRecipe: tk("the foods you typed or tapped, what you fancy, your diet and allergy choices, the meal size and the list of {shop} products it may use"),
+  // Meal plan with Pip (founder 2026-11-21): the answers, the note, the meal sizes and the recipes that fit; never the names of the people at home
+  mealPlan: tk("your answers to Pip's meal plan questions (with anything you typed for Pip), your meal sizes, the age group and portion size of anyone else you cook for, and the {shop} recipes that fit you"),
 };
 
 /** What the screens say when Pip can't answer (English keys: shown with t()). */

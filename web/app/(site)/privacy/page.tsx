@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SEARCH_HELP_ENABLED } from "@/lib/mm/searchHelp";
+import { PLAN_AI_API_ENABLED } from "@/lib/mm/planAi";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
@@ -40,6 +41,7 @@ const AI_FEATURES = [
   AI_RECIPES_ENABLED && "Pip's recipe maker",
   COMPARE_PICK_ENABLED && "Pip's pick on Compare",
   SEARCH_HELP_ENABLED && "search help",
+  PLAN_AI_API_ENABLED && "Meal plan with Pip",
 ].filter((f): f is string => typeof f === "string");
 const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
@@ -302,6 +304,27 @@ export default function Privacy() {
           Only those words are sent: not your name, account, location or anything else. The suggestions are searched on your device in our own menus, and none of
           the figures you see come from the AI. Our server keeps the suggestion for those words in its memory for up to a day, so the AI isn&apos;t asked again,
           and uses a one-way scramble of your IP address only to limit how often it is asked; neither is stored.
+        </p>
+      </Section>
+      )}
+
+      {PLAN_AI_API_ENABLED && (
+      <Section title="Meal plan with Pip">
+        <p className={para}>
+          If you have Premium and answer any of Pip&apos;s extra questions in Meal plan (your aim, fruit and veg, training, cooking time, leftovers, breakfast, bread,
+          spice and the kinds of food you&apos;d rather skip) or type a note for Pip, making your plan sends to our server: those answers and your note, how you like to
+          eat and the kinds of food you chose, the meals and snacks in your day with each one&apos;s calories and protein, your budget if you set one, the days of the
+          week, the age group and portion size of anyone else you cook for (never their names or their own numbers), and the recipes from your shops that fit you,
+          with each one&apos;s figures and price. Our server passes them to Anthropic, the company that makes the Claude AI, which chooses the week&apos;s recipes from
+          those and writes a sentence or two about why. Your name, email, account, location, allergies and diet settings are not sent: the recipes sent already fit
+          them. Pip asks for your OK the first time. Every figure, price and shopping line in your plan is worked out on your device from the shops&apos; labels,
+          never by the AI.
+        </p>
+        <p className={para}>
+          Your answers and your note are kept with your plan on your device only (they aren&apos;t synced to your account) and are deleted by Clear data. Our server
+          keeps Pip&apos;s answer for exactly the same request in its memory for up to a day, filed under a one-way scramble of what was sent, so the AI isn&apos;t
+          asked twice; nothing is stored. To check you have Premium, your device sends its access token, which holds no personal details, and a one-way scramble of
+          details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
         </p>
       </Section>
       )}

@@ -74,13 +74,14 @@ await step("the first open starts on the check screen, filled in from the person
   expect(v.length === 0, v.join(" | "));
 });
 
-/** A line's Change on the check screen: that one step, "Step n of 9" (heard, not written, since 20 November 2026: the bar alone), whose button says Done and goes
+/** A line's Change on the check screen: that one step, "Step n of N" (heard, not written, since 20 November 2026: the bar alone; N is 18 since Pip's extra questions
+ *  of 21 November 2026 came after the budget, 9 on a build without them), whose button says Done and goes
  *  back to the check. Just me has nine steps since the style step (How do you like to eat?) of 20 November 2026. */
 async function change(line, heading, n) {
   await page.getByRole("heading", { level: 1, name: "Ready to make your plan?" }).waitFor({ timeout: 60000 });
   await page.getByRole("button", { name: `Change: ${line}` }).click();
-  await page.getByText(`Step ${n} of 9`).waitFor({ timeout: 60000 });
-  expect(await page.getByText(`Step ${n} of 9`).evaluate((el) => el.classList.contains("sr-only")), "'Step n of N' is written on screen");
+  await page.getByText(new RegExp(`^Step ${n} of (9|18)$`)).waitFor({ timeout: 60000 });
+  expect(await page.getByText(new RegExp(`^Step ${n} of (9|18)$`)).evaluate((el) => el.classList.contains("sr-only")), "'Step n of N' is written on screen");
   await page.getByRole("heading", { level: 1, name: heading }).waitFor();
 }
 const done = async () => {
@@ -200,12 +201,16 @@ await step("the budget slider: from the cheapest week for the goal to pricier pr
   await page.getByText("The green spot: the best week for your goal.").waitFor();
   for (const w of ["Cheapest", "Best fit", "Pricier products"]) await page.getByText(w, { exact: true }).first().waitFor(); // "pricier", never "better" (CLAUDE.md rule 3)
   expect(/^£\d+ a week$/.test(await slider.getAttribute("aria-valuetext")), "VoiceOver hears the amount");
+  // the best fit can be the cheapest week too (the recipes decide): then the slider starts at its low end and still says the green spot
+  const best = now;
   await slider.focus();
   await page.keyboard.press("End");
   await page.getByText("Pricier products wherever your shops have them.").waitFor();
   await page.keyboard.press("Home");
-  await page.getByText(/^The cheapest week for your goal/).waitFor();
-  await page.getByRole("button", { name: /^Back to the green spot/ }).click();
+  if (best > min) {
+    await page.getByText(/^The cheapest week for your goal/).waitFor();
+    await page.getByRole("button", { name: /^Back to the green spot/ }).click();
+  }
   await page.getByText("The green spot: the best week for your goal.").waitFor();
   const box = await slider.boundingBox();
   expect(box.height >= 44, "a big target");
@@ -350,7 +355,7 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
   const box = await top.boundingBox();
   expect(box && box.y < 400, "Make a new plan is near the top: " + JSON.stringify(box));
   await top.click();
-  await page.getByText("Step 1 of 9").waitFor();
+  await page.getByText(/^Step 1 of (9|18)$/).waitFor();
   for (let i = 0; i < 5; i++) await page.getByRole("button", { name: "Continue" }).click(); // how many, meals, shops, diet, how you like to eat
   expect((await page.getByRole("button", { name: /^Italian/ }).getAttribute("aria-pressed")) === "true", "cuisines kept");
   await page.getByRole("button", { name: "Continue" }).click();
@@ -362,10 +367,12 @@ await step("the plan opens again as it was; Make a new plan starts Pip's questio
 await step("a new plan keeps the old one under Earlier plans; Open makes it the plan again; Remove takes one away with Undo", async () => {
   const first = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
   await page.getByRole("button", { name: "Make a new plan" }).first().click();
-  await page.getByText("Step 1 of 9").waitFor();
+  await page.getByText(/^Step 1 of (9|18)$/).waitFor();
   for (let i = 0; i < 7; i++) await page.getByRole("button", { name: "Continue" }).click(); // to the budget
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await page.getByRole("button", { name: "Continue" }).click();
+  // Pip's extra questions (21 November 2026), nothing chosen: each one skipped
+  while (await page.getByRole("button", { name: "Skip", exact: true }).count()) await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: "Make my plan" }).click();
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
   const earlier = page.locator("section[aria-labelledby='earlier-h']");

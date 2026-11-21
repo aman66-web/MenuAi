@@ -4127,3 +4127,26 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Usual UK piece weights in lib/mm/kitchenAmount.ts PIECES (the pantry's where it has one; carrots 80 g as the method already used); the method uses the same
   table ("about ½ a pepper"). Only ever beside the weight, which the nutrition and the price come from (rule 1 untouched). Tests: kitchenAmount (3 new);
   e2e/recipes.mjs 17/17 (its allergy step expected Recipes' filters to change Settings, untrue since the sign-up answers were split from the filters today).
+- (21 Nov, evening) **Fruit and veg a day: 5 or 7** (founder: "there's a thing called your 7 a day too, or like 5 a day ... 5 a day, 7 a day is also a thing
+  that matters too"). lib/mm/fiveADay.ts counts each recipe's portions per serving from its own ingredient weights, the way the NHS counts 5 A Day (nhs.uk
+  "5 A Day portion sizes", read 21 Nov): 80 g of fresh, frozen or tinned fruit or veg is a portion, 30 g of dried fruit, beans and pulses one a day at most,
+  potatoes and gnocchi never; herbs, garlic, ginger, lemon juice, tomato purée, sauces, nuts and seeds are not counted. Every pantry kind is sorted (a test fails
+  on a new unsorted kind). 7 is the person's own aim, not an NHS figure. Meal plan's setup asks "Fruit and veg a day" (5, 7 or no aim, nothing ticked); with an
+  aim, mealBalance's week counts each whole portion a day is short as a fault. Measured at Sainsbury's: aim 5 gives every day 5 or more, aim 7 every day 7 or
+  more, with no new repeats; Aldi (fewer recipes) falls short on one day at 7. Counted, not estimated: no nutrition number changes (CLAUDE.md rule 1).
+- (21 Nov, evening) **Meal plan with Pip: Opus plans the week from many questions** (founder: "Use Opus to make the meal timetable ... it's got to be the
+  perfect diet. I'm fine for you to ask as many questions as you want ... It's just got to be the perfect plan for them"). After the budget and before the
+  check screen, nine screens, each opening with nothing chosen and "Skip" until something is: "What's your aim?" (Build muscle, Lose fat, Keep steady, Just eat
+  well), "Fruit and veg a day" (5, 7, No aim), "How often do you train?" (and which days), "How long can you cook for?" (weekdays and weekends), "Cook once,
+  eat twice?", breakfast (Sweet, Savoury, Quick), "How often do you like bread?", "How hot do you like it?", and "Anything else Pip should know?" (300
+  characters, "Please leave out names and health details"); cuisines can be skipped too. Each has a row with Change on the check screen. With at least one
+  answered and Premium, Make my plan first makes and saves the phone's own week, then sends the answers, each meal's best 40 recipes (with their label-made
+  figures, fruit and veg portions, cost and tags) and that week as a fallback to POST /api/v1/plan/ai (Premium only; 4 in ten minutes, 12 a day; cached for a
+  day), which asks Claude Opus 5.5 (lib/planAiHandler.ts, the whole prompt in the code). Opus picks recipe ids only: every figure, price and shopping line is
+  still worked out from the labels (rule 1). The phone checks Pip's week against every balance rule and the person's limits, puts back the phone's recipe
+  wherever Pip's breaks a rule, and keeps the phone's week if Pip's is worse, further from the calories or protein, or dearer than the budget allows. Pip's
+  note ("Why this week") is kept only with no numbers, prices or health words. Pip's permission sheet first (App Review 5.1.2(i)); the privacy page has a
+  "Meal plan with Pip" section. About 8 to 15 US cents a plan. Each day on the week says "Fruit and veg: {n} portions" ("{n} of {aim}" below the aim).
+  Others in a household: only age group and portion size are sent. Needs numbite.com deployed with this route before it works in the app (until then the
+  phone's own week, with "Pip couldn't plan with your answers this time"). Tests: tests/planAi.test.ts (22), e2e/planAi.mjs 5/5, household 6/6, mealplan
+  13/13 (its budget step now allows the best fit to be the cheapest week: there the slider says "The green spot", not "The cheapest week").

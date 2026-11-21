@@ -1,6 +1,7 @@
 import { dishFormOf, MAX_WRAPS_A_WEEK, varietyFaults, type DishForm } from "./dishForm";
-import { balanceFaults, mealBalanceOf, type MealBalance } from "./mealBalance";
+import { balanceFaults, mealBalanceOf, type BalanceLimits, type MealBalance } from "./mealBalance";
 import { tk } from "./i18n";
+import { sanitizeAnswers, cleanWhy, type PlanAnswers } from "./planAi";
 import { ADULT_REFERENCE_KCAL, ALL_HOME_DIETS, platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
 import { ALLERGEN_KEYS, type AllergenKey } from "./types";
 import type { DietPrefs, MeatKind } from "./pantry";
@@ -103,6 +104,11 @@ export const LEAVE_OUT: ReadonlyArray<{ id: string; label: string; words: readon
   { id: "coconut", label: tk("Coconut"), words: ["coconut"] },
   { id: "rice", label: tk("Rice"), words: ["rice"] },
   { id: "pasta", label: tk("Pasta"), words: ["pasta", "spaghetti", "penne", "fusilli", "noodle"] },
+  // three foods people often can't stand (Meal plan with Pip, founder 2026-11-21: "you should know everything"); olives, never olive oil; coriander is the
+  // fresh herb (a dried spice's label is never read here: recipeWords)
+  { id: "olives", label: tk("Olives"), words: ["olives", "kalamata"] },
+  { id: "coriander", label: tk("Coriander"), words: ["coriander"] },
+  { id: "aubergine", label: tk("Aubergine"), words: ["aubergine"] },
 ];
 
 /** The words a recipe is checked against for a food left out: its name and each ingredient's label and kind (never a seasoning's: "black pepper" is not peppers). */
@@ -749,41 +755,49 @@ export interface BudgetPlan { ids: PlanIds; week: WeekPlan; better: string[] }
  * want"): under the best fit's bill, makePlan swaps in cheaper recipes (never one far from the meal size); at or over it, the best fit's recipes are made with
  * better products, the one that adds least to the bill first, while the bill stays within the budget. Null budget: the best fit.
  */
-export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: number | null, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES): BudgetPlan | null {
-  const best = makePlan(cands, null, slots, variety);
+export function planForBudget(cands: Map<MealType, PlanCandidate[]>, budget: number | null, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES, limits: BalanceLimits = {}): BudgetPlan | null {
+  const best = makePlan(cands, null, slots, variety, limits);
   if (!best) return null;
   if (budget === null) return { ...best, better: [] };
   if (best.week.shoppingCost > budget) {
-    const cheaper = makePlan(cands, budget, slots, variety);
+    const cheaper = makePlan(cands, budget, slots, variety, limits);
     return cheaper ? { ...cheaper, better: [] } : null;
   }
+  return upgradeWithin(best.ids, best.week, cands, budget, betterOf, slots);
+}
+
+/**
+ * A week's recipes made with better products while its bill stays within the budget, the one that adds least to the bill first (planForBudget's last step; Meal
+ * plan with Pip uses it for the week Pip chose). `week`: the week as it is (returned as it is when nothing fits).
+ */
+export function upgradeWithin(ids: PlanIds, week: WeekPlan, cands: Map<MealType, PlanCandidate[]>, budget: number, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS): BudgetPlan {
   const byKey = new Map<string, PlanCandidate>();
   for (const [meal, list] of cands) for (const c of list) byKey.set(`${meal}:${c.recipe.id}`, c);
-  const inPlan = [...new Set(best.ids.flatMap((d) => d.map((id, i) => `${slots[i]}:${id}`)))];
+  const inPlan = [...new Set(ids.flatMap((d) => d.map((id, i) => `${slots[i]}:${id}`)))];
   const options = inPlan.map((key) => ({ key, b: byKey.get(key) ? betterOf(byKey.get(key)!) : null })).filter((o): o is { key: string; b: PlanCandidate } => !!o.b);
   const chosen = new Map<string, PlanCandidate>();
-  let week = best.week;
+  let out = week;
   // cheapest additions first
   const added = options
-    .map((o) => ({ ...o, extra: (buildWeek(best.ids, withBetter(cands, new Map([[o.key, o.b]])), budget, slots)?.shoppingCost ?? Infinity) - best.week.shoppingCost }))
+    .map((o) => ({ ...o, extra: (buildWeek(ids, withBetter(cands, new Map([[o.key, o.b]])), budget, slots)?.shoppingCost ?? Infinity) - week.shoppingCost }))
     .sort((a, b) => a.extra - b.extra || a.key.localeCompare(b.key));
   for (const o of added) {
     const trial = new Map(chosen).set(o.key, o.b);
-    const w = buildWeek(best.ids, withBetter(cands, trial), budget, slots);
+    const w = buildWeek(ids, withBetter(cands, trial), budget, slots);
     if (w && w.shoppingCost <= budget + 0.005) {
       chosen.set(o.key, o.b);
-      week = w;
+      out = w;
     }
   }
-  return { ids: best.ids, week, better: [...chosen.keys()] };
+  return { ids, week: out, better: [...chosen.keys()] };
 }
 
 /** The slider's range for these candidates (see BudgetRange); null when no week can be made. */
-export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES): BudgetRange | null {
-  const best = makePlan(cands, null, slots, variety);
-  const cheapest = makePlan(cands, 0.01, slots, variety);
+export function budgetRange(cands: Map<MealType, PlanCandidate[]>, betterOf: (c: PlanCandidate) => PlanCandidate | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES, limits: BalanceLimits = {}): BudgetRange | null {
+  const best = makePlan(cands, null, slots, variety, limits);
+  const cheapest = makePlan(cands, 0.01, slots, variety, limits);
   if (!best || !cheapest) return null;
-  const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf, slots, variety);
+  const all = planForBudget(cands, Number.MAX_SAFE_INTEGER, betterOf, slots, variety, limits);
   const min = Math.min(cheapest.week.shoppingCost, best.week.shoppingCost);
   return { min, best: best.week.shoppingCost, max: Math.max(best.week.shoppingCost, all?.week.shoppingCost ?? 0) };
 }
@@ -995,8 +1009,9 @@ export function weekBalance(ids: PlanIds, candidates: ReadonlyMap<MealType, read
 // A week's faults: its dish forms (dishForm.ts) and, with `balOf`, its balance (mealBalance.ts: the same main day after day, cheese at every meal; founder
 // 2026-11-21), a dish-form fault weighing FORM_FAULT balance faults, so where the recipes can't give both (a style with few recipes) the dish forms stay varied.
 const FORM_FAULT = 10;
-const faultsWith = (formOf: ReadonlyMap<string, DishForm>, slots: readonly MealType[], balOf?: ReadonlyMap<string, MealBalance>) => (ids: PlanIds): number =>
-  (balOf ? FORM_FAULT : 1) * varietyFaults(ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`)))) + (balOf ? balanceFaults(ids.map((d) => d.map((id, i) => balOf.get(`${slots[i]}:${id}`))), slots) : 0);
+// `limits`: the person's own bread and fruit and veg answers (mealBalance.ts BalanceLimits; Meal plan with Pip's questions), when they gave them.
+const faultsWith = (formOf: ReadonlyMap<string, DishForm>, slots: readonly MealType[], balOf?: ReadonlyMap<string, MealBalance>, limits: BalanceLimits = {}) => (ids: PlanIds): number =>
+  (balOf ? FORM_FAULT : 1) * varietyFaults(ids.map((d) => d.map((id, i) => formOf.get(`${slots[i]}:${id}`)))) + (balOf ? balanceFaults(ids.map((d) => d.map((id, i) => balOf.get(`${slots[i]}:${id}`))), slots, limits) : 0);
 
 /** The recipes a meal's choice for variety is made from: the closest VARIETY_SHORTLIST within `slack` of the `n` closest (PACK_FIT_LIMIT at least). */
 function varietyWindow(list: readonly PlanCandidate[], n: number, slack = VARIETY_FIT_SLACK): PlanCandidate[] {
@@ -1099,22 +1114,22 @@ const planMemo = new WeakMap<Map<MealType, PlanCandidate[]>, Map<string, { ids: 
  * whenever that leaves less fresh food in the packs (weighed with the bill and the fit, after variety), never making the bill more than the budget or, with no
  * budget, more than it was. Null when a meal has no recipe at all for these choices.
  */
-export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES): { ids: PlanIds; week: WeekPlan } | null {
-  const memoKey = `${budget}|${slots.join(",")}|${variety}`;
+export function makePlan(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[] = PLAN_MEALS, variety: number = PER_MEAL_RECIPES, limits: BalanceLimits = {}): { ids: PlanIds; week: WeekPlan } | null {
+  const memoKey = `${budget}|${slots.join(",")}|${variety}|${limits.breadWeek ?? ""}|${limits.fruitVeg ?? ""}`;
   const known = planMemo.get(candidates)?.get(memoKey);
   if (known !== undefined) return known;
-  const result = makePlanFresh(candidates, budget, slots, variety);
+  const result = makePlanFresh(candidates, budget, slots, variety, limits);
   if (!planMemo.has(candidates)) planMemo.set(candidates, new Map());
   planMemo.get(candidates)!.set(memoKey, result);
   return result;
 }
 
-function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[], variety: number): { ids: PlanIds; week: WeekPlan } | null {
+function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: number | null, slots: readonly MealType[], variety: number, limits: BalanceLimits): { ids: PlanIds; week: WeekPlan } | null {
   const types = [...new Set(slots)];
   if (!slots.length || types.some((m) => !(candidates.get(m)?.length))) return null;
   // a budget the week with no budget already fits: that week (so a budget never changes a week it doesn't have to)
   if (budget !== null) {
-    const free = makePlan(candidates, null, slots, variety);
+    const free = makePlan(candidates, null, slots, variety, limits);
     if (free && free.week.shoppingCost <= budget) return { ids: free.ids, week: buildWeek(free.ids, candidates, budget, slots)! };
   }
   const each = Math.max(1, Math.min(PLAN_DAYS, Math.round(variety)));
@@ -1125,7 +1140,7 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
   const faultsOf = faultsWith(formOf, slots);
   // with no budget the week is balanced as it is made (founder 2026-11-21: "salmon every day, or chicken every day ... balanced diets"; "everything on it is
   // cheesy stuff"); with a budget the budget's steps run as before and the balance comes last (balanceRepair)
-  const balancedOf = faultsWith(formOf, slots, balancesOf(candidates));
+  const balancedOf = faultsWith(formOf, slots, balancesOf(candidates), limits);
   const chosen = varietyPools(candidates, types, per, each, formOf);
   const counts = new Map<MealType, number>(types.map((m) => [m, each * per.get(m)!]));
   const nth = slots.map((m, i) => slots.slice(0, i).filter((x) => x === m).length);
@@ -1327,6 +1342,12 @@ export interface SavedPlan {
   addedToList?: string;
   /** How the person likes to eat (EATING_STYLES), so the week is rebuilt from the same recipes; absent = Balanced, as plans were before 20 November. */
   style?: Exclude<EatingStyle, "balanced">;
+  /** Pip's extra questions as answered (planAi.ts), so a new plan starts from them; absent = none answered. */
+  answers?: PlanAnswers;
+  /** Pip's "why this week" (planAi.ts cleanWhy), when the week is the one Pip chose. */
+  why?: string;
+  /** Pip was asked to choose the week but couldn't (offline on the way, the AI busy, or an answer the plan couldn't use): the week is the phone's own. */
+  pipMissed?: true;
 }
 
 /** A diet as kept with a plan: only what is on, in a fixed order, the allergies once each (known keys only). */
@@ -1414,10 +1435,13 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const diet = r.diet && typeof r.diet === "object" ? cleanDiet(r.diet) : null;
   const addedToList = typeof r.addedToList === "string" && /^[a-z0-9]{1,24}$/.test(r.addedToList) ? r.addedToList : null;
   const style = sanitizeStyle(r.style);
+  const answers = sanitizeAnswers(r.answers);
+  const why = cleanWhy(r.why);
   return {
     shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}),
     ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}),
     ...(diet ? { diet } : {}), ...(addedToList ? { addedToList } : {}), ...(style !== "balanced" ? { style } : {}),
+    ...(Object.keys(answers).length ? { answers } : {}), ...(why ? { why } : {}), ...(r.pipMissed === true ? { pipMissed: true as const } : {}),
   };
 }
 

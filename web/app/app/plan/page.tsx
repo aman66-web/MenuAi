@@ -9,7 +9,11 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, upgradeWithin, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
+import { aiAllowed, aiConsentStore, withAiAllowed } from "@/lib/mm/aiConsent";
+import { cleanWhy, hasPipAnswers, PLAN_AI_ENABLED, sanitizeAnswers, type PlanAnswers } from "@/lib/mm/planAi";
+import { budgetKept, mergeAiWeek, planAiRequest, planLimits, servingPortions } from "@/lib/mm/planAiWeek";
+import { dayPortions, shownPortions } from "@/lib/mm/fiveADay";
 import { localDay } from "@/lib/mm/paid";
 import { betterFor, loadShops as loadShopsWith, previewShop, recipesFor, weekPreview, widenedIn, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
 import { RECIPES } from "@/lib/mm/recipeBook";
@@ -31,7 +35,9 @@ import { PageHeader } from "../_components/PageHeader";
 import { useGate } from "../_components/Paywall";
 import { Toast } from "../_components/Toast";
 import { AllergyNote, Badge, Button, ChoiceMark, ErrorBox, LinkButton, Sheet, Spinner, inputClass } from "../_components/ui";
+import { AiConsentSheet, useOnline } from "../_components/AiConsentSheet";
 import { useHydrated, useIsPro, useSettings, useStore } from "../_lib/hooks";
+import { askPipForWeek } from "../_lib/planAi";
 import { useLanguage, useT } from "../_lib/i18n";
 import { addedNote, placeItems, targetList } from "../_lib/listRecipes";
 import { Rich } from "../_lib/Rich";
@@ -44,6 +50,7 @@ import { RecipeThumb } from "../recipes/RecipeThumb";
 import { DayStrip, type StripDay } from "./DayStrip";
 import { TwoWeeks } from "./TwoWeeks";
 import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, STYLE_LABEL, StyleStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
+import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, LeftoversStep, NotesStep, SkipCuisines, SpiceStep, TrainingStep, pipAnswerLines } from "./PipSteps";
 import { SwapPicker } from "./SwapPicker";
 import { WeekSummary } from "./WeekSummary";
 
@@ -89,13 +96,26 @@ const DONE_TICK = "grid h-7 w-7 shrink-0 place-items-center rounded-full border-
 // The steps, one question a screen (the 20-agent meeting, 2026-11-19): how many people first; a household then says who each person is, its allergies and
 // the diets anyone at home follows (until 20 November, whether anyone doesn't eat meat); Just me keeps its own diet and the food it likes; everyone ends on the
 // check screen before the plan is made (and a first open starts there). How they like to eat (founder 2026-11-20) comes after the diet, in both.
-type StepId = "count" | "who" | "meals" | "shops" | "diet" | "style" | "cuisine" | "allergies" | "homeDiet" | "leaveOut" | "budget" | "check";
+type StepId = "count" | "who" | "meals" | "shops" | "diet" | "style" | "cuisine" | "allergies" | "homeDiet" | "leaveOut" | "budget" | PipStep | "check";
 const JUST_ME: readonly StepId[] = ["count", "meals", "shops", "diet", "style", "cuisine", "leaveOut", "budget", "check"];
 const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergies", "homeDiet", "style", "leaveOut", "budget", "check"];
+// Pip's extra questions (Meal plan with Pip, founder 2026-11-21: "full customization ... ask as many questions as you want"), after the budget and before the
+// check, in both flows, where Meal plan is Premium (PLAN_AI_ENABLED); breakfast only when the day has one. Each can be skipped.
+type PipStep = "aim" | "fruitVeg" | "training" | "cookTime" | "leftovers" | "breakfast" | "bread" | "spice" | "notes";
+const PIP_STEPS: readonly PipStep[] = ["aim", "fruitVeg", "training", "cookTime", "leftovers", "breakfast", "bread", "spice", "notes"];
+const isPipStep = (s: StepId): s is PipStep => (PIP_STEPS as readonly StepId[]).includes(s);
+/** Each of Pip's questions as its line on the check screen. */
+const PIP_ROW: Record<PipStep, string> = { aim: tk("Your aim"), fruitVeg: tk("Fruit and veg"), training: tk("Training"), cookTime: tk("Cooking time"), leftovers: tk("Leftovers"), breakfast: tk("Breakfast"), bread: tk("Bread"), spice: tk("Spice"), notes: tk("Notes for Pip") };
+const stepsFor = (household: boolean, breakfast: boolean): readonly StepId[] => {
+  const base = household ? HOUSEHOLD : JUST_ME;
+  return PLAN_AI_ENABLED ? [...base.slice(0, -1), ...PIP_STEPS.filter((s) => s !== "breakfast" || breakfast), "check"] : base;
+};
 // Pip guides the questions but never stands beside a figure or a price (the Pip and Premium findings, 20 November 2026): the meals step (calories) and the
 // budget step (£) carry his words as plain text, and so does the check screen once its budget row shows £; he waits ("listen") on the check screen rather
 // than cheering before anything is made; the style step has no words at all (its picture tiles carry the figures, as in the founder's example)
-const STEP_PIP: Partial<Record<StepId, PipMood>> = { count: "wave", who: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", homeDiet: "point", leaveOut: "point", check: "listen" };
+const STEP_PIP: Partial<Record<StepId, PipMood>> = { count: "wave", who: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", homeDiet: "point", leaveOut: "point", check: "listen",
+  // the cooking time step's answers are minutes: plain words there, as on the meals step
+  aim: "point", training: "listen", leftovers: "listen", breakfast: "point", bread: "listen", spice: "point", notes: "listen" };
 /** A new person's id on this phone (letters and digits only). */
 const personId = () => `p${Math.random().toString(36).slice(2, 10)}`;
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
@@ -160,6 +180,18 @@ function CapNote({ gap, boxed, className = "" }: { gap: CapGap; boxed?: boolean;
       <LinkButton href="/app/targets" variant="secondary" className="mt-3 px-4">{t("Change it")}</LinkButton>
     </div>
   );
+}
+
+/**
+ * A day's fruit and veg (founder 2026-11-21: "5 a day, 7 a day is also a thing that matters too"): "Fruit and veg: 4½ portions", or "4½ of 5 portions" with an
+ * aim ("8½ portions (your aim is 7)" once it is met), down to the half portion (fiveADay.ts shownPortions). Never a word about what it does for anyone (rule 3).
+ */
+function fruitVegLine(t: ReturnType<typeof useT>, portions: number, aim: number | null): string {
+  const n = shownPortions(portions);
+  const words = `${Math.floor(n) || (n % 1 ? "" : "0")}${n % 1 ? "½" : ""}`;
+  // "8½ of 7" reads wrong: at or over the aim, the aim is said after
+  if (aim) return n < aim ? t("Fruit and veg: {n} of {aim} portions", { n: words, aim }) : t("Fruit and veg: {n} portions (your aim is {aim})", { n: words, aim });
+  return n === 1 ? t("Fruit and veg: 1 portion") : t("Fruit and veg: {n} portions", { n: words });
 }
 
 const names = (shops: readonly Shop[], ids: readonly string[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(ids.map((id) => shops.find((s) => s.id === id)?.name ?? id));
@@ -315,7 +347,28 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const household = home.others.length > 0;
   const count = home.others.length + 1;
   const setHome = (patch: Partial<Household>) => householdStore.set({ ...householdStore.get(), ...patch });
-  const steps = household ? HOUSEHOLD : JUST_ME;
+  // the day's meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well ... full personalization")
+  const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
+  const steps = useMemo(() => stepsFor(household, shape.meals.includes("breakfast")), [household, shape.meals]);
+  // Pip's extra questions (PipSteps.tsx), nothing chosen until the person chooses (a new plan starts from the last one's answers)
+  const [answers, setAnswers] = useState<PlanAnswers>(() => sanitizeAnswers(saved?.answers));
+  const answer = (patch: Partial<PlanAnswers>) => setAnswers((a) => ({ ...a, ...patch }));
+  // the person's bread and fruit and veg answers as the plan's limits (mealBalance.ts BalanceLimits), used by the phone's own planner too
+  const limits = useMemo(() => planLimits(answers), [answers]);
+  const limitsKey = JSON.stringify(limits);
+  const pipAnswered = (s: PipStep): boolean => {
+    switch (s) {
+      case "aim": return !!answers.aim;
+      case "fruitVeg": return !!answers.fruitVeg;
+      case "training": return !!answers.training;
+      case "cookTime": return !!(answers.cookWeekday || answers.cookWeekend);
+      case "leftovers": return answers.leftovers !== undefined;
+      case "breakfast": return !!answers.breakfast?.length;
+      case "bread": return !!answers.bread;
+      case "spice": return !!answers.spice;
+      case "notes": return !!answers.notes?.trim();
+    }
+  };
   // the first open, with no plan yet, starts on the check screen ("direct": not walked through the steps yet, so there is no step count and Back goes Home);
   // Make a new plan walks the steps from the first, as before
   const [direct, setDirect] = useState(!saved);
@@ -333,8 +386,6 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const [fromCheck, setFromCheck] = useState(false);
   const go = (to: StepId) => { setFromCheck(true); moveTo(steps.indexOf(to) + 1); };
   const backToCheck = () => { setFromCheck(false); moveTo(steps.length); };
-  // the day's meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well ... full personalization")
-  const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
   const slots = useMemo(() => planSlots(shape), [shape]);
   // how they like to eat (founder 2026-11-20): High protein and Lower carb fit every meal to more protein (mealPlan.ts styleTargets; Balanced: the same sizes,
   // so a first open makes the week the onboarding preview made) and the plan uses only that style's recipes (styleCandidates)
@@ -344,7 +395,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   // how often a meal may come round (founder 2026-11-18: "they can choose if they want any foods repeated")
   const [variety, setVariety] = useState<Variety>(saved?.variety ?? PER_MEAL_RECIPES);
   // "Make my plan": the plan is made and saved, then "Making your plan" shows the work step by step before the week opens (leaving it keeps the plan)
-  const [making, setMaking] = useState<string[] | null>(null);
+  const [making, setMaking] = useState<{ steps: string[]; more: boolean; pip?: boolean } | null>(null);
   const [leaveOut, setLeaveOut] = useState<string[]>(saved?.leaveOut ?? []);
   const [cuisines, setCuisines] = useState<CuisineId[]>(saved?.cuisines ?? []);
   const [typed, setTyped] = useState("");
@@ -486,11 +537,11 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   }) : undefined;
   // the slider's range for these prices and these people, worked out after the screen has drawn (the spinner shows meanwhile); on the budget step always
   // (the slider shows beside "No budget"), elsewhere only once there is a budget (with none, the week is the best fit)
-  const rangeKey = prep && prep.key === prepKey && (!noBudget || id === "budget") ? `${prepKey}|${homeKey}|${style}` : null;
+  const rangeKey = prep && prep.key === prepKey && (!noBudget || id === "budget") ? `${prepKey}|${homeKey}|${style}|${limitsKey}` : null;
   useEffect(() => {
     if (!rangeKey || !prep || ranged?.key === rangeKey) return;
     const timer = setTimeout(() => {
-      const range = budgetRange(sized(prep.cands), betterSized(prep.loaded), slots, variety);
+      const range = budgetRange(sized(prep.cands), betterSized(prep.loaded), slots, variety, limits);
       setRanged({ key: rangeKey, range });
       if (range) setPick((p) => {
         // whole pounds rounded up, as the slider shows them (BudgetSlider): rounded down, the best week and the cheapest came out over their own budget
@@ -505,24 +556,37 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const ready = !!prep && prep.key === prepKey && (noBudget || (!!range && pick !== null));
   // the check screen's budget row: what the week Make my plan makes would cost, the first shop and each week after (founder 2026-11-20, "the week after they need
   // to know that'll probably be about £40"); the same sums make() runs (planForBudget, memoised), worked out after the screen has drawn
-  const checkKey = id === "check" && ready ? `${prepKey}|${homeKey}|${style}|${noBudget ? "none" : pick}` : null;
+  const checkKey = id === "check" && ready ? `${prepKey}|${homeKey}|${style}|${limitsKey}|${noBudget ? "none" : pick}` : null;
   const [checked, setChecked] = useState<{ key: string; plan: BudgetPlan | null } | null>(null);
   useEffect(() => {
     if (!checkKey || !prep || checked?.key === checkKey) return;
-    const timer = setTimeout(() => setChecked({ key: checkKey, plan: planForBudget(sized(prep.cands), noBudget ? null : pick, betterSized(prep.loaded), slots, variety) }), 0);
+    const timer = setTimeout(() => setChecked({ key: checkKey, plan: planForBudget(sized(prep.cands), noBudget ? null : pick, betterSized(prep.loaded), slots, variety, limits) }), 0);
     return () => clearTimeout(timer);
   }, [checkKey]); // eslint-disable-line react-hooks/exhaustive-deps -- checkKey holds the answers it depends on
   const checkWeek = checked && checked.key === checkKey ? checked.plan?.week ?? null : null;
   const checkCosts = checkWeek ? weekCosts(checkWeek) : null;
   const gap = useCapGap(shape, targets);
-  const make = () => {
+  // Meal plan with Pip: with Premium (this screen is Premium), a connection and any of Pip's extra questions answered, Pip's AI chooses the week from the
+  // recipes worked out here (lib/mm/planAiWeek.ts); with none answered the week is the phone's own, the one the first open shows before Premium ("not bait")
+  const online = useOnline();
+  const pipWanted = PLAN_AI_ENABLED && hasPipAnswers(answers);
+  // Pip's permission before anything is sent (App Review 5.1.2(i), lib/mm/aiConsent.ts): "Not now" makes the week without Pip
+  const [consentOpen, setConsentOpen] = useState(false);
+  // the sheet's own close event follows Allow too (Sheet closes its dialog): only the first answer counts
+  const consentAnswered = useRef(false);
+  const aiAbort = useRef<AbortController | null>(null);
+  useEffect(() => () => aiAbort.current?.abort(), []);
+  // `declined`: "Not now" on Pip's permission (the week is the phone's, and the plan doesn't say Pip couldn't)
+  const make = (withPip = pipWanted && online, declined = false) => {
     if (!ready || !prep) return;
+    if (withPip && !aiAllowed(aiConsentStore.get(), "mealPlan")) { consentAnswered.current = false; setConsentOpen(true); return; }
     const budget = noBudget ? null : pick;
-    const plan = planForBudget(sized(prep.cands), budget, betterSized(prep.loaded), slots, variety);
+    const cands = sized(prep.cands);
+    const betterOf = betterSized(prep.loaded);
+    const plan = planForBudget(cands, budget, betterOf, slots, variety, limits);
     // no week: to what can change it (the foods left out, else the diet), with the reason there
     if (!plan) { setProblem("noPlan"); go(leaveOut.length ? "leaveOut" : household ? "homeDiet" : "diet"); return; }
     // what Pip did, each with its real figure (founder 2026-11-18: "show them what you're doing ... so you're showing them that you're properly working")
-    const w = plan.week;
     const recipes = new Set([...prep.cands.values()].flat().map((c) => c.recipe.id)).size;
     // how many of them are of the style (its own recipes only, not a meal's any-recipe fallback)
     const ofStyle = new Set([...prep.cands.values()].flat().filter((c) => fitsStyle(c, style)).map((c) => c.recipe.id)).size;
@@ -531,27 +595,66 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     const products = prep.loaded.reduce((n, l) => n + l.products.length, 0);
     const meals = slots.filter((m) => m !== "snack").length * PLAN_DAYS;
     const snacks = slots.filter((m) => m === "snack").length * PLAN_DAYS;
-    const eaten = w.fresh.bought > 0 ? Math.round((100 * w.fresh.eaten) / w.fresh.bought) : 100;
-    const steps = [
-      t("Reading {n} recipes that suit your diet", { n: formatInt(recipes) }),
-      ...(style === "balanced" ? [] : [t("Keeping to {style}: {n} of them fit", { style: t(STYLE_LABEL[style]), n: formatInt(ofStyle) })]),
-      t("Looking through {n} products at {shops}", { n: formatInt(products), shops: names(shopsAll, chosen) }),
-      // under a GLP-1 meal cap the meals are sized to the meal size, not the day (CapNote says so)
-      gap ? (household ? t("Sizing every meal for {n} of you: your own portion to your {cap} kcal meal size", { n: count, cap: formatInt(gap.cap) }) : t("Sizing every meal to your {cap} kcal meal size", { cap: formatInt(gap.cap) }))
-        : household ? t("Sizing every meal for {n} of you: your own portion to your {kcal} kcal and {protein} g protein a day", { n: count, kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) })
-        : t("Sizing every meal to your {kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(fitProtein) }),
-      snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
-      t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
-      budget === null ? t("Pricing the best week for your goal: {cost}", { cost: formatPrice(w.shoppingCost) })
-        : w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: pounds(budget) }),
-      household ? t("Writing your shopping list for {people} people: {n} products", { people: count, n: w.shopping.length }) : t("Writing your shopping list: {n} products", { n: w.shopping.length }),
-    ];
+    // the steps for the week that is kept (the phone's, or Pip's), each with its real figure
+    const workSteps = (w: WeekPlan) => {
+      const eaten = w.fresh.bought > 0 ? Math.round((100 * w.fresh.eaten) / w.fresh.bought) : 100;
+      return [
+        t("Reading {n} recipes that suit your diet", { n: formatInt(recipes) }),
+        ...(style === "balanced" ? [] : [t("Keeping to {style}: {n} of them fit", { style: t(STYLE_LABEL[style]), n: formatInt(ofStyle) })]),
+        t("Looking through {n} products at {shops}", { n: formatInt(products), shops: names(shopsAll, chosen) }),
+        // under a GLP-1 meal cap the meals are sized to the meal size, not the day (CapNote says so)
+        gap ? (household ? t("Sizing every meal for {n} of you: your own portion to your {cap} kcal meal size", { n: count, cap: formatInt(gap.cap) }) : t("Sizing every meal to your {cap} kcal meal size", { cap: formatInt(gap.cap) }))
+          : household ? t("Sizing every meal for {n} of you: your own portion to your {kcal} kcal and {protein} g protein a day", { n: count, kcal: formatInt(settings.dailyCalories), protein: formatInt(daily.protein) })
+          : t("Sizing every meal to your {kcal} kcal and {protein} g protein a day", { kcal: formatInt(settings.dailyCalories), protein: formatInt(fitProtein) }),
+        snacks ? t("Choosing {meals} meals and {snacks} snacks for your week", { meals, snacks }) : t("Choosing {meals} meals for your week", { meals }),
+        t("Planning the packs so {pct}% of the fresh food gets eaten", { pct: eaten }),
+        budget === null ? t("Pricing the best week for your goal: {cost}", { cost: formatPrice(w.shoppingCost) })
+          : w.overBudget ? t("Finding the cheapest week your choices allow: {cost}", { cost: formatPrice(w.shoppingCost) }) : t("Keeping the week to {cost}, within your {budget}", { cost: formatPrice(w.shoppingCost), budget: pounds(budget) }),
+        household ? t("Writing your shopping list for {people} people: {n} products", { people: count, n: w.shopping.length }) : t("Writing your shopping list: {n} products", { n: w.shopping.length }),
+      ];
+    };
     // saved now, so leaving "Making your plan" keeps it; the plan this one replaces is kept among the earlier plans (founder 2026-11-19: "they can start
-    // another meal plan"); the person's own diet is kept with it, so changing it later doesn't break the week
+    // another meal plan"); the person's own diet is kept with it, so changing it later doesn't break the week; Pip's answers too, so a new plan starts from them
+    const kept = sanitizeAnswers(answers);
+    const base: Omit<SavedPlan, "ids"> = { shops: chosen, slots, leaveOut, budget, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(household ? { home: { others, allergies: home.allergies, diets: home.diets } } : {}), diet: cleanDiet(settings.preferences), ...(style !== "balanced" ? { style } : {}), ...(Object.keys(kept).length ? { answers: kept } : {}) };
+    const save = (p: BudgetPlan, extra: Pick<SavedPlan, "why" | "pipMissed"> = {}) => mealPlanStore.set({ ...base, ids: p.ids, ...(p.better.length ? { better: p.better } : {}), ...extra });
     onStart();
     if (saved) earlierPlansStore.update((l) => keepEarlier(l, saved));
-    mealPlanStore.set({ shops: chosen, ids: plan.ids, slots, leaveOut, budget, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(plan.better.length ? { better: plan.better } : {}), ...(household ? { home: { others, allergies: home.allergies, diets: home.diets } } : {}), diet: cleanDiet(settings.preferences), ...(style !== "balanced" ? { style } : {}) });
-    setMaking(steps);
+    // without Pip (none of his questions answered, offline, or "Not now"): the phone's week, as before
+    if (!withPip) {
+      save(plan, pipWanted && !declined ? { pipMissed: true } : {});
+      setMaking({ steps: workSteps(plan.week), more: false });
+      return;
+    }
+    // with Pip: the phone's week is saved first (leaving keeps it), then Pip's replaces it once checked
+    save(plan);
+    const day = slots.reduce((n, m) => ({ kcal: n.kcal + (targets[m]?.kcal ?? 0), protein: n.protein + (targets[m]?.protein ?? 0) }), { kcal: 0, protein: 0 });
+    const req = planAiRequest({
+      answers: kept, style, cuisines: cuisinesUsed, slots, targets, daily: day, start: new Date(), variety, budget, cands,
+      household: household ? { others: home.others.map((o) => ({ group: o.group, portion: o.portion })) } : null,
+      draft: { ids: plan.ids, cost: plan.week.shoppingCost },
+    });
+    const sent = Object.values(req.candidates).reduce((n, l) => n + (l?.length ?? 0), 0);
+    const first = [t("Pip is reading your answers"), t("Pip is choosing your week from {n} recipes", { n: formatInt(sent) })];
+    setMaking({ steps: first, more: true, pip: true });
+    const stop = new AbortController();
+    aiAbort.current = stop;
+    void askPipForWeek(req, stop.signal).then((reply) => {
+      if (stop.signal.aborted) return;
+      const merged = mergeAiWeek(reply, req, cands);
+      let final: BudgetPlan | null = null;
+      if (merged.source === "pip") {
+        const week = buildWeek(merged.ids, cands, budget, slots);
+        if (week && budgetKept(budget, week.shoppingCost, plan.week.shoppingCost)) final = budget === null ? { ids: merged.ids, week, better: [] } : upgradeWithin(merged.ids, week, cands, budget, betterOf, slots);
+      }
+      // Pip's week replaces the phone's only while the phone's is still the plan
+      const now = mealPlanStore.get();
+      if (now && now.start === base.start && JSON.stringify(now.ids) === JSON.stringify(plan.ids)) {
+        const why = final ? cleanWhy(reply?.why) : null;
+        save(final ?? plan, final ? (why ? { why } : {}) : { pipMissed: true });
+      }
+      setMaking({ steps: [...first, ...(final ? [] : [t("Pip couldn't plan with your answers this time")]), ...workSteps((final ?? plan).week)], more: false, pip: true });
+    });
   };
 
   const working = preparing && (
@@ -576,6 +679,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     count: t("How many people are you cooking for?"), who: t("Who's eating with you?"), meals: t("Your meals and snacks"), shops: t("Where you shop"),
     diet: t("Your diet and allergies"), style: t("How do you like to eat?"), cuisine: t("The food you like"), allergies: t("Any food allergies at home?"), homeDiet: t("Any diets at home?"),
     leaveOut: household ? t("Anything someone won't eat?") : t("Foods you'd rather not have"), budget: t("Your budget for the week"), check: t("Ready to make your plan?"),
+    aim: t("What's your aim?"), fruitVeg: t("Fruit and veg a day"), training: t("How often do you train?"), cookTime: t("How long can you cook for?"), leftovers: t("Cook once, eat twice?"),
+    breakfast: t("What do you like for breakfast?"), bread: t("How often do you like bread?"), spice: t("How hot do you like it?"), notes: t("Anything else Pip should know?"),
   };
   const title = TITLES[id];
   // the shops step says what the ticks mean as they change (founder 2026-11-18: "it needs to be clear to them")
@@ -601,6 +706,16 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     leaveOut: household ? t("I'll leave them out for everyone.") : t("I'll leave them out."),
     budget: t("Keep No budget, or slide to set one. The green spot is the best fit."),
     check: direct ? t("I've filled this in from your settings.") : t("Here's what you picked."),
+    aim: t("I'll choose the meals that suit it."),
+    // plain words here (a figure on the screen): the NHS's own way of counting
+    fruitVeg: t("Counted the NHS way: 80 g of fruit or veg is a portion."),
+    training: t("Training days get meals with more carbs."),
+    cookTime: t("Each day's cooking will fit the time you have."),
+    leftovers: t("A leftover is one less meal to cook."),
+    breakfast: t("Pick one or more."),
+    bread: t("Toast, wraps and sandwiches count. Never more than one a day."),
+    spice: t("I'll match the heat to you."),
+    notes: t("Tell me in your own words. I'll plan around it."),
   };
   const says = SAYS[id];
   // the check screen keeps Pip until its budget row shows £
@@ -614,7 +729,9 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   // the allergies the plan leaves out: the home's and the person's own (a household plan applies both: household.ts homeDiet), or (Just me) the person's own
   const ownAllergies = settings.preferences.avoidAllergens ?? [];
   const allergiesSet = (prefs.avoidAllergens?.length ?? 0) > 0;
-  if (making) return <Making steps={making} onDone={onDone} />;
+  const pipLines = pipAnswerLines(t, answers);
+  const skipNote = answers.skipCuisines?.length ? t("Skipping {kinds}.", { kinds: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(answers.skipCuisines.map((c) => t(CUISINES.find((x) => x.id === c)?.label ?? c))) }) : "";
+  if (making) return <Making steps={making.steps} more={making.more} pip={making.pip} onDone={onDone} />;
   const canGo = !(id === "meals" && !shape.meals.length) && !(id === "leaveOut" && noneFor) && !(id === "shops" && !chosen.length) && !((id === "budget" || id === "check") && !ready) && !(id === "check" && noneFor);
   // the shops or their products couldn't be loaded (no connection): the check screen says so, with Try again
   const unloaded = problem === "offline" || (!!manifest && !shopsAll.length);
@@ -634,6 +751,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     : id === "allergies" && !home.allergies.length ? t("No allergies at home")
     : id === "homeDiet" && !home.diets.length ? t("No diets at home")
     : id === "leaveOut" && !leaveOut.length ? t("Nothing to leave out")
+    : isPipStep(id) && !pipAnswered(id) ? t("Skip")
     : t("Continue");
 
   return (
@@ -689,7 +807,9 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
         {/* the person's own diet, or the home's, picks each tile's picture (a recipe they'd eat) */}
         {id === "style" && <StyleStep value={style} onChange={setStyle} diet={prefs} note={styleNote} short={styleShort} />}
 
-        {id === "cuisine" && <CuisinePicker value={cuisines} onChange={setCuisines} diet={prefs} leaveOut={leaveOut} slots={slots} />}
+        {id === "cuisine" && <CuisinePicker value={cuisines} onChange={(c) => { setCuisines(c); if (answers.skipCuisines?.some((x) => c.includes(x))) answer({ skipCuisines: answers.skipCuisines.filter((x) => !c.includes(x)) }); }} diet={prefs} leaveOut={leaveOut} slots={slots} />}
+        {/* the kinds to skip, for Pip (PLAN_AI_ENABLED): any not chosen above */}
+        {id === "cuisine" && PLAN_AI_ENABLED && <SkipCuisines value={answers.skipCuisines ?? []} liked={cuisines} onChange={(skip) => answer({ skipCuisines: skip.length ? skip : undefined })} />}
 
         {id === "allergies" && <AllergiesStep value={home.allergies} onChange={(a) => { setHome({ allergies: a }); setPick(null); }} />}
 
@@ -775,6 +895,17 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
           </>
         )}
 
+        {/* Pip's extra questions (PipSteps.tsx), nothing chosen when a screen opens */}
+        {id === "aim" && <AimStep value={answers.aim} onChange={(aim) => answer({ aim })} />}
+        {id === "fruitVeg" && <FruitVegStep value={answers.fruitVeg} onChange={(fruitVeg) => answer({ fruitVeg })} />}
+        {id === "training" && <TrainingStep value={answers.training} days={answers.trainingDays ?? []} onChange={(training) => answer({ training, ...(training === "none" || !training ? { trainingDays: undefined } : {}) })} onDays={(trainingDays) => answer({ trainingDays: trainingDays.length ? trainingDays : undefined })} />}
+        {id === "cookTime" && <CookTimeStep weekday={answers.cookWeekday} weekend={answers.cookWeekend} onWeekday={(cookWeekday) => answer({ cookWeekday })} onWeekend={(cookWeekend) => answer({ cookWeekend })} />}
+        {id === "leftovers" && <LeftoversStep value={answers.leftovers} onChange={(leftovers) => answer({ leftovers })} />}
+        {id === "breakfast" && <BreakfastStep value={answers.breakfast ?? []} onChange={(b) => answer({ breakfast: b.length ? b : undefined })} />}
+        {id === "bread" && <BreadStep value={answers.bread} onChange={(bread) => answer({ bread })} />}
+        {id === "spice" && <SpiceStep value={answers.spice} onChange={(spice) => answer({ spice })} />}
+        {id === "notes" && <NotesStep value={answers.notes ?? ""} onChange={(notes) => answer({ notes: notes || undefined })} />}
+
         {/* the check screen (the meeting: everyone sees it, Just me too; anything can be changed from here). Who's eating first (the onboarding meeting,
             20 November 2026: the first open starts here, and the old first question became this line), then the allergies */}
         {id === "check" && unloaded && (
@@ -790,7 +921,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
               ["style", t("How you like to eat"), t(STYLE_LABEL[style]), styleCheckNote ?? undefined],
               ["meals", t("Meals and snacks"), dayShape(t, shape)],
               ["shops", t("Where you shop"), chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : t("No shop chosen"), shopNote],
-              ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any"), widenedNote]]),
+              ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any"), [widenedNote, skipNote].filter(Boolean).join(" ") || undefined]]),
               ["leaveOut", household ? t("Left out for everyone") : t("Foods left out"), leaveOut.length ? leaveOut.map((x) => t(LEAVE_OUT.find((c) => c.id === x)?.label ?? x)).join(", ") : t("Nothing")],
               ["budget", t("Your budget"), noBudget ? t("No budget: the best week for your goal") : pick !== null ? t("{budget} a week", { budget: pounds(pick) }) : t("Not set yet"),
                 checkWeek && checkCosts && showsWeekAfter(checkCosts) ? (
@@ -799,6 +930,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
                     {!noBudget && pick !== null && <span className="mt-1.5 block">{twoWeeksBudget(t, checkCosts, pick)}</span>}
                   </>
                 ) : undefined],
+              // Pip's extra questions, in the order asked
+              ...steps.filter(isPipStep).map((s): [StepId, string, string] => [s, t(PIP_ROW[s]), pipLines[s]]),
             ] as Array<[StepId, string, string, React.ReactNode?]>).map(([to, label, value, note]) => {
               const row = (
                 <>
@@ -825,6 +958,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
       {/* a 16 px band of the page's own grey above the button, so it never sits on a card; on the check screen, when a meal has no recipes, the reason and
           the ways on take the button's place */}
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-6 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-4">
+        {/* offline with Pip's questions answered: the week is the phone's own, said before it is made */}
+        {id === "check" && pipWanted && !online && !noneFor && <p className="mb-2.5 text-[1rem] font-semibold leading-snug">{t("You're offline, so this plan won't use your answers to Pip.")}</p>}
         {id === "check" && noneFor ? (
           <div role="status" className={`${CARD} p-4`}>
             <p className="text-[0.9375rem] font-semibold leading-snug">{noneSay}</p>
@@ -834,6 +969,10 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
           <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => (id === "check" ? make() : fromCheck ? backToCheck() : moveTo(step + 1))}>{nextLabel}</Button>
         )}
       </div>
+      {/* Pip's permission, the first time his AI would plan the week: Allow plans with him; Not now makes the week on this phone */}
+      <AiConsentSheet open={consentOpen} feature="mealPlan" shop={chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : undefined}
+        onAllow={() => { if (consentAnswered.current) return; consentAnswered.current = true; aiConsentStore.update((l) => withAiAllowed(l, "mealPlan")); setConsentOpen(false); make(true); }}
+        onClose={() => { if (consentAnswered.current) return; consentAnswered.current = true; setConsentOpen(false); make(false, true); }} />
     </div>
   );
 }
@@ -989,23 +1128,28 @@ const MAKING_STEP_MS = 2800;
  * each with its real figure (the recipes and products looked at, the sizes, the packs, the bill, the list), then the week opens. Nothing here is made up.
  * Presentation only: the plan is saved before it starts, so leaving keeps it. No Pip here (the steps carry calories and prices): a plain status line.
  */
-function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
+function Making({ steps, more = false, pip = false, onDone }: { steps: string[]; more?: boolean; pip?: boolean; onDone: () => void }) {
   const t = useT();
   const [at, setAt] = useState(0);
   const done = useRef(onDone);
   useEffect(() => { done.current = onDone; }, [onDone]);
   useLayoutEffect(() => { window.scrollTo({ top: 0 }); }, []);
+  // with Pip (Meal plan with Pip): his two steps first, the second spinning until his week is back and checked (`more`), then the rest at half the pace
+  const waiting = pip ? 2 : 0;
   useEffect(() => {
-    const id = setTimeout(() => (at >= steps.length ? done.current() : setAt(at + 1)), at >= steps.length ? 600 : MAKING_STEP_MS);
+    if (more && at >= steps.length - 1) return; // the last step so far keeps working until the next ones come
+    const id = setTimeout(() => (at >= steps.length ? done.current() : setAt(at + 1)), at >= steps.length ? 600 : pip && at >= waiting ? MAKING_STEP_MS / 2 : MAKING_STEP_MS);
     return () => clearTimeout(id);
-  }, [at, steps.length]);
+  }, [at, steps.length, more, pip, waiting]);
   const shown = Math.min(at, steps.length - 1);
+  // while Pip works, the bar counts the steps still to come (about seven)
+  const total = steps.length + (more ? 7 : 0);
   return (
     <div className="pb-6">
       <h1 className={`mt-11 ${TITLE}`}>{t("Making your plan")}</h1>
-      <p className="mt-4 text-base leading-snug">{t("This takes about 20 seconds.")}</p>
+      <p className="mt-4 text-base leading-snug">{pip ? t("This can take up to a minute.") : t("This takes about 20 seconds.")}</p>
       <div aria-hidden className="mt-5 h-2 overflow-hidden rounded-full bg-line">
-        <span className="block h-full rounded-full bg-bar transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${Math.round((100 * Math.min(at + 1, steps.length)) / steps.length)}%` }} />
+        <span className="block h-full rounded-full bg-bar transition-[width] duration-700 ease-out motion-reduce:transition-none" style={{ width: `${Math.round((100 * Math.min(at + 1, steps.length)) / total)}%` }} />
       </div>
       <p role="status" aria-live="polite" className="sr-only">{steps[shown]}</p>
       <ul className={`${CARD} mt-5 space-y-3.5 p-4`}>
@@ -1045,7 +1189,8 @@ function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: n
   // the thumb is 2.25rem wide, so its middle runs from 1.125rem in from each end: the spot and the track line up with it
   const along = (v: number) => `calc(1.125rem + (100% - 2.25rem) * ${at(v)})`;
   // "pricier", never "better" (CLAUDE.md rule 3: food is never called good or bad)
-  const zone = value <= min ? t("The cheapest week for your goal: lower-cost recipes and everyday products.")
+  // the best fit can be the cheapest week too (21 November evening, with the world recipes): there the green spot's words win, as that is what the spot is
+  const zone = value <= min && best > min ? t("The cheapest week for your goal: lower-cost recipes and everyday products.")
     : value < best - 1 ? t("Cheaper than the best fit: some meals are lower-cost recipes, still sized to your goal.")
     : value <= best + 1 ? t("The green spot: the best week for your goal.")
     : value < max ? t("More to spend: some meals are made with pricier products, like the shops' best ranges, organic or free range.")
@@ -1302,6 +1447,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   }
 
   const shown = week.days[day]!;
+  const fruitVegAim = saved.answers?.fruitVeg === 5 || saved.answers?.fruitVeg === 7 ? saved.answers.fruitVeg : null;
   const costs = weekCosts(week);
   const twoWeeks = showsWeekAfter(costs);
   // the person's own diet (as the plan was made), and a home's diets, as the picker names them; allergies are said in their own amber note
@@ -1421,6 +1567,16 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           {!ended && <Button variant="secondary" className="min-h-12 gap-2 px-5" onClick={onChange}><CalendarIcon aria-hidden className="h-5 w-5" />{t("Make a new plan")}</Button>}
         </div>
       )}
+      {/* Pip's "why this week" when the week is the one he chose (Meal plan with Pip): his own words, no figures (cleanWhy), named as his in plain words (no Pip
+          drawn on the week: it carries calories and prices; tests/mascot.test.ts) */}
+      {saved.why && (
+        <div className={`${CARD} mt-4 p-4`}>
+          <p className="text-[0.8125rem] font-semibold text-muted">{t("Why this week, from Pip")}</p>
+          <p className="mt-1 text-base leading-snug">{saved.why}</p>
+        </div>
+      )}
+      {/* he was asked but couldn't plan it (offline, busy, or an answer the plan couldn't use): the week is the phone's own, said once, plainly */}
+      {saved.pipMissed && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Pip couldn't plan with your answers this time. Make a new plan to try again.")}</p>}
       {/* another plan whenever they like, at the top where it's seen (founder 2026-11-19); this one is kept among the earlier plans */}
       <div className="mt-3 flex flex-wrap gap-2">
         {/* secondary (colour meeting: lime is never a button); "Add all" stays the screen's one main action */}
@@ -1482,6 +1638,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
             </span>
           ))}
         </div>
+        {/* the day's fruit and veg, counted the NHS way from the recipes' own weights (fiveADay.ts), against the person's aim when they set one */}
+        <p className="app-numbers mt-2.5 px-1 text-[0.9375rem] font-semibold leading-snug">{fruitVegLine(t, dayPortions(shown.meals.map((m) => servingPortions(m.candidate))), fruitVegAim)}</p>
+        <p className="mt-0.5 px-1 text-[0.8125rem] leading-snug text-muted">{t("Counted the NHS way: 80 g of fruit or veg is a portion.")}</p>
         {logged && <Toast key={logged.id} onUndo={undoLog} onClose={() => setLogged(null)}>{logged.text}</Toast>}
         <ul className="mt-5 space-y-6">
           {shown.meals.map((m, i) => {
