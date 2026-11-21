@@ -4046,3 +4046,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (21 Nov, afternoon) **Morrisons: 132 more labels** (recipe queue, third run; nothing blocked). Held back: 114258034 (a review in the may-contain field),
   113346913 (garbled figures), 109889835 (sugar-free mint balls at 394 kcal). Kept: 113337347 (Buchanan's Mint Crumbles; only its per-sweet column is odd, the
   per-100 g one is used). Morrisons now 10,979 labels; lists, leaderboards and counts rebuilt (Morrisons 329), unit tests 3,993; 97 recipe-queue pages left.
+- (21 Nov, afternoon) **Morrisons: the recipe queue is read** (last 97 pages; 3 landed on Morrisons' "Oops" page). Held back: Laila pomace olive oil 3L
+  (115790399, per-100 ml figures headed per 100g; the 5L, headed per 100 ml, is kept) and Manischewitz medium egg noodles (100385622, protein 1.4 g).
+  Kept: Shazans chicken breast 113158576 (only its cooked-serving column is odd).
