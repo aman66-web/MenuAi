@@ -68,13 +68,13 @@ describe("the products agree everywhere", () => {
   const appConfig = readFileSync(new URL("../../MenuMacros/App/AppConfig.swift", import.meta.url), "utf8");
   const subs = storekit.subscriptionGroups.flatMap((g) => g.subscriptions);
 
-  it("Config/Numbite.storekit sells Annual £49.99 and Monthly £4.99, each with a free first week, in the group Numbite Premium, and nothing else", () => {
+  it("Config/Numbite.storekit sells Annual £49.99 and Monthly £4.99, with no introductory offer (the free week is the account's own: 21 Nov 2026), in the group Numbite Premium, and nothing else", () => {
     expect(storekit.subscriptionGroups.map((g) => g.name)).toEqual(["Numbite Premium"]);
     expect(subs.map((x) => `${x.productID} ${x.displayPrice} ${x.recurringSubscriptionPeriod}`)).toEqual([
       `${IAP_PRODUCT_IDS.annual} 49.99 P1Y`,
       `${IAP_PRODUCT_IDS.monthly} 4.99 P1M`,
     ]);
-    for (const x of subs) expect(x.introductoryOffer).toMatchObject({ paymentMode: "free", subscriptionPeriod: "P1W" });
+    for (const x of subs) expect(x.introductoryOffer ?? null).toBeNull();
     expect(storekit.nonRenewingSubscriptions).toEqual([]);
     expect(storekit.products).toEqual([]);
   });
