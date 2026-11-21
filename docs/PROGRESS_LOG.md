@@ -3960,3 +3960,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Annual, Monthly and the Numbite Premium group submitted together: "4 Items Submitted", 06:06. Morning report: docs/MORNING_REPORT_2026-11-21.md.
 - (11:27, 21 Nov) **Tesco check: security page again** ("Powered and protected by"), at the end of the 6-hour wait after the 05:27 block. Nothing more was done; the
   check tab was closed. New 6-hour wait: no Tesco reader before about 17:27.
+- (11:51, 21 Nov) **numbite.com deployed** (founder: "Yes, please", to deploying the night's server fixes): the website build passed first in the clean copy;
+  `main` fast-forwarded to `iap` (91a01dcf, 20 commits: the 30-agent meeting's two passes, the 40 recipes and pictures, liquids by weight, Aldi's sizes, the
+  barcode photo and measures, the auth, barcode lookup and scan-route fixes, the privacy page). Vercel production deployment Ready in 58 s
+  (menumacros-dw0txbftk). Checked live: /, /app, /app/targets, /privacy (dated 21 November 2026, with the free week), /terms ("The free week") answer 200;
+  POST /api/v1/entitlement/account 401 without an account; a new recipe picture 200; /api/v1/barcode answers. Rollback: the previous production deployment
+  menumacros-4i9o78xw0 (aa767bd5).
