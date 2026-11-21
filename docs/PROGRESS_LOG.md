@@ -4040,3 +4040,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   rapeseed oil printing 4.4 g carbohydrate (110215942), four KTC oils headed per 100ml with per-100 g figures (104193361, 114487072, 100382819, 104195607),
   and Old El Paso hot salsa showing the mild salsa's table (115823146). Morrisons now 10,712 labels; lists rebuilt (build_all_products), recipe counts
   unchanged (Morrisons 329), leaderboards unchanged, unit tests 3,993. On `iap`, not live.
+- (21 Nov, afternoon) **Morrisons: 139 more labels** (recipe queue, second run; nothing blocked; one page cut off in the reader's transcript, porridge oats
+  105361929, left unread for the next round). Morrisons now 10,847 labels; lists, leaderboards and recipe counts rebuilt (Morrisons 329), unit tests 3,993;
+  237 recipe-queue pages left. On `iap`, not live.

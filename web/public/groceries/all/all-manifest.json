@@ -11,7 +11,7 @@
    "community": 148,
    "sameProduct": 65,
    "priced": 15284,
-   "sha256": "01e42e419444bced2d7be70bf8b8a6e45b9255caa7b52520053082d535bc74b5"
+   "sha256": "5842f3704d307c00efdfb88f8b0751c0d008b3023940f71cd72f96952c302b2b"
   },
   {
    "id": "tesco",
@@ -35,7 +35,7 @@
    "community": 5285,
    "sameProduct": 1588,
    "priced": 10506,
-   "sha256": "474a43ec9eea8562963c8b4c487b03fca564142ba05dd8c71788885d53cf51f8"
+   "sha256": "07036103a33ecc81e815431f81e1081aa0e9bce725d8ae35181f72bda836721b"
   },
   {
    "id": "aldi",
@@ -67,9 +67,9 @@
    "checkedOn": "2026-10-08",
    "nutrition": 12598,
    "community": 407,
-   "sameProduct": 1002,
+   "sameProduct": 997,
    "priced": 16367,
-   "sha256": "79162f31a4bfe27c895d51214b955b7779abbae477fb37f524e93744ff6a9412"
+   "sha256": "a83a0dbc73d41a0001b0d0682f448d074f6039a352582470f1275dc5f39c78df"
   },
   {
    "id": "waitrose",
@@ -93,7 +93,7 @@
    "community": 669,
    "sameProduct": 627,
    "priced": 5962,
-   "sha256": "b85c56b94a1a8aae66dc3ce409d1d32648c1b6328f8845e1f99a166f6385c68c"
+   "sha256": "515aaa88cd06b5da006b4bc63ddc89889b80a92f0de21256a7ce5c3e12626f29"
   },
   {
    "id": "marks-and-spencer",
