@@ -4085,3 +4085,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   portions are sized to {kcal} kcal a day."); protein leans the household's recipes towards enough for them (mealPlan.ts othersProteinGap: their shortfall
   for that meal's share of their day, at 0.3 of the fit distance). The Who's eating line shows them ("Sam (adult, 2,800 kcal, 180 g protein)"). Kept on
   the phone only, like names. Tests: household.test.ts (3 new), e2e household 6/6. On `iap`, next build.
+- (21 Nov, 17:03) **1.1 build 13 uploaded to TestFlight** (founder: "update the build on my phone so that I can test"; the iPhone was off the Mac's
+  network, so not installed from Xcode): `iap` at 37eaf959 with the balanced meal plan, the sign-up screens that open with nothing ticked, "Example plan" on
+  a phone, each person's calories and protein. Pack checked: no screenshot test key. Not submitted; build 11 is still the one in App Review.
