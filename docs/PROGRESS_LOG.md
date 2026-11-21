@@ -3951,3 +3951,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   page) reach numbite.com only with a deploy, which waits for the founder.
 - (05:27, 21 Nov) **Tesco check: security page again** ("Powered and protected by") on the one check page, at the end of the 6-hour wait after the 23:27 block. Nothing
   more was done (no refresh, no other tab); the check tab was closed. New 6-hour wait: no Tesco reader before about 11:27.
+- (05:50-06:06, 21 Nov) **Build 11 submitted for App Review** (founder: "after all of the jobs upload and submit the new build"). Before it: the browser tests that
+  failed on the 05:20 run were triaged by Noor (34b55b13): every one was stale against a recorded change or grown data (groceries, lists, recipes, tabs,
+  showcase, truth), no app bug; app code unchanged since build 11 was packed (f4f1407e). Build 11: packed 1.1 (11) in the clean copy (terms with the free
+  week, privacy dated 21 November, Barcode from a photo inside), archived, uploaded 05:15, processed. App Store Connect: 1.1 removed from review (build 10),
+  build 11 attached, What's New, the description sentence and the In-App Purchase review note pasted from docs/STORE.md, the description's "Top 5 picks ...
+  at every chain" corrected to "at chains that publish protein" (the same untrue words the meeting corrected in What's New), manual release kept; the version,
+  Annual, Monthly and the Numbite Premium group submitted together: "4 Items Submitted", 06:06. Morning report: docs/MORNING_REPORT_2026-11-21.md.
