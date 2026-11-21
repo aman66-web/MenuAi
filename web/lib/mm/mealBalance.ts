@@ -31,6 +31,20 @@ const EGGS = /^eggs?$/;
 /** A dish whose name says it is about cheese. */
 const CHEESY_NAME = /\b(?:cheese|cheesy|macaroni|mac and|toastie|quesadillas?|pizzas?|lasagne|gratin|carbonara|alfredo|halloumi|fondue|rarebit)\b/i;
 
+/** Bread of any kind: loaves, wraps, naan, pitta, bagels, rolls (pantry kinds and their spellings). */
+const BREAD = /^(?:bread|white-bread|wholemeal-bread|wraps?|tortillas?|naan|pitta|bagels?|rolls?|baguette|ciabatta|sourdough|brioche|crumpets?|english-muffins?|flatbreads?|chapatis?)$/;
+const BREAD_GRAMS = 30;
+/** Bread meals a week by default ("a few times a week"); the person's own answer in Meal plan can set it (breadLimit). */
+export const MAX_BREAD_A_WEEK = 4;
+/** How often the person likes bread (Meal plan's question), as the most bread meals a week: most days 7, a few times 4, rarely 2. */
+export type BreadLike = "mostDays" | "fewTimes" | "rarely";
+export function breadLimit(like: BreadLike | null | undefined): number {
+  return like === "mostDays" ? 7 : like === "rarely" ? 2 : MAX_BREAD_A_WEEK;
+}
+export interface BalanceLimits {
+  breadWeek?: number;
+}
+
 /** An ingredient leads part of a meal from this much a serving (meat, fish, tofu, beans), one egg, or this much cheese. */
 const FEATURE_GRAMS = 30;
 const FEATURE_EGG_GRAMS = 50;
@@ -52,6 +66,8 @@ export interface MealBalance {
    * repeating ingredients on the same day"): each meat, fish or vegetarian protein from FEATURE_GRAMS a serving, eggs from one egg, cheese from a good handful.
    */
   featured: MainKind[];
+  /** Made with bread, wraps, naan or the like (founder 2026-11-21: "who wants to have bread every single day"): at most one a day, and breadLimit a week. */
+  bread: boolean;
 }
 
 /** The recipe's main and whether it is cheese-heavy, per serving as written. */
@@ -60,12 +76,14 @@ export function mealBalance(r: Pick<Recipe, "name" | "ingredients" | "servings">
   const grams = new Map<MainKind, number>();
   let cheese = 0;
   let eggs = 0;
+  let bread = 0;
   for (const i of r.ingredients) {
     const kind = i.pantry ?? i.key;
     const g = i.amount / per;
     const meat = MEAT_FISH_VEG.find(([, re]) => re.test(kind));
     if (meat) grams.set(meat[0], (grams.get(meat[0]) ?? 0) + g);
     else if (CHEESE.test(kind)) cheese += g;
+    else if (BREAD.test(kind)) bread += g;
     else if (EGGS.test(kind)) eggs += g;
   }
   let main: MainKind | null = null;
@@ -76,7 +94,7 @@ export function mealBalance(r: Pick<Recipe, "name" | "ingredients" | "servings">
   const featured: MainKind[] = [...grams].filter(([, g]) => g >= FEATURE_GRAMS).map(([k]) => k);
   if (eggs >= FEATURE_EGG_GRAMS) featured.push("eggs");
   if (cheese >= FEATURE_CHEESE_GRAMS) featured.push("cheese");
-  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)), featured };
+  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)), featured, bread: bread >= BREAD_GRAMS };
 }
 
 const memo = new WeakMap<object, MealBalance>();
@@ -91,16 +109,19 @@ export function mealBalanceOf(r: Pick<Recipe, "name" | "ingredients" | "servings
  * whose main is the same as the day before's in that meal, one for each time a main comes more than MAX_SAME_MAIN_A_WEEK times, one for each cheese-heavy dish
  * after the first in a day, and one for each over MAX_CHEESY_A_WEEK. 0 is a balanced week.
  */
-export function balanceFaults(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[]): number {
-  const r = balanceReport(week, slots);
+export function balanceFaults(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[], limits: BalanceLimits = {}): number {
+  const r = balanceReport(week, slots, limits);
   // too much cheese weighs double (it was the founder's own complaint: "everything on it is cheesy stuff")
-  return r.sameDay + r.dayAfter + r.overWeek + r.sharedDay + 2 * (r.cheesyDay + r.cheesyWeek);
+  // the same main twice in a day weighs double too: it is the repeat people notice most (salmon for lunch and dinner)
+  return 2 * r.sameDay + r.dayAfter + r.overWeek + r.sharedDay + r.breadDay + r.breadWeek + 2 * (r.cheesyDay + r.cheesyWeek);
 }
 
 /** The parts of balanceFaults, for tests. */
-export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[]): { sameDay: number; dayAfter: number; overWeek: number; sharedDay: number; cheesyDay: number; cheesyWeek: number } {
+export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[], limits: BalanceLimits = {}): { sameDay: number; dayAfter: number; overWeek: number; sharedDay: number; breadDay: number; breadWeek: number; cheesyDay: number; cheesyWeek: number } {
   let sameDay = 0;
   let sharedDay = 0;
+  let breadDay = 0;
+  let breadMeals = 0;
   let dayAfter = 0;
   let cheesyDay = 0;
   let cheesy = 0;
@@ -122,8 +143,12 @@ export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | un
     const kinds = new Map<MainKind, number>();
     for (const b of day) for (const k of new Set(b?.featured ?? [])) kinds.set(k, (kinds.get(k) ?? 0) + 1);
     for (const n of kinds.values()) sharedDay += Math.max(0, n - 1);
+    // bread: one meal a day at most, and the week's limit
+    const breadToday = day.filter((b) => b?.bread).length;
+    breadDay += Math.max(0, breadToday - 1);
+    breadMeals += breadToday;
   });
   let overWeek = 0;
   for (const n of count.values()) overWeek += Math.max(0, n - MAX_SAME_MAIN_A_WEEK);
-  return { sameDay, dayAfter, overWeek, sharedDay, cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK) };
+  return { sameDay, dayAfter, overWeek, sharedDay, breadDay, breadWeek: Math.max(0, breadMeals - (limits.breadWeek ?? MAX_BREAD_A_WEEK)), cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK) };
 }

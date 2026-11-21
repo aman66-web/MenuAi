@@ -4093,3 +4093,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   from 30 g a serving, eggs from one egg, cheese from 25 g); `sharedDay` counts one in more than one of the day's meals (breakfast and snacks too), weighed
   like a repeated main. Measured: weeks with no budget at Sainsbury's, Asda, Morrisons (alone or for two, 2,000 and 3,000 kcal) have none; Aldi, with fewer
   recipes, one or two. (That week on the founder's phone was made by a build without the balance rules; build 13 has the main-ingredient rule.)
+- (21 Nov, evening) **Bread kept down** (founder: "Ingredients like bread ... don't repeat all the time ... who wants to have bread every single day ... But
+  maybe if they want to"). mealBalance.ts: a meal is a bread meal from 30 g of bread, wraps, naan, pitta, bagels or rolls a serving; at most one a day and
+  MAX_BREAD_A_WEEK (4) a week, or the person's answer (breadLimit: most days 7, a few times 4, rarely 2; the Opus planner's setup asks it). A repeated main
+  in a day now weighs double. Measured with no budget: 3-5 bread meals a week, never two a day. A budget far under the week's cost still leans on bread (the
+  cheapest food); to re-measure once the world recipes land.
