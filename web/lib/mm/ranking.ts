@@ -78,11 +78,12 @@ export function candidatesFor(chain: Chain): Candidate[] {
 
 /**
  * The restaurant's own tags against the diet. The newer diets count as menu-view.ts restaurantPrefs maps them (Jain as vegetarian, No red meat as no pork
- * and no beef, Kosher style as no pork); written out here because menu-view imports this file. The golden ranking cases set none of them.
+ * and no beef, Kosher style and Halal as no pork: the 21 November 2026 meeting found Halal offered pork dishes); written out here because menu-view imports
+ * this file. The golden ranking cases set none of them.
  */
 export function passesPreferences(tags: readonly Tag[], prefs: Preferences): boolean {
   if ((prefs.vegetarianOnly || prefs.jain === true) && !tags.includes("vegetarian")) return false;
-  if ((prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true) && tags.includes("contains_pork")) return false;
+  if ((prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true || prefs.halalOnly === true) && tags.includes("contains_pork")) return false;
   if ((prefs.noBeef || prefs.noRedMeat === true) && tags.includes("contains_beef")) return false;
   return true;
 }

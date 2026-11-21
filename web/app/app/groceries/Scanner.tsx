@@ -186,7 +186,9 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
     if (!open || !native) return;
     let live = true;
     setNote(null); // eslint-disable-line react-hooks/set-state-in-effect -- a new scan starts with a clean sheet
-    void nativeCall("scan").then((r) => {
+    // the phone's own scanner always answers (a code, cancelled, denied or unavailable), so the wait is long: a barcode read after two minutes of aiming was thrown
+    // away by the usual 2-minute timeout (the 30-person meeting, 21 November 2026, Grace)
+    void nativeCall("scan", {}, 30 * 60_000).then((r) => {
       if (!live) return;
       if (r.code && barcodeQuery(r.code)) onCodeRef.current(r.code);
       else if (r.error === "denied") setNote(tk("{app} isn't allowed to use the camera. Turn it on in the iPhone's Settings, under {app}, or type the number printed under the barcode."));

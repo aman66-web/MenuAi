@@ -134,8 +134,10 @@ export function RestaurantMeals() {
         </section>
       )}
 
+      {/* the focus goes to Undo as it appears (the bin it was on has gone with the order: VoiceOver dropped to the top of the page; Sam, the 30-person meeting,
+          21 November 2026), as on Today */}
       {undo && (
-        <Toast key={undo.id} duration={10000} onClose={() => setUndo(null)} onUndo={() => { restoreSavedOrder(undo); setUndo(null); }}>
+        <Toast key={undo.id} duration={10000} focusUndo onClose={() => setUndo(null)} onUndo={() => { restoreSavedOrder(undo); setUndo(null); }}>
           {t("Deleted “{name}”.", { name: undo.name })}
         </Toast>
       )}

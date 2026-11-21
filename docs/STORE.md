@@ -262,7 +262,7 @@ shows each plan's name, length and StoreKit's own price, the renewal and cancell
 ```
 What's new in 1.1
 
-• Premium: open every Truth card, Smart Swap and Quick answer, see the full Cheapest protein list, and use Make it at home. Try it free for 7 days, then choose Monthly or Annual, or a one-off 90-day pass. Everything that was free stays free.
+• Premium: open every Truth card, Smart Swap and Quick answer, see the full Cheapest protein list, and use Make it at home. Try it free for 7 days, then choose Monthly or Annual. Everything that was free stays free.
 
 • Make it at home (Premium): take or choose a photo of a dish you'd like to cook, say what it is, and Pip writes a home recipe from real supermarket products, with the amounts, the price and the nutrition of each serving.
 
@@ -298,7 +298,7 @@ Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what
 ```
 What's new in 1.1
 
-• Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at every chain, the full Cheapest protein list, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Try it free for 7 days, then choose Monthly or Annual, or a one-off 90-day pass. Everything that was free stays free.
+• Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at chains that publish protein, the full Cheapest protein list, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Try it free for 7 days, then choose Monthly or Annual. Everything that was free stays free.
 
 • Meal plan (Premium): a week of meals from our recipes for your goal, diet, budget and the food you like, with the shopping list, from one supermarket or several.
 
@@ -318,6 +318,11 @@ What's new in 1.1
 
 Every figure comes from each restaurant's or shop's own published information, except Scan your food, which is always marked as an estimate. Numbite isn't affiliated with any restaurant or shop, and doesn't give medical advice.
 ```
+
+**Corrected 21 November 2026 (the 30-person meeting; rule 8, untrue words):** the 90-day pass is not sold (removed from "Try it free for 7 days, then choose
+Monthly or Annual."), and only about half the restaurants publish protein, so the Top 5 picks are "at chains that publish protein", not "at every chain".
+**Build 10 is in review with the old words.** Before build 11 is submitted, the founder changes App Store Connect › Numbite › 1.1 › What's New in This Version
+to the text above. Nobody touched App Store Connect on 21 November.
 
 **Added to the Notes for App Review:**
 
@@ -349,11 +354,19 @@ Make it at home, Scan your food and Pip's recipe in Cook with what you have (all
 Founder (20 Nov): every account gets Premium free for its first 7 days automatically, with no details; Apple's 7-day introductory offer comes off both
 subscriptions (App Store Connect > Subscriptions > each plan > Subscription Prices > Introductory Offers), so the plans show no trial.
 
+**Description (correct before build 11 is submitted; founder pastes it):** the sentence pasted on 21 November, "Every new account gets Premium free for its first 7
+days, with no payment details. After that, choose Monthly or Annual.", promises a free week to every account, but a second account on an iPhone (or Apple ID)
+that already had one gets none. Replace it with:
+
+```
+Your first 7 days of Premium are free (one free week per person and iPhone), with no payment details. After that, choose Monthly or Annual.
+```
+
 **App Privacy:** the email hash is covered by the existing "Email Address, linked, App Functionality" row; the DeviceCheck token is used at once and not
 stored, so no new row and no PrivacyInfo.xcprivacy change (re-check before submitting).
 
 **Notes for App Review (replace the In-App Purchase paragraph):**
 
 ```
-In-App Purchase: two auto-renewable subscriptions in one group, Annual and Monthly (no introductory offer). Every new account gets Premium free for its first 7 days automatically after signing in, with no payment details; we keep a one-way hash of the email or Apple ID and use Apple's DeviceCheck so each person and device has one free week. After it ends, Premium features show the plans. You can subscribe at any time, also during the free week: Settings (gear on Home) > Subscription > See plans. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work.
+In-App Purchase: two auto-renewable subscriptions in one group, Annual and Monthly (no introductory offer). Every new account gets Premium free for its first 7 days automatically after signing in, with no payment details; we keep a one-way hash of the email or Apple ID and use Apple's DeviceCheck so each person and device has one free week. After it ends, Premium features show the plans. You can subscribe at any time, also during the free week: Settings (gear on Home) > Subscription > See plans. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work. One free week per person and per iPhone: if this iPhone or Apple ID already had it, the plans show at once and a sandbox purchase unlocks Premium.
 ```

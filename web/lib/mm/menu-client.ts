@@ -33,6 +33,11 @@ export interface MenuState {
    */
   numbers: NumbersIndex | null;
   numbersStatus: "idle" | "loading" | "ready" | "unavailable";
+  /**
+   * The last look at the manifests reached every source (each answered with a manifest or with none published). False when one couldn't be reached (offline,
+   * the website too slow): Settings' Refresh menus then says it couldn't reach the menus, never "New menus loaded." (the meeting of 21 November 2026, Rosa).
+   */
+  reachedAll: boolean;
   error?: string;
 }
 
@@ -65,7 +70,7 @@ type CompactEntry = { baseUrl: string; file: string; sha256: string };
 type Fetched = { kind: "ok"; bytes: ArrayBuffer } | { kind: "unreachable" } | { kind: "missing" };
 
 export class MenuClient {
-  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle" };
+  private state: MenuState = { status: "idle", chains: [], dataVersion: null, indexes: new Map(), searchIndex: EMPTY_SEARCH, searchReady: false, numbers: null, numbersStatus: "idle", reachedAll: true };
   private listeners = new Set<() => void>();
   private manifestPromise: Promise<void> | null = null;
   private chainPromises = new Map<string, Promise<ChainIndex>>();
@@ -210,12 +215,20 @@ export class MenuClient {
     if (merged.size === 0 && unreachable && this.state.chains.length === 0) {
       // We couldn't reach the menus and have nothing earlier: say so, never present it as "no menus exist".
       this.manifestPromise = null; // let the next ensureManifest() try again
-      this.set({ status: "error", chains: [], dataVersion: null, error: tk("Couldn't reach the menus. Check your connection and try again.") });
+      this.set({ status: "error", chains: [], dataVersion: null, reachedAll: false, error: tk("Couldn't reach the menus. Check your connection and try again.") });
       return;
     }
     if (merged.size === 0 && unreachable) {
       this.manifestPromise = null;
-      this.set({ status: "ready", error: undefined }); // keep what we already had
+      this.set({ status: "ready", reachedAll: false, error: undefined }); // keep what we already had
+      return;
+    }
+    // The website didn't answer in time and only an older copy did (the menus packed with the app): keep the newer menus already here, as above, rather than
+    // swap in older ones (the meeting of 21 November 2026, Rosa: Refresh menus on a slow connection did that and said "New menus loaded.").
+    if (unreachable && dataVersion !== null && this.state.dataVersion !== null && dataVersion < this.state.dataVersion) {
+      this.manifestPromise = null;
+      if (results.some(([s, m]) => s.id === "live" && m === "unreachable")) this.refreshWhenOnline();
+      this.set({ status: "ready", reachedAll: false, error: undefined });
       return;
     }
     if (unreachable && results.some(([s, m]) => s.id === "live" && m === "unreachable")) this.refreshWhenOnline();
@@ -236,7 +249,7 @@ export class MenuClient {
       }
       this.numbersEntries = numbersEntries;
     }
-    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, error: undefined, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
+    this.set({ status: "ready", chains: [...merged.values()].sort(byName), dataVersion, reachedAll: !unreachable, error: undefined, searchReady: this.compactIndex !== null, ...(this.compactIndex ? { searchIndex: this.compactIndex } : {}) });
   }
 
   // ---- chains

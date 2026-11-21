@@ -1,12 +1,11 @@
 import { z } from "zod";
 import type { Result } from "./handlers";
-import { AI_MESSAGES } from "./mm/aiConsent";
 import {
   ESTIMATE_SYSTEM_PROMPT, FIRST_LOOK_SYSTEM_PROMPT, SCAN_MESSAGES, cleanDescription, describedPrompt, firstLookFromAi, firstLookPrompt, refsForPlate, refsPrompt, scanFromAi,
   type RefIndexEntry,
 } from "./mm/foodScan";
 import { MAX_PHOTO_BASE64 } from "./mm/photoRecipe";
-import { callLimit, isJpeg } from "./photoRecipeHandler";
+import { callLimit, isJpeg, unavailable } from "./photoRecipeHandler";
 
 // Scan food, the server half (app/api/v1/scan/route.ts wires it up; lib/mm/foodScan.ts has the shared rules). Pure apart from the injected AI calls, the
 // reference dishes and the Premium check, so it is tested without a key or a payment (tests/foodScan.test.ts). The photo must be a JPEG of a sensible size;
@@ -31,11 +30,12 @@ export interface ScanCtx {
   refs: () => Promise<readonly RefIndexEntry[]>;
   premium: () => Promise<boolean>;
   allow: () => boolean;
+  /** Hands back this request's use of the rate limit (the AI couldn't be reached, so the person got nothing and Try again isn't held against them). */
+  giveBack?: () => void;
   timeLeft?: () => number;
 }
 
 const say = (status: number, error: string, message: string): Result => ({ status, body: { error, message } });
-const busy = (): Result => say(503, "busy", AI_MESSAGES.busy);
 /** A second go at the estimate starts only with this much time left (a full answer and a margin); every call is also held to the time left (callLimit). */
 export const SECOND_GO_MS = 65_000;
 
@@ -49,7 +49,7 @@ export async function handleFoodScan(body: unknown, ctx: ScanCtx): Promise<Resul
   const note = describedPrompt(cleanDescription(parsed.data.description));
 
   const first = await ctx.look(FIRST_LOOK_SYSTEM_PROMPT, photo, note || undefined, callLimit(ctx.timeLeft));
-  if (first.status === "unavailable") return busy();
+  if (first.status === "unavailable") return unavailable(ctx);
   const look = first.status === "ok" ? firstLookFromAi(first.value) : null;
   if (!look) return say(502, "no_estimate", SCAN_MESSAGES.noEstimate);
   if (!look.isFood) return say(422, "not_food", SCAN_MESSAGES.notFood);
@@ -64,12 +64,12 @@ export async function handleFoodScan(body: unknown, ctx: ScanCtx): Promise<Resul
   let user = base;
   for (let attempt = 0; attempt < 2; attempt++) {
     const answer = await ctx.estimate(ESTIMATE_SYSTEM_PROMPT, photo, user, callLimit(ctx.timeLeft));
-    if (answer.status === "unavailable") return busy();
+    if (answer.status === "unavailable") return unavailable(ctx);
     if (answer.status !== "ok") return say(502, "no_estimate", SCAN_MESSAGES.noEstimate);
     const scan = scanFromAi(answer.value);
     if (scan) return { status: 200, body: { scan } };
     if (ctx.timeLeft && ctx.timeLeft() < SECOND_GO_MS) break; // not enough time for another full answer
-    user = `${base}\n\nYour last answer couldn't be used. List 1 to 12 foods, each with kcal, protein, carbs and fat as plain numbers (kcal 0 to 3000), where kcal is close to 4 x protein + 4 x carbs + 9 x fat, a confidence of low, medium or high, and no restaurant or brand names.`;
+    user = `${base}\n\nYour last answer couldn't be used. List 1 to 12 foods, each with kcal, protein, carbs and fat as plain numbers (kcal 0 to 3000), where kcal is close to 4 x protein + 4 x carbs + 9 x fat, a confidence of low, medium or high, no restaurant or brand names, and no health words such as healthy, lean, low-fat or high-protein.`;
   }
   return say(502, "no_estimate", SCAN_MESSAGES.noEstimate);
 }

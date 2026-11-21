@@ -149,7 +149,11 @@ function Welcome() {
   const savedPlan = useStore(mealPlanStore);
 
   const [initial] = useState<UserSettings>(() => settingsStore.get());
-  const [wasOnboarded] = useState(initial.hasCompletedOnboarding);
+  // Set up before this run began. State, not fixed at the first draw: a sign-in from the cover that empties the phone (another person's account was on it) starts
+  // the run again from the account's own settings (the meeting of 21 November 2026, Ada).
+  const [wasOnboarded, setWasOnboarded] = useState(initial.hasCompletedOnboarding);
+  // the settings the run began with: what undoWorkedOut puts back (reset with the run, as above, and by "Start again")
+  const runStart = useRef<UserSettings>(initial);
   const [replay] = useState(() => params.get("showcase") === "1" || params.get("tour") === "1");
   const [notice] = useState<CoverNotice>(() => (params.get("cleared") === "1" ? "cleared" : params.get("deleted") === "1" ? "deleted" : params.get("signedout") === "1" ? "signedOut" : null));
   const [progress, setProgress] = useState(() => (replay ? null : welcomeProgressStore.get()));
@@ -161,7 +165,7 @@ function Welcome() {
   // the run, fixed when the steps begin (a run started signed out has the account as its last step)
   const [run, setRun] = useState<WelcomeRun>(() => startRun(false));
   // back from Apple or Google at the account step: Back from it goes to Your plan, and the body answers are gone
-  const [answers, setAnswers] = useState<WelcomeAnswers>(() => (resume?.reason === "setup" ? resumeAt(startRun(false), { step: "save", savedOn: "" })?.answers ?? NO_ANSWERS : NO_ANSWERS));
+  const [answers, setAnswers] = useState<WelcomeAnswers>(() => (resume?.reason === "setup" ? resumeAt(startRun(false), { step: "save", savedOn: "" }, settingsStore.get().hasSetTargets === true)?.answers ?? NO_ANSWERS : NO_ANSWERS));
   const [view, setView] = useState<View>(() => (replay ? { kind: "replay", index: 0 } : resume?.reason === "setup" ? { kind: "step", step: "save" } : resume?.reason === "returning" ? { kind: "returning" } : { kind: "cover" }));
   // came back to the account step through "Carry on" (its line says the answers are still here)
   const [resumed, setResumed] = useState(false);
@@ -262,7 +266,9 @@ function Welcome() {
   // set up here and signed out, where everyone signs in: Get started is their way back in, at "Welcome back. Sign in", so there is nothing to carry on from
   const returningOnly = signInRequired && !accountUser && wasOnboarded;
   // read once the page has hydrated (the server knows nothing of this phone's note)
-  const carryOn = hydrated && !returningOnly && progress ? resumeAt(progressRun, progress) : null;
+  // without targets of the person's own, "Carry on" past the questions about the person asks them again (an age under 18 was never kept: the meeting of 21
+  // November 2026, Ada, found Your plan's numbers shown to an under-18 after Carry on)
+  const carryOn = hydrated && !returningOnly && progress ? resumeAt(progressRun, progress, settings.hasSetTargets === true) : null;
   const openReturning = () => {
     saveResume({ reason: "returning", typed: null });
     setView({ kind: "returning" });
@@ -304,7 +310,10 @@ function Welcome() {
       setGoal(DEFAULT_SETTINGS.goal);
       setPrefs(DEFAULT_SETTINGS.preferences);
       setShops([]);
+      // the boxes and what they count as on arrival, so the default 2,000 kcal isn't taken as the person's own change (the meeting of 21 November 2026, Ada)
       target.resetTo(DEFAULT_SETTINGS);
+      runStart.current = DEFAULT_SETTINGS;
+      savedWorkedOut.current = false;
     }
     beginRun(!!accountUser, null);
   };
@@ -333,11 +342,17 @@ function Welcome() {
       typed.current = null;
       if (after.to === "app") return finish(reason === "returning" ? "returning" : "signedInBack");
       if (after.to === "tour") {
-        // an account not set up yet: on into the steps, signed in, with whatever it brought
+        // an account not set up yet: on into the steps, signed in, with whatever it brought. A sign-in can have emptied the phone (another person's account was
+        // on it), so the boxes, what they count as on arrival and what a skip puts back are this account's too, never the previous person's (the meeting of 21
+        // November 2026, Ada)
         const now = settingsStore.get();
         setGoal(now.goal);
         setPrefs(now.preferences);
         setShops(now.shops ?? []);
+        target.resetTo(now);
+        runStart.current = now;
+        savedWorkedOut.current = false;
+        setWasOnboarded(now.hasCompletedOnboarding);
         return beginRun(true, null);
       }
       if (Object.keys(after.restore).length > 0) updateSettings(after.restore);
@@ -390,8 +405,9 @@ function Welcome() {
   // ------------------------------------------------------------------------------------------------ the daily numbers
 
   const targetReading = readTargetFields(target.fields, goal === "glp1");
-  // back after "Carry on" past the questions about the person: the targets on the boxes were worked out from them before (they are the person's own)
-  const keptTargets = !!answers.bodyGone && settingsStore.get().hasSetTargets === true;
+  // The questions about the person skipped (or gone after "Carry on") while the settings hold targets of the person's own (worked out before, or set in Settings
+  // for a "Go through setup again"): the boxes hold those, not the starting numbers (the meeting of 21 November 2026, Ada: they were called "Starting numbers.")
+  const keptTargets = answers.bodySkipped && settingsStore.get().hasSetTargets === true;
   const changedByHand = TARGET_BOXES.some((k) => parseNumber(target.fields[k]) !== parseNumber(target.start[k]));
   /**
    * The numbers on the boxes, saved (Your plan's "Save" and its button). They count as set only when they are the person's own: worked out from the questions or
@@ -424,7 +440,8 @@ function Welcome() {
     target.applyPlan(null);
     if (!savedWorkedOut.current) return;
     savedWorkedOut.current = false;
-    updateSettings({ dailyCalories: initial.dailyCalories, dailyProtein: initial.dailyProtein, dailyCarbs: initial.dailyCarbs, dailyFat: initial.dailyFat, hasSetTargets: initial.hasSetTargets });
+    const was = runStart.current;
+    updateSettings({ dailyCalories: was.dailyCalories, dailyProtein: was.dailyProtein, dailyCarbs: was.dailyCarbs, dailyFat: was.dailyFat, hasSetTargets: was.hasSetTargets });
   };
 
   // ------------------------------------------------------------------------------------------------ the screens

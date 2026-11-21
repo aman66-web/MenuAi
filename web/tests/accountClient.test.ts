@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { handleRefresh, handleSession, handleSignOut, type AuthCtx } from "../lib/auth/handlers";
 import { makeLimit } from "../lib/auth/limiter";
 import { AuthError, type AuthPort, type AuthSession } from "../lib/auth/types";
-import { AccountError, createAccountApi, type StoredSession } from "../lib/mm/account";
+import { AccountError, appleDeleteConfirm, createAccountApi, type StoredSession } from "../lib/mm/account";
 
 // The iPhone app's side of being signed in (lib/mm/account.ts), wired to the real server handlers (lib/auth/handlers.ts) through a pretend network. An access
 // token lasts an hour, so on a cold launch the stored one has usually run out: the app must renew it, never take "not accepted" as "signed out"
@@ -11,7 +11,7 @@ import { AccountError, createAccountApi, type StoredSession } from "../lib/mm/ac
 const NOW = Date.UTC(2026, 10, 20, 9, 0, 0);
 const user = { id: "u1", email: "a@example.com" };
 
-function world(over: { refresh?: "ok" | "refused" | "down" } = {}) {
+function world(over: { refresh?: "ok" | "refused" | "down" | "limited" } = {}) {
   const live = new Set<string>(["fresh-at"]);
   const ended: string[] = [];
   let issued = 0;
@@ -21,6 +21,7 @@ function world(over: { refresh?: "ok" | "refused" | "down" } = {}) {
     },
     async refresh(rt: string): Promise<AuthSession> {
       if (over.refresh === "down") throw new AuthError("unavailable");
+      if (over.refresh === "limited") throw new AuthError("rate_limited");
       if (over.refresh === "refused" || rt !== "refresh-token-1") throw new AuthError("invalid");
       const at = `renewed-at-${++issued}`;
       live.add(at);
@@ -42,6 +43,7 @@ function world(over: { refresh?: "ok" | "refused" | "down" } = {}) {
       path === "auth/session" ? await handleSession(headers, { ...ctx, method: "GET" })
       : path === "auth/refresh" ? await handleRefresh(JSON.parse(String(init.body)), { ...ctx, method: "POST" })
       : path === "auth/signout" ? await handleSignOut(headers, { ...ctx, method: "POST" })
+      : path === "sync" ? (live.has((headers.get("authorization") ?? "").slice(7)) ? { status: 200, body: { stores: {} } } : { status: 401, body: { error: "unauthorized" } })
       : { status: 404, body: {} };
     return new Response(JSON.stringify(r.body ?? {}), { status: r.status });
   }) as unknown as typeof fetch;
@@ -121,5 +123,76 @@ describe("signing out in the iPhone app", () => {
     }) as unknown as typeof fetch;
     await createAccountApi({ fetch: offline, base: "https://numbite.com/api/v1/", useTokens: true, tokens, now: () => NOW }).signOut();
     expect(stored).toBeNull();
+  });
+});
+
+// The meeting of 21 November 2026 (Ben): a signed-in request that is refused (401) renews the session once; when the renewal itself fails for a moment (the
+// server answers 503 or 429), the person must stay signed in. The sync takes a 401 as "signed out", so the client says "unavailable" instead.
+describe("a signed-in request whose token has run out", () => {
+  const stale: StoredSession = { accessToken: "stale-at", refreshToken: "refresh-token-1", expiresAt: Math.floor(NOW / 1000) + 3000 };
+
+  it("is renewed on the 401 and asked again", async () => {
+    const w = world();
+    const a = app(w, stale);
+    expect(await a.api.syncGetAll()).toEqual({});
+    expect(w.calls).toEqual(["sync", "auth/refresh", "sync"]);
+  });
+
+  it.each(["down", "limited"] as const)("a refresh the server can't do just now (%s) is 'unavailable', never a sign-out", async (refresh) => {
+    const w = world({ refresh });
+    const a = app(w, stale);
+    const err = (await a.api.syncGetAll().catch((e: unknown) => e)) as AccountError;
+    expect(err).toBeInstanceOf(AccountError);
+    expect(err.status).toBe(503);
+    expect(a.stored()).toEqual(stale); // kept, to try again later
+  });
+
+  it("a refresh token the server refuses still signs out: the 401 comes back and the stored session is cleared", async () => {
+    const w = world({ refresh: "refused" });
+    const a = app(w, stale);
+    const err = (await a.api.syncGetAll().catch((e: unknown) => e)) as AccountError;
+    expect(err.status).toBe(401);
+    expect(a.stored()).toBeNull();
+  });
+});
+
+describe("the website's signed-in request (cookies)", () => {
+  function site(sessionAnswer: { status: number; body: unknown }) {
+    const calls: string[] = [];
+    const fakeFetch = (async (url: string) => {
+      const path = String(url).replace("https://numbite.com/api/v1/", "");
+      calls.push(path);
+      const r = path === "auth/session" ? sessionAnswer : { status: 401, body: { error: "unauthorized" } };
+      return new Response(JSON.stringify(r.body), { status: r.status });
+    }) as unknown as typeof fetch;
+    const tokens = { get: () => null, set: () => undefined } as never;
+    return { api: createAccountApi({ fetch: fakeFetch, base: "https://numbite.com/api/v1/", useTokens: false, tokens, now: () => NOW }), calls };
+  }
+
+  it.each([503, 429, 500])("cookies that can't be renewed just now (%i) are 'unavailable', not signed out", async (status) => {
+    const s = site({ status, body: { error: "unavailable" } });
+    const err = (await s.api.syncGetAll().catch((e: unknown) => e)) as AccountError;
+    expect(err).toBeInstanceOf(AccountError);
+    expect(err.status).toBe(503);
+  });
+
+  it("the server saying nobody is signed in (200, no user) hands back the 401: signed out", async () => {
+    const s = site({ status: 200, body: { user: null } });
+    const err = (await s.api.syncGetAll().catch((e: unknown) => e)) as AccountError;
+    expect(err.status).toBe(401);
+    expect(s.calls).toEqual(["sync", "auth/session"]);
+  });
+});
+
+// The meeting of 21 November 2026 (Ben): closing Apple's confirm sheet went on to delete the account.
+describe("Apple's sheet before deleting an account that signs in with Apple", () => {
+  it("cancelled: nothing is deleted", async () => {
+    expect(await appleDeleteConfirm(async () => ({ error: "cancelled" }))).toBeNull();
+  });
+  it("confirmed: the one-time code goes with the deletion", async () => {
+    expect(await appleDeleteConfirm(async () => ({ appleCode: "c".repeat(40) }))).toEqual({ appleCode: "c".repeat(40) });
+  });
+  it.each(["unavailable", "timeout", "denied"])("%s: the account is still deleted, without a code", async (error) => {
+    expect(await appleDeleteConfirm(async () => ({ error }))).toEqual({});
   });
 });

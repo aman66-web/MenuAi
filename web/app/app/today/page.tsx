@@ -99,7 +99,9 @@ function TodayScreen() {
   useEffect(() => {
     if (!focus) return;
     const change = focus.id ? document.querySelector<HTMLElement>(`[data-change-for="${CSS.escape(focus.id)}"]`) : null;
-    (change ?? document.getElementById(`today-${focus.meal}`))?.focus();
+    // on a day gone by a meal with nothing left in it isn't shown: then another meal's heading, else the day's title (it left the focus nowhere: Femi, the
+    // 30-person meeting, 21 November 2026)
+    (change ?? document.getElementById(`today-${focus.meal}`) ?? document.querySelector<HTMLElement>("main h2[id^='today-']") ?? document.querySelector<HTMLElement>("main h1 button"))?.focus();
   }, [focus]);
   const focusOn = (target: FocusTarget) => setFocus((was) => ({ ...target, n: (was?.n ?? 0) + 1 }));
 
@@ -207,7 +209,7 @@ function TodayScreen() {
           {/* as wide as its words (its -4 px start margin included), so "Today's meals" never wraps for want of 4 px */}
           {/* the heading's name stays just the day ("Today's meals", "Thu, Nov 19"); "Choose a day" is the button's description, heard after it */}
           <button type="button" onClick={() => setPicking(true)} aria-haspopup="dialog" aria-describedby="today-choose-day" className="-ms-1 inline-flex min-h-11 max-w-[calc(100%+0.25rem)] items-center gap-1 rounded-xl px-1 text-start transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-            <span className="min-w-0">{isToday ? t("Today's meals") : dayTitle(day, htmlLang)}</span>
+            <span className="min-w-0">{isToday ? t("Today's meals") : dayTitle(day, htmlLang, now)}</span>
             <ChevronRightIcon aria-hidden strokeWidth={2.4} className="h-6 w-6 shrink-0 rotate-90 text-ink rtl:scale-x-100!" />
           </button>
           <span id="today-choose-day" hidden>{t("Choose a day")}</span>

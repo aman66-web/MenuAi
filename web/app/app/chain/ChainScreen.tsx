@@ -12,10 +12,12 @@ import { tk } from "@/lib/mm/i18n";
 import { anyDietFilter, anyUnchecked, filterCaution, groupByCategory, passesMenuDiet, uncheckedDiet, isNewItem, LARGE_MENU_ITEMS, searchItems, SECTION_PREVIEW_ITEMS, SORT_OPTIONS, sortItems, type SortKind } from "@/lib/mm/menu-view";
 import { indexChain } from "@/lib/mm/chain-index";
 import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
+import { candidatesFor } from "@/lib/mm/ranking";
 import { itemHref } from "@/lib/mm/routes";
 import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
 import { recentFor } from "@/lib/mm/recent";
 import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib/mm/types";
+import { sanitizeSettings } from "@/lib/mm/user-data";
 import { BestForYou } from "../_components/BestForYou";
 import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker";
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
@@ -29,7 +31,8 @@ import { MacroLine, SMALL_LABEL } from "../_components/Nutrition";
 import { PresetPills } from "../_components/truth/PresetPills";
 import { ReportSheet } from "../_components/Submit";
 import { AllergyNote, Badge, Button, Chip, EmptyState, ErrorBox, inputClass, LinkButton, SampleBadge, Sheet, Spinner } from "../_components/ui";
-import { useChain, useMenu, useNow, useStore } from "../_lib/hooks";
+import { useEntryQuery } from "../_lib/backNav";
+import { useChain, useMenu, useNow, useSettings, useStore } from "../_lib/hooks";
 import { scrollToElement } from "../_lib/scroll";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -107,19 +110,24 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const favText = favNote ? (favNote.kind === "added" ? t("Added to your favourites") : t("Removed from your favourites")) : "";
 
   const [meal, setMeal] = useState<Meal>(() => mealSlotFor(new Date()));
+  const settings = useSettings();
+  // Coming Back from a dish finds the page as it was left (the 21 November 2026 meeting: Back wiped the search, the sort, "Show all" and the visit's diet):
+  // the search words travel with the history entry (useEntryQuery), the rest is kept for this visit (readVisit, saveVisit). A fresh visit starts afresh.
+  const [visit] = useState(() => readVisit(chain.id));
   // Opened from Eat out's "find a restaurant by my numbers": the numbers and allergies typed there arrive in the link and apply to this visit only.
   const link = useSearchParams();
   const [limits, setLimits] = useState<NumberLimits>(() => limitsFromParams(link));
   const [prefs, setPrefs] = useState<Preferences>(() => {
+    if (visit?.prefs) return visit.prefs;
     const saved = settingsStore.get().preferences;
     const fromLink = allergensFromParams(link);
     if (fromLink.length === 0) return saved;
     return { ...saved, avoidAllergens: ALLERGEN_KEYS.filter((k) => (saved.avoidAllergens ?? []).includes(k) || fromLink.includes(k)) };
   });
-  const [sort, setSort] = useState<SortKind>("menu");
-  const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortKind>(() => visit?.sort ?? "menu");
+  const [query, setQuery] = useEntryQuery();
   const [halalOpen, setHalalOpen] = useState(false);
-  const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set());
+  const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set(visit?.expanded ?? []));
   const [flatLimit, setFlatLimit] = useState(FLAT_PAGE);
   const [reporting, setReporting] = useState<MenuItem | "any" | null>(null);
   const [dietOpen, setDietOpen] = useState(false);
@@ -129,11 +137,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   // no allergen details (98), those filters emptied the menu. Its menu is now shown with only the dishes whose own names say otherwise left out, under a note that
   // the rest aren't checked (uncheckedDiet, passesMenuDiet). Best for you recommends, so it never ranks dishes it can't check: for any such choice (diet or
   // allergies) it says it can't pick here and points to the full menu.
-  const unchecked = useMemo(() => uncheckedDiet(chain.items, prefs), [chain.items, prefs]);
+  const unchecked = useMemo(() => uncheckedDiet(chain.items, prefs, chain.id), [chain.items, prefs, chain.id]);
   const allergiesUnchecked = unchecked.allergies;
   const allergyNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format((prefs.avoidAllergens ?? []).map((a) => t(ALLERGEN_SHORT[a]).toLowerCase()));
   // "Show all dishes" in the full menu: the whole menu for this visit, the person's diet unchanged everywhere else (Best for you, Quick answers).
-  const [everyDish, setEveryDish] = useState(false);
+  const [everyDish, setEveryDish] = useState(() => visit?.everyDish ?? false);
+  useEffect(() => { saveVisit(chain.id, { prefs, sort, everyDish, expanded: [...expanded] }); }, [chain.id, prefs, sort, everyDish, expanded]);
 
   const searching = query.trim().length > 0;
   /** The menu's size as a person reads it ("1,349"). */
@@ -155,6 +164,10 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const sections = useMemo(() => (grouped ? groupByCategory(chain, visible) : [{ category: "", items: visible }]), [chain, visible, grouped]);
   const large = chain.items.length > LARGE_MENU_ITEMS;
   const caloriesOnly = chain.nutritionLevel === "calories";
+  // No Best for you where it has nothing to rank (the 21 November 2026 meeting: Chipotle and six others said "Nothing here matches your filters." with no filter
+  // on): a calories-only restaurant, or one with no dish or meal it suggests (rankable, with calories). Its diet line then sits by the Full menu heading.
+  const candidates = useMemo(() => candidatesFor(chain), [chain]);
+  const noBest = caloriesOnly || !candidates.some((c) => c.nutrients.calories > 0);
   const clearFilters = () => { setPrefs({ vegetarianOnly: false, noPork: false, noBeef: false, ...(prefs.halalOnly ? { halalOnly: true } : {}) }); setLimits({}); };
   const anyFilter = anyDietFilter(prefs) || hasLimits(limits);
   // where allergens can't be checked the amber note says so; the usual allergy sentence ("hide dishes it doesn't cover") wouldn't be true here
@@ -190,12 +203,12 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
     spy.hold(category);
     requestAnimationFrame(() => {
       const el = document.getElementById(sectionId(category));
-      if (el) scrollToElement(el);
+      if (el) jumpAndFocus(el, el.querySelector("h3"));
     });
   };
 
-  // Best for you picks only where every choice can be checked against the restaurant's own data, and not at a calories-only restaurant
-  const ranks = !caloriesOnly && !anyUnchecked(unchecked);
+  // Best for you picks only where every choice can be checked against the restaurant's own data, and only where it has something to rank (noBest)
+  const ranks = !noBest && !anyUnchecked(unchecked);
   const meatUnmarked = unchecked.pork && unchecked.beef ? t("pork or beef") : unchecked.pork ? t("pork") : unchecked.beef ? t("beef") : "";
   const markedDietUnchecked = unchecked.vegetarian || unchecked.vegan || unchecked.pork || unchecked.beef;
   const dietUnchecked = markedDietUnchecked || unchecked.others.length > 0;
@@ -295,7 +308,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           {allergiesUnchecked && chain.allergenGuide && <a href={chain.allergenGuide.url} target="_blank" rel="noopener noreferrer" className={`mt-1 inline-flex min-h-11 items-center ${LINK}`}>{t("See its own allergen information")}</a>}
         </AllergyNote>
       )}
-      <PresetPills chain={chain} items={filtered} notChecked={ranks || caloriesOnly ? null : t("Can't pick for your diet or allergies here.")} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
+      {/* Quick answers recommend too: never a "top 5" for a choice the restaurant's own data can't check, calories-only restaurants included (the 21 November 2026 meeting) */}
+      <PresetPills chain={chain} items={filtered} notChecked={anyUnchecked(unchecked) ? t("Can't pick for your diet or allergies here.") : null} renderList={(list) => <ItemList items={list} chainId={chain.id} now={now} photos={menuPhotos} />} />
       {recent.length > 0 && (
         <section aria-labelledby="recent-heading" className="mt-7">
           <h2 id="recent-heading" className="mb-3 text-xl font-[800] tracking-[-0.01em]">{t("Recently viewed")}</h2>
@@ -304,12 +318,13 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       )}
 
       {/* One card: what Best for you is picked for (the meal and the person's diet), then the picks. The diet also narrows the full menu below. The meal
-          choice shows only where Best for you will pick (it did nothing beside "can't pick"); a calories-only restaurant has no Best for you, so its diet line
-          sits by the Full menu heading instead of in a card with no heading (the 20 November 2026 audit). */}
-      {!caloriesOnly && (
+          choice shows only where Best for you will pick (it did nothing beside "can't pick"), and not for the GLP-1 goal, whose picks are the same for every meal
+          (the 21 November 2026 meeting); a restaurant with nothing to rank (noBest) has no Best for you, so its diet line sits by the Full menu heading instead
+          of in a card with no heading (the 20 November 2026 audit). */}
+      {!noBest && (
         <section aria-labelledby="best-heading" ref={bestRef} className={`glass rounded-[1.25rem] p-4 ${recent.length > 0 ? "mt-7" : "mt-3.5"}`}>
-          <h2 id="best-heading" className="text-xl font-[800] tracking-[-0.01em]">{t("Best for you")}</h2>
-          {ranks && (
+          <h2 id="best-heading" tabIndex={-1} className="text-xl font-[800] tracking-[-0.01em]">{t("Best for you")}</h2>
+          {ranks && settings.goal !== "glp1" && (
             <>
               <p className={`mb-2 mt-4 ${SMALL_LABEL}`}>{t("Which meal?")}</p>
               {/* Three across when they fit; one under another at large text, so no meal ever breaks onto two lines (stacked, the
@@ -338,7 +353,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
                 : unchecked.others.length > 0
                   ? t("Can't pick for {diets} here.", { diets: dietNameList(unchecked.others, t) })
                   : t("Can't pick for your allergies here.")}</p>
-              <Button variant="secondary" className="mt-3" onClick={() => { const el = document.getElementById("full-menu"); if (el) scrollToElement(el); }}>{t("See the full menu")}</Button>
+              <Button variant="secondary" className="mt-3" onClick={() => { const el = document.getElementById("full-menu"); if (el) jumpAndFocus(el, el); }}>{t("See the full menu")}</Button>
             </div>
           )}
         </section>
@@ -353,8 +368,8 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         <div className="mt-5"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
       </Sheet>
 
-      <div className={`mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 ${caloriesOnly ? "mt-7" : "mt-9"}`}>
-        <h2 id="full-menu" className="whitespace-nowrap text-xl font-[800] tracking-[-0.01em]">{t("Full menu")}</h2>
+      <div className={`mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 ${noBest ? "mt-7" : "mt-9"}`}>
+        <h2 id="full-menu" tabIndex={-1} className="whitespace-nowrap text-xl font-[800] tracking-[-0.01em]">{t("Full menu")}</h2>
         <label className="relative flex max-w-full items-center text-base">
           <span className="sr-only">{t("Sort by")}</span>
           <select
@@ -371,7 +386,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
           <ChevronRightIcon aria-hidden className="pointer-events-none absolute end-4 h-4 w-4 rotate-90 text-ink" />
         </label>
       </div>
-      {caloriesOnly && <div className="mb-4 px-1">{dietLines}</div>}
+      {noBest && <div className="mb-4 px-1">{dietLines}</div>}
 
       {/* Sticky: search this menu, and jump between its sections. Flat grey like the page with a hairline under it (no blur or shade), so a
           card sliding beneath reads as passing under a toolbar, not as cut off. Its height is measured (--chain-bar) so a tapped section's heading lands just
@@ -440,11 +455,11 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
               return (
                 <section key={s.category} id={sectionId(s.category)} data-category={s.category} aria-label={s.category} className="scroll-mt-[calc(var(--chain-bar,9rem)+0.5rem)]">
                   <div className="mb-3 flex items-baseline justify-between gap-3">
-                    <h3 className="text-lg font-[800] leading-snug tracking-[-0.01em]">{s.category}</h3>
+                    <h3 tabIndex={-1} className="text-lg font-[800] leading-snug tracking-[-0.01em]">{s.category}</h3>
                     <span className="app-numbers font-mono text-[0.8125rem] text-muted">{s.items.length}</span>
                   </div>
-                  {/* not at a calories-only restaurant, which has no Best for you at all (usability test 2026-11-19: the line repeated under every section) */}
-                  {allExtras && !caloriesOnly && <p className="-mt-1.5 mb-3 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
+                  {/* not where there is no Best for you at all (usability test 2026-11-19: the line repeated under every section) */}
+                  {allExtras && !noBest && <p className="-mt-1.5 mb-3 text-sm text-muted">{t("Not suggested in Best for you.")}</p>}
                   <ItemList
                     items={shown}
                     chainId={chain.id}
@@ -498,11 +513,16 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
         </p>
       </footer>
 
-      {/* no pill back to Best for you where there is none to go back to (a calories-only restaurant; usability test 2026-11-19) */}
-      {bestOffScreen && !caloriesOnly && (
+      {/* no pill back to Best for you where there is none to go back to (noBest; usability test 2026-11-19) */}
+      {bestOffScreen && !noBest && (
         <button
           type="button"
-          onClick={() => bestRef.current?.scrollIntoView({ behavior: smoothScroll(), block: "start" })}
+          onClick={() => {
+            const el = bestRef.current;
+            if (!el) return;
+            el.scrollIntoView({ behavior: smoothScroll(), block: "start" });
+            document.getElementById("best-heading")?.focus({ preventScroll: true });
+          }}
           className="sheet-in fixed bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.5rem)] left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border-[1.5px] border-edge bg-card px-5 py-1 text-[0.9375rem] font-bold text-foreground shadow-[var(--shadow-lift)] transition hover:bg-background active:scale-95"
         >
           <ArrowUpIcon aria-hidden className="h-4 w-4 shrink-0" /> {t("Best for you")}
@@ -521,6 +541,67 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
 const FLAT_PAGE = 60;
 const sectionId = (category: string) => `cat-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 const smoothScroll = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
+
+/**
+ * Scroll to a part of the page and move the focus to its heading (tabIndex -1), as Eat out's letter jumps do, so VoiceOver reads on from there instead of
+ * staying on the chip or button that was tapped (the 21 November 2026 meeting). The focus never scrolls the page itself.
+ */
+function jumpAndFocus(el: HTMLElement, heading: HTMLElement | null) {
+  scrollToElement(el);
+  heading?.focus({ preventScroll: true });
+}
+
+// ---- this visit's choices, kept for Back
+
+/** The history entry's own visit id is kept under this key in history.state (beside Back's depth and the search words, lib/mm/navDepth.ts). */
+const VISIT_KEY = "mmChainVisit";
+const visitStoreKey = (chainId: string) => `mm.chain.${chainId}`;
+
+interface ChainVisit {
+  prefs?: Preferences;
+  sort?: SortKind;
+  everyDish?: boolean;
+  expanded?: string[];
+}
+
+function entryVisitId(): string | null {
+  const state = window.history.state as Record<string, unknown> | null;
+  const id = state && typeof state === "object" ? state[VISIT_KEY] : undefined;
+  return typeof id === "string" ? id : null;
+}
+
+/**
+ * What this visit to the restaurant's page changed (the diet "just for this visit", the sort, "Show all", the opened sections), when the page on screen is
+ * that same visit come Back to: sessionStorage under mm.chain.<id> holds it, tagged with the history entry's own visit id, so a fresh visit (a new entry)
+ * starts from the person's own settings again. Null when there is nothing to restore or storage can't be read.
+ */
+function readVisit(chainId: string): ChainVisit | null {
+  try {
+    const id = entryVisitId();
+    if (!id) return null;
+    const raw = JSON.parse(sessionStorage.getItem(visitStoreKey(chainId)) ?? "null") as Record<string, unknown> | null;
+    if (!raw || typeof raw !== "object" || raw.visit !== id) return null;
+    const out: ChainVisit = {};
+    if (raw.prefs && typeof raw.prefs === "object") out.prefs = sanitizeSettings({ preferences: raw.prefs }).preferences;
+    if (SORT_OPTIONS.some((o) => o.value === raw.sort)) out.sort = raw.sort as SortKind;
+    if (typeof raw.everyDish === "boolean") out.everyDish = raw.everyDish;
+    if (Array.isArray(raw.expanded)) out.expanded = raw.expanded.filter((c): c is string => typeof c === "string");
+    return out;
+  } catch {
+    return null; // nothing kept: the page opens as a fresh visit
+  }
+}
+
+function saveVisit(chainId: string, v: Required<ChainVisit>) {
+  try {
+    let id = entryVisitId();
+    if (!id) {
+      id = `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+      window.history.replaceState({ ...((window.history.state as Record<string, unknown> | null) ?? {}), [VISIT_KEY]: id }, "");
+    }
+    sessionStorage.setItem(visitStoreKey(chainId), JSON.stringify({ visit: id, ...v }));
+  } catch { /* not kept: Back opens the page afresh, it still works */ }
+}
 
 /**
  * A section's dishes as one white card, the rows divided by fine lines that start where the text does (fewer boxes than a card per
@@ -579,7 +660,9 @@ function CategoryChips({ categories, active, onJump }: { categories: string[]; a
     <div ref={row} role="group" aria-label={t("Menu sections")} className="no-scrollbar -mx-5 mt-2.5 flex gap-2 overflow-x-auto px-5">
       {categories.map((c) => (
         // one line each, at most 15rem with an ellipsis (a long section name wrapped to three lines and the bar covered most of a zoomed screen)
-        <Chip key={c} data-chip={c} selected={active === c} mark="dot" title={c} className="max-w-[15rem] shrink-0 whitespace-nowrap" onClick={() => onJump(c)}><span className="min-w-0 truncate">{c}</span></Chip>
+        // they jump, they don't switch anything on: the section on screen is announced as the current one (aria-current), never as a pressed toggle; its dot
+        // and colour come from the same `active` (the 21 November 2026 meeting)
+        <Chip key={c} data-chip={c} selected={active === c} aria-pressed={undefined} aria-current={active === c ? "true" : undefined} mark="dot" title={c} className="max-w-[15rem] shrink-0 whitespace-nowrap" onClick={() => onJump(c)}><span className="min-w-0 truncate">{c}</span></Chip>
       ))}
     </div>
   );

@@ -3,7 +3,7 @@ import { ALLERGEN_KEYS } from "./mm/types";
 import { PANTRY, kindExcluded } from "./mm/pantry";
 import { FRIDGE_MESSAGES, FRIDGE_MOOD_IDS, FRIDGE_SYSTEM_PROMPT, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, fridgeUserPrompt, haveItems, type FridgeRecipeRequest } from "./mm/fridgeRecipe";
 import { PHOTO_MESSAGES, photoPantryPrompt } from "./mm/photoRecipe";
-import { SECOND_RECIPE_MS, busy, callLimit } from "./photoRecipeHandler";
+import { SECOND_RECIPE_MS, callLimit, unavailable } from "./photoRecipeHandler";
 import type { Result } from "./handlers";
 
 // Cook with what you have, the server half (app/api/v1/recipe/fridge/route.ts wires it up; lib/mm/fridgeRecipe.ts has the shared rules). Pure apart from the
@@ -16,7 +16,8 @@ const num = (min: number, max: number) => z.number().finite().min(min).max(max);
 export const fridgeRequestSchema = z.object({
   shop: z.string().regex(/^[a-z0-9-]{2,40}$/),
   servings: z.number().int().min(1).max(6),
-  target: z.object({ kcal: num(150, 2500), protein: num(1, 300).optional(), carbsMax: num(1, 500).optional(), fatMax: num(1, 300).optional() }).strict(),
+  // from 100 kcal, as Settings allows (meeting 21 November 2026, Priya: a GLP-1 meal size of 100 to 149 kcal was turned down as "wasn't right")
+  target: z.object({ kcal: num(100, 2500), protein: num(1, 300).optional(), carbsMax: num(1, 500).optional(), fatMax: num(1, 300).optional() }).strict(),
   diet: z.object({
     vegetarianOnly: z.boolean().optional(), veganOnly: z.boolean().optional(), pescatarianOnly: z.boolean().optional(), halalOnly: z.boolean().optional(),
     noPork: z.boolean().optional(), noBeef: z.boolean().optional(), noRedMeat: z.boolean().optional(), noOnionGarlic: z.boolean().optional(), jain: z.boolean().optional(), kosherStyle: z.boolean().optional(), noAlcohol: z.boolean().optional(), noHalalKosherMeat: z.boolean().optional(), avoidAllergens: z.array(z.enum(ALLERGEN_KEYS)).max(14).optional(),
@@ -38,6 +39,8 @@ export interface FridgeCtx {
   /** Does this caller have Premium? (A checked paid token; see the route.) */
   premium: () => Promise<boolean>;
   allow: () => boolean;
+  /** Hands back this request's use of the rate limit (the AI couldn't be reached, so the person got nothing and Try again isn't held against them). */
+  giveBack?: () => void;
   timeLeft?: () => number;
 }
 
@@ -65,11 +68,11 @@ export async function handleFridgeRecipe(body: unknown, ctx: FridgeCtx): Promise
   let user = fridgeUserPrompt(req);
   for (let attempt = 0; attempt < 2; attempt++) {
     const answer = await ctx.ask(FRIDGE_SYSTEM_PROMPT, user, keys, pantry, callLimit(ctx.timeLeft));
-    if (answer.status === "unavailable") return busy;
+    if (answer.status === "unavailable") return unavailable(ctx);
     if (answer.status !== "ok") return say(502, "no_recipe", FRIDGE_MESSAGES.noRecipe);
     if (fridgeRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
     if (ctx.timeLeft && ctx.timeLeft() < SECOND_RECIPE_MS) break; // not enough time left for another full answer
-    user = `${fridgeUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish or eggs are cooked; no nutrition figures, prices, health words or brand names.`;
+    user = `${fridgeUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000, at most 16 ingredients; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish or eggs are cooked; no nutrition figures, prices, health words or brand names.`;
   }
   return say(502, "no_recipe", FRIDGE_MESSAGES.noRecipe);
 }

@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { MAX_SAVED_RECIPES, keepMadeRecipe, pantryLines } from "@/lib/mm/aiRecipe";
 import { AI_MESSAGES, aiFailureMessage } from "@/lib/mm/aiConsent";
-import { API_BASE, PAID_ACCESS_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
+import { API_BASE, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
 import { FRIDGE_MESSAGES, FRIDGE_MOODS, MAX_HAVE, MIN_HAVE_ITEMS, fridgeRecipeFromAi, haveItems, ingredientsYouHave, plainItem, readItems, recipesFromFridge, type FridgeMood, type FridgeRecipeRequest } from "@/lib/mm/fridgeRecipe";
 import { tk } from "@/lib/mm/i18n";
 import { mealTargetFor } from "@/lib/mm/mealTarget";
@@ -18,7 +18,7 @@ import { PremiumBadge } from "../../_components/PremiumBadge";
 import { PipSays } from "../../_components/Mascot";
 import { useGate } from "../../_components/Paywall";
 import { Button, Card, ErrorBox, Spinner, inputClass } from "../../_components/ui";
-import { useHydrated, useIsPro, useSettings, useStore } from "../../_lib/hooks";
+import { useHydrated, useSettings, useStore } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { recipeShop, useRecipeCards } from "../../_lib/recipes";
 import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
@@ -37,6 +37,8 @@ import { RecipeTile } from "../RecipeTile";
 const SERVINGS = 2;
 /** Common things to tap in, for anyone who'd rather not type. */
 const COMMON = [tk("eggs"), tk("chicken"), tk("mince"), tk("rice"), tk("pasta"), tk("potatoes"), tk("onion"), tk("peppers"), tk("tomatoes"), tk("spinach"), tk("cheese"), tk("tinned beans"), tk("tuna"), tk("yoghurt")];
+/** The shop's list couldn't be loaded (or there is no shop to load): the same words as Make it at home. */
+const PRODUCTS_FAILED = tk("Couldn't load the products. Check your connection.");
 const WORKING = [tk("Reading what you have…"), tk("Choosing the rest from {shop}…"), tk("Writing the steps…"), tk("Working out each serving's price and nutrition…")] as const;
 
 export default function FridgePage() {
@@ -46,13 +48,13 @@ export default function FridgePage() {
 function Fridge() {
   const t = useT();
   const settings = useSettings();
-  const manifest = useShopManifest();
+  // Try again on a list that couldn't be loaded asks for the shop list (and the manifest, if that failed too) again (meeting 21 November 2026, Priya: it span on
+  // "Loading the recipes" for ever)
+  const [retry, setRetry] = useState(0);
+  const manifest = useShopManifest(retry);
   const hydrated = useHydrated();
-  const pro = useIsPro();
-  const paid = useStore(paidStore);
   const myRecipes = useStore(myRecipesStore);
   const online = useOnline();
-  const access = PAID_ACCESS_ENABLED ? pro && !!paid.token : pro;
   const { gate, showPaywall } = useGate();
   const [text, setText] = useState("");
   const [mood, setMood] = useState<FridgeMood>("any");
@@ -63,13 +65,16 @@ function Fridge() {
   const [dropped, setDropped] = useState<string | null>(null);
   const [line, setLine] = useState(0);
   const results = useRef<HTMLElement>(null);
+  const resultsHeading = useRef<HTMLHeadingElement>(null);
   const abort = useRef<AbortController | null>(null);
   // the person's usual recipe shop, used quietly for the sums (founder 2026-11-20: no "Shopping at" choice on this screen)
   const shop = recipeShop(manifest, null, settings.shops);
   const shopName = recipeShops(manifest).find((s) => s.id === shop)?.name ?? t("your shop");
   const consent = useAiConsent("fridgeRecipe", shopName);
-  const products = useShopProducts(shop, 0);
+  const products = useShopProducts(shop, retry);
   const ready = products.status === "ready" ? products : null;
+  // no list: it failed, or there is no shop to load (never while the shops manifest itself is still on its way, when there is no shop yet either)
+  const failed = !!manifest && products.status === "error";
   const diet = settings.preferences;
   const target = mealTargetFor(settings) ?? { kcal: mealSizes(settings.dailyCalories).normal };
   const items = haveItems(text);
@@ -84,7 +89,12 @@ function Fridge() {
   const haveOf = new Map(matches.map((m) => [m.recipe.id, ingredientsYouHave(m.recipe, m.uses)]));
   const haveFor = (id: string) => { const keys = haveOf.get(id) ?? []; return keys.length ? `&have=${keys.join(",")}` : ""; };
 
-  useEffect(() => { if (shown) results.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }, [shown]);
+  // the results scroll into view and a screen reader moves there with them (meeting 21 November 2026, Sam: VoiceOver stayed on the button above)
+  useEffect(() => {
+    if (!shown) return;
+    results.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    resultsHeading.current?.focus({ preventScroll: true });
+  }, [shown]);
   useEffect(() => {
     if (step !== "working") return;
     const id = setInterval(() => setLine((n) => Math.min(n + 1, WORKING.length - 1)), 6000);
@@ -115,8 +125,10 @@ function Fridge() {
     const pantry = pantryLines(ready.products, diet);
     const body: FridgeRecipeRequest = { shop, servings: SERVINGS, target, diet, have: text.slice(0, MAX_HAVE), mood, pantry };
     abort.current = new AbortController();
+    // the token as it is now: right after a purchase in the plans this runs from the tap made before it, when there was none yet
+    const token = paidStore.get().token;
     try {
-      const res = await fetch(`${API_BASE}recipe/fridge`, { method: "POST", headers: { "Content-Type": "application/json", ...(paid.token ? { Authorization: `Bearer ${paid.token}` } : {}) }, body: JSON.stringify(body), signal: abort.current.signal });
+      const res = await fetch(`${API_BASE}recipe/fridge`, { method: "POST", headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify(body), signal: abort.current.signal });
       const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string; error?: string };
       // the server's Premium check said no: the plans, never an error
       if (res.status === 402 || json.error === "premium") { setStep("form"); showPaywall("fridgeRecipe"); return; }
@@ -135,8 +147,10 @@ function Fridge() {
       setStep("error");
     }
   };
-  /** "Make me a recipe": the plans for someone without Premium; otherwise Pip's permission (once), then the request. */
-  const askPip = () => gate("fridgeRecipe", () => (access ? consent.ask(() => void write()) : showPaywall("fridgeRecipe")));
+  /** "Make me a recipe": the plans for someone without Premium; otherwise Pip's permission (once), then the request. After a purchase in the plans the gate runs
+   *  this same action, so it must not decide on Premium again from this render (meeting 21 November 2026, Dev and Priya: the plans opened a second time);
+   *  a Premium without a checked token is turned down by the server, whose 402 opens the plans. */
+  const askPip = () => gate("fridgeRecipe", () => consent.ask(() => void write()));
   /** Stop or Back while Pip works: the request is called off and the form comes back with everything as it was typed. */
   const stop = () => {
     abort.current?.abort();
@@ -247,14 +261,15 @@ function Fridge() {
 
       {shown && (
         <section ref={results} aria-labelledby="fridge-results" className="mt-8 scroll-mt-4">
-          <h2 id="fridge-results" className="text-[1.375rem] font-[800] leading-tight">{t("Recipes that use what you have")}</h2>
+          <h2 id="fridge-results" ref={resultsHeading} tabIndex={-1} className="text-[1.375rem] font-[800] leading-tight outline-none">{t("Recipes that use what you have")}</h2>
           {(reading.fixed.length > 0 || reading.missing.length > 0) && (
             <div role="status" className="mt-3 space-y-1 rounded-[1.25rem] bg-[var(--fill)] p-4 text-[0.9375rem] leading-snug">
               {reading.fixed.map((f) => <p key={f.typed}>{t("I read “{typed}” as {read}.", { typed: f.typed, read: f.read })}</p>)}
               {reading.missing.length > 0 && <p className="font-semibold">{t("None of our recipes uses {things}. Check the spelling, or tap a food above.", { things: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(reading.missing.map((m) => `“${m}”`)) })}</p>}
             </div>
           )}
-          {!ready ? <Spinner label={t("Loading the recipes")} />
+          {failed ? <div className="mt-3"><ErrorBox message={t(PRODUCTS_FAILED)} onRetry={() => setRetry((n) => n + 1)} /></div>
+            : !ready ? <Spinner label={t("Loading the recipes")} />
             : cards.length === 0 ? <p className="glass mt-3 rounded-[1.25rem] p-4 text-[0.9375rem] leading-snug">{mood === "any" ? t("None of our recipes uses these yet.") : t("None of our recipes of that kind uses these. Try Anything.")}</p>
             : (
               <ul className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,10rem),1fr))] gap-3">
@@ -294,7 +309,7 @@ function Fridge() {
                 className={ready && online && items.length >= MIN_HAVE_ITEMS ? "mt-3" : ""}
                 onClick={askPip}
                 disabled={!ready || !online || items.length < MIN_HAVE_ITEMS}
-                reason={!online ? t(AI_MESSAGES.offline) : !ready ? t("Loading the recipes") : t(FRIDGE_MESSAGES.tooFew)}
+                reason={!online ? t(AI_MESSAGES.offline) : failed ? t(PRODUCTS_FAILED) : !ready ? t("Loading the recipes") : t(FRIDGE_MESSAGES.tooFew)}
               >
                 {t("Make me a recipe")}
               </Button>

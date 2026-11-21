@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { addToList, knownLists, listsForShop, type ShoppingItem, type ShoppingList } from "@/lib/mm/groceries";
+import { addToList, knownLists, listsForShop, MAX_QTY, MAX_SHOPPING_ITEMS, type ShoppingItem, type ShoppingList } from "@/lib/mm/groceries";
+import type { T } from "@/lib/mm/i18n";
+import { listAddOutcome } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { BasketIcon } from "../_components/icons";
@@ -18,19 +20,38 @@ export const listHref = (id?: string | null): string => (id ? `/app/groceries/li
 
 type Item = Omit<ShoppingItem, "qty" | "addedAt" | "list">;
 
+/** What one add really did (lib/mm/shopProducts.ts listAddOutcome): "added", or nothing changed because it was at the most for one item, or the lists are full. */
+export type AddOutcome = ReturnType<typeof listAddOutcome>;
+
 /**
- * `add(item)` puts a product on a list, asking which one when the person has lists for its shop; `onAdded` is told where it went (null = the main list).
- * Render `sheet` once on the screen.
+ * The toast's words after one add: where it went, or why nothing changed (the 30-person meeting, 21 November 2026, Leo: a full list, or an item already at 20,
+ * still said "Added"), in the words the list page and the recipes already use.
  */
-export function useAddToList(onAdded: (list: ShoppingList | null, item: Item) => void): { add: (item: Item) => void; sheet: ReactNode } {
+export function addedText(t: T, list: ShoppingList | null, outcome: AddOutcome): string {
+  if (outcome === "most") return t("{n} is the most for one item.", { n: MAX_QTY });
+  if (outcome === "full") return t("Added {n} of {total}: your lists are full ({max} items). Remove ticked things to make room.", { n: 0, total: 1, max: MAX_SHOPPING_ITEMS });
+  return list ? t("Added to {list}.", { list: list.name }) : t("Added to your Shopping list.");
+}
+
+/**
+ * `add(item)` puts a product on a list, asking which one when the person has lists for its shop; `onAdded` is told where it went (null = the main list) and what
+ * the add really did (`outcome`). Render `sheet` once on the screen.
+ */
+export function useAddToList(onAdded: (list: ShoppingList | null, item: Item, outcome: AddOutcome) => void): { add: (item: Item) => void; sheet: ReactNode } {
   const t = useT();
   const settings = useSettings();
   const items = useStore(shoppingStore);
   const [pending, setPending] = useState<Item | null>(null);
   const lists = pending ? listsForShop(knownLists(settings.shoppingLists, items), pending.retailer) : [];
   const put = (item: Item, list: ShoppingList | null) => {
-    shoppingStore.update((l) => addToList(l, list ? { ...item, list: list.id } : item));
-    onAdded(list, item);
+    const entry = list ? { ...item, list: list.id } : item;
+    let outcome = "added" as AddOutcome; // set inside update, which runs at once
+    shoppingStore.update((l) => {
+      const next = addToList(l, entry);
+      outcome = listAddOutcome(l, next, entry);
+      return next;
+    });
+    onAdded(list, item, outcome);
   };
   const add = (item: Item) => {
     if (listsForShop(knownLists(settings.shoppingLists, shoppingStore.get()), item.retailer).length === 0) put(item, null);

@@ -113,7 +113,8 @@ export interface Span {
 /**
  * Where the tip's card goes (px from the top of the screen), or how far to scroll the page first. `hole`: the lit control as drawn (with its padding);
  * `clear`: what the card should not cover; `card`: the card's full height; `fixed`: the control stays put when the page scrolls (the tab bar); `min`: the
- * shortest the card may be (TIP_CARD_MIN).
+ * shortest the card may be (TIP_CARD_MIN); `edgeTop` and `edgeBottom` (default `edge`): how far the card keeps from the top and the foot of the screen, at
+ * least 16 px and clear of the status bar and the home indicator (CoachMarks.tsx measures the safe-area insets: Quinn, the 30-person meeting, 21 November 2026).
  * - Free stretches are the screen minus the hole and the keep-clear parts (each with `gap` round it). The card goes in the one right under the hole, else
  *   the one right over it, else (not for a fixed control, which first tries the scroll below) the nearest other that holds it whole.
  * - None holds it and something is to be kept clear: scroll (once; `scrolled` says it was done) so there is room: under the hole and what it keeps clear
@@ -121,7 +122,7 @@ export interface Span {
  * - Still none: the keep-clear parts give way (the card may cover them; never the lit control while there is room beside it), and the card goes on the
  *   side of the hole with more room at its full height, kept on the screen. Its height is never less than `min`, so Next and "Stop the tips" always show.
  */
-export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = false, edge = 16, gap = 12, min = TIP_CARD_MIN }: {
+export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = false, edge = 16, edgeTop = edge, edgeBottom = edge, gap = 12, min = TIP_CARD_MIN }: {
   hole: Span;
   clear: readonly Span[];
   card: number;
@@ -129,11 +130,13 @@ export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = fals
   fixed?: boolean;
   scrolled?: boolean;
   edge?: number;
+  edgeTop?: number;
+  edgeBottom?: number;
   gap?: number;
   min?: number;
 }): { top: number; maxHeight: number; below: boolean } | { scroll: number } {
-  const lo = edge;
-  const hi = vh - edge;
+  const lo = edgeTop;
+  const hi = vh - edgeBottom;
   const want = Math.max(card, min); // the card's whole height, never less than its minimum
   const taken = [hole, ...clear].map((s) => ({ top: s.top - gap, bottom: s.bottom + gap })).sort((a, b) => a.top - b.top);
   const free: Span[] = [];
@@ -165,7 +168,7 @@ export function placeTip({ hole, clear, card, vh, fixed = false, scrolled = fals
     } else {
       // room under the control and what it keeps clear right below it; never so far that the control's top goes off the screen
       const block = Math.max(hole.bottom, ...clear.filter((c) => c.top < hole.bottom + gap + want + gap && c.bottom > hole.top).map((c) => c.bottom));
-      const scroll = Math.min(Math.ceil(block + gap + want + edge - vh), Math.floor(hole.top - edge));
+      const scroll = Math.min(Math.ceil(block + gap + want + edgeBottom - vh), Math.floor(hole.top - edgeTop));
       if (scroll > 0) return { scroll };
     }
   }

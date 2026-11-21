@@ -117,7 +117,8 @@ function Working({ dish, about, shopName, productCount, target, avoid, photoUrl,
           {[
             made.ingredients === 1 ? t("1 ingredient chosen from {shop}", { shop: shopName }) : t("{n} ingredients chosen from {shop}", { n: made.ingredients, shop: shopName }),
             made.steps === 1 ? t("1 step written") : t("{n} steps written", { n: made.steps }),
-            t("Every amount, price and figure worked out from the products' own labels"),
+            // the amounts are Pip's and the prices the shop's, so only the figures come from the labels (meeting 21 November 2026, Priya; a correction)
+            t("Every figure worked out from the products' own labels"),
           ].map((line) => (
             <li key={line} className="flex items-center gap-3 text-[1rem] font-semibold leading-snug">
               <span className={DONE_TICK}><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
@@ -284,8 +285,14 @@ function PhotoScreen() {
     setStep("working");
     setMade(null);
     setSavedId(null);
+    // made before the wait for the photo check, so Stop works during it too (meeting 21 November 2026, Priya: Stop did nothing then, and the recipe was asked
+    // for anyway)
+    const ctrl = new AbortController();
+    abort.current = ctrl;
     // the food check started when the photo was taken: only a clear "not food" from Pip sends them back to the camera (if it couldn't be made, carry on)
-    if ((await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"))) === "notFood") {
+    const check = await (foodCheck.current ?? Promise.resolve<FoodCheck>("unknown"));
+    if (ctrl.signal.aborted) { setStep("shops"); return; }
+    if (check === "notFood") {
       if (stepNow.current !== "working") return; // the person went Back meanwhile
       setPhoto(null);
       setRetryNote(tk("That doesn't look like food. Please try again with a photo of the dish."));
@@ -293,9 +300,8 @@ function PhotoScreen() {
       return;
     }
     if (stepNow.current !== "working") return;
-    abort.current = new AbortController();
     try {
-      const res = await fetch(`${API_BASE}recipe/photo`, { method: "POST", headers: headers(), body: JSON.stringify(body), signal: abort.current.signal });
+      const res = await fetch(`${API_BASE}recipe/photo`, { method: "POST", headers: headers(), body: JSON.stringify(body), signal: ctrl.signal });
       const json = (await res.json().catch(() => ({}))) as { recipe?: unknown; message?: string; error?: string };
       // the server's Premium check said no: the plans, never an error
       if (res.status === 402 || json.error === "premium") { setStep("shops"); showPaywall("photoRecipe"); return; }

@@ -65,6 +65,17 @@ const isStoredSession = (s: unknown): s is StoredSession =>
 
 export const sanitizeStoredSession = (raw: unknown): StoredSession | null => (isStoredSession(raw) ? { accessToken: raw.accessToken, refreshToken: raw.refreshToken, expiresAt: raw.expiresAt } : null);
 
+/**
+ * Apple's own sheet, asked before an account that signs in with Apple is deleted (App Review 5.1.1(v): its one-time code lets the server tell Apple the sign-in is
+ * over). null = the person cancelled Apple's sheet, so nothing is deleted (the meeting of 21 November 2026, Ben: a cancel went on to delete the account).
+ * Otherwise the code, if Apple gave one: when the sheet is unavailable, fails or times out the account is still deleted.
+ */
+export async function appleDeleteConfirm(ask: () => Promise<{ error?: string; appleCode?: string }>): Promise<{ appleCode?: string } | null> {
+  const r = await ask();
+  if (r.error === "cancelled") return null;
+  return r.appleCode ? { appleCode: r.appleCode } : {};
+}
+
 export function createAccountApi(deps: AccountDeps) {
   let renewing: Promise<boolean> | null = null;
   const now = deps.now ?? (() => Date.now());
@@ -89,7 +100,11 @@ export function createAccountApi(deps: AccountDeps) {
     }
   }
 
-  /** Renew the session once: the app with its refresh token, the website by asking /auth/session (which renews its cookies). */
+  /**
+   * Renew the session once: the app with its refresh token, the website by asking /auth/session (which renews its cookies). False means signed out only when
+   * the session is gone too: in the app, the refresh token was refused (the stored session is cleared); on the website, the server answered "nobody" (200 with
+   * no user). Any other failure there (a 503, a 429, a 500) throws, so a bad minute on the server never reads as signed out (the meeting of 21 November 2026).
+   */
   function renew(): Promise<boolean> {
     renewing ??= (async () => {
       try {
@@ -109,7 +124,9 @@ export function createAccountApi(deps: AccountDeps) {
         }
         const res = await raw("auth/session");
         const body = (await res.json().catch(() => null)) as { user?: unknown } | null;
-        return res.ok && isUser(body?.user);
+        if (res.ok && isUser(body?.user)) return true;
+        if (res.ok && body !== null && body.user === null) return false; // the server says nobody is signed in
+        throw new AccountError(503, "unavailable");
       } finally {
         renewing = null;
       }
@@ -117,10 +134,16 @@ export function createAccountApi(deps: AccountDeps) {
     return renewing;
   }
 
-  /** A request as the signed-in person: on a 401 it renews the session once and tries again. */
+  /**
+   * A request as the signed-in person: on a 401 it renews the session once and tries again. When the renewal fails but the session is still held (the app's
+   * refresh server answered 503 or 429), it throws "unavailable" instead of handing back the 401, which the sync takes as signed out (the meeting of 21
+   * November 2026: a brief server problem signed people out). Only a session that is really over comes back as the 401.
+   */
   async function authed(path: string, init: { method?: string; body?: unknown } = {}): Promise<Response> {
-    let res = await raw(path, init);
-    if (res.status === 401 && (await renew())) res = await raw(path, init);
+    const res = await raw(path, init);
+    if (res.status !== 401) return res;
+    if (await renew()) return raw(path, init);
+    if (deps.useTokens && deps.tokens.get()) throw new AccountError(503, "unavailable");
     return res;
   }
 
@@ -141,7 +164,8 @@ export function createAccountApi(deps: AccountDeps) {
   return {
     /**
      * A signed-in request to any other route of our API (Community uses it): the cookies or the Bearer token, renewed once on a 401. It rejects with an offline
-     * AccountError when the server can't be reached, and otherwise hands back the response as it is (the caller reads the status and body).
+     * AccountError when the server can't be reached, or an "unavailable" one (503) when the session couldn't be renewed just now, and otherwise hands back the
+     * response as it is (the caller reads the status and body).
      */
     request(path: string, init: { method?: string; body?: unknown } = {}): Promise<Response> {
       return authed(path, init);

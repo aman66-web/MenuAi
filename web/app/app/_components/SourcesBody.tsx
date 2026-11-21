@@ -5,7 +5,7 @@ import { site } from "@/site.config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP } from "@/lib/mm/budget";
 import { DEFAULT_WATER_GOAL_ML } from "@/lib/mm/water";
-import { CALORIE_ADJUSTMENT, FAT_SHARE, MIN_SUGGESTED_CALORIES, PROTEIN_PER_KG, PROTEIN_SHARE_MAX, PROTEIN_SHARE_MIN, PROTEIN_SHARE_WITHOUT_TARGET } from "@/lib/mm/targets";
+import { CALORIE_ADJUSTMENT, FAT_SHARE, GLP1_MEAL_CAP_MAX, GLP1_MEAL_CAP_MIN, MIN_SUGGESTED_CALORIES, PROTEIN_PER_KG, PROTEIN_SHARE_MAX, PROTEIN_SHARE_MIN, PROTEIN_SHARE_WITHOUT_TARGET } from "@/lib/mm/targets";
 import { TARGET_SOURCES_CHECKED, targetSource, type TargetSource } from "@/lib/mm/targetSources";
 import { useT } from "../_lib/i18n";
 import { Rich } from "../_lib/Rich";
@@ -76,7 +76,9 @@ export function SourcesBody({ withNumbersLink, level = "h3" }: { withNumbersLink
           <li>{t("Protein kept between {low} and {high} of your calories. For a vegetarian or vegan diet, the grams per kilogram start a little higher.", { low: percent(PROTEIN_SHARE_MIN), high: percent(PROTEIN_SHARE_MAX) })}</li>
           <li>{t("When you leave protein, carbs and fat empty: protein at about {protein} of your calories, fat at about {fat}, and carbs the rest.", { protein: percent(PROTEIN_SHARE_WITHOUT_TARGET), fat: percent(FAT_SHARE) })}</li>
           <li>{t("A water goal of {ml} ml until you set your own.", { ml: formatInt(DEFAULT_WATER_GOAL_ML) })}</li>
-          <li>{t("For the GLP-1 goal, a comfortable meal size that starts at {kcal} kcal. It only decides which orders {app} shows as smaller, protein-first ones.", { kcal: formatInt(DEFAULT_GLP1_MEAL_CAP), app })}</li>
+          {/* the meal size also sizes the meal plan and the recipes, and Settings' Suggest targets sets it to a third of the day (lib/mm/targets.ts
+              suggestGlp1MealCap; the welcome screens leave it as it is): the old line, that it chose only which orders were shown, was untrue (the meeting of 21 November 2026, Rosa) */}
+          <li>{t("For the GLP-1 goal, a meal size of {kcal} kcal until you set your own, or a third of your day ({min} to {max} kcal) if you use Suggest targets. Your picks, meal plan and recipes stay within it.", { kcal: formatInt(DEFAULT_GLP1_MEAL_CAP), min: formatInt(GLP1_MEAL_CAP_MIN), max: formatInt(GLP1_MEAL_CAP_MAX) })}</li>
         </ul>
       </Block>
 

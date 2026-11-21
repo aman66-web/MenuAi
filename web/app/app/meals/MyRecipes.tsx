@@ -83,9 +83,10 @@ export function MyRecipes() {
     setUndo(null);
   }
 
-  // outside the branches below: taking out the last recipe empties the list, and the Undo must still be there
+  // outside the branches below: taking out the last recipe empties the list, and the Undo must still be there. The focus goes to Undo as it appears (the heart
+  // or remove button it was on has gone with the card: VoiceOver dropped to the top of the page; Sam, the 30-person meeting, 21 November 2026), as on Today
   const bar = undo && (
-    <Toast key={`${undo.kind}:${undo.entry.id}`} duration={UNDO_MS} onClose={() => setUndo(null)} onUndo={restore}>
+    <Toast key={`${undo.kind}:${undo.entry.id}`} duration={UNDO_MS} focusUndo onClose={() => setUndo(null)} onUndo={restore}>
       {t("Removed “{name}” from My recipes.", { name: undo.name })}
     </Toast>
   );

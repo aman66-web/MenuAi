@@ -5,7 +5,8 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { isListId, itemsOnList, knownLists, MAIN_LIST, retailerName, type ShoppingList } from "@/lib/mm/groceries";
 import { shopPhotoSources } from "@/lib/mm/shopProducts";
-import { shoppingStore } from "@/lib/mm/stores";
+import { withoutWhatTheyHave } from "@/lib/mm/listRecipes";
+import { cupboardStore, shoppingStore } from "@/lib/mm/stores";
 import { InfoLine } from "../../../_components/Note";
 import { PageHeader } from "../../../_components/PageHeader";
 import { CheckIcon, ChevronRightIcon, PlusIcon, PotIcon } from "../../../_components/icons";
@@ -51,7 +52,8 @@ function MatchCard({ m, lists, viewing }: { m: ListMatch; lists: readonly Shoppi
           <span className="flex min-w-0 flex-1 items-center gap-3">
             <span className="min-w-0 flex-1">
               <span className="block text-lg font-[800] leading-snug tracking-[-0.01em] [overflow-wrap:anywhere] group-hover:underline group-hover:underline-offset-4">{t(m.recipe.name)}</span>
-              <span className="app-numbers mt-0.5 block text-[0.9375rem] font-semibold text-foreground">{t("You have {have} of {total} ingredients", { have: m.have.length, total })}</span>
+              {/* what the list holds, not what the person has (the 30-person meeting, 21 November 2026, Leo: it counted only things on the list) */}
+              <span className="app-numbers mt-0.5 block text-[0.9375rem] font-semibold text-foreground">{t("Your list has {have} of {total} ingredients", { have: m.have.length, total })}</span>
             </span>
             <ChevronRightIcon className="h-[18px] w-[18px] shrink-0 text-ink" />
           </span>
@@ -112,6 +114,14 @@ function ListRecipesScreen() {
   // the list it was opened from, when it is one of the person's own (its shop's recipes first, and its name in the title)
   const own = from ? lists.find((l) => l.id === from) ?? null : null;
   const { state, matches, usesOther, shop } = useListRecipes(list, own?.shop ?? null);
+  // nothing they've said they have is "Still to buy" or added: cupboard kinds they keep and a recipe's ingredients ticked "I have this", as "You might also need"
+  // leaves them out (the 30-person meeting, 21 November 2026, Leo: they were listed and added)
+  const cupboard = useStore(cupboardStore);
+  const shown = useMemo(() => {
+    if (!matches) return null;
+    const kept = withoutWhatTheyHave(matches, new Set(cupboard));
+    return matches.map((m, i) => ({ ...m, missing: kept[i]!.missing }));
+  }, [matches, cupboard]);
   const [limit, setLimit] = useState(PAGE);
   const back = listHref(from);
   const listNav = useBack(back); // for the empty-state button: the page before when there is one in the app, else the list in this page's place
@@ -130,17 +140,17 @@ function ListRecipesScreen() {
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>
       ) : state.status === "error" ? (
         <div className="mt-5"><ErrorBox message={t("Couldn't load the recipes. Check your connection.")} onRetry={() => window.location.reload()} /></div>
-      ) : state.status === "loading" || matches === null ? (
+      ) : state.status === "loading" || shown === null ? (
         <Spinner label={t("Loading recipes")} />
-      ) : matches.length === 0 ? (
+      ) : shown.length === 0 ? (
         <div className="mt-5"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No recipe uses these yet.")} body={t("Try adding a main ingredient, like chicken, rice or eggs.")} action={<LinkButton href="/app/recipes" variant="secondary">{t("See all recipes")}</LinkButton>} /></div>
       ) : (
         <>
-          <p role="status" className="app-numbers mt-7 ps-1 text-[0.9375rem] font-semibold text-muted">{matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}</p>
+          <p role="status" className="app-numbers mt-7 ps-1 text-[0.9375rem] font-semibold text-muted">{shown.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: shown.length })}</p>
           <ul className="mt-3 space-y-3.5">
-            {matches.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} lists={lists} viewing={from ?? undefined} />))}
+            {shown.slice(0, limit).map((m) => (<MatchCard key={m.recipe.id} m={m} lists={lists} viewing={from ?? undefined} />))}
           </ul>
-          {matches.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: matches.length - limit })}</Button></div>}
+          {shown.length > limit && <div className="mt-4"><Button full variant="secondary" className="min-h-12 text-[0.9375rem]" onClick={() => setLimit((n) => n + PAGE)}>{t("Show more recipes ({n} more)", { n: shown.length - limit })}</Button></div>}
           <InfoLine heading={null} className="mt-6">{t("Matched by product names and chosen for your diet by ingredients: check each pack.")}</InfoLine>
         </>
       )}

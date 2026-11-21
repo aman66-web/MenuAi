@@ -19,8 +19,10 @@ export const TOAST_MIN_MS = 8000;
  * tap on the same + can never land on Undo. It closes itself after `duration` ms (at least 8 seconds; `null` keeps it until `onClose` is called by the screen),
  * and never while a finger or the keyboard is on it: the time starts again when they leave. A tap on its words closes it at once. For a new message, give it a
  * new `key` so its time starts afresh. `focusUndo` moves the focus to Undo as it appears (Today's Remove: the keyboard and VoiceOver focus never drops to the
- * page). It is drawn first in the page's <main> (a portal), so a screen reader comes to the message and its Undo straight after the top of the page, not
- * after everything else on it.
+ * page); that move of ours doesn't hold it (it held Today's "Removed …" toast for good, its Undo working long after: Femi, the 30-person meeting, 21 November
+ * 2026), only the person's own finger or keyboard does. If it goes with the focus still inside and the screen hasn't moved it, the focus goes to the page's
+ * heading (focusPage), never to the bare page. It is drawn first in the page's <main> (a portal), so a screen reader comes to the message and its Undo straight
+ * after the top of the page, not after everything else on it.
  *
  * A swipe sends it away at once (founder 2026-11-20: "the person should be able to swipe that off the screen if they want. Like if they swipe up on that, it'll
  * go"): up for the top one, down for the bottom one, or sideways either way. It follows the finger, goes when pulled far enough and springs back when not; a
@@ -55,11 +57,24 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
     el.setAttribute("data-toast-host", "");
     main.prepend(el);
     setHost(el);
-    return () => el.remove();
+    return () => {
+      // read before it goes: once removed, the focus has already fallen to the page
+      const hadFocus = el.contains(document.activeElement);
+      el.remove();
+      // after the screen's own move, if it makes one (Today puts the focus on the next food); only if the focus is still nowhere then
+      if (hadFocus) window.setTimeout(focusPage, 50);
+    };
   }, []);
   const undoButton = useRef<HTMLButtonElement>(null);
+  // the focus we move to Undo ourselves, which must not count as the person holding the toast
+  const autoFocused = useRef(false);
   useEffect(() => {
-    if (focusUndo && host) undoButton.current?.focus({ preventScroll: true });
+    const undo = undoButton.current;
+    // already there: focusing it again fires no focus event, which would leave the flag set for the person's own next focus
+    if (!focusUndo || !host || !undo || document.activeElement === undo) return;
+    autoFocused.current = true;
+    undo.focus({ preventScroll: true });
+    if (document.activeElement !== undo) autoFocused.current = false; // it didn't take, so the next focus is the person's own
   }, [focusUndo, host]);
   const close = useRef(onClose);
   useEffect(() => { close.current = onClose; });
@@ -124,7 +139,13 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
       onClickCapture={(e) => { if (dragged.current) { e.preventDefault(); e.stopPropagation(); dragged.current = false; } }}
       onPointerEnter={() => setHeld(true)}
       onPointerLeave={() => setHeld(false)}
-      onFocus={() => setHeld(true)}
+      onFocus={() => {
+        if (autoFocused.current) {
+          autoFocused.current = false;
+          return;
+        }
+        setHeld(true);
+      }}
       onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHeld(false); }}
       className={`on-ink fixed inset-x-4 z-30 mx-auto flex max-w-md touch-none select-none items-center justify-between gap-3 rounded-[1.75rem] border border-on-ink-2 bg-ink py-1.5 ps-4 pe-2 text-on-ink shadow-[var(--shadow-lift)] ${place === "top" ? "top-[max(0.75rem,env(safe-area-inset-top))]" : "bottom-[calc(max(0.75rem,env(safe-area-inset-bottom))_+_5.5rem)]"} ${className ?? ""}`}
     >
@@ -141,4 +162,17 @@ export function Toast({ children, onClose, onUndo, undoLabel, duration = TOAST_M
     </div>
   );
   return host === "here" ? toast : createPortal(toast, host);
+}
+
+/** The focus left with a toast that has gone: the page's heading takes it (as the welcome screens do), else the page itself; never while something has it. */
+function focusPage() {
+  const now = document.activeElement;
+  if (now && now !== document.body && now.isConnected) return;
+  const target = document.querySelector<HTMLElement>("main h1") ?? document.querySelector<HTMLElement>("main");
+  if (!target) return;
+  if (!target.hasAttribute("tabindex")) {
+    target.setAttribute("tabindex", "-1");
+    target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
+  }
+  target.focus({ preventScroll: true });
 }

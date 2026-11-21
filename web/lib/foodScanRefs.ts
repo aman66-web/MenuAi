@@ -13,7 +13,8 @@ let cached: { at: number; index: Promise<RefIndexEntry[]> } | null = null;
 type SearchFile = { chains: Array<{ id: string; name: string; sample?: boolean; items: Array<[string, string, ...unknown[]]> }> };
 type NumbersFile = { chains: Array<{ id: string; k: Array<number | null>; p: Array<number | null>; c: Array<number | null>; f: Array<number | null> }> };
 
-/** The menu dishes from the two published files: a dish counts only when all four figures are printed. */
+/** The menu dishes from the two published files: a dish counts only when all four figures are printed. The two files are paired by position, so a chain whose
+ *  figures don't line up with its dishes one for one (the two files from different publishes) is left out rather than given another dish's numbers. */
 export function menuRefs(search: SearchFile, numbers: NumbersFile): RefDish[] {
   const byId = new Map(numbers.chains.map((c) => [c.id, c]));
   const out: RefDish[] = [];
@@ -21,6 +22,8 @@ export function menuRefs(search: SearchFile, numbers: NumbersFile): RefDish[] {
     if (chain.sample) continue;
     const n = byId.get(chain.id);
     if (!n) continue;
+    const len = chain.items.length;
+    if ([n.k, n.p, n.c, n.f].some((list) => !Array.isArray(list) || list.length !== len)) continue;
     chain.items.forEach((item, i) => {
       const [kcal, protein, carbs, fat] = [n.k[i], n.p[i], n.c[i], n.f[i]];
       if (typeof item[1] !== "string" || [kcal, protein, carbs, fat].some((x) => typeof x !== "number")) return;
@@ -35,7 +38,9 @@ export const recipeRefs = (): RefDish[] => SCAN_RECIPE_REFS.map((r) => ({ from: 
 async function load(origin: string): Promise<RefIndexEntry[]> {
   let menus: RefDish[] = [];
   try {
-    const [s, n] = await Promise.all(["menus-search.json", "menus-numbers.json"].map((f) => fetch(`${origin}/menus/${f}`, { cache: "force-cache" })));
+    // never the platform's fetch cache (meeting 21 November 2026, Priya): it keeps each file on its own, so after a menu publish the names of one could be
+    // paired with the figures of the other; this module's own copy (KEEP_MS) is the only one kept, made from the two read together
+    const [s, n] = await Promise.all(["menus-search.json", "menus-numbers.json"].map((f) => fetch(`${origin}/menus/${f}`, { cache: "no-store" })));
     if (s.ok && n.ok) menus = menuRefs((await s.json()) as SearchFile, (await n.json()) as NumbersFile);
     else console.error(`food scan refs: menus ${s.status}/${n.status}`);
   } catch (error) {

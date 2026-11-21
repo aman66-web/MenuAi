@@ -22,7 +22,7 @@ export interface SwapRow {
 
 /**
  * Every recipe the plan can put in this slot: its meal's candidates (the ones the week is built from, so a choice always fits in the week), except the one there
- * now and any the diet now leaves out (`fits`: a diet changed since the plan was made). Each says whether the week has it already and whether it is of the style.
+ * now, one already in another slot that day, and any the diet now leaves out (`fits`: a diet changed since the plan was made). Each says whether the week has it already and whether it is of the style.
  */
 export function swapRows(
   ids: PlanIds,
@@ -38,8 +38,10 @@ export function swapRows(
   const current = ids[day]?.[mealIndex];
   const used = new Set<string>();
   ids.forEach((d, i) => d.forEach((id, j) => { if (i !== day || j !== mealIndex) used.add(id); }));
+  // never the same recipe twice in one day: a second snack that's the first one again (the 21 November meeting, Kemi)
+  const sameDay = new Set(ids[day]?.filter((_, j) => j !== mealIndex));
   return (candidates.get(meal) ?? [])
-    .filter((c) => c.recipe.id !== current && fits(c.recipe.id))
+    .filter((c) => c.recipe.id !== current && !sameDay.has(c.recipe.id) && fits(c.recipe.id))
     .map((c) => ({ candidate: c, inPlan: used.has(c.recipe.id), fitsStyle: fitsStyle(c, style) })); // the whole candidate, so the ingredient rules (Longevity, Paleo, the diets...) count too
 }
 

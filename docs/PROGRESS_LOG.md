@@ -3920,3 +3920,17 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   REPORT=kinds or REPORT=recipes): which everyday kinds each shop can supply and price, and which shops can make a recipe file's recipes.
   **Tesco**: its list (6,079 products) has no cupboard aisle at all (no black pepper, chopped tomatoes, plain rice, lemon juice, chickpeas or stock): Tesco
   blocked the reading of those aisles, so no recipes there yet. **Lidl** prints no nutrition online; **Co-op** has no prices in the app.
+- (02:50-04:05, 21 Nov) **The 30-agent meeting** (founder, 02:45: "have a meeting with 30 different AI agents ... fix everything and make it almost, well, 100%
+  robust"). 30 named reviewers (one area each, read-only), Morgan the chair, 7 fixers with separate files, Noor the tester; record in docs/MEETING_2026-11-21.md.
+  217 findings (1 blocker, 39 high, 83 medium, 94 low); the chair sorted 134 (the list passed to him was cut at 180,000 characters: the other 83, Sam's from his
+  fourth on and every reviewer after him, get a second sorting pass next). 124 fixes made, 37 left with reasons; among them: Cancel on Apple's confirm sheet no
+  longer deletes the account (Ben, the blocker); the Terms and docs/STORE.md no longer describe an Apple trial or a 90-day pass (Chloe, Dev); a scanned barcode
+  with no numbers is no longer a dead end, and the shop product page warns about the person's allergies (Maya, Grace); recipes no longer pick cooked wafer-thin
+  chicken, a tin of whole tomatoes for chopped, halal-brand chicken for "No halal or kosher meat", naan for wraps, or 2 tsp of pepper for a pinch (Jamal); a loose
+  vegetable's price per kg is no longer shown as its price (Isla); "fish", "nut" or "meat" no longer find almost every recipe (Hassan); Meal plan's green spot,
+  an unmakeable cuisine and hidden meals on the list (Kemi); the welcome screens' carbs and fat follow a changed calorie number (Ada); Recipes' tips can't get
+  stuck (Quinn); Halal no longer offers pork dishes (Olivia). Tester: two stale menu tests (cheeseburgers are beef since f66de1bb) updated, with a new test;
+  keys.json and recipeCoverage.ts regenerated (Asda 262, Iceland 285 now). tsc and eslint clean; vitest 3,870 pass; Python 257 OK. **Waiting for the founder**
+  (rule 8 or production data): breakfast dishes in dinner picks, Home's 25/35/40 meal split against the plan's equal meals, Larger Text, the words about buying
+  during the free week, a Premium gift for the review account, vegan dishes counting as vegetarian, removing a gift starting a free week, a low budget cutting
+  variety, and the Keychain sign-in surviving a delete; see the doc's "Not tonight".

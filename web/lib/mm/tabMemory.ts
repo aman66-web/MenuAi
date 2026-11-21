@@ -44,9 +44,22 @@ export function remember(memory: TabMemory, tabs: readonly TabDef[], path: strin
   return { ...memory, [tab.href]: address };
 }
 
-/** Where a tab's link goes: its first page when it is the open tab, else the page last seen in it. */
-export function tabTarget(memory: TabMemory, tab: TabDef, active: boolean): string {
-  if (active) return tab.href;
+/**
+ * Whether the page just opened is filed under its own tab. A page opened from several tabs (`shared`: app/app/_lib/tabs.ts SHARED_PAGES, a recipe from Home's
+ * meal plan or Groceries' list) is, only while its own tab is the one lit: a recipe opened with Home lit and filed under Recipes made the Recipes tab reopen
+ * that recipe, so the tab did nothing there and Recipes' first page and its tips never came back (Quinn, the 30-person meeting, 21 November 2026).
+ */
+export function shouldRemember(tabs: readonly TabDef[], shared: readonly string[], path: string, lit: string | null): boolean {
+  if (!shared.some((p) => path.startsWith(p))) return true;
+  return tabFor(tabs, path)?.href === lit;
+}
+
+/**
+ * Where a tab's link goes: its first page when it is the open tab, or while its tips are still due (`tipsDue`: Pip's tips live on a tab's first page, so a tab
+ * that remembered a deeper page skipped them, even after Settings' "Show me the buttons on each screen": Quinn, 21 November 2026); else the page last seen in it.
+ */
+export function tabTarget(memory: TabMemory, tab: TabDef, active: boolean, tipsDue = false): string {
+  if (active || tipsDue) return tab.href;
   const saved = memory[tab.href];
   return validFor(tab, saved) ? saved : tab.href;
 }

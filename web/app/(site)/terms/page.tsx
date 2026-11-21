@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 
@@ -56,8 +57,11 @@ export default function Terms() {
             pay and renews it until you cancel.
           </p>
           <p className={para}>
-            <strong>The free trial.</strong> A new subscriber may have a free first week, once per Apple ID. Unless you cancel at least 24 hours before the trial
-            ends, Apple charges the plan you chose when it ends. <strong>Cancelling and refunds.</strong> Cancel any time in the app (Settings › Subscription › Manage
+            {/* Corrected 21 November 2026 (meeting, Dev): Apple's own free trial, which charges when it ends, is no longer sold; the free week is ours
+                (lib/mm/freeWeek.ts), given by our server on the first sign-in in the iPhone app, charges nothing and never becomes a subscription. */}
+            <strong>The free week.</strong> Every new account has Premium free for its first {FREE_WEEK_DAYS} days after its first sign-in in the iPhone app,
+            once per person. Nothing is charged and it doesn&apos;t turn into a subscription; after it, Premium is Monthly or Annual through Apple.{" "}
+            <strong>Cancelling and refunds.</strong> Cancel any time in the app (Settings › Subscription › Manage
             subscription) or in your iPhone&apos;s Settings › your name › Subscriptions; Premium carries on until the end of the period you paid for. Refunds are
             handled by Apple at reportaproblem.apple.com. Deleting your {site.name} account doesn&apos;t cancel a subscription.
           </p>

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildSearchIndex, buildSearchIndexFromCompact, compactPhoto, type CompactSearchChain, decodeDiet, dietFactsOf, fitsDiet, normalizeForSearch, search } from "../lib/mm/search";
+import { beefMenuOf, buildSearchIndex, buildSearchIndexFromCompact, compactPhoto, type CompactSearchChain, decodeDiet, dietFactsOf, fitsDiet, normalizeForSearch, search } from "../lib/mm/search";
+import { NO_PREFERENCES as NO_PREFERENCES_FOR_SEARCH } from "../lib/mm/types";
 import { loadChain, tinyChain } from "./fixtures";
 
 const index = buildSearchIndex([loadChain("bowl-and-co"), loadChain("cluck-house")]);
@@ -183,5 +184,22 @@ describe("a restaurant named in the search", () => {
   });
   it("still finds a dish anywhere when no restaurant is named", () => {
     expect(search(index, "nugg").items.length).toBeGreaterThan(2);
+  });
+});
+
+describe("search with Halal (the 21 November 2026 meeting)", () => {
+  it("leaves out dishes the restaurant tags pork, as No pork does", () => {
+    const c: CompactSearchChain = { id: "zeta", name: "Zeta Pizza", cuisine: "Pizza", aliases: [], sample: false, items: [["pep", "Pepperoni pizza", 800, "pa0"], ["marg", "Margherita pizza", 700, "va0"]] };
+    const ix = buildSearchIndexFromCompact([c]);
+    expect(search(ix, "pizza", 40, { ...NO_PREFERENCES_FOR_SEARCH, halalOnly: true }).items.map((i) => i.name)).toEqual(["Margherita pizza"]);
+    expect(search(ix, "pizza", 40, NO_PREFERENCES_FOR_SEARCH).items.map((i) => i.name)).toEqual(["Margherita pizza", "Pepperoni pizza"]);
+  });
+  it("beefMenuOf: a restaurant sells beef when it tags a dish beef or a dish's own name says beef", () => {
+    const ix = buildSearchIndexFromCompact([
+      { id: "eta", name: "Eta Grill", cuisine: "Grill", aliases: [], sample: false, items: [["s", "Sirloin steak", 600], ["b", "House Burger", 650]] },
+      { id: "theta", name: "Theta Chicken", cuisine: "Chicken", aliases: [], sample: false, items: [["b", "House Burger", 500]] },
+    ]);
+    expect(beefMenuOf(ix, "eta")).toBe(true);
+    expect(beefMenuOf(ix, "theta")).toBe(false);
   });
 });

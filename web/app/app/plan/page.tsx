@@ -9,9 +9,9 @@ import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
-import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
+import { DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
 import { localDay } from "@/lib/mm/paid";
-import { betterFor, loadShops as loadShopsWith, previewShop, recipesFor, weekPreview, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
+import { betterFor, loadShops as loadShopsWith, previewShop, recipesFor, weekPreview, widenedIn, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
 import { matchesNiche } from "@/lib/mm/recipeNiche";
@@ -177,7 +177,7 @@ function PlanScreen() {
  * The week Meal plan's first open would make (useWeekPreview): working on it, ready, or none: `diet` when our recipes can't fill every meal for the
  * person's diet, otherwise (offline, no shop, a week far from their numbers) the words alone.
  */
-type Preview = { state: "working" } | { state: "none"; diet: boolean } | { state: "ready"; meals: Array<{ meal: MealType; name: string; recipeId: string }>; day: number; kcal: number; protein: number; total: number; costs: WeekCosts; week: WeekPlan; checkedOn: string; gap: CapGap };
+type Preview = { state: "working" } | { state: "none"; diet: boolean; narrow?: boolean } | { state: "ready"; meals: Array<{ meal: MealType; name: string; recipeId: string }>; day: number; kcal: number; protein: number; total: number; costs: WeekCosts; week: WeekPlan; checkedOn: string; gap: CapGap };
 
 /**
  * The week the first open's "Make my plan" makes (the onboarding meeting, 20 November 2026: "not bait"): lib/mm/planPreview.ts weekPreview, the same sums
@@ -202,7 +202,7 @@ function useWeekPreview(): { shop: string | null; preview: Preview } {
       const dietOn = dietWords((x) => x, asPrefs(diet)).length > 0;
       setResult({ key, preview: r.ok
         ? { state: "ready", meals: r.firstDay, day: r.day, kcal: r.average.kcal, protein: r.average.protein, total: r.total, costs: weekCosts(r.week), week: r.week, checkedOn: r.checkedOn, gap: null }
-        : { state: "none", diet: r.reason === "noRecipes" && dietOn } });
+        : { state: "none", diet: r.reason === "noRecipes" && dietOn, narrow: r.reason === "narrow" } });
     });
     return () => stop.abort();
   }, [key, shop]);
@@ -236,6 +236,8 @@ function WeekPreview({ shop, preview }: { shop: string | null; preview: Preview 
       {preview.state === "none" ? (
         <p className="mt-1.5 text-[0.9375rem] leading-snug">{preview.diet
           ? t("Not enough of our recipes fit your diet ({diet}) for a week yet.", { diet: dietWords(t, settings.preferences).join(", ") })
+          // a week that comes out far from the person's numbers is never said to be sized to them (the 21 November meeting, Kemi)
+          : preview.narrow ? t("A week of meals from your shop.")
           : t("A week of meals from your shop, sized to your numbers.")}</p>
       ) : (
         <>
@@ -472,6 +474,13 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
     return out;
   })();
   const styleCheckNote = short ? styleShortLine(t, style, short, false) : null;
+  // the lunches or dinners that take any kind of food, said on the check screen in the cuisine step's own words: too few of the kinds chosen for the diet, or
+  // at these shops (planPreview.ts widenedIn; the 21 November meeting, Kemi: Chinese at Aldi has none)
+  const widenedNow = prep && prep.key === prepKey && cuisinesUsed.length ? widenedIn(prep.cands).filter((m) => slots.includes(m)) : [];
+  const widenedNote = widenedNow.length ? t("Not enough {kinds} {meals} for your diet yet, so your {meals} can be any kind.", {
+    kinds: new Intl.ListFormat("en-GB", { type: "disjunction" }).format(cuisinesUsed.map((c) => t(CUISINES.find((x) => x.id === c)?.label ?? c))),
+    meals: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(widenedNow.map((m) => t(MEAL_PLURAL[m]!))),
+  }) : undefined;
   // the slider's range for these prices and these people, worked out after the screen has drawn (the spinner shows meanwhile); on the budget step always
   // (the slider shows beside "No budget"), elsewhere only once there is a budget (with none, the week is the best fit)
   const rangeKey = prep && prep.key === prepKey && (!noBudget || id === "budget") ? `${prepKey}|${homeKey}|${style}` : null;
@@ -481,8 +490,9 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
       const range = budgetRange(sized(prep.cands), betterSized(prep.loaded), slots, variety);
       setRanged({ key: rangeKey, range });
       if (range) setPick((p) => {
-        const want = p ?? (saved && JSON.stringify(saved.home?.others ?? []) === homeKey ? saved.budget : null) ?? Math.round(range.best);
-        return Math.min(Math.ceil(range.max), Math.max(Math.floor(range.min), Math.round(want)));
+        // whole pounds rounded up, as the slider shows them (BudgetSlider): rounded down, the best week and the cheapest came out over their own budget
+        const want = p ?? (saved && JSON.stringify(saved.home?.others ?? []) === homeKey ? saved.budget : null) ?? Math.ceil(range.best);
+        return Math.min(Math.ceil(range.max), Math.max(Math.ceil(range.min), Math.round(want)));
       });
     }, 0);
     return () => clearTimeout(timer);
@@ -777,7 +787,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
               ["style", t("How you like to eat"), t(STYLE_LABEL[style]), styleCheckNote ?? undefined],
               ["meals", t("Meals and snacks"), dayShape(t, shape)],
               ["shops", t("Where you shop"), chosenNames.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(chosenNames) : t("No shop chosen"), shopNote],
-              ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any")]]),
+              ...(household ? [] : [["cuisine", t("The food you like"), cuisines.length ? new Intl.ListFormat("en-GB", { type: "conjunction" }).format(cuisines.map((c) => t(CUISINES.find((x) => x.id === c)!.label))) : t("Any"), widenedNote]]),
               ["leaveOut", household ? t("Left out for everyone") : t("Foods left out"), leaveOut.length ? leaveOut.map((x) => t(LEAVE_OUT.find((c) => c.id === x)?.label ?? x)).join(", ") : t("Nothing")],
               ["budget", t("Your budget"), noBudget ? t("No budget: the best week for your goal") : pick !== null ? t("{budget} a week", { budget: pounds(pick) }) : t("Not set yet"),
                 checkWeek && checkCosts && showsWeekAfter(checkCosts) ? (
@@ -1023,9 +1033,11 @@ function Making({ steps, onDone }: { steps: string[]; onDone: () => void }) {
  */
 function BudgetSlider({ range, value, onChange }: { range: BudgetRange; value: number; onChange: (v: number) => void }) {
   const t = useT();
-  const min = Math.floor(range.min);
+  // whole pounds rounded up (the 21 November meeting, Kemi): rounded down, "Cheapest" was a budget its own week is over, and the green spot made a different,
+  // cheaper week than the best fit
+  const min = Math.ceil(range.min);
   const max = Math.max(min + 1, Math.ceil(range.max));
-  const best = Math.min(max, Math.max(min, Math.round(range.best)));
+  const best = Math.min(max, Math.max(min, Math.ceil(range.best)));
   const at = (v: number) => (v - min) / (max - min);
   // the thumb is 2.25rem wide, so its middle runs from 1.125rem in from each end: the spot and the track line up with it
   const along = (v: number) => `calc(1.125rem + (100% - 2.25rem) * ${at(v)})`;
@@ -1100,8 +1112,9 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
   const open = (i: number) => {
     const next = openEarlier(mealPlanStore.get(), earlier, i);
     earlierPlansStore.set(next.earlier);
-    // followed again from today: its first day is today (an old start would open on a week long over)
-    mealPlanStore.set(next.current ? { ...next.current, start: today() } : null);
+    // followed again from today: its first day is today (an old start would open on a week long over), and its shopping isn't on the list for this week yet
+    // (the 21 November meeting, Kemi: "On your shopping list" still showed)
+    mealPlanStore.set(next.current ? { ...next.current, start: today(), addedToList: undefined } : null);
     window.scrollTo({ top: 0 });
   };
   const remove = (i: number) => {
@@ -1116,7 +1129,8 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
   };
   return (
     <section aria-labelledby="earlier-h" className="mt-8">
-      <h2 id="earlier-h" className={HEADING}>{t("Earlier plans")}</h2>
+      {/* focusable, so the jump from the top takes the keyboard and VoiceOver focus with it (the 21 November meeting, Sam) */}
+      <h2 id="earlier-h" tabIndex={-1} className={`${HEADING} outline-none`}>{t("Earlier plans")}</h2>
       <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Kept on this phone.")}</p>
       <ul className="mt-3 space-y-2.5">
         {earlier.map((p, i) => {
@@ -1139,7 +1153,8 @@ function EarlierPlans({ shopsAll }: { shopsAll: Shop[] }) {
         })}
       </ul>
       {/* the one toast, with Undo for 10 seconds (longer while a finger or the keyboard is on it) */}
-      {removed && <Toast key={removed.at} duration={10000} onUndo={undo} onClose={() => setRemoved(null)}>{t("Plan removed.")}</Toast>}
+      {/* the focus goes to Undo, as the card it was on goes (the 21 November meeting, Sam: it dropped to the page) */}
+      {removed && <Toast key={removed.at} duration={10000} onUndo={undo} onClose={() => setRemoved(null)} focusUndo>{t("Plan removed.")}</Toast>}
     </section>
   );
 }
@@ -1215,7 +1230,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const planDiet = useMemo(() => (homeThen ? homeDiet(ownDiet, homeThen) : ownDiet), [homeThen, ownDiet]);
   const dietNow = useMemo(() => (homeThen ? homeDiet(settings.preferences, homeThen) : settings.preferences), [homeThen, settings.preferences]);
   const dietChanged = !!saved.diet && !sameDiet(saved.diet, settings.preferences);
-  const fitsNow = (recipeId: string) => { const r = RECIPE_BY_ID.get(recipeId); return !r || !!recipeForDiet(r, dietNow); };
+  // a meal fits today's diet only when today's diet keeps it made the same way, its ingredients matched to products by the same rules (mealPlan.ts fitsDietNow)
+  const fitsNow = (recipeId: string) => { const r = RECIPE_BY_ID.get(recipeId); return !r || fitsDietNow(r, planDiet, dietNow); };
   const dietKey = JSON.stringify(planDiet);
   const betterKey = (saved.better ?? []).join("|");
   const cuisineKey = (saved.cuisines ?? []).join("|");
@@ -1340,6 +1356,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const onList = saved.addedToList === listKey;
   const changedSince = !!saved.addedToList && !onList;
   const cupboardLines = week.shopping.filter((l) => l.cupboard);
+  // meals hidden because the diet changed: their products would still go on the list, so nothing is added until they're swapped (the 21 November meeting, Kemi)
+  const hiddenAny = dietChanged && week.days.some((d) => d.meals.some((m) => !fitsNow(m.candidate.recipe.id)));
   const listName = (id: string) => (id ? settings.shoppingLists?.find((l) => l.id === id)?.name ?? t("Shopping list") : t("Shopping list"));
   const firstList = week.shopping[0] ? targetList(undefined, settings.shoppingLists, files.get(week.shopping[0].shop)?.retailer ?? week.shopping[0].shop) : "";
   const addLines = (lines: readonly ShopLine[]) => {
@@ -1372,14 +1390,16 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           : t("{meals} meals from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
         {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it), with a home's diets */}
         {/* each diet as its picker names it, capitals kept (Jain, Kosher style; and German nouns) */}
-        {dietLine.length > 0 && <> {t("Every meal fits your diet: {diet}.", { diet: dietLine.join(", ") })}</>}
+        {/* not while the diet has changed since: some meals may not fit it now (the 21 November meeting, Kemi) */}
+        {dietLine.length > 0 && !dietChanged && <> {t("Every meal fits your diet: {diet}.", { diet: dietLine.join(", ") })}</>}
       </p>
       {/* the plan's week is over: follow it again from today, or make a new one (an old plan used to open on its first day for ever) */}
       {ended && (
         <div className={`${CARD} mt-4 p-4`}>
           <p className="font-bold leading-snug">{t("This plan's week ended on {date}.", { date: lastDay })}</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Button className="min-h-12 px-5" onClick={() => mealPlanStore.set({ ...saved, start: today() })}>{t("Follow it again from today")}</Button>
+            {/* a new week: its shopping isn't on the list yet (the 21 November meeting, Kemi: "On your shopping list" still showed) */}
+            <Button className="min-h-12 px-5" onClick={() => mealPlanStore.set({ ...saved, start: today(), addedToList: undefined })}>{t("Follow it again from today")}</Button>
             <Button variant="secondary" className="min-h-12 px-5" onClick={onChange}>{t("Make a new plan")}</Button>
           </div>
         </div>
@@ -1402,7 +1422,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         )}
         {/* the plans kept from before, reachable from the top (usability test 2026-11-19: at the bottom, below the whole shopping list, they were nearly missed) */}
         {earlierCount > 0 && (
-          <a href="#earlier-h" onClick={(e) => { e.preventDefault(); document.getElementById("earlier-h")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+          <a href="#earlier-h" onClick={(e) => { e.preventDefault(); const h = document.getElementById("earlier-h"); h?.scrollIntoView({ behavior: "smooth", block: "start" }); h?.focus({ preventScroll: true }); }}
             className="inline-flex min-h-12 items-center gap-2 rounded-full border-[1.5px] border-edge bg-card px-5 text-[0.9375rem] font-semibold text-foreground transition active:scale-[0.97] hover:bg-background">
             {earlierCount === 1 ? t("Your earlier plan") : t("Your {n} earlier plans", { n: earlierCount })}
           </a>
@@ -1571,7 +1591,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           ? week.shops.length === 1 ? t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName(week.shops[0]!), date: formatDate(checked, t) }) : t("Prices are each shop's shelf prices, checked {date}, and vary by store.", { date: formatDate(checked, t) })
           : t("Prices are each shop's shelf prices and vary by store.")}</p>
         {/* the cupboard things (oil, salt, stock) only when asked: most people have them */}
-        {cupboardLines.length > 0 && (
+        {cupboardLines.length > 0 && !hiddenAny && (
           <Button variant="secondary" full className="mt-4 min-h-12 gap-2" onClick={() => addLines(cupboardLines)}><PlusIcon aria-hidden className="h-5 w-5" />{t("Add the cupboard things too ({n})", { n: cupboardLines.length })}</Button>
         )}
       </section>
@@ -1585,12 +1605,14 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
       {/* the screen's one main action, full width on a 16 px band of the page's grey above the tab bar: "Add all" once for this week, then where it went,
           with "Add again" only after a meal was swapped (adding again sets each line to what the week needs, never doubles it) */}
       <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-4 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-4">
+        {/* with meals hidden by a changed diet, nothing more goes on the list until they're swapped: the one line says so */}
+        {hiddenAny && <p className={`text-[1rem] font-semibold leading-snug ${saved.addedToList ? "mb-2.5" : ""}`}>{t("Swap the hidden meals first.")}</p>}
         {saved.addedToList ? (
           <div className="flex flex-wrap gap-2.5">
             <LinkButton href={listHref(firstList)} className="min-h-14 flex-[999_1_14rem] gap-2 text-lg"><CheckIcon aria-hidden strokeWidth={3} className="h-5 w-5" />{t("On your shopping list · See list")}</LinkButton>
-            {changedSince && <Button variant="secondary" className="min-h-14 flex-[1_0_auto] gap-2 px-5 text-lg" onClick={addAll}><PlusIcon aria-hidden className="h-5 w-5" />{t("Add again")}</Button>}
+            {changedSince && !hiddenAny && <Button variant="secondary" className="min-h-14 flex-[1_0_auto] gap-2 px-5 text-lg" onClick={addAll}><PlusIcon aria-hidden className="h-5 w-5" />{t("Add again")}</Button>}
           </div>
-        ) : (
+        ) : hiddenAny ? null : (
           <Button full className="min-h-14 gap-2 text-lg" onClick={addAll}><PlusIcon aria-hidden className="h-5 w-5" />{t("Add all to my shopping list")}</Button>
         )}
       </div>

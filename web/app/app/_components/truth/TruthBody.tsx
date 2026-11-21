@@ -197,9 +197,13 @@ function SwapCard({ chain, item, swap, photos }: { chain: Chain; item: MenuItem;
         <MiniDish item={swap.item} heading={t("Smart Swap at {chain}", { chain: chain.name })} tone="swap" photo={photo} />
       </div>
       <p className="mt-3 text-base leading-snug text-muted">
+        {/* a calorie-only swap also happens where the restaurant publishes protein but not for this dish (Tenpin, Chozen): "doesn't publish protein" is said
+            only of a calories-only restaurant (the 21 November 2026 meeting) */}
         {swap.tier === "protein-first"
           ? t("Same restaurant, same part of the menu, with at least as much protein and fewer calories. Your diet and allergy settings are applied.")
-          : t("Same restaurant, same part of the menu, with fewer calories. {chain} doesn't publish protein, so only calories are compared.", { chain: chain.name })}
+          : chain.nutritionLevel === "calories"
+            ? t("Same restaurant, same part of the menu, with fewer calories. {chain} doesn't publish protein, so only calories are compared.", { chain: chain.name })
+            : t("Same restaurant, same part of the menu, with fewer calories.")}
       </p>
       <Link href={itemHref(chain.id, swap.item.id)} className="mt-1 inline-flex min-h-12 items-center font-bold text-accent underline underline-offset-4">{t("See the swap's full numbers")}</Link>
     </section>

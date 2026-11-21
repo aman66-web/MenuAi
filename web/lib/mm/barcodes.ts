@@ -55,6 +55,18 @@ export function upcEToA(code: string): string | null {
   return checkDigit(body) === Number(code[7]) ? `${body}${code[7]}` : null;
 }
 
+/**
+ * A whole barcode as printed: 8 to 14 digits whose last is the GS1 check digit of the rest (EAN-8, UPC-A, EAN-13, GTIN-14; leading zeros change nothing, as the
+ * sum runs from the right), or an 8-digit UPC-E that writes out to a valid UPC-A. A number still being typed almost never passes (the 30-person meeting, 21
+ * November 2026, Grace: every 8- to 13-digit prefix was looked up, "We don't have this one yet" came up halfway through, and each one spent the shared Open
+ * Food Facts limit).
+ */
+export function validGs1(raw: string): boolean {
+  const d = (raw ?? "").replace(/[\s-]/g, "");
+  if (!/^\d{8,14}$/.test(d)) return false;
+  return checkDigit(d.slice(0, -1)) === Number(d[d.length - 1]) || (d.length === 8 && upcEToA(d) !== null);
+}
+
 /** The numbers to look a scanned code up by, best first: the code itself, then (an 8-digit code read as UPC-E) its UPC-A form. */
 export function barcodeCandidates(raw: string): string[] {
   const code = normaliseBarcode(raw);

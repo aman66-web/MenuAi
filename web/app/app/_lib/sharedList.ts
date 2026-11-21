@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { customItem, photoSources, withPhoto, type ShoppingItem } from "@/lib/mm/groceries";
+import { customItem, photoSources, withPhoto, type GroceryPrice, type ShoppingItem } from "@/lib/mm/groceries";
 import { shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import type { SharedEntry } from "@/lib/mm/shareList";
 import { loadRetailer } from "./groceries";
@@ -70,8 +70,10 @@ export async function resolveEntries(entries: readonly SharedEntry[]): Promise<{
   return { items, missing };
 }
 
-function catalogueItem(retailer: string, p: Parameters<typeof photoSources>[0] & { gtin: string; name: string; brand: string; size: string }): Omit<Resolved, "qty"> {
-  return { gtin: p.gtin, retailer, name: p.name, brand: p.brand, size: p.size, ...withPhoto(photoSources(p, retailer)) };
+/** A catalogue product as a list item, with the shelf price that shop's list shows and the day it was read, as a product from a shop's full list carries them (the
+ *  30-person meeting, 21 November 2026, Leo and Maya: a shared list dropped the price the app has). */
+export function catalogueItem(retailer: string, p: Parameters<typeof photoSources>[0] & { gtin: string; name: string; brand: string; size: string; price?: GroceryPrice }): Omit<Resolved, "qty"> {
+  return { gtin: p.gtin, retailer, name: p.name, brand: p.brand, size: p.size, ...(p.price ? { price: p.price.amount, checkedOn: p.price.checkedOn } : {}), ...withPhoto(photoSources(p, retailer)) };
 }
 
 /** The shared entries as list items, once their shops' lists have loaded (undefined entries = still waiting for a link to be read). */

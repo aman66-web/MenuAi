@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { PANTRY } from "../lib/mm/pantry";
-import { candidates, plainSeasoning, recipeTotals, resolveRecipe, specFromKind, type Recipe } from "../lib/mm/recipes";
+import { candidates, plainSeasoning, recipeTotals, recipeView, resolveRecipe, roundedAmountsMatter, specFromKind, type Recipe } from "../lib/mm/recipes";
 import type { ShopProduct } from "../lib/mm/shopProducts";
 
 // Founder 2026-11-18 ("Yes: Asda goes from 47 to 118 recipes and Iceland from 33 to 123"): salt, pepper and dried spices with no nutrition label (UK law requires
@@ -36,5 +36,15 @@ describe("seasonings without a label", () => {
     expect(totals.plainSalt).toEqual(["Salt"]);
     expect(totals.perServing).toEqual({ kcal: 0, protein: 0, carbs: 0, fat: 0 });
     expect(totals.label.salt).toBe(1); // 1 g of salt at 99.9 g per 100 g
+  });
+
+  it("an unlabelled salt counts as table salt in the 'amounts are rounded' check too, so salt alone never sets it off (the 21 November meeting, Isla)", () => {
+    const salt = { id: "s", name: "Saxa Fine Salt 750g", price: 0.65, unitPrice: 0.87, unit: "per kg", nutrition: null } as unknown as ShopProduct;
+    const recipe = { id: "t", name: "t", blurb: "", servings: 2, method: [], ingredients: [specFromKind(kind("salt"), 2)] } as unknown as Recipe;
+    // cooked for four: 4 g of salt, exactly twice the written 2 g, so nothing is rounded
+    const four = recipeView(recipe, [salt], { servings: 4 });
+    expect(four.resolved.basis).toBeTruthy(); // the amounts shown differ from the serving's basis
+    expect(four.totals!.label.salt).toBe(1);
+    expect(roundedAmountsMatter(four.resolved, four.totals!)).toBe(false);
   });
 });

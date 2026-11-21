@@ -227,13 +227,15 @@ export type AmountChoice =
 
 /**
  * The one-tap amounts, all from the label and the pack (nothing guessed): one portion where the label prints one in the label's own unit, one item of a multipack
- * ("1 of 4 (125 g)") or the whole of a single pack up to MAX_WHOLE_PACK, and 100 g or ml. Each amount once.
+ * ("1 of 4 (125 g)") or the whole of a single pack up to MAX_WHOLE_PACK, and 100 g or ml. Each amount once. A label for the cooked or prepared food (`state`) gets
+ * no pack or item amount: the pack's weight is the food as sold, so "The whole pack" of dry pasta times the cooked figures would be wrong (the 30-person meeting,
+ * 21 November 2026, Grace).
  */
-export function amountChoices(p: Pick<LoggableProduct, "per" | "size" | "portion">): AmountChoice[] {
+export function amountChoices(p: Pick<LoggableProduct, "per" | "size" | "portion"> & { state?: string }): AmountChoice[] {
   const out: AmountChoice[] = [];
   const portion = p.portion ? printedAmount(p.portion) : null;
   if (portion && portion.unit === p.per) out.push({ kind: "portion", amount: portion.amount });
-  const pack = p.size ? packAmounts(p.size) : null;
+  const pack = p.size && !p.state ? packAmounts(p.size) : null;
   if (pack && pack.unit === p.per) {
     if (pack.count > 1) out.push({ kind: "item", amount: pack.each, count: pack.count });
     else if (pack.each <= MAX_WHOLE_PACK) out.push({ kind: "pack", amount: pack.each });
@@ -243,7 +245,7 @@ export function amountChoices(p: Pick<LoggableProduct, "per" | "size" | "portion
 }
 
 /** The amount "How much?" starts with: one portion where the label prints one, else one item of a multipack (one sachet of ten), else 100 g or ml. */
-export const startAmount = (p: Pick<LoggableProduct, "per" | "size" | "portion">): number => {
+export const startAmount = (p: Pick<LoggableProduct, "per" | "size" | "portion"> & { state?: string }): number => {
   const choices = amountChoices(p);
   return (choices.find((c) => c.kind === "portion") ?? choices.find((c) => c.kind === "item"))?.amount ?? 100;
 };

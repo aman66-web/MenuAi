@@ -4,7 +4,7 @@ import { needsPaywall } from "@/lib/mm/entitlements";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO, amountChoices, amountNutrients, amountText, loggableFromShop, MAX_AMOUNT, MIN_AMOUNT, parseAmount, productEntry, startAmount, stepAmount, withShopLabel, type AmountChoice, type LoggableProduct } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
-import { barcodeDigits, barcodeShown } from "@/lib/mm/barcodes";
+import { barcodeDigits, barcodeShown, validGs1 } from "@/lib/mm/barcodes";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { retailerName, withPhoto } from "@/lib/mm/groceries";
 import { searchShopProducts, type ShopManifest } from "@/lib/mm/shopProducts";
@@ -86,8 +86,11 @@ export function ProductPick({ meal, onAdd, onBack, header, onScan, onType }: { m
     return out;
   }, [code, deferred, lists, searchKey]);
 
-  // a barcode typed in the box: our lists, then Open Food Facts through our own API (findByBarcode.ts)
-  const byCode = useBarcodeLookup(code, mine, code ? t("Barcode {code}", { code }) : "", retry);
+  // a barcode typed in the box: our lists, then Open Food Facts through our own API (findByBarcode.ts), only once it is a whole barcode (its check digit right): a
+  // number still being typed is never looked up (the 30-person meeting, 21 November 2026, Grace: "We don't have this one yet" came up halfway through, and every
+  // 8- to 13-digit prefix spent the shared Open Food Facts limit)
+  const whole = code && validGs1(code) ? code : null;
+  const byCode = useBarcodeLookup(whole, mine, whole ? t("Barcode {code}", { code: whole }) : "", retry);
 
   // focus moves to the sheet's title when the step changes, as the sheet does between its views (never to a box, which would bring up the keyboard)
   const step = useRef(false);
@@ -126,7 +129,10 @@ export function ProductPick({ meal, onAdd, onBack, header, onScan, onType }: { m
         {loading ? (
           <Spinner label={code ? t("Looking it up") : t("Loading products")} />
         ) : failed ? (
-          <ErrorBox message={code ? t("Couldn't look it up. Check your connection.") : t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
+          <ErrorBox message={code ? (byCode?.status === "error" && !byCode.offline ? t("Couldn't look it up just now. Try again.") : t("Couldn't look it up. Check your connection.")) : t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
+        ) : code && !whole && code.length >= 13 ? (
+          // all 13 or 14 digits typed and the check digit is wrong: a slip, said calmly (shorter numbers may still be on their way)
+          <p className="text-[0.9375rem] text-muted">{t("Type the number printed under the barcode, or scan again.")}</p>
         ) : code && byCode?.status === "missing" ? (
           // a barcode nobody has figures for is an ordinary answer, never a red error
           <NotFound name={byCode.name} onType={onType} />
@@ -140,7 +146,8 @@ export function ProductPick({ meal, onAdd, onBack, header, onScan, onType }: { m
                 lead={<PhotoTile sources={p.photos} />}
                 title={p.name}
                 // the shop it's from first (usability test 2026-11-19: George couldn't tell his Sainsbury's oats from Asda's)
-                line={`${p.shop ? retailerName(p.shop) : p.brand || t("Groceries")} · ${t("{kcal} kcal · {protein} protein per 100 {unit}", { kcal: Math.round(p.label.kcal), protein: grams(p.label.protein), unit: p.per })}${p.source.kind === "community" ? ` · ${t("community numbers")}` : p.source.kind === "government" ? ` · ${t("UK government figures")}` : ""}`}
+                // a label for the cooked or prepared food says so (the 30-person meeting, 21 November 2026, Grace)
+                line={`${p.shop ? retailerName(p.shop) : p.brand || t("Groceries")} · ${t("{kcal} kcal · {protein} protein per 100 {unit}", { kcal: Math.round(p.label.kcal), protein: grams(p.label.protein), unit: p.per })}${p.state ? ` (${p.state})` : ""}${p.source.kind === "community" ? ` · ${t("community numbers")}` : p.source.kind === "government" ? ` · ${t("UK government figures")}` : ""}`}
                 action={<ChoosePill name={p.name} onClick={() => setPicked(p)} />}
               />
             ))}
@@ -256,7 +263,12 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
       <MacroRing nutrients={n ?? NONE} />
 
       <div className="group/nums relative">
-        <label htmlFor={id} className="mb-3 flex min-h-8 items-center pe-20 text-lg font-[800] leading-snug tracking-[-0.01em]">{t("How much?")}</label>
+        {/* a label for the cooked or prepared food says so beside the question, as the product pages do (the 30-person meeting, 21 November 2026, Grace: nothing
+            said the figures were for cooked rice); inside the label, so a screen reader hears it with the box */}
+        <label htmlFor={id} className="mb-3 flex min-h-8 flex-wrap items-center gap-x-2 pe-20 text-lg font-[800] leading-snug tracking-[-0.01em]">
+          {t("How much?")}
+          {product.state && <span className="text-[0.9375rem] font-semibold tracking-normal text-muted">{t("per 100 {unit} ({state})", { unit, state: product.state })}</span>}
+        </label>
         <NumberDone />
         {/* always at least 100 g or ml, marked when it is the amount (2026-11-20: Asda's 2 L milk prints no portion and is too big a pack, so no chips showed) */}
         {choices.length > 0 && (

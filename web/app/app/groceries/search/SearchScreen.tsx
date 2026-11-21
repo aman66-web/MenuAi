@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useDeferredValue, useMemo, useState } from "react";
 import { barcodeDigits, scanHref, shopItemHref } from "@/lib/mm/barcodes";
+import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { anyFoodDiet, foodDietProblem, groceryDietLine } from "@/lib/mm/foodDiet";
 import { RETAILERS, retailerName } from "@/lib/mm/groceries";
 import { groupProducts, sameProductGroups, type ProductGroup } from "@/lib/mm/leaderboards";
@@ -12,7 +13,7 @@ import { PageHeader } from "../../_components/PageHeader";
 import { ChevronRightIcon, ScanIcon, SearchIcon } from "../../_components/icons";
 import { ShopMark } from "../../_components/ChainMark";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../../_components/SearchDone";
-import { Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
+import { AllergyNote, Chip, EmptyIcon, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useEntryQuery } from "../../_lib/backNav";
 import { useShopLists, useShopManifest } from "../../_lib/shopProducts";
 import { useSettings } from "../../_lib/hooks";
@@ -65,7 +66,9 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const router = useRouter();
   const settings = useSettings();
   const prefs = settings.preferences;
-  const manifest = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  // "Try again" asks for the shops' list again too (the 30-person meeting, 21 November 2026, Maya: when it had failed, Try again could never recover)
+  const manifest = useShopManifest(retry);
   const available = useMemo<string[]>(() => (manifest ? RETAILERS.map((r): string => r.id).filter((id) => manifest.retailers.some((m) => m.id === id)) : []), [manifest]);
   const mine = useMemo(() => (settings.shops ?? []).filter((id) => available.includes(id)), [settings.shops, available]);
   const [picked, setPicked] = useState<Scope | null>(initialShop);
@@ -75,7 +78,6 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
   const [sort, setSort] = useState<ShopSort>("name");
   const [nutrition, setNutrition] = useState(false);
   const [shown, setShown] = useState(PAGE);
-  const [retry, setRetry] = useState(0);
   const [scanning, setScanning] = useState(false);
   const [dietOn, setDietOn] = useState(true);
   const deferred = useDeferredValue(query);
@@ -99,6 +101,10 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
     return groupProducts(kept.map((p) => ({ shop: p.shop ?? "", product: p })), groupsOf);
   }, [pool, deferred, nutrition, sort, diet, unsuited, code, groupsOf]);
   const dietLine = groceryDietLine(prefs, diet, t);
+  // allergens aren't read for these lists, so the allergy settings hide nothing here: said whether or not the filter is on, as on a shop's own list (the 30-person
+  // meeting, 21 November 2026, Maya)
+  const avoid = prefs.avoidAllergens ?? [];
+  const avoidNames = new Intl.ListFormat("en-GB", { type: "conjunction" }).format(avoid.map((k) => t(ALLERGEN_LABEL[k])));
   const reset = () => setShown(PAGE);
 
   return (
@@ -151,6 +157,7 @@ export function GroceriesSearchScreen({ initialShop }: { initialShop: string | n
           )}
           {(sort === "density" || sort === "protein") && <p className={`mt-3.5 ${NOTE}`}>{sort === "density" ? t("Listed last: under 20 kcal or 5 g protein per 100 g, no numbers, or numbers for the cooked or prepared food.") : t("Listed last: no numbers, or numbers for the cooked or prepared food.")}</p>}
           {dietLine && <p className={`mt-3.5 ${NOTE}`}>{dietLine}</p>}
+          {avoid.length > 0 && <AllergyNote className="mt-3.5"><p>{t("Allergens aren't read here, so nothing is hidden for {allergens}. Always check the pack.", { allergens: avoidNames })}</p></AllergyNote>}
           <p role="status" aria-live="polite" className="app-numbers mt-6 ps-1 text-sm font-semibold text-muted">{results.length === 1 ? t("1 product") : t("{n} products", { n: results.length.toLocaleString("en-GB") })}</p>
           {results.length === 0 ? (
             <div className="mt-3"><EmptyState icon={<EmptyIcon><SearchIcon /></EmptyIcon>} title={t("No products match.")} body={t("Try fewer words or another shop.")} /></div>

@@ -2,7 +2,7 @@ import { dishFormOf, MAX_WRAPS_A_WEEK, varietyFaults, type DishForm } from "./di
 import { tk } from "./i18n";
 import { ADULT_REFERENCE_KCAL, ALL_HOME_DIETS, platesFor, sanitizeHousehold, yourPortionDistance, type HomeDiet, type HomePerson } from "./household";
 import { ALLERGEN_KEYS, type AllergenKey } from "./types";
-import type { DietPrefs } from "./pantry";
+import type { DietPrefs, MeatKind } from "./pantry";
 import { PANTRY } from "./pantry";
 import { candidates as productCandidates, fitDistance, fitRecipe, isMeatFree, isQuick, pickFor, PLAIN_SALT, recipeForDiet, recipeTotals, resolveRecipe, type IngredientPick, type IngredientSpec, type MealTarget, type MealType, type Recipe, type RecipeTotals } from "./recipes";
 import { CUISINES, nicheOf, type CuisineId } from "./recipeBook/niches";
@@ -115,12 +115,35 @@ function recipeWords(recipe: Recipe, seasonings = false): string {
   return ` ${normalizeForSearch(parts.join(" "))} `;
 }
 
+/**
+ * Typed words that name an allergen or a meat, and the pantry's own flags they leave out too (the 21 November meeting, Kemi: "nuts" left out nothing, as no
+ * ingredient is called that, and "pork" missed the bacon and the ham): nuts are tree nuts and peanuts, as people mean them.
+ */
+const TYPED_KINDS: Readonly<Record<string, { contains?: readonly AllergenKey[]; meat?: MeatKind }>> = {
+  nut: { contains: ["nuts", "peanuts"] }, nuts: { contains: ["nuts", "peanuts"] },
+  peanut: { contains: ["peanuts"] }, peanuts: { contains: ["peanuts"] },
+  sesame: { contains: ["sesame"] },
+  soy: { contains: ["soya"] }, soya: { contains: ["soya"] },
+  pork: { meat: "pork" },
+};
+
+/** Whether any of the recipe's ingredients is of a kind a typed word names by its flags (TYPED_KINDS). */
+function hasTypedKind(recipe: Recipe, typed: string): boolean {
+  const want = TYPED_KINDS[normalizeForSearch(typed).trim()];
+  if (!want) return false;
+  return recipe.ingredients.some((i) => {
+    const k = i.pantry ? PANTRY.get(i.pantry) : undefined;
+    return !!k && (!!want.contains?.some((a) => k.contains.includes(a)) || (!!want.meat && k.meat === want.meat));
+  });
+}
+
 /** Whether a recipe has any of the foods left out (the choices above by id, or words the person typed). */
 export function leavesOut(recipe: Recipe, leaveOut: readonly string[]): boolean {
   if (!leaveOut.length) return false;
   const hay = recipeWords(recipe);
   return leaveOut.some((x) => {
     const choice = LEAVE_OUT.find((c) => c.id === x);
+    if (!choice && hasTypedKind(recipe, x)) return true;
     const words = choice ? choice.words : [x];
     const where = x === "spicy" ? recipeWords(recipe, true) : hay;
     return words.some((w) => {
@@ -1237,6 +1260,18 @@ export function cleanDiet(raw: unknown): DietPrefs {
 
 /** Whether two diets mean the same to the recipes (false and absent alike, allergies in any order). */
 export const sameDiet = (a: DietPrefs, b: DietPrefs): boolean => JSON.stringify(cleanDiet(a)) === JSON.stringify(cleanDiet(b));
+
+/**
+ * Whether a recipe planned for one diet still fits another (the diet changed since the plan was made): the new diet keeps it, made the same way, every
+ * ingredient matched to products by the same rules (the 21 November meeting, Kemi: a meal kept with the products of the diet it was made for, such as halal
+ * chicken or Shazans for "No halal or kosher meat", was shown as fitting).
+ */
+export function fitsDietNow(recipe: Recipe, then: DietPrefs, now: DietPrefs): boolean {
+  const a = recipeForDiet(recipe, then);
+  const b = recipeForDiet(recipe, now);
+  const made = (r: Recipe) => JSON.stringify(r.ingredients.map((i) => [i.label, i.match]));
+  return !!a && !!b && made(a) === made(b);
+}
 
 /**
  * What the plan's shopping depends on (the recipes, each day's meals, the better products, the shops and who it is for), as a short key: "Add all to my

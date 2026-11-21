@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { loggableFromShop } from "@/lib/mm/addFood";
-import { formatPrice, listOf, retailerName } from "@/lib/mm/groceries";
+import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
+import { sameBarcode } from "@/lib/mm/barcodes";
+import { formatPrice, listOf, retailerName, type GroceryProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
-import { foodDietNotChecked, foodDietProblem } from "@/lib/mm/foodDiet";
+import { avoidedAllergens, foodDietNotChecked, foodDietProblem } from "@/lib/mm/foodDiet";
 import { nutritionBasis, shopListItem, shopPageUrl, shopPhotoSources } from "@/lib/mm/shopProducts";
 import type { LogMeal } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
@@ -15,18 +17,18 @@ import { CheckIcon, ExternalIcon } from "../../../_components/icons";
 import { InfoLine } from "../../../_components/Note";
 import { PageHeader } from "../../../_components/PageHeader";
 import { Toast } from "../../../_components/Toast";
-import { Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
+import { AllergyNote, Button, EmptyState, ErrorBox, LinkButton, Spinner } from "../../../_components/ui";
 import { loadRetailer, productTitleClass } from "../../../_lib/groceries";
 import { usePossessive, useT } from "../../../_lib/i18n";
 import { useSettings, useStore } from "../../../_lib/hooks";
 import { shoppingStore } from "@/lib/mm/stores";
-import { useShopProducts } from "../../../_lib/shopProducts";
+import { findBarcode, useShopProducts } from "../../../_lib/shopProducts";
 import { ProductPhotoFigure } from "../../ProductPhoto";
 import { CompareButton } from "../../../_components/CompareButton";
 import { compareFoodFromShop } from "../../../_lib/compare";
 import { NutritionPanel } from "../../NutritionPanel";
 import { CARD, FootNote, HEADING, MainButton, NOTE } from "../../PageBits";
-import { listHref, useAddToList } from "../../ListChoice";
+import { addedText, listHref, useAddToList } from "../../ListChoice";
 
 // One product from a shop's full list: what the shop's own category page printed, and its numbers where we have them (the shop's own label, the same
 // product's label at another shop, community numbers for its barcode, or the government's figures for loose produce: each said under them).
@@ -35,19 +37,26 @@ import { listHref, useAddToList } from "../../ListChoice";
 // the ink pill; what is already on a list said in words with a tick, and each add confirmed by the one toast. The order is the same on both product pages
 // (2026-11-20): picture and name, nutrition, price, Add to my list, Add to my food diary, compare. Reached by a scan (?scan=1), "Add to my food diary" comes
 // first, under the product, as the page's one ink button (the design review of 2026-11-20), and "Add to my list" is the white one.
+/** A product with no barcode: no catalogue record to look up. */
+const NO_RECORD = { key: "", here: null, allergens: null } as const;
+
 export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const t = useT();
   const scan = useSearchParams().get("scan") === "1";
   const poss = usePossessive();
-  const prefs = useSettings().preferences;
+  const settings = useSettings();
+  const prefs = settings.preferences;
+  const avoid = prefs.avoidAllergens ?? [];
+  const avoidKey = avoid.join(",");
+  const mineKey = (settings.shops ?? []).join(",");
   const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop, retry);
   const product = useMemo(() => (state.status === "ready" ? state.products.find((p) => p.id === id) : undefined), [state, id]);
-  const [inCatalogue, setInCatalogue] = useState(false);
   const [added, setAdded] = useState<{ text: string; n: number } | null>(null);
   const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
-  // to the main list, or (when the person has lists for this shop) the one they choose; said in the toast, each add a new one
-  const { add, sheet } = useAddToList((list) => { setDiary(null); setAdded((was) => ({ text: list ? t("Added to {list}.", { list: list.name }) : t("Added to your Shopping list."), n: (was?.n ?? 0) + 1 })); });
+  // to the main list, or (when the person has lists for this shop) the one they choose; said in the toast, each add a new one, and an add that changed nothing says
+  // why (addedText)
+  const { add, sheet } = useAddToList((list, _item, outcome) => { setDiary(null); setAdded((was) => ({ text: addedText(t, list, outcome), n: (was?.n ?? 0) + 1 })); });
   const gtin = product?.gtin ?? "";
   // how many are on the person's lists already (usability test 2026-11-19: Stan tapped Add twice because the button looked the same after the first tap), and
   // the list that holds it ("See list" opens that one)
@@ -55,15 +64,37 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const mine = product ? listed.filter((x) => x.retailer === shop && (x.shopId === product.id || (!!gtin && x.gtin === gtin))) : [];
   const onLists = mine.reduce((n, x) => n + x.qty, 0);
   const holder = mine.length > 0 ? listOf(mine[mine.length - 1]!) : "";
+  // This barcode's record in the older barcode catalogue (where it is: the barcode file, then the first catalogue file that holds it, this shop's first): this shop's
+  // own record says whether "See the nutrition" has numbers to show, and any record's allergens are checked against the person's (the 30-person meeting, 21 November
+  // 2026, Maya: every scan lands here, and it never warned about her allergens). undefined while it loads; allergens null when no record has them.
+  const needHere = !product?.nutrition;
+  const recKey = `${shop}|${gtin}|${needHere}|${avoidKey}|${mineKey}`;
+  const [rec, setRec] = useState<{ key: string; here: GroceryProduct | null; allergens: GroceryProduct["allergens"] } | null>(null);
   useEffect(() => {
-    if (!gtin || product?.nutrition) return;
+    if (!gtin || (!needHere && !avoidKey)) return;
     let cancelled = false;
-    loadRetailer(shop).then(
-      (f) => { if (!cancelled) setInCatalogue(f.products.some((p) => p.gtin.replace(/^0+/, "") === gtin.replace(/^0+/, ""))); },
-      () => undefined,
-    );
+    (async () => {
+      let ids: string[];
+      try {
+        const hit = await findBarcode(gtin, mineKey ? mineKey.split(",") : []);
+        ids = hit ? [...hit.catalogue.filter((r) => r === shop), ...hit.catalogue.filter((r) => r !== shop)] : [];
+      } catch {
+        ids = [shop]; // the barcode file couldn't load: this shop's own catalogue file, as before
+      }
+      const from = ids[0];
+      let found: GroceryProduct | null = null;
+      if (from) {
+        try {
+          found = (await loadRetailer(from)).products.find((p) => sameBarcode(p.gtin, gtin)) ?? null;
+        } catch { /* that file can't load: no record */ }
+      }
+      if (!cancelled) setRec({ key: recKey, here: found && from === shop ? found : null, allergens: found?.allergens ?? null });
+    })();
     return () => { cancelled = true; };
-  }, [shop, gtin, product?.nutrition]);
+  }, [recKey, shop, gtin, needHere, avoidKey, mineKey]);
+  // a product with no barcode has no record to look up
+  const record = !gtin ? NO_RECORD : rec?.key === recKey ? rec : undefined;
+  const inCatalogue = !!record?.here;
 
   const back = <PageHeader back={{ href: `/app/groceries/shop?r=${shop}`, label: t("Back to the full list") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
@@ -78,6 +109,14 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const compareItem = compareFoodFromShop(file, product);
   const loggable = loggableFromShop(file, product);
   const notChecked = foodDietNotChecked(prefs, t);
+  // the person's avoided allergens the record lists (said once it has loaded); with no record, that it can't be checked
+  const avoided = avoid.length > 0 && record ? avoidedAllergens(record.allergens, avoid) : undefined;
+  const names = (keys: readonly (keyof typeof ALLERGEN_LABEL)[]) => new Intl.ListFormat("en-GB", { type: "conjunction" }).format(keys.map((k) => t(ALLERGEN_LABEL[k])));
+  const allergyText = avoided === undefined ? null
+    : avoided === null ? t("No allergen record for this product, so we can't check it for your allergies. Check the pack.")
+    : avoided.contains.length > 0 ? t("Contains {allergens}, which you avoid.", { allergens: names(avoided.contains) })
+    : avoided.mayContain.length > 0 ? t("May contain {allergens}.", { allergens: names(avoided.mayContain) })
+    : null;
   const rows: Array<[string, string]> = nutrition
     ? [
         ...(nutrition.kj !== null ? [[t("Energy"), `${nutrition.kj.toLocaleString("en-GB")} kJ`] as [string, string]] : []),
@@ -96,7 +135,9 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
         <p className="kicker">{file.name}</p>
         <h1 className={`mt-1.5 ${productTitleClass(product.name)}`}>{product.name}</h1>
         <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{product.category}</p>
-        {/* by name and aisle only (no allergens read here), so never the amber allergy note: the calm info line */}
+        {/* the person's own allergens, from the barcode's catalogue record where there is one: the one amber note, as on the barcode product page */}
+        {allergyText && <AllergyNote className="mt-4"><p>{allergyText}</p></AllergyNote>}
+        {/* the diet settings by name and aisle only: the calm info line */}
         {foodDietProblem({ name: product.name, category: product.category }, prefs) && <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name and aisle.")}</InfoLine>}
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
       </div>
@@ -117,7 +158,8 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
           </>
         ) : inCatalogue ? (
           <>
-            <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{t("We have calories, protein, carbs, fat and allergens for this product.")}</p>
+            {/* allergens only where the record has them (the 30-person meeting, 21 November 2026, Maya: 36 of the 86 products this showed on had none) */}
+            <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">{record?.here?.allergens ? t("We have calories, protein, carbs, fat and allergens for this product.") : t("We have calories, protein, carbs and fat for this product.")}</p>
             {/* secondary: "Add to my list" below stays the screen's one ink button */}
             <LinkButton href={`/app/groceries/product?code=${product.gtin}&r=${shop}`} variant="secondary" className="mt-4">{t("See the nutrition")}</LinkButton>
           </>

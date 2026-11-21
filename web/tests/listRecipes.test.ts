@@ -287,4 +287,23 @@ describe("what the person has isn't suggested (usability test 2026-11-19: Pat's 
     expect(nextToBuy([after])).toBeNull();
     expect(withoutWhatTheyHave([m], new Set(), new Map())[0]!.missing).toEqual(m.missing);
   });
+
+  it("'Cook with your shopping list' neither lists nor adds a cupboard kind they keep (the 30-person meeting, 21 November 2026, Leo)", () => {
+    // the page keeps each match (its shops' files) and takes only the filtered missing, so Still to buy, the button's count and "Add the other n" agree
+    const cupboardMissing = (x: { recipe: Recipe; missing: number[] }) => x.missing.map((i) => x.recipe.ingredients[i]!).filter((s) => s.cupboard && s.pantry);
+    const found = recipesFromShopSet(addToList([], customItem("chicken")!), RECIPES, tagShopProducts([{ shop: "sainsburys", products }])).find((x) => cupboardMissing(x).length > 0)!;
+    const m = { ...found, files: [sainsburysFile] };
+    const kinds = new Set(cupboardMissing(m).map((s) => s.pantry!));
+    expect(kinds.size).toBeGreaterThan(0);
+    const kept = withoutWhatTheyHave([m], kinds, new Map())[0]!;
+    const shown = { ...m, missing: kept.missing };
+    expect(shown.files).toEqual([sainsburysFile]);
+    const added = missingItems(shown, shown.files).map((x) => x.item.shopId);
+    for (const i of m.missing.filter((i) => !kept.missing.includes(i))) {
+      const pick = m.resolved.picks[i];
+      if (pick) expect(added).not.toContain(pick.product.id);
+    }
+    expect(kept.missing.length).toBeLessThan(m.missing.length);
+    expect(added.length).toBeLessThanOrEqual(kept.missing.length);
+  });
 });

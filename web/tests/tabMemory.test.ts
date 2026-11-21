@@ -1,5 +1,6 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { readMemory, remember, tabFor, tabTarget, validFor, type TabDef } from "../lib/mm/tabMemory";
+import { readMemory, remember, shouldRemember, tabFor, tabTarget, validFor, type TabDef } from "../lib/mm/tabMemory";
 
 const TABS: TabDef[] = [
   { href: "/app", match: (p) => p === "/app" || p.startsWith("/app/settings") },
@@ -93,5 +94,50 @@ describe("a recipe page lights the tab it was opened from", () => {
     expect(litTab("/app/recipes/view", null)).toBe("/app/recipes");
     expect(litTab("/app/recipes", "/app")).toBe("/app/recipes"); // only shared pages follow where the person came from
     expect(litTab("/app/settings", "/app")).toBeNull();
+  });
+});
+
+describe("a page opened from several tabs is remembered only under the tab lit on it (Quinn and Hassan, the 30-person meeting, 21 November 2026)", () => {
+  it("a recipe opened from Home or Groceries never sticks the Recipes tab on it; one opened from Recipes, or first, still is remembered", async () => {
+    const { TABS: REAL, SHARED_PAGES, litTab } = await import("../app/app/_lib/tabs");
+    const recipesTab = REAL.find((t) => t.href === "/app/recipes")!;
+    const view = "/app/recipes/view";
+    // what AppShell does on each page: remember it only when shouldRemember says so
+    const visit = (m: Record<string, string>, path: string, search: string, cameFrom: string | null) =>
+      shouldRemember(REAL, SHARED_PAGES, path, litTab(path, cameFrom)) ? remember(m, REAL, path, search) : m;
+
+    let m = visit({}, view, "?id=chicken-curry&r=sainsburys", "/app");
+    expect(m).toEqual({});
+    expect(tabTarget(m, recipesTab, false)).toBe("/app/recipes"); // the Recipes tab opens its first page (and its tips)
+    m = visit(m, view, "?id=pasta-bake&r=tesco", "/app/groceries");
+    expect(m).toEqual({});
+
+    m = visit(m, view, "?id=chicken-curry&r=sainsburys", "/app/recipes");
+    expect(m["/app/recipes"]).toBe("/app/recipes/view?id=chicken-curry&r=sainsburys");
+    // opened from Home afterwards: what Recipes remembered from its own visit stays
+    expect(visit(m, view, "?id=pasta-bake&r=tesco", "/app")).toBe(m);
+    // opened first (a shared link, the app reopened): its own tab is lit, so it is remembered there
+    expect(visit({}, view, "?id=pasta-bake&r=tesco", null)).toEqual({ "/app/recipes": "/app/recipes/view?id=pasta-bake&r=tesco" });
+    // pages that belong to one tab are untouched by this
+    expect(shouldRemember(REAL, SHARED_PAGES, "/app/chain", "/app/eat-out")).toBe(true);
+    expect(shouldRemember(REAL, SHARED_PAGES, "/app/chain", null)).toBe(true);
+  });
+
+  it("My recipes, opened from the Recipes tab, keeps Recipes lit (it lit Home), and from Home or first keeps Home lit", async () => {
+    const { TABS: REAL, SHARED_PAGES, litTab } = await import("../app/app/_lib/tabs");
+    expect(SHARED_PAGES).toContain("/app/meals");
+    expect(litTab("/app/meals", "/app/recipes")).toBe("/app/recipes");
+    expect(litTab("/app/meals", "/app")).toBe("/app");
+    expect(litTab("/app/meals", null)).toBe("/app");
+    expect(shouldRemember(REAL, SHARED_PAGES, "/app/meals", "/app/recipes")).toBe(false);
+  });
+
+  it("a tab whose tips are still due opens its first page, where they are, not the deeper page it remembers (Quinn)", () => {
+    const m = { "/app/eat-out": "/app/chain?id=kfc" };
+    expect(tabTarget(m, EAT, false, true)).toBe("/app/eat-out");
+    expect(tabTarget(m, EAT, false, false)).toBe("/app/chain?id=kfc");
+    expect(tabTarget(m, EAT, false)).toBe("/app/chain?id=kfc");
+    expect(readFileSync("app/app/_components/AppShell.tsx", "utf8")).toContain("tabTarget(tabMemory, tab, active, coachDue(coach, coachScreenFor(tab.href)))");
+    expect(readFileSync("app/app/_components/AppShell.tsx", "utf8")).toContain("shouldRemember(TABS, SHARED_PAGES, pathname, lit)");
   });
 });

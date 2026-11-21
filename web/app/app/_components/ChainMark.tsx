@@ -18,7 +18,8 @@ const GLYPHS: Array<[RegExp, (className: string) => ReactNode]> = [
   [/burger/i, (c) => <BurgerGlyph className={c} />],
   [/chicken|wing/i, (c) => <ChickenGlyph className={c} />],
   [/pizza/i, (c) => <PizzaGlyph className={c} />],
-  [/coffee|cafe|café|tea/i, (c) => <CoffeeGlyph className={c} />],
+  // "tea" as a word only: a Steakhouse was given the coffee cup (the 21 November 2026 meeting)
+  [/coffee|caf[eé]|\btea\b/i, (c) => <CoffeeGlyph className={c} />],
   [/sandwich|sub/i, (c) => <SandwichGlyph className={c} />],
   [/bakery|bread|pastr/i, (c) => <BakeryGlyph className={c} />],
   [/mexican|taco|burrito/i, (c) => <TacoGlyph className={c} />],

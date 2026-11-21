@@ -1,5 +1,5 @@
 import type { Result } from "./handlers";
-import { barcodeDigits, normaliseBarcode, offAnswerFromOff, type OffAnswer } from "./mm/barcodes";
+import { barcodeDigits, normaliseBarcode, offAnswerFromOff, validGs1, type OffAnswer } from "./mm/barcodes";
 
 // GET /api/v1/barcode/{code}: a barcode none of our lists holds, looked up at Open Food Facts (founder 2026-11-20: scan a barcode into the food diary). Our server asks,
 // so the phone talks only to us (CLAUDE.md rule 4): only the barcode goes to Open Food Facts, with our own name as the User-Agent (never anyone's email, as its API
@@ -50,6 +50,9 @@ export function makeBarcodeLookup(deps: LookupDeps = { fetch: (...a) => fetch(..
     const code = barcodeDigits(raw);
     const key = code ? normaliseBarcode(code) : null;
     if (!code || !key) return { status: 400, body: { error: "bad_barcode", message: "A barcode is 8 to 14 digits." } };
+    // a number whose check digit is wrong is no product's (a slip, or one still being typed): never sent on, so it spends none of Open Food Facts' limit
+    // (the 30-person meeting, 21 November 2026, Grace)
+    if (!validGs1(code)) return { status: 400, body: { error: "bad_barcode", message: "That isn't a whole barcode: check the number." } };
     const now = deps.now();
     const hit = kept.get(key);
     if (hit && now - hit.at < DAY_MS) return answer(hit.answer, code);

@@ -44,6 +44,8 @@ import { useT } from "../_lib/i18n";
 
 /** The one link style (the 20 November 2026 audit): accent, underlined, a solid line. */
 const LINK = "font-semibold text-accent underline decoration-solid underline-offset-[3px]";
+/** The menu client's words for a restaurant id that isn't in the catalogue (lib/mm/menu-client.ts), as on the restaurant's page (ChainScreen). */
+const UNKNOWN_CHAIN = tk("That restaurant isn't available.");
 
 /** A dish's title, smaller as its name gets longer, so a long name never runs to 6-12 lines (the same thresholds as Recipes and the grocery product page). */
 export const titleSize = (name: string): string => (name.length <= 45 ? "text-[2rem]" : name.length <= 70 ? "text-[1.625rem]" : "text-[1.375rem]");
@@ -116,6 +118,11 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
   // the app, else the restaurant's menu; the Settings cog far right
   const back = <PageHeader back={{ href: chainHref(chainId), label: t("Back to menu") }} />;
   if (status === "loading") return (<div>{back}<Spinner label={t("Loading item")} /></div>);
+  // a dish link to a restaurant no longer in the app (an old share, a saved favourite) is a missing page, not a failure: said calmly with the way to the list,
+  // never a red error with a "Try again" that can't help (the 21 November 2026 meeting; ChainScreen does the same)
+  if (status === "error" && error === UNKNOWN_CHAIN) {
+    return (<div><PageHeader back={{ href: "/app/eat-out", label: t("Back to restaurants") }} /><div className="mt-4"><EmptyState title={t(UNKNOWN_CHAIN)} action={<LinkButton href="/app/eat-out" variant="secondary">{t("See all restaurants")}</LinkButton>} /></div></div>);
+  }
   if (status === "error" || !index) return (<div>{back}<ErrorBox message={error ? t(error) : t("Couldn't load this menu.")} onRetry={retry} /></div>);
 
   const item = index.items.get(itemId);
@@ -231,7 +238,9 @@ export function ItemScreen({ chainId, itemId }: { chainId: string; itemId: strin
             </Button>
             <CompareButton full item={compareDish(chain, item)} />
           </div>
-          <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so only the calories are counted.", { chain: chain.name })}</p>
+          {/* only at a restaurant that publishes calories only: Tenpin and Chozen publish full figures, with a few dishes short of one (the 21 November 2026 meeting:
+              the line said otherwise); the dish's own table shows which are "not published" */}
+          {chain.nutritionLevel === "calories" && <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("{chain} publishes calories only, so only the calories are counted.", { chain: chain.name })}</p>}
         </div>
       )}
 

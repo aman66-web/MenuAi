@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { APP_BUILD } from "@/lib/mm/config";
 import { chooseWarmChains } from "@/lib/mm/popular";
-import { favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
-import { tabTarget } from "@/lib/mm/tabMemory";
+import { coachDue, coachScreenFor } from "@/lib/mm/coach";
+import { coachStore, favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
+import { shouldRemember, tabTarget } from "@/lib/mm/tabMemory";
 import { useHydrated, useMenu, useSettings, useStore } from "../_lib/hooks";
 import { installBackDepth } from "../_lib/backNav";
 import { refreshHiddenLogos } from "../_lib/hiddenLogos";
@@ -89,10 +90,13 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [menu.status, menu.chains, ownChains]);
 
   // Tabs remember where you were (lib/mm/tabMemory.ts): coming back to a tab opens the page last seen in it; the open tab's own link goes to its first page.
+  // A shared page (a recipe, My meals) is remembered only under the tab lit on it: a recipe opened from Home stuck the Recipes tab on it (shouldRemember).
+  // A tab whose tips are still due opens its first page, where the tips are (coach.ts).
   const tabMemory = useTabMemory();
+  const coach = useStore(coachStore);
   useEffect(() => {
-    if (hydrated) noteTabPage(TABS, pathname, window.location.search);
-  }, [hydrated, pathname]);
+    if (hydrated && shouldRemember(TABS, SHARED_PAGES, pathname, lit)) noteTabPage(TABS, pathname, window.location.search);
+  }, [hydrated, pathname, lit]);
 
   // Text size from Settings / onboarding (the layout's inline script applies it before the first paint too).
   useEffect(() => {
@@ -203,7 +207,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 return (
                   <li key={href} className="min-w-0 flex-1">
                     <Link
-                      href={tabTarget(tabMemory, tab, active)}
+                      href={tabTarget(tabMemory, tab, active, coachDue(coach, coachScreenFor(tab.href)))}
                       aria-current={active ? "page" : undefined}
                       className={`group relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[1.5rem] text-center text-[0.8125rem] font-semibold leading-[1.1] transition-colors focus-visible:outline-sun ${active ? "text-sun" : "text-on-ink-2 hover:text-on-ink"}`}
                     >

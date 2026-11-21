@@ -9,6 +9,14 @@ import { useT } from "../_lib/i18n";
 // the button says how many recipes it leaves and closes the sheet; "Back to every price" puts the default range back. Occasion is now in More.
 
 // The meal plan's budget handle (plan/page.tsx), here twice over one track: each input lets only its handle take a finger, so both can be reached.
+/** Whether the low handle is drawn over the high one. Both lie on one track, so where they meet only the top one can be dragged: the low handle goes on top once
+ *  it is past the middle, so at the top end it can come back down (Hassan, 21 November 2026: once the low handle reached the top the slider was stuck), and the
+ *  high one stays on top where they meet at the bottom end, so it can go back up. */
+export function lowHandleOnTop(now: PriceRange, bounds: PriceRange): boolean {
+  const span = Math.max(PRICE_STEP, bounds.max - bounds.min);
+  return now.min >= now.max ? now.min > bounds.min : now.min - bounds.min > span / 2;
+}
+
 const RANGE =
   "pointer-events-none absolute inset-0 h-12 w-full appearance-none bg-transparent focus-visible:outline-none [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:h-9 [&::-moz-range-thumb]:w-9 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-card [&::-moz-range-thumb]:bg-ink [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-9 [&::-webkit-slider-thumb]:w-9 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-card [&::-webkit-slider-thumb]:bg-ink [&::-webkit-slider-thumb]:shadow-[var(--shadow-lift)] focus-visible:[&::-webkit-slider-thumb]:ring-4 focus-visible:[&::-webkit-slider-thumb]:ring-accent";
 
@@ -20,14 +28,16 @@ export function ServingPriceSheet({ open, onClose, bounds, chosen, onChange, cou
   /** The chosen range, or null for the default. */
   chosen: PriceRange | null;
   onChange: (range: PriceRange | null) => void;
-  /** How many recipes a range would show. */
-  count: (range: PriceRange | null) => number;
+  /** How many recipes a range would show; null while the list is still being worked out (the button says so, never "Show 0 recipes"). */
+  count: (range: PriceRange | null) => number | null;
 }) {
   const t = useT();
   const now = chosen ?? bounds;
   const span = Math.max(PRICE_STEP, bounds.max - bounds.min);
   const set = (next: PriceRange) => onChange(settleRange(next, bounds));
   const n = count(chosen);
+  // both handles are given a layer, so the order is the rule's, never the page's
+  const lowOnTop = lowHandleOnTop(now, bounds);
   return (
     <Sheet open={open} onClose={onClose} title={t("Serving price")}>
       <div className="pb-2">
@@ -46,6 +56,7 @@ export function ServingPriceSheet({ open, onClose, bounds, chosen, onChange, cou
             aria-label={t("Lowest price a serving")}
             aria-valuetext={t("{price} a serving", { price: pounds(now.min) })}
             className={RANGE}
+            style={{ zIndex: lowOnTop ? 2 : 1 }}
           />
           <input
             type="range"
@@ -57,6 +68,7 @@ export function ServingPriceSheet({ open, onClose, bounds, chosen, onChange, cou
             aria-label={t("Highest price a serving")}
             aria-valuetext={t("{price} a serving", { price: pounds(now.max) })}
             className={RANGE}
+            style={{ zIndex: lowOnTop ? 1 : 2 }}
           />
         </div>
         <div className="app-numbers mt-1 flex justify-between gap-3 text-[0.875rem] leading-snug">
@@ -64,7 +76,7 @@ export function ServingPriceSheet({ open, onClose, bounds, chosen, onChange, cou
           <span className="text-end"><span className="block font-bold">{pounds(bounds.max)}</span><span className="text-muted">{t("Dearest")}</span></span>
         </div>
         <div className="mt-5 grid gap-2">
-          <Button full size="lg" onClick={onClose}>{n === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n })}</Button>
+          <Button full size="lg" onClick={onClose}>{n === null ? t("Loading recipes") : n === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n })}</Button>
           {chosen && <Button variant="secondary" full onClick={() => onChange(null)}>{t("Back to every price")}</Button>}
         </div>
       </div>

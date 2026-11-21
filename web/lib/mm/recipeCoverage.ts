@@ -3,11 +3,11 @@
 export const RECIPE_COVERAGE: Readonly<Record<string, number>> = {
   "sainsburys": 333,
   "tesco": 4,
-  "asda": 258,
+  "asda": 262,
   "aldi": 115,
   "lidl": 0,
   "morrisons": 329,
   "waitrose": 280,
-  "iceland": 268,
+  "iceland": 285,
   "marks-and-spencer": 161,
 };

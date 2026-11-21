@@ -75,4 +75,13 @@ describe("Clear data on this device", () => {
     }
     expect(leaving).toEqual(["mm.v1.account", "mm.v1.session", "mm.v1.syncMeta", "mm.v1.community"]);
   });
+
+  // The meeting of 21 November 2026 (Rosa): the settings go whole, but the sheet's list didn't say the diet, allergies and supermarkets go with them.
+  it("the sheet's list names what goes with the settings: the goal, targets, diet, allergies and supermarkets", () => {
+    expect(cleared).toContain("mm.v1.settings");
+    const screen = readFileSync(join(ROOT, "app/app/settings/SettingsScreen.tsx"), "utf8");
+    const list = screen.slice(screen.indexOf("const CLEAR_LIST"), screen.indexOf("];", screen.indexOf("const CLEAR_LIST")));
+    expect(list).toContain('tk("Your goal, daily targets, diet and allergies")');
+    expect(list).toContain('tk("Your supermarkets")');
+  });
 });

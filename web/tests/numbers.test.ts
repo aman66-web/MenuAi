@@ -143,3 +143,21 @@ describe("the published numbers file (real data)", () => {
     }
   });
 });
+
+describe("findRestaurants and a plain burger (the 21 November 2026 meeting: a beef burger was shown to No beef)", () => {
+  // Delta sells beef (a sirloin it tags beef), so its plain "Classic Burger" is beef, as on its page and in search; Epsilon sells none, so its burger stays
+  const delta: CompactSearchChain = { id: "delta", name: "Delta Diner", cuisine: "Burgers", aliases: [], sample: false, items: [
+    ["steak", "Sirloin steak", 600, "ba0"],
+    ["classic", "The Classic Burger", 650, "a0"],
+    ["chicken", "Chicken Burger", 500, "a0"],
+  ] };
+  const epsilon: CompactSearchChain = { id: "epsilon", name: "Epsilon Chicken", cuisine: "Chicken", aliases: [], sample: false, items: [["original", "The Original Burger", 520, "a0"]] };
+  const ix = buildSearchIndexFromCompact([delta, epsilon]);
+  const count = (prefs: typeof NO_PREFERENCES) => Object.fromEntries(findRestaurants(ix, null, { maxCalories: 700 }, prefs).hits.map((h) => [h.chainId, h.count]));
+  it("No beef and No red meat leave out a plain burger where the restaurant sells beef", () => {
+    expect(count(NO_PREFERENCES)).toEqual({ delta: 3, epsilon: 1 });
+    expect(count({ ...NO_PREFERENCES, noBeef: true })).toEqual({ delta: 1, epsilon: 1 });
+    expect(count({ ...NO_PREFERENCES, noRedMeat: true })).toEqual({ delta: 1, epsilon: 1 });
+    expect(findRestaurants(ix, null, { maxCalories: 700 }, { ...NO_PREFERENCES, noBeef: true }).hits.find((h) => h.chainId === "delta")!.example.name).toBe("Chicken Burger");
+  });
+});

@@ -206,6 +206,43 @@ describe("where the tip's card goes (clear of Home's numbers and the Start here 
       }
     }
   });
+  it("keeps clear of the status bar and the home indicator, not just 16 px from the screen's edges (Quinn, the 30-person meeting, 21 November 2026)", () => {
+    const top = 59; // an iPhone's status bar (env(safe-area-inset-top))
+    const bottom = 34; // its home indicator
+    // low on the screen: the card over the lit control reaches up only to under the status bar
+    expect(placeTip({ hole: { top: 600, bottom: 700 }, clear: [], card: 220, vh: VH, edgeTop: top, edgeBottom: bottom })).toEqual({ top: 368, maxHeight: 600 - 12 - top, below: false });
+    // high on the screen: the card under it stops over the home indicator
+    expect(placeTip({ hole: { top: 100, bottom: 200 }, clear: [], card: 220, vh: VH, edgeTop: top, edgeBottom: bottom })).toEqual({ top: 212, maxHeight: VH - bottom - 212, below: true });
+    // the scroll that makes room never takes the lit control's top under the status bar
+    expect(placeTip({ hole: { top: 194, bottom: 506 }, clear: [{ top: 510, bottom: 790 }], card: 230, vh: VH, edgeTop: top, edgeBottom: bottom })).toEqual({ scroll: 194 - top });
+    // with no edges given, 16 px both ends as before
+    expect(placeTip({ hole: { top: 600, bottom: 700 }, clear: [], card: 220, vh: VH })).toEqual(placeTip({ hole: { top: 600, bottom: 700 }, clear: [], card: 220, vh: VH, edgeTop: 16, edgeBottom: 16 }));
+    // any screen, after its one scroll: the card's whole height between the two edges
+    let seed = 11;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < 300; i++) {
+      const vh = 560 + Math.round(rnd() * 400);
+      const edgeTop = 16 + Math.round(rnd() * 44);
+      const edgeBottom = 16 + Math.round(rnd() * 24);
+      const at = Math.round(rnd() * (vh - 100));
+      const hole = { top: at, bottom: at + 40 + Math.round(rnd() * 200) };
+      const c = Math.round(rnd() * vh);
+      const clear = rnd() < 0.3 ? [] : [{ top: c, bottom: c + 60 + Math.round(rnd() * 300) }];
+      const height = 180 + Math.round(rnd() * 80);
+      const out = placeTip({ hole, clear, card: height, vh, scrolled: true, edgeTop, edgeBottom });
+      const say = JSON.stringify({ vh, edgeTop, edgeBottom, hole, clear, out });
+      expect("top" in out, say).toBe(true);
+      if ("top" in out) {
+        expect(out.top, say).toBeGreaterThanOrEqual(edgeTop);
+        expect(out.top + Math.min(height, out.maxHeight), say).toBeLessThanOrEqual(vh - edgeBottom);
+        expect(out.maxHeight, say).toBeGreaterThanOrEqual(TIP_CARD_MIN);
+      }
+    }
+    // CoachMarks measures the insets and passes them, at least 16 px each
+    const marks = readFileSync("app/app/_components/CoachMarks.tsx", "utf8");
+    expect(marks).toContain("env(safe-area-inset-top) 0 env(safe-area-inset-bottom)");
+    expect(marks).toContain("edgeTop: Math.max(EDGE, insets.top), edgeBottom: Math.max(EDGE, insets.bottom)");
+  });
   it("Home keeps its numbers and the Start here card clear, and both are marked on the page", () => {
     expect(COACH_KEEP_CLEAR.home).toEqual(['[data-coach="home-numbers"]', '[data-coach="home-start"]']);
     expect(readFileSync("app/app/_components/HomePages.tsx", "utf8")).toContain('data-coach="home-numbers"');
@@ -330,5 +367,21 @@ describe("the tips on each tab", () => {
         }
       }
     }
+  });
+});
+
+describe("the tip card and the toasts (Quinn and Ella, the 30-person meeting, 21 November 2026)", () => {
+  const marks = () => readFileSync("app/app/_components/CoachMarks.tsx", "utf8");
+  it("waits for any toast to go before it opens (over one, its Undo couldn't be tapped and the free-week note went unread)", () => {
+    expect(marks()).toContain('document.querySelector("dialog[open], [data-coach-wait], [data-toast-host]")');
+    // every toast marks itself so, and the free-week note waits for the tips in turn
+    expect(readFileSync("app/app/_components/Toast.tsx", "utf8")).toContain('el.setAttribute("data-toast-host", "")');
+    expect(readFileSync("app/app/_components/FreeWeekNote.tsx", "utf8")).toContain('document.querySelector("dialog[open], [data-toast-host]")');
+  });
+  it("hides at once on Next (it slid to the foot of the screen as it faded) and takes no taps while hidden", () => {
+    const src = marks();
+    expect(src).toContain("else { setSettled(false); setAt(at + 1); }");
+    expect(src).toContain('${showing ? "opacity-100 motion-safe:transition-opacity motion-safe:duration-200" : "pointer-events-none opacity-0"}');
+    expect(src).not.toContain("onClick={() => (last ? finish() : setAt(at + 1))}");
   });
 });

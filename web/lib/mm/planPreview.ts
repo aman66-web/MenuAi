@@ -20,7 +20,7 @@
 // (lib/mm/recipes.ts fitRecipe), each within its own limits, the rest as written. That takes the biggest breakfast to about 960 kcal and the biggest lunch or
 // dinner to about 1,100, so a 3,480 kcal day (1,160 a meal) lands near 2,830, and from about 2,600 kcal a day the week starts to fall short.
 
-import { cleanDiet, cuisineRecipes, betterCandidate, DEFAULT_SHAPE, mergeCandidates, PER_MEAL_RECIPES, PLAN_DAYS, planCandidates, planForBudget, planSlots, slotTargets, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety, type WeekPlan } from "./mealPlan";
+import { cleanDiet, cuisineRecipes, betterCandidate, CUISINE_MIN, DEFAULT_SHAPE, mergeCandidates, PER_MEAL_RECIPES, PLAN_DAYS, planCandidates, planForBudget, planSlots, slotTargets, type DayShape, type PlanCandidate, type PlanIds, type SavedPlan, type Variety, type WeekPlan } from "./mealPlan";
 import type { DietPrefs } from "./pantry";
 import { RECIPES } from "./recipeBook";
 import type { CuisineId } from "./recipeBook/niches";
@@ -76,10 +76,20 @@ async function fitShop(recipes: readonly Recipe[], sh: Loaded, diet: DietPrefs, 
   return mergeCandidates(parts);
 }
 
+/** The meals each worked-out result gave every kind of food to (widenedIn). */
+const widenedOf = new WeakMap<Candidates, MealType[]>();
+/**
+ * The lunches or dinners that take any kind of food in a workOut result, although kinds were chosen: too few of them for the diet in our recipe book
+ * (cuisineRecipes), or too few at these shops. The check screen says so.
+ */
+export const widenedIn = (c: Candidates): MealType[] => widenedOf.get(c) ?? [];
+
 /**
  * The recipes for these answers, one shop at a time (so Meal plan's screen can say which shop Pip is on), each in chunks that hand control back to the screen
  * between them (the meeting's speed finding, 20 November 2026: 3.2 s with nothing moving on a slow phone). The same candidates as fitting every recipe at
- * once; kept while the app is open.
+ * once; kept while the app is open. With kinds of food chosen, a lunch or dinner with fewer than CUISINE_MIN of them that these shops can make takes any
+ * kind, as one with too few in the recipe book does (the 21 November meeting, Kemi: Chinese at Aldi has none, and the plan couldn't be made; Mexican there
+ * has one dinner, which came every night); widenedIn names those meals.
  */
 export async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets: Targets, leaveOut: readonly string[], cuisines: readonly CuisineId[], onShop?: (id: string, done: string[]) => void, asWritten = false, yieldToScreen: () => Promise<void> = nextTick): Promise<Candidates> {
   const key = workKey(shops.map((s) => s.id), diet, targets, leaveOut, cuisines, asWritten);
@@ -87,14 +97,25 @@ export async function workOut(shops: readonly Loaded[], diet: DietPrefs, targets
   if (known) return known;
   const each: Candidates[] = [];
   const done: string[] = [];
-  const recipes = recipesFor(cuisines, diet, leaveOut);
+  const { recipes, widened } = cuisineRecipes(RECIPES, cuisines, diet, leaveOut);
   for (const sh of shops) {
     onShop?.(sh.id, [...done]);
     each.push((await fitShop(recipes, sh, diet, targets, leaveOut, asWritten, yieldToScreen, () => false))!);
     done.push(sh.id);
   }
-  onShop?.("", done);
   const merged = mergeCandidates(each);
+  const wide = new Set<MealType>(cuisines.length ? widened.filter((m) => merged.has(m)) : []);
+  const few = cuisines.length ? (["lunch", "dinner"] as const).filter((m) => merged.has(m) && !wide.has(m) && merged.get(m)!.length < CUISINE_MIN) : [];
+  if (few.length) {
+    // the same shops, diet, sizes and foods left out, with every kind of food (worked out once and kept, like any other answers)
+    const any = await workOut(shops, diet, targets, leaveOut, [], undefined, asWritten, yieldToScreen);
+    for (const m of few) {
+      merged.set(m, [...(any.get(m) ?? [])]);
+      wide.add(m);
+    }
+  }
+  onShop?.("", done);
+  widenedOf.set(merged, (["lunch", "dinner"] as const).filter((m) => wide.has(m)));
   worked.set(key, merged);
   return merged;
 }

@@ -135,15 +135,15 @@ function uncheckedOf(index: SearchIndex, chainId: string, prefs: Preferences): U
   if (!cache || cache.key !== key) menuChecks.set(index, (cache = { key, byChain: new Map() }));
   let u = cache.byChain.get(chainId);
   if (!u) {
-    u = uncheckedDiet(index.items.filter((i) => i.chainId === chainId).map(asMenuItem), prefs);
+    u = uncheckedDiet(index.items.filter((i) => i.chainId === chainId).map(asMenuItem), prefs, chainId);
     cache.byChain.set(chainId, u);
   }
   return u;
 }
 
-/** Per index, which restaurants sell beef (worked out on first use, only while No beef is on). */
+/** Per index, which restaurants sell beef (worked out on first use, only while No beef is on). Search and Find by numbers (numbers.ts) both read it. */
 const beefMenus = new WeakMap<SearchIndex, Map<string, boolean>>();
-function beefMenuOf(index: SearchIndex, chainId: string): boolean {
+export function beefMenuOf(index: SearchIndex, chainId: string): boolean {
   let known = beefMenus.get(index);
   if (!known) beefMenus.set(index, (known = new Map()));
   let sells = known.get(chainId);

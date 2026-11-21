@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { addToList, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemPhotoSources, type ShoppingItem } from "@/lib/mm/groceries";
+import { addToList, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemPhotoSources, MAX_SHOPPING_ITEMS, type ShoppingItem } from "@/lib/mm/groceries";
 import type { SharedEntry } from "@/lib/mm/shareList";
+import { listAddOutcome } from "@/lib/mm/shopProducts";
 import { shoppingStore } from "@/lib/mm/stores";
 import { ShopMark } from "../../../_components/ChainMark";
 import { BasketIcon, CheckIcon } from "../../../_components/icons";
@@ -37,6 +38,9 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
   useHiddenLogos(); // a shop taken down at its owner's request (public/logos/hidden.json) shows none of its pictures, also when that list arrives after the page opens
   const [addedFor, setAddedFor] = useState<string | null>(readAdded);
   const added = addedFor === code;
+  // what "Add all" really put on (the 30-person meeting, 21 November 2026, Leo: it said "Added" when the lists were full); null after a Back, when only "added" is kept
+  const [result, setResult] = useState<{ code: string; went: number; full: number; total: number } | null>(null);
+  const got = result?.code === code ? result : null;
 
   if (state.status === "loading") return <Spinner label={t("Opening the list")} />;
   if (state.status === "error") return <div className="mt-4"><ErrorBox message={t("Couldn't open this list. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div>;
@@ -45,10 +49,23 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
   const groups = new Map<string, ShoppingItem[]>();
   for (const i of items) groups.set(i.retailer, [...(groups.get(i.retailer) ?? []), i]);
   const addAll = () => {
-    shoppingStore.update((list) => items.reduce((l, { qty, addedAt: _addedAt, ...item }) => addToList(l, item, new Date(), qty), list)); // eslint-disable-line @typescript-eslint/no-unused-vars
-    setAddedFor(code);
-    writeAdded(code);
+    let went = 0;
+    let full = 0;
+    shoppingStore.update((list) => items.reduce((l, { qty, addedAt: _addedAt, ...item }) => { // eslint-disable-line @typescript-eslint/no-unused-vars
+      const next = addToList(l, item, new Date(), qty);
+      const outcome = listAddOutcome(l, next, item);
+      if (outcome === "added") went++;
+      else if (outcome === "full") full++;
+      return next;
+    }, list));
+    setResult({ code, went, full, total: items.length });
+    // with nothing put on because the lists are full, "Add all" stays, to try again once there is room
+    if (went > 0 || full === 0) {
+      setAddedFor(code);
+      writeAdded(code);
+    }
   };
+  const fullNote = got && got.full > 0 ? t("Added {added} of {total}: your lists are full ({max} items).", { added: got.went, total: got.total, max: MAX_SHOPPING_ITEMS }) : null;
 
   return (
     <>
@@ -84,11 +101,17 @@ export function SharedListBody({ entries, code, intro }: { entries: readonly Sha
           <div className="mt-7">
             {added ? (
               <>
-                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-foreground"><CheckIcon aria-hidden className="h-5 w-5 text-ink" strokeWidth={3} />{t("Added to your shopping list.")}</p>
+                <p role="status" className="flex items-center gap-2 px-1 text-base font-semibold text-foreground">
+                  {(!got || got.went > 0) && <CheckIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" strokeWidth={3} />}
+                  {fullNote ?? (got && got.went === 0 ? t("Everything is on your shopping list already.") : t("Added to your shopping list."))}
+                </p>
                 <LinkButton href="/app/groceries/list" full className="mt-3 min-h-12 text-base"><BasketIcon className="h-5 w-5" />{t("Open my shopping list")}</LinkButton>
               </>
             ) : (
-              <Button full className="min-h-12 text-base" onClick={addAll}>{t("Add all to my shopping list")}</Button>
+              <>
+                {fullNote && <p role="status" className="mb-3 px-1 text-base font-semibold text-foreground">{fullNote}</p>}
+                <Button full className="min-h-12 text-base" onClick={addAll}>{t("Add all to my shopping list")}</Button>
+              </>
             )}
           </div>
           <p className="mt-3 px-1 text-[0.9375rem] leading-snug text-muted">{t("Prices from each shop's website. Prices change: check in store.")}</p>

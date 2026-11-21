@@ -2,7 +2,7 @@
 // unit price, card price, picture), with NO nutrition unless we have read the product's own page. Built by tools/groceries/build_all_products.py from
 // the listing crawls; one compact array per product so a 17,000-product shop stays about 2.5 MB.
 import { isTakenDown } from "./logos";
-import { MIN_DENSITY_PROTEIN, PHOTO_HOSTS, retailerName, withPhoto, type PhotoSource, type ShoppingItem } from "./groceries";
+import { MIN_DENSITY_PROTEIN, PHOTO_HOSTS, retailerName, sameEntry, withPhoto, type PhotoSource, type ShoppingItem } from "./groceries";
 import { englishT, tk, type T } from "./i18n";
 import { normalizeForSearch } from "./search";
 
@@ -314,7 +314,9 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
     let group = 0;
     if (by === "price") key = p.price ?? Number.POSITIVE_INFINITY; // products whose price is only in store (Lidl's and M&S's everyday ranges) go last either way
     else if (by === "priceDesc") key = -(p.price ?? Number.NEGATIVE_INFINITY);
-    else if (by === "unit") key = p.unitPrice ?? Number.POSITIVE_INFINITY;
+    // "Price per kg or litre" ranks only prices per kg or per litre; a price "each" (sweetener tablets at a fraction of a penny each) is no price per kg, so it
+    // goes last with the products that print no unit price (the 30-person meeting, 21 November 2026, Maya: the tablets came first)
+    else if (by === "unit") key = p.unitPrice !== null && (p.unit === "per kg" || p.unit === "per litre") ? p.unitPrice : Number.POSITIVE_INFINITY;
     else if (by === "protein") key = n ? -n.protein : Number.POSITIVE_INFINITY;
     else if (by === "density") {
       // products without numbers last; before them, those too low in calories or protein for the ratio to mean anything (by their protein)
@@ -332,6 +334,18 @@ export function searchShopProducts(products: readonly ShopProduct[], f: ShopFilt
 /** A shop's product as a shopping list item: its barcode where its page showed one, the shop's own id, the shelf price and the day it was read, its picture. */
 export function shopListItem(f: Pick<ShopFile, "retailer" | "checkedOn" | "photoBase" | "photoTemplate">, p: ShopProduct): Omit<ShoppingItem, "qty" | "addedAt"> {
   return { gtin: p.gtin, shopId: p.id, retailer: f.retailer, name: p.name, brand: "", size: "", price: p.price ?? undefined, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p)) };
+}
+
+/**
+ * What one add to the shopping list really did, from the list before and after addToList (the 30-person meeting, 21 November 2026, Leo: an add that changed
+ * nothing still said "Added"): "added" (a new line, one more of it, or put back from the basket), "most" (it was on already at MAX_QTY, so nothing changed), or
+ * "full" (no room for a new line: MAX_SHOPPING_ITEMS). `item.list` is the list it was meant for, as addToList reads it.
+ */
+export function listAddOutcome(before: readonly ShoppingItem[], after: readonly ShoppingItem[], item: Omit<ShoppingItem, "qty" | "addedAt">): "added" | "most" | "full" {
+  const was = before.find((x) => sameEntry(x, item));
+  const now = after.find((x) => sameEntry(x, item));
+  if (!now) return "full";
+  return was && was.qty === now.qty && !!was.done === !!now.done ? "most" : "added";
 }
 
 /** The pack size printed in a product's name ("800g", "4 x 125g", "1.13L", "2 Pints"), as printed; null when the name doesn't say. */

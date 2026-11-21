@@ -117,8 +117,9 @@ export function recipeUserPrompt(req: RecipeRequest): string {
   ].join("\n");
 }
 
-// Words that make a claim about food and the body (CLAUDE.md rule 3), and figures the AI must not supply (the app works them out).
-const CLAIMS = /\b(health(y|ier|iest)?|unhealthy|good for you|bad for you|guilt[- ]?free|superfood|detox|clean eating|weight[- ]loss|lose weight|fat[- ]burning|burns? fat|nutritious|wholesome|lean|low[- ](calorie|cal|fat|carb|sugar)|high[- ]protein|protein[- ]packed|packed with protein|diet food|slimming|immun\w*)\b/i;
+// Words that make a claim about food and the body (CLAUDE.md rule 3), and figures the AI must not supply (the app works them out). CLAIMS is also Scan your
+// food's test (lib/mm/foodScan.ts scanFromAi), so the estimate never names a plate or a food with a health word either.
+export const CLAIMS = /\b(health(y|ier|iest)?|unhealthy|good for you|bad for you|guilt[- ]?free|superfood|detox|clean eating|weight[- ]loss|lose weight|fat[- ]burning|burns? fat|nutritious|wholesome|lean|low[- ](calorie|cal|fat|carb|sugar)|high[- ]protein|protein[- ]packed|packed with protein|diet food|slimming|immun\w*)\b/i;
 const FIGURES = /(\d\s*(k?cal|calories|kj)\b|\d\s*g(rams?)?\s+(of\s+)?(protein|carbs?|carbohydrates?|fat|sugars?|fibre)|£\s*\d)/i;
 
 /** The text if it makes no claim and gives no figure the app should be working out, else null. */
@@ -137,6 +138,9 @@ export function cleanText(s: unknown, max: number): string | null {
 export function recipeFromAi(out: unknown, req: Pick<RecipeRequest, "servings" | "diet">, id: string): Recipe | null {
   const o = out as Partial<AiRecipe> | null;
   if (!o || typeof o !== "object" || !Array.isArray(o.ingredients) || !Array.isArray(o.method)) return null;
+  // too many ingredients or steps: refused (and asked for again), never cut short (meeting 21 November 2026, Priya: the 17th ingredient and the 12th step were
+  // dropped without a word, so a recipe could use something it never listed, or stop before the food was cooked)
+  if (o.ingredients.length > 16 || o.method.length > 11) return null;
   const name = cleanText(o.name, 60);
   if (!name) return null;
   const seen = new Set<string>();

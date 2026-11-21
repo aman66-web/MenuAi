@@ -27,6 +27,15 @@ describe("the one list of what Premium adds", () => {
     expect(words).not.toMatch(/log what you eat|keep a log|recipe maker|recipes just for you|Cheapest protein|at every chain/i);
   });
 
+  it("the lists that need protein say so, never 'every restaurant' or 'every menu' (meeting 21 Nov 2026, Olivia: about half publish none)", () => {
+    for (const id of ["bestForYou", "smallAppetite"]) {
+      const f = PREMIUM_FEATURES.find((x) => x.id === id)!;
+      const words = englishT(f.line, f.values);
+      expect(words, id).toMatch(/at restaurants that publish protein$/);
+      expect(words, id).not.toMatch(/every (restaurant|menu|chain)/i);
+    }
+  });
+
   it("a photo feature is listed only on a build that has it", () => {
     const on = (id: string) => premiumFeaturesOn().some((f) => f.id === id);
     expect(on("foodScan")).toBe(FOOD_SCAN_ENABLED);

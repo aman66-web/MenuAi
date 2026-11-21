@@ -68,8 +68,10 @@ const GOAL_OPTIONS: ReadonlyArray<{ value: Goal; label: string }> = [
 ];
 
 /** What "Clear data on this device" removes, as a short list (app/_lib/clearData.ts does it; tests/clearData.test.ts checks it misses nothing). */
+// The settings go whole, so the diet, allergies and supermarkets go too (the meeting of 21 November 2026, Rosa: the list didn't say so).
 const CLEAR_LIST = [
-  tk("Your goal and daily targets"),
+  tk("Your goal, daily targets, diet and allergies"),
+  tk("Your supermarkets"),
   tk("Saved orders and favourites"),
   tk("Your food log and the water you added"),
   tk("Your reminders"),
@@ -202,8 +204,9 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const [planNotes, setPlanNotes] = useState<readonly PlanNote[]>([]);
   // Refresh menus: what the last check found
   const [menuCheck, setMenuCheck] = useState<"checking" | "same" | "new" | "failed" | null>(null);
-  // "Save your new targets?": where the person was going when they left with typed targets not saved
-  const [leaving, setLeaving] = useState<{ href: string } | { back: true } | null>(null);
+  // "Save your new targets?": where the person was going when they left with typed targets not saved. `armCoach`: the link was Help's "Show me the buttons on
+  // each screen", whose own tap (which switches the tips on) the guard stopped, so going on switches them on instead (the meeting of 21 November 2026, Rosa).
+  const [leaving, setLeaving] = useState<{ href: string; armCoach?: true } | { back: true } | null>(null);
   const status = useRef<HTMLParagraphElement>(null);
   const account = useAccountUser();
   const router = useRouter();
@@ -235,7 +238,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
       if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
       e.preventDefault();
       e.stopPropagation();
-      setLeaving({ href: url.pathname + url.search + url.hash });
+      setLeaving({ href: url.pathname + url.search + url.hash, ...(a.hasAttribute("data-arm-coach") ? { armCoach: true as const } : {}) });
     };
     const onUnload = (e: BeforeUnloadEvent) => {
       e.preventDefault();
@@ -256,9 +259,10 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const carbsText = carbs ?? (settings.dailyCarbs ? String(settings.dailyCarbs) : "");
   const fatText = fat ?? (settings.dailyFat ? String(settings.dailyFat) : "");
   const waterText = water ?? (settings.dailyWater ? String(settings.dailyWater) : "");
-  // Left empty, protein follows the calories and carbs and fat follow the calories and protein typed above (shown as the placeholder).
-  const draftCalories = Number(caloriesText);
-  const draftProtein = proteinText.trim() === "" ? undefined : Number(proteinText);
+  // Left empty, protein follows the calories and carbs and fat follow the calories and protein typed above (shown as the placeholder). Read as Save reads them,
+  // so "1,400" is 1400 (Number("1,400") is NaN, and the grey figures stayed those of the old calories: the meeting of 21 November 2026, Rosa).
+  const draftCalories = typedNumber(caloriesText);
+  const draftProtein = proteinText.trim() === "" ? undefined : typedNumber(proteinText);
   const suggestedCarbFat = suggestCarbFat(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories, draftProtein !== undefined && Number.isFinite(draftProtein) ? draftProtein : undefined);
   const capText = mealCap ?? String(settings.glp1MealCap);
   const failed = outboxItems.filter((i) => i.status === "failed");
@@ -316,17 +320,26 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
     updateSettings({ dailyCalories: c, dailyProtein: p, dailyCarbs: cb, dailyFat: ft, dailyWater: wt, hasSetTargets: true, ...(settings.goal === "glp1" ? { glp1MealCap: cap } : {}) });
     clearDrafts();
     setGoalChanged(false);
+    setPlanNotes([]); // a used suggestion's notes were about its numbers, not these
     setTargetsMessage({ ok: true, text: tk("Saved.") });
     return true;
   }
 
-  /** "Use these" under a suggestion: saved at once (it used to fill the boxes and wait for "Save targets", and was lost on leaving). */
+  /**
+   * "Use these" under a suggestion: saved at once (it used to fill the boxes and wait for "Save targets", and was lost on leaving). Only the drafts it saves over
+   * are cleared: a water goal typed and not saved yet stays in its box (the meeting of 21 November 2026, Rosa: it was thrown away).
+   */
   function applySuggestion(s: { calories: string; protein: string; carbs: string; fat: string }, notes: readonly PlanNote[], extra: { glp1MealCap?: number }) {
+    const capToo = settings.goal === "glp1" && extra.glp1MealCap !== undefined;
     updateSettings({
       dailyCalories: Number(s.calories), dailyProtein: Number(s.protein), dailyCarbs: Number(s.carbs), dailyFat: Number(s.fat), hasSetTargets: true,
-      ...(settings.goal === "glp1" && extra.glp1MealCap !== undefined ? { glp1MealCap: extra.glp1MealCap } : {}),
+      ...(capToo ? { glp1MealCap: extra.glp1MealCap } : {}),
     });
-    clearDrafts();
+    setCalories(null);
+    setProtein(null);
+    setCarbs(null);
+    setFat(null);
+    if (capToo) setMealCap(null);
     setSuggest(false);
     setGoalChanged(false);
     setPlanNotes(notes);
@@ -334,9 +347,10 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   }
 
   /** Where "Leave without saving" (or a good "Save") goes: on to the link that was tapped, or Back as the header's Back would have. */
-  function goOn(to: { href: string } | { back: true }) {
+  function goOn(to: { href: string; armCoach?: true } | { back: true }) {
     setLeaving(null);
     clearDrafts();
+    if ("href" in to && to.armCoach) coachStore.set(COACH_ARMED); // Help's "Show me the buttons on each screen": what its own tap would have done
     if ("href" in to) router.push(to.href);
     else if (!travelBack(router, "/app")) router.push("/app");
   }
@@ -348,7 +362,9 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
     await menuClient.ensureManifest(true);
     const after = menuClient.getSnapshot();
     const offline = typeof navigator !== "undefined" && navigator.onLine === false;
-    setMenuCheck(after.status === "error" || offline ? "failed" : after.dataVersion !== before ? "new" : "same");
+    // a source that didn't answer (a slow connection) is a failed check, never "New menus loaded." (the meeting of 21 November 2026, Rosa: the older packed
+    // menus were swapped in and called new)
+    setMenuCheck(after.status === "error" || offline || !after.reachedAll ? "failed" : after.dataVersion !== before ? "new" : "same");
   }
 
   async function clearEverything() {
@@ -366,17 +382,18 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
           <div className="group/nums relative">
             <NumberDone />
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2.5">
-              <TargetTile label={t("Calories")} invalid={targetsMessage?.field === "calories"} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); followCalories(); }} />
-              <TargetTile auto label={t("Protein (g)")} invalid={targetsMessage?.field === "protein"} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); }} />
-              <TargetTile auto label={t("Carbs (g)")} invalid={targetsMessage?.field === "carbs"} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); }} />
-              <TargetTile auto label={t("Fat (g)")} invalid={targetsMessage?.field === "fat"} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); }} />
-              <TargetTile wide label={t("Water (ml)")} invalid={targetsMessage?.field === "water"} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); }} />
+              <TargetTile label={t("Calories")} invalid={targetsMessage?.field === "calories"} value={caloriesText} onChange={(v) => { setCalories(v); setTargetsMessage(null); setPlanNotes([]); followCalories(); }} />
+              <TargetTile auto label={t("Protein (g)")} invalid={targetsMessage?.field === "protein"} value={proteinText} placeholder={String(suggestProtein(Number.isFinite(draftCalories) ? draftCalories : settings.dailyCalories))} onChange={(v) => { setProtein(v); setTargetsMessage(null); setPlanNotes([]); }} />
+              <TargetTile auto label={t("Carbs (g)")} invalid={targetsMessage?.field === "carbs"} value={carbsText} placeholder={String(suggestedCarbFat.carbs)} onChange={(v) => { setCarbs(v); setTargetsMessage(null); setPlanNotes([]); }} />
+              <TargetTile auto label={t("Fat (g)")} invalid={targetsMessage?.field === "fat"} value={fatText} placeholder={String(suggestedCarbFat.fat)} onChange={(v) => { setFat(v); setTargetsMessage(null); setPlanNotes([]); }} />
+              <TargetTile wide label={t("Water (ml)")} invalid={targetsMessage?.field === "water"} value={waterText} placeholder={String(DEFAULT_WATER_GOAL_ML)} onChange={(v) => { setWater(v); setTargetsMessage(null); setPlanNotes([]); }} />
               {settings.goal === "glp1" && (
-                <TargetTile wide label={t("Comfortable meal size (calories)")} invalid={targetsMessage?.field === "cap"} hint={t("Your picks and meal plan stay within this. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); }} />
+                <TargetTile wide label={t("Comfortable meal size (calories)")} invalid={targetsMessage?.field === "cap"} hint={t("Your picks and meal plan stay within this. Default 450.")} value={capText} onChange={(v) => { setMealCap(v); setTargetsMessage(null); setPlanNotes([]); }} />
               )}
             </div>
           </div>
-          {/* what just happened, straight under the boxes and scrolled into view above the tab bar */}
+          {/* what just happened, straight under the boxes and scrolled into view above the tab bar; a used suggestion's notes go once a number changes (they
+              were about its numbers: the meeting of 21 November 2026, Rosa) */}
           {dirty && !(targetsMessage && !targetsMessage.ok) && <p role="status" className={`${messageClass} scroll-mb-32`}>{t("Not saved yet.")}</p>}
           {targetsMessage && (targetsMessage.ok
             ? <p ref={status} role="status" className="mt-3 scroll-mb-32 text-[0.9375rem] font-semibold text-foreground">{t(targetsMessage.text)}</p>
@@ -411,7 +428,8 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
         <PageHeader back={{ href: "/app", label: only ? t("Back") : t("Back to home"), onClick: (e: MouseEvent<HTMLElement>) => { if (dirty) { e.preventDefault(); setLeaving({ back: true }); } } }} settings={false} />
       </div>
       <h1 className="mt-4 text-[1.75rem] font-[800] leading-none tracking-[-0.02em]">{only === "targets" ? t("Daily targets") : t("Settings")}</h1>
-      {only === "targets" ? targetsCard : (<>
+      {/* the targets page has the same id as Settings' section, so "Use these" can put the focus on its first box (focusTargetBox("#targets input")) */}
+      {only === "targets" ? <div id="targets">{targetsCard}</div> : (<>
 
       {/* The guided setup again (the welcome screens as a signed-in run of 10 steps: the questions with the saved answers ticked, the three feature screens and
           "Continue"), for anyone who skipped it or wants to go through it again (the onboarding meeting, 20 November 2026). */}
@@ -442,7 +460,8 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
           <button type="button" onClick={() => setContactOpen(true)} className="flex min-h-[3.25rem] w-full items-center justify-between gap-3 px-4 py-2 text-start text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">{t("Contact us")}<ChevronRightIcon className="h-5 w-5 shrink-0 text-ink" /></button>
           <LinkRow href="/app/welcome?showcase=1">{t("Show me what {app} can do", { app: site.name })}</LinkRow>
           {/* Pip's tips on the real screens again (lib/mm/coach.ts): switched on, then Home, where the first ones show */}
-          <Link href="/app" onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
+          {/* data-arm-coach: with typed targets not saved, the page's link guard stops this tap and switches the tips on itself when the person goes on */}
+          <Link href="/app" data-arm-coach onClick={() => coachStore.set(COACH_ARMED)} className="flex min-h-[3.25rem] items-center justify-between gap-3 px-4 py-2 text-base font-semibold transition hover:bg-background focus-visible:rounded-[1.25rem] focus-visible:outline-offset-[-3px]!">
             <span className="min-w-0 [overflow-wrap:anywhere]">
               <span className="block">{t("Show me the buttons on each screen")}</span>
               <span className="mt-0.5 block text-sm font-normal leading-snug text-muted">{t("Pip shows what each button does.")}</span>

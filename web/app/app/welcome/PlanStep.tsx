@@ -21,7 +21,8 @@ import { WeekShowcase } from "./WeekShowcase";
 // row of restaurant dishes in the chains' own photos (RestaurantRow). No caption or tag on any of it, and few words: what must be said stays, short.
 // - The numbers are worked out on the phone from About you and How active are you? (lib/mm/onboardingPlan.ts planFromAnswers), or are the starting numbers when
 //   those were skipped (said so in the grey line under the heading). "Change", a white pill at the heading's end, opens the calorie and protein boxes (− and
-//   +, or type), so anyone can put in their own number; "Save" saves them, and the week follows. Under 18, no numbers: "Ask a doctor or dietitian for
+//   +, or type), so anyone can put in their own number; "Save" saves them, and the week follows. Carbs and fat aren't shown: ones that followed the old numbers
+//   follow the new ones (useTargetFields.ts changeTargetField). Under 18, no numbers: "Ask a doctor or dietitian for
 //   targets." (UNDER_18_COPY), and no week.
 // - App Review 1.4.1: "Suggested starting points, not medical advice." and where the numbers come from (SourcesLink), small, under the numbers; the plan's
 //   own notes (the 1,200 floor, check the measurements, the medicine plan...) and the low-calorie caution for a number typed by hand, as before.
@@ -106,7 +107,12 @@ export function PlanStep({ counter, goal, prefs, targets, replay, planLine, onDi
               <BigNumber dot="bg-protein" value={protein !== undefined ? formatInt(protein) : "–"} unit="g" label={t("Protein a day")} />
             </div>
           )}
-          {bad && editing && <p id={MAIN_PROBLEM} role="alert" className="mt-3 text-[0.9375rem] font-medium leading-snug">{t("Calories should be 500–10,000, protein above 0, and the meal size 100–2,000.")}</p>}
+          {/* the words for the box that is wrong, as in Settings (the meeting of 21 November 2026, Ada: the old line named a meal size this screen doesn't have) */}
+          {bad && editing && (
+            <p id={MAIN_PROBLEM} role="alert" className="mt-3 text-[0.9375rem] font-medium leading-snug">
+              {[reading.problems.includes("calories") && t("Calories should be between 500 and 10,000."), reading.problems.includes("protein") && t("Protein should be above 0 and at most 1,000 g.")].filter(Boolean).join(" ")}
+            </p>
+          )}
           {!replay && editing && (
             <button type="button" onClick={done} className="mt-3 inline-flex min-h-11 items-center self-start rounded-full bg-ink px-5 text-[1rem] font-bold text-on-ink transition hover:bg-ink-pressed active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{t("Save")}</button>
           )}

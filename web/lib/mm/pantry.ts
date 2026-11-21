@@ -102,7 +102,8 @@ const BREAD_NONE = ["roll", "baps", "bap", "wraps", "pitta", "bagel", "thin", "c
   "oat", "ciabatt", "organic", "nimble", "brioche", "fruit", "raisin", "cinnamon", "garlic", "sandwiches", "toasted", "crisps", "croutons", "protein", "high fibre",
   "hi fibre", "kids", "mini", "doorstop", "mega", "xx", "extra thick"];
 
-const PROCESSED = ["sliced", "cooked", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs", "creamy", "mushroom"];
+// "wafer" and "deli": wafer-thin and deli chicken are cooked sandwich slices (the 21 November meeting, Jamal: M&S's chicken recipes used them)
+const PROCESSED = ["sliced", "cooked", "wafer", "deli", "roast", "bites", "goujon", "cured", "hunters", "just cook", "sizzlers", "kyiv", "kiev", "italian", "cajun", "steaks", "battered", "tempura", "buttermilk", "firecracker", "chunks", "escalope", "burger", "sauce", "with", "marinated", "coated", "breaded", "smoked", "chargrill", "tikka", "piri", "fajita", "slices", "pieces", "strips", "skewer", "wrapped", "stuffed", "southern", "katsu", "bbq", "spiced", "lemon", "garlic", "herb", "glaze", "seasoned", "meatballs", "creamy", "mushroom"];
 
 // The `contains` flags were checked on 19 November 2026 against the allergens the shops' own labels declare ("contains", never "may contain") for the products each kind matches: an allergen in a real share of them, or in the product a recipe uses by default at a shop, is flagged.
 const KINDS: PantryKind[] = [
@@ -190,9 +191,10 @@ const KINDS: PantryKind[] = [
     match: { all: ["bacon"], any: ["medallions"], none: ["turkey", "maple", "smoked salmon", "bits", "lardons"], kcal: [90, 200], minProtein: 15 },
   },
   {
-    // gluten: breaded ham (wheat crumb) is the ham a recipe uses by default at Sainsbury's and Aldi
+    // gluten: breaded ham (wheat crumb) is the ham a recipe uses by default at Sainsbury's and Aldi. Never a meat-free "ham" (the 21 November meeting, Jamal:
+    // Quorn Veggie Ham, made with egg, at Asda)
     key: "ham", label: "Cooked ham slices", unit: "g", role: "protein", meat: "pork", animal: true, contains: ["gluten"],
-    match: { all: ["ham"], any: ["cooked ham", "honey roast ham", "wiltshire", "thick cut", "slices", "sliced"], none: ["hamper", "hamburger", "sandwich", "pizza", "pasta", "parma", "serrano", "prosciutto", "hock", "joint", "salad", "chicken", "wafer"], kcal: [80, 160], minProtein: 14 },
+    match: { all: ["ham"], any: ["cooked ham", "honey roast ham", "wiltshire", "thick cut", "slices", "sliced"], none: ["hamper", "hamburger", "sandwich", "pizza", "pasta", "parma", "serrano", "prosciutto", "hock", "joint", "salad", "chicken", "wafer", "quorn", "veggie", "vegetarian", "vegan", "plant", "free slices", "style"], kcal: [80, 160], minProtein: 14 },
   },
   {
     key: "smoked-salmon", label: "Smoked salmon", unit: "g", role: "protein", fish: true, animal: true, contains: ["fish"],
@@ -364,7 +366,8 @@ const KINDS: PantryKind[] = [
   { key: "raisins", label: "Raisins or sultanas", unit: "g", role: "other", contains: ["sulphites"], match: { all: [], any: ["raisins", "sultanas"], none: ["chocolate", "yogurt", "coated", "bread", "bagel", "scone", "loaf", "cereal", "muesli", "granola", "bran", "snack", "mini boxes", "12 x", "12x", "nuts", "mix", "cookies", "cranberr", "panettone", "pain aux", "cake"], kcal: [250, 340] } },
   { key: "chopped-tomato-puree", label: "Tomato purée", unit: "g", role: "other", contains: [], match: { all: ["tomato", "puree"], none: ["garlic", "sun dried", "herb", "chilli", "basil"], kcal: [50, 130] } },
   // ---- sauces, oils and store-cupboard
-  { key: "olive-oil", label: "Olive oil", unit: "ml", density: 0.91, role: "other", contains: [], match: { all: ["olive", "oil"], none: ["spray", "spread", "mackerel", "sardines", "tuna", "anchov", "sun dried", "olives", "dressing", "garlic", "chilli", "infused", "lemon", "truffle", "basil"], kcal: [800, 900] } },
+  // never a blend of oils or a spread (the 21 November meeting, Jamal: olive oil matched oil blends)
+  { key: "olive-oil", label: "Olive oil", unit: "ml", density: 0.91, role: "other", contains: [], match: { all: ["olive", "oil"], none: ["sunflower", "vegetable", "blend", "pomace", "olivio", "spray", "spread", "mackerel", "sardines", "tuna", "anchov", "sun dried", "olives", "dressing", "garlic", "chilli", "infused", "lemon", "truffle", "basil"], kcal: [800, 900] } },
   // most green pestos are made with Grana Padano or Parmigiano Reggiano (animal rennet): a vegetarian gets a vegan or free-from one (the flags stay the usual pesto's)
   { key: "pesto", allium: true, label: "Green pesto", unit: "g", role: "other", animal: true, rennet: true, contains: ["milk", "nuts", "eggs"], match: { all: ["pesto"], any: ["green", "basil", "genovese"], none: ["red", "sun dried", "vegan", "free from", "pasta", "chicken", "rosso", "chilli", "tomato", "breadsticks"], kcal: [300, 600] },
     vegetarian: { label: "Vegetarian green pesto", match: { all: ["pesto"], any: ["vegan", "vegetarian", "free from", "plant"], none: ["red", "sun dried", "tomato", "rosso", "chilli", "pasta", "chicken", "breadsticks", "escalope", "escalopes", "melts", "quorn", "mozzarella", "grana", "parmigiano", "pecorino"], kcal: [300, 600] } } },
@@ -401,7 +404,8 @@ const KINDS: PantryKind[] = [
   { key: "cinnamon", label: "Ground cinnamon", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["ground", "cinnamon"], none: ["sweet", "dusting"] } },
   { key: "turmeric", label: "Ground turmeric", unit: "g", role: "other", labelOptional: true, unlabelledNeeds: ["ground", "haldi", "powder"], cupboard: true, contains: [], match: { all: ["turmeric"], none: ["granola", "paneer", "juice", "kombucha", "latte", "tea", "shot", "vinegar", "zinger", "raw", "honey"], kcal: [250, 450] } },
   { key: "curry-powder", allium: true, label: "Curry powder", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: ["mustard"], match: { all: ["curry", "powder"], none: ["madras", "tikka", "caribbean"], kcal: [250, 450] } },
-  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], none: ["olives", "cheese", "bread", "stuffing"], kcal: [150, 350] } },
+  // never a seasoning mix that names herbs (the 21 November meeting, Jamal: "Dried mixed herbs" matched a chicken seasoning mix)
+  { key: "mixed-herbs", label: "Dried mixed herbs", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["mixed", "herbs"], none: ["olives", "cheese", "bread", "stuffing", "recipe mix", "maggi", "chicken"], kcal: [150, 350] } },
   { key: "oregano", label: "Dried oregano", unit: "g", role: "other", labelOptional: true, cupboard: true, contains: [], match: { all: ["oregano"], none: ["fresh", "tomatoes", "crostini", "tofu", "focaccia", "pizza"], kcal: [200, 400] } },
   { key: "thyme", label: "Dried thyme", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["thyme"], none: ["fresh", "bunched", "living", "tofu", "carrots", "stuffing", "lemon", "crisps", "chicken"], kcal: [200, 500] } },
   { key: "rosemary", label: "Dried rosemary", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["rosemary"], none: ["fresh", "living", "stock", "bites", "sausages", "pie", "crisps", "focaccia", "bread", "pinsa", "biltong", "bloomer", "sourdough"], kcal: [250, 400] } },
@@ -418,7 +422,8 @@ const KINDS: PantryKind[] = [
   // prints or, for a loose bulb whose own page prints none, the UK government's figures for raw garlic (CoFID, as for all plain fresh produce). pieceGrams only
   // prices a bulb sold "each" with no weight on it: 40 g, a small bulb, so it is never priced as less than it is; no pieceName (one bulb is many cloves), and the
   // note says how big a clove is instead.
-  { key: "fresh-garlic", allium: true, root: true, label: "Fresh garlic, crushed", unit: "g", role: "other", cupboard: true, contains: [], cut: true, pieceGrams: 40, note: "a clove is about 5 g", match: { all: ["garlic"], none: ["puree", "purée", "paste", "crushed", "minced", "chopped", "granules", "powder", "dried", "salt", "bread", "butter", "oil", "mayo", "mayonnaise", "sauce", "dip", "herb", "herbs", "pickled", "black", "smoked", "wild", "ginger", "chilli", "mushrooms", "prawns", "potatoes", "olives", "cheese", "baguette", "naan", "pizza", "dough", "kiev", "seasoning", "infused", "roasted", "frozen", "fusions", "tuna", "chicken", "steak", "salmon", "flatbread", "pate", "croutons", "soup", "spread"], kcal: [80, 160] } },
+  // never a ready meal or a mix that names garlic (the 21 November meeting, Jamal: fresh garlic matched a ready meal)
+  { key: "fresh-garlic", allium: true, root: true, label: "Fresh garlic, crushed", unit: "g", role: "other", cupboard: true, contains: [], cut: true, pieceGrams: 40, note: "a clove is about 5 g", match: { all: ["garlic"], none: ["puree", "purée", "paste", "crushed", "minced", "chopped", "granules", "powder", "dried", "salt", "bread", "butter", "oil", "mayo", "mayonnaise", "sauce", "dip", "herb", "herbs", "pickled", "black", "smoked", "wild", "ginger", "chilli", "mushrooms", "prawns", "potatoes", "olives", "cheese", "baguette", "naan", "pizza", "dough", "kiev", "seasoning", "infused", "roasted", "frozen", "fusions", "tuna", "chicken", "steak", "salmon", "flatbread", "pate", "croutons", "soup", "spread", "sausage", "pasta", "linguine", "stir", "soy", "beans", "onion", "mushroom", "meal", "pouch"], kcal: [80, 160] } },
   { key: "ginger", root: true, label: "Ginger purée or paste", unit: "g", role: "other", cupboard: true, contains: [], match: { all: ["ginger"], any: ["puree", "paste", "crushed", "minced", "chopped"], none: ["garlic", "soy", "sticky", "crystallised", "stem", "biscuits", "cake", "glacé", "glace"], kcal: [10, 120] } },
   { key: "lemon-juice", label: "Lemon juice", unit: "ml", density: 1.03, role: "other", cupboard: true, contains: ["sulphites"], match: { all: ["lemon", "juice"], none: ["sliced", "apple", "pomegranate", "raspberry", "lime", "cordial", "squash", "smoothie", "ginger", "drink"], kcal: [10, 50] } },
   { key: "lime-juice", label: "Lime juice", unit: "ml", density: 1.03, role: "other", cupboard: true, contains: ["sulphites"], match: { all: ["lime", "juice"], none: ["guava", "innocent", "cordial", "squash", "smoothie", "coconut", "drink"], kcal: [10, 50] } },
@@ -434,7 +439,8 @@ const KINDS: PantryKind[] = [
   { key: "spinach", label: "Spinach", unit: "g", role: "other", contains: [], match: { all: ["spinach"], none: ["watercress", "rocket", "ricotta", "organic", "chopped", "frozen", "pouch", "baby food", "strawberry"], kcal: [12, 30] } },
   // pieceGrams only prices a punnet sold "each" with no weight on it (Asda's "Vine Ripened Cherry Tomatoes"): 200 g, the smallest punnet the lists print
   // (Tesco and Waitrose organic 200 g; most are 250 to 500 g), so it is never priced as less than it is. No pieceName: punnets differ too much to count by.
-  { key: "cherry-tomatoes", label: "Cherry tomatoes", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 200, match: { all: ["cherry", "tomatoes"], none: ["juice", "peeled", "tinned", "in rich", "pomodorini", "datterini", "dried", "roasted"], kcal: [12, 35] } },
+  // fresh ones: never a tin (the 21 November meeting, Jamal: Morrisons' "cherry tomatoes" was a tin of Mutti in 30 recipes, many of them salads)
+  { key: "cherry-tomatoes", label: "Cherry tomatoes", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 200, match: { all: ["cherry", "tomatoes"], none: ["juice", "peeled", "tinned", "in rich", "pomodorini", "datterini", "dried", "roasted", "mutti", "cirio", "napolina", "la doria"], kcal: [12, 35] } },
   // one tomato is about 85 g (as the method's "about 2 tomatoes" counts them, lib/mm/kitchenAmount.ts; a salad tomato from a pack of six, priced "each")
   { key: "tomatoes", label: "Tomatoes", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 85, pieceName: ["tomato", "tomatoes"], match: { all: ["tomatoes"], any: ["baby plum tomatoes", "tomatoes loose", "vine tomatoes", "large tomatoes", "salad tomatoes", "round tomatoes"], none: ["peeled", "in juice", "tinned", "dried", "roasted", "organic", "italian plum"], kcal: [12, 30] } },
   { key: "cucumber", label: "Cucumber", unit: "g", role: "other", contains: [], cut: true, pieceGrams: 300, pieceName: ["cucumber", "cucumbers"], match: { all: ["cucumber"], none: ["sweet", "sour", "smoothie", "pickle", "gherkin", "organic", "baby", "kiwi", "large"], kcal: [8, 20] } },
@@ -548,6 +554,8 @@ const SUBS: Record<string, Array<string | [string, number]>> = {
   "honey": [],
   "white-pepper": ["black-pepper"],
   "black-pepper": ["white-pepper"],
+  // Asda sells no dried mixed herbs but its Maggi chicken seasoning mix, which mixed-herbs no longer matches (the 21 November meeting, Jamal)
+  "mixed-herbs": ["oregano"],
   "paprika": ["smoked-paprika"],
   "smoked-paprika": ["paprika"],
   "chilli-flakes": ["chilli-powder", "fresh-chilli"],
@@ -669,14 +677,18 @@ export function kindExcluded(kind: PantryKind, prefs: DietPrefs): string | null 
   return hit ? hit : null;
 }
 
+/** Brands that sell only halal meat, whose product names needn't say "halal" (the 21 November meeting, Jamal: "No halal or kosher meat" still got Shazans
+ *  chicken at Morrisons and Asda). */
+const HALAL_BRANDS = ["shazans", "najma", "tahira", "humza", "isla delice"];
+
 /** The kind as these preferences need it: for halal, a meat kind is matched only to products named "Halal"; for vegetarians, a kind usually made with animal
  *  rennet only to products made without it. */
 export function kindForDiet(kind: PantryKind, prefs: DietPrefs): PantryKind {
   if (prefs.halalOnly && kind.meat && kind.halal) return { ...kind, label: kind.halal.label, match: kind.halal.match };
   // vegetarian and Jain: Italian hard cheese and pesto made without animal rennet
   if ((prefs.vegetarianOnly || prefs.jain) && kind.rennet && kind.vegetarian) return { ...kind, label: kind.vegetarian.label, match: kind.vegetarian.match };
-  // no meat sold as halal or kosher: those products are never matched
-  if (prefs.noHalalKosherMeat && kind.meat) return { ...kind, match: { ...kind.match, none: [...(kind.match.none ?? []), "halal", "kosher"] } };
+  // no meat sold as halal or kosher: those products are never matched, nor the halal brands whose names don't say "halal" (HALAL_BRANDS)
+  if (prefs.noHalalKosherMeat && kind.meat) return { ...kind, match: { ...kind.match, none: [...(kind.match.none ?? []), "halal", "kosher", ...HALAL_BRANDS] } };
   return kind;
 }
 

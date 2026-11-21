@@ -62,7 +62,8 @@ export function ScanFood({ meal, onAdd, onBack, onType, header }: { meal: LogMea
             <NotFound name={found.name} code={digits} onType={onType} />
           ) : (
             <>
-              <ErrorBox message={t("Couldn't look it up. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
+              {/* the connection only when it is the connection (Open Food Facts down, or our server busy, isn't: the 30-person meeting, 21 November 2026) */}
+              <ErrorBox message={found.offline ? t("Couldn't look it up. Check your connection.") : t("Couldn't look it up just now. Try again.")} onRetry={() => setRetry((n) => n + 1)} />
               <Button variant="secondary" full className="min-h-12" onClick={() => onType("")}>{t("Type the numbers from the pack")}</Button>
             </>
           )}

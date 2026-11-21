@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { CORE } from "../lib/mm/recipeBook/core";
-import { candidates, drainedSize, fitOutcome, fitRecipe, FIT_TOLERANCE, ing, isMeatFree, isQuick, isVegan, mealSizes, nearTarget, noteForPick, pickTwoRecipes, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, SMALLER_MEAL_KCAL, type IngredientSpec, type PickableCard, type Recipe } from "../lib/mm/recipes";
+import { candidates, drainedSize, fitOutcome, fitRecipe, FIT_TOLERANCE, ing, isMeatFree, isQuick, isVegan, mealSizes, nearTarget, noteForPick, pickTwoRecipes, pieceWeight, scaleServings, moreProteinGrams, packSize, pickFor, recipeForDiet, recipeTotals, resolveRecipe, SMALLER_MEAL_KCAL, subSpec, type IngredientSpec, type PickableCard, type Recipe } from "../lib/mm/recipes";
 import { mealTargetFor } from "../lib/mm/mealTarget";
 import { pantryForDiet } from "../lib/mm/pantry";
 import { addToList, itemCode, listAsText, listTotals, sanitizeShoppingList, setQty } from "../lib/mm/groceries";
@@ -422,5 +422,88 @@ describe("onboarding's two recipes", () => {
     expect(pickTwoRecipes(cards, "dinner", false, (id) => id === "big-wrap")[0]!.recipe.id).toBe("big-wrap");
     expect(pickTwoRecipes([cards[0]!], "dinner", false)).toHaveLength(1);
     expect(pickTwoRecipes([], "dinner", false)).toEqual([]);
+  });
+});
+
+// The products recipes pick, as the 30-person meeting of 21 November 2026 found them (Jamal, Isla): each rule below once let the wrong product in.
+describe("the products recipes pick (the 21 November meeting)", () => {
+  const ids = (spec: IngredientSpec, list: PricedProduct[]) => candidates(list, spec).map((c) => c.product.id);
+
+  it("chicken breast is raw fillets, never wafer-thin or deli sandwich chicken (M&S)", () => {
+    const list = [
+      product("wafer", "British Wafer Thin Chicken Breast 300 g", 2, 6.67, "per kg", nut(110, 23, 1, 1.5)),
+      product("deli", "Deli Chicken Breast 150g", 1.5, 10, "per kg", nut(120, 24, 1, 2)),
+      product("raw", "Chicken Breast Fillets 300 g", 3.5, 11.67, "per kg", nut(106, 24, 0, 1.1)),
+    ];
+    expect(ids(ing("chicken", 300), list)).toEqual(["raw"]);
+  });
+
+  it("cherry tomatoes are fresh ones, never a tin (Morrisons' Mutti)", () => {
+    const list = [
+      product("tin", "Mutti Cherry Tomatoes (400g)", 1.2, 3, "per kg", nut(22, 1.2, 3.5, 0.2)),
+      product("cirio", "Cirio Cherry Tomatoes 400g", 1.1, 2.75, "per kg", nut(21, 1.1, 3.4, 0.2)),
+      product("fresh", "Morrisons Vine Ripe Cherry Tomatoes 225g", 1.5, 6.67, "per kg", nut(20, 0.9, 3.1, 0.3)),
+    ];
+    expect(ids(ing("cherry-tomatoes", 150), list)).toEqual(["fresh"]);
+  });
+
+  it("cooked ham is ham, never a meat-free one (Quorn Veggie Ham at Asda)", () => {
+    const list = [
+      product("quorn", "Quorn 12 Veggie Ham Deli Slices 170g", 2, 11.76, "per kg", nut(110, 16, 5, 3)),
+      product("plant", "Plant-Based Ham Style Slices 100g", 1.5, 15, "per kg", nut(120, 15, 4, 4)),
+      product("ham", "Finnebrogue Naked 6 Deli Ham Slices 100g", 2.5, 25, "per kg", nut(110, 20, 1, 3)),
+    ];
+    expect(ids(ing("ham", 100), list)).toEqual(["ham"]);
+  });
+
+  it("olive oil is olive oil, never a blend; dried mixed herbs never a seasoning mix; fresh garlic never a ready meal", () => {
+    const oils = [
+      product("blend", "Olivio A Blend of Vegetable Oil with 15% Pure Olive Oil 1L", 2.5, 2.5, "per litre", nut(824, 0, 0, 91.6, "ml")),
+      product("evoo", "Don Mario Extra Virgin Olive Oil 500ml", 4, 8, "per litre", nut(824, 0, 0, 91.6, "ml")),
+    ];
+    expect(ids(ing("olive-oil", 15), oils)).toEqual(["evoo"]);
+    const herbs = [
+      product("mix", "Maggi Juicy Mixed Herbs Chicken Herbs and Spices Recipe Mix 30g", 1, 33.33, "per kg", nut(300, 8, 50, 5)),
+      product("herbs", "Schwartz Mixed Herbs 11g", 1.2, 109, "per kg", nut(280, 11, 40, 6)),
+    ];
+    expect(ids(ing("mixed-herbs", 2), herbs)).toEqual(["herbs"]);
+    const garlic = [
+      product("pouch", "Garlic Mushroom Pasta Pouch 250g", 1.5, 6, "per kg", nut(140, 5, 25, 2)),
+      product("sausage", "Pork & Garlic Sausages 400g", 2.5, 6.25, "per kg", nut(150, 14, 5, 8)),
+      product("bulbs", "Garlic 4 Pack", 0.9, 4.5, "per kg", nut(123, 7.9, 16.3, 0.6)),
+    ];
+    expect(ids(ing("fresh-garlic", 10), garlic)).toEqual(["bulbs"]);
+  });
+
+  it("a substitute for a pinch stays a pinch: 1 g of black pepper is 1 g of white pepper, and from 20 g it goes to 5 g steps", () => {
+    expect(subSpec(ing("black-pepper", 1), { key: "white-pepper" })!.amount).toBe(1);
+    expect(subSpec(ing("black-pepper", 0.3), { key: "white-pepper" })!.amount).toBe(1);
+    expect(subSpec(ing("black-pepper", 12), { key: "white-pepper" })!.amount).toBe(12);
+    expect(subSpec(ing("chicken", 22), { key: "chicken-thigh" })!.amount).toBe(20);
+    expect(subSpec(ing("chicken", 300), { key: "chicken-thigh" })!.amount).toBe(300);
+  });
+
+  it("reads a wrap's weight from a count before its name or a pack count (Iceland and M&S used naan)", () => {
+    expect(pieceWeight("Iceland 8 Tortilla Wraps 496g")).toBe(62);
+    expect(pieceWeight("Las Iguanas 8 Tortilla Wraps 320g")).toBe(40); // too small a wrap for the kind (50 to 70 g)
+    expect(pieceWeight("Old El Paso Large Super Soft Flour Tortillas Wraps 6 Pack 350G")).toBe(58.3);
+    expect(pieceWeight("Oxo 24 Vegetable Stock Cubes 142g")).toBe(5.9);
+    expect(pieceWeight("Mission Deli Original Tortilla Wraps 6 Pack")).toBeNull(); // no weight: sold by the piece, as before
+    const wraps = [product("ice", "Iceland 8 Tortilla Wraps 496g", 1.25, 2.52, "per kg", nut(300, 8, 50, 7)), product("small", "Las Iguanas 8 Tortilla Wraps 320g", 1.5, 4.69, "per kg", nut(300, 8, 50, 7))];
+    expect(ids(ing("wraps", 120), wraps)).toEqual(["ice"]);
+  });
+
+  it("a drained weight worked out from the price per kg is never more than the tin or jar holds", () => {
+    expect(drainedSize({ name: "Roasted Red Peppers in Brine 350g", price: 2, unitPrice: 4.5, unit: "per kg" })).toBe(350); // 444 g from its price per kg
+    expect(drainedSize({ name: "Tuna Chunks in Brine 145g", price: 0.65, unitPrice: 6.37, unit: "per kg" })).toBe(102);
+  });
+
+  it("what the amount used costs is never more than that share of the pack's shelf price", () => {
+    // a 500 g pack at £1 whose price per kg says £2.40: 450 g used is 90p of the pack, not £1.08
+    const pick = pickFor({ ...ing("chicken", 450) }, product("p", "Chicken Breast Fillets 500g", 1, 2.4, "per kg", nut(106, 24, 0, 1.1)));
+    expect(pick.usedCost).toBeCloseTo(0.9, 6);
+    expect(pick.usedCost!).toBeLessThanOrEqual(pick.basketCost);
+    // where the two agree nothing changes
+    expect(pickFor(ing("chicken", 250), product("q", "Chicken Breast Fillets 500g", 2, 4, "per kg", nut(106, 24, 0, 1.1))).usedCost).toBeCloseTo(1, 6);
   });
 });

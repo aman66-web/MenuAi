@@ -100,6 +100,9 @@ function Boards() {
     chosen.current = false;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     boardRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    // and the focus with it, so the keyboard and VoiceOver carry on from the board just chosen, not from the tile far above it (the 30-person meeting, 21 November
+    // 2026, Sam)
+    boardRef.current?.focus({ preventScroll: true });
   }, [board]);
   const info = BOARDS.find((b) => b.id === board)!;
   const rows = file?.boards[board] ?? [];
@@ -126,7 +129,7 @@ function Boards() {
 
       <section aria-labelledby="board-h" className="mt-7">
         {/* the board's own line is on its tile just above, and each row names its unit, so the heading stands alone (the words pass, 20 November 2026) */}
-        <h2 id="board-h" ref={boardRef} className={`${HEADING} scroll-mt-24`}>{t(info.title)}</h2>
+        <h2 id="board-h" ref={boardRef} tabIndex={-1} className={`${HEADING} scroll-mt-24 outline-none`}>{t(info.title)}</h2>
         {board === "meatFreeProtein" && <InfoLine heading={null} className="mt-2">{t("Picked by name, with no meat or fish in it. Vegetarian or vegan? Check the pack.")}</InfoLine>}
         {file === undefined ? (
           <Spinner label={t("Loading products")} />

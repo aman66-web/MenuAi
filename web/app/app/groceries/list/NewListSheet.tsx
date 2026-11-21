@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { MAX_SHOPPING_LISTS, RETAILERS, type ShoppingList } from "@/lib/mm/groceries";
 import { ShopMark } from "../../_components/ChainMark";
-import { Sheet, Spinner } from "../../_components/ui";
+import { ErrorBox, Sheet, Spinner } from "../../_components/ui";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { useShopManifest } from "../../_lib/shopProducts";
+import { useShopManifestState } from "../../_lib/shopProducts";
 import { CARD } from "../PageBits";
 
 // "+ New list" (founder 2026-11-18: "they'd go to shopping list and then there'd be a way to press plus and what do you want to create a shopping list for? And
@@ -18,10 +19,11 @@ const PAIR = "grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.25rem),1fr))] ga
 export function NewListSheet({ open, onClose, onPick, lists }: { open: boolean; onClose: () => void; onPick: (shop: { id: string; name: string }) => void; lists: readonly ShoppingList[] }) {
   const t = useT();
   const settings = useSettings();
-  const manifest = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  const manifest = useShopManifestState(retry);
   const mine = settings.shops ?? [];
   const order = (id: string) => (mine.includes(id) ? mine.indexOf(id) : 100 + RETAILERS.findIndex((r) => r.id === id));
-  const shops = manifest ? [...manifest.retailers].sort((a, b) => order(a.id) - order(b.id)) : null;
+  const shops = manifest.status === "ready" ? [...manifest.manifest.retailers].sort((a, b) => order(a.id) - order(b.id)) : manifest.status === "error" ? [] : null;
   const full = lists.length >= MAX_SHOPPING_LISTS;
 
   return (
@@ -34,6 +36,9 @@ export function NewListSheet({ open, onClose, onPick, lists }: { open: boolean; 
             {/* the question is the sheet's title and the tiles are the shops: no line saying "Choose a shop" (the words pass, 20 November 2026) */}
             {!shops ? (
               <Spinner label={t("Loading shops")} />
+            ) : shops.length === 0 ? (
+              // the shops couldn't load: said as Groceries says it, with Try again (the 30-person meeting, 21 November 2026, Leo: the sheet opened empty)
+              <ErrorBox message={t("Couldn't load the shops. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
             ) : (
               <ul className={`mt-1 ${PAIR}`}>
                 {shops.map((s) => (

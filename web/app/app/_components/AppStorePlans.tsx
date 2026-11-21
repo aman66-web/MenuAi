@@ -143,6 +143,8 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
       ) : (
         <>
           {/* founder 2026-11-16 ("looks basic, make it look more interesting"): the plans as one choice and one big button, the price of each on the right */}
+          {/* while a purchase is being confirmed the choice can't change, and the button stays busy whichever plan is lit (meeting 21 November 2026, Dev:
+              picking the other plan then turned its buy button back on, so a second purchase could start) */}
           <div role="radiogroup" aria-label={t("Choose a plan")} className="space-y-2.5">
             {products.map((p, i) => {
               const badge = BADGE[p.plan];
@@ -156,8 +158,9 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
                   role="radio"
                   aria-checked={on}
                   tabIndex={on ? 0 : -1}
-                  onClick={() => setChosen(p.plan)}
-                  onKeyDown={(e) => radioKeyNav(e, i, products.length, (n) => setChosen(products[n]!.plan))}
+                  aria-disabled={busy !== null || undefined}
+                  onClick={() => { if (busy === null) setChosen(p.plan); }}
+                  onKeyDown={(e) => { if (busy === null) radioKeyNav(e, i, products.length, (n) => setChosen(products[n]!.plan)); }}
                   className={`@container flex min-h-[4.75rem] w-full items-center gap-3 rounded-[1.25rem] border-[1.5px] p-3.5 text-start transition active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${on ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card text-foreground hover:bg-background"}`}
                 >
                   {/* the price on the right where the words fit beside it; at large text (the card narrower than 17rem of that text) under the plan's words, so
@@ -193,7 +196,7 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
               <p className="app-numbers mt-1 text-center text-[0.9375rem] leading-snug">
                 {selected.trialDays ? t("First {days} days free, then {price} {per}. Renews until you cancel.", { days: selected.trialDays, price: selected.price, per: perOf(selected) }) : selected.period === "none" ? t("{price}, one payment. It doesn't renew.", { price: selected.price }) : t("{price} {per}. Renews until you cancel.", { price: selected.price, per: perOf(selected) })}
               </p>
-              <Button size="lg" full className="mt-3.5 min-h-14 text-[1.0625rem]" busy={busy === selected.plan} busyLabel={t("Waiting for the App Store…")} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
+              <Button size="lg" full className="mt-3.5 min-h-14 text-[1.0625rem]" busy={busy !== null && busy !== "restore"} busyLabel={t("Waiting for the App Store…")} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
                 {selected.trialDays ? t("Continue") : selected.period === "none" ? t("Buy for {price}", { price: selected.price }) : t("Subscribe for {price} {per}", { price: selected.price, per: perOf(selected) })}
               </Button>
             </>

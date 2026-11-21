@@ -69,15 +69,17 @@ export async function handleRecipe(body: unknown, ctx: RecipeCtx): Promise<Resul
     if (recipe) return { status: 200, body: { recipe: answer.recipe as AiRecipe } };
     if (ctx.timeLeft && ctx.timeLeft() < 30_000) break;
     // one more go, with a reminder of the rules it broke
-    user = `${recipeUserPrompt(req)}\n\nYour last answer couldn't be used: use only the pantry keys above, amounts between 5 and 3000, 2 to 8 short steps, and no nutrition figures, prices or health claims in any text.`;
+    user = `${recipeUserPrompt(req)}\n\nYour last answer couldn't be used: use only the pantry keys above, amounts between 5 and 3000, at most 16 ingredients, 2 to 8 short steps, and no nutrition figures, prices or health claims in any text.`;
   }
   return couldNot;
 }
 
-/** A small in-memory limit per caller (per server instance): a few recipes every 10 minutes and a ceiling per day. */
-export function makeLimiter(perTenMinutes = 5, perDay = 25, now: () => number = () => Date.now()) {
+/** A small in-memory limit per caller (per server instance): a few recipes every 10 minutes and a ceiling per day. Called as `limit(who)`; `limit.release(who)`
+ *  hands back that caller's newest use, for a request that got nothing because the AI couldn't be reached (meeting 21 November 2026, Priya: each Try again
+ *  during an outage used up the limit). */
+export function makeLimiter(perTenMinutes = 5, perDay = 25, now: () => number = () => Date.now()): ((who: string) => boolean) & { release: (who: string) => void } {
   const seen = new Map<string, number[]>();
-  return (who: string): boolean => {
+  const allow = (who: string): boolean => {
     const t = now();
     const list = (seen.get(who) ?? []).filter((x) => t - x < 24 * 3600_000);
     if (list.filter((x) => t - x < 600_000).length >= perTenMinutes || list.length >= perDay) {
@@ -89,4 +91,8 @@ export function makeLimiter(perTenMinutes = 5, perDay = 25, now: () => number = 
     if (seen.size > 5000) seen.delete(seen.keys().next().value as string);
     return true;
   };
+  const release = (who: string): void => {
+    seen.get(who)?.pop();
+  };
+  return Object.assign(allow, { release });
 }

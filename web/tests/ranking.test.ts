@@ -158,3 +158,12 @@ describe("the Other goal", () => {
     expect(ids("other")).toEqual(ids("maintain"));
   });
 });
+
+describe("passesPreferences and the newer diets (the 21 November 2026 meeting)", () => {
+  it("Halal leaves out what the restaurant tags pork, like No pork and Kosher style; the golden cases set none of them", () => {
+    expect(passesPreferences(["contains_pork"], { ...NO_PREFERENCES, halalOnly: true })).toBe(false);
+    expect(passesPreferences(["contains_beef"], { ...NO_PREFERENCES, halalOnly: true })).toBe(true);
+    expect(passesPreferences([], { ...NO_PREFERENCES, halalOnly: true })).toBe(true);
+    expect(golden.cases.every((c) => !("halalOnly" in c.prefs) && !("kosherStyle" in c.prefs) && !("noRedMeat" in c.prefs) && !("jain" in c.prefs))).toBe(true);
+  });
+});

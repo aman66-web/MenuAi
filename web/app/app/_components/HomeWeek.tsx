@@ -124,7 +124,8 @@ export function HomeWeek({ log, now, target, logPaid, htmlLang }: { log: readonl
 
       {!empty && (week.proteinGap || week.estimates) && (
         <div className="mt-2 space-y-0.5 text-[0.8125rem] leading-snug text-on-ink-2">
-          {week.proteinGap && <p>{t("Some meals this week have no protein entered, so protein counts only the rest.")}</p>}
+          {/* "list", never "entered": a restaurant may publish calories only (Ella and Femi, the 30-person meeting, 21 November 2026), as the day page says */}
+          {week.proteinGap && <p>{t("Some foods this week don't list protein, so protein counts only the foods that do.")}</p>}
           {week.estimates && <p>{t("Includes estimates from your photos.")}</p>}
         </div>
       )}

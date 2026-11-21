@@ -74,6 +74,9 @@ export interface Recipe {
   halal?: boolean;
   /** Set by recipeForDiet for vegetarian and Jain diets: substitutes use the version made without animal rennet too (Italian hard cheese, pesto). */
   vegetarian?: boolean;
+  /** Set by recipeForDiet for "No halal or kosher meat": substitutes never use meat sold as halal or kosher either (the 21 November meeting, Jamal: a shop with
+   *  no other chicken thighs swapped in Shazans halal chicken breast). */
+  noHalalKosherMeat?: boolean;
   /** Set by scaleServings (never saved): this recipe cooked for a different number of people is the recipe in `scaledFrom` with every amount
    *  scaled. A serving of it is the same serving as the original's, so its figures and its price a serving are always worked out from the
    *  original (resolveRecipe, recipeTotals); the amounts here only say what to measure and buy for more or fewer people. */
@@ -194,7 +197,7 @@ export function recipeForDiet(recipe: Recipe, prefs: DietPrefs): Recipe | null {
   }
   // kosher style: never meat with dairy in one dish
   if (prefs.kosherStyle && mixesMeatAndDairy(recipe.ingredients.map((i) => (i.pantry ? PANTRY.get(i.pantry) : undefined)).filter((k): k is NonNullable<typeof k> => !!k))) return null;
-  return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}), ...(prefs.vegetarianOnly || prefs.jain ? { vegetarian: true } : {}) };
+  return { ...recipe, ingredients: out, ...(prefs.halalOnly ? { halal: true } : {}), ...(prefs.vegetarianOnly || prefs.jain ? { vegetarian: true } : {}), ...(prefs.noHalalKosherMeat ? { noHalalKosherMeat: true } : {}) };
 }
 
 /** Why each of a recipe's ingredients doesn't suit these preferences (kindExcluded's reason), in the recipe's order, plus "meat with dairy" (kosher style)
@@ -217,13 +220,15 @@ export function dietClashes(recipe: Recipe, prefs: DietPrefs): Array<{ label: st
 }
 
 /** A substitute for an ingredient, as an ingredient of the same recipe (same key, so product choices and fitting follow it). `diet`: the recipe's own
- *  (`halal` and `vegetarian` as recipeForDiet set them), or true for halal. */
-export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: number }, diet: boolean | Pick<Recipe, "halal" | "vegetarian"> = false): IngredientSpec | null {
+ *  (`halal`, `vegetarian` and `noHalalKosherMeat` as recipeForDiet set them), or true for halal. */
+export function subSpec(spec: IngredientSpec, sub: { key: string; factor?: number }, diet: boolean | Pick<Recipe, "halal" | "vegetarian" | "noHalalKosherMeat"> = false): IngredientSpec | null {
   const kind = PANTRY.get(sub.key);
   if (!kind) return null;
-  const d = typeof diet === "boolean" ? { halal: diet } : diet;
-  const k = d.halal || d.vegetarian ? kindForDiet(kind, { halalOnly: !!d.halal, vegetarianOnly: !!d.vegetarian }) : kind;
-  const amount = Math.max(5, Math.round((spec.amount * (sub.factor ?? 1)) / 5) * 5);
+  const d: Pick<Recipe, "halal" | "vegetarian" | "noHalalKosherMeat"> = typeof diet === "boolean" ? { halal: diet } : diet;
+  const k = d.halal || d.vegetarian || d.noHalalKosherMeat ? kindForDiet(kind, { halalOnly: !!d.halal, vegetarianOnly: !!d.vegetarian, noHalalKosherMeat: !!d.noHalalKosherMeat }) : kind;
+  // a pinch stays a pinch: under 20 g or ml to the whole gram (at least 1), else to 5 (the 21 November meeting, Jamal: 1 g of black pepper became 5 g of white)
+  const raw = spec.amount * (sub.factor ?? 1);
+  const amount = raw < 20 ? Math.max(1, Math.round(raw)) : Math.max(5, Math.round(raw / 5) * 5);
   // it takes the ingredient's place in the dish, so it moves the way the ingredient did when the recipe is fitted
   const place = { role: spec.role, ...(spec.follows ? { follows: spec.follows } : {}), ...(spec.fit ? { fit: spec.fit } : {}) };
   return { ...specFromKind(k, amount, place), key: spec.key, subFor: spec.subFor ?? spec.label };
@@ -300,7 +305,12 @@ export function drainedSize(product: Pick<PricedProduct, "name" | "price" | "uni
     const count = d[1] ? Number(d[1]) : Number(/(\d+)\s*[x×]\s*\d/.exec(n.slice(0, d.index))?.[1] ?? 1);
     return count * each;
   }
-  if (product.unit === "per kg" && product.unitPrice) return Math.round((product.price / product.unitPrice) * 1000);
+  // never more than the tin or jar holds, when its name says (the 21 November meeting, Jamal: Waitrose's 350 g jar worked out at 444 g from its price per kg)
+  if (product.unit === "per kg" && product.unitPrice) {
+    const byPrice = Math.round((product.price / product.unitPrice) * 1000);
+    const net = packSize(product.name, "g");
+    return net !== null ? Math.min(byPrice, net) : byPrice;
+  }
   return packSize(product.name, "g");
 }
 
@@ -342,8 +352,10 @@ export function pieceWeight(name: string): number | null {
   const size = packSize(name, "g");
   if (count > 1 && size) return Math.round((size / count) * 10) / 10;
   // "Oxo Vegetable Stock Cubes 24s 142g", "12's 120g": the count written as 24s or 12's
-  // ...or "Oxo 24 Vegetable Stock Cubes 142g": the count before the words naming the cubes
-  const s = /\b(\d{1,2})['’]?s\b/.exec(n) ?? /\b(\d{1,2})\s+(?:[a-z-]+\s+){0,3}cubes\b/.exec(n);
+  // ...or "Oxo 24 Vegetable Stock Cubes 142g", "Iceland 8 Tortilla Wraps 496g": the count before the words naming the cubes or wraps
+  // ...or "Old El Paso Large Super Soft Flour Tortillas Wraps 6 Pack 350G": a pack count (the 21 November meeting, Jamal: Iceland's and M&S's wrap recipes
+  // used naan, as no wrap's weight was read)
+  const s = /\b(\d{1,2})['’]?s\b/.exec(n) ?? /\b(\d{1,2})\s+(?:[a-z-]+\s+){0,3}(?:cubes|wraps|tortillas)\b/.exec(n) ?? /\b(\d{1,2})\s*pack\b/.exec(n);
   const c = s ? Number(s[1]) : 0;
   return c > 1 && c <= 96 && size ? Math.round((size / c) * 10) / 10 : null;
 }
@@ -369,7 +381,11 @@ export function pickFor(spec: IngredientSpec, product: PricedProduct): Ingredien
   // no weight in the name but a price per kg or litre: the shelf price is for (price ÷ price per kg) of it ("Small Whole Cucumber": 70p at £3.89/kg)
   const sized = size ?? (perKgOrLitre && product.unitPrice! > 0 ? Math.round((product.price / product.unitPrice!) * 1000) : null);
   const packs = sized ? Math.max(1, Math.ceil(spec.amount / sized - 1e-9)) : 1;
-  const usedCost = perKgOrLitre ? (product.unitPrice! * spec.amount) / 1000 : sized ? (product.price * spec.amount) / sized : null;
+  // never more than that share of the pack's shelf price (the 21 November meeting, Jamal: a price per kg above the pack's own price made "£x used" more
+  // than the pack)
+  const byUnit = perKgOrLitre ? (product.unitPrice! * spec.amount) / 1000 : null;
+  const byPack = sized ? (product.price * spec.amount) / sized : null;
+  const usedCost = byUnit !== null && byPack !== null ? Math.min(byUnit, byPack) : byUnit ?? byPack;
   return { spec, product, packs, basketCost: packs * product.price, usedCost };
 }
 
@@ -811,7 +827,8 @@ export function roundedAmountsMatter(r: ResolvedRecipe, totals: RecipeTotals): b
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0, salt: 0 };
   let saltKnown = true;
   for (const p of r.picks as IngredientPick[]) {
-    const n = p.product.nutrition;
+    // salt with no label counts as UK table salt labels print it, as in the serving (recipeTotals; the 21 November meeting, Isla)
+    const n = p.product.nutrition ?? (p.spec.pantry === "salt" ? PLAIN_SALT : null);
     if (!n) continue; // a label we haven't read is named as not counted, in the serving and here
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;

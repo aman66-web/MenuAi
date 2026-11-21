@@ -14,7 +14,8 @@ import { coachStepsFor, type CoachStep } from "./coachSteps";
 // real control at a time is lit with a 3 px ink ring and a 2 px white gap, and a card with Pip says what it does: "Tip 2 of 5", Next (Done on the last), and
 // "Stop the tips". It is a modal <dialog>, so the page behind can't be tapped by mistake, the focus stays on the card and a screen reader reads the tip; Escape
 // counts as Done. It waits until the tab has drawn its controls, no other sheet is open and Home's arrival toast has gone (anything marked data-coach-wait;
-// the iPhone app's trial offer waits for the tips).
+// the iPhone app's trial offer waits for the tips), and no toast is showing (data-toast-host: opened over one, its Undo couldn't be tapped and the one-time
+// free-week note went unread behind the tips; Quinn and Ella, the 30-person meeting, 21 November 2026). Every toast closes itself, so the tips start after it.
 // The onboarding redesign meeting (20 November 2026): after the welcome screens Home's tips come over two visits (a later visit is another time Home opens:
 // a tab and back, or the app opened again), the card keeps clear of Home's numbers and the Start here card wherever it fits whole (lib/mm/coach.ts placeTip: it
 // scrolls the page once if it must, never past the lit control's top), and in "Moving around" Pip stands on the real tab bar and hops once along it (no hop
@@ -23,10 +24,26 @@ import { coachStepsFor, type CoachStep } from "./coachSteps";
 
 const PAD = 6; // px of page shown round the lit control
 const GAP = 12; // px between the lit control and the card
-const EDGE = 16; // px the card keeps from the screen's edges
+const EDGE = 16; // px the card keeps from the screen's edges, at the least (more under the status bar and over the home indicator: safeInsets)
 const TAB_BAR = 96; // px the floating tab bar covers at the foot of the screen
 const HOP_PIP = 40; // Pip's size on the tab bar
 const HOP_ROOM = (HOP_PIP * 150) / 140 + 4; // his height standing on the bar, kept clear of the card
+
+/**
+ * The status bar's and the home indicator's heights (env(safe-area-inset-top/bottom)), read once from a hidden probe: the card's 16 px from the screen's
+ * edges put it under them on a phone with a notch (Quinn, 21 November 2026). Nothing (0) where there is no such inset.
+ */
+function safeInsets(): { top: number; bottom: number } {
+  if (typeof document === "undefined" || !document.body) return { top: 0, bottom: 0 };
+  const probe = document.createElement("div");
+  probe.setAttribute("aria-hidden", "true");
+  probe.style.cssText = "position:fixed;top:0;left:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)";
+  document.body.appendChild(probe);
+  const s = getComputedStyle(probe);
+  const out = { top: parseFloat(s.paddingTop) || 0, bottom: parseFloat(s.paddingBottom) || 0 };
+  probe.remove();
+  return out;
+}
 
 /** Where the lit control is; `fixed`: it stays put when the page scrolls (1) or not (0). */
 type Box = { top: number; left: number; width: number; height: number; vw: number; vh: number; fixed: number };
@@ -101,6 +118,8 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
   // what must stay clear of the card, measured with the box; and whether this tip has already scrolled the page to make room
   const [clear, setClear] = useState<Span[]>([]);
   const [scrolledFor, setScrolledFor] = useState(-1);
+  // measured once per round (CoachRun is only ever drawn in the browser: the tips are never due on the server)
+  const [insets] = useState(safeInsets);
 
   // Wait for the tab's controls (a list may still be loading), for any other sheet to close and for the arrival toast to go, then start with the tips whose
   // controls are there (a tip whose `unless` is on the page is left out: the Start here card already teaches the +).
@@ -111,7 +130,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
     const look = () => {
       const waited = Date.now() - started;
       const found = all.filter((s) => drawn(document.querySelector(s.at)) && !(s.unless && drawn(document.querySelector(s.unless))));
-      const busy = !!document.querySelector("dialog[open], [data-coach-wait]");
+      const busy = !!document.querySelector("dialog[open], [data-coach-wait], [data-toast-host]");
       if (!busy && found.length > 0 && (found.length === all.length || waited > 3000)) return setSteps(found);
       if (!busy && found.length === 0 && waited > 10000) return; // nothing to point at this time; the tips wait for the next visit
       timer = window.setTimeout(look, 250);
@@ -182,7 +201,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
     hole = { top, left, width: Math.max(0, right - left), height: Math.max(0, bottom - top) };
     // Pip stands on the tab bar in "Moving around": the card keeps clear of him too
     const holeSpan = { top: step.hop ? top - HOP_ROOM : top, bottom };
-    plan = placeTip({ hole: holeSpan, clear, card: cardHeight, vh: box.vh, fixed: box.fixed === 1, scrolled: scrolledFor === at, edge: EDGE, gap: GAP });
+    plan = placeTip({ hole: holeSpan, clear, card: cardHeight, vh: box.vh, fixed: box.fixed === 1, scrolled: scrolledFor === at, edgeTop: Math.max(EDGE, insets.top), edgeBottom: Math.max(EDGE, insets.bottom), gap: GAP });
   }
   const scrollNeeded = plan && "scroll" in plan ? plan.scroll : 0;
 
@@ -262,10 +281,11 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
               <Pip mood="point" size={HOP_PIP} />
             </span>
           )}
-          {/* a column: the tip (it scrolls inside the card if it must), then Next and "Stop the tips", always whole; never shorter than TIP_CARD_MIN */}
+          {/* a column: the tip (it scrolls inside the card if it must), then Next and "Stop the tips", always whole; never shorter than TIP_CARD_MIN. It fades in
+              where it goes and hides at once (a fade out showed it jumping to the foot of the screen), and while hidden it takes no taps (Quinn, 21 November 2026) */}
           <div
             ref={card}
-            className={`fixed inset-x-0 mx-auto flex w-[calc(100%-2rem)] max-w-[24rem] flex-col overflow-hidden rounded-[1.5rem] bg-card p-4 shadow-[var(--shadow-lift)] motion-safe:transition-opacity motion-safe:duration-200 ${showing ? "opacity-100" : "opacity-0"}`}
+            className={`fixed inset-x-0 mx-auto flex w-[calc(100%-2rem)] max-w-[24rem] flex-col overflow-hidden rounded-[1.5rem] bg-card p-4 shadow-[var(--shadow-lift)] ${showing ? "opacity-100 motion-safe:transition-opacity motion-safe:duration-200" : "pointer-events-none opacity-0"}`}
             style={{ ...place, minHeight: TIP_CARD_MIN }}
           >
             <div ref={body} className="flex min-h-0 flex-1 items-start gap-3 overflow-y-auto overscroll-contain">
@@ -281,7 +301,11 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
             <div className="mt-4 flex shrink-0 flex-wrap items-center gap-2">
               <button
                 type="button"
-                onClick={() => (last ? finish() : setAt(at + 1))}
+                onClick={() => {
+                  if (last) finish();
+                  // hidden in the same moment as the tip changes, so the card never shows the next tip where the last one was
+                  else { setSettled(false); setAt(at + 1); }
+                }}
                 className="inline-flex min-h-12 min-w-[7rem] flex-1 items-center justify-center rounded-full bg-ink px-5 text-[1.0625rem] font-bold text-on-ink transition hover:bg-ink-pressed active:scale-[0.98] active:bg-ink-pressed"
               >
                 {last ? t("Done") : t("Next")}

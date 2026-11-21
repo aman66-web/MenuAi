@@ -1,5 +1,6 @@
 import { NEW_ITEM_DAYS } from "./config";
 import { foodDietProblem, foodSignals, MORE_DIET_LABEL, moreDietsOn, namedPescatarian, type MoreDietKey } from "./foodDiet";
+import { isAllHalal } from "./halal";
 import { englishT, tk, type T } from "./i18n";
 import { proteinPer100Cal } from "./nutrients";
 import { passesPreferences } from "./ranking";
@@ -61,7 +62,7 @@ export function freeOfAllergens(item: Pick<MenuItem, "allergens">, avoid: readon
 /**
  * Every diet and allergy filter the user has on (vegetarian, no pork/beef, vegan, allergens, and the newer diets as far as a menu can tell: restaurantPrefs).
  * Pork, beef, lamb and alcohol are also left out where the dish's own name says so (namesPork, namesBeef...): a restaurant's tags miss many ("Big Mac",
- * "Sausage Butty"), and these rules only ever leave dishes out. Halal is chain-level (lib/mm/halal.ts).
+ * "Sausage Butty"), and these rules only ever leave dishes out. Halal is chain-level (lib/mm/halal.ts); on a menu it leaves out pork (restaurantPrefs).
  */
 export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
   const p = restaurantPrefs(prefs);
@@ -76,20 +77,23 @@ export function passesDiet(item: MenuItem, prefs: Preferences): boolean {
 /**
  * The person's diet as a restaurant's own data can check it, the one mapping every restaurant screen uses (the menu, search, Best for you, the order
  * builder, Home's Start here and the welcome showcase): Jain is checked as vegetarian (onion, garlic and root vegetables can't be), No red meat as no pork and
- * no beef (and no lamb by name, namesRedMeat), Kosher style as no pork. No alcohol leaves out drinks named as alcohol (passesDiet). No onion or garlic and No
- * halal or kosher meat can't be checked at all (uncheckableDiets): nothing is hidden for them and Best for you doesn't pick.
+ * no beef (and no lamb by name, namesRedMeat), Kosher style and Halal as no pork (the 21 November 2026 meeting: someone who chose Halal was offered pork dishes
+ * as Best for you; whether the rest is halal stays chain-level, lib/mm/halal.ts). No alcohol leaves out drinks named as alcohol (passesDiet). No onion or garlic,
+ * No halal or kosher meat and Kosher style's other rules can't be checked at all (uncheckableDiets): Best for you doesn't pick for them.
  */
 export function restaurantPrefs(prefs: Preferences): Preferences {
   const vegetarianOnly = prefs.vegetarianOnly || prefs.jain === true;
-  const noPork = prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true;
+  const noPork = prefs.noPork || prefs.noRedMeat === true || prefs.kosherStyle === true || prefs.halalOnly === true;
   const noBeef = prefs.noBeef || prefs.noRedMeat === true;
   if (vegetarianOnly === prefs.vegetarianOnly && noPork === prefs.noPork && noBeef === prefs.noBeef) return prefs;
   return { ...prefs, vegetarianOnly, noPork, noBeef };
 }
 
 /** The newer diets a restaurant's menu can't be checked for at all (menus list no ingredients): Best for you doesn't pick for them. Jain's onion, garlic and
- *  root vegetables can't be checked either, so it counts here too, though its vegetarian part still narrows the menu. */
-const UNCHECKABLE: readonly MoreDietKey[] = ["jain", "noOnionGarlic", "noHalalKosherMeat"];
+ *  root vegetables can't be checked either, so it counts here too, though its vegetarian part still narrows the menu. So does Kosher style (the 21 November
+ *  2026 meeting: Best for you suggested cheeseburgers and prawn skewers): its pork part still narrows the menu, but shellfish, meat with dairy and
+ *  certification can't be checked, and restaurants are never said to fit the newer diets (20 November 2026). */
+const UNCHECKABLE: readonly MoreDietKey[] = ["jain", "noOnionGarlic", "kosherStyle", "noHalalKosherMeat"];
 export const uncheckableDiets = (prefs: Preferences): MoreDietKey[] => moreDietsOn(prefs).filter((k) => UNCHECKABLE.includes(k));
 
 // ------------------------------------------------------------------------------------------------ pork, beef, lamb and alcohol named in a dish's own words
@@ -199,8 +203,15 @@ function marksMissing(items: readonly DietItem[], tag: "contains_pork" | "contai
   return meat > 0 && tagged < meat / 20;
 }
 
-export function uncheckedDiet(items: readonly DietItem[], prefs: Preferences): UncheckedDiet {
+/**
+ * `chainId`: the restaurant, so Halal on its own (restaurantPrefs reads it as no pork) is checked at one that says all its food is halal (lib/mm/halal.ts): by its
+ * own word it serves no pork, so its pork tags are not needed there (the 21 November 2026 meeting: otherwise Best for you couldn't pick for Halal at Shah's or
+ * Sam's Chicken). Elsewhere a restaurant that doesn't mark pork leaves Halal, like No pork, unchecked.
+ */
+export function uncheckedDiet(items: readonly DietItem[], prefs: Preferences, chainId?: string): UncheckedDiet {
   const p = restaurantPrefs(prefs);
+  const porkByHalalAlone = prefs.halalOnly === true && !restaurantPrefs({ ...prefs, halalOnly: false }).noPork;
+  const porkSaidByChain = porkByHalalAlone && chainId !== undefined && isAllHalal(chainId);
   // fewer than 1 dish in 20 marked vegetarian means the guide doesn't really mark them (Greggs marks 1 of 263): those marks are kept, the rest go by name
   const vegetarianMarks = items.filter((i) => i.tags.includes("vegetarian")).length >= items.length / 20;
   const beefMenu = p.noBeef ? sellsBeef(items) : false;
@@ -209,7 +220,7 @@ export function uncheckedDiet(items: readonly DietItem[], prefs: Preferences): U
     vegan: Boolean(p.veganOnly) && !items.some(isNamedVegan),
     allergies: Boolean(p.avoidAllergens?.length) && !items.some((i) => i.allergens),
     vegetarianMarks,
-    pork: p.noPork && marksMissing(items, "contains_pork", namesPork),
+    pork: p.noPork && !porkSaidByChain && marksMissing(items, "contains_pork", namesPork),
     beef: p.noBeef && marksMissing(items, "contains_beef", (name) => namesBeef(name, beefMenu)),
     others: uncheckableDiets(p),
     beefMenu,

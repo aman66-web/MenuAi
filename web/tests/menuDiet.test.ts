@@ -334,6 +334,11 @@ describe("pork, beef and the newer diets on every restaurant screen", () => {
     const menu = [item("The Boss", { tags: ["contains_beef"] }), item("Breakfast Muffin", { tags: ["contains_pork"] }), item("Grilled Chicken")];
     expect(shown(menu, P({ noRedMeat: true }))).toEqual(["Grilled Chicken"]);
     expect(shown(menu, P({ kosherStyle: true }))).toEqual(["The Boss", "Grilled Chicken"]);
+    // Kosher style's shellfish, meat with dairy and certification can't be checked on a menu: Best for you doesn't pick for it (the 21 November 2026 meeting:
+    // it suggested cheeseburgers and prawn skewers); its pork part still narrows the menu
+    expect(uncheckedDiet(menu, P({ kosherStyle: true })).others).toEqual(["kosherStyle"]);
+    expect(anyUnchecked(uncheckedDiet(menu, P({ kosherStyle: true })))).toBe(true);
+    expect(anyUnchecked(uncheckedDiet(menu, P({ noRedMeat: true })))).toBe(false);
     const fiveGuys = load("five-guys");
     const left = shown(fiveGuys.items, P({ noRedMeat: true }));
     for (const name of ["Bacon Cheeseburger", "Bacon Burger", "Cheeseburger", "Hamburger"]) expect(left).not.toContain(name);
@@ -370,5 +375,35 @@ describe("pork, beef and the newer diets on every restaurant screen", () => {
         expect(hidden, JSON.stringify(prefs)).toEqual([]);
       }
     }
+  });
+});
+
+describe("Halal on a restaurant's menu (the 21 November 2026 meeting: Halal was offered pork dishes as Best for you)", () => {
+  const halal = P({ halalOnly: true });
+  const dir = new URL("../public/menus/", import.meta.url);
+  const load = (id: string) => JSON.parse(readFileSync(new URL(`chain-${id}.json`, dir), "utf8")) as Chain;
+  it("hides the dishes the restaurant tags pork, and those whose own names say pork, as No pork does", () => {
+    const menu = [item("Pepperoni Feast", { tags: ["contains_pork"] }), item("Margherita", { tags: ["vegetarian"] }), item("Bacon Roll"), item("Chicken Wrap")];
+    expect(shown(menu, halal)).toEqual(["Margherita", "Chicken Wrap"]);
+    expect(passesDiet(menu[0]!, halal)).toBe(false);
+    const chain = { id: "test", items: menu, combinations: [] } as unknown as Chain;
+    expect(chainForDiet(chain, halal).items.map((i) => i.name)).toEqual(["Margherita", "Chicken Wrap"]);
+  });
+  it("at a restaurant that tags pork (Domino's), Best for you picks with its pork dishes left out", () => {
+    const dominos = load("dominos");
+    expect(anyUnchecked(uncheckedDiet(dominos.items, halal, dominos.id))).toBe(false);
+    const offered = chainForDiet(dominos, halal).items;
+    expect(offered.some((i) => i.tags.includes("contains_pork"))).toBe(false);
+    expect(offered.length).toBeLessThan(dominos.items.length);
+  });
+  it("where a restaurant doesn't mark pork, Best for you says it can't pick, unless the restaurant says all its food is halal", () => {
+    const menu = [item("Chicken Wrap"), item("Chicken Burger"), item("Wings"), item("Fries")];
+    expect(uncheckedDiet(menu, halal).pork).toBe(true);
+    expect(anyUnchecked(uncheckedDiet(menu, halal, "kfc"))).toBe(true); // some KFC restaurants are halal, not all
+    // Shah's says all its food is halal, so by its own word it serves no pork: nothing to check there
+    expect(uncheckedDiet(menu, halal, "shahs-halal-food").pork).toBe(false);
+    expect(anyUnchecked(uncheckedDiet(menu, halal, "shahs-halal-food"))).toBe(false);
+    // No pork chosen as well is the person's own choice: still unchecked where pork isn't marked
+    expect(uncheckedDiet(menu, P({ halalOnly: true, noPork: true }), "shahs-halal-food").pork).toBe(true);
   });
 });

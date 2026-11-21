@@ -714,11 +714,26 @@ class DietTests(unittest.TestCase):
     """Name-based pork/beef tags and the diet letters in the search file (docs/DATA.md)."""
 
     def test_name_tags_add_pork_and_beef_from_the_dish_name_only(self):
-        self.assertEqual(bm.name_tags("Bacon Double Cheeseburger", []), ["contains_pork"])
+        # a cheeseburger is beef since the audit of 20 November 2026 (tools/build_menus.py _BEEF_DISH), so the bacon one is both
+        self.assertEqual(bm.name_tags("Bacon Double Cheeseburger", []), ["contains_beef", "contains_pork"])
         self.assertEqual(bm.name_tags("Magnifica Chicken & Nduja - Large", []), ["contains_pork"])
         self.assertEqual(bm.name_tags("8oz Rump", []), ["contains_beef"])
         self.assertEqual(bm.name_tags("Bresaola & salami board", []), ["contains_beef", "contains_pork"])
         self.assertEqual(bm.name_tags("Bacon Butty", ["contains_pork"]), ["contains_pork"])
+
+    def test_name_tags_read_dishes_that_are_pork_or_beef_by_what_they_are(self):
+        # the audit of 20 November 2026: "Big Mac", "Whopper", "Sausage Butty" carried no tag, so No pork / No beef showed them
+        for name in ["Big Mac", "Whopper", "Cheeseburger", "Spaghetti Bolognese"]:
+            self.assertEqual(bm.name_tags(name, []), ["contains_beef"], name)
+        for name in ["Sausage Butty", "Pepperoni Pizza"]:
+            self.assertEqual(bm.name_tags(name, []), ["contains_pork"], name)
+        # another meat or a meat-free version named, an extra for the dish, or a plain burger: no tag from the dish word
+        for name in ["Chicken Sausage", "Veggie Lasagne", "Tuna Steak", "Hot Dog Bun", "Burger Sauce", "Steak Topper", "Chicken Burger",
+                     "extra sausage (Vegan Breakfast Platter)"]:
+            self.assertEqual(bm.name_tags(name, []), [], name)
+        # a hot dog the name or the restaurant says is beef stays beef only
+        self.assertEqual(bm.name_tags("Beef Hot Dog", []), ["contains_beef"])
+        self.assertEqual(bm.name_tags("Hot Dog", ["contains_beef"]), ["contains_beef"])
 
     def test_name_tags_leave_alone_add_on_context_meat_free_versions_and_other_meats(self):
         for name in ["Peppercorn sauce (to the sirloin steak)", "Fried eggs (with gammon steak)", "THIS™ Isn’t Beef Burger (VG)",
@@ -739,7 +754,8 @@ class DietTests(unittest.TestCase):
             doc = json.loads((out / "chain-test-chain.json").read_text())
             items = {i["id"]: i for i in doc["items"]}
             self.assertEqual(items["burger"]["tags"], ["contains_pork"])
-            self.assertEqual(items["plain"]["tags"], [])
+            # beef from its own name (a cheeseburger, since 20 November 2026), never the pork of its "Add bacon" extra
+            self.assertEqual(items["plain"]["tags"], ["contains_beef"])
             self.assertEqual(items["plain"]["modifiers"][0]["tags"], ["contains_pork"])
 
     def test_search_diet_letters(self):

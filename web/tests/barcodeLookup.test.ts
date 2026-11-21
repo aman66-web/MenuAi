@@ -123,15 +123,17 @@ describe("GET /api/v1/barcode/{code} (lib/barcodeLookup.ts)", () => {
     return { lookup, asked, later: (ms: number) => { now += ms; } };
   }
   const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
+  /** A made-up barcode with its GS1 check digit, so the server sends it on (a wrong check digit never is). */
+  const ean = (body: string) => { let s = 0; for (let i = 0; i < body.length; i++) s += Number(body[body.length - 1 - i]) * (i % 2 === 0 ? 3 : 1); return `${body}${(10 - (s % 10)) % 10}`; };
 
   it("asks Open Food Facts for the barcode with only the fields we use, as Numbite (never anyone's email)", async () => {
     const { lookup, asked } = fakeOff(() => json(CORNFLAKES));
-    const r = await lookup("05010029000001");
+    const r = await lookup("05010029000009");
     expect(r.status).toBe(200);
-    expect(r.body).toMatchObject({ found: true, product: { code: "05010029000001", name: "Corn Flakes" } });
+    expect(r.body).toMatchObject({ found: true, product: { code: "05010029000009", name: "Corn Flakes" } });
     expect(asked).toHaveLength(1);
-    expect(asked[0]!.url).toBe(offProductUrl("05010029000001"));
-    expect(asked[0]!.url).toBe(`https://world.openfoodfacts.org/api/v2/product/05010029000001.json?fields=${OFF_FIELDS}`);
+    expect(asked[0]!.url).toBe(offProductUrl("05010029000009"));
+    expect(asked[0]!.url).toBe(`https://world.openfoodfacts.org/api/v2/product/05010029000009.json?fields=${OFF_FIELDS}`);
     expect((asked[0]!.init?.headers as Record<string, string>)["User-Agent"]).toBe(OFF_USER_AGENT);
     expect(OFF_USER_AGENT).toBe("Numbite/1.1 (+https://numbite.com)");
     expect(OFF_USER_AGENT).not.toMatch(/@/);
@@ -139,42 +141,42 @@ describe("GET /api/v1/barcode/{code} (lib/barcodeLookup.ts)", () => {
 
   it("asks once a day per barcode, whatever its leading zeros, and answers each with the digits it was asked", async () => {
     const { lookup, asked, later } = fakeOff(() => json(CORNFLAKES));
-    await lookup("05010029000001");
-    const again = await lookup("5010029000001");
+    await lookup("05010029000009");
+    const again = await lookup("5010029000009");
     expect(asked).toHaveLength(1);
-    expect(again.body).toMatchObject({ product: { code: "5010029000001" } });
+    expect(again.body).toMatchObject({ product: { code: "5010029000009" } });
     later(23 * 3600_000);
-    await lookup("05010029000001");
+    await lookup("05010029000009");
     expect(asked).toHaveLength(1);
     later(2 * 3600_000);
-    await lookup("05010029000001");
+    await lookup("05010029000009");
     expect(asked).toHaveLength(2);
   });
 
   it("asks once when the same barcode is asked twice at once", async () => {
     const { lookup, asked } = fakeOff(() => json(CORNFLAKES));
-    const [a, b] = await Promise.all([lookup("5010029000001"), lookup("5010029000001")]);
+    const [a, b] = await Promise.all([lookup("5010029000009"), lookup("5010029000009")]);
     expect(asked).toHaveLength(1);
     expect(a.body).toEqual(b.body);
   });
 
   it("keeps a barcode it doesn't have (404) for the day too", async () => {
     const { lookup, asked } = fakeOff(() => json({ status: 0, status_verbose: "product not found" }, 404));
-    expect((await lookup("5000000000001")).body).toEqual({ found: false });
-    expect((await lookup("5000000000001")).body).toEqual({ found: false });
+    expect((await lookup("5000000000005")).body).toEqual({ found: false });
+    expect((await lookup("5000000000005")).body).toEqual({ found: false });
     expect(asked).toHaveLength(1);
   });
 
   it("never keeps a failure: no connection, its server down, or not JSON", async () => {
     let reply: () => Response = () => { throw new Error("offline"); };
     const { lookup, asked } = fakeOff(() => reply());
-    expect((await lookup("5000000000001")).status).toBe(502);
+    expect((await lookup("5000000000005")).status).toBe(502);
     reply = () => new Response("down", { status: 503 });
-    expect((await lookup("5000000000001")).status).toBe(502);
+    expect((await lookup("5000000000005")).status).toBe(502);
     reply = () => new Response("<html>", { status: 200 });
-    expect((await lookup("5000000000001")).status).toBe(502);
+    expect((await lookup("5000000000005")).status).toBe(502);
     reply = () => json(CORNFLAKES);
-    expect((await lookup("5000000000001")).status).toBe(200);
+    expect((await lookup("5000000000005")).status).toBe(200);
     expect(asked).toHaveLength(4);
   });
 
@@ -184,13 +186,22 @@ describe("GET /api/v1/barcode/{code} (lib/barcodeLookup.ts)", () => {
     expect(asked).toHaveLength(0);
   });
 
+  it("never sends on a number whose check digit is wrong (a slip, or one still being typed), so it spends none of Open Food Facts' limit", async () => {
+    // the 30-person meeting, 21 November 2026 (Grace): typing a barcode looked up every 8- to 13-digit prefix
+    const { lookup, asked } = fakeOff(() => json(CORNFLAKES));
+    for (const part of ["50000000", "500016800114", "5000168001141", "05010029000001"]) expect((await lookup(part)).status).toBe(400);
+    expect(asked).toHaveLength(0);
+    expect((await lookup("5000168001142")).status).toBe(200);
+    expect(asked).toHaveLength(1);
+  });
+
   it("stays under Open Food Facts' limit: at most 50 new barcodes a minute from this server", async () => {
     const { lookup, asked, later } = fakeOff(() => json(CORNFLAKES));
-    for (let i = 0; i < 50; i++) expect((await lookup(`50000000${String(i).padStart(5, "0")}`)).status).toBe(200);
-    expect((await lookup("5000000099999")).status).toBe(503);
-    expect((await lookup("5000000000001")).status).toBe(200); // already kept: no new request
+    for (let i = 0; i < 50; i++) expect((await lookup(ean(`50000000${String(i).padStart(4, "0")}`))).status).toBe(200);
+    expect((await lookup(ean("500000009999"))).status).toBe(503);
+    expect((await lookup("5000000000005")).status).toBe(200); // already kept: no new request
     expect(asked).toHaveLength(50);
     later(61_000);
-    expect((await lookup("5000000099999")).status).toBe(200);
+    expect((await lookup(ean("500000009999"))).status).toBe(200);
   });
 });

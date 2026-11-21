@@ -21,9 +21,9 @@ import { recipeShops } from "@/lib/mm/shopProducts";
 import { myRecipesStore, savedRecipesStore, shoppingStore, updateSettings } from "@/lib/mm/stores";
 import { ShopMark } from "../_components/ChainMark";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
-import { ArrowRightIcon, BasketIcon, CheckIcon, GridIcon, HeartIcon, InfoIcon, ListIcon, PotIcon, SearchIcon } from "../_components/icons";
+import { ArrowRightIcon, BasketIcon, CheckIcon, CloseIcon, GridIcon, HeartIcon, InfoIcon, ListIcon, PotIcon, SearchIcon } from "../_components/icons";
 import { Pip } from "../_components/Mascot";
-import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
+import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
 import { ShopChoice } from "./ShopChoice";
 import { useGate } from "../_components/Paywall";
 import { PremiumBadge } from "../_components/PremiumBadge";
@@ -174,6 +174,8 @@ function RecipesScreen() {
   const diet = settings.preferences;
   // worked out a few recipes at a time the first time (the audit, 20 November 2026: one 3-second freeze), behind the spinner below; kept after that
   const { cards, leftOut, incomplete, ready: cardsReady } = useRecipeCards(null, products, diet, target, { chunked: true });
+  // the list is still being worked out (the spinner shows): a count would say 0 (Hassan, 21 November 2026: Filters said "Show 0 recipes"), so the buttons say so
+  const loadingList = !manifest || (!!shop && state.status === "loading") || (state.status === "ready" && !cardsReady);
   const saved = useStore(myRecipesStore);
   const savedCount = useStore(savedRecipesStore).length + saved.length;
   const shopping = useStore(shoppingStore);
@@ -206,8 +208,10 @@ function RecipesScreen() {
   const closeShops = useCallback(() => { setShopsOpen(false); setWorking(false); }, []);
   // founder 2026-11-17: one shop at a time. The chosen shop goes first among the person's supermarkets (the others stay ticked for Groceries), and the recipes follow
   // it at once, even when the page was opened for another shop (a link's ?r=); a short "working" moment then closes the sheet.
+  // Saved whenever it isn't already the first of the person's shops (Hassan, 21 November 2026: the shop on show can come from a link or stand in for a shop
+  // whose labels we haven't read, so tapping it without saving let the list switch to another shop); the working moment only when the recipes change.
   const pickShop = (id: string) => {
-    if (id !== shop) updateSettings({ shops: [id, ...chosenShops.filter((x) => x !== id)] });
+    if (chosenShops[0] !== id) updateSettings({ shops: [id, ...chosenShops.filter((x) => x !== id)] });
     setOwnShops(true);
     if (id !== shop) setWorking(true); else closeShops();
   };
@@ -235,13 +239,19 @@ function RecipesScreen() {
     () => cards.filter((c) => [...toggles].every((x) => TOGGLE_TEST[x](c.recipe)) && (meals.size === 0 || (!!c.recipe.meal && meals.has(c.recipe.meal))) && matchesRecipeSearch(c.recipe, query, t, offered, extras.get(c.recipe.id))),
     [cards, toggles, meals, query, t, offered, extras],
   );
-  // the default range: this shop's cheapest and dearest serving; a chosen range is kept inside it (null: every price)
-  const priceBounds = useMemo(() => servingPriceBounds(cards.map((c) => c.totals.costPerServing)), [cards]);
+  // the default range: this shop's cheapest and dearest serving; a chosen range is kept inside it (null: every price). While the list is worked out again (a new
+  // shop, diet or meal size: no cards for a moment) the last range is kept, so the Serving price field stays and never turns into Occasion (Hassan, 21 November
+  // 2026). Kept in state, set while rendering when it changes (React's "information from previous renders"; a ref can't be read while rendering).
+  const freshBounds = useMemo(() => servingPriceBounds(cards.map((c) => c.totals.costPerServing)), [cards]);
+  const [keptBounds, setKeptBounds] = useState<PriceRange | null>(null);
+  if (freshBounds && (freshBounds.min !== keptBounds?.min || freshBounds.max !== keptBounds?.max)) setKeptBounds(freshBounds);
+  const priceBounds = freshBounds ?? (cardsReady ? null : keptBounds);
   const priceRange = priceSel && priceBounds ? settleRange(priceSel, priceBounds) : null;
   const priceFits = (c: RecipeCard, r: PriceRange | null) => !r || inPriceRange(c.totals.costPerServing, r);
   const setPrice = (r: PriceRange | null) => { setPriceSel(r); setLimit(PAGE); write(r ? { ...rangeToAddress(r), shown: null } : { pmin: null, pmax: null, shown: null }); };
   const shown = useMemo(() => sortCards(base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions) && priceFits(c, priceRange)), effectiveSort), [base, niche.cuisines, niche.occasions, effectiveSort, priceRange]);
-  const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.map((c) => c.recipe.id), niche.cuisines, niche.occasions) : null), [cards.length, base, niche.cuisines, niche.occasions]);
+  // with the chosen price too, so a count says how many recipes that cuisine or occasion would show (Hassan, 21 November 2026)
+  const nicheNumbers = useMemo(() => (cards.length ? nicheCounts(base.filter((c) => !priceRange || inPriceRange(c.totals.costPerServing, priceRange)).map((c) => c.recipe.id), niche.cuisines, niche.occasions) : null), [cards.length, base, niche.cuisines, niche.occasions, priceRange]);
   const nicheOn = niche.cuisines.length > 0 || niche.occasions.length > 0;
   const filtering = toggles.size > 0 || meals.size > 0 || query.trim() !== "" || nicheOn || !!priceRange;
   const slot: MealType = mealSlotFor(now);
@@ -340,8 +350,17 @@ function RecipesScreen() {
         <div className="group/search relative min-w-0 flex-1">
           <SearchIcon className="pointer-events-none absolute start-4 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-ink" />
           {/* 16 px text: smaller text makes iPhone Safari zoom into the field */}
-          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); firstPage(); }} placeholder={narrow ? t("Search") : t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`min-h-[3.25rem] w-full rounded-full border-[1.5px] border-edge bg-card ps-12 pe-4 ${DONE_ROOM} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
-          <SearchDone />
+          {/* with words in it, room at the end for the clear button too (pe-14, as on Search) */}
+          <input type="search" value={query} onChange={(e) => { setQuery(e.target.value); firstPage(); }} placeholder={narrow ? t("Search") : t("Search recipes")} aria-label={t("Search recipes")} {...DONE_KEY} autoComplete="off" className={`min-h-[3.25rem] w-full rounded-full border-[1.5px] border-edge bg-card ps-12 ${query ? `pe-14 ${DONE_ROOM_WITH_CLEAR}` : `pe-4 ${DONE_ROOM}`} text-base text-foreground placeholder:text-placeholder focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-search-cancel-button]:appearance-none`} />
+          {/* a clear (x) button, as on Search (Hassan, 21 November 2026: there was none). A press keeps the focus in the field, so the shop doesn't step back in and
+              move the button from under the finger before the tap lands */}
+          <SearchDone>
+            {query && (
+              <button type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => { setQuery(""); firstPage(); }} aria-label={t("Clear search")} className="group inline-flex h-11 w-11 items-center justify-center rounded-full">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft text-foreground transition-colors group-hover:bg-[var(--fill)]"><CloseIcon className="h-4 w-4" /></span>
+              </button>
+            )}
+          </SearchDone>
         </div>
         <ShopsButton shop={shop} onClick={() => { setWorking(false); setShopsOpen(true); }} className="group-has-[input:focus]/row:hidden" />
       </div>
@@ -402,7 +421,7 @@ function RecipesScreen() {
           bounds={priceBounds}
           chosen={priceRange}
           onChange={setPrice}
-          count={(r) => base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions) && priceFits(c, r)).length}
+          count={(r) => (loadingList ? null : base.filter((c) => matchesNiche(c.recipe.id, niche.cuisines, niche.occasions) && priceFits(c, r)).length)}
         />
       )}
       <Sheet open={more} onClose={() => setMore(false)} title={t("Filters")}>
@@ -468,7 +487,7 @@ function RecipesScreen() {
         <div className="sticky bottom-[calc(-1*max(1.75rem,env(safe-area-inset-bottom)))] z-10 -mx-5 -mb-[max(1.75rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 bg-card px-5 pb-[max(1.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[var(--shadow-lift)]">
           {filtering && <button type="button" onClick={clearAll} className={PILL}>{t("Clear all")}</button>}
           <Button full className="min-h-12 flex-1" onClick={() => setMore(false)}>
-            <span className="app-numbers">{shown.length === 0 && filtering ? t("No recipes match.") : shown.length === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n: shown.length })}</span>
+            <span className="app-numbers">{loadingList ? t("Loading recipes") : shown.length === 0 && filtering ? t("No recipes match.") : shown.length === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n: shown.length })}</span>
           </Button>
         </div>
       </Sheet>
@@ -536,7 +555,7 @@ function RecipesScreen() {
 
         <p role="status" className="sr-only">{liveLine}</p>
 
-        {!manifest || (shop && state.status === "loading") || (state.status === "ready" && !cardsReady) ? (
+        {loadingList ? (
           <Spinner label={t("Loading recipes")} />
         ) : !shop ? (
           <div className="mt-4"><EmptyState icon={<PotIcon className="h-7 w-7" />} title={t("No supermarket list yet.")} body={t("Recipes appear once we've read a supermarket's products and prices.")} /></div>

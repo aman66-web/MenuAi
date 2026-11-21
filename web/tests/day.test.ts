@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { addMonths, calendarBounds, calendarYears, monthInBounds, dayHref, dayParam, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay, weekOf } from "../lib/mm/day";
+import { readFileSync } from "node:fs";
+import { addMonths, calendarBounds, calendarYears, monthInBounds, dayHref, dayParam, dayTitle, isFutureDay, loggedDayKeys, monthGrid, parseDayParam, sameMonth, shortDate, startOfDay, stepDay, weekOf } from "../lib/mm/day";
 
 // Home's date, the calendar and the day page: pure helpers.
 
@@ -135,5 +136,24 @@ describe("weekOf (Home's day circles and its week page)", () => {
     expect(march).toEqual(["2027-03-29", "2027-03-30", "2027-03-31", "2027-04-01", "2027-04-02", "2027-04-03", "2027-04-04"]);
     expect(new Set(weekOf(new Date(2027, 2, 28, 12)).map(dayParam)).size).toBe(7);
     expect(new Set(weekOf(new Date(2026, 9, 25, 12)).map(dayParam)).size).toBe(7); // and back on 25 October 2026
+  });
+});
+
+describe("dayTitle: a day from another year carries its year (Femi, the 30-person meeting, 21 November 2026)", () => {
+  const NOW = new Date(2026, 10, 21, 2, 45);
+  it("this year's day as before, last year's (or older) with its year", () => {
+    expect(dayTitle(new Date(2026, 10, 20), "en-GB", NOW)).toBe("Fri, Nov 20");
+    expect(dayTitle(new Date(2026, 0, 1), "en-GB", NOW)).toBe("Thu, Jan 1");
+    expect(dayTitle(new Date(2025, 10, 20), "en-GB", NOW)).toBe("Thu, Nov 20, 2025");
+    expect(dayTitle(new Date(2025, 11, 31), "en", NOW)).toBe("Wed, Dec 31, 2025");
+    expect(dayTitle(new Date(2023, 4, 9), "not a language", NOW)).toBe("Tue, May 9, 2023");
+    expect(dayTitle(new Date(2025, 10, 20), "pl", NOW)).toContain("2025");
+    expect(dayTitle(new Date(2026, 10, 20), "pl", NOW)).not.toContain("2026");
+  });
+  it("on 1 January, yesterday is last year's", () => {
+    expect(dayTitle(new Date(2026, 11, 31), "en-GB", new Date(2027, 0, 1, 9))).toBe("Thu, Dec 31, 2026");
+  });
+  it("the day page passes today's date", () => {
+    expect(readFileSync("app/app/today/page.tsx", "utf8")).toContain("dayTitle(day, htmlLang, now)");
   });
 });

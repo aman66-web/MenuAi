@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromOff, loggableFromShop, type LoggableProduct } from "@/lib/mm/addFood";
-import { hasLabel, offAnswerFrom, type OffProduct } from "@/lib/mm/barcodes";
+import { hasLabel, offAnswerFrom, validGs1, type BarcodeHit, type OffProduct } from "@/lib/mm/barcodes";
 import { API_BASE } from "@/lib/mm/config";
 import { mergeProducts } from "@/lib/mm/groceries";
 import { loadRetailer } from "../../_lib/groceries";
@@ -42,10 +42,20 @@ export async function productsForBarcode(code: string, mine: readonly string[]):
   return found ? [loggableFromListed(found, hit.catalogue.find((r) => mine.includes(r)) ?? hit.catalogue[0] ?? null)] : [];
 }
 
-/** Open Food Facts' record for a barcode, through our API: the product (with or without figures we'd add), null when it has none, and a throw when it can't be asked. */
+/** Our API answered, but not with an answer: `status` is its HTTP status (502: Open Food Facts couldn't be reached; 503: our server is busy; 400: not a barcode). */
+export class LookupRefused extends Error {
+  constructor(readonly status: number) {
+    super(`barcode lookup: ${status}`);
+  }
+}
+
+/**
+ * Open Food Facts' record for a barcode, through our API: the product (with or without figures we'd add), null when it has none, and a throw when it can't be asked
+ * (LookupRefused when our server answered with an error; anything else when it couldn't be reached).
+ */
 export async function askOpenFoodFacts(digits: string): Promise<OffProduct | null> {
   const res = await fetch(`${API_BASE}barcode/${digits}`, { signal: AbortSignal.timeout(15_000) });
-  if (!res.ok) throw new Error(`barcode lookup: ${res.status}`);
+  if (!res.ok) throw new LookupRefused(res.status);
   const answer = offAnswerFrom(await res.json(), digits);
   if (!answer) throw new Error("barcode lookup: not an answer");
   return answer.found ? answer.product : null;
@@ -55,31 +65,54 @@ export type BarcodeLookup =
   | { status: "loading" }
   /** Products with figures to add, best first: ours, or the one Open Food Facts has. */
   | { status: "found"; products: LoggableProduct[] }
-  /** Nobody has figures for it; `name` is Open Food Facts' name for it where it knows the product (the typed entry starts with it), else "". */
+  /** Nobody has figures for it; `name` is the name we know for it (a shop list's, else Open Food Facts'), which the typed entry starts with, else "". */
   | { status: "missing"; name: string }
-  /** It couldn't be looked up (no connection). */
-  | { status: "error" };
+  /** It couldn't be looked up: `offline` when the phone couldn't reach us (check the connection); false when we answered but Open Food Facts was down or our
+   *  server busy (the 30-person meeting, 21 November 2026, Grace: that was told to check a connection that was fine). */
+  | { status: "error"; offline: boolean };
 
 /** Open Food Facts alone, for a barcode our own files have no figures for: its product with figures to add, else the name it knows (or ""), else that it couldn't be asked. */
 export async function lookupOpenFoodFacts(digits: string, unnamed: string): Promise<BarcodeLookup> {
+  // a number whose check digit is wrong is no product's: not asked (our server would refuse it), so it is the calm "We don't have this one yet"
+  if (!validGs1(digits)) return { status: "missing", name: "" };
   try {
     const off = await askOpenFoodFacts(digits);
     const product = off ? loggableFromOff(off, unnamed) : null;
     return product ? { status: "found", products: [product] } : { status: "missing", name: off?.name ?? "" };
+  } catch (e) {
+    if (e instanceof LookupRefused && e.status === 400) return { status: "missing", name: "" };
+    return { status: "error", offline: !(e instanceof LookupRefused) };
+  }
+}
+
+/**
+ * The name a shop's full list gives a barcode it holds with no label (the 30-person meeting, 21 November 2026, Grace: Add food's "Type the numbers from the pack"
+ * started with no name for a product our shop list does hold): the first such row's product name, or "" (none, or its list can't be loaded).
+ */
+export async function shopNameFor(hit: BarcodeHit | null): Promise<string> {
+  const h = hit?.shops[0];
+  if (!h) return "";
+  try {
+    const { products } = await loadShopFile(h.shop);
+    return products.find((x) => x.id === h.id)?.name ?? "";
   } catch {
-    return { status: "error" };
+    return "";
   }
 }
 
 /** Everything we can find for a barcode's digits (leading zeros kept), in the order above. `unnamed`: the name for an Open Food Facts record with none. */
 export async function lookupBarcodeEverywhere(digits: string, mine: readonly string[], unnamed: string): Promise<BarcodeLookup> {
+  let shopName = "";
   try {
     const ours = await productsForBarcode(digits, mine);
     if (ours.length > 0) return { status: "found", products: ours };
+    // a shop list holds it without numbers: its name for the typed entry, where Open Food Facts knows none
+    shopName = await shopNameFor(await findBarcode(digits, mine).catch(() => null));
   } catch {
     // our files couldn't load: Open Food Facts may still answer
   }
-  return lookupOpenFoodFacts(digits, unnamed);
+  const off = await lookupOpenFoodFacts(digits, unnamed);
+  return off.status === "missing" ? { status: "missing", name: off.name || shopName } : off;
 }
 
 /** The lookup for a barcode's digits (null: none yet), asked once per digits and `retry`. */

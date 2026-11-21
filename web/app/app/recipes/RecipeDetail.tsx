@@ -25,7 +25,9 @@ import { USUAL_PORTION, portionReason, samePortion } from "@/lib/mm/recipePortio
 import { splitStep, stepTime } from "@/lib/mm/recipeSteps";
 import { productKey, shopPhotoSources, type ShopFile, type ShopProduct } from "@/lib/mm/shopProducts";
 import { PANTRY } from "@/lib/mm/pantry";
-import { addLogEntry, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import { addLogEntry, countProAction, cupboardStore, deleteLogEntry, savedRecipesStore, shoppingStore, toggleCupboard, toggleSavedRecipe } from "@/lib/mm/stores";
+import { analytics } from "@/lib/mm/analytics";
+import { halves } from "@/lib/mm/user-data";
 import { site } from "@/site.config";
 import { CheckIcon, ChevronRightIcon, HeartIcon, InfoIcon, LeafIcon, MinusIcon, PlusIcon, SwapIcon, TodayIcon } from "../_components/icons";
 import { Button, Chip, ChoiceMark, LinkButton, Segmented, Sheet, radioKeyNav } from "../_components/ui";
@@ -96,6 +98,9 @@ function PickPhoto({ file, product }: { file: ShopFile; product: ShopProduct }) 
 }
 
 const NOT_ON_LABEL = tk("not on every label");
+/** A logged recipe's name with its servings, as Choose a recipe writes it (RecipePick): "½ serving", like "½ portion" on the Today page; "1½ servings". */
+const NAME_WITH_SERVINGS = tk("{name} ({n} servings)");
+const NAME_WITH_SERVING = tk("{name} ({n} serving)");
 const MAX_SERVINGS = MAX_RECIPE_SERVINGS; // scaleServings keeps a recipe between 1 and 12 servings
 
 type RecipeTab = "ingredients" | "method";
@@ -265,7 +270,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
   // what a serving costs with each option: the amount the recipe as written uses (the same for any number of people) over the servings it makes
   const basis = view.resolved.basis ?? view.resolved;
   // the ingredients whose pack has no weight on the shop's list (and no price per kg), so a serving can't be priced: the price line names them
-  const unpriced = [...new Set(basis.picks.flatMap((p) => (p && p.usedCost === null ? [t(p.spec.label).toLowerCase()] : [])))];
+  // only the first letter lower case (Isla, 21 November 2026: "greek-style", "italian"), as every other name in a sentence
+  const unpriced = [...new Set(basis.picks.flatMap((p) => (p && p.usedCost === null ? [lowerFirst(t(p.spec.label))] : [])))];
   const basisSpec = swapIndex >= 0 ? basis.picks[swapIndex]?.spec : undefined;
   const servingCost = (o: IngredientPick): number | null => {
     const used = basisSpec ? pickFor(basisSpec, o.product).usedCost : o.usedCost;
@@ -285,12 +291,21 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       const s2 = subSpec(original, sub, scaled);
       if (s2) out.push({ subKey: sub.key, spec: scaled.scaledFrom ? scaleSpec(s2, scaled.servings, scaled.scaledFrom.servings) : s2 });
     }
-    // each with the product it would use (candidates are in pick order), whose photo the row shows
+    // each worked out as the page would have it once picked (Isla, 21 November 2026: with the recipe fitted to a meal, the amount shown was the one before the
+    // fit): the same servings, swaps and fit, this substitute in, the product the page would then use (whose photo the row shows) and its amount. Left out when
+    // the shop doesn't sell it (something else would stand in).
     return out.flatMap((o) => {
-      const pick = candidates(viewProducts, o.spec, meatFree)[0];
-      return pick ? [{ ...o, pick }] : [];
+      const optSubs = { ...subs };
+      if (o.subKey) optSubs[swapSpec.key] = o.subKey; else delete optSubs[swapSpec.key];
+      const optChosen = { ...chosen };
+      delete optChosen[swapSpec.key];
+      const v = recipeView(recipe, viewProducts, { servings, subs: optSubs, chosen: optChosen, target: fitTo });
+      const i = v.recipe.ingredients.findIndex((x) => x.key === swapSpec.key);
+      const pick = i >= 0 ? v.resolved.picks[i] : undefined;
+      if (!pick || (o.subKey ? pick.spec.pantry !== o.subKey : !!pick.spec.subFor)) return [];
+      return [{ ...o, spec: pick.spec, pick }];
     });
-  }, [swapSpec, scaled, viewProducts, meatFree]);
+  }, [swapSpec, scaled, recipe, viewProducts, servings, subs, chosen, fitTo]);
   const chooseInstead = (key: string, subKey: string | null) => {
     setSubs((c) => { const n = { ...c }; if (subKey) n[key] = subKey; else delete n[key]; return n; });
     setChosen((c) => { const n = { ...c }; delete n[key]; return n; });
@@ -341,7 +356,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     for (const p of ready) {
       const f = fileOf(p.product);
       const listId = listForShop(settings, f.retailer) ?? "";
-      const r = addAtLeast(list, { gtin: p.product.gtin, shopId: p.product.id, retailer: f.retailer, name: p.product.name, brand: "", size: "", price: p.product.price, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p.product)), ...(listId ? { list: listId } : {}) }, p.packs);
+      // the price of what is bought: one pack, or for loose produce the amount used (its shelf price is per kg; Isla, 21 November 2026)
+      const r = addAtLeast(list, { gtin: p.product.gtin, shopId: p.product.id, retailer: f.retailer, name: p.product.name, brand: "", size: "", price: p.basketCost / p.packs, checkedOn: f.checkedOn, ...withPhoto(shopPhotoSources(f, p.product)), ...(listId ? { list: listId } : {}) }, p.packs);
       list = r.list;
       if (r.outcome === "full") { full++; continue; }
       into.add(listId);
@@ -378,7 +394,8 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
         [t("Salt"), totals.label.salt !== null ? `${all(totals.label.salt)} g` : notOnLabel],
       ]
     : [];
-  const forPeople = people === 1 ? t("For 1 serving") : t("For {n} servings", { n: people });
+  // a household plan's 5.25 as a cook says it, as "Serves 5¼" beside it does (Isla, 21 November 2026: "For 5.25 servings")
+  const forPeople = people === 1 ? t("For 1 serving") : t("For {n} servings", { n: servingsWords(people) });
   // the substitutes standing in for an ingredient the recipe names (the method's words are the recipe's own)
   const subsIn = [...new Map(picks.flatMap((p) => (p?.spec.subFor ? [[p.spec.label, { sub: p.spec.label, name: p.spec.subFor }] as const] : []))).values()];
   // which step first uses each ingredient, so its amount (for this many people) is shown under that step
@@ -392,7 +409,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     if (!totals) return;
     gate("log", () => {
       const name = rt(recipe.name);
-      const entry = addLogEntry({ chainId: "", chainName: t("Recipe"), name: logServings === 1 ? name : t("{name} ({n} servings)", { name, n: logServings }), source: "recipe", recipeId: recipe.id, meal: logMeal, nutrients: recipeNutrients(totals, logServings) });
+      // named as Choose a recipe names it (RecipePick: "½ serving", "1½ servings"), and counted like every other log (Femi, 21 November 2026: "(0.5 servings)", and
+      // no mealLogged)
+      const entry = addLogEntry({ chainId: "", chainName: t("Recipe"), name: logServings === 1 ? name : t(logServings < 1 ? NAME_WITH_SERVING : NAME_WITH_SERVINGS, { name, n: halves(logServings) }), source: "recipe", recipeId: recipe.id, meal: logMeal, nutrients: recipeNutrients(totals, logServings) });
+      analytics.track({ name: "mealLogged" });
+      countProAction();
       setLogged({ id: entry.id, text: t(ADDED_TO[logMeal], { name }) });
       setLogOpen(false);
     });
@@ -590,7 +611,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
               </button>
               {/* always in the page (hidden while closed), so the button's aria-controls names something real */}
               <section id="recipe-label" aria-labelledby="label-heading" hidden={!detail} className={`${CARD} mt-2 p-4`}>
-                  <h2 id="label-heading" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{people === 1 ? t("Full nutrition per serving") : t("Full nutrition for {n} servings", { n: people })}</h2>
+                  <h2 id="label-heading" className="text-[1.0625rem] font-bold tracking-[-0.01em]">{people === 1 ? t("Full nutrition per serving") : t("Full nutrition for {n} servings", { n: servingsWords(people) })}</h2>
                   <dl className="app-numbers mt-2 divide-y divide-line">
                     {rows.map(([label, value, sub]) => (
                       <div key={label} className="flex min-h-11 flex-wrap items-center justify-between gap-x-3">
@@ -683,7 +704,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">{many ? t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at each shop's shelf prices; you'll have some left over.") : t("\"A serving\" prices only what one serving uses. \"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(shown[0]!.name) })}</p>
               ) : (
                 <p className="mt-2.5 px-1 text-[0.8125rem] leading-snug text-muted">
-                  {unpriced.length === 0 ? null : unpriced.length === 1 ? t("We can't price a serving: the shop's list doesn't say how much is in the pack of {name}.", { name: unpriced[0]! }) : t("We can't price a serving: the shop's list doesn't say how much is in the packs of {names}.", { names: unpriced.join(", ") })}{" "}
+                  {unpriced.length === 0 ? null : unpriced.length === 1 ? t("We can't price a serving: the shop's list doesn't say how much is in the pack of {name}.", { name: unpriced[0]! }) : t("We can't price a serving: the shop's list doesn't say how much is in the packs of {names}.", { names: listNames(unpriced) })}{" "}
                   {many ? t("\"To buy it all\" is the whole packs below, at each shop's shelf prices; you'll have some left over.") : t("\"To buy it all\" is the whole packs below, at {shop} shelf prices; you'll have some left over.", { shop: poss(shown[0]!.name) })}
                 </p>
               )}
@@ -737,7 +758,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                             return tip ? <p className="mt-1 text-[0.8125rem] leading-snug text-muted">{t("In a small local shop, look for {tip}.", { tip: t(tip) })}</p> : null;
                           })()}
                           <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-                            <span className="app-numbers text-[0.9375rem] font-semibold">{formatPrice(p.product.price)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
+                            {/* what one of what is bought costs: a pack's shelf price, or for loose produce (priced per kg) the amount used, never the price per kg as
+                                if it were a pack's (Isla, 21 November 2026) */}
+                            <span className="app-numbers text-[0.9375rem] font-semibold">{formatUsedPrice(p.basketCost / p.packs)}{p.packs > 1 ? ` · ${t("buy {n}", { n: p.packs })}` : ""}</span>
                             {/* founder 2026-11-17 ("the cost of each ingredient as relative to how much is used"): what the amount listed above costs at the shop's own price per kg or litre,
                                 in the green of "a serving"; it follows Serves, and is left out where the shop prints no such price (then the price of a serving isn't shown either: the
                                 whole shop's price stands alone above, with the reason) */}
@@ -931,7 +954,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
       {logged && (
         <Toast key={logged.id} onClose={() => setLogged(null)} onUndo={() => { deleteLogEntry(logged.id); setLogged(null); }}>{logged.text}</Toast>
       )}
-      <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: t(swapSpec.label).toLowerCase() }) : t("Swap")}>
+      <Sheet open={!!swapSpec} onClose={() => setSwapping(null)} title={swapSpec ? t("Swap {name}", { name: lowerFirst(t(swapSpec.label)) }) : t("Swap")}>
         {swapSpec && (
           <>
             {insteadOptions.length > 0 && (
@@ -962,9 +985,11 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                 {othersLoading && <span role="status" className="inline-flex min-h-11 items-center px-2 text-[0.9375rem] text-muted">{t("Loading other shops…")}</span>}
               </div>
             )}
+            {/* no claim about the order (Isla, 21 November 2026: "cheapest to buy first" wasn't true: candidates() puts products whose serving can be priced, whose
+                label we've read and that print the most figures first, lib/mm/recipes.ts), only the small-shop one, which is */}
             <p className="mb-3 mt-2.5 text-[0.8125rem] leading-snug text-muted">{localFirst
-              ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first, then the cheapest to buy. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })
-              : t("Products at {shop} that fit this recipe, cheapest to buy first. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })}</p>
+              ? t("Products at {shop} that fit this recipe: those a small local shop usually sells first. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })
+              : t("Products at {shop} that fit this recipe. It uses {amount}.", { shop: (files.find((f) => f.retailer === swapShop) ?? first).name, amount: amountText(swapSpec) })}</p>
             {/* never an empty sheet with no words (audit, 20 November 2026) */}
             {options.length === 0 && !othersLoading && (
               <p className="mb-3 text-[0.9375rem] leading-snug">{t("We couldn't find {name} at {shop} with its label and pack size. Try another shop.", { name: lowerFirst(t(swapSpec.label)), shop: (files.find((f) => f.retailer === swapShop) ?? first).name })}</p>

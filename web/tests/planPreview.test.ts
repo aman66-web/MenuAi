@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { budgetRange, betterCandidate, DEFAULT_SHAPE, mergeCandidates, PER_MEAL_RECIPES, PLAN_DAYS, planCandidates, planForBudget, planSlots, sanitizePlan, slotTargets, type PlanCandidate } from "../lib/mm/mealPlan";
+import { budgetRange, betterCandidate, CUISINE_MIN, cuisineRecipes, DEFAULT_SHAPE, mergeCandidates, PER_MEAL_RECIPES, PLAN_DAYS, planCandidates, planForBudget, planSlots, sanitizePlan, slotTargets, type PlanCandidate } from "../lib/mm/mealPlan";
 import type { DietPrefs } from "../lib/mm/pantry";
 import {
   forgetPlanWork,
@@ -14,6 +14,7 @@ import {
   SHOW_GAP,
   weekGap,
   weekPreview,
+  widenedIn,
   workKey,
   workOut,
   type Loaded,
@@ -22,6 +23,8 @@ import {
   type Targets,
 } from "../lib/mm/planPreview";
 import { RECIPES } from "../lib/mm/recipeBook";
+import { CUISINES } from "../lib/mm/recipeBook/niches";
+import { matchesNiche } from "../lib/mm/recipeNiche";
 import { recipeForDiet } from "../lib/mm/recipes";
 import { decodeShopProducts, recipeShops, type ShopFile, type ShopManifest, type ShopProduct } from "../lib/mm/shopProducts";
 import { macroTargets } from "../lib/mm/targets";
@@ -326,4 +329,46 @@ describe("every goal, diet, allergen and recipe shop", () => {
       }
     }, 300000);
   }
+});
+
+describe("a kind of food a shop has too few of (the 21 November meeting, Kemi: Chinese at Aldi had no lunches or dinners, and Mexican one dinner every night)", () => {
+  it("gives that lunch or dinner any kind of food, as the same answers with none chosen would, and names it; the other meal keeps the kind", async () => {
+    const t = mealTargets(MAINTAIN);
+    // the first recipe shop and kind of food the recipe book has enough lunches and dinners of, but the shop can make too few of
+    let found: { shop: Loaded; cuisine: (typeof CUISINES)[number]["id"]; few: Array<"lunch" | "dinner"> } | null = null;
+    for (const r of recipeShops(manifest)) {
+      const shop = { id: r.id, ...(await load(r.id)) };
+      for (const c of CUISINES) {
+        if (cuisineRecipes(RECIPES, [c.id], {}, []).widened.length) continue;
+        const only = mergeCandidates([planCandidates(recipesFor([c.id], {}, []), shop.products, {}, t, [], shop.id, false)]);
+        const few = (["lunch", "dinner"] as const).filter((m) => (only.get(m)?.length ?? 0) < CUISINE_MIN);
+        if (few.length) { found = { shop, cuisine: c.id, few }; break; }
+      }
+      if (found) break;
+    }
+    expect(found, "a shop with too few of a kind of food").not.toBeNull();
+    const { shop, cuisine, few } = found!;
+    const chosen = await workOut([shop], {}, t, [], [cuisine], undefined, false, now);
+    const any = await workOut([shop], {}, t, [], [], undefined, false, now);
+    expect(widenedIn(chosen)).toEqual(few);
+    expect(widenedIn(any)).toEqual([]);
+    for (const m of few) expect(chosen.get(m)!.map((c) => c.recipe.id), m).toEqual(any.get(m)!.map((c) => c.recipe.id));
+    for (const m of (["lunch", "dinner"] as const).filter((x) => !few.includes(x))) {
+      for (const c of chosen.get(m)!) expect(matchesNiche(c.recipe.id, [cuisine], []), `${m}: ${c.recipe.id}`).toBe(true);
+    }
+    // so the week can be made, with more than one dinner
+    const slots = planSlots(DEFAULT_SHAPE);
+    const plan = planForBudget(chosen, null, (c) => betterCandidate(c, shop.products, t[c.meal] ?? null), slots, PER_MEAL_RECIPES);
+    expect(plan, `${shop.id}, ${cuisine}`).not.toBeNull();
+    expect(new Set(plan!.ids.map((d) => d[2])).size).toBeGreaterThan(1);
+  });
+
+  it("names a meal the recipe book has too few of for the diet as widened too", async () => {
+    const t = mealTargets(MAINTAIN);
+    const c = CUISINES.find((x) => cuisineRecipes(RECIPES, [x.id], {}, []).widened.length);
+    if (!c) return; // every kind has enough lunches and dinners in the book
+    const shop = { id: "sainsburys", ...(await load("sainsburys")) };
+    const chosen = await workOut([shop], {}, t, [], [c.id], undefined, false, now);
+    expect(widenedIn(chosen)).toEqual(expect.arrayContaining(cuisineRecipes(RECIPES, [c.id], {}, []).widened));
+  });
 });

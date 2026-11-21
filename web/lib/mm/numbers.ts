@@ -1,5 +1,6 @@
 import { tk, type T } from "./i18n";
-import { fitsDiet, type SearchIndex } from "./search";
+import { restaurantPrefs } from "./menu-view";
+import { beefMenuOf, fitsDiet, type SearchIndex } from "./search";
 import { ALLERGEN_KEYS, type AllergenKey, type MenuItem, type Preferences } from "./types";
 
 // "Find a restaurant by my numbers" (founder 2026-10-15: "a way where you can input the macros like calories, protein and fat to filter the
@@ -97,6 +98,7 @@ export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null
   const macros = hasMacroLimits(limits);
   const allergy = (prefs.avoidAllergens?.length ?? 0) > 0;
   const names = new Map(index.chains.map((c) => [c.chainId, c.name]));
+  const noBeef = restaurantPrefs(prefs).noBeef;
   const hits: FinderHit[] = [];
   let noAllergenGuide = 0, caloriesOnly = 0, unchecked = 0;
   for (const [chainId, items] of itemsByChain(index)) {
@@ -106,6 +108,9 @@ export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null
     let count = 0;
     let best: { name: string; calories: number; protein: number | null } | null = null;
     let anyAllergenInfo = false;
+    // as on the restaurant's page and in search: a plain "burger" at a restaurant that sells beef counts as beef for No beef and No red meat (the 21 November
+    // 2026 meeting: Find by numbers showed a beef burger to No beef)
+    const beef = noBeef && beefMenuOf(index, chainId);
     for (let i = 0; i < items.length; i++) {
       const it = items[i]!;
       if (it.diet.allergens !== null) anyAllergenInfo = true;
@@ -115,7 +120,7 @@ export function findRestaurants(index: SearchIndex, numbers: NumbersIndex | null
       if (limits.minProtein !== undefined && (p === null || p < limits.minProtein)) continue;
       if (limits.maxCarbs !== undefined) { const c = cols?.c[i] ?? null; if (c === null || c > limits.maxCarbs) continue; }
       if (limits.maxFat !== undefined) { const f = cols?.f[i] ?? null; if (f === null || f > limits.maxFat) continue; }
-      if (!fitsDiet(it.diet, prefs)) continue;
+      if (!fitsDiet(it.diet, prefs, beef)) continue;
       count++;
       if (!best || (p ?? -1) > (best.protein ?? -1) || ((p ?? -1) === (best.protein ?? -1) && it.calories < best.calories)) best = { name: it.name, calories: it.calories, protein: p };
     }

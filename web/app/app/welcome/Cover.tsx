@@ -77,10 +77,12 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
   ];
   // the wall's one sentence for a screen reader, true with logos on or off: the first five names on it
   const wallLabel = t("Restaurants and shops in the app, including {names}", { names: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(wallItems.slice(0, 5).map((i) => i.name)) });
+  // Signing out and deleting the account remove the meal plan (app/app/_lib/account.ts forgetAccountsOwn), so the lines say so (the meeting of 21 November
+  // 2026, Ben: "What was on this phone is still here" was untrue for it).
   const status =
     notice === "cleared" ? t("Done: everything on this device was cleared.")
-    : notice === "deleted" ? t("Your account has been deleted. What was on this phone is still here.")
-    : notice === "signedOut" ? t("You're signed out. What was on this phone is still here.")
+    : notice === "deleted" ? t("Your account has been deleted. What was on this phone is still here, except your meal plan.")
+    : notice === "signedOut" ? t("You're signed out. What was on this phone is still here, except your meal plan.")
     : null;
 
   return (

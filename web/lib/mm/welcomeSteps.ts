@@ -208,11 +208,15 @@ export function progressNote(x: { step: WelcomeStepId; firstRecipeId?: string | 
  * Get started does the same). The questions about the person start again at About you, because their answers are never kept; past them, those answers are gone,
  * so Back from Your plan goes to About you. A step the new run doesn't have ("save", for someone signed in by now) is its last step, Your plan, whose button
  * then saves and goes to Home.
+ * `ownTargets`: the settings hold targets of the person's own (hasSetTargets). Without them, Your plan is never carried on to: the run carries on at About you
+ * instead, as the age is never kept and an age under 18 must not be shown or save numbers (the meeting of 21 November 2026, Ada). The account step is still
+ * carried on to (the iPhone app's trip to Mail for the email code comes back to it); it shows no numbers. (The welcome page always passes it.)
  */
-export function resumeAt(run: WelcomeRun, progress: WelcomeProgress | null): { step: WelcomeStepId; answers: WelcomeAnswers } | null {
+export function resumeAt(run: WelcomeRun, progress: WelcomeProgress | null, ownTargets = true): { step: WelcomeStepId; answers: WelcomeAnswers } | null {
   if (!progress || progress.step === "goal") return null;
   const wanted: WelcomeStepId = BODY_STEPS.includes(progress.step) ? "about" : progress.step;
-  const step = run.steps.includes(wanted) ? wanted : run.steps[run.steps.length - 1]!;
+  let step = run.steps.includes(wanted) ? wanted : run.steps[run.steps.length - 1]!;
+  if (step === "plan" && !ownTargets && run.steps.includes("about")) step = "about";
   const past = WELCOME_STEPS.indexOf(step) > WELCOME_STEPS.indexOf("active");
   return { step, answers: { bodySkipped: past, under18: false, ...(past ? { bodyGone: true } : {}) } };
 }

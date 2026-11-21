@@ -34,8 +34,10 @@ export const PREMIUM_FEATURES: readonly PremiumFeature[] = [
   { id: "fridgeRecipe", title: tk("Cook with what you already have"), line: tk("Pip makes a new recipe from what you have at home"), icon: "fridge", triggers: ["fridgeRecipe"], on: PHOTO_RECIPES_ENABLED, headline: true },
   { id: "truth", title: tk("Every Truth card"), line: tk("Not just {n} a day"), values: { n: FREE_TRUTH_PER_DAY }, icon: "bolt", triggers: ["truthLimit"], on: true, headline: true },
   { id: "quickAnswers", title: tk("Every Smart Swap"), line: tk("And every Quick answer"), icon: "swap", triggers: ["moreResults"], on: true, headline: false },
-  { id: "smallAppetite", title: tk("Small appetite"), line: tk("Smaller meals with plenty of protein, on every menu"), icon: "shrink", triggers: ["smallAppetite"], on: true, headline: false },
-  { id: "bestForYou", title: tk("Top 5 picks"), line: tk("For your goal at every restaurant"), icon: "star", triggers: ["bestForYou"], on: true, headline: false },
+  // "on every menu" and "at every restaurant" were untrue (meeting 21 November 2026, Olivia: about half the restaurants publish no protein, and neither list is
+  // shown for them: PresetPills.tsx, Best for you), so both say where they work (rule 8, a correction).
+  { id: "smallAppetite", title: tk("Small appetite"), line: tk("Smaller meals with plenty of protein, at restaurants that publish protein"), icon: "shrink", triggers: ["smallAppetite"], on: true, headline: false },
+  { id: "bestForYou", title: tk("Top 5 picks"), line: tk("For your goal at restaurants that publish protein"), icon: "star", triggers: ["bestForYou"], on: true, headline: false },
   { id: "leaderboards", title: tk("Nutrition leaderboards"), line: tk("All {n} on every board, every shop"), values: { n: BOARD_SIZE }, icon: "podium", triggers: ["leaderboard"], on: true, headline: false },
   { id: "savedOrders", title: tk("Saved orders"), line: tk("As many as you like"), icon: "bookmark", triggers: ["saveLimit"], on: true, headline: false },
 ];

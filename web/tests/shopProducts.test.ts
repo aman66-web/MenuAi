@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { decodeShopProducts, isShopFile, isShopManifest, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, typedMatches, unitWord, type ShopFile, type ShopManifest, type ShopProduct } from "../lib/mm/shopProducts";
+import { decodeShopProducts, isShopFile, isShopManifest, listAddOutcome, nutritionBasis, possessive, recipeShops, searchShopProducts, shopPageUrl, shopPhotoUrl, typedMatches, unitWord, type ShopFile, type ShopManifest, type ShopProduct } from "../lib/mm/shopProducts";
 
 const file: ShopFile = {
   v: 1, retailer: "sainsburys", name: "Sainsbury's", checkedOn: "2026-10-08", pageBase: "https://www.sainsburys.co.uk/groceries/product/", photoBase: "https://assets.sainsburys-groceries.co.uk/gol/",
@@ -63,6 +63,11 @@ describe("every-product lists", () => {
     expect(searchShopProducts(ps, { sort: "price" }).map((p) => p.id)).toEqual(["c-1", "b-1", "a-1"]);
     expect(searchShopProducts(ps, { sort: "priceDesc" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
     expect(searchShopProducts(ps, { sort: "unit" }).map((p) => p.id)).toEqual(["b-1", "c-1", "a-1"]);
+  });
+  it("by price per kg or litre, ranks only prices per kg or per litre: a price each (sweetener tablets) goes last with no unit price (the 30-person meeting, 21 November 2026)", () => {
+    const row = (id: string, unitPrice: number | null, unit: string) => [id, `Item ${id}`, 1, unitPrice, unit, null, null, 0, "", ""] as ShopFile["products"][number];
+    const ps = decodeShopProducts({ ...file, products: [row("tablets-1", 0.01, "each"), row("oats-1", 1.2, "per kg"), row("milk-1", 0.9, "per litre"), row("none-1", null, "")] });
+    expect(searchShopProducts(ps, { sort: "unit" }).map((p) => p.id)).toEqual(["milk-1", "oats-1", "none-1", "tablets-1"]);
   });
   it("by protein per 100 kcal, a product with under 1 g of protein goes after the others", () => {
     const row = (id: string, kcal: number, protein: number) => [id, `Item ${id}`, 1, null, "", null, null, 0, "", "", [kcal, protein, 1, 0, null, null, null, null, null, "ml", ""]] as ShopFile["products"][number];
@@ -262,4 +267,20 @@ describe("the review of 2026-11-20", () => {
     const priced = [...ps].sort((a, b) => (a.price ?? Infinity) - (b.price ?? Infinity) || letter(a) - letter(b) || a.name.localeCompare(b.name, "en-GB", { sensitivity: "base" })).map((p) => p.name);
     expect(searchShopProducts(ps, { sort: "price" }).map((p) => p.name)).toEqual(priced);
   }, 120_000);
+});
+
+describe("what one add to the shopping list really did (the 30-person meeting, 21 November 2026: an add that changed nothing still said \"Added\")", () => {
+  const item = { gtin: "5000168001142", retailer: "tesco", name: "Beans", brand: "", size: "" };
+  const on = (qty: number, extra: Record<string, unknown> = {}) => ({ ...item, qty, addedAt: "2026-11-21T00:00:00.000Z", ...extra });
+  it("is added for a new line, one more, or a line put back from the basket", () => {
+    expect(listAddOutcome([], [on(1)], item)).toBe("added");
+    expect(listAddOutcome([on(1)], [on(2)], item)).toBe("added");
+    expect(listAddOutcome([on(20, { done: true })], [on(20)], item)).toBe("added");
+  });
+  it("is most when it was on already at the most for one item, and full when there was no room for it", () => {
+    expect(listAddOutcome([on(20)], [on(20)], item)).toBe("most");
+    expect(listAddOutcome([], [], item)).toBe("full");
+    // on another list it is another line
+    expect(listAddOutcome([on(20)], [on(20)], { ...item, list: "l-1" })).toBe("full");
+  });
 });

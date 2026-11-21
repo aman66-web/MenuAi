@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/site.config";
-import { AccountError } from "@/lib/mm/account";
+import { AccountError, appleDeleteConfirm } from "@/lib/mm/account";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { localeInfo } from "@/lib/mm/i18n";
 import { APP_BUILD, APP_PREMIUM, IAP_ENABLED } from "@/lib/mm/config";
@@ -95,9 +95,14 @@ export function AccountSection() {
     setBusy(true);
     try {
       // An account that signs in with Apple: Apple's own sheet confirms, and gives us the one-time code that lets the server tell Apple the
-      // sign-in is over (App Review 5.1.1(v)). If the sheet is closed or unavailable the account is still deleted.
+      // sign-in is over (App Review 5.1.1(v)). Cancelling Apple's sheet deletes nothing (the meeting of 21 November 2026, Ben: a cancel went on to delete the
+      // account); our sheet stays open. If Apple's sheet is unavailable, fails or times out, the account is still deleted. 11 minutes, as the sign-in sheets.
       let appleCode: string | undefined;
-      if (appleConfirms) appleCode = (await nativeCall("appleSignIn")).appleCode;
+      if (appleConfirms) {
+        const confirmed = await appleDeleteConfirm(() => nativeCall("appleSignIn", {}, 11 * 60_000));
+        if (!confirmed) return;
+        appleCode = confirmed.appleCode;
+      }
       await deleteAccount(appleCode);
       setDeleteOpen(false);
       setMessage(t("Your account has been deleted. Your data stays on this device."));
@@ -145,11 +150,12 @@ export function AccountSection() {
         <p className="mt-2 text-[0.875rem] leading-snug text-muted">{t("Deletes your account and everything synced for it.")}</p>
       </div>
 
-      {/* Sign out asks first (the audit, 20 November 2026): where everyone signs in, it ends the use of the app on this phone until they sign in again */}
+      {/* Sign out asks first (the audit, 20 November 2026): where everyone signs in, it ends the use of the app on this phone until they sign in again.
+          The meal plan is removed on sign-out (the meeting of 21 November 2026, Ben: "What's on this phone stays here" was untrue for it), so the sheet says so. */}
       <Sheet open={signOutOpen} onClose={() => setSignOutOpen(false)} title={APP_BUILD ? t("Sign out on this phone?") : t("Sign out on this device?")}>
         <p className="pt-1 text-base leading-snug">{signInRequired
           ? (APP_BUILD ? t("You'll need to sign in again to use {app}. What's on this phone stays here.", { app: site.name }) : t("You'll need to sign in again to use {app}. What's on this device stays here.", { app: site.name }))
-          : (APP_BUILD ? t("What's on this phone stays here, and you can keep using {app} without an account.", { app: site.name }) : t("What's on this device stays here, and you can keep using {app} without an account.", { app: site.name }))}</p>
+          : (APP_BUILD ? t("What's on this phone stays here, and you can keep using {app} without an account.", { app: site.name }) : t("What's on this device stays here, and you can keep using {app} without an account.", { app: site.name }))}{" "}{t("Your meal plan is removed.")}</p>
         <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-2 pb-2">
           <Button full variant="secondary" className="min-h-12 text-base" onClick={() => setSignOutOpen(false)}>{t("Stay signed in")}</Button>
           <Button full className="min-h-12 text-base" busy={busy} onClick={() => void out()}>{t("Sign out")}</Button>
@@ -160,8 +166,8 @@ export function AccountSection() {
         {/* the live switch (numbite.com can make sign-in optional), not the build's constant */}
         <p className="pt-1 text-base leading-snug">{signInRequired
           ? t("This deletes your account and everything we've synced for it. This can't be undone. To use {app} again, you'll need to create a new account.", { app: site.name })
-          : t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}</p>
-        {appleConfirms && <p className="mt-2.5 text-base leading-snug">{t("Apple will ask you to confirm with Face ID or your passcode. That tells Apple your account is closed.")}</p>}
+          : <>{t("This deletes your account and everything we've synced for it. The data on this device stays, so you can keep using {app} without an account. This can't be undone.", { app: site.name })}{" "}{t("Your meal plan is removed.")}</>}</p>
+        {appleConfirms && <p className="mt-2.5 text-base leading-snug">{t("Apple will ask you to confirm. That tells Apple your account is closed.")}</p>}
         {/* An App Store subscription is between the person and Apple: deleting the account can't cancel it (founder 2026-11-17 asked; Apple expects the app to say
             so here and show how to cancel). In the iPhone app the button opens Apple's own screen; on the website, Apple's subscriptions page. */}
         {APP_PREMIUM && (

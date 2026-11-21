@@ -5,17 +5,18 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { loggableFromListed, loggableFromShop, withShopLabel, type LoggableProduct } from "@/lib/mm/addFood";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
-import { barcodeDigits, barcodeShown, labelledHits, normaliseBarcode, sameBarcode, scanHref, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
+import { barcodeDigits, barcodeShown, hasLabel, labelledHits, normaliseBarcode, sameBarcode, scanHref, scannedItemHref, shopItemHref, type BarcodeHit } from "@/lib/mm/barcodes";
 import { cheapestRetailer, forRetailer, formatPrice, mergeProducts, photoSources, priceRating, RETAILERS, retailerName, sizeVariants, type GroceryFile, type ListedProduct } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { avoidedAllergens, foodDietNotChecked, foodDietProblem, listedFacts } from "@/lib/mm/foodDiet";
 import type { Allergens, LogMeal } from "@/lib/mm/types";
 import type { LogEntry } from "@/lib/mm/user-data";
 import { withPhoto } from "@/lib/mm/groceries";
+import type { CompareItem } from "@/lib/mm/compare";
 import { CompareButton } from "../../_components/CompareButton";
 import { compareFoodFromListed } from "../../_lib/compare";
 import { AllergenTable } from "../../_components/Allergens";
-import { useOpenFoodFacts } from "../../_components/addfood/findByBarcode";
+import { shopNameFor, useOpenFoodFacts } from "../../_components/addfood/findByBarcode";
 import { DiaryButton, DiaryToast, NotFound, SourceNote, useTypedDiary } from "../../_components/addfood/ProductPick";
 import { PremiumBadge } from "../../_components/PremiumBadge";
 import { CopyIcon, ExternalIcon, InfoIcon, PencilIcon, PlusIcon, ScanIcon } from "../../_components/icons";
@@ -34,7 +35,7 @@ import { NutritionPanel } from "../NutritionPanel";
 import { CARD, CHIP, CHIP_ON, FootNote, HEADING, LABEL, NOTE } from "../PageBits";
 import { ProductPhotoFigure } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
-import { listHref, useAddToList } from "../ListChoice";
+import { addedText, listHref, useAddToList } from "../ListChoice";
 
 // A product from the supermarket lists (docs/GROCERIES_PLAN.md): photo, per-100 g numbers, price where known, the 14 allergens, the barcode.
 // Looks follow Home (founder 2026-10-15): one white card holding the picture, the name as a big title and the nutrition as Home's macro rows; the
@@ -56,7 +57,8 @@ const SEARCH_LINKS: Record<string, (code: string) => string> = {
   ocado: (c) => `https://www.ocado.com/search?entry=${c}`,
 };
 
-type State = { status: "loading" } | { status: "missing" } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
+/** "missing": `name` is a shop list's name for a barcode it holds with no label (the typed entry starts with it), else "". */
+type State = { status: "loading" } | { status: "missing"; name: string } | { status: "error" } | { status: "ready"; product: ListedProduct; all: ListedProduct[] };
 
 /** A small tag beside a price ("Lowest", "Lowest with card") that can't be tapped: 6 px corners, bold ink words, flat in the page fill inside the card. */
 const MARK = "inline-flex items-center rounded-[0.375rem] bg-fill px-2 py-1 text-[0.8125rem] font-bold leading-snug text-foreground";
@@ -86,8 +88,11 @@ function LabelRows({ text }: { text: string }) {
   );
 }
 
-/** The numbers a shop list holds for this barcode from a shop's own label (or the same product's label at another shop), `prefer`'s first; null when none. */
-function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggableProduct | null {
+/**
+ * The numbers a shop list holds for this barcode from a shop's own label (or the same product's label at another shop), `prefer`'s first; null when none, and
+ * undefined while they load (the 30-person meeting, 21 November 2026, Maya: the community numbers showed first and then changed).
+ */
+function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggableProduct | null | undefined {
   const key = hit ? `${hit.code}|${prefer ?? ""}` : "";
   const [got, setGot] = useState<{ key: string; product: LoggableProduct | null } | null>(null);
   useEffect(() => {
@@ -106,7 +111,8 @@ function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggablePr
     })();
     return () => { live = false; };
   }, [hit, prefer, key]);
-  return got?.key === key ? got.product : null;
+  if (!hit) return null;
+  return got?.key === key ? got.product : undefined;
 }
 
 /**
@@ -115,7 +121,7 @@ function useShopLabel(hit: BarcodeHit | null, prefer: string | null): LoggablePr
  * photo, name and per-100 figures, said to be community data with the ODbL credit, and "Add to my food diary" as the page's one ink button. Nobody has figures (or
  * no barcode to ask): the calm "We don't have this one yet" and "Type the numbers from the pack" (starting with Open Food Facts' name where it knows the product).
  */
-function NotInOurLists({ digits }: { digits: string | null }) {
+function NotInOurLists({ digits, name = "" }: { digits: string | null; /** A shop list's name for it, where one holds it with no label. */ name?: string }) {
   const t = useT();
   const router = useRouter();
   const [retry, setRetry] = useState(0);
@@ -123,7 +129,7 @@ function NotInOurLists({ digits }: { digits: string | null }) {
   const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
   const added = (entry: LogEntry, meal: LogMeal) => setDiary({ entry, meal });
   const typed = useTypedDiary(added);
-  const off = useOpenFoodFacts(digits, digits ? t("Barcode {code}", { code: digits }) : "", retry);
+  const off = useOpenFoodFacts(digits, digits ? name || t("Barcode {code}", { code: digits }) : "", retry);
   const again = <Button variant="secondary" full className="min-h-12" onClick={() => setScanning(true)}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan again")}</Button>;
   const ends = (
     <>
@@ -174,11 +180,12 @@ function NotInOurLists({ digits }: { digits: string | null }) {
       <div className="mt-4">
         {off?.status === "error" ? (
           <div className="space-y-3">
-            <ErrorBox message={t("Couldn't look it up. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} />
-            <Button variant="secondary" full className="min-h-12" onClick={() => typed.type("")}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}{badge}</Button>
+            {/* the connection only when it is the connection (Open Food Facts down, or our server busy, isn't: the 30-person meeting, 21 November 2026) */}
+            <ErrorBox message={off.offline ? t("Couldn't look it up. Check your connection.") : t("Couldn't look it up just now. Try again.")} onRetry={() => setRetry((n) => n + 1)} />
+            <Button variant="secondary" full className="min-h-12" onClick={() => typed.type(name)}><PencilIcon aria-hidden className="h-5 w-5" />{t("Type the numbers from the pack")}{badge}</Button>
           </div>
         ) : (
-          <NotFound name={off?.status === "missing" ? off.name : ""} code={digits ?? undefined} onType={typed.type} badge={badge} />
+          <NotFound name={off?.status === "missing" ? off.name || name : name} code={digits ?? undefined} onType={typed.type} badge={badge} />
         )}
       </div>
       <div className="mt-2.5 grid gap-2.5">
@@ -209,8 +216,9 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const hit = loaded?.key === key ? loaded.hit : null;
   const [added, setAdded] = useState<{ text: string; href: string; n: number } | null>(null);
   const [diary, setDiary] = useState<{ entry: LogEntry; meal: LogMeal } | null>(null);
-  // to the main list, or (when the person has lists for that shop) the one they choose; said in the toast, each add a new one
-  const { add, sheet } = useAddToList((list) => { setDiary(null); setAdded((was) => ({ ...(list ? { text: t("Added to {list}.", { list: list.name }), href: listHref(list.id) } : { text: t("Added to your Shopping list."), href: listHref() }), n: (was?.n ?? 0) + 1 })); });
+  // to the main list, or (when the person has lists for that shop) the one they choose; said in the toast, each add a new one, and an add that changed nothing says
+  // why (addedText)
+  const { add, sheet } = useAddToList((list, _item, outcome) => { setDiary(null); setAdded((was) => ({ text: addedText(t, list, outcome), href: listHref(list?.id), n: (was?.n ?? 0) + 1 })); });
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -218,7 +226,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
     const done = (st: State, h: BarcodeHit | null = null) => { if (!cancelled) setLoaded({ key, state: st, hit: h }); };
     (async () => {
       try {
-        if (!digits || !wanted) return done({ status: "missing" });
+        if (!digits || !wanted) return done({ status: "missing", name: "" });
         const mine = mineKey ? mineKey.split(",") : [];
         // where the barcode is (public/groceries/all/barcodes.json); undefined when that file can't be loaded (then every catalogue file is looked in)
         let found: BarcodeHit | null | undefined;
@@ -231,14 +239,18 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
           found = shops.length || catalogue.length ? { ...found, shops, catalogue } : null;
         }
         if (cancelled) return;
-        // a scan of a product in a shop's full list opens that shop's own page for it (the person's own shop first); so does a link to a barcode only those lists hold
-        if (found && found.shops.length > 0 && (scan || found.catalogue.length === 0)) {
-          const target = (!scan && found.shops.find((h) => h.shop === retailerHint)) || found.shops[0]!;
-          // a scan says so, and that page then puts "Add to my food diary" first
-          router.replace(scan ? scannedItemHref(target) : shopItemHref(target));
-          return;
+        // a scan of a product in a shop's full list opens that shop's own page for it where a row there has its numbers (the person's own shop first); so does a link
+        // to a barcode only those lists hold. A scan whose rows have no numbers goes on to the catalogue's record, else to Open Food Facts and "Type the numbers from
+        // the pack" (the 30-person meeting, 21 November 2026, Maya and Grace: it opened a page with no numbers and no food diary, and Open Food Facts was never asked)
+        if (found && found.shops.length > 0) {
+          const target = scan ? found.shops.find(hasLabel) : found.catalogue.length === 0 ? found.shops.find((h) => h.shop === retailerHint) || found.shops[0] : undefined;
+          if (target) {
+            // a scan says so, and that page then puts "Add to my food diary" first
+            router.replace(scan ? scannedItemHref(target) : shopItemHref(target));
+            return;
+          }
         }
-        if (found === null || (found && found.catalogue.length === 0)) return done({ status: "missing" }, found ?? null);
+        if (found === null || (found && found.catalogue.length === 0)) return done({ status: "missing", name: await shopNameFor(found ?? null) }, found ?? null);
         // only the catalogue files that hold this barcode, all at once (2026-11-20: every file, one after another, about 10 MB, before anything showed)
         let ids: string[];
         if (found) ids = [...found.catalogue.filter((r) => r === retailerHint), ...found.catalogue.filter((r) => r !== retailerHint)];
@@ -254,7 +266,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         const pricedHit = priced.find((p) => sameBarcode(p.gtin, held));
         const all = pricedHit ? priced : mergeProducts(files);
         const product = pricedHit ?? all.find((p) => sameBarcode(p.gtin, held));
-        done(product ? { status: "ready", product, all } : { status: "missing" }, found ?? null);
+        done(product ? { status: "ready", product, all } : { status: "missing", name: await shopNameFor(found ?? null) }, found ?? null);
       } catch {
         done({ status: "error" });
       }
@@ -265,13 +277,16 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const listed = state.status === "ready" ? state.product : null;
   // Opened from a supermarket: that shop's own name, size, numbers and price lead; the others are listed below it.
   const selected = listed ? (retailerHint && listed.retailers.includes(retailerHint) ? retailerHint : listed.retailers[0]!) : null;
-  // the shop's own label always wins over community numbers (2026-11-20: the same product showed two sets of numbers, and Add food logged the wrong one)
-  const shopLabel = useShopLabel(listed ? hit : null, selected);
+  // the shop's own label always wins over community numbers (2026-11-20: the same product showed two sets of numbers, and Add food logged the wrong one); while it
+  // loads, nothing it would change is shown (the 30-person meeting, 21 November 2026, Maya: the community numbers flashed first)
+  const labelled = useShopLabel(listed ? hit : null, selected);
+  const labelLoading = labelled === undefined && !!hit && labelledHits(hit, selected).length > 0;
+  const shopLabel = labelled ?? null;
 
   const back = <PageHeader back={{ href: "/app/groceries", label: t("Back to groceries") }} list />;
   if (state.status === "loading") return (<div>{back}<Spinner label={t("Loading product")} /></div>);
   if (state.status === "error") return (<div>{back}<div className="mt-4"><ErrorBox message={t("Couldn't load this product. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
-  if (state.status === "missing" || !listed || !selected) return (<div>{back}<NotInOurLists key={digits ?? ""} digits={wanted ? digits : null} /></div>);
+  if (state.status === "missing" || !listed || !selected) return (<div>{back}<NotInOurLists key={digits ?? ""} digits={wanted ? digits : null} name={state.status === "missing" ? state.name : ""} /></div>);
 
   const p = forRetailer(listed, selected);
   const cheapestPrice = Math.min(...Object.values(listed.prices).map((x) => x.amount));
@@ -307,6 +322,20 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const notChecked = foodDietNotChecked(prefs, t);
   const outLink = "font-semibold text-accent underline underline-offset-4";
   const loggable = shopLabel ? withShopLabel(loggableFromListed(listed, selected), shopLabel) : loggableFromListed(listed, selected);
+  // Compare takes the figures the page shows: a shop's label where one is read (the 30-person meeting, 21 November 2026, Maya: it added the community numbers),
+  // said as another shop's when the label is from another shop's page
+  const compareBase = compareFoodFromListed(listed, selected);
+  const labelFrom = shopLabel ? (shopLabel.source.kind === "same" ? shopLabel.source.shop : shopLabel.shop ?? selected) : selected;
+  const compareItem: CompareItem = shopLabel
+    ? {
+        ...compareBase,
+        basis: shopLabel.per,
+        numbers: { kcal: fig.kcal, protein: fig.protein, carbs: fig.carbs, sugars: fig.sugars ?? null, fat: fig.fat, saturates: fig.saturates ?? null, fibre: fig.fibre ?? null, salt: fig.salt ?? null },
+        source: labelFrom === selected ? "label" : "same",
+        ...(labelFrom === selected ? {} : { sourceShop: retailerName(labelFrom) }),
+        ...(shopLabel.state ? { note: shopLabel.state } : {}),
+      }
+    : compareBase;
   const shopsToAdd = [...p.retailers].sort((x, y) => Number(y === selected) - Number(x === selected));
   const others = shopsToAdd.length - 1;
 
@@ -328,21 +357,24 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         ) : dietProblem ? <InfoLine heading={null} className="mt-4">{t("This product doesn't fit your diet settings, going by its name, type and label.")}</InfoLine> : null}
         {notChecked && <InfoLine heading={null} className="mt-3">{notChecked}</InfoLine>}
         {/* reached by a scan: the food diary is why, so its button is the page's one ink button, under the name and any allergy note (the design review of 2026-11-20) */}
-        {scan && <DiaryButton main product={loggable} className="mt-5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+        {scan && !labelLoading && <DiaryButton main product={loggable} className="mt-5 min-h-[3.25rem] text-base" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+        {/* one spinner in the numbers' place while the shop's label loads; the source line, the diary button and Compare wait for it too */}
         <div className="mt-7">
-          <NutritionPanel
-            kcal={fig.kcal} protein={fig.protein} carbs={fig.carbs} fat={fig.fat} basis={per} rows={rows}
-            groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: fig.kcal, protein: fig.protein, carbs: fig.carbs, fat: fig.fat, per })}
-          />
+          {labelLoading ? <Spinner label={t("Loading product")} /> : (
+            <NutritionPanel
+              kcal={fig.kcal} protein={fig.protein} carbs={fig.carbs} fat={fig.fat} basis={per} rows={rows}
+              groupLabel={t("{name}, {kcal} calories, {protein} grams protein, {carbs} grams carbs, {fat} grams fat {per}", { name: p.name, kcal: fig.kcal, protein: fig.protein, carbs: fig.carbs, fat: fig.fat, per })}
+            />
+          )}
         </div>
-        {p.serving && !shopLabel && (
+        {p.serving && !shopLabel && !labelLoading && (
           <p className={`app-numbers mt-5 rounded-2xl bg-fill px-4 py-3 ${NOTE}`}>
             {t("Per serving ({size}): {kcal} kcal · {protein} g protein · {carbs} g carbs · {fat} g fat", { size: p.serving.size, kcal: Math.round(p.serving.kcal), protein: p.serving.protein, carbs: p.serving.carbs, fat: p.serving.fat })}
           </p>
         )}
       </div>
 
-      <p className={`mt-3 px-1 ${NOTE}`}>
+      <p className={`mt-3 px-1 ${NOTE} ${labelLoading ? "hidden" : ""}`}>
         {shopLabel
           ? shopLabel.source.kind === "same"
             ? t("Read from the same product's page on {shopPossessive} website.", { shopPossessive: poss(retailerName(shopLabel.source.shop)) })
@@ -446,13 +478,14 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
           {/* the shop you came from first, across the card's width; the others in equal cells two to a row under it (one a row at large text); a lone one
               left over takes the whole row */}
           {shopsToAdd.map((r, i) => (
-            <Button key={r} variant={r === selected && !scan ? "primary" : "secondary"} className={r === selected || (others % 2 === 1 && i === shopsToAdd.length - 1) ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...withPhoto(photoSources(listed, r)) })}>
+            // the shelf price that shop's list shows goes with it, as from every other page (the 30-person meeting, 21 November 2026, Leo: it was dropped)
+            <Button key={r} variant={r === selected && !scan ? "primary" : "secondary"} className={r === selected || (others % 2 === 1 && i === shopsToAdd.length - 1) ? "col-span-full" : "px-3! text-balance"} onClick={() => add({ gtin: listed.gtin, retailer: r, name: forRetailer(listed, r).name, brand: listed.brand, size: forRetailer(listed, r).size, ...(listed.prices[r] ? { price: listed.prices[r]!.amount, checkedOn: listed.prices[r]!.checkedOn } : {}), ...withPhoto(photoSources(listed, r)) })}>
               {r === selected && <PlusIcon className="h-[18px] w-[18px]" />}{r === selected ? t("Add to my list") : t("Add · {shop}", { shop: retailerName(r) })}
             </Button>
           ))}
         </div>
         {/* the food diary: the same "How much?" step as Add food (founder 2026-11-20); at the top instead when the page was reached by a scan */}
-        {!scan && <DiaryButton product={loggable} className="mt-2.5" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
+        {!scan && !labelLoading && <DiaryButton product={loggable} className="mt-2.5" onAdded={(entry, meal) => { setAdded(null); setDiary({ entry, meal }); }} />}
         {added && (
           <Toast key={added.n} onClose={() => setAdded(null)}>
             <span>{added.text}</span> <Link href={added.href} className="font-bold text-on-ink underline underline-offset-2">{t("Open your shopping list")}</Link>
@@ -462,7 +495,7 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
         {sheet}
       </div>
 
-      <div className="mt-3.5"><CompareButton full item={compareFoodFromListed(listed, selected)} /></div>
+      {!labelLoading && <div className="mt-3.5"><CompareButton full item={compareItem} /></div>}
 
       {p.other && (
         <section aria-labelledby="more-label-heading" className={`${CARD} mt-3.5 p-5`}>

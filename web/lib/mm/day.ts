@@ -49,11 +49,14 @@ export function shortDate(d: Date, htmlLang: string): string {
 
 /**
  * A day as the day page's title writes it: "Thu, Nov 19" in English (weekday, then month first, the same English as Home's "Nov 20"; the 30-person audit,
- * 20 November 2026: it said "Thu 19 Nov" under Home's "Nov 20"), and each other language's own short form through the browser's date formatting.
+ * 20 November 2026: it said "Thu 19 Nov" under Home's "Nov 20"), and each other language's own short form through the browser's date formatting. Given `now`,
+ * a day from another year carries its year, "Thu, Nov 20, 2025" (the calendar reaches back years: without it, last November's day read as this one's; Femi,
+ * the 30-person meeting, 21 November 2026).
  */
-export function dayTitle(d: Date, htmlLang: string): string {
+export function dayTitle(d: Date, htmlLang: string, now?: Date): string {
   const lang = /^en(-|$)/i.test(htmlLang) ? "en-US" : htmlLang;
-  const opts: Intl.DateTimeFormatOptions = { weekday: "short", month: "short", day: "numeric" };
+  const otherYear = !!now && d.getFullYear() !== now.getFullYear();
+  const opts: Intl.DateTimeFormatOptions = { weekday: "short", month: "short", day: "numeric", ...(otherYear ? { year: "numeric" } : {}) };
   try {
     return new Intl.DateTimeFormat(lang, opts).format(d);
   } catch {

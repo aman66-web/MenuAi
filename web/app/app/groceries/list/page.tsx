@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, MAX_QTY, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
+import { addToList, customItem, CUSTOM_RETAILER, formatPrice, groupName, itemCode, itemsOnList, knownLists, listAsText, listOf, listTotals, MAIN_LIST, MAX_QTY, MAX_SHOPPING_ITEMS, newShoppingList, sameEntry, setQty, swapItem, toggleDone, type ShoppingItem } from "@/lib/mm/groceries";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
 import { nextToBuy, withoutWhatTheyHave } from "@/lib/mm/listRecipes";
@@ -28,7 +28,7 @@ import { CARD, LABEL, PILL_INPUT, TITLE } from "../PageBits";
 import { ListThumb } from "../ProductPhoto";
 import { ProductMini } from "../ProductMini";
 import { RecipeThumb, RecipeThumbStack, hasRecipePicture } from "../../recipes/RecipeThumb";
-import { shopPhotoSources } from "@/lib/mm/shopProducts";
+import { listAddOutcome, shopPhotoSources } from "@/lib/mm/shopProducts";
 import { listHref } from "../ListChoice";
 import { NewListSheet } from "./NewListSheet";
 import { ChooseSheet } from "./ChooseSheet";
@@ -113,6 +113,14 @@ function ShoppingListScreen() {
   const selecting = selectingOn === listId;
   const setSelecting = (on: boolean) => setSelectingOn(on ? listId : null);
   const [picked, setPicked] = useState<ReadonlySet<string>>(new Set());
+  // switching list ends Select for good, so coming back to the list it began on doesn't find it still on (the 30-person meeting, 21 November 2026, Leo); set while
+  // rendering, as React advises for state that follows a value, so no frame shows the old Select
+  const [shownList, setShownList] = useState(listId);
+  if (shownList !== listId) {
+    setShownList(listId);
+    setSelectingOn(null);
+    setPicked(new Set());
+  }
   const pickKey = (i: ShoppingItem) => `${itemCode(i)}|${i.retailer}`;
   const pickedNow = list.filter((i) => picked.has(pickKey(i)));
   const allPicked = list.length > 0 && pickedNow.length === list.length;
@@ -178,9 +186,17 @@ function ShoppingListScreen() {
     e.preventDefault();
     const item = customItem(typed);
     if (!item) { typedBox.current?.focus(); return; } // Add is always on: with nothing typed, it puts the cursor in the field
-    shoppingStore.update((l) => addToList(l, { ...item, list: listId || undefined })); // onto the list shown
+    const entry = { ...item, list: listId || undefined }; // onto the list shown
+    let outcome = "added" as ReturnType<typeof listAddOutcome>; // set inside update, which runs at once
+    shoppingStore.update((l) => {
+      const next = addToList(l, entry);
+      outcome = listAddOutcome(l, next, entry);
+      return next;
+    });
+    // an add that changed nothing says why, never "Added" (the 30-person meeting, 21 November 2026, Leo)
+    if (outcome === "full") { setNote(t("Added {n} of {total}: your lists are full ({max} items). Remove ticked things to make room.", { n: 0, total: 1, max: MAX_SHOPPING_ITEMS })); return; }
     setTyped("");
-    setNote(t("Added “{name}”.", { name: item.name }));
+    setNote(outcome === "most" ? t("{n} is the most for one item.", { n: MAX_QTY }) : t("Added “{name}”.", { name: item.name }));
   };
   /** The same item: its code, its shop and its list. */
   const sameItem = sameEntry;
@@ -276,11 +292,11 @@ function ShoppingListScreen() {
       {hydrated && lists.length > 0 && (
         <nav aria-label={t("Your shopping lists")} className="mt-4 flex flex-wrap gap-2">
           <Link href={listHref()} replace scroll={false} aria-current={!current ? "page" : undefined} className={listChip(!current)}>
-            {!current && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<BasketIcon aria-hidden className="h-5 w-5 shrink-0" /><span className="min-w-0 [overflow-wrap:anywhere]">{chipLabel(t("Shopping list"), toGet(""))}</span>
+            {!current && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<BasketIcon aria-hidden className="h-5 w-5 shrink-0" /><ChipLabel name={t("Shopping list")} n={toGet("")} />
           </Link>
           {lists.map((l) => (
             <Link key={l.id} href={listHref(l.id)} replace scroll={false} aria-current={current?.id === l.id ? "page" : undefined} className={listChip(current?.id === l.id)}>
-              {current?.id === l.id && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<ShopMark shopId={l.shop} size="xs" /><span className="min-w-0 [overflow-wrap:anywhere]">{chipLabel(l.name, toGet(l.id))}</span>
+              {current?.id === l.id && <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4 shrink-0" />}<ShopMark shopId={l.shop} size="xs" /><ChipLabel name={l.name} n={toGet(l.id)} />
             </Link>
           ))}
           <button type="button" onClick={() => setCreating(true)} className="border-[1.5px] border-edge bg-card text-foreground inline-flex min-h-12 max-w-full items-center gap-2 rounded-full ps-2.5 pe-4 text-[0.9375rem] font-bold transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
@@ -334,7 +350,8 @@ function ShoppingListScreen() {
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="block text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]">{t("What can I cook with this?")}</span>
               <span className="app-numbers mt-0.5 block text-[0.9375rem] leading-snug">
-                {matches === null ? (state?.status === "error" ? t("See recipes that use what's on your list.") : t("Looking through the recipes…")) : matches.length === 0 ? t("No recipe uses these yet. See all recipes.") : matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}
+                {/* no recipe shop (or the shops' list couldn't load) is said like a failure, never "Looking…" for ever (the 30-person meeting, 21 November 2026, Leo) */}
+                {matches === null ? (state === null || state.status === "error" ? t("See recipes that use what's on your list.") : t("Looking through the recipes…")) : matches.length === 0 ? t("No recipe uses these yet. See all recipes.") : matches.length === 1 ? t("1 recipe uses something on your list") : t("{n} recipes use something on your list", { n: matches.length })}
               </span>
             </span>
             <span aria-hidden className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-on-ink transition-transform group-hover:translate-x-0.5"><ArrowRightIcon className="h-5 w-5" /></span>
@@ -395,6 +412,9 @@ function ShoppingListScreen() {
                     );
                     // 48 px here (ListThumb's own 56 px made Swap and the − / + wrap onto two lines on a 375-390 px iPhone)
                     const thumb = <span className="block [&>span]:h-12 [&>span]:w-12"><ListThumb sources={photosOf(i)} /></span>;
+                    // one id per row with no spaces (aria-describedby is a list of ids split at spaces: a typed "oat milk" pointed at nothing); encodeURIComponent
+                    // never writes ":", so swapping its "%" for ":" keeps every row's id its own (the 30-person meeting, 21 November 2026, Leo)
+                    const mostId = `most-${i.retailer}-${encodeURIComponent(code).replace(/%/g, ":")}`;
                     return (
                       <li key={`${code}|${i.retailer}`} className="relative flex min-h-[4.5rem] items-start gap-x-1.5 px-2 py-2 pe-2.5 before:pointer-events-none before:absolute before:end-0 before:start-[3.25rem] before:top-0 before:h-px before:bg-line first:before:hidden">
                         {selecting ? (
@@ -422,10 +442,13 @@ function ShoppingListScreen() {
                         )}
                         {/* the picture sits beside the name; what's left of the row under it is the quantity (a long name no longer squeezes against − and +) */}
                         <div className="flex min-w-0 flex-1 items-start gap-2.5 py-1">
-                          {/* the picture opens the product too; the name beside it is the link a screen reader and the keyboard use */}
-                          {href ? <Link href={href} tabIndex={-1} aria-hidden className="shrink-0">{thumb}</Link> : thumb}
+                          {/* the picture opens the product too; the name beside it is the link a screen reader and the keyboard use. While selecting, neither opens
+                              anything: a tap on the row picks it, as its box does (the 30-person meeting, 21 November 2026, Leo: tapping a name opened the product and
+                              lost the selection) */}
+                          {href && !selecting ? <Link href={href} tabIndex={-1} aria-hidden className="shrink-0">{thumb}</Link> : thumb}
                           <div className="min-w-0 flex-1">
-                            {href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
+                            {selecting ? <button type="button" tabIndex={-1} aria-hidden onClick={() => flipPick(i)} className="block w-full py-0.5 text-start">{body}</button>
+                              : href ? <Link href={href} className="block py-0.5">{body}</Link> : <div className="py-0.5">{body}</div>}
                             {/* "Swap" (a shop's product only: something similar at the same shop takes its place) at the start, − and + at the end; at large text they wrap */}
                             <div className={`mt-1 flex-wrap items-center justify-end gap-x-1 gap-y-1 ${selecting ? "hidden" : "flex"}`}>
                               {i.custom && chooseShops.length > 0 && (
@@ -442,10 +465,10 @@ function ShoppingListScreen() {
                                 <button type="button" aria-label={t("One fewer {name}", { name: i.name })} onClick={() => (i.qty <= 1 ? withUndo(tk("Removed “{name}” from your list."), { name: i.name }, () => shoppingStore.update((l) => setQty(l, code, i.retailer, 0, listId))) : shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty - 1, listId)))} className={qtyButton}><MinusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
                                 {/* the figure is drawn; a screen reader hears "Quantity 2" (aria-label on a plain span is not read) */}
                                 <span className="app-numbers w-7 text-center font-mono text-base"><span aria-hidden>{i.qty}</span><span className="sr-only">{t("Quantity {n}", { n: i.qty })}</span></span>
-                                <button type="button" aria-label={t("One more {name}", { name: i.name })} disabled={i.qty >= MAX_QTY} aria-describedby={i.qty >= MAX_QTY ? `most-${code}` : undefined} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><PlusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
+                                <button type="button" aria-label={t("One more {name}", { name: i.name })} disabled={i.qty >= MAX_QTY} aria-describedby={i.qty >= MAX_QTY ? mostId : undefined} onClick={() => shoppingStore.update((l) => setQty(l, code, i.retailer, i.qty + 1, listId))} className={qtyButton}><PlusIcon aria-hidden className="h-[18px] w-[18px]" /></button>
                               </div>
                             </div>
-                            {i.qty >= MAX_QTY && !selecting && <p id={`most-${code}`} className="mt-1 text-end text-[0.8125rem] leading-snug text-muted">{t("{n} is the most for one item.", { n: MAX_QTY })}</p>}
+                            {i.qty >= MAX_QTY && !selecting && <p id={mostId} className="mt-1 text-end text-[0.8125rem] leading-snug text-muted">{t("{n} is the most for one item.", { n: MAX_QTY })}</p>}
                           </div>
                         </div>
                       </li>
@@ -540,14 +563,17 @@ function ShoppingListScreen() {
       )}
 
       {/* a quiet way to delete a list of the person's own, at the foot (asked first: it says how many items go with it) */}
-      {hydrated && current && (
+      {/* not while selecting: nothing else acts on the list then (the 30-person meeting, 21 November 2026, Leo) */}
+      {hydrated && current && !selecting && (
         <div className="mt-8 flex justify-center">
           <Button variant="danger" className="min-h-12" onClick={() => setDeleting(true)}><TrashIcon className="h-5 w-5" />{t("Delete this list")}</Button>
         </div>
       )}
 
       {/* Outside the empty-list branch (Clear list empties it), and at the top, clear of the rows' − and + and the tab bar, like Home's "Added" toast */}
-      {undo && <Toast key={undo.n} onClose={() => setUndo(null)} onUndo={undoRemove}>{t(undo.key, undo.values)}</Toast>}
+      {/* the focus goes to Undo as the toast appears, so the keyboard and VoiceOver don't drop to the top when the row they were on goes (the 30-person meeting,
+          21 November 2026, Sam), as Today's Remove does */}
+      {undo && <Toast key={undo.n} focusUndo onClose={() => setUndo(null)} onUndo={undoRemove}>{t(undo.key, undo.values)}</Toast>}
 
       <Sheet open={opening} onClose={() => setOpening(false)} title={t("Open a shared list")}>
         <form onSubmit={openPasted} className="space-y-4 pb-2 pt-1">
@@ -583,9 +609,18 @@ function ShoppingListScreen() {
   );
 }
 
-/** A chip's words: the list's name, and how many things it still has to get ("Sainsbury's · 2"). */
-function chipLabel(name: string, n: number): string {
-  return n > 0 ? `${name} · ${n}` : name;
+/**
+ * A chip's words: the list's name, and how many things it still has to get, drawn "Sainsbury's · 2" and heard "Sainsbury's, 2 things to pick up" (the 30-person
+ * meeting, 21 November 2026, Leo: VoiceOver read the dot and a bare number), as the Shopping list pill at the top says it.
+ */
+function ChipLabel({ name, n }: { name: string; n: number }) {
+  const t = useT();
+  return (
+    <span className="min-w-0 [overflow-wrap:anywhere]">
+      {name}
+      {n > 0 && <><span aria-hidden>{` · ${n}`}</span><span className="sr-only">, {n === 1 ? t("1 thing to pick up") : t("{n} things to pick up", { n })}</span></>}
+    </span>
+  );
 }
 
 /** A list's chip at the top: big (48 px), wrapping its words at large text; the one shown is lime with the 2 px dark green edge and a tick, the others white with the edge. */

@@ -183,7 +183,10 @@ export default function NearbyPage() {
   const anyHalal = useMemo(() => !!doc && [...byId.keys()].some((id) => isAllHalal(id) && (doc.chains[id]?.length ?? 0) > 0), [byId, doc]);
   const inRange = useMemo(() => (doc && origin ? nearbyBranches(doc, origin, radius, nutritionOk) : []), [doc, origin, radius, nutritionOk]);
   const typeChips = useMemo(() => cuisineGroups(groupByChain(inRange).map((g) => byId.get(g.chainId)!).filter(Boolean)), [inRange, byId]);
-  const branches = useMemo(() => (types.size === 0 ? inRange : inRange.filter((b) => types.has(cuisineGroupId(byId.get(b.chainId)?.cuisine)))), [inRange, types, byId]);
+  // only the types still offered filter (the 21 November 2026 meeting: a type chosen, then gone from the chips after a smaller distance or a filter, kept
+  // filtering with no chip to undo it, and the list said "No restaurants here")
+  const shownTypes = useMemo(() => (typeChips.length > 1 ? new Set([...types].filter((id) => typeChips.some((g) => g.id === id))) : new Set<string>()), [types, typeChips]);
+  const branches = useMemo(() => (shownTypes.size === 0 ? inRange : inRange.filter((b) => shownTypes.has(cuisineGroupId(byId.get(b.chainId)?.cuisine)))), [inRange, shownTypes, byId]);
   const rows = useMemo(() => groupByChain(branches), [branches]);
   const pins = useMemo<MapPin[]>(() => branches.slice(0, MAX_MAP_BRANCHES).map((b) => ({ id: `${b.chainId}@${b.lat},${b.lng}`, lat: b.lat, lng: b.lng, chainId: b.chainId })), [branches]);
   const selected = selectedId ? branches.find((b) => `${b.chainId}@${b.lat},${b.lng}` === selectedId) : undefined;
@@ -253,7 +256,7 @@ export default function NearbyPage() {
               <div role="group" aria-label={t("Filters")} className={chipRow}>
                 <Chip selected={fullOnly} onClick={() => setFullOnly((v) => !v)} aria-describedby="full-help">{t("Full nutrition only")}</Chip>
                 {(anyHalal || halalOnly) && <Chip selected={halalOnly} onClick={() => setHalalOnly((v) => !v)}>{t("Halal")}</Chip>}
-                {typeChips.length > 1 && <Chip selected={types.size === 0} onClick={() => setTypes(new Set())}>{t("All types")}</Chip>}
+                {typeChips.length > 1 && <Chip selected={shownTypes.size === 0} onClick={() => setTypes(new Set())}>{t("All types")}</Chip>}
                 {typeChips.length > 1 && typeChips.map((g) => (<Chip key={g.id} selected={types.has(g.id)} onClick={() => toggleType(g.id)}>{t(g.label)}</Chip>))}
               </div>
             </div>

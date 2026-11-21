@@ -19,7 +19,8 @@ const image = z.string().min(200).max(MAX_PHOTO_BASE64).regex(/^[A-Za-z0-9+/]+={
 export const photoRequestSchema = z.object({
   shop: z.string().regex(/^[a-z0-9-]{2,40}$/),
   servings: z.number().int().min(1).max(6),
-  target: z.object({ kcal: num(150, 2500), protein: num(1, 300).optional(), carbsMax: num(1, 500).optional(), fatMax: num(1, 300).optional() }).strict(),
+  // from 100 kcal, as Settings allows (meeting 21 November 2026, Priya: a GLP-1 meal size of 100 to 149 kcal was turned down as "wasn't right")
+  target: z.object({ kcal: num(100, 2500), protein: num(1, 300).optional(), carbsMax: num(1, 500).optional(), fatMax: num(1, 300).optional() }).strict(),
   diet: z.object({
     vegetarianOnly: z.boolean().optional(), veganOnly: z.boolean().optional(), pescatarianOnly: z.boolean().optional(), halalOnly: z.boolean().optional(),
     noPork: z.boolean().optional(), noBeef: z.boolean().optional(), noRedMeat: z.boolean().optional(), noOnionGarlic: z.boolean().optional(), jain: z.boolean().optional(), kosherStyle: z.boolean().optional(), noAlcohol: z.boolean().optional(), noHalalKosherMeat: z.boolean().optional(), avoidAllergens: z.array(z.enum(ALLERGEN_KEYS)).max(14).optional(),
@@ -60,6 +61,8 @@ export interface PhotoCtx {
   premium: () => Promise<boolean>;
   /** May this caller ask now (rate limit)? */
   allow: () => boolean;
+  /** Hands back this request's use of the rate limit (the AI couldn't be reached, so the person got nothing and Try again isn't held against them). */
+  giveBack?: () => void;
   /** Milliseconds left before the platform stops the request: a second try happens only with enough time for it. */
   timeLeft?: () => number;
 }
@@ -71,6 +74,11 @@ const tooMany = say(429, "rate_limited", PHOTO_MESSAGES.rateLimited);
 const invalid = say(400, "invalid", PHOTO_MESSAGES.invalid);
 /** Anthropic couldn't be reached: say so, and that it isn't the person's photo or words. */
 export const busy = say(503, "busy", AI_MESSAGES.busy);
+/** "Busy", with this request's use of the rate limit handed back (meeting 21 November 2026, Priya: each Try again during an outage used up the limit). */
+export function unavailable(ctx: { giveBack?: () => void }): Result {
+  ctx.giveBack?.();
+  return busy;
+}
 /** A second go at a recipe starts only with this much time left (a full answer and a margin); every call is also held to the time left (callLimit). */
 export const SECOND_RECIPE_MS = 80_000;
 /** What each AI call may take: the route's time left less 5 s, so the route answers "busy" itself before the platform stops it (at least 1 s). */
@@ -97,12 +105,12 @@ export async function handlePhotoRecipe(body: unknown, ctx: PhotoCtx): Promise<R
   const pantry = photoPantryPrompt(req.pantry);
   for (let attempt = 0; attempt < 2; attempt++) {
     const answer = await ctx.ask(PHOTO_SYSTEM_PROMPT, user, req.image, keys, pantry, callLimit(ctx.timeLeft));
-    if (answer.status === "unavailable") return busy;
+    if (answer.status === "unavailable") return unavailable(ctx);
     if (answer.status !== "ok") return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
     if (photoRecipeFromAi(answer.value, req, "ai-check")) return { status: 200, body: { recipe: answer.value } };
     if (ctx.timeLeft && ctx.timeLeft() < SECOND_RECIPE_MS) break; // not enough time left for another full answer
     // one more go, with a reminder of the rules it broke
-    user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
+    user = `${photoUserPrompt(req)}\n\nYour last answer couldn't be used. Use only the pantry keys in the pantry list with amounts between 5 and 3000, at most 16 ingredients; write 4 to 11 steps, each "Short title: instruction." with at most 45 words after the title; say how to tell meat, fish and eggs are cooked; no nutrition figures, prices, health claims, or restaurant or brand names.`;
   }
   return say(502, "no_recipe", PHOTO_MESSAGES.noRecipe);
 }
@@ -114,7 +122,7 @@ export async function handleDescribePhoto(body: unknown, ctx: PhotoCtx): Promise
   if (!(await ctx.premium())) return notPremium;
   if (!ctx.allow()) return tooMany;
   const answer = await ctx.describe(DESCRIBE_SYSTEM_PROMPT, parsed.data.image, callLimit(ctx.timeLeft));
-  if (answer.status === "unavailable") return busy;
+  if (answer.status === "unavailable") return unavailable(ctx);
   const clean = answer.status === "ok" ? cleanSuggestion(answer.value) : null;
   if (!clean) return say(502, "no_suggestion", PHOTO_MESSAGES.noSuggestion);
   if (!clean.isFood) return say(422, "not_food", PHOTO_MESSAGES.notFood);

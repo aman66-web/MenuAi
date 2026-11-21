@@ -224,6 +224,24 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
     expect(resumeAt(signedOut, progressNote({ step: "active" }, today))!.answers.bodyGone).toBeUndefined();
   });
 
+  // The meeting of 21 November 2026 (Ada): the age is never kept, so an under-18 who left on Your plan was shown, and could save, calorie numbers after Carry on.
+  it("without targets of the person's own, Carry on past the questions about the person asks them again at About you", () => {
+    const at = resumeAt(signedOut, progressNote({ step: "plan" }, today), false)!;
+    expect(at.step).toBe("about");
+    expect(at.answers).toEqual({ bodySkipped: false, under18: false });
+    expect(n(signedOut, at.step)).toBe(5);
+    // signed in by now (no account step): the same
+    expect(resumeAt(signedIn, progressNote({ step: "save" }, today), false)!.step).toBe("about");
+    // with the person's own targets (worked out before, or set in Settings), Your plan as before
+    expect(resumeAt(signedOut, progressNote({ step: "plan" }, today), true)!.step).toBe("plan");
+    expect(resumeAt(signedIn, progressNote({ step: "save" }, today), true)!.step).toBe("plan");
+    // the account step shows no numbers, so the trip to Mail for the email code still comes back to it
+    expect(resumeAt(signedOut, progressNote({ step: "save" }, today), false)!.step).toBe("save");
+    // nothing changes before the questions about the person
+    expect(resumeAt(signedOut, progressNote({ step: "recipes" }, today), false)!.step).toBe("recipes");
+    expect(resumeAt(signedOut, progressNote({ step: "active" }, today), false)!.step).toBe("about");
+  });
+
   it("notes whether step 1's goal was chosen, so Back to step 1 after Carry on shows it ticked", () => {
     const storage = new MemoryStorage();
     createWelcomeProgressStore(storage).set(progressNote({ step: "avoid", goalPicked: true }, today));

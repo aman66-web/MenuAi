@@ -1,3 +1,4 @@
+import { CLAIMS } from "./aiRecipe";
 import { tk } from "./i18n";
 import { normalizeForSearch } from "./search";
 
@@ -226,12 +227,15 @@ export function scanFromAi(value: unknown): FoodScan | null {
   const name = cleanText(v.name, 80);
   const confidence = v.confidence === "low" || v.confidence === "medium" || v.confidence === "high" ? v.confidence : null;
   if (!name || !confidence || !Array.isArray(v.items) || v.items.length === 0 || v.items.length > MAX_ITEMS) return null;
+  // no health words in what is shown and logged (CLAUDE.md rule 3; meeting 21 November 2026, Priya: "Healthy chicken salad (estimate)" could be logged): the
+  // same test as Pip's recipes, so the handler asks once more. Chain names are not tested: Tortilla, Wasabi and the like are also plain food words.
+  if (CLAIMS.test(name)) return null;
   const items: ScanItem[] = [];
   for (const raw of v.items as unknown[]) {
     if (!raw || typeof raw !== "object") return null;
     const r = raw as Record<string, unknown>;
     const item = { name: cleanText(r.name, 60), portion: cleanText(r.portion, 80), kcal: Number(r.kcal), protein: Number(r.protein), carbs: Number(r.carbs), fat: Number(r.fat) };
-    if (!item.name) return null;
+    if (!item.name || CLAIMS.test(item.name) || CLAIMS.test(item.portion)) return null;
     for (const k of ["kcal", "protein", "carbs", "fat"] as const) if (!Number.isFinite(item[k]) || item[k] < 0 || item[k] > LIMITS[k]) return null;
     if (!consistent(item)) return null;
     items.push({ ...item, kcal: Math.round(item.kcal), protein: one(item.protein), carbs: one(item.carbs), fat: one(item.fat) });

@@ -41,6 +41,17 @@ describe("what the Swap sheet lists", () => {
     expect(rows.filter((r) => r.inPlan).map((r) => r.candidate.recipe.id)).toEqual([v1.id, m2.id]);
     expect(rows.every((r) => r.fitsStyle)).toBe(true);
   });
+  it("never the recipe already in another slot that day: a second snack is never the first again (the 21 November meeting, Kemi)", () => {
+    const [s1, s2, s3] = RECIPES.filter((r) => r.meal === "snack").slice(0, 3) as [Recipe, Recipe, Recipe];
+    const snackSlots: MealType[] = ["breakfast", "snack", "snack"];
+    const snackCands = new Map<MealType, PlanCandidate[]>([["breakfast", [cand(breakfast)]], ["snack", [cand(s1), cand(s2), cand(s3)]]]);
+    const week: PlanIds = [[breakfast.id, s1.id, s2.id], [breakfast.id, s3.id, s1.id]];
+    // the day's second snack: not s2 (there now), not s1 (the first snack that day); s3 is another day's, so still listed and marked
+    const rows = swapRows(week, 0, 2, snackCands, snackSlots, "balanced");
+    expect(rows.map((r) => r.candidate.recipe.id)).toEqual([s3.id]);
+    expect(rows[0]!.inPlan).toBe(true);
+    expect(swapRows(week, 1, 1, snackCands, snackSlots, "balanced").map((r) => r.candidate.recipe.id)).toEqual([s2.id]);
+  });
   it("only that slot's meal (a dinner never lists breakfasts), and none the diet leaves out now", () => {
     const rows = swapRows(ids, 0, 1, cands, slots, "balanced", (id) => id !== m3.id);
     expect(rows.some((r) => r.candidate.recipe.id === m3.id)).toBe(false);

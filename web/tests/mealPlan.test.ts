@@ -1,9 +1,10 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, PER_MEAL_RECIPES, weekForms, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
+import { BETTER, DEFAULT_SHAPE, SHOP_FIT_SLACK, fitsDietNow, planSlots, shapeOf, slotTargets, betterCandidate, budgetRange, planForBudget, buildWeek, leavesOut, makePlan, planCandidates, planCandidatesAcross, sanitizePlan, setMeal, swapChoices, swapMeal, PLAN_DAYS, PLAN_MEALS, KEEPS_WELL, capShortfall, keepsWell, VARIETIES, MAX_EARLIER_PLANS, keepEarlier, openEarlier, sanitizePlans, forPeople, betterForPeople, PLAN_PEOPLE, cleanDiet, sameDiet, planListKey, planDayIndex, planShortfall, SHORTFALL_NOTE, LEAVE_OUT, weekCosts, showsWeekAfter, lastingThings, WEEK_AFTER_SAVING, PER_MEAL_RECIPES, weekForms, type SavedPlan, type ShopLine } from "../lib/mm/mealPlan";
 import { MAX_WRAPS_A_WEEK, dishForm, varietyReport } from "../lib/mm/dishForm";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { ALLERGEN_KEYS } from "../lib/mm/types";
+import { PANTRY } from "../lib/mm/pantry";
 import { isVegan, type MealType } from "../lib/mm/recipes";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
 
@@ -195,6 +196,17 @@ describe("the budget slider (founder 2026-11-18: lowest fits the goal, the green
     expect(top.better.length).toBeGreaterThanOrEqual(high.better.length);
     // the meals still fit the meal size: upgrades change products, not recipes
     for (const d of top.week.days) for (const m of d.meals) expect(m.candidate.distance).toBeLessThan(0.6);
+  });
+
+  it("its points in whole pounds rounded up (the 21 November meeting, Kemi): the green spot makes the best week itself, and Cheapest a week within it", () => {
+    const r = budgetRange(cands, betterOf)!;
+    const best = planForBudget(cands, null, betterOf)!;
+    const spot = planForBudget(cands, Math.ceil(r.best), betterOf)!;
+    expect(spot.ids).toEqual(best.ids);
+    expect(spot.week.overBudget).toBe(false);
+    const cheapest = planForBudget(cands, Math.ceil(r.min), betterOf)!;
+    expect(cheapest.week.overBudget).toBe(false);
+    expect(cheapest.week.shoppingCost).toBeLessThanOrEqual(Math.ceil(r.min) + 0.005);
   });
 
   it("keeps which recipes use better products when the plan is saved", () => {
@@ -632,5 +644,46 @@ describe("a varied week", () => {
     expect(week).toHaveLength(PLAN_DAYS);
     plan.ids.forEach((d, i) => d.forEach((id, j) => expect(week[i]![j]).toBe(dishForm(byId.get(id)!))));
     expect(weekForms([["not-a-recipe", "x", "y"]], cands)[0]).toEqual([undefined, undefined, undefined]);
+  });
+});
+
+describe("the 21 November meeting (Kemi)", () => {
+  it("a typed allergen or meat leaves out what has it by the pantry's flags: 'nuts' the peanut butter toast and the almond porridge", () => {
+    const toast = byId.get("peanut-butter-banana-toast")!;
+    const porridge = byId.get("berry-almond-porridge")!;
+    expect(toast && porridge, "the two recipes").toBeTruthy();
+    for (const w of ["nuts", "nut", "Nuts"]) {
+      expect(leavesOut(toast, [w]), w).toBe(true);
+      expect(leavesOut(porridge, [w]), w).toBe(true);
+    }
+    expect(leavesOut(toast, ["peanuts"])).toBe(true);
+    expect(leavesOut(porridge, ["peanuts"])).toBe(false); // almonds are tree nuts
+    // pork: the bacon and the ham, whatever their labels say
+    const pork = RECIPES.filter((r) => r.ingredients.some((i) => i.pantry === "bacon" || i.pantry === "ham"));
+    expect(pork.length).toBeGreaterThan(0);
+    for (const r of pork) expect(leavesOut(r, ["pork"]), r.id).toBe(true);
+    // sesame and soya by their flags (houmous, soy sauce), and a word that names nothing leaves out only what has it
+    const houmous = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "houmous"));
+    if (houmous) expect(leavesOut(houmous, ["sesame"])).toBe(true);
+    const soy = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "soy"));
+    if (soy) expect(leavesOut(soy, ["soya"])).toBe(true);
+    expect(leavesOut(porridge, ["sweetcorn"])).toBe(false);
+  });
+
+  it("a meal planned for one diet fits another only when it is made the same way, with the same products' rules", () => {
+    const chicken = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "chicken") && !r.ingredients.some((i) => i.pantry && PANTRY.get(i.pantry)?.contains.includes("lupin")))!;
+    expect(fitsDietNow(chicken, {}, {})).toBe(true);
+    // an allergy that changes nothing in it
+    expect(fitsDietNow(chicken, {}, { avoidAllergens: ["lupin"] })).toBe(true);
+    // the same recipe, now matched to other products: hidden until swapped
+    expect(fitsDietNow(chicken, {}, { noHalalKosherMeat: true })).toBe(false);
+    expect(fitsDietNow(chicken, {}, { halalOnly: true })).toBe(false);
+    expect(fitsDietNow(chicken, { halalOnly: true }, {})).toBe(false);
+    // left out by the diet now
+    expect(fitsDietNow(chicken, {}, { vegetarianOnly: true })).toBe(false);
+    // a meat-free meal is made the same way whatever the meat rules
+    const veg = RECIPES.find((r) => r.meal === "dinner" && isVegan(r) && !r.ingredients.some((i) => i.pantry === "pesto"))!;
+    expect(fitsDietNow(veg, {}, { noHalalKosherMeat: true })).toBe(true);
+    expect(fitsDietNow(veg, {}, { vegetarianOnly: true })).toBe(true);
   });
 });

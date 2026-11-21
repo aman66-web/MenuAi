@@ -54,7 +54,8 @@ export function HomePages({ pages, now, quiet = false }: {
   // is tapped; none on a quiet visit
   const [hint, setHint] = useState(() => !quiet && hintShows(homePagesStore.get(), now));
 
-  // column mode: the content is narrower than the two cards side by side need (the same threshold as PAIR's stacking)
+  // column mode: the content is narrower than the two cards side by side need (the same threshold as PAIR's stacking). Read again after each switch, so it
+  // always watches the element on the page, even should the two layouts stop sharing their outer element (Ella, the 30-person meeting, 21 November 2026)
   useLayoutEffect(() => {
     const el = wrap.current;
     if (!el) return;
@@ -66,7 +67,7 @@ export function HomePages({ pages, now, quiet = false }: {
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [column]);
 
   // the hint counts as shown on this day (at most five days, lib/mm/homePages.ts)
   useEffect(() => {
@@ -185,8 +186,9 @@ export function HomePages({ pages, now, quiet = false }: {
         ))}
       </div>
       {hint && (
-        // green words are always underlined, like a link (colour meeting, 19 November 2026)
-        <button type="button" onClick={() => { go(1); setHint(false); }} className="mx-auto -mt-1 block min-h-11 rounded-full px-3 py-1 text-center text-[0.875rem] font-semibold leading-snug text-accent underline underline-offset-2">
+        // green words are always underlined, like a link (colour meeting, 19 November 2026); above the dots row and the scroller's padding, so a tap on its
+        // top half works (it sat under them: Ella, the 30-person meeting, 21 November 2026)
+        <button type="button" onClick={() => { go(1); setHint(false); }} className="relative z-10 mx-auto mt-2 block min-h-11 rounded-full px-3 py-1 text-center text-[0.875rem] font-semibold leading-snug text-accent underline underline-offset-2">
           {t("Slide the cards sideways, or tap here, to see your week")}
           <ChevronRightIcon aria-hidden className="ms-0.5 inline-block h-4 w-4 -translate-y-px align-middle" />
         </button>

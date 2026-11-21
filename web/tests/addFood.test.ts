@@ -241,6 +241,12 @@ describe("a supermarket product from a shop's list, a scan or a product page (fo
     expect(startAmount({ per: "g", size: "400g", portion: "40g" })).toBe(40);
     expect(startAmount({ per: "g", size: "400g", portion: "" })).toBe(100);
     expect(startAmount({ per: "g", size: "10x36g", portion: "" })).toBe(36); // one sachet of ten (founder 2026-11-20: scan the box, add what you had)
+    // a label for the cooked or prepared food: never the dry pack's weight (the 30-person meeting, 21 November 2026, Grace)
+    expect(amountChoices({ per: "g", size: "500g", portion: "", state: "cooked" })).toEqual([{ kind: "hundred", amount: 100 }]);
+    expect(amountChoices({ per: "g", size: "4 x 125g", portion: "", state: "prepared" })).toEqual([{ kind: "hundred", amount: 100 }]);
+    expect(amountChoices({ per: "g", size: "500g", portion: "75g", state: "cooked" })).toEqual([{ kind: "portion", amount: 75 }, { kind: "hundred", amount: 100 }]);
+    expect(startAmount({ per: "g", size: "10x36g", portion: "", state: "cooked" })).toBe(100);
+    expect(amountChoices({ per: "g", size: "500g", portion: "", state: "" })).toEqual([{ kind: "pack", amount: 500 }, { kind: "hundred", amount: 100 }]);
   });
 });
 

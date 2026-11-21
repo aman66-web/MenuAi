@@ -74,13 +74,17 @@ function SignInError({ children, id }: { children: string; id?: string }) {
   return <Note kind="error" heading={null} className="mt-3" id={id}>{children}</Note>;
 }
 
+/** How long Apple's and Google's own sheets may stay open: a minute past the server's 10-minute sign-in flow. */
+const SIGN_IN_SHEET_MS = 11 * 60_000;
+
 /** Each failure said plainly, in the same words wherever it happens. */
 function describeError(e: unknown, t: T): string {
   if (e instanceof AccountError) {
     if (e.offline) return t("You're offline. Connect to the internet and try again.");
     // short: the countdown and "Send it again" under it say the rest (the 20 November review: the old "Ask for a new one" fought the countdown)
     if (e.code === "invalid_code") return t("That code isn't right.");
-    if (e.status === 429) return t("Please wait a minute and try again.");
+    // the code limits are per 10 minutes (lib/auth/handlers.ts), so "a minute" was untrue (the meeting of 21 November 2026, Ben)
+    if (e.status === 429) return t("Too many tries. Please wait a few minutes and try again.");
     if (e.code === "invalid_request") return t("That doesn't look right. Please check it and try again.");
     if (e.status === 503) return t("Sign-in isn't available right now. Please try again in a moment.");
   }
@@ -128,14 +132,16 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
     setBusy(true);
     try {
       if (provider === "apple") {
-        const r = await nativeCall("appleSignIn");
+        // 11 minutes, not the bridge's usual 2: the server's sign-in flow allows 10, and someone may take a while over Apple's or Google's sheet (typing a
+        // password, a code from another device) (the meeting of 21 November 2026, Ben)
+        const r = await nativeCall("appleSignIn", {}, SIGN_IN_SHEET_MS);
         if (r.error === "cancelled") return;
         if (!r.idToken) throw new Error(r.error ?? "failed");
         setHow("apple");
         setFinishing(true);
         signedIn(await accountApi().signInWithApple(r.idToken, r.nonce));
       } else {
-        const r = await nativeCall("webAuth", { provider: "google" });
+        const r = await nativeCall("webAuth", { provider: "google" }, SIGN_IN_SHEET_MS);
         if (r.error === "cancelled") return;
         if (!r.authCode || !r.verifier) throw new Error(r.error ?? "failed");
         setHow("google");

@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { PANTRY, kindExcluded, kindForDiet, mixesMeatAndDairy, type PantryKind } from "../lib/mm/pantry";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { recipeForDiet } from "../lib/mm/recipes";
+import { candidates, recipeForDiet, subSpec } from "../lib/mm/recipes";
+import type { PricedProduct, ShopNutrition } from "../lib/mm/shopProducts";
 import { sanitizeSettings } from "../lib/mm/user-data";
 import { dietNameList, foodDietCaution, foodDietNotChecked, foodDietProblem, MORE_DIET_KEYS, moreDietsOn } from "../lib/mm/foodDiet";
 import { anyDietFilter, filterCaution, passesDiet, restaurantDietNote, restaurantPrefs, toggleDiet, uncheckableDiets } from "../lib/mm/menu-view";
@@ -50,6 +51,21 @@ describe("the new diets leave out what they should", () => {
     const m = kindForDiet(k("chicken"), { noHalalKosherMeat: true }).match;
     expect(m.none).toEqual(expect.arrayContaining(["halal", "kosher"]));
     expect(kindForDiet(k("rice"), { noHalalKosherMeat: true })).toBe(k("rice"));
+  });
+  it("no meat sold as halal or kosher: never the halal brands whose names don't say so, in the recipe or in a substitute (the 21 November meeting, Jamal)", () => {
+    const n = { kcal: 106, protein: 24, carbs: 0, fat: 1.2, saturates: null, sugars: null, fibre: null, salt: null, kj: null, per: "g", state: "" } as ShopNutrition;
+    const p = (id: string, name: string, price: number): PricedProduct => ({ id, name, price, unitPrice: price * 2, unit: "per kg", member: null, category: "Meat", photoId: "", gtin: "", nutrition: n });
+    // Shazans is the cheapest chicken at Morrisons and Asda, and the only thighs there
+    const shop = [p("thighs", "Shazans Chicken Thigh Fillets 600g", 3), p("shazans", "Shazans Chicken Breast Fillets 450g", 3.5), p("own", "Morrisons Chicken Breast 500g", 4), p("najma", "Najma Chicken Breast 500g", 3.2)];
+    const withThighs = RECIPES.find((r) => r.ingredients.some((i) => i.pantry === "chicken-thigh" && i.subs?.some((x) => x.key === "chicken")))!;
+    expect(withThighs, "a recipe with chicken thighs and chicken breast as their substitute").toBeTruthy();
+    const plain = withThighs.ingredients.find((i) => i.pantry === "chicken-thigh")!;
+    expect(candidates(shop, subSpec(plain, { key: "chicken" }, withThighs)!).map((c) => c.product.id)[0]).toBe("najma"); // without the diet: the cheapest
+    const diet = recipeForDiet(withThighs, { noHalalKosherMeat: true })!;
+    expect(diet.noHalalKosherMeat).toBe(true);
+    const thighs = diet.ingredients.find((i) => i.pantry === "chicken-thigh")!;
+    expect(candidates(shop, thighs)).toEqual([]);
+    expect(candidates(shop, subSpec(thighs, { key: "chicken" }, diet)!).map((c) => c.product.id)).toEqual(["own"]);
   });
   it("every diet still leaves recipes to choose from", () => {
     for (const prefs of [{ jain: true }, { noOnionGarlic: true }, { kosherStyle: true }, { noRedMeat: true }, { noAlcohol: true }, { noHalalKosherMeat: true }]) {

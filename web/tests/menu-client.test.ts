@@ -293,5 +293,40 @@ describe("MenuClient", () => {
       expect(search(c.getSnapshot().searchIndex, "chicken bowl").items.map((i) => i.itemId)).toContain("chicken-bowl");
       expect(hits.filter((h) => /chain-.*\.json$/.test(h))).toEqual([]); // no menu downloaded to search
     });
+    // The meeting of 21 November 2026 (Rosa): Settings' Refresh menus on a slow connection swapped the website's newer menus for the older packed ones and
+    // said "New menus loaded."
+    it("Refresh with the website unreachable and only an older packed copy keeps the newer menus, and says not every source answered", async () => {
+      const live = await liveWithChangedCluck();
+      live.dataVersion = sampleManifest().dataVersion + 1;
+      let down = false;
+      const { fetchFn } = cdn({ [`${LIVE}menus-manifest.json`]: JSON.stringify(live) });
+      const flaky = (async (input: string, init?: RequestInit) => (down && String(input).startsWith(LIVE) ? new Response("down", { status: 503 }) : fetchFn(input, init))) as unknown as typeof fetch;
+      const c = make(flaky);
+      await c.ensureManifest();
+      const before = c.getSnapshot();
+      expect(before.dataVersion).toBe(live.dataVersion);
+      expect(before.reachedAll).toBe(true);
+      down = true;
+      c.invalidate();
+      await c.ensureManifest(true);
+      const after = c.getSnapshot();
+      expect(after.status).toBe("ready");
+      expect(after.dataVersion).toBe(live.dataVersion);
+      expect(after.chains).toEqual(before.chains);
+      expect(after.chains.find((x) => x.id === "cluck-house")!.baseUrl).toBe(LIVE);
+      expect(after.reachedAll).toBe(false);
+      // back online: the next look reaches every source again
+      down = false;
+      await c.ensureManifest(true);
+      expect(c.getSnapshot().reachedAll).toBe(true);
+    });
+    it("a first look with the website unreachable still opens the packed copy (nothing newer to keep), and says not every source answered", async () => {
+      const { fetchFn } = cdn();
+      const down = (async (input: string, init?: RequestInit) => (String(input).startsWith(LIVE) ? new Response("down", { status: 503 }) : fetchFn(input, init))) as unknown as typeof fetch;
+      const c = make(down);
+      await c.ensureManifest();
+      expect(c.getSnapshot().chains.map((x) => x.id)).toEqual(["bowl-and-co", "cluck-house"]);
+      expect(c.getSnapshot().reachedAll).toBe(false);
+    });
   });
 });

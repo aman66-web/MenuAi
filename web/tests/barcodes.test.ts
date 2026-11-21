@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { amountChoices, loggableFromShop, startAmount } from "../lib/mm/addFood";
-import { barcodeCandidates, barcodeShown, isBarcodeFile, labelledHits, lookupBarcode, normaliseBarcode, sameBarcode, scanHref, scanTarget, shopItemHref, upcEToA, type BarcodeFile } from "../lib/mm/barcodes";
+import { barcodeCandidates, barcodeShown, isBarcodeFile, validGs1, labelledHits, lookupBarcode, normaliseBarcode, sameBarcode, scanHref, scanTarget, shopItemHref, upcEToA, type BarcodeFile } from "../lib/mm/barcodes";
 import { decodeShopProducts, type ShopFile, type ShopManifest } from "../lib/mm/shopProducts";
 
 // Scan a barcode, see the product (founder 2026-11-20). lib/mm/barcodes.ts reads public/groceries/all/barcodes.json (tools/groceries/build_all_products.py).
@@ -26,6 +26,24 @@ describe("a barcode as typed or read", () => {
     expect(barcodeCandidates("04252614")).toEqual(["4252614", "42100005264"]);
     expect(barcodeCandidates("5063089019924")).toEqual(["5063089019924"]);
     expect(barcodeCandidates("nope")).toEqual([]);
+  });
+
+  it("is a whole barcode only with its GS1 check digit, so a number still being typed isn't looked up (the 30-person meeting, 21 November 2026)", () => {
+    expect(validGs1("5000168001142")).toBe(true); // EAN-13
+    expect(validGs1("05000168001142")).toBe(true); // its GTIN-14: leading zeros change nothing
+    expect(validGs1("012345678905")).toBe(true); // UPC-A
+    expect(validGs1("12345678905")).toBe(true); // the same, its leading zero lost on the way
+    expect(validGs1("96385074")).toBe(true); // EAN-8
+    expect(validGs1("01318180")).toBe(true); // an EAN-8 that starts with 0
+    expect(validGs1("04252614")).toBe(true); // UPC-E
+    expect(validGs1("5000 1680-01142")).toBe(true); // spaces and hyphens as printed
+    // every prefix of a 13-digit code typed one digit at a time, and a slip in the last digit
+    for (const part of ["50001680", "500016800", "5000168001", "50001680011", "500016800114"]) expect(validGs1(part), part).toBe(false);
+    expect(validGs1("5000168001141")).toBe(false);
+    expect(validGs1("04252615")).toBe(false);
+    expect(validGs1("1234567")).toBe(false);
+    expect(validGs1("123456789012345")).toBe(false);
+    expect(validGs1("baked beans")).toBe(false);
   });
 });
 

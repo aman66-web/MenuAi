@@ -16,7 +16,7 @@ import { PremiumBadge } from "../../_components/PremiumBadge";
 import { Button, EmptyState, ErrorBox, Spinner } from "../../_components/ui";
 import { useIsPro } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
-import { useShopManifest, useShopProducts } from "../../_lib/shopProducts";
+import { useShopManifestState, useShopProducts } from "../../_lib/shopProducts";
 import { BasketIcon } from "../../_components/icons";
 import { ListThumb, usePhotoSource } from "../ProductPhoto";
 import { CARD, FootNote, HEADING, TITLE } from "../PageBits";
@@ -129,10 +129,12 @@ export function ProteinScreen() {
   const pro = useIsPro();
   const { showPaywall } = useGate();
   const gated = !FREE_APP && PAID_ACCESS_ENABLED && !pro; // free tier (only when paid access exists): the first five rows
-  const manifest = useShopManifest();
+  const [retry, setRetry] = useState(0);
+  // a shops' list that couldn't load is said as a failure with Try again, never as "no shop has labels" (the 30-person meeting, 21 November 2026, Maya)
+  const manifestState = useShopManifestState(retry);
+  const manifest = manifestState.status === "ready" ? manifestState.manifest : null;
   const shops = recipeShops(manifest);
   const shop = shops[0] ?? null;
-  const [retry, setRetry] = useState(0);
   const state = useShopProducts(shop?.id ?? null, retry);
 
   const top = useMemo(() => (state.status === "ready" ? cheapestProtein(state.products, TOP) : []), [state]);
@@ -155,6 +157,7 @@ export function ProteinScreen() {
     </>
   );
 
+  if (manifestState.status === "error") return (<div>{head}<div className="mt-4"><ErrorBox message={t("Couldn't load the shops. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>);
   if (manifest === null) return (<div>{head}<Spinner /></div>);
   if (!shop) {
     return (
