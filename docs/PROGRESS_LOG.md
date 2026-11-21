@@ -4088,3 +4088,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (21 Nov, 17:03) **1.1 build 13 uploaded to TestFlight** (founder: "update the build on my phone so that I can test"; the iPhone was off the Mac's
   network, so not installed from Xcode): `iap` at 37eaf959 with the balanced meal plan, the sign-up screens that open with nothing ticked, "Example plan" on
   a phone, each person's calories and protein. Pack checked: no screenshot test key. Not submitted; build 11 is still the one in App Review.
+- (21 Nov, evening) **No key ingredient twice in a day, breakfast included** (founder, on egg mayonnaise wraps then egg foo young: "Too much egg. No one wants
+  that. You should avoid repeating ingredients on the same day"). mealBalance.ts: each recipe's `featured` ingredients (each meat, fish, tofu or bean kind
+  from 30 g a serving, eggs from one egg, cheese from 25 g); `sharedDay` counts one in more than one of the day's meals (breakfast and snacks too), weighed
+  like a repeated main. Measured: weeks with no budget at Sainsbury's, Asda, Morrisons (alone or for two, 2,000 and 3,000 kcal) have none; Aldi, with fewer
+  recipes, one or two. (That week on the founder's phone was made by a build without the balance rules; build 13 has the main-ingredient rule.)

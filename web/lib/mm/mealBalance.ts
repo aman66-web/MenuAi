@@ -31,6 +31,10 @@ const EGGS = /^eggs?$/;
 /** A dish whose name says it is about cheese. */
 const CHEESY_NAME = /\b(?:cheese|cheesy|macaroni|mac and|toastie|quesadillas?|pizzas?|lasagne|gratin|carbonara|alfredo|halloumi|fondue|rarebit)\b/i;
 
+/** An ingredient leads part of a meal from this much a serving (meat, fish, tofu, beans), one egg, or this much cheese. */
+const FEATURE_GRAMS = 30;
+const FEATURE_EGG_GRAMS = 50;
+const FEATURE_CHEESE_GRAMS = 25;
 /** A main needs at least this much of its kind in one serving; cheese makes a dish cheese-heavy from this much a serving. */
 const MAIN_MIN_GRAMS = 40;
 const CHEESY_GRAMS = 35;
@@ -43,6 +47,11 @@ export const MAIN_MEALS: readonly MealType[] = ["lunch", "dinner"];
 export interface MealBalance {
   main: MainKind | null;
   cheesy: boolean;
+  /**
+   * Every ingredient that leads part of the meal (founder 2026-11-21, on an egg mayonnaise wrap for lunch and egg foo young for dinner: "Too much egg ... avoid
+   * repeating ingredients on the same day"): each meat, fish or vegetarian protein from FEATURE_GRAMS a serving, eggs from one egg, cheese from a good handful.
+   */
+  featured: MainKind[];
 }
 
 /** The recipe's main and whether it is cheese-heavy, per serving as written. */
@@ -64,7 +73,10 @@ export function mealBalance(r: Pick<Recipe, "name" | "ingredients" | "servings">
   for (const [k, g] of grams) if (g > most) { main = k; most = g; }
   if (!main && cheese >= MAIN_MIN_GRAMS) main = "cheese";
   if (!main && eggs >= 100) main = "eggs";
-  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)) };
+  const featured: MainKind[] = [...grams].filter(([, g]) => g >= FEATURE_GRAMS).map(([k]) => k);
+  if (eggs >= FEATURE_EGG_GRAMS) featured.push("eggs");
+  if (cheese >= FEATURE_CHEESE_GRAMS) featured.push("cheese");
+  return { main, cheesy: cheese >= CHEESY_GRAMS || (cheese >= 15 && CHEESY_NAME.test(r.name)), featured };
 }
 
 const memo = new WeakMap<object, MealBalance>();
@@ -82,12 +94,13 @@ export function mealBalanceOf(r: Pick<Recipe, "name" | "ingredients" | "servings
 export function balanceFaults(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[]): number {
   const r = balanceReport(week, slots);
   // too much cheese weighs double (it was the founder's own complaint: "everything on it is cheesy stuff")
-  return r.sameDay + r.dayAfter + r.overWeek + 2 * (r.cheesyDay + r.cheesyWeek);
+  return r.sameDay + r.dayAfter + r.overWeek + r.sharedDay + 2 * (r.cheesyDay + r.cheesyWeek);
 }
 
 /** The parts of balanceFaults, for tests. */
-export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[]): { sameDay: number; dayAfter: number; overWeek: number; cheesyDay: number; cheesyWeek: number } {
+export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | undefined>>, slots: readonly MealType[]): { sameDay: number; dayAfter: number; overWeek: number; sharedDay: number; cheesyDay: number; cheesyWeek: number } {
   let sameDay = 0;
+  let sharedDay = 0;
   let dayAfter = 0;
   let cheesyDay = 0;
   let cheesy = 0;
@@ -105,8 +118,12 @@ export function balanceReport(week: ReadonlyArray<ReadonlyArray<MealBalance | un
       count.set(b.main, (count.get(b.main) ?? 0) + 1);
     });
     cheesyDay += Math.max(0, cheeseToday - 1);
+    // a leading ingredient in more than one of the day's meals, breakfast and snacks too (eggs at breakfast and an egg lunch)
+    const kinds = new Map<MainKind, number>();
+    for (const b of day) for (const k of new Set(b?.featured ?? [])) kinds.set(k, (kinds.get(k) ?? 0) + 1);
+    for (const n of kinds.values()) sharedDay += Math.max(0, n - 1);
   });
   let overWeek = 0;
   for (const n of count.values()) overWeek += Math.max(0, n - MAX_SAME_MAIN_A_WEEK);
-  return { sameDay, dayAfter, overWeek, cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK) };
+  return { sameDay, dayAfter, overWeek, sharedDay, cheesyDay, cheesyWeek: Math.max(0, cheesy - MAX_CHEESY_A_WEEK) };
 }

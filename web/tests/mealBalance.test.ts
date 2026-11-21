@@ -26,7 +26,7 @@ describe("a recipe's main and its cheese", () => {
 
 describe("how balanced a week is", () => {
   const slots = PLAN_MEALS;
-  const day = (lunch: Partial<MealBalance>, dinner: Partial<MealBalance>): MealBalance[] => [{ main: "eggs", cheesy: false }, { main: null, cheesy: false, ...lunch }, { main: null, cheesy: false, ...dinner }];
+  const day = (lunch: Partial<MealBalance>, dinner: Partial<MealBalance>, breakfast: Partial<MealBalance> = {}): MealBalance[] => [{ main: "eggs", cheesy: false, featured: [], ...breakfast }, { main: null, cheesy: false, featured: [], ...lunch }, { main: null, cheesy: false, featured: [], ...dinner }];
   it("counts the same main twice in a day, in a meal two days running, too often in a week, and too much cheese", () => {
     expect(balanceReport([day({ main: "chicken" }, { main: "chicken" })], slots)).toMatchObject({ sameDay: 1 });
     expect(balanceReport([day({ main: "beef" }, {}), day({ main: "beef" }, {})], slots)).toMatchObject({ dayAfter: 1 });
@@ -35,6 +35,15 @@ describe("how balanced a week is", () => {
     expect(balanceReport([day({ cheesy: true }, { cheesy: true }), day({ cheesy: true }, {})], slots)).toMatchObject({ cheesyDay: 1, cheesyWeek: 1 });
     // a breakfast's eggs every day are not a main
     expect(balanceReport([day({}, {}), day({}, {}), day({}, {}), day({}, {})], slots).overWeek).toBe(0);
+  });
+  it("counts a leading ingredient in two of the day's meals, breakfast too (founder: egg mayonnaise wraps, then egg foo young: \"Too much egg\")", () => {
+    expect(balanceReport([day({ featured: ["eggs"] }, { featured: ["eggs"] })], slots).sharedDay).toBe(1);
+    expect(balanceReport([day({ featured: ["eggs"] }, {}, { featured: ["eggs"] })], slots).sharedDay).toBe(1);
+    expect(balanceReport([day({ featured: ["chicken"] }, { featured: ["beef", "cheese"] }, { featured: ["eggs"] })], slots).sharedDay).toBe(0);
+  });
+  it("finds the eggs in both: egg mayonnaise wraps and egg foo young", () => {
+    expect(bal("egg-mayonnaise-wraps").featured).toContain("eggs");
+    expect(bal("egg-foo-young-rice").featured).toContain("eggs");
   });
 });
 
@@ -45,7 +54,7 @@ describe("real weeks are balanced", () => {
     it(`at ${shop}, alone: no main twice a day or two days running, none over three times, no more than two cheese-heavy dishes`, () => {
       const cands = planCandidates(RECIPES, products, {}, targets, [], shop);
       const plan = makePlan(cands, null)!;
-      expect(balanceReport(weekBalance(plan.ids, cands), PLAN_MEALS)).toEqual({ sameDay: 0, dayAfter: 0, overWeek: 0, cheesyDay: 0, cheesyWeek: 0 });
+      expect(balanceReport(weekBalance(plan.ids, cands), PLAN_MEALS)).toEqual({ sameDay: 0, dayAfter: 0, overWeek: 0, sharedDay: 0, cheesyDay: 0, cheesyWeek: 0 });
     });
     it(`at ${shop}, for two on a tight £40: never the same main twice a day, never cheese twice a day, only a few repeats`, () => {
       const raw = planCandidates(RECIPES, products, {}, targets, [], shop, true);
