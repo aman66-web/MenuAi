@@ -102,18 +102,23 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "sweet-chilli-chicken", meal: "dinner", tags: ["Thai", "Quick"], name: "Sweet chilli chicken stir-fry", blurb: "Chicken and crunchy vegetables in sweet chilli sauce, with rice.", servings: 2, minutes: 25,
-    ingredients: [ing("chicken", 300), ing("sweet-chilli", 60), ing("rice", 150), ing("peppers", 160, { note: "about 1 pepper" }), ing("broccoli", 100), ing("spring-onions", 30), ing("lemon-juice", 15), ing("vegetable-oil", 5)],
+    ingredients: [ing("chicken", 300), ing("sweet-chilli", 60), ing("rice", 150), ing("peppers", 160, { note: "about 1 pepper" }), ing("broccoli", 100), ing("spring-onions", 30), ing("lemon-juice", 15), ing("vegetable-oil", 10)],
+    // founder 2026-11-21, cooked it and the chicken came out white ("the one in the image looks so tasty ... the chicken's white"): the chicken is dried, fried in
+    // a hot pan without stirring until golden underneath, in two batches when the pan is small, kept aside while the vegetables cook, and the sauce bubbled
+    // down to a sticky glaze at the end, as the picture shows
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil over a high heat, ready for the rice.",
-      "Slice the chicken: Slice the chicken into thin strips, about as wide as your little finger. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Slice the chicken: Slice the chicken into thin strips, about as wide as your little finger. Pat the strips dry with kitchen paper: dry chicken browns, wet chicken steams and stays white. Wash your hands, the knife and the board in hot soapy water straight after.",
       "Prepare the vegetables: Halve the pepper, pull out the stalk and seeds and slice it into thin strips. Cut the broccoli into small florets, about 2 cm across. Trim and thinly slice the spring onions.",
       "Cook the rice: Add the rice to the boiling water, stir once and cook as the pack says (usually 10 to 15 minutes), with the lid half on, until soft with no hard bit in the middle.",
-      "Heat the wok: Heat a wok or large frying pan over a high heat for 1 to 2 minutes. Add the oil and swirl it around until it looks thin and shimmery.",
-      "Fry the chicken: Add the chicken in a single layer and fry for 6 to 8 minutes, turning and stirring often, until golden brown on the outside.",
-      "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, fry for 1 to 2 minutes more and check again.",
+      "Heat the wok: Heat a wok or large frying pan over a high heat for 2 minutes, until very hot. Add the oil and swirl it around until it looks thin and shimmery.",
+      "Brown the chicken: Lay the chicken in the pan in one layer with space between the strips (if they don't all fit, fry them in two batches). Leave them for 2 to 3 minutes without stirring, until golden brown underneath.",
+      "Turn the chicken: Turn the strips over and fry for 2 to 3 minutes more, until golden on the other side too.",
+      "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, fry for 1 to 2 minutes more and check again. Lift the chicken onto a clean plate.",
       "Drain the rice: Drain the rice well, fluff it up with a fork and put it back in its pan with the lid on to keep warm.",
-      "Add the vegetables: Add the pepper and broccoli to the chicken and stir-fry for 3 to 4 minutes, until the broccoli is bright green and just tender. Add a splash of water if the pan gets dry.",
-      "Add the sauce: Add the spring onions, sweet chilli sauce and lemon juice. Toss for 1 to 2 minutes, until the chicken is coated in a sticky glaze and the sauce is bubbling. Add a splash of water if it catches.",
+      "Add the vegetables: Put the pan back on a high heat. Add the pepper and broccoli and stir-fry for 3 to 4 minutes, until the broccoli is bright green and just tender. Add a splash of water if the pan gets dry.",
+      "Add the sauce: Tip the chicken and any juices back in. Add the spring onions, sweet chilli sauce and lemon juice.",
+      "Glaze the chicken: Let it bubble for 1 to 2 minutes, tossing now and then, until the sauce is thick and glossy and coats the chicken in a sticky red glaze. Add a splash of water if it catches.",
       "Serve: Share the rice between warm plates, spoon the chicken and vegetables on top and scrape any sauce from the pan over. Serve straight away.",
     ],
   },

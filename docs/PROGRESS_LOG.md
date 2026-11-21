@@ -4162,3 +4162,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   mealPlan.ts balanceRepair, which now also looks wider and longer): £88 at Sainsbury's with bread on 5 meals, no repeats; Asda £104, Morrisons £102, Aldi
   £85 for two. Weeks within their budget are unchanged (never over it). The slider's Cheapest end rises with it. tests/mealBalance.test.ts checks bread twice a
   day at most on a tight budget.
+- (21 Nov, evening) **Sweet chilli chicken stir-fry: the chicken browns and glazes** (founder cooked it: "the one in the image looks so tasty ... the
+  chicken's white"). The method fried 300 g of chicken in 5 ml of oil "turning and stirring often", then steamed it with the vegetables: it can't brown that
+  way. Now: pat the strips dry; a very hot pan with 10 ml of oil; one layer with space (two batches if the pan is small), left without stirring 2 to 3 minutes a
+  side until golden; lifted out while the vegetables cook; back in with the sauce, bubbled until thick and glossy. Nutrition and prices follow the 10 ml from
+  the labels (scan references and keys rebuilt). About 30 other methods fry meat, bacon or mushrooms "stirring often ... until golden": reviewed next.
