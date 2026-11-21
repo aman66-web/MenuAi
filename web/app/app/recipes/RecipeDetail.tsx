@@ -574,6 +574,9 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
             {totals.sameAs.length > 0 && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The numbers for {names} are the same product's label, read at another supermarket.", { names: listNames(totals.sameAs.map((n) => lowerFirst(t(n)))) })}</p>
             )}
+            {totals.byWeight.length > 0 && (
+              <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("The shop's labels for {names} are per 100 g, so they're counted by weight.", { names: listNames(totals.byWeight.map((n) => lowerFirst(t(n)))) })}</p>
+            )}
             {roundedAmountsMatter(view.resolved, totals) && (
               <p className="mt-3 px-1 text-[0.8125rem] leading-snug text-muted">{t("Eggs, wraps, bread slices and stock cubes are counted whole and other amounts are rounded, so a serving made from these amounts can differ from the numbers shown.")}</p>
             )}
@@ -984,7 +987,10 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                           <span className="min-w-0 self-center text-[0.9375rem] font-semibold leading-snug [overflow-wrap:anywhere]">{several && <span className="sr-only">{of.name}, </span>}{o.product.name}</span>
                         </span>
                         <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{formatPrice(o.basketCost)}{o.packs > 1 ? ` ${t("for {n}", { n: o.packs })}` : ""}{servingCost(o) !== null ? ` · ${t("{price} a serving", { price: formatPrice(servingCost(o)!) })}` : ""}</span>
-                        {o.product.nutrition && <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal)} kcal · {t("{n} g protein per 100 {unit}", { n: o.product.nutrition.protein, unit: o.product.nutrition.per })}</span>}
+                        {o.product.nutrition && (
+                          // a liquid counted by weight (ShopNutrition.byWeight) shows its label as the shop prints it, per 100 g, never the per 100 ml it was turned into
+                          <span className={`app-numbers block text-[0.8125rem] ${selected ? "" : "text-muted"}`}>{Math.round(o.product.nutrition.kcal / (o.product.nutrition.byWeight ?? 1))} kcal · {t("{n} g protein per 100 {unit}", { n: Math.round((o.product.nutrition.protein / (o.product.nutrition.byWeight ?? 1)) * 10) / 10, unit: o.product.nutrition.byWeight ? "g" : o.product.nutrition.per })}</span>
+                        )}
                       </span>
                       <ChoiceMark on={selected} kind="circle" />
                     </button>

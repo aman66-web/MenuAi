@@ -321,6 +321,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 4697,ml,,12,3,<0.5,<0.1,<0.5,<0.5,<0.5,<0.5,<0.01,2026-11-18,https://www.asda.com/groceries/product/4697
 4698075,g,,264,63,2.3,0.6,9.4,4.8,1.2,0.6,0.77,2026-11-18,https://www.asda.com/groceries/product/4698075
 4721963,g,,1274,303,9.9,4.1,46,21,2.3,6.2,0.07,2026-11-18,https://www.asda.com/groceries/product/4721963
+4721965,g,prepared,1147,271,4.4,1.8,52,26,1.0,5.3,0.09,2026-11-18,https://www.asda.com/groceries/product/4721965
 4724519,g,,229,54,1.7,1.2,7.6,4.6,,2.1,0.76,2026-11-18,https://www.asda.com/groceries/product/4724519
 4727659,g,,1631,384,<0.5,<0.1,95,5.8,<0.5,<0.5,0.02,2026-11-18,https://www.asda.com/groceries/product/4727659
 4727661,g,,1545,364,<0.5,<0.1,89,59,2.5,<0.5,<0.33,2026-11-18,https://www.asda.com/groceries/product/4727661
@@ -341,6 +342,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 4823442,g,,745,178,7.8,0.9,21,1.1,2.7,4.7,0.62,2026-11-18,https://www.asda.com/groceries/product/4823442
 4826883,g,,1510,360,15.5,5.9,50.6,27.9,1.7,3.8,0.46,2026-11-18,https://www.asda.com/groceries/product/4826883
 4827364,g,,219,52,<0.5,0,11,11,1.6,<0.5,0,2026-11-18,https://www.asda.com/groceries/product/4827364
+4827530,ml,,79,19,0,0,4.3,4.2,,0,0.07,2026-11-18,https://www.asda.com/groceries/product/4827530
 482931,g,,1218,291,16,7.4,27,1.5,1.5,10,0.63,2026-11-18,https://www.asda.com/groceries/product/482931
 4833364,g,,1577,381,32,21,2.0,<0.5,<0.5,21,2.0,2026-11-18,https://www.asda.com/groceries/product/4833364
 4840181,g,,989,237,15,8.5,21,19,,4.5,0.13,2026-11-18,https://www.asda.com/groceries/product/4840181
@@ -588,6 +590,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 5962607,g,,60,15,<0.5,<0.1,<0.5,<0.5,2.1,1.7,0.05,2026-11-17,https://www.asda.com/groceries/product/5962607
 5964762,ml,microwaved,60,14,<0.5,0.2,0.8,<0.5,<0.5,1.4,0.68,2026-11-18,https://www.asda.com/groceries/product/5964762
 5965219,g,,1390,332,27.87,16.2,1.9,1.9,,23.2,0.05,2026-11-18,https://www.asda.com/groceries/product/5965219
+5969954,ml,,79,19,0,0,4.3,0,,0,0.07,2026-11-18,https://www.asda.com/groceries/product/5969954
 5986511,g,heated,368,88,1.7,0.3,14,7.5,3.1,2.6,<0.01,2026-11-18,https://www.asda.com/groceries/product/5986511
 5997998,g,,257,61,<0.5,<0.1,12,12,3.4,1.3,<0.01,2026-11-18,https://www.asda.com/groceries/product/5997998
 6005391,ml,,1349,323,0,0,79.3,79.3,,0,0.03,2026-11-18,https://www.asda.com/groceries/product/6005391
@@ -796,6 +799,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 6920613,g,grilled,1269,306,26,9.1,5.7,0.9,1.6,13,1.3,2026-11-18,https://www.asda.com/groceries/product/6920613
 6923652,g,fried,779,186,8.3,2.1,<0.5,<0.5,<0.5,27,0.22,2026-11-17,https://www.asda.com/groceries/product/6923652
 6925872,g,grilled,546,130,2.9,0.8,5.6,0.0,,20,1.7,2026-11-18,https://www.asda.com/groceries/product/6925872
+6937400,ml,,159,37,0,0,8.9,4.5,,0,0.09,2026-11-18,https://www.asda.com/groceries/product/6937400
+6937402,ml,,152,36,0,0,8.6,4.5,,0,0.05,2026-11-18,https://www.asda.com/groceries/product/6937402
+6937416,ml,,159,37,0,0,8.9,0,,0,0.09,2026-11-18,https://www.asda.com/groceries/product/6937416
 6939064,g,,1526,366,20,5.3,40,1.7,6.2,2.6,0.96,2026-11-18,https://www.asda.com/groceries/product/6939064
 6941177,ml,,2,0.5,0,0,<0.1,0,,<0.1,0.01,2026-11-18,https://www.asda.com/groceries/product/6941177
 6941513,g,,1379,328,12,4.6,47,2.8,8.2,1.9,0.95,2026-11-18,https://www.asda.com/groceries/product/6941513
@@ -1369,6 +1375,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 9228682,g,,220,52,0.6,0.2,10,10,1.1,0.7,<0.01,2026-11-18,https://www.asda.com/groceries/product/9228682
 9230839,g,,2043,487,22,2.0,65,1.7,1.6,7.5,1.2,2026-11-18,https://www.asda.com/groceries/product/9230839
 9231890,g,,1701,410,34.5,21.6,<0.5,<0.5,<0.5,24.9,1.80,2026-11-18,https://www.asda.com/groceries/product/9231890
+9232502,ml,,113,27,0,0,6.3,3.5,,0,0.12,2026-11-18,https://www.asda.com/groceries/product/9232502
 9233512,ml,,63,15,0,0,3.4,0,,0.3,<0.01,2026-11-18,https://www.asda.com/groceries/product/9233512
 9233657,g,,1245,296,8.7,1.8,44,6.7,2.5,9.5,0.72,2026-11-18,https://www.asda.com/groceries/product/9233657
 9234038,g,,2148,513,26,2.3,64,2.8,<0.5,5.8,1.8,2026-11-18,https://www.asda.com/groceries/product/9234038
@@ -1714,6 +1721,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 9339199,g,,1213,290,16.6,8.1,23.2,0.8,1.3,11.5,1.25,2026-11-18,https://www.asda.com/groceries/product/9339199
 9339326,g,,2144,512,26.4,14.8,61.1,44.7,1.9,6.5,0.20,2026-11-18,https://www.asda.com/groceries/product/9339326
 9339504,g,,712,169,6.6,1.7,1.2,1.2,<0.5,26,0.70,2026-11-18,https://www.asda.com/groceries/product/9339504
+9339526,ml,,8,2,0,0,0.3,0.2,,0,0.02,2026-11-18,https://www.asda.com/groceries/product/9339526
 9339541,g,,985,234,6.3,4.1,33,3.7,2.4,11,1.1,2026-11-18,https://www.asda.com/groceries/product/9339541
 9339698,g,prepared,1350,319,5.8,1.5,60,22,1.4,6.4,1.2,2026-11-18,https://www.asda.com/groceries/product/9339698
 9339766,g,,910,214,<0.5,<0.1,51,45,<0.5,0.8,0.70,2026-11-18,https://www.asda.com/groceries/product/9339766
@@ -1770,6 +1778,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 9344769,g,,357,84,<0.5,<0.1,15,14,,3.8,0.80,2026-11-18,https://www.asda.com/groceries/product/9344769
 9344771,g,,962,229,9.6,2.6,24,2.9,1.2,12,1.2,2026-11-18,https://www.asda.com/groceries/product/9344771
 9344800,g,,509,120,0.9,0.3,0,0,,28,0.9,2026-11-18,https://www.asda.com/groceries/product/9344800
+9344825,ml,,13,3,0,0,0.5,0.4,,0,0.04,2026-11-18,https://www.asda.com/groceries/product/9344825
 9344924,g,,1095,262,14,8.4,32,29,0.6,2.1,0.12,2026-11-18,https://www.asda.com/groceries/product/9344924
 9344992,g,,1950,465,20,8.9,66,31,0.9,3.9,0.34,2026-11-18,https://www.asda.com/groceries/product/9344992
 9345029,g,,661,160,14,1.4,7.3,3.3,0,2.0,0.78,2026-11-18,https://www.asda.com/groceries/product/9345029
@@ -1790,6 +1799,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 9346329,g,,1876,447,18,6.7,67,29,1.7,4.1,0.36,2026-11-18,https://www.asda.com/groceries/product/9346329
 9346340,g,,1092,261,12,6.6,28,3.2,2.3,8.6,0.60,2026-11-18,https://www.asda.com/groceries/product/9346340
 9346405,g,,1926,459,20,8.8,65,43,0.6,4.1,0.53,2026-11-18,https://www.asda.com/groceries/product/9346405
+9346521,ml,,13,3,0,0,0.5,0.4,,0,0.04,2026-11-18,https://www.asda.com/groceries/product/9346521
 9346843,g,,729,173,2.1,0.7,32,0.1,,4.4,0.2,2026-11-18,https://www.asda.com/groceries/product/9346843
 9346911,g,,1306,307,<0.5,<0.1,76,76,<0.5,<0.5,0.03,2026-11-18,https://www.asda.com/groceries/product/9346911
 9346982,g,,928,225,21,6.8,3.9,<0.5,<0.5,4.5,1.1,2026-11-18,https://www.asda.com/groceries/product/9346982

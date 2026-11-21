@@ -45,6 +45,8 @@ export interface IngredientSpec {
   original?: IngredientSpec;
   /** A store-cupboard item (spices, oil, salt): the recipe page offers "You may have this already". */
   cupboard?: boolean;
+  /** Grams in one ml (the kind's density): a label printed per 100 g counts for this ml amount, converted (PantryKind.density). */
+  density?: number;
   /** Salt, pepper or a dried spice (no nutrition label is required on them): a product with no label may be listed and priced but not counted in the
    *  nutrition (and named as such), when its name is just that seasoning (plainSeasoning). */
   labelOptional?: boolean;
@@ -119,6 +121,7 @@ export function specFromKind(k: PantryKind, amount: number, opts: IngOpts = {}):
     ...(subs?.length ? { subs } : {}),
     ...(k.drained ? { drained: true } : {}),
     ...(k.cupboard ? { cupboard: true } : {}),
+    ...(k.density ? { density: k.density } : {}),
     ...(k.labelOptional ? { labelOptional: true } : {}),
     ...(k.unlabelledNeeds ? { unlabelledNeeds: k.unlabelledNeeds } : {}),
     ...(note ? { note } : {}),
@@ -405,16 +408,26 @@ function soldByThePiece(p: ShopProduct, spec: IngredientSpec): boolean {
   return Math.round(p.price / p.unitPrice) >= 2;
 }
 
+/** The same product with its per-100 g label as per 100 ml: every figure times the grams in one ml (`density`), marked `byWeight` so the recipe says so. */
+function weighedPerMl<P extends ShopProduct>(p: P, density: number): P {
+  const n = p.nutrition!;
+  const x = (v: number) => Math.round(v * density * 100) / 100;
+  const xn = (v: number | null) => (v === null ? null : x(v));
+  return { ...p, nutrition: { ...n, kcal: x(n.kcal), protein: x(n.protein), carbs: x(n.carbs), fat: x(n.fat), saturates: xn(n.saturates), sugars: xn(n.sugars), fibre: xn(n.fibre), salt: xn(n.salt), kj: xn(n.kj), per: "ml", byWeight: density } };
+}
+
 function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
-  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null, spec.match.pieceWeight ? spec.pantry ?? null : null]);
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null, spec.match.pieceWeight ? spec.pantry ?? null : null, spec.density ?? null]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
   const list: PricedProduct[] = [];
-  for (const p of products) {
-    if (!hasPrice(p)) continue; // a recipe prices every ingredient: a product the shop shows no price for can't be used
+  for (const raw of products) {
+    if (!hasPrice(raw)) continue; // a recipe prices every ingredient: a product the shop shows no price for can't be used
+    // a liquid whose label is printed per 100 g counts for the ml a recipe uses, by its weight (the kind's density; founder 2026-11-21)
+    const p = raw.nutrition && raw.nutrition.per === "g" && spec.unit === "ml" && spec.density ? weighedPerMl(raw, spec.density) : raw;
     const n = p.nutrition;
     const h = hay(p);
     if (n) {
@@ -472,7 +485,8 @@ export function candidates(products: readonly ShopProduct[], spec: IngredientSpe
 
 /** Whether this product, from the same shop's list, can stand for the ingredient (the very rules recipes use to pick products). */
 export function productFits(products: readonly ShopProduct[], spec: IngredientSpec, product: ShopProduct, meatFree = false): boolean {
-  return (matching(products, spec, meatFree) as readonly ShopProduct[]).includes(product);
+  const key = productKey(product);
+  return (matching(products, spec, meatFree) as readonly ShopProduct[]).some((p) => p === product || productKey(p) === key);
 }
 
 /** Whether a name names this ingredient by its words alone (a product from another shop's list, or words the person typed). With `loose`
@@ -548,6 +562,8 @@ export interface RecipeTotals {
   govFood: string[];
   /** Ingredients counted from the same product's label read at another supermarket (ShopNutrition.sameAs; their labels, in recipe order). */
   sameAs: string[];
+  /** Liquids whose shop label is per 100 g, counted for their ml by weight (ShopNutrition.byWeight; their labels, in recipe order). */
+  byWeight: string[];
 }
 
 /** Plain arithmetic on the labels: per-100 figure × amount / 100, summed, divided by servings. Only for a complete recipe. `have` = pantry kinds the
@@ -569,6 +585,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
   const community: string[] = [];
   const govFood: string[] = [];
   const sameAs: string[] = [];
+  const byWeight: string[] = [];
   const sum = { kcal: 0, protein: 0, carbs: 0, fat: 0 };
   const more: Record<"kj" | "saturates" | "sugars" | "fibre" | "salt", number | null> = { kj: 0, saturates: 0, sugars: 0, fibre: 0, salt: 0 };
   let used = 0;
@@ -592,6 +609,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     if (n.community && !community.includes(p.spec.label)) community.push(p.spec.label);
     if (n.govFood && !govFood.includes(p.spec.label)) govFood.push(p.spec.label);
     if (n.sameAs && !sameAs.includes(p.spec.label)) sameAs.push(p.spec.label);
+    if (n.byWeight && !byWeight.includes(p.spec.label)) byWeight.push(p.spec.label);
     const f = p.spec.amount / 100;
     sum.kcal += n.kcal * f;
     sum.protein += n.protein * f;
@@ -615,6 +633,7 @@ export function recipeTotals(r: ResolvedRecipe, have: ReadonlySet<string> = new 
     community,
     govFood,
     sameAs,
+    byWeight,
   };
 }
 

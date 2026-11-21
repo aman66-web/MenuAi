@@ -3880,14 +3880,14 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   still keeps the calories and protein, saveTargets; nothing of the week); the line under Meal plan is "An example of what you can make." (was "An example
   week."). Replaces the 02:08 "Save my numbers". keys.json refreshed; tests and browser tests updated. vitest 3,600 pass; e2e smoke 24/24, showcase 14/14
   (run with NEXT_PUBLIC_PRO=1, as the dev server is). On `iap` only.
-- (02:45, 21 Nov) **Pip's tips no longer "glitch"** (founder, on the TestFlight build: "the pip onboarding isn't working properly, it keeps glitching out"). Recorded
+- (about 02:20, 21 Nov) **Pip's tips no longer "glitch"** (founder, on the TestFlight build: "the pip onboarding isn't working properly, it keeps glitching out"). Recorded
   every 50 ms on a 390 x 844 phone screen: on every tip the lit ring slid down from the top of the screen and shrank from full-screen size over 300 ms (its
   top 0, 7, 94, 159, 189, 205), because the plain wash shown while the page settles and the ring were the same <div> to React, so the ring's top/size transition
   ran from the wash's full-screen box. They now have their own keys (CoachMarks.tsx): the ring appears where the control is on its first frame (checked on
   Recipes, Home, Groceries and Eat out), and the card fades in beside it. vitest coach 22/22; e2e/coach.mjs 6/6 (run with NEXT_PUBLIC_PRO=1
   NEXT_PUBLIC_PHOTO_RECIPES=1 as the dev server is; without them its Premium checks expect a free build and fail, before and after this change).
   New: tools/groceries/briefs/labels-aldi.md (the Waitrose brief for Aldi, 5 rounds). On `iap` only.
-- (03:00, 21 Nov) **Recipes for the low shops: what holds each back** (founder: "many of them should have recipes ... Aldi, M&S, Co-op, Lidl, Tesco. Please try and
+- (about 02:25, 21 Nov) **Recipes for the low shops: what holds each back** (founder: "many of them should have recipes ... Aldi, M&S, Co-op, Lidl, Tesco. Please try and
   add as many recipes as you can"). Recipes a shop can make today (lib/mm/recipeCoverage.ts, 293 recipes): Sainsbury's 293, Morrisons 289, Waitrose 240, Iceland
   228, Asda 218, **Aldi 63, M&S 31, Tesco 4, Lidl 0**, Co-op not in the lists (no prices). Measured blockers: **M&S** prints its liquids' labels "per 100 g"
   (its own lemon juice page: "per 100g"), so olive oil (131 recipes), lemon juice (81), vegetable oil, milk, soy sauce never fit a recipe's ml; counting them by
@@ -3899,3 +3899,24 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   "fresh-garlic" kind as garlic purée's substitute (scratchpad patch): Aldi 63 to 81, but with only 16 lunches and 14 dinners its Meal plan can't fill a week
   with no diet (tests/planPreview.test.ts), so it waits for the founder's answer on liquids' labels (Aldi's lemon juice would make 44 breakfasts, 27 lunches,
   22 dinners, 13 snacks). vitest 3,600 pass.
+- (02:28-02:40, 21 Nov) **Liquids labelled per 100 g count for a recipe's ml; Aldi's "per 100"; fresh garlic for purée** (founder, 03:05, to "May liquids labelled
+  'per 100 g' or just 'per 100' be counted for ml amounts?": "Yes, that is perfect"; then "all the shops ... should have recipes ... please do that for me").
+  (1) `PantryKind.density` (grams in one ml) for the ml kinds whose density is well known (FAO/INFOODS Density Database 2.0): milk 1.03, oat drink 1.03,
+  lemon and lime juice 1.03, light and full coconut milk 1.0, olive oil 0.91, vegetable or sunflower oil and oil spray 0.92, soy sauce 1.17; teriyaki and
+  horseradish sauce have none, so they still need a per-100 ml label. A shop's per-100 g label for such a kind is used for its ml times the density
+  (`weighedPerMl` in lib/mm/recipes.ts: a recipe's copy of the product, every figure x density, marked `byWeight`; the shop's list is never changed); the
+  recipe page says "The shop's labels for {names} are per 100 g, so they're counted by weight.", and the product chooser shows such a product's label as the
+  shop printed it (per 100 g). (2) A label heading that says just "per 100" (Aldi 174 pages, Morrisons 53, Sainsbury's 34, Waitrose 27, Asda 12) is read
+  as per 100 ml for a product sold by the ml or litre and per 100 g for one sold by weight, from the pack size in its name; with no pack size it stays out
+  (`pack_unit`, tools/groceries/labels_chrome_ingest.py; tools/tests/test_labels_ingest.py). Re-ingested: 111 more labels (Aldi 34, Morrisons 26,
+  Sainsbury's 25, Waitrose 16, Asda 10), nothing existing changed; every shop list rebuilt. (3) "fresh-garlic" (Fresh garlic, crushed; "a clove is about
+  5 g"; a bulb sold each priced as 40 g, a small bulb) is garlic purée's substitute, used only where a shop sells no purée (Aldi). (4) Almonds never match
+  a flavoured nut mix (Aldi's "Mighty Yeast Extract Almonds & Cashews" had been picked). Recipes a shop can make: **Aldi 63 to 106, M&S 31 to 121**, the
+  rest unchanged. **Aldi's Meal plan still couldn't make a week**: its list has no pack size for most staples (its shop tiles printed none when the list
+  was read), so only 4 of its 106 recipes had a price a serving. So: tools/groceries/aldi_sizes_chrome.py reads, for the 108 Aldi products a recipe could
+  use but can't price (data/groceries/wanted/aldi-sizes.txt), the size line Aldi's own product page prints under the name ("1 kg (£0.85/1 KG)"), copied
+  from the reader's transcript, and puts it into data/groceries/listing/aldi.csv (the size after the name, and the price per kg or litre); a Sonnet helper
+  reads them (tools/groceries/briefs/sizes-aldi.md). Tests: tests/byWeight.test.ts 8/8; a writer's tool tests/recipeShops.check.test.ts (skipped unless
+  REPORT=kinds or REPORT=recipes): which everyday kinds each shop can supply and price, and which shops can make a recipe file's recipes.
+  **Tesco**: its list (6,079 products) has no cupboard aisle at all (no black pepper, chopped tomatoes, plain rice, lemon juice, chickpeas or stock): Tesco
+  blocked the reading of those aisles, so no recipes there yet. **Lidl** prints no nutrition online; **Co-op** has no prices in the app.

@@ -112,7 +112,16 @@ def energy(cells: list[str], label: str) -> tuple[str | None, str | None]:
     return (kj.group(1) if kj else None), (kc.group(1) if kc else None)
 
 
-def read_table(rec: dict) -> tuple[dict | None, str]:
+def pack_unit(name: str) -> str | None:
+    """"ml" or "g" from the pack size in a product's name ("THE PANTRY Lemon Juice 250 ml", "Beef Stock Pots 4 x 28 g"), else None."""
+    m = re.findall(r"\d(?:[\d.,]*)\s*(ml|cl|l|litres?|g|kg)\b", name or "", re.I)
+    if not m:
+        return None
+    unit = m[-1].lower()
+    return "ml" if unit in ("ml", "cl", "l", "litre", "litres") else "g"
+
+
+def read_table(rec: dict, name: str = "") -> tuple[dict | None, str]:
     rows = rec.get("nut") or []
     if not rows:
         return None, "no table"
@@ -130,6 +139,14 @@ def read_table(rec: dict) -> tuple[dict | None, str]:
         m = re.search(r"per\s*100\s*(g|ml)(?:ms|rams)?\b", rec.get("above", ""), re.I)
         if m and len(header) >= 2:
             col, per = 1, m.group(1).lower()
+    if col is None:
+        # Aldi prints some headings as just "per 100", with no unit (founder 2026-11-21, "Yes, that is perfect"): read as per 100 ml for a product sold by
+        # the ml or litre and per 100 g for one sold by weight, from the pack size in its name; with no pack size it stays left out
+        unit = pack_unit(name)
+        for i, h in enumerate(header):
+            if (i > 0 or len(header) == 1) and unit and re.search(r"\bper\s*100\s*$", h.strip(), re.I) and not re.search(r"%|\bri\b|reference", h, re.I):
+                col, per = i, unit
+                break
     if col is None:
         return None, "no per-100 column"
     heading = header[col] + " " + (rec.get("above") or "")
@@ -288,7 +305,7 @@ def main() -> int:
         if not same_product(name, rec.get("h1", "")):  # the id is the product asked for; the shop may have renamed it since the list was read ("Sweet & Earthy Parsnips" -> "British Parsnips")
             counts["title differs"] = counts.get("title differs", 0) + 1
             continue
-        t, why = read_table(rec)
+        t, why = read_table(rec, name)
         if t is None:
             counts[why] = counts.get(why, 0) + 1
             continue

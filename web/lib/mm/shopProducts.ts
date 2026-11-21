@@ -103,6 +103,9 @@ export interface ShopNutrition {
   /** Set for loose fresh fruit and vegetables with no label of any kind: the UK government's figures for that food, raw (McCance and Widdowson's Composition of
    *  Foods Integrated Dataset 2021; tools/groceries/cofid.py; founder 2026-11-17), and this is the dataset's own name for the food ("Onions, raw"). */
   govFood?: string;
+  /** Set only on a recipe's copy of a liquid whose label the shop prints per 100 g (M&S's oils, milk, lemon juice): the grams in one ml it was converted with,
+   *  so the figures are per 100 ml (lib/mm/recipes.ts weighedPerMl; founder 2026-11-21). Never stored in a shop's list. */
+  byWeight?: number;
 }
 
 export interface ShopProduct {
