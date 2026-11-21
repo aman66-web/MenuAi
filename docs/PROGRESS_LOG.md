@@ -3880,3 +3880,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   still keeps the calories and protein, saveTargets; nothing of the week); the line under Meal plan is "An example of what you can make." (was "An example
   week."). Replaces the 02:08 "Save my numbers". keys.json refreshed; tests and browser tests updated. vitest 3,600 pass; e2e smoke 24/24, showcase 14/14
   (run with NEXT_PUBLIC_PRO=1, as the dev server is). On `iap` only.
+- (02:45, 21 Nov) **Pip's tips no longer "glitch"** (founder, on the TestFlight build: "the pip onboarding isn't working properly, it keeps glitching out"). Recorded
+  every 50 ms on a 390 x 844 phone screen: on every tip the lit ring slid down from the top of the screen and shrank from full-screen size over 300 ms (its
+  top 0, 7, 94, 159, 189, 205), because the plain wash shown while the page settles and the ring were the same <div> to React, so the ring's top/size transition
+  ran from the wash's full-screen box. They now have their own keys (CoachMarks.tsx): the ring appears where the control is on its first frame (checked on
+  Recipes, Home, Groceries and Eat out), and the card fades in beside it. vitest coach 22/22; e2e/coach.mjs 6/6 (run with NEXT_PUBLIC_PRO=1
+  NEXT_PUBLIC_PHOTO_RECIPES=1 as the dev server is; without them its Premium checks expect a free build and fail, before and after this change).
+  New: tools/groceries/briefs/labels-aldi.md (the Waitrose brief for Aldi, 5 rounds). On `iap` only.

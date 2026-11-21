@@ -243,15 +243,18 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
     >
       {steps && step && (
         <>
-          {/* the lightly dimmed page with the lit control's hole (a huge shadow round the hole), a 2 px white gap and the 3 px ink ring outside it */}
+          {/* the lightly dimmed page with the lit control's hole (a huge shadow round the hole), a 2 px white gap and the 3 px ink ring outside it. The ring and
+              the plain wash shown while the page settles are two different elements (their keys): sharing one, the ring slid in from the top of the screen and
+              shrank from full-screen size on every tip (founder 2026-11-21: "it keeps glitching out"). */}
           {hole && showing ? (
             <div
+              key="ring"
               aria-hidden
               className="pointer-events-none fixed rounded-[1.25rem] outline-[3px] outline-offset-2 outline-ink [outline-style:solid] motion-safe:transition-[top,left,width,height] motion-safe:duration-300"
               style={{ ...hole, boxShadow: "0 0 0 2px var(--card), 0 0 0 200vmax var(--tips-wash)" }}
             />
           ) : (
-            <div aria-hidden className="fixed inset-0 bg-[var(--tips-wash)]" />
+            <div key="wash" aria-hidden className="fixed inset-0 bg-[var(--tips-wash)]" />
           )}
           {/* Pip on the real tab bar, bare (never on the ink itself): he stands on its top edge over the first tab and hops once to the last */}
           {hopping && hole && (
