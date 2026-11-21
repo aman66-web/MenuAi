@@ -3846,3 +3846,15 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   signed in):** the free-week tables in Supabase, removing Apple's 7-day introductory offer from both subscriptions, swapping build 7 for build 10 in the
   review submission with the new review notes (docs/STORE.md "Version 1.1 (next build)"), then Submit (Claude messages the founder first). Until the tables
   exist the free week simply doesn't start (the route answers 500; the app shows the plans as before).
+- (01:15-01:30, 21 Nov) **Free week live on the server; Apple's trial gone; build 10 ready to submit** (founder: "can you do it all for me"; Claude in Chrome reconnected
+  at about 01:12). (1) **Supabase** (menumacros, production): the tables of `20261121120000_free_week.sql` created in the SQL Editor ("Success. No rows
+  returned"); checked: `trial_claims` and `premium_gifts` exist, row security on, anon cannot read, service_role can write. (2) **App Store Connect:** the
+  "Free for the first week" introductory offer (19 Nov to no end date, 175 countries) deleted from Annual and Monthly; version 1.1 removed from review
+  (it was "Waiting for Review" with build 7, now "Developer Rejected", which is Apple's word for removed by the developer), build 7 swapped for **build 10**
+  (processed, "Ready to Submit", also in TestFlight's Founder group); the description's "each with a 7-day free trial" became "Every new account gets Premium
+  free for its first 7 days, with no payment details. After that, choose Monthly or Annual."; the Notes for App Review's In-App Purchase paragraph replaced
+  (no introductory offer; the free week after signing in, kept to one per person by a one-way hash; Settings > Subscription > See plans during it; DeviceCheck not
+  mentioned because its key isn't set yet); each plan's own review note and review screenshot replaced (`build/review-plans-build10.png`: build 10's plans
+  screen, "Numbite Premium", £49.99 a year / £4.99 a month, no trial; the old one said "Numbite Pro" and "First 7 days free"). What's New kept ("Try it free
+  for 7 days" is still true). Manual release kept. A draft submission holds the 4 items (iOS App 1.1 (10), Annual, Monthly, the Numbite Premium group);
+  **Submit for Review waits for the founder's word.**
