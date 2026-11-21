@@ -2,9 +2,10 @@ import { ing, type Recipe } from "../recipes";
 
 // Keto meals (founder 2026-11-20: "Give more options like keto or whatever ... if you don't have enough recipes for some options, make new recipes"):
 // eggs, cheese, chicken, salmon, bacon and green vegetables, at most a tenth of a serving's calories from carbs (EATING_STYLES in lib/mm/mealPlan.ts),
-// with no bread, rice, pasta, potatoes or beans. Each serving is written at about the meal size, its calories from olive oil, cheese, eggs or nuts (fitting
-// moves only the protein and carb foods, so the main fat food is given the carb role to move with the meal size). See lib/mm/recipeBook/index.ts for the
-// rules every recipe follows.
+// with no bread, rice, pasta, potatoes or beans. The fat comes from the dish itself (eggs, cheese, salmon, bacon, chicken thighs), cooked in about a
+// tablespoon of oil a pan for one or two, as a home cook would; nuts only where a cook would put them (review 2026-11-21). Fitting moves only the protein and
+// carb foods, so where a dish has cheese, the cheese is given the carb role to move with the meal size; the oil stays as written. See lib/mm/recipeBook/index.ts
+// for the rules every recipe follows.
 
 const FAT = { role: "carb" } as const;
 
@@ -12,7 +13,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   // ---- breakfasts
   {
     id: "bacon-eggs-mushrooms-tomatoes", meal: "breakfast", tags: ["Eggs", "Quick", "Brunch"], name: "Bacon, eggs, mushrooms and tomatoes", blurb: "Grilled bacon and tomatoes with fried mushrooms and eggs topped with melted cheddar.", servings: 2, minutes: 15,
-    ingredients: [ing("bacon", 120), ing("eggs", 240), ing("mushrooms", 150), ing("tomatoes", 170), ing("olive-oil", 30, FAT), ing("cheddar", 40), ing("black-pepper", 1)],
+    ingredients: [ing("bacon", 120), ing("eggs", 240), ing("mushrooms", 150), ing("tomatoes", 170), ing("olive-oil", 15), ing("cheddar", 40, FAT), ing("black-pepper", 1)],
     method: [
       "Get ready: Turn the grill on to medium-high. Wipe the mushrooms clean and slice them. Cut the tomatoes in half across the middle. Grate the cheddar.",
       "Grill the bacon: Lay the bacon and the tomato halves, cut side up, on the grill rack. Grill for 8 to 10 minutes, turning the bacon once, until it is golden and cooked through and the tomatoes are soft.",
@@ -24,7 +25,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "cheesy-baked-eggs-spinach", meal: "breakfast", tags: ["Eggs", "Quick", "Brunch"], name: "Cheesy baked eggs with spinach", blurb: "Eggs baked on garlicky creamy spinach under a bubbling cheddar top.", servings: 2, minutes: 20,
-    ingredients: [ing("eggs", 300), ing("spinach", 150), ing("cheddar", 80, FAT), ing("soft-cheese", 60), ing("garlic", 5), ing("olive-oil", 15, FAT), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 300), ing("spinach", 150), ing("cheddar", 80, FAT), ing("soft-cheese", 60), ing("garlic", 5), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Turn the grill on to medium-high. Grate the cheddar. Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
       "Wilt the spinach: Heat the oil in a large non-stick frying pan over a medium heat. Add the garlic and spinach and stir for 2 to 3 minutes, until the spinach has shrunk down and is soft.",
@@ -50,11 +51,11 @@ export const KETO_MEALS: readonly Recipe[] = [
   // ---- lunches
   {
     id: "chicken-bacon-lettuce-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "Chicken, bacon and lettuce salad", blurb: "Crunchy lettuce, tomato and cucumber with warm chicken, bacon, cheddar and a lemony mayonnaise dressing.", servings: 2, minutes: 20,
-    ingredients: [ing("chicken-thigh", 300), ing("bacon", 80), ing("lettuce", 200), ing("cherry-tomatoes", 100), ing("cucumber", 100), ing("cheddar", 60), ing("light-mayo", 40), ing("olive-oil", 30, FAT), ing("lemon-juice", 10), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 300), ing("bacon", 80), ing("lettuce", 200), ing("cherry-tomatoes", 100), ing("cucumber", 100), ing("cheddar", 60), ing("light-mayo", 40), ing("olive-oil", 15), ing("lemon-juice", 10), ing("black-pepper", 1)],
     method: [
       "Get ready: Cut the chicken and the bacon into thin strips on a separate board. Wash the board, knife and your hands well after handling the raw meat.",
-      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice, half the oil and a grind of black pepper until smooth. Keep it to one side.",
-      "Cook the chicken: Heat the rest of the oil in a large frying pan over a medium-high heat. Fry the chicken for 5 minutes, turning often, until it starts to turn golden.",
+      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice and a grind of black pepper until smooth. Keep it to one side.",
+      "Cook the chicken: Heat the oil in a large frying pan over a medium-high heat. Fry the chicken for 5 minutes, turning often, until it starts to turn golden.",
       "Add the bacon: Add the bacon and fry with the chicken for 4 to 5 minutes more, turning often, until the bacon is golden and the chicken is piping hot with no pink left in the middle.",
       "Prepare the salad: Meanwhile, wash the lettuce, shake it dry and tear it into pieces. Halve the cherry tomatoes, slice the cucumber and grate the cheddar.",
       "Toss the salad: Put the lettuce, tomatoes and cucumber in a large bowl, pour over the dressing and toss gently until everything is coated.",
@@ -77,7 +78,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   {
     id: "bacon-mushroom-cheddar-frittata", meal: "lunch", tags: ["Eggs", "Make ahead"], name: "Bacon, mushroom and cheddar frittata", blurb: "A thick egg frittata with bacon, mushrooms, spinach and cheddar, good warm or cold.", servings: 4, minutes: 30,
     // one frying pan holds at most half as many eggs again
-    ingredients: [ing("eggs", 600, { fit: [0.5, 1.5] }), ing("bacon", 160), ing("mushrooms", 250), ing("spinach", 100), ing("cheddar", 160, FAT), ing("spring-onions", 50), ing("olive-oil", 30, FAT), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 600, { fit: [0.5, 1.5] }), ing("bacon", 160), ing("mushrooms", 250), ing("spinach", 100), ing("cheddar", 160, FAT), ing("spring-onions", 50), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Turn the grill on to medium-high. Wipe and slice the mushrooms, trim and slice the spring onions, and grate the cheddar. Cut the bacon into strips, then wash your hands.",
       "Beat the eggs: Crack the eggs into a large bowl, picking out any shell. Add a good grind of black pepper and beat with a fork until smooth. Wash your hands after handling raw eggs.",
@@ -91,11 +92,11 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "chicken-caesar-style-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "Chicken Caesar-style salad", blurb: "Pan-fried chicken on crisp lettuce with a garlic and lemon mayonnaise dressing and grated cheddar.", servings: 2, minutes: 20,
-    ingredients: [ing("chicken-thigh", 300), ing("lettuce", 200), ing("cheddar", 60), ing("light-mayo", 60), ing("lemon-juice", 15), ing("garlic", 5), ing("olive-oil", 30, FAT), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 300), ing("lettuce", 200), ing("cheddar", 60), ing("light-mayo", 60), ing("lemon-juice", 15), ing("garlic", 5), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Cut the chicken into thin strips on a separate board. Wash the board, knife and your hands well after handling raw chicken.",
-      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice, garlic, a little of the oil and a good grind of black pepper until smooth. Keep it to one side.",
-      "Cook the chicken: Heat the rest of the oil in a large frying pan over a medium-high heat. Fry the chicken for 8 to 10 minutes, turning often, until golden, piping hot and no pink is left in the middle.",
+      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice, garlic and a good grind of black pepper until smooth. Keep it to one side.",
+      "Cook the chicken: Heat the oil in a large frying pan over a medium-high heat. Fry the chicken for 8 to 10 minutes, turning often, until golden, piping hot and no pink is left in the middle.",
       "Prepare the lettuce: Meanwhile, wash the lettuce, shake it dry and cut or tear it into bite-sized pieces. Grate the cheddar.",
       "Toss the salad: Put the lettuce in a large bowl with half the cheddar, pour over the dressing and toss until every piece is coated.",
       "Serve: Pile the salad into bowls, top with the warm chicken and scatter the rest of the cheese over. Eat straight away.",
@@ -115,35 +116,33 @@ export const KETO_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "tuna-nicoise-style-salad", meal: "lunch", tags: ["Fish", "Salad", "Quick"], name: "Tuna Niçoise-style salad", blurb: "Tuna, boiled eggs, lettuce, tomato and cucumber with a lemon and olive oil dressing and toasted almonds.", servings: 2, minutes: 20,
-    ingredients: [ing("tuna", 200), ing("eggs", 240), ing("lettuce", 150), ing("tomatoes", 170), ing("cucumber", 100), ing("almonds", 40), ing("olive-oil", 40, FAT), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    id: "tuna-nicoise-style-salad", meal: "lunch", tags: ["Fish", "Salad", "Quick"], name: "Tuna Niçoise-style salad", blurb: "Tuna, boiled eggs, lettuce, tomato and cucumber with a lemon and olive oil dressing.", servings: 2, minutes: 20,
+    ingredients: [ing("tuna", 200), ing("eggs", 240), ing("lettuce", 150), ing("tomatoes", 170), ing("cucumber", 100), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
       "Cook the eggs: Half-fill a saucepan with water from the kettle and bring it to the boil. Lower in the eggs on a spoon and boil for 9 minutes, until the whites and yolks are firmly set. Wash your hands after handling raw eggs.",
       "Cool the eggs: Lift the eggs into a bowl of cold water for 3 minutes, then tap them all over and peel off the shells.",
-      "Toast the almonds: Meanwhile, roughly chop the almonds and toast them in a dry frying pan over a medium heat for 2 to 3 minutes, shaking the pan, until golden.",
       "Make the dressing: In a small bowl, mix the oil, lemon juice and a good grind of black pepper with a fork.",
       "Prepare the salad: Wash the lettuce, shake it dry and tear it into pieces. Cut the tomatoes into wedges and slice the cucumber. Drain the tuna well.",
       "Put it together: Arrange the lettuce, tomatoes and cucumber in shallow bowls. Cut the eggs into quarters and add them with chunks of tuna.",
-      "Serve: Spoon the dressing over, scatter the almonds on top and serve straight away.",
+      "Serve: Spoon the dressing over and serve straight away.",
     ],
   },
   {
-    id: "smoked-salmon-egg-spinach-salad", meal: "lunch", tags: ["Fish", "Salad", "Quick"], name: "Smoked salmon, egg and spinach salad", blurb: "Smoked salmon and boiled eggs on spinach and cucumber with a lemon dressing and toasted almonds.", servings: 2, minutes: 15,
-    ingredients: [ing("smoked-salmon", 120), ing("eggs", 240), ing("spinach", 100), ing("cucumber", 100), ing("almonds", 40), ing("olive-oil", 30, FAT), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    id: "smoked-salmon-egg-spinach-salad", meal: "lunch", tags: ["Fish", "Salad", "Quick"], name: "Smoked salmon, egg and spinach salad", blurb: "Smoked salmon and boiled eggs on spinach and cucumber with a lemon dressing.", servings: 2, minutes: 15,
+    ingredients: [ing("smoked-salmon", 120), ing("eggs", 240), ing("spinach", 100), ing("cucumber", 100), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
       "Cook the eggs: Half-fill a saucepan with water from the kettle and bring it to the boil. Lower in the eggs on a spoon and boil for 8 minutes, until the whites are set and the yolks are just firm. Wash your hands after handling raw eggs.",
       "Cool the eggs: Lift the eggs into a bowl of cold water for 3 minutes, then tap them all over and peel off the shells.",
-      "Toast the almonds: Meanwhile, roughly chop the almonds and toast them in a dry frying pan over a medium heat for 2 to 3 minutes, shaking the pan, until golden.",
       "Make the dressing: In a small bowl, mix the oil, lemon juice and a good grind of black pepper with a fork.",
       "Prepare the salad: Rinse the spinach unless the bag says it is ready washed, and shake it dry. Slice the cucumber into thin rounds. Tear the smoked salmon into strips.",
       "Put it together: Toss the spinach and cucumber with half the dressing and pile into shallow bowls. Cut the eggs in half and lay them on top with the smoked salmon.",
-      "Serve: Spoon over the rest of the dressing, scatter the almonds on top and serve straight away.",
+      "Serve: Spoon over the rest of the dressing and serve straight away.",
     ],
   },
   // ---- dinners
   {
     id: "creamy-mushroom-chicken-thighs-broccoli", meal: "dinner", tags: ["One pan"], name: "Chicken thighs in a creamy mushroom sauce with broccoli", blurb: "Golden chicken thighs in a creamy mushroom and cheese sauce, with broccoli.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken-thigh", 300), ing("mushrooms", 250), ing("soft-cheese", 150), ing("cheddar", 40), ing("garlic", 5), ing("olive-oil", 30, FAT), ing("broccoli", 200), ing("mixed-herbs", 1), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 300), ing("mushrooms", 250), ing("soft-cheese", 150), ing("cheddar", 40, FAT), ing("garlic", 5), ing("olive-oil", 15), ing("broccoli", 200), ing("mixed-herbs", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Wipe the mushrooms clean and slice them. Cut the broccoli into small florets. Grate the cheddar.",
       "Season the chicken: Pat the chicken thighs dry with kitchen paper and season both sides with black pepper. Wash your hands, and anything the raw chicken touched, straight away.",
@@ -157,7 +156,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "cheesy-chicken-broccoli-bake", meal: "dinner", tags: ["Bake", "Batch cook"], name: "Cheesy chicken and broccoli bake", blurb: "Chicken and broccoli baked in a creamy garlic sauce under a golden cheddar top.", servings: 4, minutes: 40,
-    ingredients: [ing("chicken-thigh", 500), ing("broccoli", 400), ing("soft-cheese", 200), ing("cheddar", 160), ing("garlic", 10), ing("olive-oil", 40, FAT), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 500), ing("broccoli", 400), ing("soft-cheese", 200), ing("cheddar", 160, FAT), ing("garlic", 10), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6). Cut the broccoli into small florets and grate the cheddar.",
       "Cut the chicken: Cut the chicken into bite-sized pieces on a separate board. Wash the board, knife and your hands well after handling raw chicken.",
@@ -166,12 +165,12 @@ export const KETO_MEALS: readonly Recipe[] = [
       "Make the sauce: Take the frying pan off the heat. Stir in the soft cheese, garlic, half the cheddar, a good grind of black pepper and a splash of water, until the chicken is coated in a creamy sauce.",
       "Fill the dish: Tip the chicken and sauce into a medium baking dish, add the broccoli and stir gently so everything is mixed. Scatter the rest of the cheese over the top.",
       "Bake: Bake for 20 minutes, until bubbling and golden on top and the chicken is piping hot all the way through with no pink left. Cut a large piece open to check.",
-      "Serve: Leave it to stand for 2 minutes, as the sauce is very hot, then spoon it on to warm plates.",
+      "Serve: Leave it to stand for 2 minutes, as the sauce is very hot, then spoon it on to warm plates. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   {
     id: "beef-mushroom-spinach-skillet", meal: "dinner", tags: ["One pan", "Quick"], name: "Beef, mushroom and spinach pan with cheddar", blurb: "Beef mince, mushrooms and spinach in a tomato sauce, topped with melted cheddar.", servings: 2, minutes: 20,
-    ingredients: [ing("beef-mince", 300), ing("mushrooms", 200), ing("spinach", 150), ing("onion", 75, { note: "about half an onion" }), ing("garlic", 5), ing("chopped-tomatoes", 200), ing("cheddar", 60), ing("olive-oil", 30, FAT), ing("oregano", 1), ing("black-pepper", 1)],
+    ingredients: [ing("beef-mince", 300), ing("mushrooms", 200), ing("spinach", 150), ing("onion", 75, { note: "about half an onion" }), ing("garlic", 5), ing("chopped-tomatoes", 200), ing("cheddar", 60, FAT), ing("olive-oil", 15), ing("oregano", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Peel and finely chop the onion. Wipe the mushrooms clean and slice them. Grate the cheddar.",
       "Soften the onion: Heat the oil in a large frying pan over a medium-high heat. Fry the onion and mushrooms for 4 minutes, stirring often, until soft and starting to turn golden.",
@@ -185,7 +184,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "pesto-chicken-tomatoes-broccoli", meal: "dinner", tags: ["One pan"], name: "Pesto chicken with roast tomatoes and broccoli", blurb: "Pesto-topped chicken thighs roasted with cherry tomatoes and broccoli, finished with melted mozzarella.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken-thigh", 300), ing("pesto", 60), ing("cherry-tomatoes", 150), ing("broccoli", 200), ing("mozzarella", 125), ing("olive-oil", 30, FAT), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 300), ing("pesto", 60), ing("cherry-tomatoes", 150), ing("broccoli", 200), ing("mozzarella", 125, FAT), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6). Cut the broccoli into small florets. Drain the mozzarella and tear it into small pieces.",
       "Coat the chicken: Lay the chicken thighs in a large roasting tin and spread the pesto over the top of each one. Wash your hands, and anything the raw chicken touched, straight away.",
@@ -199,7 +198,7 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "mozzarella-chicken-tomato-sauce", meal: "dinner", tags: ["One pan"], name: "Mozzarella chicken in tomato sauce with salad", blurb: "Chicken thighs simmered in a garlic and oregano tomato sauce under melted mozzarella, with a side salad.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken-thigh", 300), ing("passata", 200), ing("mozzarella", 125), ing("garlic", 5), ing("oregano", 1), ing("olive-oil", 30, FAT), ing("salad-leaves", 80), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 300), ing("passata", 200), ing("mozzarella", 125, FAT), ing("garlic", 5), ing("oregano", 1), ing("olive-oil", 15), ing("salad-leaves", 80), ing("black-pepper", 1)],
     method: [
       "Get ready: Drain the mozzarella and cut it into thin slices. Pat the chicken thighs dry with kitchen paper, then wash your hands well after handling raw chicken.",
       "Brown the chicken: Heat half the oil in a large frying pan over a medium-high heat. Fry the chicken for 4 to 5 minutes on each side, until golden. Lift it on to a plate.",
@@ -212,45 +211,46 @@ export const KETO_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "salmon-creamy-spinach-broccoli", meal: "dinner", tags: ["Fish", "Quick"], name: "Salmon with creamy spinach and broccoli", blurb: "Pan-fried salmon with creamy garlic spinach, broccoli and toasted almonds.", servings: 2, minutes: 20,
-    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("soft-cheese", 120), ing("garlic", 5), ing("lemon-juice", 10), ing("olive-oil", 30, FAT), ing("broccoli", 150), ing("almonds", 30), ing("black-pepper", 1)],
+    id: "salmon-creamy-spinach-broccoli", meal: "dinner", tags: ["Fish", "Quick"], name: "Salmon with creamy spinach and broccoli", blurb: "Pan-fried salmon with creamy garlic and lemon spinach, and broccoli.", servings: 2, minutes: 20,
+    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("soft-cheese", 120), ing("garlic", 5), ing("lemon-juice", 10), ing("olive-oil", 15), ing("broccoli", 150), ing("black-pepper", 1)],
     method: [
-      "Get ready: Boil the kettle. Roughly chop the almonds and cut the broccoli into small florets. Pat the salmon dry with kitchen paper and season it with black pepper.",
-      "Toast the almonds: Toast the almonds in a large dry frying pan over a medium heat for 2 to 3 minutes, shaking the pan, until golden. Tip them on to a plate.",
+      "Get ready: Boil the kettle. Cut the broccoli into small florets. Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
+      "Season the salmon: Pat the salmon dry with kitchen paper and season it on both sides with black pepper. Wash your hands after handling raw fish.",
       "Cook the broccoli: Cook the broccoli in a pan of boiling water from the kettle for 4 to 5 minutes, until just tender. Drain it well.",
-      "Fry the salmon: Meanwhile, heat half the oil in the frying pan over a medium-high heat. Fry the salmon for 4 minutes, then turn it over carefully and cook for 3 to 4 minutes more.",
+      "Fry the salmon: Meanwhile, heat half the oil in a large frying pan over a medium-high heat. Fry the salmon for 4 minutes, then turn it over carefully and cook for 3 to 4 minutes more.",
       "Check the fish: The salmon is done when it is opaque all the way through and flakes easily when pressed with a fork. Lift it on to warm plates.",
       "Wilt the spinach: Add the rest of the oil and the garlic to the pan for 30 seconds. Stir in the spinach for 2 minutes, until it has shrunk down.",
       "Make it creamy: Stir in the soft cheese and lemon juice for 1 minute, until the spinach is coated in a smooth, creamy sauce.",
-      "Serve: Spoon the spinach beside the salmon with the broccoli, scatter the almonds over the top and add a grind of black pepper.",
+      "Serve: Spoon the spinach beside the salmon with the broccoli and add a grind of black pepper.",
     ],
   },
   {
-    id: "salmon-garlic-spinach-tomatoes", meal: "dinner", tags: ["Fish", "Quick", "One pan"], name: "Salmon with garlic spinach and cherry tomatoes", blurb: "Pan-fried salmon on garlicky spinach and soft cherry tomatoes, with toasted almonds.", servings: 2, minutes: 20,
-    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("cherry-tomatoes", 200), ing("garlic", 10), ing("almonds", 30), ing("olive-oil", 30, FAT), ing("lemon-juice", 10), ing("black-pepper", 1)],
+    id: "salmon-garlic-spinach-tomatoes", meal: "dinner", tags: ["Fish", "Quick", "One pan"], name: "Salmon with garlic spinach and cherry tomatoes", blurb: "Pan-fried salmon on garlicky spinach and soft cherry tomatoes, with a squeeze of lemon.", servings: 2, minutes: 20,
+    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("cherry-tomatoes", 200), ing("garlic", 10), ing("olive-oil", 15), ing("lemon-juice", 10), ing("black-pepper", 1)],
     method: [
-      "Get ready: Halve the cherry tomatoes and roughly chop the almonds. Pat the salmon dry with kitchen paper and season it with black pepper.",
-      "Toast the almonds: Toast the almonds in a large dry frying pan over a medium heat for 2 to 3 minutes, shaking the pan, until golden. Tip them on to a plate.",
-      "Fry the salmon: Heat half the oil in the same pan over a medium-high heat. Fry the salmon for 4 minutes, then turn it over carefully and cook for 3 to 4 minutes more.",
+      "Get ready: Halve the cherry tomatoes. Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
+      "Season the salmon: Pat the salmon dry with kitchen paper and season it on both sides with black pepper. Wash your hands after handling raw fish.",
+      "Fry the salmon: Heat half the oil in a large frying pan over a medium-high heat. Fry the salmon for 4 minutes, then turn it over carefully and cook for 3 to 4 minutes more.",
       "Check the fish: The salmon is done when it is opaque all the way through and flakes easily when pressed with a fork. Lift it on to a warm plate.",
       "Soften the tomatoes: Add the rest of the oil and the cherry tomatoes to the pan and fry for 2 to 3 minutes, until they start to soften and split.",
       "Add the garlic: Stir in the garlic for 30 seconds, taking care that it doesn't burn.",
       "Wilt the spinach: Add the spinach a handful at a time and stir for 2 minutes, until it has shrunk down. Stir in the lemon juice.",
-      "Serve: Spoon the spinach and tomatoes on to warm plates, sit the salmon on top and scatter the almonds over.",
+      "Serve: Spoon the spinach and tomatoes on to warm plates, sit the salmon on top and spoon over any juices from the pan.",
     ],
   },
   {
-    id: "chilli-beef-pepper-broccoli-stir-fry", meal: "dinner", tags: ["Quick", "One pan"], name: "Chilli beef with peppers and broccoli", blurb: "Spiced beef mince stir-fried with peppers, broccoli and spring onions, finished with lemon and almonds.", servings: 2, minutes: 20,
-    ingredients: [ing("beef-mince", 300), ing("peppers", 160), ing("broccoli", 200), ing("spring-onions", 50), ing("garlic", 10), ing("chilli-powder", 1), ing("almonds", 40), ing("olive-oil", 30, FAT), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    id: "chilli-beef-pepper-broccoli-stir-fry", meal: "dinner", tags: ["Quick", "One pan"], name: "Chilli beef with peppers, broccoli and a fried egg", blurb: "Spiced beef mince stir-fried with peppers, broccoli and spinach, finished with lemon and topped with a fried egg.", servings: 2, minutes: 20,
+    // the egg on top, as Thai chilli beef is served, gives the dish its richness (review 2026-11-21: the mince is lean, and a second spoon of oil was filler)
+    ingredients: [ing("beef-mince", 300), ing("eggs", 120), ing("peppers", 160), ing("broccoli", 100), ing("spinach", 100), ing("garlic", 10), ing("chilli-powder", 1), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
-      "Get ready: Cut the pepper in half, pull out the stalk and seeds and slice it into thin strips. Cut the broccoli into small florets, trim and slice the spring onions, and roughly chop the almonds.",
-      "Toast the almonds: Toast the almonds in a large dry frying pan or wok over a medium heat for 2 to 3 minutes, shaking the pan, until golden. Tip them on to a plate.",
-      "Brown the mince: Heat half the oil in the pan over a high heat. Add the beef mince and fry for 5 to 6 minutes, breaking it up with a wooden spoon, until browned with no pink left.",
-      "Add the spices: Stir in the garlic and chilli powder for 30 seconds, then tip the mince into a bowl.",
-      "Stir-fry the vegetables: Add the rest of the oil to the pan. Stir-fry the broccoli and pepper for 4 to 5 minutes, until just tender but still a little crunchy. Add a splash of water if they start to stick.",
-      "Bring it together: Put the mince back in the pan with the spring onions and stir-fry for 2 minutes, until everything is piping hot.",
-      "Season: Take the pan off the heat and stir in the lemon juice and a good grind of black pepper.",
-      "Serve: Spoon into warm bowls and scatter the toasted almonds over the top.",
+      "Get ready: Cut the pepper in half, pull out the stalk and seeds and slice it into thin strips. Cut the broccoli into small florets. Rinse the spinach unless the bag says it is ready washed.",
+      "Brown the mince: Heat half the oil in a large frying pan or wok over a high heat. Add the beef mince and fry for 5 to 6 minutes, breaking it up with a wooden spoon, until browned with no pink left.",
+      "Add the spices: Stir in the garlic and chilli powder for 30 seconds, until they smell fragrant.",
+      "Add the vegetables: Add the broccoli, the pepper and a splash of water. Stir-fry for 4 to 5 minutes, until the vegetables are just tender but still a little crunchy and the mince is piping hot.",
+      "Wilt the spinach: Stir in the spinach a handful at a time for 1 to 2 minutes, until it has shrunk down. Take the pan off the heat and stir in the lemon juice and a good grind of black pepper.",
+      "Keep it warm: Spoon the beef and vegetables into warm bowls and cover them with plates. Wipe the pan clean with kitchen paper.",
+      "Fry the eggs: Heat the rest of the oil in the pan over a medium heat. Crack in the eggs and fry for 3 to 4 minutes, until the whites are completely set. Wash your hands after handling raw eggs.",
+      "Serve: Lift an egg on to each bowl with a fish slice and eat straight away, while it is hot.",
     ],
   },
 ];
@@ -265,14 +265,14 @@ export const KETO_MEALS_LOOKS: Readonly<Record<string, string>> = {
   "bacon-mushroom-cheddar-frittata": "A thick wedge of golden frittata on a round white plate, its cut side showing set egg studded with browned bacon pieces, sliced mushrooms, dark green spinach and spring onion, under a golden cheddar top.",
   "chicken-caesar-style-salad": "A wide white bowl of crisp pale green lettuce pieces in a creamy white dressing, topped with golden pan-fried chicken strips and a scatter of finely grated orange cheddar, flecked with black pepper.",
   "tuna-cheddar-stuffed-peppers": "Two roasted red pepper halves on a round white plate, filled with a creamy tuna and spring onion filling under melted golden cheddar, beside a small heap of green salad leaves.",
-  "tuna-nicoise-style-salad": "A shallow white bowl of torn lettuce, red tomato wedges and cucumber slices topped with chunks of tuna and quartered hard-boiled eggs with firm yellow yolks, scattered with toasted chopped almonds and glistening with dressing.",
-  "smoked-salmon-egg-spinach-salad": "A shallow white bowl of dark green spinach leaves and thin cucumber rounds topped with folds of pink smoked salmon and halved boiled eggs with set yolks, scattered with toasted chopped almonds.",
+  "tuna-nicoise-style-salad": "A shallow white bowl of torn lettuce, red tomato wedges and cucumber slices topped with chunks of tuna and quartered hard-boiled eggs with firm yellow yolks, glistening with a lemon and olive oil dressing.",
+  "smoked-salmon-egg-spinach-salad": "A shallow white bowl of dark green spinach leaves and thin cucumber rounds topped with folds of pink smoked salmon and halved boiled eggs with set yolks, glistening with lemon dressing.",
   "creamy-mushroom-chicken-thighs-broccoli": "A golden pan-fried chicken thigh on a round white plate in a creamy pale sauce with sliced browned mushrooms and flecks of dried herbs, with bright green broccoli florets beside it.",
   "cheesy-chicken-broccoli-bake": "A portion of chicken and broccoli bake on a round white plate, pieces of chicken and bright green broccoli florets in a creamy sauce under a bubbling, golden-brown cheddar top.",
   "beef-mushroom-spinach-skillet": "A wide white bowl of browned beef mince in a thick tomato sauce with sliced mushrooms, wilted dark green spinach and soft onion, topped with patches of melted orange cheddar.",
   "pesto-chicken-tomatoes-broccoli": "A roast chicken thigh spread with green pesto and melted white mozzarella on a round white plate, beside roasted broccoli florets browned at the edges and blistered red cherry tomatoes in their juices.",
   "mozzarella-chicken-tomato-sauce": "A golden chicken thigh covered with melted white mozzarella in a glossy red tomato sauce flecked with oregano on a round white plate, beside a small heap of green salad leaves.",
-  "salmon-creamy-spinach-broccoli": "A pan-fried salmon fillet with a golden top on a round white plate, beside creamy dark green spinach and bright green broccoli florets, scattered with toasted chopped almonds and black pepper.",
-  "salmon-garlic-spinach-tomatoes": "A golden pan-fried salmon fillet on a bed of wilted dark green spinach and soft, split red cherry tomatoes on a round white plate, scattered with toasted chopped almonds.",
-  "chilli-beef-pepper-broccoli-stir-fry": "A wide white bowl of browned spiced beef mince with strips of red pepper, bright green broccoli florets and sliced spring onion, scattered with toasted chopped almonds.",
+  "salmon-creamy-spinach-broccoli": "A pan-fried salmon fillet with a golden top on a round white plate, beside creamy dark green spinach and bright green broccoli florets, flecked with black pepper.",
+  "salmon-garlic-spinach-tomatoes": "A golden pan-fried salmon fillet on a bed of wilted dark green spinach and soft, split red cherry tomatoes on a round white plate, glistening with lemony pan juices.",
+  "chilli-beef-pepper-broccoli-stir-fry": "A wide white bowl of browned spiced beef mince with strips of red pepper, bright green broccoli florets and wilted dark green spinach, topped with a fried egg with a set white and a golden yolk.",
 };

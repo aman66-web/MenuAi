@@ -349,7 +349,10 @@ describe("a varied week for every style at Sainsbury's", () => {
     for (const style of EATING_STYLES) {
       for (const variety of [2, 4, 7]) {
         const r = report(style, THREE, variety);
-        expect(r.wraps, `${style} ${variety}`).toBeLessThanOrEqual(MAX_WRAPS_A_WEEK);
+        // "as varied as the recipes allow": a vegan meal-prep week (2 recipes a meal) has one vegan breakfast that is neither toast nor a wrap near the meal size
+        // since the fruit bowl's almonds were cut to a cook's amount (21 Nov 2026), so it comes to 3 wraps; never every day
+        const wrapsAllowed = style === "vegan" && variety === 2 ? MAX_WRAPS_A_WEEK + 1 : MAX_WRAPS_A_WEEK;
+        expect(r.wraps, `${style} ${variety}`).toBeLessThanOrEqual(wrapsAllowed);
         expect(r.sameDay, `${style} ${variety}`).toBe(0);
         // a different dish every day uses all 7 of Paleo's breakfasts, and Keto's are eggs but for two fry-ups (and its lunches eggs or salads): some eggs two days running
         expect(r.dayAfter, `${style} ${variety}`).toBeLessThanOrEqual(variety === 7 ? ({ keto: 3, paleo: 1 } as Partial<Record<EatingStyle, number>>)[style] ?? 0 : 0);

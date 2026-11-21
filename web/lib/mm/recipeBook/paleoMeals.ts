@@ -2,23 +2,23 @@ import { ing, type Recipe } from "../recipes";
 
 // Paleo meals (founder 2026-11-20: "as many options as you can think about people would choose ... make new recipes"): only meat, fish, eggs, vegetables,
 // fruit, nuts, olive oil, herbs and spices (the style's allowlist of pantry kinds in lib/mm/mealPlan.ts): no grains, beans, peanuts, dairy, potatoes,
-// sweeteners, vegetable oils or stock cubes. Most are also keto, gluten-free and dairy-free. Each serving is written at about the meal size, the main fat
-// food given the carb role so it moves with the meal size. See lib/mm/recipeBook/index.ts for the rules every recipe follows.
+// sweeteners, vegetable oils or stock cubes. Most are also keto, gluten-free and dairy-free. Cooked as a home cook would (review 2026-11-21): about a
+// tablespoon of oil a pan for one or two, written as it is (it doesn't move with the meal size), and nuts only where a cook would put them; fitting moves the
+// meat, fish and eggs, and the coconut milk of the curry. See lib/mm/recipeBook/index.ts for the rules every recipe follows.
 
 export const PALEO_MEALS: readonly Recipe[] = [
   // ---- breakfasts
   {
-    id: "spinach-mushroom-omelette", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Spinach and mushroom omelette", blurb: "A folded omelette filled with golden mushrooms and spinach, with toasted almonds on the side.", servings: 1, minutes: 15,
-    ingredients: [ing("eggs", 180), ing("mushrooms", 100), ing("spinach", 60), ing("olive-oil", 20, { role: "carb" }), ing("almonds", 30), ing("black-pepper", 1)],
+    id: "spinach-mushroom-omelette", meal: "breakfast", tags: ["Eggs", "Quick"], name: "Spinach and mushroom omelette", blurb: "A folded omelette filled with golden mushrooms and wilted spinach.", servings: 1, minutes: 15,
+    ingredients: [ing("eggs", 180), ing("mushrooms", 100), ing("spinach", 60), ing("olive-oil", 10), ing("black-pepper", 1)],
     method: [
-      "Toast the almonds: Put the almonds in a dry non-stick frying pan on a medium heat for 3 to 4 minutes, shaking the pan often, until they smell toasty. Tip them into a small bowl.",
       "Get ready: Wipe the mushrooms clean and slice them about as thick as a pound coin. Rinse the spinach unless the bag says it is ready washed.",
-      "Fry the mushrooms: Heat half the oil in the same pan on a medium-high heat. Fry the mushrooms for 4 to 5 minutes, stirring now and then, until golden and their liquid has gone.",
+      "Fry the mushrooms: Heat half the oil in a non-stick frying pan on a medium-high heat. Fry the mushrooms for 4 to 5 minutes, stirring now and then, until golden and their liquid has gone.",
       "Wilt the spinach: Add the spinach and stir for 1 minute, until soft and dark green. Tip the mushrooms and spinach on to a plate and wipe the pan with kitchen paper.",
       "Beat the eggs: Crack the eggs into a jug, picking out any shell. Add a grind of black pepper and beat with a fork until smooth. Wash your hands after handling raw eggs.",
       "Cook the omelette: Heat the rest of the oil in the pan on a medium heat. Pour in the eggs and tilt the pan to spread them. Cook for 2 to 3 minutes, pulling the edges into the middle, until almost set.",
       "Fill and fold: Spoon the mushrooms and spinach over one half and cook for 1 minute more, until the egg is completely set with no runny egg left. Fold the omelette in half.",
-      "Serve: Slide the omelette on to a warm plate and serve straight away, with the toasted almonds on the side.",
+      "Serve: Slide the omelette on to a warm plate and serve straight away, while the filling is hot.",
     ],
   },
   {
@@ -34,21 +34,21 @@ export const PALEO_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "fruit-almond-breakfast-bowl", meal: "breakfast", tags: ["Quick", "No cook", "Bowl", "Vegan"], name: "Fruit and almond breakfast bowl", blurb: "Chopped apple, banana and berries with lemon and cinnamon, under plenty of chopped almonds.", servings: 2, minutes: 10,
-    // the almonds are the dish's main food, so a bigger or smaller meal moves them (at most half as many again)
-    ingredients: [ing("apple", 300), ing("banana", 240), ing("berries", 160), ing("almonds", 100, { role: "carb", fit: [0.5, 1.5] }), ing("lemon-juice", 10), ing("cinnamon", 1)],
+    id: "fruit-almond-breakfast-bowl", meal: "breakfast", tags: ["Quick", "No cook", "Bowl", "Vegan"], name: "Fruit and almond breakfast bowl", blurb: "Chopped apple, banana and berries with lemon and cinnamon, topped with chopped almonds.", servings: 2, minutes: 10,
+    // a small handful of almonds each (25 g); a bigger or smaller meal moves them, to a handful (30 g) at most
+    ingredients: [ing("apple", 300), ing("banana", 240), ing("berries", 160), ing("almonds", 50, { role: "carb", fit: [0.5, 1.2] }), ing("lemon-juice", 10), ing("cinnamon", 1)],
     method: [
       "Get the berries ready: If they are frozen, thaw them in a sieve under the cold tap for about a minute and shake off the water. If fresh, rinse and pat them dry.",
       "Chop the almonds: Roughly chop the almonds on a board, so each one is in 3 or 4 pieces.",
       "Chop the apples: Wash the apples, cut them into quarters and cut out the cores. Chop them into bite-sized pieces and put them in a bowl.",
       "Add the lemon: Pour the lemon juice over the apple and toss well, so it stays pale. Peel the bananas, slice them into rounds and add them to the bowl.",
       "Mix the fruit: Add the berries and the cinnamon and stir gently, so the fruit doesn't break up.",
-      "Serve: Share the fruit between bowls and scatter the chopped almonds thickly over the top. Eat straight away.",
+      "Serve: Share the fruit between bowls and scatter the chopped almonds over the top. Eat straight away.",
     ],
   },
   {
     id: "mushroom-tomato-spinach-eggs-fry-up", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Mushroom, tomato and spinach fry-up with eggs", blurb: "Golden mushrooms, soft fried tomatoes, wilted spinach and fried eggs, all cooked in olive oil.", servings: 2, minutes: 20,
-    ingredients: [ing("eggs", 300), ing("mushrooms", 200), ing("tomatoes", 170), ing("spinach", 80), ing("olive-oil", 40, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 300), ing("mushrooms", 200), ing("tomatoes", 170), ing("spinach", 80), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Wipe the mushrooms clean and slice them about as thick as a pound coin. Wash the tomatoes and cut them in half. Rinse the spinach unless the bag says it is ready washed.",
       "Fry the mushrooms and tomatoes: Heat half the oil in a large non-stick frying pan on a medium-high heat. Add the mushrooms, and the tomatoes cut side down. Fry for 5 to 6 minutes, stirring the mushrooms now and then, until golden and soft.",
@@ -60,7 +60,7 @@ export const PALEO_MEALS: readonly Recipe[] = [
   },
   {
     id: "pepper-spinach-egg-muffins", meal: "breakfast", tags: ["Eggs", "Bake", "Make ahead"], name: "Pepper and spinach egg muffins", blurb: "Eggs baked in a muffin tin with chopped peppers, spinach and spring onions. Good cold too.", servings: 2, minutes: 25,
-    ingredients: [ing("eggs", 300), ing("peppers", 160), ing("spinach", 80), ing("spring-onions", 30), ing("olive-oil", 30, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 300), ing("peppers", 160), ing("spinach", 80), ing("spring-onions", 30), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 190°C (170°C fan, gas 5). Brush the holes of a muffin tin well with a little of the oil, so the muffins don't stick.",
       "Chop the vegetables: Wash the pepper, cut it in half, pull out the seeds and stalk and chop it small. Trim and thinly slice the spring onions. Rinse the spinach and chop it roughly.",
@@ -73,7 +73,7 @@ export const PALEO_MEALS: readonly Recipe[] = [
   },
   {
     id: "spiced-tomato-baked-eggs-spinach", meal: "breakfast", tags: ["Eggs", "Brunch", "One pan"], name: "Spiced tomato baked eggs with spinach", blurb: "Eggs cooked in a cumin and paprika tomato sauce with wilted spinach, all in one pan.", servings: 2, minutes: 25,
-    ingredients: [ing("eggs", 300), ing("chopped-tomatoes", 400), ing("spinach", 100), ing("garlic", 5), ing("cumin", 1), ing("paprika", 2), ing("olive-oil", 30, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 300), ing("chopped-tomatoes", 400), ing("spinach", 100), ing("garlic", 5), ing("cumin", 1), ing("paprika", 2), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Warm the spices: Heat the oil in a large, deep frying pan with a lid on a medium heat. Add the garlic purée, cumin and paprika and stir for 30 seconds, until they smell fragrant, without letting the garlic brown.",
       "Simmer the sauce: Pour in the chopped tomatoes and add a good grind of black pepper. Bring to a bubble, then simmer gently for 8 to 10 minutes, stirring now and then, until thickened.",
@@ -85,46 +85,45 @@ export const PALEO_MEALS: readonly Recipe[] = [
   },
   // ---- lunches
   {
-    id: "chicken-apple-almond-salad", meal: "lunch", tags: ["Salad"], name: "Chicken, apple and almond salad", blurb: "Pan-fried chicken sliced over salad leaves with crisp apple, cucumber and toasted almonds.", servings: 2, minutes: 20,
-    ingredients: [ing("chicken", 300), ing("salad-leaves", 100), ing("apple", 150), ing("almonds", 60), ing("cucumber", 100), ing("olive-oil", 40, { role: "carb" }), ing("lemon-juice", 20), ing("black-pepper", 1)],
+    id: "chicken-apple-almond-salad", meal: "lunch", tags: ["Salad"], name: "Chicken, apple and almond salad", blurb: "Pan-fried chicken thighs sliced over salad leaves with crisp apple, cucumber and toasted almonds.", servings: 2, minutes: 20,
+    ingredients: [ing("chicken-thigh", 300), ing("salad-leaves", 100), ing("apple", 120, { note: "about 1 small apple" }), ing("almonds", 40), ing("cucumber", 100), ing("olive-oil", 25), ing("lemon-juice", 20), ing("black-pepper", 1)],
     method: [
-      "Get the chicken ready: Cut any thick chicken fillets in half through the middle, so they cook evenly, on a separate board. Wash your hands in hot soapy water after handling raw chicken.",
+      "Get the chicken ready: Pat the chicken thigh fillets dry with kitchen paper and trim off any large pieces of fat on a separate board. Wash your hands in hot soapy water after handling raw chicken.",
       "Cook the chicken: Heat a little of the oil in a non-stick frying pan on a medium-high heat. Fry the chicken for 5 to 6 minutes on each side, until golden and piping hot all the way through with no pink left.",
       "Toast the almonds: Lift the chicken on to a board to rest. Toast the almonds in the same pan for 2 to 3 minutes, shaking it often, then tip them out and chop them roughly.",
       "Make the dressing: In a small bowl, mix the rest of the oil with the lemon juice and a good grind of black pepper, using a fork.",
       "Chop the salad: Wash the apple and cucumber. Quarter and core the apple, then slice it thinly. Cut the cucumber into half-moons. Rinse the salad leaves unless the bag says they are ready washed.",
-      "Slice the chicken: Cut the chicken into thin slices. The middle should be white all the way through, with no pink.",
+      "Slice the chicken: Cut the chicken into thin slices. It should be cooked all the way through, with no pink left in the middle.",
       "Serve: Toss the leaves, apple and cucumber with most of the dressing and share between plates. Lay the chicken on top, scatter over the almonds and spoon over the rest of the dressing.",
     ],
   },
   {
-    id: "spiced-chicken-vegetable-soup", meal: "lunch", tags: ["Soup", "Batch cook"], name: "Spiced chicken and vegetable soup", blurb: "A chunky soup of chicken, carrots, tomatoes and spinach with cumin and paprika, topped with toasted almonds.", servings: 4, minutes: 40,
-    ingredients: [ing("chicken-thigh", 600), ing("carrots", 300), ing("onion", 150), ing("chopped-tomatoes", 800), ing("spinach", 100), ing("cumin", 3), ing("paprika", 3), ing("garlic", 10), ing("olive-oil", 40, { role: "carb" }), ing("almonds", 80), ing("salt", 1), ing("black-pepper", 1)],
+    id: "spiced-chicken-vegetable-soup", meal: "lunch", tags: ["Soup", "Batch cook"], name: "Spiced chicken and vegetable soup", blurb: "A chunky soup of chicken, carrots, tomatoes and spinach with cumin and paprika.", servings: 4, minutes: 40,
+    ingredients: [ing("chicken-thigh", 600), ing("carrots", 300), ing("onion", 150), ing("chopped-tomatoes", 800), ing("spinach", 100), ing("cumin", 3), ing("paprika", 3), ing("garlic", 10), ing("olive-oil", 15), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Peel the onion and chop it small. Peel the carrots and cut them into small cubes, about 1 cm. Cut the chicken into bite-sized pieces on a separate board, then wash your hands in hot soapy water.",
-      "Toast the almonds: Put the almonds in a large, dry saucepan on a medium heat for 3 to 4 minutes, shaking the pan often, until they smell toasty. Tip them on to a board, leave to cool, then chop them roughly.",
-      "Brown the chicken: Heat the oil in the same pan on a medium-high heat. Add the chicken and fry for 5 minutes, turning the pieces, until browned all over.",
+      "Brown the chicken: Heat the oil in a large saucepan on a medium-high heat. Add the chicken and fry for 5 minutes, turning the pieces, until browned all over.",
       "Soften the vegetables: Add the onion and carrots and cook for 5 minutes, stirring often, until the onion is soft. Stir in the garlic purée, cumin and paprika and cook for 1 minute.",
       "Simmer the soup: Add the chopped tomatoes, 600 ml of boiling water from the kettle, the salt and a good grind of black pepper. Bring to the boil, then simmer gently for 20 minutes, until the carrots are tender.",
       "Add the spinach: Stir in the spinach and cook for 2 minutes, until wilted. Cut into a few of the largest chicken pieces: they should be piping hot all the way through with no pink left.",
-      "Serve: Taste and add a little more black pepper if it needs it. Ladle the soup into warm bowls and scatter the chopped almonds over the top.",
+      "Serve: Taste and add a little more black pepper if it needs it, then ladle the soup into warm bowls. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   {
     id: "salmon-cucumber-tomato-salad", meal: "lunch", tags: ["Salad", "Fish", "Quick"], name: "Salmon, cucumber and tomato salad", blurb: "Pan-fried salmon in large flakes over cucumber, cherry tomatoes and salad leaves with lemon.", servings: 2, minutes: 20,
-    ingredients: [ing("salmon", 260), ing("cucumber", 200), ing("cherry-tomatoes", 200), ing("salad-leaves", 60), ing("red-onion", 40), ing("almonds", 40), ing("olive-oil", 30, { role: "carb" }), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    ingredients: [ing("salmon", 260), ing("cucumber", 200), ing("cherry-tomatoes", 200), ing("salad-leaves", 60), ing("red-onion", 40), ing("olive-oil", 25), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
-      "Get ready: Peel the red onion and slice it very thinly. Cut the cucumber into half-moons and the cherry tomatoes in half. Rinse the salad leaves unless the bag says they are ready washed.",
-      "Toast the almonds: Put the almonds in a dry non-stick frying pan on a medium heat for 3 to 4 minutes, shaking the pan often, until they smell toasty. Tip them on to a board and chop them roughly.",
-      "Start the salmon: Heat a little of the oil in the same pan on a medium heat. Put the salmon in, skin side down if it has skin, and fry for 4 minutes. Wash your hands after handling raw fish.",
+      "Get ready: Peel the red onion and slice it very thinly. Rinse the salad leaves unless the bag says they are ready washed.",
+      "Chop the salad: Cut the cucumber into half-moons and the cherry tomatoes in half.",
+      "Start the salmon: Heat a little of the oil in a non-stick frying pan on a medium heat. Put the salmon in, skin side down if it has skin, and fry for 4 minutes. Wash your hands after handling raw fish.",
       "Finish the salmon: Turn the fillets over and cook for 3 to 4 minutes more, until the fish is opaque all the way through and flakes easily when pressed with a fork.",
       "Make the dressing: In a small bowl, mix the rest of the oil with the lemon juice and a good grind of black pepper, using a fork.",
-      "Serve: Toss the leaves, cucumber, tomatoes and onion with most of the dressing and share between plates. Break the salmon into large flakes on top, scatter over the almonds and spoon over the rest of the dressing.",
+      "Serve: Toss the leaves, cucumber, tomatoes and onion with most of the dressing and share between plates. Break the salmon into large flakes on top and spoon over the rest of the dressing.",
     ],
   },
   {
     id: "chicken-mushroom-spinach-omelette", meal: "lunch", tags: ["Eggs", "Quick"], name: "Chicken, mushroom and spinach omelette", blurb: "A folded omelette filled with browned chicken, golden mushrooms and spinach.", servings: 1, minutes: 15,
-    ingredients: [ing("eggs", 180), ing("chicken-thigh", 100), ing("mushrooms", 80), ing("spinach", 50), ing("olive-oil", 25, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("eggs", 180), ing("chicken-thigh", 100), ing("mushrooms", 80), ing("spinach", 50), ing("olive-oil", 10), ing("black-pepper", 1)],
     method: [
       "Get ready: Cut the chicken into small pieces, about 1 cm, on a separate board, then wash your hands in hot soapy water. Wipe the mushrooms clean and slice them thinly. Rinse the spinach unless the bag says it is ready washed.",
       "Fry the chicken: Heat half the oil in a non-stick frying pan on a medium-high heat. Fry the chicken for 5 to 6 minutes, stirring often, until golden and piping hot all the way through with no pink left.",
@@ -136,38 +135,37 @@ export const PALEO_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "chicken-roasted-vegetable-salad", meal: "lunch", tags: ["Salad", "Roast"], name: "Chicken and roasted vegetable salad", blurb: "Sliced chicken over salad leaves with roasted peppers and red onion, cherry tomatoes and almonds.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken", 300), ing("peppers", 240), ing("red-onion", 150), ing("salad-leaves", 80), ing("cherry-tomatoes", 150), ing("almonds", 30), ing("olive-oil", 30, { role: "carb" }), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    id: "chicken-roasted-vegetable-salad", meal: "lunch", tags: ["Salad", "Roast"], name: "Chicken and roasted vegetable salad", blurb: "Sliced chicken over salad leaves with roasted peppers, red onion and cherry tomatoes.", servings: 2, minutes: 30,
+    ingredients: [ing("chicken", 300), ing("peppers", 240), ing("red-onion", 150), ing("salad-leaves", 80), ing("cherry-tomatoes", 150), ing("olive-oil", 25), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Wash the peppers, pull out the seeds and stalks and cut them into strips. Peel the red onion and cut it into thin wedges.",
       "Roast the vegetables: Toss the peppers and onion with half the oil on a large baking tray and spread them out. Roast on the middle shelf for 20 to 25 minutes, turning once, until soft and browned at the edges.",
       "Get the chicken ready: Meanwhile, cut any thick chicken fillets in half through the middle, so they cook evenly, on a separate board. Wash your hands in hot soapy water after handling raw chicken.",
       "Cook the chicken: Heat a little of the oil in a non-stick frying pan on a medium-high heat. Fry the chicken for 5 to 6 minutes on each side, until golden and piping hot all the way through with no pink left.",
-      "Toast the almonds: Lift the chicken on to a board to rest. Toast the almonds in the same pan for 2 to 3 minutes, shaking it often, then tip them out and chop them roughly.",
-      "Make the dressing: In a small bowl, mix the rest of the oil with the lemon juice and a good grind of black pepper, using a fork. Cut the cherry tomatoes in half.",
-      "Serve: Rinse the salad leaves unless the bag says they are ready washed and share them between plates with the tomatoes and roasted vegetables. Slice the chicken and lay it on top, then scatter over the almonds and spoon over the dressing.",
+      "Make the dressing: Lift the chicken on to a board to rest. In a small bowl, mix the rest of the oil with the lemon juice and a good grind of black pepper, using a fork. Cut the cherry tomatoes in half.",
+      "Serve: Rinse the salad leaves unless the bag says they are ready washed and share them between plates with the tomatoes and roasted vegetables. Slice the chicken and lay it on top, then spoon over the dressing.",
     ],
   },
   {
     id: "beef-vegetable-soup", meal: "lunch", tags: ["Soup", "Batch cook"], name: "Beef and vegetable soup", blurb: "A thick soup of beef mince, carrots, tomatoes and spinach with paprika and herbs.", servings: 4, minutes: 45,
-    ingredients: [ing("beef-mince", 500), ing("carrots", 300), ing("onion", 150), ing("chopped-tomatoes", 800), ing("spinach", 100), ing("paprika", 3), ing("mixed-herbs", 2), ing("garlic", 10), ing("olive-oil", 60, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("beef-mince", 500), ing("carrots", 300), ing("onion", 150), ing("chopped-tomatoes", 800), ing("spinach", 100), ing("paprika", 3), ing("mixed-herbs", 2), ing("garlic", 10), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Peel the onion and chop it small. Peel the carrots and cut them into small cubes, about 1 cm. Rinse the spinach unless the bag says it is ready washed.",
-      "Brown the mince: Heat half the oil in a large saucepan on a medium-high heat. Add the mince, then wash your hands in hot soapy water. Fry for 6 to 8 minutes, breaking it up with a wooden spoon, until browned all over with no pink left.",
+      "Brown the mince: Heat the oil in a large saucepan on a medium-high heat. Add the mince, then wash your hands in hot soapy water. Fry for 6 to 8 minutes, breaking it up with a wooden spoon, until browned all over with no pink left.",
       "Soften the vegetables: Add the onion and carrots and cook for 5 minutes, stirring often, until the onion is soft. Stir in the garlic purée, paprika and dried herbs and cook for 1 minute.",
       "Add the tomatoes: Pour in the chopped tomatoes and 600 ml of boiling water from the kettle, and add a good grind of black pepper. Stir well, scraping up anything stuck to the bottom of the pan.",
       "Simmer the soup: Bring to the boil, then turn the heat down and simmer gently with the lid half on for 25 minutes, stirring now and then, until the carrots are tender.",
       "Add the spinach: Stir in the spinach and cook for 2 minutes, until wilted. The soup should be piping hot all the way through.",
-      "Serve: Taste and add a little more black pepper if it needs it. Ladle the soup into warm bowls and drizzle the rest of the oil over the top.",
+      "Serve: Taste and add a little more black pepper if it needs it, then ladle the soup into warm bowls. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   // ---- dinners
   {
     id: "chicken-thigh-pepper-mushroom-traybake", meal: "dinner", tags: ["One pan", "Roast"], name: "Chicken thigh traybake with peppers, mushrooms and onions", blurb: "Paprika and oregano chicken thighs roasted on a tray of peppers, mushrooms and red onion.", servings: 2, minutes: 40,
-    ingredients: [ing("chicken-thigh", 400), ing("peppers", 240), ing("mushrooms", 200), ing("red-onion", 150), ing("olive-oil", 40, { role: "carb" }), ing("paprika", 2), ing("oregano", 1), ing("garlic", 5), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 400), ing("peppers", 160), ing("mushrooms", 250), ing("red-onion", 75, { note: "about half a red onion" }), ing("olive-oil", 15), ing("paprika", 2), ing("oregano", 1), ing("garlic", 5), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6) and find your largest roasting tin.",
-      "Chop the vegetables: Wash the peppers, pull out the seeds and stalks and cut them into thick strips. Peel the red onion and cut it into wedges. Wipe the mushrooms clean and cut any large ones in half.",
+      "Chop the vegetables: Wash the pepper, pull out the seeds and stalk and cut it into thick strips. Peel the red onion and cut it into wedges. Wipe the mushrooms clean and cut any large ones in half.",
       "Mix the spice oil: In a large bowl, mix the oil with the garlic purée, paprika, oregano and a good grind of black pepper.",
       "Coat the chicken: Add the chicken to the bowl and turn it in the spice oil until coated all over. Lift it out on to a plate, then wash your hands in hot soapy water.",
       "Coat the vegetables: Add the peppers, onion and mushrooms to the bowl and toss them in the rest of the spice oil.",
@@ -190,28 +188,27 @@ export const PALEO_MEALS: readonly Recipe[] = [
       "Simmer the curry: Turn the heat down and simmer gently for 15 minutes, stirring now and then, until the sauce has thickened a little.",
       "Wilt the spinach: Stir in the spinach a handful at a time and cook for 2 minutes, until wilted.",
       "Check the chicken: Cut into the largest piece. It should be piping hot all the way through with no pink left. If not, simmer for a few minutes more and check again.",
-      "Serve: Ladle the curry into warm bowls and serve straight away.",
+      "Serve: Ladle the curry into warm bowls and serve straight away. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   {
-    id: "beef-meatballs-tomato-broccoli", meal: "dinner", tags: ["Batch cook"], name: "Beef meatballs in tomato sauce with broccoli", blurb: "Garlic and oregano beef meatballs simmered in passata, with broccoli and toasted almonds.", servings: 4, minutes: 40,
-    ingredients: [ing("beef-mince", 500), ing("eggs", 60), ing("garlic", 10), ing("oregano", 2), ing("passata", 400), ing("onion", 75, { note: "about half an onion" }), ing("olive-oil", 60, { role: "carb" }), ing("broccoli", 400), ing("almonds", 80), ing("black-pepper", 1)],
+    id: "beef-meatballs-tomato-broccoli", meal: "dinner", tags: ["Batch cook"], name: "Beef meatballs in tomato sauce with broccoli", blurb: "Garlic and oregano beef meatballs simmered in passata, with broccoli.", servings: 4, minutes: 40,
+    ingredients: [ing("beef-mince", 500), ing("garlic", 10), ing("oregano", 2), ing("passata", 400), ing("onion", 75, { note: "about half an onion" }), ing("olive-oil", 15), ing("broccoli", 400), ing("black-pepper", 1)],
     method: [
-      "Get ready: Peel the onion and chop it very small. Cut the broccoli into small florets. Roughly chop the almonds on a board.",
-      "Mix the meatballs: Put the mince in a large bowl with half the onion, the garlic purée, half the oregano and a good grind of black pepper. Crack in the egg, picking out any shell, and mix well with your hands.",
-      "Shape the meatballs: Roll the mixture into balls about the size of a walnut and lay them on a plate. Wash your hands in hot soapy water.",
-      "Brown the meatballs: Heat half the oil in a large, deep frying pan on a medium-high heat. Fry the meatballs for 6 to 8 minutes, turning them gently, until browned all over. Lift them on to a plate.",
+      "Get ready: Peel the onion and chop it very small. Cut the broccoli into small florets.",
+      "Mix the meatballs: Put the mince in a large bowl with half the onion, the garlic purée, half the oregano and a good grind of black pepper. Mix well with your hands for 1 to 2 minutes, until it sticks together.",
+      "Shape the meatballs: Roll the mixture into balls about the size of a walnut, squeezing each one firmly so it holds together, and lay them on a plate. Wash your hands in hot soapy water.",
+      "Brown the meatballs: Heat the oil in a large, deep frying pan on a medium-high heat. Fry the meatballs for 6 to 8 minutes, turning them gently, until browned all over. Lift them on to a plate.",
       "Make the sauce: Turn the heat down to medium and add the rest of the onion. Cook for 3 minutes, until soft, then pour in the passata, add the rest of the oregano and stir well.",
       "Simmer: Put the meatballs back in the pan, bring the sauce to a gentle bubble and simmer for 12 to 15 minutes, turning the meatballs now and then, until the sauce thickens.",
       "Cook the broccoli: Meanwhile, boil the kettle and pour the water into a saucepan on a high heat. Cook the broccoli for 4 to 5 minutes, until just tender, then drain it well.",
-      "Toast the almonds: Heat the rest of the oil in a small frying pan on a medium heat and fry the almonds for 2 minutes, stirring, until golden. Toss the broccoli in the almonds and oil.",
       "Check the meatballs: Cut one of the biggest meatballs in half. It should be piping hot all the way through with no pink left. If not, simmer for a few minutes more and check again.",
-      "Serve: Spoon the meatballs and sauce into warm shallow bowls, with the broccoli and almonds on the side.",
+      "Serve: Spoon the meatballs and sauce into warm shallow bowls, with the broccoli on the side. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   {
-    id: "beef-tomato-stuffed-peppers", meal: "dinner", tags: ["Bake"], name: "Beef and tomato stuffed peppers with salad", blurb: "Roasted pepper halves filled with spiced beef and tomato, with toasted almonds and salad leaves.", servings: 2, minutes: 45,
-    ingredients: [ing("peppers", 320), ing("beef-mince", 300), ing("onion", 75, { note: "about half an onion" }), ing("chopped-tomatoes", 200), ing("garlic", 5), ing("cumin", 2), ing("paprika", 2), ing("olive-oil", 30, { role: "carb" }), ing("almonds", 30), ing("salad-leaves", 60)],
+    id: "beef-tomato-stuffed-peppers", meal: "dinner", tags: ["Bake"], name: "Beef and tomato stuffed peppers with salad", blurb: "Roasted pepper halves filled with spiced beef and tomato, with salad leaves.", servings: 2, minutes: 45,
+    ingredients: [ing("peppers", 320), ing("beef-mince", 300), ing("onion", 75, { note: "about half an onion" }), ing("chopped-tomatoes", 200), ing("garlic", 5), ing("cumin", 2), ing("paprika", 2), ing("olive-oil", 15), ing("salad-leaves", 60)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Peel the onion and chop it small.",
       "Get the peppers ready: Wash the peppers and cut them in half from top to bottom, through the stalk. Pull out the seeds and white ribs, keeping the halves whole, and sit them cut side up in a roasting tin.",
@@ -220,13 +217,12 @@ export const PALEO_MEALS: readonly Recipe[] = [
       "Simmer the filling: Pour in the chopped tomatoes and simmer for 5 minutes, stirring now and then, until thick, with little liquid left.",
       "Fill the peppers: Spoon the filling into the pepper halves, pressing it down gently. Drizzle the rest of the oil over the outsides of the peppers.",
       "Bake: Cover the tin with foil and bake on the middle shelf for 15 minutes. Take off the foil and bake for 10 minutes more, until the peppers are soft and the filling is piping hot all the way through.",
-      "Toast the almonds: Meanwhile, toast the almonds in a dry frying pan on a medium heat for 3 to 4 minutes, shaking the pan often, then tip them out and chop them roughly.",
-      "Serve: Rinse the salad leaves unless the bag says they are ready washed. Put the peppers on warm plates, scatter the almonds over and serve with the salad leaves on the side.",
+      "Serve: Rinse the salad leaves unless the bag says they are ready washed. Put the peppers on warm plates and serve with the salad leaves on the side.",
     ],
   },
   {
     id: "lemon-herb-chicken-carrots-onions", meal: "dinner", tags: ["Roast", "One pan"], name: "Lemon and herb chicken with roast carrots and onions", blurb: "Chicken thighs roasted in lemon, garlic and herbs on carrots and red onion, with broccoli.", servings: 2, minutes: 50,
-    ingredients: [ing("chicken-thigh", 400), ing("carrots", 300), ing("red-onion", 150), ing("broccoli", 150), ing("olive-oil", 40, { role: "carb" }), ing("lemon-juice", 20), ing("mixed-herbs", 2), ing("garlic", 5), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 400), ing("carrots", 300), ing("red-onion", 150), ing("broccoli", 150), ing("olive-oil", 15), ing("lemon-juice", 20), ing("mixed-herbs", 2), ing("garlic", 5), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6) and find your largest roasting tin.",
       "Chop the vegetables: Peel the carrots and cut them into sticks about the size of your little finger. Peel the red onion and cut it into wedges. Cut the broccoli into small florets and keep it to one side.",
@@ -241,40 +237,39 @@ export const PALEO_MEALS: readonly Recipe[] = [
   },
   {
     id: "beef-mushroom-tomato-stew-greens", meal: "dinner", tags: ["Batch cook", "One pot"], name: "Beef, mushroom and tomato stew with greens", blurb: "A thick stew of beef mince, mushrooms, carrots and tomatoes with herbs, served with broccoli.", servings: 4, minutes: 50,
-    ingredients: [ing("beef-mince", 600), ing("mushrooms", 300), ing("onion", 150), ing("carrots", 200), ing("chopped-tomatoes", 800), ing("broccoli", 300), ing("garlic", 10), ing("mixed-herbs", 2), ing("olive-oil", 60, { role: "carb" }), ing("black-pepper", 1)],
+    ingredients: [ing("beef-mince", 600), ing("mushrooms", 300), ing("onion", 150), ing("carrots", 200), ing("chopped-tomatoes", 800), ing("broccoli", 300), ing("garlic", 10), ing("mixed-herbs", 2), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Get ready: Peel the onion and chop it small. Peel the carrots and cut them into small cubes, about 1 cm. Wipe the mushrooms clean and cut them into quarters.",
-      "Brown the mince: Heat half the oil in a large, heavy saucepan on a medium-high heat. Add the mince, then wash your hands in hot soapy water. Fry for 6 to 8 minutes, breaking it up, until browned all over with no pink left.",
+      "Brown the mince: Heat the oil in a large, heavy saucepan on a medium-high heat. Add the mince, then wash your hands in hot soapy water. Fry for 6 to 8 minutes, breaking it up, until browned all over with no pink left.",
       "Fry the mushrooms: Push the mince to one side, add the mushrooms and fry for 5 minutes, stirring now and then, until golden.",
       "Soften the vegetables: Add the onion and carrots and cook for 5 minutes, stirring often, until the onion is soft. Stir in the garlic purée and dried herbs and cook for 1 minute.",
       "Add the tomatoes: Pour in the chopped tomatoes and a splash of water, add a good grind of black pepper and stir well, scraping up anything stuck to the bottom of the pan.",
       "Simmer the stew: Bring to a gentle bubble, then turn the heat down low, put the lid on and simmer for 25 minutes, stirring now and then, until thick and the carrots are tender.",
-      "Cook the broccoli: About 8 minutes before the stew is ready, boil the kettle and pour the water into a saucepan. Cut the broccoli into florets and cook it for 4 to 5 minutes, until just tender.",
-      "Dress the broccoli: Drain the broccoli well, tip it back into the warm pan and toss it in the rest of the oil.",
+      "Cook the broccoli: About 8 minutes before the stew is ready, boil the kettle and pour the water into a saucepan. Cut the broccoli into florets and cook it for 4 to 5 minutes, until just tender, then drain it well.",
       "Check the stew: Taste and add a little more black pepper if it needs it. The stew should be thick and piping hot all the way through.",
-      "Serve: Spoon the stew into warm shallow bowls and serve the broccoli on the side.",
+      "Serve: Spoon the stew into warm shallow bowls and serve the broccoli on the side. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
 ];
 
 // How each looks from directly above, for its picture (docs/RECIPE_IMAGE_PROMPTS.md): one portion, only the recipe's own foods, served as the method says.
 export const PALEO_MEALS_LOOKS: Readonly<Record<string, string>> = {
-  "spinach-mushroom-omelette": "A folded golden omelette on a round white plate, golden-brown sliced mushrooms and dark green wilted spinach showing at its open edge, with a small heap of toasted whole almonds beside it and flecks of black pepper.",
+  "spinach-mushroom-omelette": "A folded golden omelette on a round white plate, golden-brown sliced mushrooms and dark green wilted spinach showing at its open edge, flecked with black pepper.",
   "banana-egg-pancakes-berries": "A small stack of round golden-brown banana and egg pancakes on a round white plate, topped with a scatter of deep red and purple mixed berries and roughly chopped pale almonds.",
-  "fruit-almond-breakfast-bowl": "A wide white bowl of chopped red-skinned apple, round pale banana slices and deep red and purple mixed berries, dusted with brown cinnamon and covered with a thick scatter of roughly chopped almonds.",
+  "fruit-almond-breakfast-bowl": "A wide white bowl of chopped red-skinned apple, round pale banana slices and deep red and purple mixed berries, dusted with brown cinnamon and topped with a scatter of roughly chopped almonds.",
   "mushroom-tomato-spinach-eggs-fry-up": "A round white plate holding two fried eggs with set whites and golden yolks, golden-brown sliced mushrooms, two soft red fried tomato halves and a heap of dark green wilted spinach, flecked with black pepper.",
   "pepper-spinach-egg-muffins": "Three round golden egg muffins on a round white plate, their puffed, set tops flecked with small pieces of red pepper, dark green spinach and thin green rings of spring onion.",
   "spiced-tomato-baked-eggs-spinach": "A wide shallow white bowl of thick red spiced tomato sauce with dark green wilted spinach through it, two eggs set into it with opaque whites and bright yellow yolks, flecked with black pepper.",
-  "chicken-apple-almond-salad": "A wide white plate of green salad leaves with thin slices of red-skinned apple and pale cucumber half-moons, topped with golden sliced chicken breast and a scatter of roughly chopped toasted almonds, glossy with dressing.",
-  "spiced-chicken-vegetable-soup": "A round white bowl of chunky red tomato soup with pieces of browned chicken, small orange carrot cubes, soft onion and dark green spinach, topped with a scatter of roughly chopped toasted almonds.",
-  "salmon-cucumber-tomato-salad": "A wide white plate of green salad leaves, pale cucumber half-moons, halved red cherry tomatoes and thin rings of purple red onion, topped with large pink flakes of pan-fried salmon and chopped toasted almonds.",
+  "chicken-apple-almond-salad": "A wide white plate of green salad leaves with thin slices of red-skinned apple and pale cucumber half-moons, topped with golden sliced chicken thigh and a scatter of roughly chopped toasted almonds, glossy with dressing.",
+  "spiced-chicken-vegetable-soup": "A round white bowl of chunky red tomato soup with pieces of browned chicken, small orange carrot cubes, soft onion and dark green wilted spinach.",
+  "salmon-cucumber-tomato-salad": "A wide white plate of green salad leaves, pale cucumber half-moons, halved red cherry tomatoes and thin rings of purple red onion, topped with large pink flakes of pan-fried salmon, glossy with lemon dressing.",
   "chicken-mushroom-spinach-omelette": "A large folded golden omelette on a round white plate, with browned pieces of chicken, golden sliced mushrooms and dark green wilted spinach showing at its open edge, flecked with black pepper.",
-  "chicken-roasted-vegetable-salad": "A wide white plate of green salad leaves with halved red cherry tomatoes, soft roasted strips of red pepper and red onion wedges browned at the edges, topped with golden sliced chicken and chopped almonds.",
-  "beef-vegetable-soup": "A round white bowl of thick red tomato soup with browned beef mince, small orange carrot cubes, soft onion and dark green wilted spinach, flecked with dried herbs and finished with a thin drizzle of golden olive oil.",
+  "chicken-roasted-vegetable-salad": "A wide white plate of green salad leaves with halved red cherry tomatoes, soft roasted strips of red pepper and red onion wedges browned at the edges, topped with golden sliced chicken, glossy with lemon dressing.",
+  "beef-vegetable-soup": "A round white bowl of thick red tomato soup with browned beef mince, small orange carrot cubes, soft onion and dark green wilted spinach, flecked with dried herbs.",
   "chicken-thigh-pepper-mushroom-traybake": "A wide white plate of golden roasted chicken thigh fillets dusted red with paprika on a bed of soft roasted pepper strips, red onion wedges and browned mushrooms, glossy with spiced oil and pan juices.",
   "chicken-spinach-coconut-curry": "A round white bowl of creamy orange-red coconut and tomato curry with tender pieces of chicken thigh, soft onion and dark green wilted spinach stirred through it.",
-  "beef-meatballs-tomato-broccoli": "A wide shallow white bowl of browned beef meatballs in thick red tomato sauce, with bright green broccoli florets on one side scattered with golden chopped almonds.",
-  "beef-tomato-stuffed-peppers": "Two halves of a soft roasted red pepper on a round white plate, filled with browned beef mince in thick red tomato sauce and scattered with chopped toasted almonds, beside a small heap of green salad leaves.",
+  "beef-meatballs-tomato-broccoli": "A wide shallow white bowl of browned beef meatballs in thick red tomato sauce, with bright green broccoli florets on one side.",
+  "beef-tomato-stuffed-peppers": "Two halves of a soft roasted red pepper on a round white plate, filled with browned beef mince in thick red tomato sauce, beside a small heap of green salad leaves.",
   "lemon-herb-chicken-carrots-onions": "A wide white plate of golden roasted chicken thigh fillets flecked with dried herbs, with roasted orange carrot sticks, soft red onion wedges and bright green broccoli florets browned at the tips, glossy with pan juices.",
   "beef-mushroom-tomato-stew-greens": "A wide shallow white bowl of thick red beef and tomato stew with browned mince, quartered golden mushrooms and small orange carrot cubes, with bright green broccoli florets heaped on one side.",
 };

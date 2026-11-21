@@ -3830,3 +3830,12 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (00:22, 21 Nov) **numbite.com deployed** (founder: "can you do it all for me"): `main` fast-forwarded to `iap` (d2ffa1ce); the website build passed first in a
   clean copy. Checked live: POST /api/v1/entitlement/account answers 401 without an account, /app/targets and /app/plan load, the privacy page has the free week.
   The free week stays off until `supabase/migrations/20261121120000_free_week.sql` runs (waits for Claude in Chrome, disconnected since about 00:50).
+- (about 01:30, 21 Nov) **Every recipe has a picture; keto and paleo made realistic** (follows the review of the 115 new recipes). 103 Higgsfield pictures
+  (GPT Image 2.6, medium, 1k, 4:3, the three scenes in turn; two remade: a pasta with two shapes, a tuna that looked like beef): 293 of 293 recipes. Higgsfield
+  now charges 1 credit a picture (0.5 before): 117 credits in all for the 115, 2,876.5 left on the plan; nothing bought. Recipe fixes: oil about 1 tbsp a pan
+  and written as a fixed amount (it no longer grows with the meal size; in keto dishes the cheese does), almonds out where a UK cook wouldn't use them (salads,
+  soups, meatballs, an omelette side) and halved in the fruit bowl; keeping lines added to the 8 batch-cook recipes ("Cool quickly, then keep in the fridge and
+  eat within 2 days."; the rice soup the same day or the next); chilli beef stir-fry renamed "Chilli beef with peppers, broccoli and a fried egg" (keto again
+  with the egg); the meatballs are no longer keto (still paleo). **Effect to know:** Paleo and lean keto meals now fit smaller (about 280-540 kcal for a 600 kcal
+  meal), so those days come in under the person's calories and the plan says how far; a vegan two-recipe meal-prep week can have 3 wraps (as varied as the
+  recipes allow; the test says so). Tests: vitest 3,600 pass.

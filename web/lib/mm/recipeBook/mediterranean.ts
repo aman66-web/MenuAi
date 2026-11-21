@@ -95,7 +95,7 @@ export const MEDITERRANEAN: readonly Recipe[] = [
       "Add the spinach: Rinse the spinach unless the bag says it is ready washed. Stir it in for 1 minute, until soft, then take the pan off the heat for 1 minute so it stops bubbling.",
       "Mix the egg and lemon: Crack the eggs into a bowl, picking out any shell, and beat them with the lemon juice. Slowly whisk in a ladleful of the hot soup, so the eggs warm up without scrambling.",
       "Thicken the soup: Pour the egg mixture into the pan, stirring all the time. Put it back on a low heat and stir for 2 to 3 minutes, until the soup thickens a little and is piping hot. Don't let it boil.",
-      "Serve: Stir in a grind of black pepper and ladle the soup into warm bowls.",
+      "Serve: Stir in a grind of black pepper and ladle the soup into warm bowls. Cool any left over quickly, then keep it in the fridge and eat it the same day or the next, reheated gently until piping hot.",
     ],
   },
   {
@@ -154,7 +154,7 @@ export const MEDITERRANEAN: readonly Recipe[] = [
       "Cook the pasta: About 15 minutes before the stew is ready, bring a large pan of water to the boil. Add the pasta and cook as the pack says (usually 10 to 12 minutes), until soft with no hard bit in the middle.",
       "Thicken the sauce: Take the lid off the stew for the last 5 to 10 minutes, so the sauce thickens.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through and piping hot, with no pink left. If not, simmer for 5 minutes more and check again.",
-      "Serve: Drain the pasta, share it between warm bowls and spoon the chicken stew over the top.",
+      "Serve: Drain the pasta, share it between warm bowls and spoon the chicken stew over the top. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
     ],
   },
   {
