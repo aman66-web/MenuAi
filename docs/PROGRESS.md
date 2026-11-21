@@ -41,7 +41,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
-- **21 November evening, on `iap` (build 14 installed on the founder's iPhone 21 Nov ~18:30, not uploaded):** Meal plan with Pip (nine questions, Opus picks
+- **21 November evening, on `iap` (build 15 installed on the founder's iPhone 21 Nov 19:57, not uploaded; build 14 at 18:30):** every recipe made the way a chef would and cooked to match its picture (about 300 methods), Meal plan with Pip (nine questions, Opus picks
   the week, the phone checks it), 5 or 7 a day, 49 world recipes (382 in all), a balanced cheapest week on a tight budget, the free week sheet and pill, a
   barcode photo inside Scan a barcode, everyday sizes in recipe ingredients ("80 g / ½ pepper"). Details in docs/PROGRESS_LOG.md.
 - **Overnight 20 November (read `docs/MORNING_REPORT_2026-11-20.md` first):** three waves of the meetings' changes committed on `iap` (new onboarding that shows the app working, account last; Start here; two Home pages; More diets; every recipe priced; Premium everywhere). The 30-person audit stopped after 8 of 30 areas (the Claude app's tool check slowed every action to 10 minutes); its findings are in `docs/audit-findings-2026-11-20-partial.json`, not yet fixed. Blocker: the published menus are older than `data/source` (republish).
