@@ -102,9 +102,7 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
-- [ ] **Meal plan with Pip and search help need numbite.com updated** (21 Nov evening, on `iap`, build 14 on your phone): until `main` is deployed with
-  `/api/v1/plan/ai` and `/api/v1/search/help`, Pip's plan falls back to the phone's own week ("Pip couldn't plan with your answers this time"). Say "deploy it"
-  and Claude merges `iap` into `main` and deploys. **Before the next submission, App Privacy:** Meal plan with Pip sends the person's plan answers (and any
+- [ ] **Before the next submission, App Privacy** (numbite.com runs Meal plan with Pip and search help since 21 Nov 20:15): Meal plan with Pip sends the person's plan answers (and any
   note they type) to our server and Anthropic, not linked to them; add it next to the search-help item below
 - [ ] **App Privacy, before the next submission:** search help (21 Nov) sends the typed words of a search that found nothing to our server and Anthropic, kept for up to a day, not linked to the person. In App Store Connect › App Privacy, add Search History (not linked to you, App Functionality), or tell Claude to switch search help off for the app (`NEXT_PUBLIC_SEARCH_HELP=0`)
 

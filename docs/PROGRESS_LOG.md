@@ -4181,3 +4181,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   sauce 60 → 100 g mixed with 4 tbsp water, broccoli steamed 2 minutes under a lid, pepper in strips, spring onion in pieces, rice beside, salt and garlic.
   Pictures that would need a non-everyday kind (paprika's colour at M&S, cornflour gloss, panko): listed, methods as close as they go. Generated files
   rebuilt; 4,151 unit tests, e2e recipes 17/17 (beef chilli's ingredient count and list follow the recipe now), mealplan 13/13.
+- (20:15, 21 Nov) **numbite.com deployed** (founder: "Yes please update"): `main` fast-forwarded to `iap` (a5313bf0) and pushed; `iap` pushed too. Checked
+  first: the website build passes in a clean copy; the server changes only add /api/v1/plan/ai and /api/v1/search/help, so 1.0 and 1.1 (build 11, in
+  review) keep working. Vercel dpl_Ho31JQAnRWTyjxciaXJPjpzpMCEv READY in about 80 seconds. Checked live: search help answers "chiken nugets" with "chicken
+  nuggets" and two McNuggets lines (one real Opus call, 3 s); /api/v1/plan/ai refuses an unreadable plan (400) before anything else; the privacy page has
+  "Meal plan with Pip" and "Search help"; /app/plan, /app/recipes, a new recipe picture, app-switches.json and the menus manifest answer 200. Pip's plan with
+  a real account still to try on the founder's phone (build 15). Rollback: dpl_48AZNPw9AEZVtP1TeYwEVjSUuPcT (91a01dcf).
