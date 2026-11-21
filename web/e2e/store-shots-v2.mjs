@@ -145,9 +145,22 @@ const SHOTS = {
     await p.goto(BASE + "/app/recipes");
     await p.locator("a[href*='/app/recipes/view']").first().waitFor({ timeout: 30000 });
   },
+  // the recipe's shopping: each ingredient as the real product at the shop, with its photo and price (founder 2026-11-21: "show the user that the ingredients
+  // are Sainsbury's ... take a ss of the ingredients")
   "07-recipe": async (p) => {
     await p.goto(BASE + "/app/recipes/view?id=chicken-tikka-masala-style-curry&r=sainsburys");
     await p.getByRole("heading", { level: 1 }).waitFor({ timeout: 30000 });
+    if (process.env.RECIPE_TOP !== "1") {
+      const h = p.locator("#ingredients-heading");
+      await h.waitFor({ timeout: 30000 });
+      await h.evaluate((el, off) => {
+        let sc = el.parentElement;
+        while (sc && !(sc.scrollHeight > sc.clientHeight + 4 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) sc = sc.parentElement;
+        if (sc) sc.scrollTop += el.getBoundingClientRect().top - sc.getBoundingClientRect().top - off;
+        else window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - off);
+      }, Number(process.env.RECIPE_OFF ?? 16));
+      await p.waitForTimeout(2500);
+    }
   },
   // the week Meal plan makes, with its pictures and the shopping
   "08-plan": async (p) => {

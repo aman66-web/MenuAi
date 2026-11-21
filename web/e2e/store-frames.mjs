@@ -19,7 +19,7 @@ export const CAPTIONS = {
   "04-scan": ["Scan it. *Log it.*", "Pick a glass, a can or grams"],
   "05-home": ["Your day *at a glance*", "Calories, protein, carbs and fat"],
   "06-recipes": ["Recipes *priced* at your shop", "Real products from 7 UK supermarkets"],
-  "07-recipe": ["Every ingredient *counted*", "Sized to your calories, from each label"],
+  "07-recipe": ["Real products, *real prices*", "Every ingredient from your supermarket"],
   "08-plan": ["A week of meals, *one list*", "Planned around your calories and budget"],
   "09-fridge": ["Cook with *what you have*", "Tap what's in your fridge"],
   "10-groceries": ["*Top 20* supermarket lists", "Most protein, cheapest protein, most fibre"],
