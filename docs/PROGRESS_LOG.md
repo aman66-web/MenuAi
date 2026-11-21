@@ -4035,3 +4035,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   "Show dishes that fit my diet" (applies it for this visit) and "My diet" (a sheet: the diet as chips, "From your settings. It hides nothing until you
   choose to." and "Change it in Settings"). Once applied, "Showing {n} of {total} dishes" has "Show all {total}" (drops it again) with "My diet" beside
   it. Checked on McDonald's with no milk, no gluten: 151 shown, 96 fit, one tap 96 of 151, Show all back to 151. smoke 24/24, numbers 12/12. On `iap`.
+- (21 Nov, afternoon) **Morrisons: 140 more labels read** (the recipe-ingredients queue: spices, oils, seasonings; 14 rounds, nothing blocked). The reader's
+  brief points at the every-product queue (`--all`), which is finished; this run used the recipe queue (no `--all`). Held back (holdback.csv): a pure
+  rapeseed oil printing 4.4 g carbohydrate (110215942), four KTC oils headed per 100ml with per-100 g figures (104193361, 114487072, 100382819, 104195607),
+  and Old El Paso hot salsa showing the mild salsa's table (115823146). Morrisons now 10,712 labels; lists rebuilt (build_all_products), recipe counts
+  unchanged (Morrisons 329), leaderboards unchanged, unit tests 3,993. On `iap`, not live.
