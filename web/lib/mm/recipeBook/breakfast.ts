@@ -16,38 +16,44 @@ export const BREAKFAST: readonly Recipe[] = [
   },
   {
     id: "peanut-banana-porridge", meal: "breakfast", tags: ["Porridge", "Vegan"], name: "Peanut butter and banana porridge", blurb: "Oats cooked in oat drink with a swirl of peanut butter and sliced banana.", servings: 2, minutes: 15,
-    ingredients: [ing("oats", 100), ing("oat-drink", 400, { follows: "oats" }), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1)],
+    // 2026-11-21 (founder: "Nothing should be plain"): a pinch of salt in the oats, as a cook would add, to bring out the peanut and banana
+    ingredients: [ing("oats", 100), ing("oat-drink", 400, { follows: "oats" }), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1), ing("salt", 1)],
     method: [
       "Slice the banana: Peel the banana and cut it into thin rounds, about as thick as a pound coin. Leave them on a plate.",
-      "Mix the porridge: Put the oats, oat drink and cinnamon into a medium saucepan. Stir well so no dry oats are left at the bottom.",
+      "Mix the porridge: Put the oats, oat drink, cinnamon and a pinch of salt into a medium saucepan. Stir well so no dry oats are left at the bottom.",
       "Bring to a bubble: Put the pan on a medium heat and stir often, scraping the bottom and corners so nothing sticks. After 2 to 3 minutes it will start to bubble gently.",
       "Cook until thick: Turn the heat down a little and keep stirring for 3 to 4 minutes more, until thick and creamy and the spoon makes a clear trail. Stir in a splash of hot water if it gets too thick.",
       "Swirl in the peanut butter: Take the pan off the heat and spoon the porridge into bowls. Drop the peanut butter on top in spoonfuls and swirl it through with the tip of a spoon.",
-      "Serve: Lay the banana slices over the top and serve straight away, while the porridge is hot.",
+      "Serve: Lay the banana slices on top in an overlapping ring and serve straight away, while the porridge is hot.",
     ],
   },
   {
     id: "smoked-salmon-eggs", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Smoked salmon and scrambled eggs", blurb: "Soft scrambled eggs with ribbons of smoked salmon.", servings: 2, minutes: 10,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("smoked-salmon", 100), ing("black-pepper", 1)],
+    // 2026-11-21 (founder: the recipe "has to look exactly as much as you can as the product"): a teaspoon of olive oil in the pan for the soft, glossy eggs the
+    // picture shows, and cracked pepper on top as well as in the eggs (the smoked salmon brings the salt)
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("smoked-salmon", 100), ing("black-pepper", 1), ing("olive-oil", 5)],
     method: [
       "Get the salmon ready: Tear the smoked salmon into strips about as wide as your finger and put them on a plate. It is ready to eat, so it needs no cooking.",
-      "Beat the eggs: Crack the eggs into a jug, picking out any shell. Add the black pepper and a splash of water and beat with a fork for 30 seconds, until no streaks of white are left. Wash your hands after handling raw eggs.",
-      "Warm the pan: Put a non-stick frying pan on a low heat for 1 minute. Keep the heat low the whole time, so the eggs don't turn rubbery.",
+      "Beat the eggs: Crack the eggs into a jug, picking out any shell. Add half the black pepper and a splash of water and beat with a fork for 30 seconds, until no streaks of white are left. Wash your hands after handling raw eggs.",
+      "Warm the pan: Put the oil in a non-stick frying pan on a low heat for 1 minute, tilting it to coat the bottom. Keep the heat low the whole time, so the eggs stay soft and glossy, not rubbery.",
       "Start the eggs: Pour in the eggs and leave them for about 20 seconds, until the edges start to set. Then stir slowly with a wooden spoon, pushing the egg from the edges into the middle.",
       "Scramble gently: Keep stirring slowly for 3 to 4 minutes, until the eggs are just set but still soft, with no runny egg white left. If they stick, lift the pan off the heat for a few seconds.",
       "Add the salmon: Take the pan off the heat straight away and gently fold in the smoked salmon so it warms through.",
-      "Serve: Spoon the eggs on to warm plates and serve straight away, before they go dry.",
+      "Serve: Spoon the eggs on to warm plates, sprinkle the rest of the black pepper over the top and serve straight away, before they go dry.",
     ],
   },
   {
     // lunch, not breakfast (founder 2026-11-20: "no one's going to eat that for breakfast", of kedgeree; the same holds for this one)
     id: "spanish-omelette", meal: "lunch", tags: ["Eggs", "Brunch"], name: "Spanish-style omelette with potatoes and peas", blurb: "A thick, golden omelette to cut into wedges.", servings: 3, minutes: 30,
     // the potatoes follow the eggs so the omelette keeps its proportions, and one frying pan holds at most half as many eggs again
-    ingredients: [ing("eggs", 360, { note: "about 6 eggs", fit: [0.5, 1.5] }), ing("new-potatoes", 300, { follows: "eggs" }), ing("peas", 120), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-21 (founder: the recipe "has to look exactly as much as you can as the product"): 5 ml more olive oil, the potatoes fried golden on their own first and
+    // the onion cooked slowly until soft and sweet, as in the picture
+    ingredients: [ing("eggs", 360, { note: "about 6 eggs", fit: [0.5, 1.5] }), ing("new-potatoes", 300, { follows: "eggs" }), ing("peas", 120), ing("olive-oil", 15), ing("onion", 150, { note: "about 1 onion" }), ing("salt", 1), ing("black-pepper", 1)],
     method: [
-      "Prepare the potatoes and onion: Drain the potatoes and cut them into slices about 1 cm thick. They are already cooked. Peel the onion and chop it small, about the size of a pea.",
+      "Prepare the potatoes and onion: Drain the potatoes, pat them dry with kitchen paper and cut them into slices about 1 cm thick. They are already cooked. Peel the onion and chop it small, about the size of a pea.",
       "Beat the eggs: Crack the eggs into a large bowl, add a pinch of salt and black pepper and beat with a fork until fully mixed. Wash your hands after handling raw eggs.",
-      "Fry the onion and potatoes: Heat the oil in a non-stick frying pan, about 24 cm across, over a medium heat. Add the onion and potatoes and fry for 5 to 7 minutes, turning now and then, until the onion is soft and the potatoes golden in places.",
+      "Fry the potatoes: Heat the oil in a non-stick frying pan, about 24 cm across, on a medium-high heat. Add the potatoes in one layer and fry for 4 to 5 minutes, turning once, until golden on both sides.",
+      "Soften the onion: Turn the heat down to medium, add the onion and cook for 5 to 6 minutes, stirring gently now and then, until soft, sweet and see-through.",
       "Add the peas: Tip in the frozen peas and stir for 1 to 2 minutes, until they are no longer icy. Turn the heat down low.",
       "Pour in the eggs: Pour the eggs evenly over everything. Gently press the potatoes, onion and peas flat with the back of the spoon so the egg runs between them. Don't stir from now on.",
       "Set the bottom: Cook on a low heat for 8 to 10 minutes, until the edges are set and the underside is golden. Lift an edge with the spoon to check. The top will still look wet.",
@@ -57,11 +63,13 @@ export const BREAKFAST: readonly Recipe[] = [
   },
   {
     id: "breakfast-burrito", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Bean breakfast burritos", blurb: "Scrambled eggs, beans, cheese and salsa rolled up in a warm wrap.", servings: 2, minutes: 15,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("wraps", 120), ing("cheddar", 40), ing("salsa", 60), ing("cumin", 1), ing("spinach", 30)],
+    // 2026-11-21 (founder: "Nothing should be plain"): the cumin and garlic warmed in a teaspoon of oil before the beans go in, and pepper in the eggs
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("wraps", 120), ing("cheddar", 40), ing("salsa", 60), ing("cumin", 1), ing("spinach", 30), ing("vegetable-oil", 5), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1)],
     method: [
       "Get ready: Grate the cheddar. Rinse the spinach unless the bag says it is ready washed. Drain the beans in a sieve and rinse them under cold water.",
-      "Warm the beans: Warm the beans with the cumin and a splash of water in a small saucepan on a medium heat for 3 to 4 minutes, stirring, until steaming hot. Take them off the heat, crush about half with a fork and cover.",
-      "Beat the eggs: Crack the eggs into a bowl, add a splash of water and beat with a fork until fully mixed. Wash your hands after handling raw eggs.",
+      "Warm the spices: Heat the oil in a small saucepan on a medium heat. Stir in the garlic and cumin for 30 seconds, until they sizzle and smell fragrant, without letting the garlic brown.",
+      "Warm the beans: Add the beans and a splash of water and cook for 3 to 4 minutes, stirring, until steaming hot. Take them off the heat, crush about half with a fork and cover.",
+      "Beat the eggs: Crack the eggs into a bowl, add the black pepper and a splash of water and beat with a fork until fully mixed. Wash your hands after handling raw eggs.",
       "Warm the wraps: Warm the wraps in a dry non-stick frying pan for about 20 seconds on each side, so they bend without cracking. Cover them with a clean tea towel.",
       "Scramble the eggs: Turn the heat under the same pan down low and pour in the eggs. Cook for 3 to 4 minutes, leaving them still for the first 20 seconds, then stirring slowly, until just set but still soft, with no runny white left.",
       "Fill the wraps: Lay the wraps flat. Down the middle of each, layer the spinach, beans, eggs and cheese, leaving about 5 cm clear at the top and bottom. Spoon the salsa on top.",
@@ -88,8 +96,8 @@ export const BREAKFAST: readonly Recipe[] = [
     method: [
       "Get the berries ready: If they are frozen, thaw them in a sieve under the cold tap for about a minute and shake off the water. If fresh, rinse and pat them dry. Halve any large ones.",
       "Add the yogurt: Stir any liquid on top of the tub back into the yogurt. Spoon it into a cereal bowl and smooth the top flat.",
-      "Add the granola: Scatter the granola over the yogurt in an even layer, just before you eat, so it stays crunchy.",
-      "Top with berries and honey: Spoon the berries on top and drizzle the honey over in a thin stream. If the honey is thick, stand the jar in a mug of hot water for a minute first.",
+      "Add the granola: Scatter the granola over one half of the yogurt, just before you eat, so it stays crunchy.",
+      "Top with berries and honey: Heap the berries on the other half and drizzle the honey in thin lines across both. If the honey is thick, stand the jar in a mug of hot water for a minute first.",
       "Serve: Eat straight away, digging down so each mouthful has some yogurt, granola and berries.",
     ],
   },
@@ -100,7 +108,7 @@ export const BREAKFAST: readonly Recipe[] = [
       "Chop the almonds: Chop the almonds roughly into pieces about the size of a pea, keeping the fingertips of your other hand curled away from the blade.",
       "Get the berries ready: If they are frozen, thaw them in a sieve under the cold tap for about a minute and shake off the water. If fresh, rinse and pat them dry. Halve any large ones.",
       "Add the cottage cheese: Spoon the cottage cheese into a bowl and level the top. Stir in or pour off any watery liquid from the tub, as you prefer.",
-      "Add the berries and honey: Spoon the berries over the cottage cheese and drizzle the honey over in a thin stream. If the honey is thick, stand the jar in a mug of hot water for a minute first.",
+      "Add the berries and honey: Heap the berries in the middle of the cottage cheese and drizzle the honey over them in a thin spiral. If the honey is thick, stand the jar in a mug of hot water for a minute first.",
       "Serve: Scatter the almonds over at the last moment, so they stay crunchy, and serve straight away.",
     ],
   },
@@ -117,16 +125,18 @@ export const BREAKFAST: readonly Recipe[] = [
   },
   {
     id: "shakshuka", meal: "breakfast", tags: ["Eggs", "Brunch"], name: "Shakshuka", blurb: "Eggs baked in a spiced tomato and pepper sauce.", servings: 2, minutes: 35,
-    ingredients: [ing("eggs", 240, { role: "other", note: "about 4 eggs" }), ing("chopped-tomatoes", 400), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 2), ing("paprika", 2), ing("vegetable-oil", 5)],
+    // 2026-11-21 (founder: "Nothing should be plain, these should all be chef made meals"): 5 ml more oil so the onion and pepper cook soft and sweet, salt in the
+    // sauce and black pepper over the eggs
+    ingredients: [ing("eggs", 240, { role: "other", note: "about 4 eggs" }), ing("chopped-tomatoes", 400), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 2), ing("paprika", 2), ing("vegetable-oil", 10), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Chop the onion and pepper: Peel the onion and chop it small, about the size of a pea. Cut the pepper in half, scoop out the seeds and white inside, and chop it into pieces about 1 cm across.",
-      "Soften the onion and pepper: Heat the oil in a large, deep non-stick frying pan over a medium heat. Add the onion and pepper and fry for 5 to 7 minutes, stirring now and then, until soft but not brown.",
+      "Soften the onion and pepper: Heat the oil in a large, deep non-stick frying pan over a medium heat. Add the onion and pepper and fry for 8 to 10 minutes, stirring now and then, until soft and sweet but not brown.",
       "Add the garlic and spices: Stir in the garlic purée, cumin and paprika. Cook for 1 minute, stirring all the time so the spices don't catch, until you can smell them.",
-      "Add the tomatoes: Pour in the chopped tomatoes and stir well. Cook on a medium heat for 2 to 3 minutes, stirring now and then, until bubbling all over.",
+      "Add the tomatoes: Pour in the chopped tomatoes, add the salt and stir well. Cook on a medium heat for 2 to 3 minutes, stirring now and then, until bubbling all over.",
       "Simmer the sauce: Turn the heat down low and simmer gently for 8 to 10 minutes, stirring now and then, until thick enough to leave a trail when you drag the spoon through. Add a splash of water if it sticks.",
       "Add the eggs: Press a small hollow in the sauce for each egg with the back of the spoon. Crack each egg into a cup, then slide it gently into a hollow. Wash your hands after handling raw eggs.",
       "Cook the eggs: Cover with a lid or a flat plate and cook on a low heat for 6 to 8 minutes, until the whites are completely set and the yolks still soft. Cook 2 minutes more for firmer yolks. Lift the lid away from you.",
-      "Serve: Take the pan off the heat and spoon the eggs and sauce on to warm plates, or stand the pan on a heatproof mat on the table. Serve straight away.",
+      "Serve: Take the pan off the heat and sprinkle the black pepper over the eggs. Spoon the eggs and sauce on to warm plates, or stand the pan on a heatproof mat on the table. Serve straight away.",
     ],
   },
   {
@@ -150,7 +160,7 @@ export const BREAKFAST: readonly Recipe[] = [
       "Prepare the filling: Grate the cheddar on to a plate. Tear the ham into pieces about 2 cm across and put them beside the cheese.",
       "Beat the eggs: Crack the eggs into a bowl, add a pinch of black pepper and a splash of water and beat with a fork for 30 seconds, until fully mixed. Wash your hands after handling raw eggs.",
       "Heat the pan: Spray a small non-stick frying pan, about 20 cm across, with the oil spray, away from any flame. Heat it on a medium heat for 1 to 2 minutes, until hot.",
-      "Cook the omelette: Pour in the eggs and cook for 2 to 3 minutes, until almost set with a thin wet layer on top. After the first 20 seconds, keep pulling the set edges into the middle and tilting the pan so runny egg fills the gaps.",
+      "Cook the omelette: Pour in the eggs. After the first 20 seconds, pull the set edges into the middle and tilt the pan so runny egg fills the gaps. Then leave it alone for 1 to 2 minutes, until almost set on top and pale golden underneath.",
       "Add the filling: Turn the heat down low. Scatter the cheese and ham over one half of the omelette, leaving a gap round the edge.",
       "Fold and finish: Cook for 30 seconds, then fold the empty half over the filling and cook for 1 minute more, until the cheese melts. Cut a small slit in the middle to check: the egg should be completely set and the ham piping hot.",
       "Serve: Slide the omelette on to a warm plate and serve straight away, while the cheese is still melted.",
@@ -158,10 +168,12 @@ export const BREAKFAST: readonly Recipe[] = [
   },
   {
     id: "mushroom-bean-breakfast-wraps", meal: "breakfast", tags: ["Vegan", "Brunch"], name: "Mushroom and bean breakfast wraps", blurb: "Garlic mushrooms, spinach and baked beans in a warm wrap.", servings: 2, minutes: 15,
+    // 2026-11-21: oil kept at 5 ml (10 ml took it out of Low fat); a hot non-stick pan, one layer and no stirring brown the mushrooms, as the picture shows
     ingredients: [ing("baked-beans", 400), ing("mushrooms", 250), ing("wraps", 120), ing("spinach", 60), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1), ing("vegetable-oil", 5)],
     method: [
       "Get ready: Wipe the mushrooms clean, trim the dry stalk ends and slice them about as thick as a pound coin. Rinse the spinach, shake it dry and tear any big leaves in half.",
-      "Fry the mushrooms: Heat a large non-stick frying pan over a medium-high heat, then add the oil. Fry the mushrooms for 5 to 6 minutes, stirring now and then, until their liquid has gone and they are golden brown.",
+      "Fry the mushrooms: Heat a large non-stick frying pan over a high heat, then add the oil. Add the mushrooms in one layer (two batches if your pan is small) and leave them for 2 minutes without stirring.",
+      "Brown the mushrooms: Fry for 3 to 4 minutes more, stirring now and then, until their liquid has gone and they are golden brown.",
       "Warm the beans: Meanwhile, warm the beans in a small saucepan on a medium heat for 4 to 5 minutes, stirring now and then, until bubbling and steaming hot. Take them off the heat and cover.",
       "Add the garlic: Stir the garlic purée into the mushrooms and cook for 30 seconds, stirring all the time so it doesn't burn.",
       "Wilt the spinach: Add the spinach a handful at a time and cook for 1 to 2 minutes, until soft and dark green. Season with black pepper, then tip into a bowl and cover to keep hot.",
@@ -187,14 +199,15 @@ export const BREAKFAST: readonly Recipe[] = [
   {
     // lunch, not breakfast (founder 2026-11-20, as for kedgeree)
     id: "huevos-rancheros", meal: "lunch", tags: ["Eggs", "Brunch"], name: "Huevos rancheros", blurb: "Fried eggs on warm wraps with crushed beans and salsa.", servings: 2, minutes: 20,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("salsa", 100), ing("wraps", 120), ing("cumin", 1), ing("oil-spray", 1)],
+    // 2026-11-21 (founder: "Nothing should be plain"): garlic with the cumin in the beans, and black pepper on the eggs
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("kidney-beans", 240), ing("salsa", 100), ing("wraps", 120), ing("cumin", 1), ing("oil-spray", 1), ing("garlic", 5, { note: "about 1 clove" }), ing("black-pepper", 1)],
     method: [
       "Drain the beans: Drain the kidney beans in a sieve, rinse them under cold water and leave them for a minute to drain well.",
-      "Warm the beans: Tip the beans into a small saucepan with the cumin and a splash of water. Warm them on a medium heat for 3 to 4 minutes, stirring now and then, until steaming hot.",
+      "Warm the beans: Tip the beans into a small saucepan with the garlic, cumin and a splash of water. Warm them on a medium heat for 3 to 4 minutes, stirring now and then, until steaming hot and smelling of the spices.",
       "Crush the beans: Take the pan off the heat and roughly crush about half the beans with a fork. Add another splash of water if it looks dry, then put a lid on.",
       "Warm the wraps: Warm the wraps one at a time in a large dry non-stick frying pan on a medium heat, for about 20 seconds on each side. Wrap them in a clean tea towel.",
       "Add the eggs: Take the pan off the heat, spray it with the oil spray away from any flame and put it back on a medium heat. Crack each egg into a cup, then slide it into the pan. Wash your hands after handling raw eggs.",
-      "Fry the eggs: Fry for 3 to 4 minutes, until the whites are completely set with no runny white left. If the tops are still clear, cover the pan for 30 to 60 seconds.",
+      "Fry the eggs: Sprinkle the black pepper over the eggs and fry for 3 to 4 minutes, until the whites are completely set with no runny white left. If the tops are still clear, cover the pan for 30 to 60 seconds.",
       "Serve: Lay the wraps on warm plates, spread the crushed beans over the middle, slide the eggs on top and spoon the salsa over. Serve straight away.",
     ],
   },
@@ -214,7 +227,8 @@ export const BREAKFAST: readonly Recipe[] = [
   {
     // a lunch since 2026-11-20 (founder: "you can't give someone ... kedgeree ... for, like, breakfast"): the recipe is unchanged
     id: "smoked-salmon-kedgeree", meal: "lunch", tags: ["Brunch"], name: "Smoked salmon kedgeree", blurb: "Curried rice with smoked salmon, peas and boiled eggs.", servings: 2, minutes: 30,
-    ingredients: [ing("rice", 150), ing("smoked-salmon", 200), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 100), ing("onion", 150, { note: "about 1 onion" }), ing("curry-powder", 3), ing("lemon-juice", 10), ing("vegetable-oil", 5)],
+    // 2026-11-21 (founder: "Nothing should be plain"): black pepper through the rice, as kedgeree has
+    ingredients: [ing("rice", 150), ing("smoked-salmon", 200), ing("eggs", 120, { note: "about 2 eggs" }), ing("peas", 100), ing("onion", 150, { note: "about 1 onion" }), ing("curry-powder", 3), ing("lemon-juice", 10), ing("vegetable-oil", 5), ing("black-pepper", 1)],
     method: [
       "Get ready: Peel the onion and chop it small, about the size of a pea. Tear the smoked salmon into strips about as wide as your finger and keep them in the fridge.",
       "Boil the eggs: Bring a small pan of water to the boil. Lower in the eggs, turn the heat to medium and boil for 8 to 9 minutes, until the whites and yolks are completely set. Wash your hands after handling raw eggs.",
@@ -222,21 +236,24 @@ export const BREAKFAST: readonly Recipe[] = [
       "Fry the onion: Meanwhile, heat the oil in a large frying pan over a medium heat and fry the onion for 5 to 8 minutes, until soft but not brown. Stir in the curry powder for 1 minute, until you can smell it. Take off the heat.",
       "Peel the eggs: Pour off the hot water and run cold water over the eggs for 2 minutes. Crack and peel them, then cut each into quarters.",
       "Add the peas: When the rice has 3 minutes left, add the frozen peas and bring back to the boil. Cook until the rice is soft with no hard white middle, then drain and fluff it up with a fork.",
-      "Mix and heat: Tip the rice and peas into the onion pan. Stir on a medium heat for 2 to 3 minutes, until piping hot and coloured by the curry powder.",
+      "Mix and heat: Tip the rice and peas into the onion pan with the black pepper. Stir on a medium heat for 2 to 3 minutes, until piping hot and every grain is tinted golden by the curry powder.",
       "Add the salmon and serve: Take the pan off the heat and gently fold in the smoked salmon for about 1 minute, until warm. Top with the egg quarters, sprinkle over the lemon juice and serve straight away.",
     ],
   },
   {
     id: "bean-potato-hash", meal: "breakfast", tags: ["Vegan", "Brunch"], name: "Bean and potato hash", blurb: "Crispy potatoes, peppers and kidney beans with tomato salsa.", servings: 2, minutes: 20,
-    ingredients: [ing("new-potatoes", 300), ing("kidney-beans", 240), ing("salsa", 100), ing("olive-oil", 10), ing("peppers", 160, { note: "about 1 pepper" }), ing("onion", 150, { note: "about 1 onion" }), ing("cumin", 2), ing("paprika", 2)],
+    // 2026-11-21 (founder: "Nothing should be plain"): the spices toasted on their own for 30 seconds and black pepper at the end (no salt or garlic purée: the
+    // salsa brings the salt, and the dish stays a Lower salt and Longevity meal)
+    ingredients: [ing("new-potatoes", 300), ing("kidney-beans", 240), ing("salsa", 100), ing("olive-oil", 10), ing("peppers", 160, { note: "about 1 pepper" }), ing("onion", 150, { note: "about 1 onion" }), ing("cumin", 2), ing("paprika", 2), ing("black-pepper", 1)],
     method: [
       "Prepare the potatoes: Drain the potatoes and pat them dry with kitchen paper so they brown well. Cut each in half, or into quarters if large. They are already cooked.",
       "Drain the beans: Drain the kidney beans in a sieve, rinse them under cold water and leave them to drain.",
       "Chop the onion and pepper: Peel the onion and chop it into pieces about 1 cm across. Cut the pepper in half, scoop out the seeds and white parts, and cut it into pieces the same size.",
       "Brown the potatoes: Heat the oil in a large non-stick frying pan on a medium-high heat. Add the potatoes cut side down in a single layer and leave them for 4 minutes, until golden underneath.",
       "Crisp the potatoes: Turn them over and fry for 4 to 6 minutes more, turning now and then, until golden brown and crisp at the edges. Turn the heat down a little if they stick.",
-      "Add the vegetables and spices: Stir in the onion, pepper, cumin and paprika. Cook for 3 to 4 minutes, stirring often, until the onion starts to soften and the pepper is just tender.",
-      "Add the beans: Stir in the beans gently and cook for 2 to 3 minutes, until everything is steaming hot. Add a splash of water if the pan looks dry.",
+      "Add the vegetables: Stir in the onion and pepper and cook for 3 to 4 minutes, stirring often, until the onion softens and the pepper is just tender and browned in places.",
+      "Add the spices: Stir in the cumin and paprika for 30 seconds, until everything is dusted orange-brown and smells toasty.",
+      "Add the beans: Stir in the beans gently and cook for 2 to 3 minutes, until everything is steaming hot. Add a splash of water if the pan looks dry. Season with the black pepper.",
       "Serve: Take the pan off the heat, spoon the hash on to warm plates and top with the salsa. Serve straight away.",
     ],
   },

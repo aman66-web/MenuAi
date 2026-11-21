@@ -5,7 +5,8 @@ import { ing, type Recipe } from "../recipes";
 // fruit; olive oil as the only oil; nothing sweetened. The style's exact rule and its studies are with EATING_STYLES in lib/mm/mealPlan.ts. Names and blurbs
 // say what is in the dish, never that it does anything for anyone's health (CLAUDE.md rule 3). See lib/mm/recipeBook/index.ts for the rules every recipe follows.
 // Measured at Sainsbury's and Morrisons, fitted to a 600 kcal meal: the bread is the pantry's wholemeal loaf (40 g a slice, 2 slices each), and no recipe adds
-// salt or a stock cube, because the bread, houmous and soft cheese already bring a serving close to the style's salt line.
+// salt or a stock cube where the bread, houmous or soft cheese already bring a serving close to the style's salt line; two salads with no bread take a pinch
+// of salt (2026-11-21, founder: "Nothing should be plain") and stay under the line at both shops.
 
 export const LONGEVITY_MORNING: readonly Recipe[] = [
   // ---- breakfasts
@@ -13,9 +14,9 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
     id: "crushed-chickpeas-tomatoes-toast", meal: "breakfast", tags: ["Vegan", "Quick", "Savoury"], name: "Crushed chickpeas and tomatoes on toast", blurb: "Warm chickpeas crushed with garlic, lemon and cumin, with soft cherry tomatoes and spinach on wholemeal toast.", servings: 2, minutes: 15,
     ingredients: [ing("bread", 160), ing("chickpeas", 240, { role: "protein" }), ing("cherry-tomatoes", 200), ing("spinach", 60), ing("olive-oil", 15), ing("garlic", 5), ing("lemon-juice", 10), ing("cumin", 1), ing("black-pepper", 1)],
     method: [
-      "Get ready: Drain the chickpeas in a sieve and rinse them under the cold tap. Cut the cherry tomatoes in half. Rinse the spinach unless the bag says it is ready washed.",
+      "Get ready: Drain the chickpeas in a sieve, rinse them under the cold tap and pat them dry with kitchen paper. Cut the cherry tomatoes in half. Rinse the spinach unless the bag says it is ready washed.",
       "Soften the tomatoes: Heat half the oil in a large frying pan on a medium heat. Add the tomatoes, cut side down, and cook for 3 to 4 minutes, until soft and starting to brown.",
-      "Warm the chickpeas: Push the tomatoes to one side. Add the rest of the oil, the chickpeas, garlic and cumin, and stir for 2 to 3 minutes, until the chickpeas are hot right through.",
+      "Brown the chickpeas: Push the tomatoes to one side and turn the heat up to medium-high. Add the rest of the oil and the chickpeas and fry for 4 to 5 minutes, stirring now and then, until golden. Stir in the garlic and cumin for 30 seconds.",
       "Crush the chickpeas: Take the pan off the heat and crush the chickpeas roughly with a fork, leaving some whole. Stir in the lemon juice and a good grind of black pepper.",
       "Wilt the spinach: Put the pan back on a low heat, add the spinach and stir for 1 minute, until soft and dark green.",
       "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
@@ -62,7 +63,7 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
     id: "berry-almond-oat-yogurt-bowl", meal: "breakfast", tags: ["Quick", "Sweet"], name: "Berry, almond and oat yogurt bowl", blurb: "Thick Greek-style yogurt topped with berries, toasted oats, chopped almonds and cinnamon.", servings: 1, minutes: 5,
     ingredients: [ing("greek-yogurt", 200, { role: "protein" }), ing("berries", 120), ing("oats", 40), ing("almonds", 20), ing("cinnamon", 1)],
     method: [
-      "Toast the oats: Put the oats in a dry frying pan on a medium heat and stir for 2 to 3 minutes, until they smell nutty and start to turn golden. Tip them on to a plate. Or use them as they are.",
+      "Toast the oats: Put the oats in a dry frying pan on a medium heat and stir for 3 to 4 minutes, until they are golden and smell nutty. Tip them on to a plate to cool, so they stay crisp.",
       "Chop the almonds: Roughly chop the almonds on a board with a large knife.",
       "Get the berries ready: If they are frozen, thaw them in a sieve under the cold tap for about a minute and shake off the water. If fresh, rinse and pat them dry.",
       "Fill the bowl: Spoon the yogurt into a bowl and smooth the top with the back of the spoon.",
@@ -119,11 +120,12 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "salmon-chickpea-lemon-salad", meal: "lunch", tags: ["Fish", "Salad"], name: "Salmon and chickpea salad with lemon", blurb: "Baked salmon flaked over chickpeas, cucumber, cherry tomatoes and salad leaves, with a lemon and olive oil dressing.", servings: 2, minutes: 25,
+    // 2026-11-21: no salt added (a pinch took it over the Longevity salt line at Morrisons); the pepper goes on the salmon before it bakes
     ingredients: [ing("salmon", 240), ing("chickpeas", 240, { role: "carb" }), ing("cucumber", 150), ing("cherry-tomatoes", 200), ing("salad-leaves", 60), ing("olive-oil", 20), ing("lemon-juice", 20), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a small baking tray with foil or baking paper.",
-      "Bake the salmon: Lay the salmon on the tray skin side down and brush it with a little of the oil. Bake for 12 to 15 minutes, until the fish is opaque all the way through and flakes easily. Wash your hands after handling raw fish.",
-      "Make the dressing: Meanwhile, whisk the rest of the oil with the lemon juice and a good grind of black pepper in a small bowl.",
+      "Bake the salmon: Lay the salmon on the tray skin side down, brush it with a little of the oil and sprinkle over half the black pepper. Bake for 12 to 15 minutes, until the fish is opaque and flakes easily. Wash your hands after handling raw fish.",
+      "Make the dressing: Meanwhile, whisk the rest of the oil with the lemon juice and the rest of the black pepper in a small bowl.",
       "Get the salad ready: Drain the chickpeas in a sieve and rinse them under the cold tap. Cut the cucumber into small chunks and the cherry tomatoes in half. Rinse the leaves unless the bag says they are ready washed.",
       "Mix the salad: Put the chickpeas, cucumber and tomatoes in a large bowl, pour over most of the dressing and toss gently.",
       "Flake the salmon: Leave the salmon to cool for 2 to 3 minutes, then lift it off its skin with a fish slice and break it into large flakes with a fork.",
@@ -149,7 +151,7 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
     method: [
       "Heat the oven: Heat the oven to 220°C (200°C fan, gas 7). Line a baking tray with baking paper.",
       "Get the vegetables ready: Cut the peppers in half, pull out the stalks and seeds, and cut them into strips about 2 cm wide. Peel the red onion and cut it into thin wedges.",
-      "Roast the vegetables: Spread the peppers and onion on the tray, drizzle with the oil, add a grind of black pepper and toss well. Roast for 18 to 20 minutes, turning once, until soft and browned at the edges.",
+      "Roast the vegetables: Spread the peppers and onion on the tray in one layer, drizzle with the oil, add a grind of black pepper and toss well. Roast for 18 to 20 minutes, turning once, until soft and browned at the edges.",
       "Get the spinach ready: Meanwhile, rinse the spinach unless the bag says it is ready washed, and shake it dry.",
       "Toast the bread: Near the end, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
       "Spread the houmous: Spread the houmous thinly over the warm toast, right to the edges.",
@@ -171,11 +173,13 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "warm-broccoli-chickpea-almond-salad", meal: "lunch", tags: ["Vegan", "Salad"], name: "Warm broccoli, chickpea and almond salad", blurb: "Roasted broccoli and chickpeas with toasted almonds and red onion in a lemon and garlic dressing.", servings: 2, minutes: 25,
-    ingredients: [ing("broccoli", 300), ing("chickpeas", 240, { role: "carb" }), ing("almonds", 40), ing("red-onion", 75), ing("olive-oil", 20), ing("lemon-juice", 20), ing("garlic", 5), ing("black-pepper", 1)],
+    // 2026-11-21: oil 20 -> 25 ml so the broccoli browns and the chickpeas turn golden on the tray as the picture shows (founder: "has to look exactly as much as you can as the product")
+    // 2026-11-21 (founder: "Nothing should be plain"): salt on the tray before roasting
+    ingredients: [ing("broccoli", 300), ing("chickpeas", 240, { role: "carb" }), ing("almonds", 40), ing("red-onion", 75), ing("olive-oil", 25), ing("lemon-juice", 20), ing("garlic", 5), ing("black-pepper", 1), ing("salt", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a large baking tray with baking paper.",
       "Get ready: Cut the broccoli into small florets and slice the stalk thinly. Drain the chickpeas in a sieve, rinse them and pat them dry with kitchen paper. Peel the red onion and slice it very thinly.",
-      "Roast the broccoli: Spread the broccoli and chickpeas on the tray, drizzle with half the oil and toss well. Roast for 15 minutes, until the broccoli is tender and browned at the edges.",
+      "Roast the broccoli: Toss the broccoli and chickpeas with half the oil and the salt on the tray and spread them out in one layer. Roast for 18 to 20 minutes, until the broccoli is browned at the edges and the chickpeas are golden.",
       "Add the almonds: Roughly chop the almonds, scatter them over the tray and roast for 3 to 4 minutes more, until golden. Watch them closely, as they burn quickly.",
       "Make the dressing: Meanwhile, whisk the rest of the oil with the lemon juice, garlic and a good grind of black pepper in a large bowl.",
       "Mix the salad: Tip the hot broccoli, chickpeas and almonds into the bowl, add the onion and toss gently until everything is coated in the dressing.",
@@ -184,12 +188,13 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "bean-sweetcorn-pepper-rice-salad", meal: "lunch", tags: ["Vegan", "Salad", "Make ahead"], name: "Bean, sweetcorn and pepper rice salad", blurb: "Cold rice with kidney beans, sweetcorn, pepper and red onion in a lemon and cumin dressing.", servings: 2, minutes: 25,
-    ingredients: [ing("rice", 140), ing("kidney-beans", 240), ing("sweetcorn", 140), ing("peppers", 160), ing("red-onion", 40), ing("olive-oil", 15), ing("lemon-juice", 15), ing("cumin", 1), ing("black-pepper", 1)],
+    // 2026-11-21 (founder: "Nothing should be plain"): a pinch of salt in the dressing
+    ingredients: [ing("rice", 140), ing("kidney-beans", 240), ing("sweetcorn", 140), ing("peppers", 160), ing("red-onion", 40), ing("olive-oil", 15), ing("lemon-juice", 15), ing("cumin", 1), ing("black-pepper", 1), ing("salt", 1)],
     method: [
       "Cook the rice: Rinse the rice in a sieve under the cold tap. Cook it in a large pan of boiling water for 10 to 12 minutes, or as the packet says, until tender. If the sweetcorn is frozen, add it for the last 2 minutes.",
       "Cool the rice: Drain the rice in the sieve and rinse it under the cold tap until cold, so it cools quickly. Leave it to drain well.",
       "Get the vegetables ready: Meanwhile, cut the pepper in half, pull out the stalk and seeds, and chop it into small pieces. Peel the red onion and chop it finely. Drain the beans and rinse them.",
-      "Make the dressing: Whisk the oil, lemon juice, cumin and a good grind of black pepper together in a large bowl.",
+      "Make the dressing: Whisk the oil, lemon juice, cumin, the salt and a good grind of black pepper together in a large bowl.",
       "Mix the salad: Add the rice, beans, sweetcorn, pepper and onion to the bowl and stir gently until everything is coated in the dressing.",
       "Serve or keep: Eat straight away, or put it in a box with a lid in the fridge and eat it the next day at the latest. Keep cooked rice cold and never leave it out for long.",
     ],

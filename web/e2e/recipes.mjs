@@ -140,7 +140,7 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   await page.getByText("a serving", { exact: true }).waitFor();
   await page.getByText("to buy it all", { exact: true }).waitFor();
   const buy = page.getByRole("heading", { name: "What to buy" }).locator("xpath=..").locator("li");
-  expect((await buy.count()) === 7, "7 ingredients: everything the method uses, down to the cumin");
+  expect((await buy.count()) === 10, "10 ingredients: everything the method uses, down to the cumin, the garlic and the salt (the chef pass, 21 November)");
   // a store-cupboard item can be left off the basket and the list ("I have this"); its share stays in the price a serving
   const cumin = buy.filter({ hasText: "Ground cumin" });
   await cumin.getByText("You may have this already.").waitFor();
@@ -164,12 +164,16 @@ await step("a recipe: per-serving numbers, what to buy, swap an ingredient, add 
   const after = await riceRow.innerText();
   expect(after !== before && after.includes(second), `swapped to ${second}`);
   await page.getByRole("button", { name: "Add all to my shopping list" }).click();
-  await page.getByText("Added 6 products to your shopping list.").waitFor();
+  // every ingredient but the cumin ticked "I have this" (9 since the chef pass added garlic, tomato purée and salt, 21 November)
+  const addedLine = page.getByText(/^Added \d+ products to your shopping list\.$/);
+  await addedLine.waitFor();
+  const addedN = Number(/\d+/.exec(await addedLine.innerText())[0]);
+  expect(addedN === (await buy.count()) - 1, `every ingredient but the cumin: ${addedN}`);
   // once added, the button itself says so and opens the list (a second tap never adds twice: usability test 2026-11-19)
   await page.getByRole("link", { name: "Added: see your list" }).click();
   await page.getByRole("heading", { level: 1, name: "Shopping list" }).waitFor();
   const section = page.getByRole("region", { name: "Sainsbury's" });
-  expect((await section.getByRole("checkbox").count()) === 6, "6 items on the list (not the cumin)"); // the card's last row is "Add more from Sainsbury's", not an item
+  expect((await section.getByRole("checkbox").count()) === addedN, `${addedN} items on the list (not the cumin)`); // the card's last row is "Add more from Sainsbury's", not an item
   await section.getByText(second).waitFor();
   await section.getByText(/ at Sainsbury's prices checked .*Prices change: check in store\./).waitFor();
   await page.getByRole("heading", { name: "How to make it" }).count(); // not on this page; just making sure nothing threw

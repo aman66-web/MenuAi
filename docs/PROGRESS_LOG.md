@@ -4167,3 +4167,17 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   way. Now: pat the strips dry; a very hot pan with 10 ml of oil; one layer with space (two batches if the pan is small), left without stirring 2 to 3 minutes a
   side until golden; lifted out while the vegetables cook; back in with the sauce, bubbled until thick and glossy. Nutrition and prices follow the 10 ml from
   the labels (scan references and keys rebuilt). About 30 other methods fry meat, bacon or mushrooms "stirring often ... until golden": reviewed next.
+- (21 Nov, evening) **Every recipe made the way a chef would, and cooked to look like its picture** (founder, after cooking the sweet chilli chicken: "I
+  wanted the recipe we make has to look exactly as much as you can as the product" and "Nothing should be plain, these should all be chef made meals").
+  Four agents, one group of recipe files each, compared every method with its look sentence (looks.ts, what the picture was drawn from) and seasoned every
+  recipe properly. About 300 of 382 methods changed: meat and mince patted dry, a hot pan, one layer or two batches, left untouched until golden, lifted out
+  while the vegetables cook; onions cooked soft and sweet; spices fried 30 seconds; tomato purée cooked until darker; glazes loosened with water on a medium
+  heat so they don't cook away; sauces simmered with no lid until they coat a spoon; lemon on chicken after cooking, not before; crumbs toasted; a line at each
+  key stage saying what it should look or smell like. Seasoning added only from EVERYDAY_KINDS (salt, black pepper, garlic, onion, cumin, paprika, chilli,
+  turmeric, cinnamon, lemon, herbs, tomato purée), no new allergen, no diet lost (vegan, gluten-free, no onion or garlic, Jain, halal), at most about +25 kcal
+  a serving; oil +5 ml at most where it was too little to brown (about 25 recipes, each with a dated comment). Kept out where they would cost a recipe a shop
+  (M&S has no paprika or turmeric, Aldi no cumin: M&S now 207, one more than before) or an eating style (Lower salt, Lower sugar, Low fat, Longevity, High
+  protein: about 35 additions taken back; shakshuka, the mushroom and egg fry-up and the garlic salmon left Lower salt by choice). The sweet chilli chicken:
+  sauce 60 → 100 g mixed with 4 tbsp water, broccoli steamed 2 minutes under a lid, pepper in strips, spring onion in pieces, rice beside, salt and garlic.
+  Pictures that would need a non-everyday kind (paprika's colour at M&S, cornflour gloss, panko): listed, methods as close as they go. Generated files
+  rebuilt; 4,151 unit tests, e2e recipes 17/17 (beef chilli's ingredient count and list follow the recipe now), mealplan 13/13.

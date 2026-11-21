@@ -5,10 +5,11 @@ import { ing, type Recipe } from "../recipes";
 export const SNACKS: readonly Recipe[] = [
   {
     id: "peanut-butter-oat-bites", meal: "snack", tags: ["Make ahead", "No cook"], name: "Peanut butter oat bites", blurb: "Little no-bake bites for the week.", servings: 6, minutes: 15,
-    ingredients: [ing("oats", 100, { role: "carb" }), ing("peanut-butter", 100), ing("honey", 50), ing("raisins", 40), ing("cinnamon", 1)],
+    // 2026-11-21 (founder: "Nothing should be plain"): a pinch of salt with the oats, to bring out the peanut butter and honey
+    ingredients: [ing("oats", 100, { role: "carb" }), ing("peanut-butter", 100), ing("honey", 50), ing("raisins", 40), ing("cinnamon", 1), ing("salt", 1)],
     method: [
       "Get ready: Line a large plate or a small tray with baking paper, so the bites won't stick.",
-      "Mix the oats: Stir the oats and cinnamon together in a large bowl. Add the peanut butter and honey and stir hard for 2 to 3 minutes, until no dry oats are left and it looks thick and sticky.",
+      "Mix the oats: Stir the oats, cinnamon and a pinch of salt together in a large bowl. Add the peanut butter and honey and stir hard for 2 to 3 minutes, until no dry oats are left and it looks thick and sticky.",
       "Add the raisins: Mix in the raisins. If the mixture is too crumbly, stir in a few drops of water at a time, until it holds together when you squeeze some in your fist.",
       "Roll into balls: With damp hands, roll spoonfuls of the mixture into balls about 3 cm across. Put them on the paper with a small gap between them.",
       "Chill: Put the tray in the fridge for 30 minutes, until the bites feel firm when you press one gently.",
@@ -74,10 +75,11 @@ export const SNACKS: readonly Recipe[] = [
   },
   {
     id: "tuna-chickpea-dip", meal: "snack", tags: ["No cook", "Savoury"], name: "Tuna and chickpea dip", blurb: "A creamy tuna and chickpea dip with lemon, for vegetable sticks.", servings: 3, minutes: 10,
-    ingredients: [ing("tuna", 102), ing("chickpeas", 130), ing("olive-oil", 10), ing("carrots", 100, { note: "about 1 carrot" }), ing("cucumber", 120), ing("peppers", 160, { note: "about 1 pepper" }), ing("lemon-juice", 10), ing("spring-onions", 30), ing("black-pepper", 1)],
+    // 2026-11-21 (founder: "Nothing should be plain"): a pinch of cumin mashed into the chickpeas, as in houmous
+    ingredients: [ing("tuna", 102), ing("chickpeas", 130), ing("olive-oil", 10), ing("carrots", 100, { note: "about 1 carrot" }), ing("cucumber", 120), ing("peppers", 160, { note: "about 1 pepper" }), ing("lemon-juice", 10), ing("spring-onions", 30), ing("black-pepper", 1), ing("cumin", 1)],
     method: [
       "Drain the chickpeas and tuna: Rinse the chickpeas in a sieve and leave them to drain. Tip the tuna into a second sieve and press it with a spoon to squeeze out as much water as you can.",
-      "Mash the chickpeas: Put the chickpeas in a large bowl with the oil, lemon juice and a splash of cold water. Mash with a fork for 2 to 3 minutes, until it looks like a thick, rough paste.",
+      "Mash the chickpeas: Put the chickpeas in a large bowl with the oil, lemon juice, cumin and a splash of cold water. Mash with a fork for 2 to 3 minutes, until it looks like a thick, rough paste.",
       "Slice the spring onions: Trim the spring onions and slice them thinly into rings, keeping your fingers curled away from the blade.",
       "Mix the dip: Stir in the tuna and spring onions, breaking up the tuna, until the dip holds its shape on a spoon. Stir in a pinch of black pepper, then taste and add more if you like.",
       "Cut the sticks: Rinse the vegetables. Peel the carrot, then cut it and the cucumber into sticks about 7 cm long and as thick as your finger. Cut the pepper in half, scoop out the seeds and slice it into strips.",
