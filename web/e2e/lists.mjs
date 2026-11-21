@@ -48,18 +48,26 @@ const stored = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm
 const storedLists = (page) => page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.settings") ?? "null")?.data?.shoppingLists ?? []);
 const chips = (page) => page.getByRole("navigation", { name: "Your shopping lists" });
 const newList = (page) => page.getByRole("button", { name: "New list", exact: true });
+// a list's chip is heard with how many things it still has to get ("Shopping list, 1 thing to pick up"; drawn "Shopping list · 1"): docs/MEETING_2026-11-21.md,
+// "List chips, spoken only". Chromium puts a space before the hidden words' comma (they are positioned off the page), so one space is allowed there.
+const mainChip = (nav) => nav.getByRole("link", { name: /^Shopping list( ?, (1 thing|\d+ things) to pick up)?$/ });
 const sheet = (page, name) => page.getByRole("dialog", { name });
 const sideways = (page) => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
 
-await step("with no lists of their own, the list is as before, with \"New list\" near the top (no chips)", async () => {
+// With no list of one's own, "New list" sits small beside the item count, under the typing field and above the first item, so the list itself comes first
+// (the audit of 20 November 2026, docs/audit-findings-2026-11-20-partial.json: "In the shop, the list itself starts below the fold").
+await step("with no lists of their own, the list is as before, with \"New list\" beside the count (no chips)", async () => {
   const { ctx, page, errors } = await open([asdaItem, typedItem]);
   await page.goto(BASE + "/app/groceries/list");
   await newList(page).waitFor({ timeout: 90000 });
   expect((await chips(page).getByRole("link").count()) === 0, "chips shown with no lists");
   const box = await newList(page).boundingBox();
   const form = await page.getByRole("textbox", { name: "Add something to your list" }).boundingBox();
+  const count = await page.getByText(/^2 items$/).boundingBox();
+  const first = await page.getByRole("checkbox").first().boundingBox();
   expect(box.height >= 44, "New list height " + box.height);
-  expect(box.y < form.y, "New list is above the typing field");
+  expect(box.y > form.y + form.height && box.y + box.height < first.y, `New list sits between the typing field and the first item: ${box.y} (field ${form.y}, first item ${first.y})`);
+  expect(count && Math.abs((count.y + count.height / 2) - (box.y + box.height / 2)) < 24, "New list is beside the count");
   expect((await page.getByRole("checkbox").count()) === 2, "both items still on the main list");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();
@@ -81,7 +89,7 @@ await step("New list asks what it's for with the shops as tiles; choosing M&S ma
   expect(await page.getByRole("link", { name: "Add products from M&S" }).getAttribute("href") === "/app/groceries/shop?r=marks-and-spencer", "add link");
   const nav = chips(page);
   expect((await nav.getByRole("link", { name: "M&S", exact: true }).getAttribute("aria-current")) === "page", "M&S chip is the one shown");
-  expect((await nav.getByRole("link", { name: "Shopping list", exact: true }).count()) === 1, "a chip for the main list");
+  expect((await mainChip(nav).count()) === 1, "a chip for the main list");
   expect((await page.getByRole("checkbox").count()) === 0, "the Asda item is not on the M&S list");
   await newList(page).tap();
   await sheet(page, "What do you want to make a shopping list for?").getByRole("button", { name: "M&S", exact: true }).tap();
@@ -89,7 +97,7 @@ await step("New list asks what it's for with the shops as tiles; choosing M&S ma
   const lists = await storedLists(page);
   expect(lists.length === 2 && lists.every((l) => l.shop === "marks-and-spencer") && lists.map((l) => l.name).join() === "M&S,M&S 2", JSON.stringify(lists));
   // the main list is one tap away and still has its item
-  await nav.getByRole("link", { name: "Shopping list", exact: true }).tap();
+  await mainChip(nav).tap();
   await page.getByRole("checkbox", { name: /Aaila/ }).waitFor({ timeout: 15000 });
   expect(!page.url().includes("?l="), "the main list has no ?l=: " + page.url());
   expect(errors.length === 0, errors.join(" | "));
@@ -113,8 +121,10 @@ await step("adding a product from a shop with lists asks \"Add to which list?\";
   await page.getByRole("checkbox", { name: /Low Fat Greek Style/ }).waitFor({ timeout: 15000 });
   // Asda: no list of the person's own, so no question
   await page.goto(BASE + "/app/groceries/product?code=5030039010492&r=asda");
-  await page.getByRole("button", { name: /Add · Asda/ }).first().tap({ timeout: 90000 });
-  await page.getByText("Added to your list for Asda.").waitFor({ timeout: 5000 });
+  // the shop the page was opened from is its "Add to my list" (each other shop is "Add · {shop}": the colour meeting, 19 November 2026)
+  await page.getByRole("button", { name: "Add to my list", exact: true }).tap({ timeout: 90000 });
+  // the main list is "Shopping list", and the toast names it (ListChoice.tsx addedText)
+  await page.getByText("Added to your Shopping list.").waitFor({ timeout: 5000 });
   expect((await sheet(page, "Add to which list?").isVisible()) === false, "asked for Asda");
   items = await stored(page);
   expect(items.length === 2 && items[1].retailer === "asda" && !("list" in items[1]), JSON.stringify(items.map((i) => [i.retailer, i.list])));
@@ -233,10 +243,13 @@ await step("Select: Select all ticks every item, Remove takes them all off this 
   await page.getByText(/^3 items$/).waitFor();
   await select.tap();
   await page.getByText("0 selected").waitFor();
+  // nothing chosen: no Remove at all (it shows, above the tab bar, only once something is picked: the audit of 20 November 2026,
+  // docs/audit-findings-2026-11-20-partial.json, "Select mode leaves the other actions live")
   const remove = page.getByRole("button", { name: /^Remove \d+ items?$/ });
-  expect(await remove.isDisabled(), "nothing chosen: Remove is off");
+  expect((await remove.count()) === 0, "nothing chosen: no Remove");
   await page.getByRole("checkbox", { name: "Select Milk" }).tap();
   await page.getByText("1 selected").waitFor();
+  await page.getByRole("button", { name: "Remove 1 item", exact: true }).waitFor();
   await page.getByRole("button", { name: "Select all" }).tap();
   await page.getByText("3 selected").waitFor();
   expect((await page.getByRole("button", { name: /^Swap / }).count()) === 0, "Swap hidden while selecting");

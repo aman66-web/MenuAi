@@ -406,9 +406,12 @@ await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again
   expect((await page.locator("[role='radio'][aria-checked='true']").count()) === 0, "a goal is ticked after Start again");
   expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.welcomeProgress") || "null")?.data?.step)) === "goal", "the note after Start again");
   await ctx.close();
-  // a note left by the eleven-step screens: eatOut is the shops now (step 3), week is Your plan (step 7)
-  for (const [old, n, id] of [["eatOut", 3, "shops"], ["week", 7, "plan"], ["size", 5, "about"]]) {
-    const p = await phone({ seed: { "mm.v1.welcomeProgress": env({ step: old, savedOn: "2026-11-19" }) } });
+  // a note left by the eleven-step screens: eatOut is the shops now (step 3), week is Your plan (step 7), but only for someone whose own targets are saved;
+  // without them Your plan is never carried on to, the run carries on at About you (step 5), since the age is never kept (the meeting of 21 November 2026, Ada:
+  // docs/MEETING_2026-11-21.md, resumeAt's ownTargets)
+  const ownTargets = env({ goal: "maintain", dailyCalories: 2100, dailyProtein: 120, hasSetTargets: true, preferences: {} });
+  for (const [old, n, id, own] of [["eatOut", 3, "shops"], ["week", 5, "about"], ["week", 7, "plan", true], ["size", 5, "about"]]) {
+    const p = await phone({ seed: { "mm.v1.welcomeProgress": env({ step: old, savedOn: "2026-11-19" }), ...(own ? { "mm.v1.settings": ownTargets } : {}) } });
     await p.page.goto(BASE + "/app/welcome");
     await p.page.getByRole("button", { name: `Carry on from step ${n}`, exact: true }).click({ timeout: 60000 });
     await W.onStep(p.page, id);

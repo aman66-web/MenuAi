@@ -27,6 +27,8 @@ const expect = (c, m) => { if (!c) throw new Error(m); };
 const money = (t) => Number(/£(\d+\.\d\d)/.exec(t)?.[1] ?? NaN);
 const lines = (text) => text.split("\n").map((l) => l.trim());
 // how many recipes Sainsbury's can make (lib/mm/recipeCoverage.ts, generated from the data by tests/recipeCoverage.test.ts): the count Recipes shows for it
+// the book's Chinese recipes (lib/mm/recipeBook/niches.ts: cuisine("chinese", ...ids))
+const CHINESE = [...readFileSync(new URL("../lib/mm/recipeBook/niches.ts", import.meta.url), "utf8").matchAll(/cuisine\("chinese",([^)]*)\)/g)].flatMap((m) => [...m[1].matchAll(/"([a-z0-9-]+)"/g)].map((x) => x[1]));
 const SAINS = Number(/"sainsburys":\s*(\d+)/.exec(readFileSync(new URL("../lib/mm/recipeCoverage.ts", import.meta.url), "utf8"))?.[1]);
 const ALL_HEAD = new RegExp(`All recipes · ${SAINS}`);
 const ALL_COUNT = new RegExp(`^${SAINS} recipes$`);
@@ -191,7 +193,8 @@ await step("Shopping list: type an item, tick it off, see the recipes it makes, 
   await page.getByRole("link", { name: /What can I cook with this\?/ }).click();
   await page.getByRole("heading", { level: 1, name: "Cook with your shopping list" }).waitFor();
   const first = page.locator("ul > li.glass").first();
-  await first.getByText(/You have 1 of \d+ ingredients/).waitFor();
+  // "Your list has", not "You have": the list's things are not all at home yet (docs/MEETING_2026-11-21.md, words changed, a correction of untrue wording)
+  await first.getByText(/Your list has 1 of \d+ ingredients/).waitFor();
   await first.getByRole("button", { name: /^Add the (other \d+|last one) to my list$/ }).click();
   await first.getByText(/Added \d+ products? to .+\./).waitFor(); // names the list it went on (several shopping lists)
   const n = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.shopping")).data.length);
@@ -564,7 +567,10 @@ await step("cuisine and serving price: side by side (Serving price in Occasion's
   await sheet.waitFor({ state: "hidden" });
   expect((await cuisine.innerText()).includes("Chinese, Indian"), "the field shows both: " + (await cuisine.innerText()));
   expect((await page.getByRole("region", { name: "Picked for you" }).count()) === 0, "picks hide while a cuisine is chosen");
-  expect((await page.getByRole("link", { name: /Egg chow mein with vegetables/ }).count()) === 1, "a Chinese recipe is in the list");
+  // a Chinese recipe among the cards shown (by the book's own cuisine list, lib/mm/recipeBook/niches.ts: since the 40 everyday recipes of 21 November 2026 the
+  // first 24 of the 39 Chinese or Indian ones need not include any one recipe named here)
+  const shownIds = await page.locator("a[href*='/app/recipes/view?id=']").evaluateAll((as) => as.map((a) => new URL(a.href).searchParams.get("id")));
+  expect(shownIds.some((id) => CHINESE.includes(id)), "a Chinese recipe is in the list: " + [...new Set(shownIds)].join(", "));
   await noSideways("two cuisines chosen");
   // the tiles narrow it further and the sheet shows the same choice: Dinner, then Snacks as well (dinners or snacks)
   const tiles = page.getByRole("group", { name: "Filters" });

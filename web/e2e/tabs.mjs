@@ -36,17 +36,23 @@ await step("a tab opens the page you were on in it; the open tab goes to its fir
   await ctx.close();
 });
 
+// A recipe itself is never remembered (Dina, the 30-person meeting, 21 November 2026, docs/MEETING_2026-11-21.md "BLOCKER (Dina #76)": lib/mm/tabMemory.ts
+// NOT_REMEMBERED), so the Recipes tab always opens its list, or the list as it was left: its filters live in the query, and that is what must survive a reload.
 await step("it survives a reload of the page, keeps the query, and never holds a # fragment", async () => {
   const { ctx, page } = await fresh();
+  await page.goto(BASE + "/app/recipes?meal=dinner");
+  await tab(page, "Recipes").waitFor({ timeout: 60000 });
+  expect(await tab(page, "Recipes").getAttribute("aria-current") === "page", "Recipes is lit on its list");
   await page.goto(BASE + "/app/recipes/view?id=chicken-curry&r=sainsburys");
   await page.getByRole("heading", { level: 1, name: "Chicken curry with rice" }).waitFor({ timeout: 60000 });
   await tab(page, "Eat out").click();
   await page.waitForURL(/\/app\/eat-out/);
   await page.reload();
   await tab(page, "Recipes").click();
-  await page.waitForURL(/\/app\/recipes\/view\?id=chicken-curry&r=sainsburys/);
+  await page.waitForURL(/\/app\/recipes\?meal=dinner$/);
+  expect(here(page) === "/app/recipes?meal=dinner", "the Recipes tab opens the list as it was left, never the recipe: " + here(page));
   const stored = await page.evaluate(() => sessionStorage.getItem("mm.tabs"));
-  expect(stored && !stored.includes("#"), "stored: " + stored);
+  expect(stored && stored.includes("/app/recipes?meal=dinner") && !stored.includes("/app/recipes/view") && !stored.includes("#"), "stored: " + stored);
   await page.goto(BASE + "/app/community/friends#ABCD2345");
   await page.waitForTimeout(800);
   const after = await page.evaluate(() => sessionStorage.getItem("mm.tabs"));

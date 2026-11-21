@@ -136,6 +136,9 @@ await step("Creator View: Shift+F hides the tab bar and makes the card dark with
   await page.goto(BASE + SUBWAY);
   const nav = page.getByRole("navigation", { name: "Main" });
   await nav.waitFor();
+  // Shift+F is listened for once the page has started (an effect in the app shell); the dish's buttons appear only after that, with the menu, so a key
+  // pressed before them could be lost on a slow first load (it was, once, on the dev server)
+  await page.getByRole("button", { name: "See the truth" }).waitFor({ timeout: 60000 });
   await page.keyboard.press("Shift+F");
   await nav.waitFor({ state: "hidden" });
   await page.getByRole("button", { name: "See the truth" }).click();
@@ -260,7 +263,9 @@ await step("App Review 1.4.1: 'Where these numbers come from' sits at the top of
   await group.waitFor();
   const section = r.page.locator("section[aria-labelledby='quick-heading']");
   expect((await section.getByRole("button", { name: "Where these numbers come from" }).count()) === 0, "no link before a list is open");
-  await group.getByRole("button", { name: "Small appetite" }).click();
+  // any open list carries the link, and the sheet names every list's rule. Not Small appetite: KFC has no meal for it since dishes its data never suggests
+  // (rankable false) stopped counting as meals (the audit of 20 November 2026, lib/mm/truth/presets.ts), so that pill is grey there and can't be pressed
+  await group.getByRole("button", { name: "Under 500 calories" }).click();
   await section.getByRole("button", { name: "Where these numbers come from" }).click();
   await r.page.getByRole("dialog", { name: "Where these numbers come from" }).getByText("for a small appetite, 400 kcal or less with at least 20 g of protein").waitFor();
   await r.page.keyboard.press("Escape");
