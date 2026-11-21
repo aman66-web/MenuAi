@@ -21,8 +21,9 @@ const shops = ["sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "wait
 const LOGOS = process.env.NO_LOGOS !== "1";
 // shots that show a product's own photo as the app does (founder 2026-11-21, on the Asda milk: "should have the Asda logo and also an image of ... the food
 // itself"): the supermarket's picture from its own image server or our stored copy of it; every other photo stays refused
-// and the dish's own photo on the Truth card (founder 2026-11-21: "you need a photo of the dish on it too")
-const PHOTO_SHOTS = new Set(LOGOS ? (process.env.PHOTO_SHOTS ?? "02-truth,04-scan").split(",").filter(Boolean) : []);
+// and the dish's own photo on the Truth card (founder 2026-11-21: "you need a photo of the dish on it too"); then every photo the app shows ("There should always be the
+// images of the item"): with logos, every shot shows the dishes' and products' own photos as the app does; NO_LOGOS=1 keeps the set with neither
+const PHOTO_SHOTS = { has: () => LOGOS };
 const PHOTO_HOST = /^https:\/\/(asdagroceries\.scene7\.com|assets\.sainsburys-groceries\.co\.uk|groceries\.morrisons\.com|ecom-su-static-prod\.wtrecom\.com|assets\.iceland\.co\.uk|assets\.digitalcontent\.marksandspencer\.app|dm\.emea\.cms\.aldi\.cx)\//;
 const hidden = LOGOS ? [] : [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
 const { privateJwk } = JSON.parse(readFileSync(new URL("./.paykey.json", import.meta.url), "utf8"));

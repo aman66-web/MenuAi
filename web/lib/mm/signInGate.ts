@@ -55,7 +55,7 @@ export const SIGN_IN_HEADING: Readonly<Record<SignInReason | "page", string>> = 
 };
 
 /** The settings typed in setup that a new account keeps: the goal, the four daily targets (and GLP-1's meal size), the foods avoided and the shops. */
-export const TYPED_SETUP_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "hasSetTargets", "glp1MealCap", "preferences", "shops"] as const satisfies readonly (keyof UserSettings)[];
+export const TYPED_SETUP_KEYS = ["goal", "dailyCalories", "dailyProtein", "dailyCarbs", "dailyFat", "hasSetTargets", "glp1MealCap", "preferences", "toldUs", "shops"] as const satisfies readonly (keyof UserSettings)[];
 export type TypedSetup = Partial<Pick<UserSettings, (typeof TYPED_SETUP_KEYS)[number]>>;
 
 /** What was typed in setup, from the settings as saved on this phone (each key, even an empty one, so an emptied target is put back empty). */

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SEARCH_HELP_ENABLED } from "@/lib/mm/searchHelp";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
@@ -38,6 +39,7 @@ const AI_FEATURES = [
   PHOTO_RECIPES_API_ENABLED && "Cook with what you have",
   AI_RECIPES_ENABLED && "Pip's recipe maker",
   COMPARE_PICK_ENABLED && "Pip's pick on Compare",
+  SEARCH_HELP_ENABLED && "search help",
 ].filter((f): f is string => typeof f === "string");
 const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
@@ -291,6 +293,18 @@ export default function Privacy() {
         </p>
         )}
       </Section>
+
+      {SEARCH_HELP_ENABLED && (
+      <Section title="Search help">
+        <p className={para}>
+          When a search for a restaurant or a dish finds nothing on your device, not even a close spelling, the words you typed are sent to our server, which passes
+          them to Anthropic, the company that makes the Claude AI, to suggest what you may have meant (for example &ldquo;McChicken&rdquo; for &ldquo;mc chick&rdquo;).
+          Only those words are sent: not your name, account, location or anything else. The suggestions are searched on your device in our own menus, and none of
+          the figures you see come from the AI. Our server keeps the suggestion for those words in its memory for up to a day, so the AI isn&apos;t asked again,
+          and uses a one-way scramble of your IP address only to limit how often it is asked; neither is stored.
+        </p>
+      </Section>
+      )}
 
       {COMPARE_PICK_ENABLED && (
       <Section title="Pip's pick on Compare">

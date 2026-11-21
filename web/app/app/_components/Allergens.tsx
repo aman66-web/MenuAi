@@ -1,3 +1,4 @@
+import { warnPreferences } from "@/lib/mm/user-data";
 import { ALLERGEN_LABEL } from "@/lib/mm/allergens";
 import { formatDate } from "@/lib/mm/format";
 import { tk } from "@/lib/mm/i18n";
@@ -50,7 +51,7 @@ function statusOf(a: Allergens, key: AllergenKey): { kind: "contains" | "may" | 
  *  contained allergen, said under its name (a recipe's ingredients), in place of the guide's cereal or nut. */
 export function AllergenTable({ allergens, caption, columnLabel, pad = "px-5", from }: { allergens: Allergens; caption: string; columnLabel: string; pad?: string; from?: Partial<Record<AllergenKey, string>> }) {
   const t = useT();
-  const avoid = useSettings().preferences.avoidAllergens ?? [];
+  const avoid = warnPreferences(useSettings()).avoidAllergens ?? []; // a warning, never a filter: the app's filters and what they told us at sign-up
   return (
     <table className="mt-3 w-full text-start text-[0.9375rem]">
         <caption className="sr-only">{caption}</caption>
@@ -114,7 +115,7 @@ export function AllergenSection({ chain, allergens, changesNotCovered, title: ti
   const containsCount = allergens.contains.length;
   // the person's own allergies, the warnings first: contains, then may contain, then not listed
   const rank = { contains: 0, may: 1 } as Record<string, number>;
-  const mine = (settings.preferences.avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind })).sort((a, b) => (rank[a.s] ?? 2) - (rank[b.s] ?? 2));
+  const mine = (warnPreferences(settings).avoidAllergens ?? []).map((k) => ({ k, s: statusOf(allergens, k).kind })).sort((a, b) => (rank[a.s] ?? 2) - (rank[b.s] ?? 2));
   const mayCount = allergens.mayContain.length;
   return (
     <section aria-labelledby="allergens-heading" className="glass overflow-hidden rounded-[1.25rem]">

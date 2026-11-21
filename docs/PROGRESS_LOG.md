@@ -3993,3 +3993,22 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   and "{n}% of a day" (lights); "A colour needs the dish's weight, which {chain} doesn't publish for it. A figure above the official high level is red
   whatever it weighs." → "No colour: {chain} doesn't publish the dish's weight."; "No colour" in each pill dropped. e2e/truth.mjs 14 of 14 (wording
   updated), truth and colour unit tests 634 of 634. On `iap`, next build.
+- (21 Nov, afternoon) **Sign-up answers no longer filter anything** (founder: "When the person puts their dietary preferences when they sign up ... you
+  automatically filter everything ... Don't do that ... if they want to narrow things down, then they have to use the app filters ... you shouldn't
+  automatically select it ... when they've went into the dashboard, that's when you can explain to them"). Settings now keep the sign-up diet and allergies
+  as `toldUs`, apart from `preferences` (the filters people switch on in Recipes, a restaurant's "Your diet", the meal plan, search, Settings). Sign-up
+  (welcome AvoidStep) and Home's Set up sheet write `toldUs`; an older phone's diet moves there once (`signUpApart`), so every filter starts off. Warnings
+  stay (a warning is not a filter): the allergen lines on a dish and the diet and allergen lines on a product page use both (`warnPreferences`). Home shows
+  a one-off card: "Everything is showing / You told us: {diet}. / To see only what suits you, use Filters in Recipes, or “Your diet” on a restaurant's
+  page." with Open Recipes and Got it. Tests: persist, diets and diet-filters unit tests updated (filters seeded as chosen in the app), a new test of the
+  split; e2e firstvisit, homepages updated and passing. onboarding-body's (m) looks for an allergy caution line that is no longer in the code (stale
+  before today); comparepick needs NEXT_PUBLIC_COMPARE_PICK=1. On `iap`, next build.
+- (21 Nov, afternoon) **Search that forgives, and Pip's search help** (founder: "one little spelling mistake will mean that they won't be able to get
+  the right thing ... AI assist would help a lot"). On the phone (lib/mm/search.ts closeRank): when nothing matches as typed, close matches: spaces ignored
+  ("Mc chick" → McChicken Sandwich), one slip in a word of 5 to 8 letters and two from 9 (first letter as typed), the restaurant's name read too
+  ("greggs saussage roll", "pret avacado", "kfc zinga"), with "No exact match. Closest:". When even that finds nothing, the typed words (only) go to
+  POST /api/v1/search/help, which asks Claude Opus 5.5 (low effort) for up to three phrases; the phone searches each in its own menus and offers only those
+  that find something as "Did you mean" buttons. No figure comes from the AI. Server: 10 new questions in ten minutes and 60 a day per IP scramble, answers
+  kept in memory for a day; `NEXT_PUBLIC_SEARCH_HELP=0` switches it off. Privacy page: a "Search help" section, and search help in the Anthropic row.
+  Tests: searchClose (real search file) and searchHelp unit tests; e2e/searchhelp.mjs 3 of 3 (Pip's answer stubbed). Not yet tried with the real AI (the
+  route needs the website deployed with ANTHROPIC_API_KEY). On `iap`, not live.

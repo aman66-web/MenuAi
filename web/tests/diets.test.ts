@@ -77,7 +77,7 @@ describe("the new diets leave out what they should", () => {
 
 describe("the new diets are kept with the settings", () => {
   it("keeps each when exactly true and drops anything else", () => {
-    const s = sanitizeSettings({ preferences: { jain: true, kosherStyle: true, noRedMeat: true, noOnionGarlic: "yes", noAlcohol: true, noHalalKosherMeat: 1 } });
+    const s = sanitizeSettings({ signUpApart: true, preferences: { jain: true, kosherStyle: true, noRedMeat: true, noOnionGarlic: "yes", noAlcohol: true, noHalalKosherMeat: 1 } });
     expect(s.preferences).toMatchObject({ jain: true, kosherStyle: true, noRedMeat: true, noAlcohol: true });
     expect("noOnionGarlic" in s.preferences).toBe(false);
     expect("noHalalKosherMeat" in s.preferences).toBe(false);

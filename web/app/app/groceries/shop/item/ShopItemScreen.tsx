@@ -1,5 +1,6 @@
 "use client";
 
+import { warnPreferences } from "@/lib/mm/user-data";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -47,7 +48,8 @@ export function ShopItemScreen({ shop, id }: { shop: string; id: string }) {
   const scan = useSearchParams().get("scan") === "1";
   const poss = usePossessive();
   const settings = useSettings();
-  const prefs = settings.preferences;
+  // the warning lines on this one product: the app's filters and what the person told us at sign-up (a warning, never a filter: founder 2026-11-21)
+  const prefs = warnPreferences(settings);
   const avoid = prefs.avoidAllergens ?? [];
   const avoidKey = avoid.join(",");
   const mineKey = (settings.shops ?? []).join(",");

@@ -1,6 +1,7 @@
 "use client";
 
 import { StartPrompt } from "./_components/StartPrompt";
+import { ToldUsCard } from "./_components/ToldUsCard";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -237,6 +238,8 @@ export default function HomePage() {
       )}
 
       <StartPrompt className="mt-3" />
+      {/* what was told at sign-up hides nothing: once, where the filters are (founder 2026-11-21) */}
+      <ToldUsCard className="mt-3" />
 
       {/* waits while the Start here card shows (the meeting); it opens Settings › Daily targets, with "Where these numbers come from" */}
       {!startOpen && !settings.hasSetTargets && !settings.dismissedTargetsCard && settings.hasCompletedOnboarding && (

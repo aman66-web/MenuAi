@@ -1,5 +1,6 @@
 "use client";
 
+import { NO_PREFERENCES } from "@/lib/mm/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
@@ -190,7 +191,8 @@ function Welcome() {
   // Skip on step 1 leaves the goal unset for Your plan's restaurant dishes ("Most protein for the calories")
   const [goalSkipped, setGoalSkipped] = useState(false);
   const target = useTargetFields(initial);
-  const [prefs, setPrefs] = useState(initial.preferences);
+  // the sign-up answers about diet and allergies: kept as what the person told us, never switched on as filters (founder 2026-11-21)
+  const [prefs, setPrefs] = useState(initial.toldUs ?? NO_PREFERENCES);
   const [shops, setShops] = useState<string[]>(initial.shops ?? []);
   // The answers about the person (screens 5 and 6): React state only, never saved or sent; dropped with this page when the welcome screens end.
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
@@ -308,7 +310,7 @@ function Welcome() {
       for (const k of TYPED_SETUP_KEYS) fresh[k] = DEFAULT_SETTINGS[k];
       updateSettings(fresh as Partial<UserSettings>);
       setGoal(DEFAULT_SETTINGS.goal);
-      setPrefs(DEFAULT_SETTINGS.preferences);
+      setPrefs(NO_PREFERENCES);
       setShops([]);
       // the boxes and what they count as on arrival, so the default 2,000 kcal isn't taken as the person's own change (the meeting of 21 November 2026, Ada)
       target.resetTo(DEFAULT_SETTINGS);
@@ -347,7 +349,7 @@ function Welcome() {
         // November 2026, Ada)
         const now = settingsStore.get();
         setGoal(now.goal);
-        setPrefs(now.preferences);
+        setPrefs(now.toldUs ?? NO_PREFERENCES);
         setShops(now.shops ?? []);
         target.resetTo(now);
         runStart.current = now;
@@ -527,7 +529,7 @@ function Welcome() {
       setGoalTouched(false);
       setGoalSkipped(!wasOnboarded);
     } else if (step === "avoid") {
-      setPrefs(settingsStore.get().preferences);
+      setPrefs(settingsStore.get().toldUs ?? NO_PREFERENCES);
     } else if (step === "shops") {
       setShops(settingsStore.get().shops ?? []);
       preloadRestaurantRow();
@@ -598,7 +600,7 @@ function Welcome() {
       {step === "avoid" && (
         <>
           {top}
-          <AvoidStep prefs={prefs} setPrefs={setPrefs} counter={counter} onContinue={() => { updateSettings({ preferences: prefs }); forward("avoid"); }} />
+          <AvoidStep prefs={prefs} setPrefs={setPrefs} counter={counter} onContinue={() => { updateSettings({ toldUs: prefs }); forward("avoid"); }} />
         </>
       )}
 

@@ -215,7 +215,7 @@ await step("two dishes: per serving, the restaurant's own numbers, a different s
 });
 
 await step("a diet and a goal are sent as words, and a different goal is a new question", async () => {
-  const { ctx, page, calls } = await newPage({ extra: { goal: "buildMuscle", preferences: { vegetarianOnly: true, noPork: false, noBeef: false, avoidAllergens: ["peanuts"] } }, seed: [food("a", "Tinned beans", 80, 5), food("b", "Tinned peas", 60, 3)] });
+  const { ctx, page, calls } = await newPage({ extra: { goal: "buildMuscle", signUpApart: true, preferences: { vegetarianOnly: true, noPork: false, noBeef: false, avoidAllergens: ["peanuts"] } }, seed: [food("a", "Tinned beans", 80, 5), food("b", "Tinned peas", 60, 3)] });
   await page.goto(BASE + "/app/compare?tab=food");
   await card(page).getByText(SAY).waitFor({ timeout: 10000 });
   expect(calls[0].goal === "buildMuscle" && calls[0].diet.join() === "vegetarian", "goal and diet words: " + JSON.stringify([calls[0].goal, calls[0].diet]));

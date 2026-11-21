@@ -1,5 +1,6 @@
 "use client";
 
+import { warnPreferences } from "@/lib/mm/user-data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -202,7 +203,8 @@ export function ProductScreen({ code, retailerHint, scan = false }: { code: stri
   const poss = usePossessive();
   const router = useRouter();
   const settings = useSettings();
-  const prefs = settings.preferences;
+  // the warning lines on this one product: the app's filters and what the person told us at sign-up (a warning, never a filter: founder 2026-11-21)
+  const prefs = warnPreferences(settings);
   const mineKey = (settings.shops ?? []).join(",");
   // the barcode as printed: a link from a screen that dropped the leading zeros (an EAN-8 such as 01318180 arriving as 1318180) gets its 8 digits back, and it is
   // looked up in that form (2026-11-20: the 7 digits left after stripping were too short to look up, so 01318180 said "We don't have it yet")

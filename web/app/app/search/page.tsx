@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchHelp } from "../_lib/searchHelp";
 import Link from "next/link";
 import { chainHref, itemHref } from "@/lib/mm/routes";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
@@ -55,6 +56,9 @@ export default function SearchPage() {
   const active = normalizeForSearch(deferred).length >= MIN_QUERY_LENGTH;
   const empty = results.chains.length === 0 && results.items.length === 0 && results.hiddenByDiet === 0;
   const stillLoading = loadedCount < totalCount;
+  // nothing found, not even a close match: Pip suggests what was meant (words only), and only a suggestion that finds something here is offered
+  const help = useSearchHelp(deferred, active && empty && !stillLoading && menu.status !== "error");
+  const suggestions = useMemo(() => help.phrases.filter((p) => { const r = search(searchIndex, p, 1); return r.chains.length > 0 || r.items.length > 0; }), [help.phrases, searchIndex]);
   const remember = () => setRecent(addRecentSearch(recent, deferred));
   // itemImageUrl is undefined when photos are switched off or a chain's photos are taken down (hidden.json); the taken-down list can arrive
   // after the page opens, so re-check (and re-render the rows' photos) when it does, as a restaurant's page does.
@@ -118,6 +122,17 @@ export default function SearchPage() {
             <ErrorBox message={menu.error ? t(menu.error) : t("Couldn't reach the menus. Check your connection and try again.")} onRetry={() => void menuClient.ensureManifest(true).then(() => menuClient.ensureSearch())} />
           ) : stillLoading ? (
             <SearchSkeleton />
+          ) : suggestions.length > 0 ? (
+            <div className="glass rounded-[1.25rem] p-4">
+              <h2 className="text-lg font-[800] leading-snug">{t("Did you mean")}</h2>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {suggestions.map((p) => (
+                  <Chip key={p} size="lg" onClick={() => setQuery(p)}>{p}</Chip>
+                ))}
+              </div>
+            </div>
+          ) : help.looking ? (
+            <p role="status" className="mt-2 text-center text-base font-semibold text-muted">{t("Checking the spelling…")}</p>
           ) : (
             <EmptyState
               icon={<EmptyIcon><SearchIcon /></EmptyIcon>}
@@ -126,6 +141,11 @@ export default function SearchPage() {
             />
           )}
         </div>
+      )}
+
+      {/* nothing as typed, so close matches (spaces ignored, a slip or two forgiven): said once, plainly */}
+      {active && results.close && (results.chains.length > 0 || results.items.length > 0) && (
+        <p role="status" className="mt-4 text-base font-semibold leading-snug text-muted">{t("No exact match. Closest:")}</p>
       )}
 
       {results.chains.length > 0 && (

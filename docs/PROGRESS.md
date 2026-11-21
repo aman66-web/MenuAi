@@ -99,6 +99,8 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **App Privacy, before the next submission:** search help (21 Nov) sends the typed words of a search that found nothing to our server and Anthropic, kept for up to a day, not linked to the person. In App Store Connect › App Privacy, add Search History (not linked to you, App Functionality), or tell Claude to switch search help off for the app (`NEXT_PUBLIC_SEARCH_HELP=0`)
+
 - [ ] **Before April 2027: update Xcode to Xcode 27 (Mac App Store) and rebuild the app** (Apple's ITMS-90725 warning on 1.1 build 7: from April 2027 uploads must use the iOS 27 SDK). Free plenty of disk first (an Xcode update needs tens of GB; the Mac had about 6 GB free on 19 Nov). Build 7 itself is fine to test and submit until then
 - [ ] **Sign-in on auth.numbite.com (you asked 18 Nov, "use my numbite.com one"):** follow docs/SUPABASE_CUSTOM_DOMAIN.md (Supabase Custom Domain add-on, about $10 a month plus a paid plan if the project is on Free; two DNS records in Vercel; Google and Apple redirect URLs), then say "auth domain is on" and Claude switches `SUPABASE_URL` and redeploys with your go-ahead
 - [ ] **Remove `APPLE_XCODE_TEST_CERT` from Vercel when your Premium testing is finished** (Production variable pinning Xcode's test certificate; test only). Tell Claude and it will remove it

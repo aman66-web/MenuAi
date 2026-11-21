@@ -103,7 +103,18 @@ export interface UserSettings {
   dailyWater?: number;
   hasSetTargets: boolean;
   glp1MealCap: number;
+  /** The diet and allergy filters the person has switched on in the app (Recipes' Filters, "Your diet" on a restaurant's page, the meal plan, Settings). */
   preferences: Preferences;
+  /**
+   * What the person told us at sign-up about their diet and allergies (founder 2026-11-21: "you should not filter people based on what they've put in"). It
+   * filters nothing: everything stays on show until a filter is chosen in the app. It is used to warn (an allergen or diet line on a dish or product page)
+   * and for Home's one-off card that says where the filters are.
+   */
+  toldUs?: Preferences;
+  /** True once sign-up answers are kept apart from the filters (sanitizeSettings moves an older phone's diet out of the filters, once). */
+  signUpApart?: boolean;
+  /** Home's card about the sign-up answers and the filters was closed. */
+  toldUsCardDone?: boolean;
   hasCompletedOnboarding: boolean;
   dismissedTargetsCard: boolean;
   paywallDismissCount: number;
@@ -143,6 +154,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   hasSetTargets: false,
   glp1MealCap: DEFAULT_GLP1_MEAL_CAP,
   preferences: NO_PREFERENCES,
+  signUpApart: true,
   hasCompletedOnboarding: false,
   dismissedTargetsCard: false,
   paywallDismissCount: 0,
@@ -172,10 +184,53 @@ const num = (v: unknown, fallback: number, min: number, max: number) =>
   typeof v === "number" && Number.isFinite(v) && v >= min && v <= max ? v : fallback;
 const bool = (v: unknown, fallback: boolean) => (typeof v === "boolean" ? v : fallback);
 
+/** A diet and allergy choice as stored: unknown keys dropped, allergens from the known list only. */
+export function sanitizePreferences(prefs: Record<string, unknown>): Preferences {
+  return {
+    vegetarianOnly: bool(prefs.vegetarianOnly, false),
+    noPork: bool(prefs.noPork, false),
+    noBeef: bool(prefs.noBeef, false),
+    ...(prefs.veganOnly === true ? { veganOnly: true } : {}),
+    ...(prefs.pescatarianOnly === true ? { pescatarianOnly: true } : {}),
+    ...(prefs.halalOnly === true ? { halalOnly: true } : {}),
+    ...(prefs.noRedMeat === true ? { noRedMeat: true } : {}),
+    ...(prefs.noOnionGarlic === true ? { noOnionGarlic: true } : {}),
+    ...(prefs.jain === true ? { jain: true } : {}),
+    ...(prefs.kosherStyle === true ? { kosherStyle: true } : {}),
+    ...(prefs.noAlcohol === true ? { noAlcohol: true } : {}),
+    ...(prefs.noHalalKosherMeat === true ? { noHalalKosherMeat: true } : {}),
+    ...(Array.isArray(prefs.avoidAllergens) && prefs.avoidAllergens.some((k) => ALLERGEN_KEYS.includes(k as AllergenKey))
+      ? { avoidAllergens: ALLERGEN_KEYS.filter((k) => (prefs.avoidAllergens as unknown[]).includes(k)) }
+      : {}),
+  };
+}
+
+/** True when any diet or allergy is chosen. */
+export function anyPreference(p: Preferences): boolean {
+  return Object.entries(p).some(([k, v]) => (k === "avoidAllergens" ? Array.isArray(v) && v.length > 0 : v === true));
+}
+
+/**
+ * The diet and allergies to WARN about on a dish or product page: what the person switched on in the app and what they told us at sign-up. Never used to hide
+ * anything (founder 2026-11-21: "you should not filter people based on what they've put in"); a warning line is not a filter.
+ */
+export function warnPreferences(s: Pick<UserSettings, "preferences" | "toldUs">): Preferences {
+  const a = s.preferences;
+  const b = s.toldUs;
+  if (!b) return a;
+  const out: Record<string, unknown> = { ...a };
+  for (const [k, v] of Object.entries(b)) if (v === true) out[k] = true;
+  const allergens = [...new Set([...(a.avoidAllergens ?? []), ...(b.avoidAllergens ?? [])])];
+  return { ...(out as unknown as Preferences), ...(allergens.length ? { avoidAllergens: ALLERGEN_KEYS.filter((k) => allergens.includes(k)) } : {}) };
+}
+
 /** Defensive parse of whatever is in storage: unknown/corrupt fields fall back to defaults. */
 export function sanitizeSettings(raw: unknown): UserSettings {
   if (!isObject(raw)) return DEFAULT_SETTINGS;
   const prefs = isObject(raw.preferences) ? raw.preferences : {};
+  const apart = raw.signUpApart === true;
+  const toldRaw = isObject(raw.toldUs) ? sanitizePreferences(raw.toldUs) : null;
+  const told = toldRaw && anyPreference(toldRaw) ? toldRaw : null;
   const protein = typeof raw.dailyProtein === "number" && Number.isFinite(raw.dailyProtein) && raw.dailyProtein > 0 && raw.dailyProtein <= 1000 ? raw.dailyProtein : undefined;
   const grams = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 && v <= 2000 ? v : undefined);
   const carbs = grams(raw.dailyCarbs);
@@ -190,23 +245,10 @@ export function sanitizeSettings(raw: unknown): UserSettings {
     ...(water !== undefined ? { dailyWater: water } : {}),
     hasSetTargets: bool(raw.hasSetTargets, false),
     glp1MealCap: num(raw.glp1MealCap, DEFAULT_SETTINGS.glp1MealCap, 100, 2000),
-    preferences: {
-      vegetarianOnly: bool(prefs.vegetarianOnly, false),
-      noPork: bool(prefs.noPork, false),
-      noBeef: bool(prefs.noBeef, false),
-      ...(prefs.veganOnly === true ? { veganOnly: true } : {}),
-      ...(prefs.pescatarianOnly === true ? { pescatarianOnly: true } : {}),
-      ...(prefs.halalOnly === true ? { halalOnly: true } : {}),
-      ...(prefs.noRedMeat === true ? { noRedMeat: true } : {}),
-      ...(prefs.noOnionGarlic === true ? { noOnionGarlic: true } : {}),
-      ...(prefs.jain === true ? { jain: true } : {}),
-      ...(prefs.kosherStyle === true ? { kosherStyle: true } : {}),
-      ...(prefs.noAlcohol === true ? { noAlcohol: true } : {}),
-      ...(prefs.noHalalKosherMeat === true ? { noHalalKosherMeat: true } : {}),
-      ...(Array.isArray(prefs.avoidAllergens) && prefs.avoidAllergens.some((k) => ALLERGEN_KEYS.includes(k as AllergenKey))
-        ? { avoidAllergens: ALLERGEN_KEYS.filter((k) => (prefs.avoidAllergens as unknown[]).includes(k)) }
-        : {}),
-    },
+    // older settings kept the sign-up answers as the filters: once, they become what the person told us and the filters start off (founder 2026-11-21)
+    ...(apart ? { preferences: sanitizePreferences(prefs), ...(told ? { toldUs: told } : {}) } : { preferences: NO_PREFERENCES, ...(told ? { toldUs: told } : anyPreference(sanitizePreferences(prefs)) ? { toldUs: sanitizePreferences(prefs) } : {}) }),
+    signUpApart: true,
+    ...(raw.toldUsCardDone === true ? { toldUsCardDone: true } : {}),
     hasCompletedOnboarding: bool(raw.hasCompletedOnboarding, false),
     dismissedTargetsCard: bool(raw.dismissedTargetsCard, false),
     paywallDismissCount: num(raw.paywallDismissCount, 0, 0, 1e6),

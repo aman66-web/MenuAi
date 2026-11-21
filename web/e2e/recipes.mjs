@@ -431,7 +431,7 @@ await step("a fitted recipe shows the full label (under More detail) and can be 
 });
 
 await step("halal: chicken recipes use halal-named chicken, others are left out and said so", async () => {
-  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, halalOnly: true } } }));
+  const { ctx, page } = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, signUpApart: true, preferences: { ...baseSettings.preferences, halalOnly: true } } }));
   await page.goto(BASE + "/app/recipes");
   await page.getByText(/Your diet:/).waitFor();
   await page.getByText("Halal", { exact: false }).first().waitFor();
@@ -631,7 +631,7 @@ await step("cuisine and serving price: side by side (Serving price in Occasion's
   expect((await cuisine.innerText()).includes("Indian") && (await matchCount()) === indian, "Back from a recipe finds Indian still chosen");
   await ctx.close();
   // the diet applies: for a vegan the Indian choice counts fewer, and says what choosing it shows
-  const vegan = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
+  const vegan = await newPage("light", JSON.stringify({ v: 1, data: { ...baseSettings, signUpApart: true, preferences: { ...baseSettings.preferences, veganOnly: true } } }));
   const vSheet = vegan.page.getByRole("dialog", { name: "Filters" });
   await vegan.page.goto(BASE + "/app/recipes");
   await vegan.page.getByRole("heading", { name: /All recipes · \d+/ }).waitFor();

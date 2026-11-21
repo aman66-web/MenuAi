@@ -271,7 +271,7 @@ await step("Start here: the step 3 dish is added only on a tap, its row turns in
 });
 
 await step("Start here leaves out what no longer suits (the dish for a vegetarian, the recipe for an egg allergy); a Settings rerun gets 'Your changes are saved.' and no card; a note left a week ago is dropped", async () => {
-  const veg = await open({ homePages: arrival({ toast: "signedInBack", firstRecipeId: RECIPE, firstDish: DISH }), settings: { preferences: { vegetarianOnly: true, noPork: false, noBeef: false, avoidAllergens: ["eggs"] } } });
+  const veg = await open({ homePages: arrival({ toast: "signedInBack", firstRecipeId: RECIPE, firstDish: DISH }), settings: { signUpApart: true, preferences: { vegetarianOnly: true, noPork: false, noBeef: false, avoidAllergens: ["eggs"] } } });
   await veg.page.getByRole("status").filter({ hasText: "Signed in. Your saved settings are back." }).waitFor({ timeout: 10000 });
   const card = veg.page.getByRole("region", { name: "Start here" });
   await card.waitFor();

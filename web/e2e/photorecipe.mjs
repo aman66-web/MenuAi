@@ -231,7 +231,7 @@ await step("the live camera: the picture shows, the shutter takes a photo, then 
 });
 
 await step("3. What to exclude: starts from Settings, the choices are sent with the recipe and cut the pantry, and Settings stays as it was", async () => {
-  const { ctx, page, errors, sent } = await open({ preferences: { vegetarianOnly: false, noPork: true, noBeef: false } });
+  const { ctx, page, errors, sent } = await open({ signUpApart: true, preferences: { vegetarianOnly: false, noPork: true, noBeef: false } });
   await pretend(page, sent, { recipe: { status: 502, body: { error: "no_recipe", message: "Pip couldn't make a recipe from this photo. Please try again, maybe with more detail about the dish." } }, delay: 100 });
   await toDescribe(page);
   for (const n of ["1", "2", "3"]) expect((await page.locator("span[aria-hidden]").filter({ hasText: new RegExp(`^${n}$`) }).count()) >= 1, `no number ${n}`);

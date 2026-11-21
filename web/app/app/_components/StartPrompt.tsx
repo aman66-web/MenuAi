@@ -1,5 +1,6 @@
 "use client";
 
+import { NO_PREFERENCES } from "@/lib/mm/types";
 import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/site.config";
@@ -39,12 +40,12 @@ export function StartPrompt({ className = "" }: { className?: string }) {
   const settings = useSettings();
   const [open, setOpen] = useState(false);
   const [goal, setGoal] = useState<Goal>(settings.goal);
-  const [prefs, setPrefs] = useState<Preferences>(settings.preferences);
+  const [prefs, setPrefs] = useState<Preferences>(settings.toldUs ?? NO_PREFERENCES);
 
   if (!hydrated || !startPromptDue(settings)) return null;
 
   const save = () => {
-    updateSettings({ goal, preferences: prefs, hasCompletedOnboarding: true });
+    updateSettings({ goal, toldUs: prefs, hasCompletedOnboarding: true }); // what they told us: it filters nothing (founder 2026-11-21)
     setOpen(false);
   };
 
@@ -59,7 +60,7 @@ export function StartPrompt({ className = "" }: { className?: string }) {
           <SourcesLink className="mt-1" />
         </div>
         <div className="flex flex-wrap gap-2.5">
-          <Button size="lg" aria-haspopup="dialog" onClick={() => { setGoal(settings.goal); setPrefs(settings.preferences); setOpen(true); }}>{t("Set up")}</Button>
+          <Button size="lg" aria-haspopup="dialog" onClick={() => { setGoal(settings.goal); setPrefs(settings.toldUs ?? NO_PREFERENCES); setOpen(true); }}>{t("Set up")}</Button>
           <Button size="lg" variant="secondary" onClick={() => updateSettings({ dismissedTargetsCard: true })}>{t("Not now")}</Button>
         </div>
         {/* green words are always underlined, like every link (colour meeting, 19 November 2026) */}

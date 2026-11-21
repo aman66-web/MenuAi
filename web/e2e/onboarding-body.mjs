@@ -343,7 +343,7 @@ await step("(h) PRIVACY: age, sex, height, weight and activity never reach stora
 // ------------------------------------------------------------------------------------------------ Settings' form (unchanged by the seven screens)
 
 await step("(i) Settings' single-screen form works out the same numbers as the onboarding screens, from the saved goal and diet, and its answers are not kept either", async () => {
-  const settings = JSON.stringify({ v: 1, data: { goal: "lose", dailyCalories: 2000, hasSetTargets: true, glp1MealCap: 450, preferences: { vegetarianOnly: false, veganOnly: true, noPork: false, noBeef: false }, hasCompletedOnboarding: true } });
+  const settings = JSON.stringify({ v: 1, data: { goal: "lose", dailyCalories: 2000, hasSetTargets: true, glp1MealCap: 450, signUpApart: true, preferences: { vegetarianOnly: false, veganOnly: true, noPork: false, noBeef: false }, hasCompletedOnboarding: true } });
   const { ctx, page, requests } = await fresh({}, `localStorage.setItem("mm.v1.settings", ${JSON.stringify(settings)})`);
   await page.goto(BASE + "/app/settings");
   await head(page, "Settings");

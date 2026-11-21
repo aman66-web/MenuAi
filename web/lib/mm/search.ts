@@ -47,6 +47,8 @@ export interface SearchResults {
   items: ItemHit[];
   /** Matching dishes left out because they don't fit the diet settings passed to search(). */
   hiddenByDiet: number;
+  /** Nothing matched as typed, so these are close matches: spaces ignored ("mc chick" → McChicken) and a slip or two forgiven ("mcdonals"). */
+  close?: true;
 }
 
 /** What the diet filters need to know about a dish without its full menu (the search file's diet letters, docs/DATA.md). */
@@ -256,6 +258,51 @@ function namedChain(index: SearchIndex, q: string): { chainId: string; rest: str
   return best && { chainId: best.chainId, rest: best.rest };
 }
 
+/** True when a and b are at most `max` single-letter edits apart (insert, delete, change, or two letters swapped). */
+export function nearlySame(a: string, b: string, max: number): boolean {
+  if (a === b) return true;
+  if (max <= 0 || Math.abs(a.length - b.length) > max) return false;
+  let prev2: number[] = [];
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    let rowMin = i;
+    for (let j = 1; j <= b.length; j++) {
+      let v = Math.min(prev[j]! + 1, cur[j - 1]! + 1, prev[j - 1]! + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, prev2[j - 2]! + 1);
+      cur.push(v);
+      rowMin = Math.min(rowMin, v);
+    }
+    if (rowMin > max) return false;
+    prev2 = prev;
+    prev = cur;
+  }
+  return prev[b.length]! <= max;
+}
+
+/** How many slips a typed word may have: none up to 4 letters, one up to 8, two from 9 ("maccies" is not "manchester"). */
+const slipsFor = (word: string) => (word.length >= 9 ? 2 : word.length >= 5 ? 1 : 0);
+
+/**
+ * A close match for a name (founder 2026-11-21: "one little spelling mistake will mean that they won't be able to get the right thing"): 2 when the typed
+ * letters without spaces are inside the name without spaces ("mc chick" in "mcchicken sandwich"), 3 when every typed word starts a word of the name or is a
+ * slip or two from one ("mcdonals", "chiken burger"), null otherwise.
+ */
+export function closeRank(norm: string, q: string): 2 | 3 | null {
+  const qc = q.replace(/ /g, "");
+  if (qc.length >= 4 && norm.replace(/ /g, "").includes(qc)) return 2;
+  const words = norm.split(" ");
+  const typed = q.split(" ").filter(Boolean);
+  if (!typed.some((t) => t.length >= 4)) return null;
+  for (const t of typed) {
+    const max = slipsFor(t);
+    // the first letter is taken as typed; the start of a longer word ("chik" for "chicken") may have one slip
+    const hit = words.some((w) => w.startsWith(t) || (max > 0 && w[0] === t[0] && (nearlySame(w, t, max) || (w.length > t.length && nearlySame(w.slice(0, t.length), t, 1)))));
+    if (!hit) return null;
+  }
+  return 3;
+}
+
 /** `diet`: the person's diet settings; dishes that don't fit are left out (and counted in hiddenByDiet). */
 export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet?: Preferences): SearchResults {
   const q = normalizeForSearch(rawQuery);
@@ -307,7 +354,37 @@ export function search(index: SearchIndex, rawQuery: string, maxItems = 40, diet
       ...(unchecked.has(i) ? { notChecked: true as const } : {}),
     }));
 
-  return { chains, items, hiddenByDiet: matched.length - fitting.length };
+  const results: SearchResults = { chains, items, hiddenByDiet: matched.length - fitting.length };
+  // nothing as typed: close matches instead, marked so the screen can say so
+  if (!chains.length && !matched.length && q.replace(/ /g, "").length >= 4) return closeSearch(index, q, maxItems, diet) ?? results;
+  return results;
+}
+
+/** search()'s second try: restaurants and dishes whose names are a close match (closeRank), best first; null when there are none either. */
+function closeSearch(index: SearchIndex, q: string, maxItems: number, diet?: Preferences): SearchResults | null {
+  const chains = index.chains
+    .map((c) => ({ c, rank: Math.min(...c.norms.map((n) => closeRank(n, q) ?? 9)) }))
+    .filter((x) => x.rank < 9)
+    .sort((a, b) => a.rank - b.rank || byName(a.c.name, b.c.name))
+    .map(({ c }) => ({ chainId: c.chainId, name: c.name, cuisine: c.cuisine, sample: c.sample }));
+  // a dish is matched with its restaurant's name too, so "greggs saussage roll" finds Greggs' sausage roll; its own name alone ranks first
+  const chainNorm = new Map(index.chains.map((c) => [c.chainId, c.norms[0] ?? ""]));
+  const matched = index.items
+    .map((i) => {
+      const own = closeRank(i.norm, q);
+      const withChain = own === null ? closeRank(`${i.norm} ${chainNorm.get(i.chainId) ?? ""}`, q) : null;
+      return { i, rank: own ?? (withChain === null ? null : ((withChain + 2) as 4 | 5)) };
+    })
+    .filter((x): x is { i: IndexedItem; rank: 2 | 3 | 4 | 5 } => x.rank !== null);
+  if (!chains.length && !matched.length) return null;
+  const noBeef = diet ? restaurantPrefs(diet).noBeef : false;
+  const fitting = diet ? matched.filter((x) => { const u = uncheckedOf(index, x.i.chainId, diet); return u.vegetarian || u.vegan || u.allergies ? passesMenuDiet(asMenuItem(x.i), diet, u) : fitsDiet(x.i.diet, diet, noBeef && beefMenuOf(index, x.i.chainId)); }) : matched;
+  const items = fitting
+    // the plainest name first within a rank ("Sausage Roll" before "6 Hot Mini Sausage Rolls")
+    .sort((a, b) => a.rank - b.rank || a.i.name.length - b.i.name.length || byName(a.i.chainName, b.i.chainName) || byName(a.i.name, b.i.name))
+    .slice(0, maxItems)
+    .map(({ i }) => ({ chainId: i.chainId, chainName: i.chainName, itemId: i.itemId, name: i.name, calories: i.calories, sample: i.sample, ...(i.image ? { image: i.image } : {}) }));
+  return { chains, items, hiddenByDiet: matched.length - fitting.length, close: true };
 }
 
 /** One character folded for matching (lower case, accents dropped) without changing the string's length. */

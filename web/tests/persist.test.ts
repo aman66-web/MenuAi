@@ -1,6 +1,7 @@
+import { NO_PREFERENCES } from "../lib/mm/types";
 import { describe, expect, it } from "vitest";
 import { createStore, type KeyValueStorage } from "../lib/mm/persist";
-import { DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeSavedOrders, sanitizeSettings } from "../lib/mm/user-data";
+import { DEFAULT_SETTINGS, sanitizeFavorites, sanitizeLog, sanitizeSavedOrders, sanitizeSettings, warnPreferences } from "../lib/mm/user-data";
 
 class MemoryStorage implements KeyValueStorage {
   data = new Map<string, string>();
@@ -52,11 +53,33 @@ describe("createStore", () => {
   });
 });
 
+describe("sign-up answers never filter (founder 2026-11-21: \"you should not filter people based on what they've put in\")", () => {
+  it("an older phone's diet, saved as the filters, becomes what they told us, once, and the filters start off", () => {
+    const s = sanitizeSettings({ preferences: { vegetarianOnly: true, avoidAllergens: ["peanuts"] } });
+    expect(s.preferences).toEqual(NO_PREFERENCES);
+    expect(s.toldUs).toEqual({ vegetarianOnly: true, noPork: false, noBeef: false, avoidAllergens: ["peanuts"] });
+    expect(s.signUpApart).toBe(true);
+    // after that, a filter chosen in the app stays, and so does what they told us
+    const again = sanitizeSettings({ ...s, preferences: { ...NO_PREFERENCES, noPork: true } });
+    expect(again.preferences.noPork).toBe(true);
+    expect(again.toldUs?.vegetarianOnly).toBe(true);
+  });
+  it("nothing told, nothing kept; a new phone starts apart", () => {
+    expect(sanitizeSettings({ preferences: {} }).toldUs).toBeUndefined();
+    expect(DEFAULT_SETTINGS.signUpApart).toBe(true);
+  });
+  it("warnings use both: the filters and what they told us (a warning is not a filter)", () => {
+    const w = warnPreferences({ preferences: { ...NO_PREFERENCES, avoidAllergens: ["milk"] }, toldUs: { ...NO_PREFERENCES, vegetarianOnly: true, avoidAllergens: ["peanuts"] } });
+    expect(w.vegetarianOnly).toBe(true);
+    expect(w.avoidAllergens).toEqual(["milk", "peanuts"]);
+  });
+});
+
 describe("sanitizers", () => {
   it("settings: unknown or out-of-range fields fall back to defaults", () => {
     expect(sanitizeSettings(null)).toEqual(DEFAULT_SETTINGS);
     expect(sanitizeSettings({ goal: "nonsense", dailyCalories: -5, dailyProtein: "lots", preferences: 3 })).toEqual(DEFAULT_SETTINGS);
-    const s = sanitizeSettings({ goal: "glp1", dailyCalories: 1500, dailyProtein: 95, hasSetTargets: true, preferences: { noPork: true } });
+    const s = sanitizeSettings({ goal: "glp1", dailyCalories: 1500, dailyProtein: 95, hasSetTargets: true, signUpApart: true, preferences: { noPork: true } });
     expect(s).toMatchObject({ goal: "glp1", dailyCalories: 1500, dailyProtein: 95, hasSetTargets: true });
     expect(s.preferences).toEqual({ vegetarianOnly: false, noPork: true, noBeef: false });
   });

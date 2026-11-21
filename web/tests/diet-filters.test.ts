@@ -44,7 +44,7 @@ describe("pescatarian (as the restaurant marks or names the dish)", () => {
     expect(chainForDiet(chain, pesc).items.map((i) => i.id)).toEqual(["a", "c"]);
   });
   it("is kept when settings are saved and synced", () => {
-    expect(sanitizeSettings({ preferences: { pescatarianOnly: true } }).preferences.pescatarianOnly).toBe(true);
+    expect(sanitizeSettings({ signUpApart: true, preferences: { pescatarianOnly: true } }).preferences.pescatarianOnly).toBe(true);
     expect(sanitizeSettings({ preferences: {} }).preferences.pescatarianOnly).toBeUndefined();
   });
 });
@@ -90,7 +90,7 @@ describe("caution wording and settings", () => {
     expect(anyDietFilter({ ...NO_PREFERENCES, avoidAllergens: ["eggs"] })).toBe(true);
   });
   it("keeps the new preferences and text size through storage, dropping junk", () => {
-    const s = sanitizeSettings({ preferences: { veganOnly: true, halalOnly: true, avoidAllergens: ["milk", "bogus", "eggs"] }, textSize: "xlarge" });
+    const s = sanitizeSettings({ signUpApart: true, preferences: { veganOnly: true, halalOnly: true, avoidAllergens: ["milk", "bogus", "eggs"] }, textSize: "xlarge" });
     expect(s.preferences).toEqual({ vegetarianOnly: false, noPork: false, noBeef: false, veganOnly: true, halalOnly: true, avoidAllergens: ["eggs", "milk"] });
     expect(s.textSize).toBe("xlarge");
     expect(sanitizeSettings({ textSize: "huge" }).textSize).toBeUndefined();

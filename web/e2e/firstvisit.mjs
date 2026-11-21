@@ -91,7 +91,8 @@ await step("Set up opens one sheet: the goal, GLP-1's doctor line, what you avoi
   await sheet.getByRole("button", { name: "Save" }).click();
   await card(page).waitFor({ state: "detached" });
   const s = await settingsOf(page);
-  expect(s.goal === "buildMuscle" && s.preferences.vegetarianOnly === true && s.hasCompletedOnboarding === true, "saved: " + JSON.stringify(s));
+  // what was told at sign-up is kept apart and filters nothing (founder 2026-11-21: "you should not filter people based on what they've put in")
+  expect(s.goal === "buildMuscle" && s.toldUs?.vegetarianOnly === true && s.preferences.vegetarianOnly !== true && s.hasCompletedOnboarding === true, "saved: " + JSON.stringify(s));
   await page.reload();
   await page.getByRole("heading", { level: 1, name: "Home" }).waitFor();
   expect((await card(page).count()) === 0, "the card is back after a reload");
