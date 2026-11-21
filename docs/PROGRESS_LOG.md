@@ -4029,3 +4029,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Filters and the meal plan's diet step are the filters people choose. e2e: diet.mjs seeds filters as chosen in the app and checks search shows every
   dish (its 3 grocery checks wait for a stand-in list the grocery search no longer reads: stale before today); numbers.mjs 12/12 (wording updated);
   smoke 24/24. Unit tests 3,993. On `iap`, next build.
+- (21 Nov, afternoon) **"Show dishes that fit my diet" and "My diet" on a restaurant's page** (founder, on McDonald's "Showing 111 of 151": "normally it
+  should show the 151 dishes, but when they put filter from my diet, then it will filter ... on the right of show all, it'll say what is my diet"). With a
+  diet or allergies in Settings (or told at sign-up), the page shows every dish with "Showing all {total} dishes / {n} fit your diet." and two buttons:
+  "Show dishes that fit my diet" (applies it for this visit) and "My diet" (a sheet: the diet as chips, "From your settings. It hides nothing until you
+  choose to." and "Change it in Settings"). Once applied, "Showing {n} of {total} dishes" has "Show all {total}" (drops it again) with "My diet" beside
+  it. Checked on McDonald's with no milk, no gluten: 151 shown, 96 fit, one tap 96 of 151, Show all back to 151. smoke 24/24, numbers 12/12. On `iap`.

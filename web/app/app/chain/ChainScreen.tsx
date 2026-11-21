@@ -17,7 +17,7 @@ import { itemHref } from "@/lib/mm/routes";
 import { favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
 import { recentFor } from "@/lib/mm/recent";
 import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences, NO_PREFERENCES } from "@/lib/mm/types";
-import { sanitizeSettings } from "@/lib/mm/user-data";
+import { sanitizeSettings, warnPreferences, anyPreference } from "@/lib/mm/user-data";
 import { BestForYou } from "../_components/BestForYou";
 import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker";
 import { DONE_KEY, DONE_ROOM, DONE_ROOM_WITH_CLEAR, SearchDone } from "../_components/SearchDone";
@@ -182,6 +182,15 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
     setEveryDish(false);
   };
   const words = dietWords(t, prefs);
+  // the person's own diet and allergies (Settings, sign-up, and any filter chosen in the app): never applied by itself, offered with one tap (founder
+  // 2026-11-21: "normally it should show the 151 dishes ... the person should be able to ... show dishes that fit my diet ... and if they click on what is my
+  // diet, they can see what their filter request was on their normal settings"); only what a restaurant's menu can be checked for (halal is chain-level)
+  const mine = useMemo<Preferences>(() => { const { halalOnly: _h, ...rest } = warnPreferences(settings); return rest as Preferences; }, [settings]); // eslint-disable-line @typescript-eslint/no-unused-vars
+  const hasMine = anyPreference(mine);
+  const mineUnchecked = useMemo(() => uncheckedDiet(chain.items, mine, chain.id), [chain.items, mine, chain.id]);
+  const mineFits = useMemo(() => (hasMine ? chain.items.filter((i) => passesMenuDiet(i, mine, mineUnchecked)).length : 0), [chain.items, mine, mineUnchecked, hasMine]);
+  const usingMine = hasMine && JSON.stringify(prefs) === JSON.stringify(mine);
+  const [myDietOpen, setMyDietOpen] = useState(false);
   const recentLog = useStore(recentStore);
   // A menu where some dishes have the chain's photo gives the others a grey fork tile, so every row's name starts at the same place.
   // itemImageUrl is undefined when photos are switched off or the chain's photos are taken down (hidden.json): no tiles then.
@@ -425,15 +434,40 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       {/* Never a menu that just looks short: how many dishes the diet settings hide, and one tap to see the whole menu (this visit only). Shown too after the
           empty state's "Show every dish", so the list never looks filtered when it isn't. While Eat out's numbers apply, the status line and "Your numbers"
           give the counts instead (this card counts the diet alone). */}
+      {/* every dish shows until the person asks: with a diet in Settings, one tap shows only what fits it, and "My diet" says what that is */}
+      {!searching && !hasLimits(limits) && hasMine && !anyDietFilter(prefs) && mineFits < chain.items.length && (
+        <div className="glass mt-3 rounded-[1.25rem] p-4">
+          <p className="app-numbers text-[0.9375rem] font-bold leading-snug">{t("Showing all {total} dishes", { total })}</p>
+          <p className="app-numbers mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("{n} fit your diet.", { n: mineFits.toLocaleString("en-GB") })}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Button onClick={() => changeDiet(mine)}>{t("Show dishes that fit my diet")}</Button>
+            <Button variant="secondary" aria-haspopup="dialog" onClick={() => setMyDietOpen(true)}>{t("My diet")}</Button>
+          </div>
+        </div>
+      )}
       {!searching && !hasLimits(limits) && hiddenByDiet > 0 && (filtered.length > 0 || everyDish) && (
         <div className="glass mt-3 flex flex-wrap items-center gap-x-4 gap-y-3 rounded-[1.25rem] p-4">
           <div className="min-w-0 flex-1 basis-48 text-[0.9375rem] leading-snug">
             <p className="app-numbers font-bold">{everyDish ? t("Showing all {total} dishes", { total }) : t("Showing {n} of {total} dishes", { n: filtered.length.toLocaleString("en-GB"), total })}</p>
             <p className="mt-0.5 text-muted">{everyDish ? t("Some may not fit your diet.") : t("The rest don't fit your diet, or {chain} doesn't say.", { chain: chain.name })}</p>
           </div>
-          <Button variant="secondary" onClick={() => setEveryDish((v) => !v)}>{everyDish ? t("Show only what fits") : t("Show all {total}", { total })}</Button>
+          <div className="flex flex-wrap gap-2">
+            {/* back to every dish: the filter is dropped for this visit (it was only ever for this visit) */}
+            <Button variant="secondary" onClick={() => (usingMine && !everyDish ? changeDiet(NO_PREFERENCES) : setEveryDish((v) => !v))}>{everyDish ? t("Show only what fits") : t("Show all {total}", { total })}</Button>
+            {hasMine && <Button variant="secondary" aria-haspopup="dialog" onClick={() => setMyDietOpen(true)}>{t("My diet")}</Button>}
+          </div>
         </div>
       )}
+      <Sheet open={myDietOpen} onClose={() => setMyDietOpen(false)} title={t("My diet")}>
+        <ul className="flex flex-wrap gap-2">
+          {dietWords(t, mine).map((w) => <li key={w} className="rounded-full bg-fill px-3.5 py-2 text-base font-semibold">{w}</li>)}
+        </ul>
+        <p className="mt-4 text-[0.9375rem] leading-snug text-muted">
+          {t("From your settings. It hides nothing until you choose to.")}{" "}
+          <Link href="/app/settings#diet" className={LINK}>{t("Change it in Settings")}</Link>
+        </p>
+        <div className="mt-5"><Button full onClick={() => setMyDietOpen(false)}>{t("Done")}</Button></div>
+      </Sheet>
 
       <div className="mt-3">
         {visible.length === 0 ? (
