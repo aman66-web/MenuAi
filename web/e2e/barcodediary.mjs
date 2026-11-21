@@ -27,9 +27,9 @@ const asdaFile = JSON.parse(readFileSync(new URL("../public/groceries/all/asda.j
 const row = asdaRow && asdaFile.products.find((p) => p[0] === asdaRow[1]);
 const label = row?.[10];
 // barcodes nobody of ours holds: Open Food Facts (faked) knows the first with figures, the second not at all; the third can't be asked
-const OFF_CODE = "5000000000123";
+const OFF_CODE = "5000000000128"; // a real check digit: a misread number (bad check digit) is never looked up (the meeting, 21 Nov)
 const NONE_CODE = "09876543"; // an EAN-8 with a leading zero (not 01318180, the design review's example: the older catalogue holds it)
-const FAIL_CODE = "5000000000154";
+const FAIL_CODE = "5000000000159";
 const OFF_PRODUCT = { code: OFF_CODE, name: "Test Oat Bar", brand: "Test Brand", quantity: "40 g", serving: "40 g", per: "g", label: { kcal: 400, protein: 10, carbs: 60, fat: 12, saturates: 2, sugars: 20, fibre: 5, salt: 0.3 }, image: null };
 const SETTINGS = { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: {}, hasCompletedOnboarding: true, shops: ["asda"], devProOverride: true };
 
@@ -47,7 +47,8 @@ async function open({ viewport = { width: 402, height: 874 } } = {}) {
     const code = new URL(route.request().url()).pathname.split("/").pop();
     asked.push(code);
     if (code === OFF_CODE) return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ found: true, product: OFF_PRODUCT }) });
-    if (code === FAIL_CODE) return route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "unavailable" }) });
+    // no connection at all (a 503 from our busy server says "just now. Try again." instead: the meeting, 21 Nov)
+    if (code === FAIL_CODE) return route.abort("internetdisconnected");
     return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ found: false }) });
   });
   const page = await ctx.newPage();

@@ -19,6 +19,11 @@ describe("the measures a product can be counted in", () => {
     expect(keys({ per: "g", size: "", portion: "" })).toEqual(["unit:1", "oz:28.35"]);
   });
 
+  it("a label for the food cooked, prepared or drained never offers the pack or one item of it (the pack weight is as sold)", () => {
+    expect(keys({ per: "g", size: "2 x 250g", portion: "", state: "grilled" })).toEqual(["unit:1", "oz:28.35"]);
+    expect(keys({ per: "ml", size: "1 L", portion: "250ml", state: "as prepared" })).toEqual(["unit:1", "portion:250", "can:330", "pint:568", "tbsp:15", "tsp:5"]);
+  });
+
   it("a serving printed in another unit than the label's is left out", () => {
     expect(keys({ per: "g", size: "", portion: "250ml" })).toEqual(["unit:1", "oz:28.35"]);
   });

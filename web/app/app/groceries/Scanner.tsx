@@ -7,10 +7,11 @@ import { barcodeQuery } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { site } from "@/site.config";
-import { CloseIcon } from "../_components/icons";
+import { CloseIcon, PhotoIcon } from "../_components/icons";
 import { Button, Sheet } from "../_components/ui";
 import { useT } from "../_lib/i18n";
 import { PILL_INPUT } from "./PageBits";
+import { NO_CODE_IN_PHOTO, PhotoBarcodeButton, readBarcodeFromFile } from "./PhotoBarcode";
 
 // Barcode scanning happens on the device: the camera feed is read here and never sent anywhere. Founder 2026-10-15 ("for the scan barcode can it launch
 // like a camera where you can scan it"): tapping Scan opens a full-screen camera with a box to hold the barcode in, and the code is read as soon as it is
@@ -37,6 +38,17 @@ function CameraView({ onCode, onClose, onType, onFallback }: { onCode: (code: st
   const dialog = useRef<HTMLDialogElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [found, setFound] = useState(false);
+  const photo = useRef<HTMLInputElement>(null);
+  const [readingPhoto, setReadingPhoto] = useState(false);
+  const fromPhoto = async (file: File | undefined) => {
+    if (!file) return;
+    setReadingPhoto(true);
+    let code: string | null = null;
+    try { code = await readBarcodeFromFile(file); } catch { code = null; }
+    setReadingPhoto(false);
+    if (code && barcodeQuery(code)) handlers.current.onCode(code);
+    else handlers.current.onFallback(NO_CODE_IN_PHOTO);
+  };
   // the parent passes new functions every time it renders: the camera must not restart for that
   const handlers = useRef({ onCode, onFallback });
   handlers.current = { onCode, onFallback }; // eslint-disable-line react-hooks/refs -- the latest handlers, read only when a code is found
@@ -153,9 +165,17 @@ function CameraView({ onCode, onClose, onType, onFallback }: { onCode: (code: st
 
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-4 px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
         <p role="status" className="max-w-sm text-center text-base font-semibold leading-snug [text-shadow:0_1px_8px_var(--scrim)]">{t("Point the camera at the barcode")}</p>
-        <button type="button" onClick={onType} className="inline-flex min-h-12 items-center justify-center rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
-          {t("Type the number instead")}
-        </button>
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <button type="button" onClick={onType} className="inline-flex min-h-12 items-center justify-center rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
+            {t("Type the number instead")}
+          </button>
+          {/* a photo of the barcode instead (founder 2026-11-21): read on the phone; one with no code goes to the sheet with a line saying so */}
+          <button type="button" disabled={readingPhoto} onClick={() => photo.current?.click()} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-card px-6 text-base font-bold text-ink transition active:scale-[0.97] hover:bg-background disabled:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sun">
+            <PhotoIcon aria-hidden className="h-5 w-5" />
+            {readingPhoto ? t("Reading the photo") : t("Choose a photo")}
+          </button>
+          <input ref={photo} type="file" accept="image/*" className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void fromPhoto(e.target.files?.[0]); e.target.value = ""; }} />
+        </div>
       </div>
     </dialog>
   );
@@ -216,6 +236,7 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
         <div className="space-y-3.5 pb-2 pt-1">
           {note && <p role="status" className="text-[0.9375rem] leading-snug text-muted">{t(note, { app: site.name })}</p>}
           {(native ? note : true) && <Button full variant={native ? "primary" : "secondary"} onClick={() => (native ? setScanRound((n) => n + 1) : (setNote(null), setMode("camera")))}>{t("Scan again")}</Button>}
+          <PhotoBarcodeButton onCode={(c) => onCode(c)} onNote={setNote} />
           <form
             className="flex gap-2.5"
             onSubmit={(e) => {

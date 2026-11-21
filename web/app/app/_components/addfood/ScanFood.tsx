@@ -8,6 +8,7 @@ import { Button, ErrorBox, Spinner } from "../ui";
 import { useSettings } from "../../_lib/hooks";
 import { useT } from "../../_lib/i18n";
 import { Scanner } from "../../groceries/Scanner";
+import { PhotoBarcodeButton } from "../../groceries/PhotoBarcode";
 import { useBarcodeLookup } from "./findByBarcode";
 import type { NewEntry } from "./parts";
 import { HowMuch, NotFound } from "./ProductPick";
@@ -17,10 +18,13 @@ import { HowMuch, NotFound } from "./ProductPick";
 // comes up with its ring of protein, carbs and fat and "How much?" (HowMuch), and Add puts it in the meal whose + was tapped, with the usual Added toast and Undo.
 // A barcode nobody has figures for is a calm line and "Type the numbers from the pack".
 
-export function ScanFood({ meal, onAdd, onBack, onType, header }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; onBack: () => void; onType: (name: string) => void; header: (onBack: () => void) => ReactNode }) {
+// `fromPhoto` (Add food's "Barcode from a photo"; founder 2026-11-21): the camera doesn't open; "Choose a photo" picks a photo of the barcode, read on the phone
+// (groceries/PhotoBarcode.tsx), and the product comes up exactly as after a scan.
+export function ScanFood({ meal, onAdd, onBack, onType, header, fromPhoto = false }: { meal: LogMeal; onAdd: (entry: NewEntry) => void; onBack: () => void; onType: (name: string) => void; header: (onBack: () => void) => ReactNode; fromPhoto?: boolean }) {
   const t = useT();
   const mine = useSettings().shops ?? [];
-  const [scanning, setScanning] = useState(true);
+  const [scanning, setScanning] = useState(!fromPhoto);
+  const [photoNote, setPhotoNote] = useState<string | null>(null);
   // the digits as printed under the barcode, leading zeros kept (the design review of 2026-11-20: 01318180 was shown as 1318180)
   const [digits, setDigits] = useState<string | null>(null);
   const got = useRef(false);
@@ -51,7 +55,12 @@ export function ScanFood({ meal, onAdd, onBack, onType, header }: { meal: LogMea
         }}
       />
       {!digits ? (
-        <Button full className="min-h-12 text-base" onClick={scanAgain}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan a barcode")}</Button>
+        <div className="space-y-3">
+          {fromPhoto && <p className="text-[0.9375rem] leading-snug text-muted">{t("Pick a photo where the barcode is sharp and fills a good part of the picture.")}</p>}
+          {photoNote && <p role="status" className="text-[0.9375rem] leading-snug">{t(photoNote)}</p>}
+          {fromPhoto && <PhotoBarcodeButton variant="primary" onNote={setPhotoNote} onCode={(raw) => { const d = barcodeDigits(raw); if (!d) return; got.current = true; setDigits(d); }} />}
+          <Button full variant={fromPhoto ? "secondary" : "primary"} className="min-h-12 text-base" onClick={scanAgain}><ScanIcon aria-hidden className="h-5 w-5" />{t("Scan a barcode")}</Button>
+        </div>
       ) : !found || found.status === "loading" ? (
         <Spinner label={t("Looking it up")} />
       ) : found.status === "found" ? (

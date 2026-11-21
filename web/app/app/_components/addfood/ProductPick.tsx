@@ -4,6 +4,7 @@ import { needsPaywall } from "@/lib/mm/entitlements";
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { ADD_TO, ADDED_TO, amountChoices, amountNutrients, amountText, loggableFromShop, MAX_AMOUNT, MIN_AMOUNT, parseAmount, productEntry, startAmount, stepAmount, withShopLabel, type AmountChoice, type LoggableProduct } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
+import { amountIn, countText, MEASURE_WORDS, measuresFor, parseCount, QUICK_COUNTS, type Measure, type MeasureKey } from "@/lib/mm/portions";
 import { barcodeDigits, barcodeShown, validGs1 } from "@/lib/mm/barcodes";
 import { LOG_MEAL_LABEL, LOG_MEALS, mealSlotFor } from "@/lib/mm/budget";
 import { retailerName, withPhoto } from "@/lib/mm/groceries";
@@ -205,6 +206,9 @@ function choiceLabel(c: AmountChoice, unit: "g" | "ml", t: ReturnType<typeof use
   return amount;
 }
 
+/** "Glass" for "glass": a measure's button starts with a capital, as every button does. */
+const capitalised = (s: string): string => s.charAt(0).toLocaleUpperCase("en-GB") + s.slice(1);
+
 /** "Which meal?": Breakfast, Lunch, Dinner or Snacks as one choice (on a product page, where no meal's + was tapped). */
 function MealChoice({ meal, onMeal }: { meal: LogMeal; onMeal: (m: LogMeal) => void }) {
   const t = useT();
@@ -235,14 +239,32 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
   const t = useT();
   const id = useId();
   const [text, setText] = useState(() => String(startAmount(product)));
-  const amount = parseAmount(text);
+  const unit = product.per;
+  // the measure the box counts in (founder 2026-11-21: "allow them to choose measurements too"): g or ml as the label is per, or a serving, an item, the pack,
+  // a glass, a can, a pint, a spoon or an ounce (lib/mm/portions.ts: only fixed amounts of the label's own unit, never a density guess)
+  const measures = useMemo(() => measuresFor(product), [product]);
+  const [measureKey, setMeasureKey] = useState<MeasureKey>("unit");
+  const measure: Measure = measures.find((x) => x.key === measureKey) ?? measures[0]!;
+  const inUnit = measure.key === "unit";
+  const count = inUnit ? null : parseCount(text, measure, MAX_AMOUNT);
+  const amount = inUnit ? parseAmount(text) : count === null ? null : Math.max(MIN_AMOUNT, amountIn(measure, count));
   const bad = text.trim() !== "" && amount === null;
   const n = amount === null ? null : amountNutrients(product.label, amount);
-  const unit = product.per;
   const choices = amountChoices(product);
   // the shop it's from; for a product no shop list holds, its brand
   const fromName = product.shop ? retailerName(product.shop) : product.brand || t("Groceries");
-  const step = (direction: 1 | -1) => setText(String(stepAmount(amount ?? parseAmount(text.replace(/[^\d.,]/g, "")), direction)));
+  const step = (direction: 1 | -1) => {
+    if (inUnit) return setText(String(stepAmount(amount ?? parseAmount(text.replace(/[^\d.,]/g, "")), direction)));
+    // half a measure at a time, never below a half
+    const next = Math.max(0.5, Math.round(((count ?? 1) + direction * 0.5) * 2) / 2);
+    if (next * measure.one <= MAX_AMOUNT) setText(String(next));
+  };
+  const word = (m: Measure, c: number) => (m.key === "unit" ? unit : t(MEASURE_WORDS[m.key][c === 1 || c === 0.5 ? 0 : 1]));
+  const pickMeasure = (m: Measure) => {
+    setMeasureKey(m.key);
+    // back to g or ml keeps what the measure came to; a measure starts at one of it
+    setText(m.key === "unit" ? String(amount ?? startAmount(product)) : "1");
+  };
 
   return (
     <form
@@ -270,8 +292,29 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
           {product.state && <span className="text-[0.9375rem] font-semibold tracking-normal text-muted">{t("per 100 {unit} ({state})", { unit, state: product.state })}</span>}
         </label>
         <NumberDone />
+        {/* the measure to count in: g or ml, then the pack's own, then the kitchen measures for its unit */}
+        {measures.length > 1 && (
+          <div role="radiogroup" aria-label={t("Measure")} className="mb-3.5">
+            <p aria-hidden className="mb-2 text-[0.9375rem] font-semibold leading-snug text-muted">{t("Measure")}</p>
+            <div className="flex flex-wrap gap-2">
+              {measures.map((m) => (
+                <Chip key={m.key} role="radio" aria-checked={m.key === measure.key} aria-pressed={undefined} selected={m.key === measure.key} onClick={() => pickMeasure(m)}>
+                  {m.key === "unit" ? unit : m.key === "oz" ? "oz" : t("{measure} ({amount})", { measure: capitalised(word(m, 1)), amount: amountText(m.one, unit) })}
+                </Chip>
+              ))}
+            </div>
+          </div>
+        )}
+        {/* in a measure: a half, one or two of it */}
+        {!inUnit && (
+          <div role="group" aria-label={t("Amounts")} className="mb-3.5 flex flex-wrap gap-2">
+            {QUICK_COUNTS.map((c) => (
+              <Chip key={c} selected={count === c} onClick={() => setText(String(c))}>{`${countText(c)} ${word(measure, c)}`}</Chip>
+            ))}
+          </div>
+        )}
         {/* always at least 100 g or ml, marked when it is the amount (2026-11-20: Asda's 2 L milk prints no portion and is too big a pack, so no chips showed) */}
-        {choices.length > 0 && (
+        {inUnit && choices.length > 0 && (
           <div role="group" aria-label={t("Amounts")} className="mb-3.5 flex flex-wrap gap-2">
             {choices.map((c) => (
               <Chip key={`${c.kind}-${c.amount}`} selected={amount === c.amount} onClick={() => setText(String(c.amount))}>{choiceLabel(c, unit, t)}</Chip>
@@ -279,7 +322,7 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
           </div>
         )}
         <div className="flex items-center gap-2.5">
-          <button type="button" className={STEP} aria-label={t("Less")} disabled={amount !== null && amount <= MIN_AMOUNT} onClick={() => step(-1)}><MinusIcon aria-hidden className="h-5 w-5" /></button>
+          <button type="button" className={STEP} aria-label={t("Less")} disabled={inUnit ? amount !== null && amount <= MIN_AMOUNT : count !== null && count <= 0.5} onClick={() => step(-1)}><MinusIcon aria-hidden className="h-5 w-5" /></button>
           <div className="relative min-w-0 flex-1">
             <input
               id={id}
@@ -294,14 +337,18 @@ export function HowMuch({ product, meal, onMeal, onAdd, busy }: { product: Logga
               aria-describedby={bad ? `${id}-bad` : undefined}
               className="app-numbers min-h-14 w-full rounded-2xl border-[1.5px] border-edge bg-card ps-4 pe-12 text-center text-[1.75rem] font-[800] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-[invalid=true]:border-danger aria-[invalid=true]:shadow-[0_0_0_0.5px_var(--danger)]"
             />
-            <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-muted">{unit}</span>
+            <span aria-hidden className="pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-muted">{inUnit ? unit : word(measure, count ?? 1)}</span>
           </div>
-          <button type="button" className={STEP} aria-label={t("More")} disabled={amount !== null && amount >= MAX_AMOUNT} onClick={() => step(1)}><PlusIcon aria-hidden className="h-5 w-5" /></button>
+          <button type="button" className={STEP} aria-label={t("More")} disabled={inUnit ? amount !== null && amount >= MAX_AMOUNT : count !== null && (count + 0.5) * measure.one > MAX_AMOUNT} onClick={() => step(1)}><PlusIcon aria-hidden className="h-5 w-5" /></button>
         </div>
+        {/* what a count in a measure comes to, as it goes in the diary */}
+        {!inUnit && amount !== null && <p className="app-numbers mt-2.5 text-center text-[0.9375rem] font-semibold leading-snug text-muted">{t("= {amount}", { amount: amountText(amount, unit) })}</p>}
         {bad && (
           <p id={`${id}-bad`} role="alert" className="mt-2.5 flex items-start gap-1.5 text-[0.9375rem] font-semibold leading-snug text-danger">
             <AlertCircleIcon aria-hidden className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0" />
-            <span className="min-w-0">{t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })}</span>
+            <span className="min-w-0">{inUnit
+              ? t("Type an amount from {min} to {max}.", { min: MIN_AMOUNT, max: MAX_AMOUNT.toLocaleString("en-GB") })
+              : t("Type an amount from {min} to {max}.", { min: "0.5", max: Math.floor(MAX_AMOUNT / measure.one).toLocaleString("en-GB") })}</span>
           </p>
         )}
       </div>

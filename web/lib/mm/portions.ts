@@ -5,6 +5,7 @@
 // - UK kitchen measures: a glass 250 ml, a can 330 ml, a pint 568 ml, a tablespoon 15 ml, a teaspoon 5 ml; an ounce 28.35 g.
 
 import { packAmounts, printedAmount, type LoggableProduct } from "./addFood";
+import { tk } from "./i18n";
 
 export type MeasureKey = "unit" | "portion" | "item" | "pack" | "glass" | "can" | "pint" | "tbsp" | "tsp" | "oz";
 
@@ -25,11 +26,12 @@ export const OZ_G = 28.35;
 export const QUICK_COUNTS = [0.5, 1, 2] as const;
 
 /** The measures this product can be counted in: g or ml first, then the pack's own, then the fixed kitchen measures for its unit (one of each amount). */
-export function measuresFor(p: Pick<LoggableProduct, "per" | "size" | "portion">): Measure[] {
+export function measuresFor(p: Pick<LoggableProduct, "per" | "size" | "portion"> & { state?: string }): Measure[] {
   const out: Measure[] = [{ key: "unit", one: 1 }];
   const portion = p.portion ? printedAmount(p.portion) : null;
   if (portion && portion.unit === p.per && portion.amount > 0) out.push({ key: "portion", one: portion.amount });
-  const pack = p.size ? packAmounts(p.size) : null;
+  // never the pack for a label that is for the food cooked, prepared or drained: the pack weight is as sold (amountChoices does the same; the meeting, Yusuf)
+  const pack = p.size && !p.state ? packAmounts(p.size) : null;
   // one item of a multipack, or the whole pack; not when it is the same amount as the serving (a pot of four that the label serves one at a time)
   if (pack && pack.unit === p.per && pack.each > 0 && !out.some((x) => x.one === pack.each)) out.push(pack.count > 1 ? { key: "item", one: pack.each } : { key: "pack", one: pack.each });
   const fixed: Measure[] = p.per === "ml"
@@ -58,13 +60,19 @@ export function countText(n: number): string {
 
 /** The words for a measure, singular and plural (looked up for translation by the screen); g, ml and oz say just the unit. */
 export const MEASURE_WORDS: Readonly<Record<Exclude<MeasureKey, "unit">, readonly [string, string]>> = {
-  portion: ["serving", "servings"],
-  item: ["item", "items"],
-  pack: ["pack", "packs"],
-  glass: ["glass", "glasses"],
-  can: ["can", "cans"],
-  pint: ["pint", "pints"],
-  tbsp: ["tablespoon", "tablespoons"],
-  tsp: ["teaspoon", "teaspoons"],
+  portion: [tk("serving"), tk("servings")],
+  item: [tk("item"), tk("items")],
+  pack: [tk("pack"), tk("packs")],
+  glass: [tk("glass"), tk("glasses")],
+  can: [tk("can"), tk("cans")],
+  pint: [tk("pint"), tk("pints")],
+  tbsp: [tk("tablespoon"), tk("tablespoons")],
+  tsp: [tk("teaspoon"), tk("teaspoons")],
   oz: ["oz", "oz"],
 };
+
+/** A count typed in a measure's box: more than 0 and at most what MAX_AMOUNT g or ml allows of it; null when it isn't one. */
+export function parseCount(raw: string, m: Measure, maxAmount: number): number | null {
+  const v = Number(String(raw ?? "").trim().replace(",", "."));
+  return Number.isFinite(v) && v > 0 && v * m.one <= maxAmount ? Math.round(v * 100) / 100 : null;
+}
