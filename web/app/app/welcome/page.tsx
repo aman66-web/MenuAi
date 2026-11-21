@@ -185,9 +185,10 @@ function Welcome() {
   const [goal, setGoal] = useState<Goal>(initial.goal);
   // Nothing is picked for the person on a first run: no goal is ticked until one is tapped; someone already set up who runs this again sees their saved goal
   const [goalTouched, setGoalTouched] = useState(false);
-  const goalShown = wasOnboarded || goalTouched;
   // a goal was chosen with step 1's Continue (it is in the settings): noted, so "Carry on" shows it ticked if the person goes Back to step 1
   const [goalSaved, setGoalSaved] = useState(false);
+  // not even a saved goal is ticked when the screen opens (founder 2026-11-21: "Options shouldn't be selected"); one chosen in this run stays ticked on Back
+  const goalShown = goalTouched || goalSaved;
   // Skip on step 1 leaves the goal unset for Your plan's restaurant dishes ("Most protein for the calories")
   const [goalSkipped, setGoalSkipped] = useState(false);
   const target = useTargetFields(initial);
@@ -195,7 +196,9 @@ function Welcome() {
   // nothing ticked when the screen opens (founder 2026-11-21: "Options shouldn't be selected ... when someone goes on the screen"); a choice made in this run
   // stays ticked if the person goes on and comes Back
   const [prefs, setPrefs] = useState<Preferences>(NO_PREFERENCES);
-  const [shops, setShops] = useState<string[]>(initial.shops ?? []);
+  // nothing ticked when the screen opens (founder 2026-11-21, on the shops: "options are also selected too, which they shouldn't be"); ticks made in this run
+  // stay if the person comes Back
+  const [shops, setShops] = useState<string[]>([]);
   // The answers about the person (screens 5 and 6): React state only, never saved or sent; dropped with this page when the welcome screens end.
   const [body, setBody] = useState<BodyAnswers>(EMPTY_BODY);
   // Nothing is picked on "How active are you?" until a tile is tapped, on every run (the answers are never stored, so a re-run has nothing real to show).
@@ -352,7 +355,7 @@ function Welcome() {
         const now = settingsStore.get();
         setGoal(now.goal);
         setPrefs(NO_PREFERENCES);
-        setShops(now.shops ?? []);
+        setShops([]);
         target.resetTo(now);
         runStart.current = now;
         savedWorkedOut.current = false;
@@ -533,7 +536,7 @@ function Welcome() {
     } else if (step === "avoid") {
       setPrefs(NO_PREFERENCES);
     } else if (step === "shops") {
-      setShops(settingsStore.get().shops ?? []);
+      setShops([]);
       preloadRestaurantRow();
     }
     forward(step);

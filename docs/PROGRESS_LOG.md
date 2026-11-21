@@ -4068,3 +4068,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   budget at Sainsbury's, Asda, Morrisons all balanced; for two on £40 (the cheapest real week is £77-85) no main twice a day or two days running, a main
   at most 5 times, cheese at most 4 times. tests/mealBalance.test.ts (9); every earlier plan test passes. Also the sign-up "Anything you avoid?" screen
   opens with nothing ticked (founder: "Options shouldn't be selected ... when someone goes on the screen"). On `iap`, next build.
+- (21 Nov, late afternoon) **Sign-up screens open with nothing ticked** (founder, on "Where do you shop?": "options are also selected too, which they
+  shouldn't be"). The goal, "Anything you avoid?" and the shops screens no longer show answers saved before (a re-run from Settings, or an account that
+  brought them); a choice made in this run stays ticked when the person goes on and comes Back. The goal screen with nothing ticked says "Pick one, or tap
+  Skip."; the shops screen's Continue with none ticked uses the default recipe shop, as before. e2e firstvisit 10/10, homepages 12/12, onboarding-body (k)
+  updated to the new rule ((g) and (m) were failing before today). On `iap`, next build.

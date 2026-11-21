@@ -431,7 +431,8 @@ await step("(k) skipped questions stay starting numbers (Home asks for targets);
   const before = JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 1900, dailyProtein: 120, hasSetTargets: true, hasCompletedOnboarding: true, preferences: {} } });
   r = await fresh({}, `if (!sessionStorage.getItem("seeded")) { sessionStorage.setItem("seeded", "1"); localStorage.setItem("mm.v1.settings", ${JSON.stringify(before)}); localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 2 })); }`);
   await W.startSteps(r.page, BASE);
-  expect((await r.page.getByRole("radio", { name: /^Maintain/ }).getAttribute("aria-checked")) === "true", "the saved goal isn't ticked on a re-run");
+  // nothing ticked when the screen opens, not even the saved goal (founder 2026-11-21: "Options shouldn't be selected ... when someone goes on the screen")
+  expect((await r.page.getByRole("radio", { name: /^Maintain/ }).getAttribute("aria-checked")) === "false", "the saved goal is ticked on a re-run");
   await W.goal(r.page, null);
   await W.avoid(r.page, { diets: null });
   await W.shops(r.page, null);
