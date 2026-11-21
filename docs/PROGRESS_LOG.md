@@ -3949,3 +3949,5 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   "no connection" made a real lost connection, after the first pass's correct changes), addfood 16/16, scan 8/8. All: tsc and eslint clean, vitest 3,974,
   Python 257, Swift unit tests pass. keys.json and recipeCoverage.ts regenerated (Tesco 3). Server-side fixes (auth, barcode lookup, the scan route, the privacy
   page) reach numbite.com only with a deploy, which waits for the founder.
+- (05:27, 21 Nov) **Tesco check: security page again** ("Powered and protected by") on the one check page, at the end of the 6-hour wait after the 23:27 block. Nothing
+  more was done (no refresh, no other tab); the check tab was closed. New 6-hour wait: no Tesco reader before about 11:27.
