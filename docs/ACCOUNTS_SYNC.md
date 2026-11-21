@@ -177,3 +177,11 @@ It runs only when three settings exist in **Vercel › Project menumacros › Se
 `APPLE_TEAM_ID` = `S7G6ZHHK59`, `APPLE_KEY_ID` = `X374U6N8FP`, and `APPLE_PRIVATE_KEY` = the full text of the `.p8` file (a secret: paste it only
 there, never into chat). Optional: `APPLE_CLIENT_ID` (default `com.amanmarwaha.MenuMacros`). Without them deleting still works; Apple just isn't told,
 and the person can remove the app under Settings › Apple ID › Sign in with Apple.
+
+## Free week (21 November 2026)
+
+- **What we keep, in addition:** a keyed one-way hash of the email (and of the Sign in with Apple ID) in `trial_claims`, kept after the account is deleted only
+  so the same person gets no second free week; it can't be turned back into the address. A gift of Premium (`premium_gifts`) is kept with the account and
+  deleted with it.
+- **Delete my account** removes everything as before except the `trial_claims` hash.
+- **On the phone:** `mm.v1.freeWeek` (the free week's state), cleared by Sign out, Delete my account and Clear data.

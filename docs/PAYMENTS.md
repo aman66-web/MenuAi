@@ -67,3 +67,22 @@ noticed at the next start-up; the token of a refunded purchase still checks unti
 - ~~Whether to show a cookie/consent banner for the creator code.~~ Decided 14 Nov 2026: no storage, so no banner.
 - How long payment records are kept (drafted as: while access lasts plus six years, for accounting).
 - Whether a refund should also end an Annual/Monthly subscription in Stripe automatically (today: you cancel it in Stripe).
+
+## Free week and gifts (founder's decision, 20 November 2026)
+
+- **Every account gets 7 days of Premium** from its first ask in the iPhone app (`FREE_WEEK_DAYS`), with no payment details: `POST /api/v1/entitlement/account`
+  (the account's session) answers with the same signed token a purchase gets, with `src: "account"` and plan `trial` (or `gift`). The website sells nothing and
+  keeps everything open, as before.
+- **One free week per person and iPhone**, checked in this order: a running gift wins (and doesn't use the week); then a keyed one-way hash (HMAC-SHA256 with
+  `FREE_WEEK_HASH_SECRET`) of the normalised email and of the Sign in with Apple ID: a claim under either decides running or ended; with no claim, Apple's
+  DeviceCheck bit 0 for this iPhone (set = no free week); otherwise the week is claimed now and the bit set. DeviceCheck never blocks anyone: unconfigured,
+  no token sent or Apple failing, it is skipped and the answer says so.
+- **Apple wins on the phone:** while an App Store token runs, the account endpoint isn't asked, so a subscriber's week isn't used up.
+- **Gifts** (founder: "if I give their email to you, you can give them a premium account ... I won't have to do a new build"): a row in `premium_gifts`
+  (account, optional end). The SQL to give, take away and list gifts is in `supabase/migrations/20261121120000_free_week.sql`. A gift token lasts at most 30 days
+  (`GIFT_TOKEN_DAYS`), so a removed gift stops the next time the app asks, at the latest 30 days later.
+- **Env vars (Vercel, Production and Preview, Sensitive):** `FREE_WEEK_HASH_SECRET` (at least 32 characters; **never change it once set**, or every hash changes
+  and everyone could have a second week); `DEVICECHECK_KEY_ID`, `DEVICECHECK_TEAM_ID` (or `APPLE_TEAM_ID`), `DEVICECHECK_PRIVATE_KEY` (the .p8 text; Apple
+  Developer > Certificates, Identifiers & Profiles > Keys > + > DeviceCheck > Continue > Register > Download, once). Without the secret or
+  `ENTITLEMENT_PRIVATE_JWK` the route answers 503; before the migration, 500; either way the app changes nothing.
+- **Apple's own 7-day introductory offer is removed** from the subscriptions so nobody sees two free weeks; the plans show no trial.

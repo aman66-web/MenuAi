@@ -343,3 +343,17 @@ Make it at home, Scan your food and Pip's recipe in Cook with what you have (all
 - [ ] App Privacy form and age rating from the sections above; screenshots from `web/e2e/store-shots.mjs`
 - [ ] Archive and upload from Xcode; TestFlight on your own iPhone (scanner, Near me, share, offline, a reminder set a minute ahead)
 - [ ] Submit; release manually
+
+## Version 1.1 (next build): the free week replaces Apple's introductory trial (21 November 2026)
+
+Founder (20 Nov): every account gets Premium free for its first 7 days automatically, with no details; Apple's 7-day introductory offer comes off both
+subscriptions (App Store Connect > Subscriptions > each plan > Subscription Prices > Introductory Offers), so the plans show no trial.
+
+**App Privacy:** the email hash is covered by the existing "Email Address, linked, App Functionality" row; the DeviceCheck token is used at once and not
+stored, so no new row and no PrivacyInfo.xcprivacy change (re-check before submitting).
+
+**Notes for App Review (replace the In-App Purchase paragraph):**
+
+```
+In-App Purchase: two auto-renewable subscriptions in one group, Annual and Monthly (no introductory offer). Every new account gets Premium free for its first 7 days automatically after signing in, with no payment details; we keep a one-way hash of the email or Apple ID and use Apple's DeviceCheck so each person and device has one free week. After it ends, Premium features show the plans. You can subscribe at any time, also during the free week: Settings (gear on Home) > Subscription > See plans. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work.
+```
