@@ -4053,3 +4053,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   truth card, meal plan, How much? measures, no filtering from sign-up, restaurant "Show dishes that fit my diet" and "My diet", forgiving search and
   search help, logos next to names, Morrisons labels). Pack checked: no screenshot test key, today's screens present. The 10 store screenshots are in
   "App Store screenshots 1.1". Waiting for the founder's go-ahead to upload, deploy numbite.com and swap it into review.
+- (21 Nov) **Store screenshot order** (founder: "all the grocery and recipe stuff is the most important ... start with that first and then at the end the
+  restaurant stuff"): 1 Recipes priced at your shop, 2 Every ingredient ready to buy, 3 A week of meals one list, 4 Cook with what you have, 5 Scan it Log it,
+  6 Top 20 supermarket lists, 7 Your day at a glance, 8 Know what's in your order, 9 See the truth about a dish, 10 Top picks for your goal
+  ("App Store screenshots 1.1", files numbered in that order).
