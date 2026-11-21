@@ -4098,3 +4098,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   MAX_BREAD_A_WEEK (4) a week, or the person's answer (breadLimit: most days 7, a few times 4, rarely 2; the Opus planner's setup asks it). A repeated main
   in a day now weighs double. Measured with no budget: 3-5 bread meals a week, never two a day. A budget far under the week's cost still leans on bread (the
   cheapest food); to re-measure once the world recipes land.
+- (21 Nov, evening) **Swap this meal as full as Recipes** (founder: "when they swap the meal, it should be the same customization as the recipe screen ...
+  you can completely filter exactly what you want"). The Swap sheet's tiles: Quick, No meat or fish, Vegan, and new High protein, Low fat, Lower carb (Meal
+  plan's style rules), Not in my plan, and More, which opens a Filters sheet: Only show, Mainly (chicken, beef, pork, lamb, turkey, fish, prawns, eggs, beans
+  and lentils, tofu, cheese, with counts; mealBalance main), Leave out (no eggs, cheese, bread, fish, pork, beef; mealBalance featured and bread) and
+  Cuisine with counts. A tile or chip shows only when it would change the list. lib/mm/swapPicker.ts (SwapExtra, SwapMain, SwapAvoid), tests/swapPicker.test.ts
+  (3 new); e2e mealplan 13/13. On `iap`, next build.

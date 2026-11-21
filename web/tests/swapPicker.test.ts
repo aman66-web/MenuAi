@@ -122,3 +122,34 @@ describe("on Sainsbury's real list", () => {
     expect(swapCuisines(rows, offered.cuisines).length).toBeGreaterThan(1);
   });
 });
+
+// The Swap sheet as full as Recipes (founder 2026-11-21: "when they swap the meal, it should be the same customization as the recipe screen ... you can
+// completely filter exactly what you want"): the meal's numbers, its main, what to leave out, and what the week has already.
+import { hasAvoid, swapMainCounts, swapMainOf, usefulAvoids, usefulExtras } from "../lib/mm/swapPicker";
+describe("the swap sheet's other filters", () => {
+  const byId = (id: string) => RECIPES.find((r) => r.id === id)!;
+  const korma = cand(byId("chicken-korma-style-curry"), { perServing: { kcal: 600, protein: 50, carbs: 40, fat: 20 } });
+  const noodles = cand(byId("salmon-noodles"), { perServing: { kcal: 600, protein: 25, carbs: 80, fat: 10 } });
+  const mac = cand(byId("easy-macaroni-cheese"), { perServing: { kcal: 600, protein: 25, carbs: 70, fat: 28 } });
+  const wraps = cand(byId("egg-mayonnaise-wraps"), { perServing: { kcal: 600, protein: 30, carbs: 50, fat: 30 } });
+  const rows = [korma, noodles, mac, wraps].map((c, i) => ({ candidate: c, inPlan: i === 0, fitsStyle: true }));
+  it("narrows by what it is mainly made of, and counts each", () => {
+    expect(swapMainOf(korma)).toBe("chicken");
+    expect(swapMainOf(noodles)).toBe("fish");
+    expect(filterSwapRows(rows, { mains: ["fish", "chicken"] }).map((r) => r.candidate.recipe.id)).toEqual(["chicken-korma-style-curry", "salmon-noodles"]);
+    expect(swapMainCounts(rows).get("chicken")).toBe(1);
+  });
+  it("leaves out eggs, cheese or bread, and offers only what some have", () => {
+    expect(hasAvoid(wraps, "bread")).toBe(true);
+    expect(hasAvoid(wraps, "eggs")).toBe(true);
+    expect(hasAvoid(mac, "cheese")).toBe(true);
+    expect(filterSwapRows(rows, { avoid: ["bread", "cheese"] }).map((r) => r.candidate.recipe.id)).toEqual(["chicken-korma-style-curry", "salmon-noodles"]);
+    expect(usefulAvoids(rows)).toEqual(expect.arrayContaining(["eggs", "cheese", "bread"]));
+  });
+  it("shows high protein (a third of the calories from protein) or not in the plan yet", () => {
+    expect(filterSwapRows(rows, { extras: ["highProtein"] }).map((r) => r.candidate.recipe.id)).toContain("chicken-korma-style-curry");
+    expect(filterSwapRows(rows, { extras: ["highProtein"] }).map((r) => r.candidate.recipe.id)).not.toContain("salmon-noodles");
+    expect(filterSwapRows(rows, { extras: ["notInPlan"] }).map((r) => r.candidate.recipe.id)).not.toContain("chicken-korma-style-curry");
+    expect(usefulExtras(rows)).toContain("notInPlan");
+  });
+});

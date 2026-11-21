@@ -1,3 +1,4 @@
+import { mealBalanceOf, type MainKind } from "./mealBalance";
 import { fitsStyle, type EatingStyle, type PlanCandidate, type PlanIds } from "./mealPlan";
 import type { CuisineId } from "./recipeBook/niches";
 import { matchesNiche, nicheCounts, type CuisineOption } from "./recipeNiche";
@@ -45,23 +46,84 @@ export function swapRows(
     .map((c) => ({ candidate: c, inPlan: used.has(c.recipe.id), fitsStyle: fitsStyle(c, style) })); // the whole candidate, so the ingredient rules (Longevity, Paleo, the diets...) count too
 }
 
+/**
+ * The Swap sheet's other filters (founder 2026-11-21: "when they swap the meal, it should be the same customization as the recipe screen ... you can completely
+ * filter exactly what you want"): the meal's numbers (High protein, Low fat, Lower carb, as Meal plan's eating styles count them), and leaving out what the
+ * week has already.
+ */
+export type SwapExtra = "highProtein" | "lowFat" | "lowerCarb" | "notInPlan";
+export const SWAP_EXTRAS: readonly SwapExtra[] = ["highProtein", "lowFat", "lowerCarb", "notInPlan"];
+const EXTRA_TESTS: Record<SwapExtra, (r: SwapRow) => boolean> = {
+  highProtein: (r) => fitsStyle(r.candidate, "highProtein"),
+  lowFat: (r) => fitsStyle(r.candidate, "lowFat"),
+  lowerCarb: (r) => fitsStyle(r.candidate, "lowerCarb"),
+  notInPlan: (r) => !r.inPlan,
+};
+
+/** What a meal is mainly made of (mealBalance.ts), as the sheet offers it: fish of every kind together, beans with lentils. */
+export type SwapMain = "chicken" | "beef" | "pork" | "lamb" | "turkey" | "fish" | "prawns" | "eggs" | "beans" | "tofu" | "cheese";
+export const SWAP_MAINS: readonly SwapMain[] = ["chicken", "beef", "pork", "lamb", "turkey", "fish", "prawns", "eggs", "beans", "tofu", "cheese"];
+const MAIN_OF: Record<MainKind, SwapMain> = {
+  chicken: "chicken", turkey: "turkey", beef: "beef", pork: "pork", lamb: "lamb", salmon: "fish", tuna: "fish", whiteFish: "fish", oilyFish: "fish", prawns: "prawns",
+  tofu: "tofu", beans: "beans", lentils: "beans", cheese: "cheese", eggs: "eggs",
+};
+export const swapMainOf = (c: PlanCandidate): SwapMain | null => { const m = mealBalanceOf(c.recipe).main; return m ? MAIN_OF[m] : null; };
+
+/** What can be left out: a meal with any of it leading part of it (mealBalance featured), or made with bread. */
+export type SwapAvoid = "eggs" | "cheese" | "bread" | "fish" | "pork" | "beef";
+export const SWAP_AVOIDS: readonly SwapAvoid[] = ["eggs", "cheese", "bread", "fish", "pork", "beef"];
+export function hasAvoid(c: PlanCandidate, a: SwapAvoid): boolean {
+  const b = mealBalanceOf(c.recipe);
+  if (a === "bread") return b.bread;
+  return b.featured.some((k) => MAIN_OF[k] === a);
+}
+
 /** What the person has chosen to narrow the list: the search (a test from the screen, matchesRecipeSearch), the quick filters, the cuisines and a price range. */
 export interface SwapFilter {
   matches?: (c: PlanCandidate) => boolean;
   quick?: Iterable<QuickFilter>;
   cuisines?: readonly CuisineId[];
   price?: PriceRange | null;
+  /** Every one of these must hold. */
+  extras?: Iterable<SwapExtra>;
+  /** Mainly one of these (none chosen: any). */
+  mains?: readonly SwapMain[];
+  /** None of these. */
+  avoid?: readonly SwapAvoid[];
 }
 
 /** The rows that pass every choice (each quick filter, one of the cuisines, inside the price range, and the search). */
 export function filterSwapRows(rows: readonly SwapRow[], f: SwapFilter): SwapRow[] {
   const quick = [...(f.quick ?? [])];
   const cuisines = f.cuisines ?? [];
-  return rows.filter(({ candidate: c }) =>
-    quick.every((q) => QUICK_TESTS[q](c.recipe))
-    && matchesNiche(c.recipe.id, cuisines, [])
-    && (!f.price || inPriceRange(c.cost, f.price))
-    && (!f.matches || f.matches(c)));
+  const extras = [...(f.extras ?? [])];
+  const mains = f.mains ?? [];
+  const avoid = f.avoid ?? [];
+  return rows.filter((row) => {
+    const c = row.candidate;
+    return quick.every((q) => QUICK_TESTS[q](c.recipe))
+      && extras.every((x) => EXTRA_TESTS[x](row))
+      && (!mains.length || mains.includes(swapMainOf(c) as SwapMain))
+      && !avoid.some((a) => hasAvoid(c, a))
+      && matchesNiche(c.recipe.id, cuisines, [])
+      && (!f.price || inPriceRange(c.cost, f.price))
+      && (!f.matches || f.matches(c));
+  });
+}
+
+/** The extra filters worth offering here: each that keeps some rows but not all. */
+export function usefulExtras(rows: readonly SwapRow[]): SwapExtra[] {
+  return SWAP_EXTRAS.filter((x) => { const n = rows.filter((r) => EXTRA_TESTS[x](r)).length; return n > 0 && n < rows.length; });
+}
+
+/** The mains these rows come in, with how many (only those that have some), and the things worth leaving out (some rows have them, not all). */
+export function swapMainCounts(rows: readonly SwapRow[]): Map<SwapMain, number> {
+  const out = new Map<SwapMain, number>();
+  for (const r of rows) { const m = swapMainOf(r.candidate); if (m) out.set(m, (out.get(m) ?? 0) + 1); }
+  return new Map(SWAP_MAINS.filter((m) => out.has(m)).map((m) => [m, out.get(m)!]));
+}
+export function usefulAvoids(rows: readonly SwapRow[]): SwapAvoid[] {
+  return SWAP_AVOIDS.filter((a) => { const n = rows.filter((r) => hasAvoid(r.candidate, a)).length; return n > 0 && n < rows.length; });
 }
 
 /** The sorts that mean something here: "closest fit" only when the recipes were fitted to the meal (some are further from it than others). */

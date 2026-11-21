@@ -11,8 +11,8 @@ import { cuisineOptions, nicheCounts, occasionOptions } from "@/lib/mm/recipeNic
 import type { MealType } from "@/lib/mm/recipes";
 import { matchesRecipeSearch, recipeSearchExtras, type QuickFilter } from "@/lib/mm/recipeSearch";
 import { pounds, settleRange, type PriceRange } from "@/lib/mm/servingPrice";
-import { filterSwapRows, sortSwapRows, swapCuisines, swapPriceBounds, swapRows, swapSorts, usefulQuickFilters, type SwapSort } from "@/lib/mm/swapPicker";
-import { CalendarIcon, PotIcon, SearchIcon } from "../_components/icons";
+import { filterSwapRows, sortSwapRows, swapCuisines, swapMainCounts, swapPriceBounds, swapRows, swapSorts, usefulAvoids, usefulExtras, usefulQuickFilters, type SwapAvoid, type SwapExtra, type SwapMain, type SwapSort } from "@/lib/mm/swapPicker";
+import { BoltIcon, CalendarIcon, DropIcon, GridIcon, PotIcon, ScaleIcon, SearchIcon } from "../_components/icons";
 import { DONE_KEY, DONE_ROOM, SearchDone } from "../_components/SearchDone";
 import { Button, EmptyState, Sheet } from "../_components/ui";
 import { useT } from "../_lib/i18n";
@@ -34,6 +34,19 @@ const CUISINE_OPTIONS = cuisineOptions(RECIPE_IDS);
 const SORT_LABEL: Record<SwapSort, string> = { fit: tk("Closest fit"), price: tk("Lowest price"), protein: tk("Most protein") };
 /** Rows shown at first, and added by "Show more". */
 const PAGE = 20;
+// the Recipes screen's tiles and more (founder 2026-11-21: "when they swap the meal, it should be the same customization as the recipe screen"): the meal's
+// numbers, what it is mainly made of, and what to leave out, the last two in the More sheet
+const EXTRA_TILES: ReadonlyArray<{ value: SwapExtra; label: string; Icon: (p: React.SVGProps<SVGSVGElement>) => React.ReactNode }> = [
+  { value: "highProtein", label: tk("High protein"), Icon: BoltIcon },
+  { value: "lowFat", label: tk("Low fat"), Icon: DropIcon },
+  { value: "lowerCarb", label: tk("Lower carb"), Icon: ScaleIcon },
+  { value: "notInPlan", label: tk("Not in my plan"), Icon: CalendarIcon },
+];
+const MAIN_LABEL: Record<SwapMain, string> = {
+  chicken: tk("Chicken"), beef: tk("Beef"), pork: tk("Pork"), lamb: tk("Lamb"), turkey: tk("Turkey"), fish: tk("Fish"), prawns: tk("Prawns"), eggs: tk("Eggs"),
+  beans: tk("Beans and lentils"), tofu: tk("Tofu"), cheese: tk("Cheese"),
+};
+const AVOID_LABEL: Record<SwapAvoid, string> = { eggs: tk("No eggs"), cheese: tk("No cheese"), bread: tk("No bread"), fish: tk("No fish"), pork: tk("No pork"), beef: tk("No beef") };
 
 /** The sort as a field with the Cuisine and Serving price fields' look (NicheField), the phone's own list behind a tap. */
 function SortField({ value, sorts, onChange }: { value: SwapSort; sorts: readonly SwapSort[]; onChange: (s: SwapSort) => void }) {
@@ -89,6 +102,12 @@ export function SwapPicker({
 
   const [query, setQuery] = useState("");
   const [quick, setQuick] = useState<ReadonlySet<QuickFilter>>(() => new Set());
+  const [picked, setPicked] = useState<ReadonlySet<SwapExtra>>(() => new Set());
+  const [mains, setMains] = useState<readonly SwapMain[]>([]);
+  const [avoid, setAvoid] = useState<readonly SwapAvoid[]>([]);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const extrasOffered = useMemo(() => usefulExtras(pool), [pool]);
+  const avoidOffered = useMemo(() => usefulAvoids(pool), [pool]);
   const [cuisines, setCuisines] = useState<readonly CuisineId[]>([]);
   const [priceSel, setPriceSel] = useState<PriceRange | null>(null);
   const [sortSel, setSortSel] = useState<SwapSort | null>(null);
@@ -100,15 +119,20 @@ export function SwapPicker({
 
   // everything but the cuisine and the price, then those: the cuisine counts and the price sheet's count are worked out from the first list
   const matches = (c: PlanCandidate) => matchesRecipeSearch(c.recipe, query, t, offered, extras.get(c.recipe.id));
-  const base = filterSwapRows(pool, { quick, matches: query.trim() ? matches : undefined });
+  const base = filterSwapRows(pool, { quick, extras: picked, mains, avoid, matches: query.trim() ? matches : undefined });
+  // the More sheet's "Mainly" counts: everything chosen but the mains themselves
+  const mainCounts = swapMainCounts(filterSwapRows(pool, { quick, extras: picked, avoid, cuisines, matches: query.trim() ? matches : undefined }));
   const withCuisine = filterSwapRows(base, { cuisines });
   const shown = sortSwapRows(filterSwapRows(withCuisine, { price: priceRange }), sort);
   const cuisineCounts = nicheCounts(base.map((r) => r.candidate.recipe.id), [], []).cuisine;
-  const filtering = query.trim() !== "" || quick.size > 0 || cuisines.length > 0 || !!priceRange;
+  const filtering = query.trim() !== "" || quick.size > 0 || picked.size > 0 || mains.length > 0 || avoid.length > 0 || cuisines.length > 0 || !!priceRange;
 
   const flip = (q: QuickFilter) => { const n = new Set(quick); if (n.has(q)) n.delete(q); else n.add(q); setQuick(n); setLimit(PAGE); };
   const flipCuisine = (id: CuisineId) => { setCuisines(cuisines.includes(id) ? cuisines.filter((x) => x !== id) : CUISINE_OPTIONS.filter((c) => c.id === id || cuisines.includes(c.id)).map((c) => c.id)); setLimit(PAGE); };
-  const clearAll = () => { setQuery(""); setQuick(new Set()); setCuisines([]); setPriceSel(null); setLimit(PAGE); };
+  const flipExtra = (x: SwapExtra) => { const n = new Set(picked); if (n.has(x)) n.delete(x); else n.add(x); setPicked(n); setLimit(PAGE); };
+  const flipMain = (m: SwapMain) => { setMains(mains.includes(m) ? mains.filter((x) => x !== m) : [...mains, m]); setLimit(PAGE); };
+  const flipAvoid = (a: SwapAvoid) => { setAvoid(avoid.includes(a) ? avoid.filter((x) => x !== a) : [...avoid, a]); setLimit(PAGE); };
+  const clearAll = () => { setQuery(""); setQuick(new Set()); setPicked(new Set()); setMains([]); setAvoid([]); setCuisines([]); setPriceSel(null); setLimit(PAGE); };
   const count = (n: number) => (n === 0 ? t("No recipes match.") : n === 1 ? t("Show 1 recipe") : t("Show {n} recipes", { n }));
   const countLine = shown.length === 1 ? (filtering ? t("1 recipe match") : t("1 recipe")) : filtering ? t("{n} recipes match", { n: shown.length }) : t("{n} recipes", { n: shown.length });
 
@@ -144,14 +168,17 @@ export function SwapPicker({
         <SearchDone />
       </div>
 
-      {/* the quick-filter tiles that would change the list, side by side (fewer to a row with large text: the minimum width is in rem) */}
-      {quickOffered.length > 0 && (
-        <div role="group" aria-label={t("Filters")} className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,5.5rem),1fr))] gap-2">
-          {QUICK_FILTERS.filter((q) => quickOffered.includes(q.value)).map((q) => (
-            <FilterTile key={q.value} label={t(q.label)} Icon={q.Icon} pressed={quick.has(q.value)} onClick={() => flip(q.value)} />
-          ))}
-        </div>
-      )}
+      {/* the filter tiles that would change the list, side by side (fewer to a row with large text: the minimum width is in rem), then More: the Recipes screen's
+          tiles and the meal's numbers, and every filter in one sheet */}
+      <div role="group" aria-label={t("Filters")} className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,5.5rem),1fr))] gap-2">
+        {QUICK_FILTERS.filter((q) => quickOffered.includes(q.value)).map((q) => (
+          <FilterTile key={q.value} label={t(q.label)} Icon={q.Icon} pressed={quick.has(q.value)} onClick={() => flip(q.value)} />
+        ))}
+        {EXTRA_TILES.filter((x) => extrasOffered.includes(x.value)).map((x) => (
+          <FilterTile key={x.value} label={t(x.label)} Icon={x.Icon} pressed={picked.has(x.value)} onClick={() => flipExtra(x.value)} />
+        ))}
+        <FilterTile label={t("More")} Icon={GridIcon} more onClick={() => setMoreOpen(true)} />
+      </div>
 
       {/* Cuisine, Serving price and the sort, two to a row (one under the other with large text); one left on its own takes the row */}
       <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-2.5 [&>*:last-child:nth-child(odd)]:col-span-full">{fields}</div>
@@ -192,6 +219,49 @@ export function SwapPicker({
           )}
         </>
       )}
+
+      {/* every filter in one sheet, as Recipes' More: what to show, what it is mainly made of, what to leave out, the cuisines; how many match on the button */}
+      <Sheet open={moreOpen} onClose={() => setMoreOpen(false)} title={t("Filters")}>
+        <div className="space-y-5 pb-2">
+          {(quickOffered.length > 0 || extrasOffered.length > 0) && (
+            <section aria-labelledby="swap-only-h">
+              <p id="swap-only-h" className={`mb-2.5 ${LABEL}`}>{t("Only show")}</p>
+              <div role="group" aria-labelledby="swap-only-h" className="flex flex-wrap gap-2">
+                {QUICK_FILTERS.filter((q) => quickOffered.includes(q.value)).map((q) => <FilterChip key={q.value} label={t(q.label)} pressed={quick.has(q.value)} onClick={() => flip(q.value)} />)}
+                {EXTRA_TILES.filter((x) => extrasOffered.includes(x.value)).map((x) => <FilterChip key={x.value} label={t(x.label)} pressed={picked.has(x.value)} onClick={() => flipExtra(x.value)} />)}
+              </div>
+            </section>
+          )}
+          {mainCounts.size > 1 && (
+            <section aria-labelledby="swap-main-h">
+              <p id="swap-main-h" className={`mb-2.5 ${LABEL}`}>{t("Mainly")}</p>
+              <div role="group" aria-labelledby="swap-main-h" className="flex flex-wrap gap-2">
+                {[...mainCounts].map(([m, n]) => <FilterChip key={m} label={t(MAIN_LABEL[m])} count={n} pressed={mains.includes(m)} onClick={() => flipMain(m)} />)}
+              </div>
+            </section>
+          )}
+          {avoidOffered.length > 0 && (
+            <section aria-labelledby="swap-avoid-h">
+              <p id="swap-avoid-h" className={`mb-2.5 ${LABEL}`}>{t("Leave out")}</p>
+              <div role="group" aria-labelledby="swap-avoid-h" className="flex flex-wrap gap-2">
+                {avoidOffered.map((a) => <FilterChip key={a} label={t(AVOID_LABEL[a])} pressed={avoid.includes(a)} onClick={() => flipAvoid(a)} />)}
+              </div>
+            </section>
+          )}
+          {cuisineOffered.length > 0 && (
+            <section aria-labelledby="swap-cuisine-h">
+              <p id="swap-cuisine-h" className={`mb-2.5 ${LABEL}`}>{t("Cuisine")}</p>
+              <div role="group" aria-labelledby="swap-cuisine-h" className="flex flex-wrap gap-2">
+                {cuisineOffered.map((c) => <FilterChip key={c.id} label={t(c.label)} count={cuisineCounts.get(c.id) ?? 0} pressed={cuisines.includes(c.id)} onClick={() => flipCuisine(c.id)} />)}
+              </div>
+            </section>
+          )}
+        </div>
+        <div className="mt-2 flex items-center gap-2.5 pb-2">
+          {filtering && <Button variant="secondary" onClick={clearAll}>{t("Clear all")}</Button>}
+          <Button full className="min-h-12 flex-1" onClick={() => setMoreOpen(false)}><span className="app-numbers">{count(shown.length)}</span></Button>
+        </div>
+      </Sheet>
 
       {/* the Cuisine field's choices, with how many recipes each has with everything else as it is (Recipes' Filters sheet does the same) */}
       <Sheet open={cuisineOpen} onClose={() => setCuisineOpen(false)} title={t("Cuisine")}>
