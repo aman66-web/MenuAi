@@ -49,11 +49,11 @@ await step("the Truth card: calories, Protein score, official traffic lights (re
   const lights = sheet.getByRole("region", { name: "Traffic lights" }).locator("li");
   expect((await lights.count()) === 4, "four lights");
   const text = (await lights.allInnerTexts()).map((t) => t.replace(/\s+/g, " "));
-  expect(/Fat 51 g High/.test(text[0]), "fat: " + text[0]);
-  expect(/Saturates 8 g High/.test(text[1]), "saturates: " + text[1]);
-  expect(/Sugars 11 g Low/.test(text[2]), "sugars: " + text[2]);
-  expect(/Salt 3\.30 g High/.test(text[3]) || /Salt 3\.3 g High/.test(text[3]), "salt: " + text[3]);
-  expect(/of reference intake/.test(text[0]), "% of reference intake");
+  expect(/Fat · High 51 g/.test(text[0]), "fat: " + text[0]);
+  expect(/Saturates · High 8 g/.test(text[1]), "saturates: " + text[1]);
+  expect(/Sugars · Low 11 g/.test(text[2]), "sugars: " + text[2]);
+  expect(/Salt · High 3\.30? g/.test(text[3]), "salt: " + text[3]);
+  expect(/% of a day/.test(text[0]), "% of a day");
   const inside = (await sheet.getByRole("region", { name: "What that looks like" }).innerText()).replace(/\s+/g, " ");
   expect(inside.includes("= about 3 sugar cubes"), "sugar: " + inside);
   expect(inside.includes("= about 60 g of butter"), "butter: " + inside);
@@ -68,9 +68,9 @@ await step("no published weight means no guess: amber and green are not shown, r
   await seeTruth(page, ZINGER);
   const sheet = sheetOf(page);
   const text = (await sheet.getByRole("region", { name: "Traffic lights" }).locator("li").allInnerTexts()).map((t) => t.replace(/\s+/g, " "));
-  expect(/Sugars 8\.7 g No colour/.test(text[2]), "sugars: " + text[2]);
-  expect(/Salt 3 g High/.test(text[3]), "salt: " + text[3]);
-  await sheet.getByText("doesn't publish for it", { exact: false }).waitFor();
+  expect(/^Sugars 8\.7 g/.test(text[2]) && !/Low|Medium|High/.test(text[2]), "sugars: " + text[2]);
+  expect(/Salt · High 3 g/.test(text[3]), "salt: " + text[3]);
+  await sheet.getByText("doesn't publish the dish's weight", { exact: false }).waitFor();
   await ctx.close();
 });
 

@@ -60,16 +60,15 @@ function LightPill({ r, percent, index }: { r: LightResult; percent?: number; in
   return (
     <li
       style={{ "--i": index } as React.CSSProperties}
-      className={`truth-drop rounded-[1.25rem] px-3.5 py-3 text-[var(--tl-ink)] ${coloured ? LIGHT_FILL[r.light as Light] : "bg-[var(--tl-grey)]"}`}
+      className={`truth-drop rounded-[1.25rem] px-3.5 py-3 ${coloured ? `text-[var(--tl-ink)] ${LIGHT_FILL[r.light as Light]}` : "border border-line bg-fill text-foreground"}`}
     >
-      <p className="text-base font-bold leading-tight">{name}</p>
+      <p className="text-base font-bold leading-tight">{name}{coloured && <span className="font-semibold"> · {t(LIGHT_WORD[r.light as Light])}</span>}</p>
       {r.grams === undefined ? (
         <p className="mt-1 text-lg font-bold leading-snug">{t("Not published")}</p>
       ) : (
         <>
-          <p className="app-numbers mt-0.5 text-3xl font-extrabold leading-none tracking-tight">{gramsText(r.grams, r.key === "salt" ? 2 : 1)}</p>
-          <p className="mt-1.5 text-lg font-bold leading-snug">{coloured ? t(LIGHT_WORD[r.light as Light]) : t("No colour")}</p>
-          {percent !== undefined && <p className="app-numbers text-base font-semibold leading-snug">{t("{n}% of reference intake", { n: percent })}</p>}
+          <p className="app-numbers mt-1 text-3xl font-extrabold leading-none tracking-tight">{gramsText(r.grams, r.key === "salt" ? 2 : 1)}</p>
+          {percent !== undefined && <p className={`app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-snug ${coloured ? "" : "text-muted"}`}>{t("{n}% of a day", { n: percent })}</p>}
         </>
       )}
     </li>
@@ -103,7 +102,7 @@ function Lights({ truth, chain }: { truth: ItemTruth; chain: Chain }) {
         {truth.kind === "drink" ? (
           <p>{t("Drinks aren't coloured here: the official scheme measures them per 100 ml.")}</p>
         ) : anyUncoloured ? (
-          <p>{t("A colour needs the dish's weight, which {chain} doesn't publish for it. A figure above the official high level is red whatever it weighs.", { chain: chain.name })}</p>
+          <p>{t("No colour: {chain} doesn't publish the dish's weight.", { chain: chain.name })}</p>
         ) : null}
         <p>
           {t("Colours follow the official UK scheme.")}{" "}
@@ -136,12 +135,15 @@ function Household({ rows, replay }: { rows: HouseholdEquivalent[]; replay: numb
                 ))}
               </p>
               <p className="mt-2 text-2xl font-extrabold leading-snug tracking-tight">= {t(h.text)}</p>
-              <p className="mt-1 text-base leading-snug text-muted">
-                {t(h.basis)}{" "}
-                <a href={h.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">
-                  {t("Source")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
-                </a>
-              </p>
+              <details className="mt-1">
+                <summary className="inline-flex min-h-11 cursor-pointer list-none items-center text-[0.9375rem] font-semibold text-accent underline underline-offset-4 [&::-webkit-details-marker]:hidden">{t("How we worked it out")}</summary>
+                <p className="pb-1 text-base leading-snug text-muted">
+                  {t(h.basis)}{" "}
+                  <a href={h.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">
+                    {t("Source")}<span className="sr-only"> {t("(opens in a new tab)")}</span>
+                  </a>
+                </p>
+              </details>
             </li>
           );
         })}
@@ -150,13 +152,46 @@ function Household({ rows, replay }: { rows: HouseholdEquivalent[]; replay: numb
   );
 }
 
+/** The score as five bars on the ink tile: lime for each point on the mid-grey track, like Home's bars on its ink cards. */
 function ScoreDots({ score }: { score: number }) {
   return (
-    <span aria-hidden className="mt-2 flex gap-1.5">
+    <span aria-hidden className="mt-3 flex gap-1.5">
       {[1, 2, 3, 4, 5].map((n) => (
-        <span key={n} className={`h-3 flex-1 rounded-full ${n <= score ? "bg-ink [.truth-dark_&]:bg-accent" : "border-[1.5px] border-edge bg-line"}`} />
+        <span key={n} style={{ "--i": n } as React.CSSProperties} className={`truth-drop h-2.5 flex-1 rounded-full ${n <= score ? "bg-[var(--bar)]" : "bg-[var(--ring-track)]"}`} />
       ))}
     </span>
+  );
+}
+
+/** A share of the day as a lime bar on the ink tile (full at 100% or more). */
+function DayBar({ percent }: { percent: number }) {
+  return (
+    <span aria-hidden className="mt-2.5 block h-2 overflow-hidden rounded-full bg-[var(--ring-track)]">
+      <span className="block h-full rounded-full bg-[var(--bar)]" style={{ width: `${Math.min(100, Math.max(3, percent))}%` }} />
+    </span>
+  );
+}
+
+/**
+ * The dish's own photo from the chain's website, big at the top (founder 2026-11-21: "you need a photo of the dish on it too"), shown whole (never cropped or
+ * stretched: CLAUDE.md rule 2) with the chain's logo and name on a chip over it and the credit under it. Never on the dark card or in Creator View (filmed).
+ */
+function DishPhoto({ chain, image, onFail }: { chain: Chain; image: string | undefined; onFail: () => void }) {
+  const t = useT();
+  const src = itemImageUrl(image);
+  if (!src) return null;
+  return (
+    <figure className="[.truth-dark_&]:hidden">
+      <div className="relative overflow-hidden rounded-[1.5rem] border border-line bg-card">
+        {/* eslint-disable-next-line @next/next/no-img-element -- already resized and WebP-encoded by tools/uk_extract/images_common.py */}
+        <img src={src} alt="" width={640} height={480} decoding="async" onError={onFail} className="mx-auto block h-auto max-h-[min(16rem,32svh)] w-full object-contain" />
+        <span className="absolute start-2.5 top-2.5 inline-flex max-w-[calc(100%-1.25rem)] items-center gap-2 rounded-full bg-[var(--photo-chip)] py-1 ps-1 pe-3.5 text-[0.9375rem] font-bold text-foreground shadow-[var(--photo-chip-shadow)]">
+          <ChainMark chainId={chain.id} cuisine={chain.cuisine} size="xs" />
+          <span className="min-w-0 truncate">{chain.name}</span>
+        </span>
+      </div>
+      <figcaption className="px-1 pt-1.5 text-[0.8125rem] font-medium leading-snug text-muted">{t("Photo from the {chain} website", { chain: chain.name })}</figcaption>
+    </figure>
   );
 }
 
@@ -234,6 +269,10 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
   const message = shareMessage({ chainId: chain.id, chainName: chain.name, item, swap, origin: shareOrigin() });
   useHiddenLogos(); // re-render when the taken-down list arrives: itemImageUrl reads it
   const photos = !creator; // never in Creator View (filmed and posted)
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const hasPhoto = photos && !photoFailed && itemImageUrl(item.image) !== undefined;
+  const protein = item.nutrients.protein;
+  const proteinPercent = truth.reference.find((r) => r.key === "protein")?.percent ?? 0;
   useEffect(() => { setLastTruthMessage(message); }, [message]);
 
   const saveImage = async () => {
@@ -248,50 +287,68 @@ export function TruthBody({ chain, item, swap, creator = false, replay = 0, onWh
 
   return (
     <div key={replay} className="pb-4">
-      {/* the chain's own logo next to its name (founder 2026-11-21: "You should do the Nando's logos. We need logos everywhere"), never in Creator View or on the
-          dark card, which are filmed and posted (CLAUDE.md rule 2: no logo on what is shared) */}
-      <div className="flex items-center gap-3.5">
-        {photos && itemImageUrl(item.image) && <span className="shrink-0 empty:hidden [.truth-dark_&]:hidden"><ItemThumb image={item.image} /></span>}
-        <p className="flex min-w-0 flex-1 items-center gap-2 text-base font-semibold text-muted [overflow-wrap:anywhere]">
-          {photos && <span className="shrink-0 [.truth-dark_&]:hidden"><ChainMark chainId={chain.id} cuisine={chain.cuisine} size="sm" /></span>}
-          <span className="min-w-0">{chain.name}</span>
-        </p>
+      {/* the dish (its photo, the chain's logo and name on it); with no photo, or on the dark card, the chain's name (and logo) as a line */}
+      {hasPhoto && <DishPhoto chain={chain} image={item.image} onFail={() => setPhotoFailed(true)} />}
+      <p className={`items-center gap-2 text-base font-semibold text-muted [overflow-wrap:anywhere] ${hasPhoto ? "hidden [.truth-dark_&]:flex" : "flex"}`}>
+        {photos && <span className="shrink-0 [.truth-dark_&]:hidden"><ChainMark chainId={chain.id} cuisine={chain.cuisine} size="sm" /></span>}
+        <span className="min-w-0">{chain.name}</span>
+      </p>
+
+      {/* the numbers on ink tiles, as Home shows a day (founder 2026-11-21: "more colour ... too much wording"): calories and protein side by side, each with
+          its share of the UK reference intake as a lime bar; the tiles stack when the text is large */}
+      <div className={`truth-bounce mt-3 grid gap-2.5 ${protein !== undefined ? "grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))]" : ""}`}>
+        <section aria-labelledby="truth-calories" className="truth-tile on-ink rounded-[1.25rem] p-4">
+          <h3 id="truth-calories" className="truth-tile-sub text-[0.9375rem] font-semibold">{t("Calories")}</h3>
+          <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5">
+            <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-6xl" : "text-5xl"}`}>{formatInt(calories)}</span>
+            <span className="sr-only">{formatInt(item.nutrients.calories)}</span>
+            <span className="truth-tile-sub text-lg font-bold">kcal</span>
+          </p>
+          {callout && (
+            <>
+              <DayBar percent={callout.percent} />
+              <p className="truth-tile-sub app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-snug">{t("{percent}% of a 2,000 kcal day", { percent: callout.percent })}</p>
+            </>
+          )}
+        </section>
+        {protein !== undefined && (
+          <section aria-labelledby="truth-protein" className="truth-tile on-ink rounded-[1.25rem] p-4">
+            <h3 id="truth-protein" className="truth-tile-sub text-[0.9375rem] font-semibold">{t("Protein")}</h3>
+            <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5">
+              <span className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-6xl" : "text-5xl"}`}>{gramsText(protein).replace(" g", "")}</span>
+              <span className="truth-tile-sub text-lg font-bold">g</span>
+            </p>
+            <DayBar percent={proteinPercent} />
+            <p className="truth-tile-sub app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-snug">{t("{n}% of 50 g a day", { n: proteinPercent })}</p>
+          </section>
+        )}
       </div>
 
-      <section aria-labelledby="truth-calories" className="truth-bounce mt-3 rounded-[1.5rem] bg-fill p-5">
-        <h3 id="truth-calories" className="text-base font-semibold text-muted">{t("Calories")}</h3>
-        <p className="mt-1 flex items-baseline gap-2">
-          <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-7xl" : "text-6xl"}`}>{formatInt(calories)}</span>
-          <span className="sr-only">{formatInt(item.nutrients.calories)}</span>
-          <span className="text-2xl font-bold text-muted">kcal</span>
-        </p>
-        {callout && (
-          <p className="mt-2 text-xl font-bold leading-snug">
-            {t("{percent}% of the 2,000 kcal reference intake in one item.", { percent: callout.percent })}
-          </p>
-        )}
-        {item.nutrients.protein !== undefined && (
-          <p className="mt-3 text-2xl font-extrabold leading-snug">
-            <span className="app-numbers">{gramsText(item.nutrients.protein)}</span> <span className="text-lg font-bold text-muted">{t("protein")}</span>
-            <span className="app-numbers text-base font-semibold text-muted"> · {t("{n}% of reference intake", { n: truth.reference.find((r) => r.key === "protein")?.percent ?? 0 })}</span>
-          </p>
-        )}
-      </section>
-
-      {/* App Review 1.4.1: where the reference intakes, the traffic lights, "What that looks like" and the Protein score come from, at the top of the card. */}
-      <MenuSourcesLink className="mt-1.5" chain={chain} />
+      {/* App Review 1.4.1: where the reference intakes, the traffic lights, "What that looks like" and the Protein score come from, at the top of the card,
+          above the Protein score. */}
+      <MenuSourcesLink className="mt-1" chain={chain} />
 
       {truth.score ? (
-        <section aria-labelledby="truth-score" className="truth-bounce mt-3 rounded-[1.5rem] bg-fill p-5">
-          <h3 id="truth-score" className="text-base font-semibold text-muted">{t("Protein score")}</h3>
-          <p className="mt-1 flex items-baseline gap-2">
-            <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight text-foreground ${creator ? "text-8xl" : "text-7xl"}`}>{scoreShown}</span>
-            <span aria-hidden className="text-4xl font-bold text-muted">/ 5</span>
-            <span className="sr-only">{t("{score} out of 5", { score: truth.score.score })}</span>
-          </p>
+        <section aria-labelledby="truth-score" className="truth-tile on-ink truth-bounce mt-1 rounded-[1.25rem] p-4">
+          <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+            <div className="min-w-0">
+              <h3 id="truth-score" className="truth-tile-sub text-[0.9375rem] font-semibold">{t("Protein score")}</h3>
+              <p className="mt-0.5 text-xl font-extrabold leading-snug">{t(SCORE_LABELS[truth.score.score])}</p>
+            </div>
+            <p className="flex items-baseline gap-1">
+              <span aria-hidden className={`app-numbers font-extrabold leading-none tracking-tight ${creator ? "text-7xl" : "text-6xl"}`}>{scoreShown}</span>
+              <span aria-hidden className="truth-tile-sub text-2xl font-bold">/ 5</span>
+              <span className="sr-only">{t("{score} out of 5", { score: truth.score.score })}</span>
+            </p>
+          </div>
           <ScoreDots score={truth.score.score} />
-          <p className="mt-3 text-xl font-bold leading-snug">{t(SCORE_LABELS[truth.score.score])}</p>
-          <p className="mt-1.5 text-base leading-snug text-muted">{t(PROTEIN_SCORE_HOW)}</p>
+          {/* how the score works, one tap away (the words stay, out of the way) */}
+          <details className="group mt-2">
+            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 text-[0.9375rem] font-semibold underline underline-offset-4 [&::-webkit-details-marker]:hidden">
+              {t("How it's scored")}
+            </summary>
+            <p className="truth-tile-sub pb-1 text-[0.9375rem] leading-snug">{t(PROTEIN_SCORE_HOW)}</p>
+          </details>
         </section>
       ) : caloriesOnly && truth.kind !== "drink" ? (
         <p className="mt-3 rounded-[1.25rem] bg-fill p-4 text-base leading-snug">{t("{chain} publishes calories only for this dish, so there is no protein score.", { chain: chain.name })}</p>

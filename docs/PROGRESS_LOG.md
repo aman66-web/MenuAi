@@ -3983,3 +3983,13 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   reads decimals, "1/5", "1 1/2" and the fraction signs, from a tenth of a measure; − and + go ⅕ ¼ ⅓ ½ ¾ below one, then by halves; the unit in the box
   ("glass ▾") opens the phone's list of measures, next to the Measure row. Error copy's lowest amount 0.5 → 0.1 (same sentence). portions.test.ts and
   e2e/barcodephoto.mjs (6 of 6) cover it. On `iap`, next build.
+- (21 Nov, afternoon) **The Truth card redesigned** (founder, on the store screenshot: "more colour ... look very basic ... too much wording ... you need a photo
+  of the dish on it too"). Top: the dish's own photo from the chain's website, big and whole, with the chain's logo and name on a chip over it and "Photo
+  from the {chain} website" under it (never on the dark card or in Creator View); then Calories and Protein on ink tiles like Home's, each with a lime bar
+  for its share of the reference intake; the Protein score on an ink tile with five bars and "How it's scored" folded away; "Where these numbers come
+  from" stays above the score (App Review 1.4.1). Traffic lights: the word in the title ("Fat · High"), an uncoloured pill on the page fill. "What that
+  looks like": its basis and source under "How we worked it out". The Dark card switch moved under the card. **Copy (founder's "too much wording"):**
+  "{percent}% of the 2,000 kcal reference intake in one item." → "{percent}% of a 2,000 kcal day"; "{n}% of reference intake" → "{n}% of 50 g a day" (protein)
+  and "{n}% of a day" (lights); "A colour needs the dish's weight, which {chain} doesn't publish for it. A figure above the official high level is red
+  whatever it weighs." → "No colour: {chain} doesn't publish the dish's weight."; "No colour" in each pill dropped. e2e/truth.mjs 14 of 14 (wording
+  updated), truth and colour unit tests 634 of 634. On `iap`, next build.

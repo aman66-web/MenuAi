@@ -21,19 +21,22 @@ export function TruthSheet({ open, onClose, chain, item, swap, onWhatsApp }: { o
   const isDark = creator || dark;
   return (
     <Sheet open={open} onClose={onClose} title={item.name} dark={isDark}>
-      <div className="mb-4 flex flex-wrap gap-2">
-        {!creator && (
-          <Chip size="lg" selected={dark} onClick={() => setDark((d) => !d)}>
-            {t("Dark card")}
-          </Chip>
-        )}
-        {creator && (
+      {creator && (
+        <div className="mb-4 flex flex-wrap gap-2">
           <Chip size="lg" onClick={() => setReplay((n) => n + 1)}>
             {t("Replay")}
           </Chip>
-        )}
-      </div>
+        </div>
+      )}
       <TruthBody chain={chain} item={item} swap={swap} creator={creator} replay={replay} onWhatsApp={onWhatsApp} />
+      {/* for filming the screen: under the card, out of the way of the dish (founder 2026-11-21: the top was "a lot of wording") */}
+      {!creator && (
+        <div className="mt-1 flex flex-wrap gap-2">
+          <Chip size="lg" selected={dark} onClick={() => setDark((d) => !d)}>
+            {t("Dark card")}
+          </Chip>
+        </div>
+      )}
     </Sheet>
   );
 }
