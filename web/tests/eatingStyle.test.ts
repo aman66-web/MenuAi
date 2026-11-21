@@ -358,7 +358,8 @@ describe("a varied week for every style at Sainsbury's", () => {
         expect(r.dayAfter, `${style} ${variety}`).toBeLessThanOrEqual(variety === 7 ? ({ keto: 3, paleo: 1 } as Partial<Record<EatingStyle, number>>)[style] ?? 0 : 0);
       }
     }
-  });
+    // 33 weeks planned: about 3 s alone with the 382 recipes of 21 November 2026, over the 5 s default when the whole suite runs at once
+  }, 30_000);
 
   it("with a snack too, as varied as the style's recipes allow", () => {
     for (const style of EATING_STYLES) {

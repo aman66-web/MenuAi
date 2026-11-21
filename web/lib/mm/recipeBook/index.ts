@@ -19,6 +19,7 @@ import { QUICK_DINNERS } from "./quickDinners";
 import { SNACKS } from "./snacks";
 import { VEGAN_MAINS } from "./veganMains";
 import { VEGAN_MORNING } from "./veganMorning";
+import { WORLD_MEALS } from "./worldMeals";
 
 // The recipe book: our own recipes, built from the pantry (lib/mm/pantry.ts). Each ingredient is a kind of food, not a product: the app
 // finds the products at the person's shop (or a substitute when the shop doesn't sell it) and works out every number from their labels.
@@ -56,4 +57,7 @@ export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...D
   ...QUICK_DINNERS,
   // founder 2026-11-21 ("all the shops, like, they should have recipes ... why does the ones that have ingredients not have recipes"): lunches and dinners
   // made only from what nearly every supermarket in the app sells
-  ...EVERY_SHOP];
+  ...EVERY_SHOP,
+  // founder 2026-11-21 ("You should have different recipes from around the planet, like ones people actually want to see ... look at what [the meal prep
+  // companies are] serving"): world plates and bowls, no wraps, sandwiches or toast
+  ...WORLD_MEALS];

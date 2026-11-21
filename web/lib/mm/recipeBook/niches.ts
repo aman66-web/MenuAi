@@ -96,6 +96,14 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
   ...cuisine("indian", "mulligatawny-chicken-rice-soup", "chicken-tikka-masala-style-curry", "mushroom-pea-coconut-curry", "baked-bean-spinach-curry-naan"),
   ...cuisine("italian", "tomato-mozzarella-naan-pizzas", "mushroom-carbonara-pasta", "chicken-arrabbiata-pasta"),
   ...cuisine("middle-eastern", "beef-koftas-cucumber-yogurt-naan", "mushroom-tomato-houmous-traybake"),
+  // the world recipes added 2026-11-21 (worldMeals.ts). The Moroccan-style dishes go where the Moroccan chickpea stew went, the spiced beef on houmous is a
+  // Levantine dish, the tinga a Mexican one and the masala omelette and masala oats Indian breakfasts. The Japanese, Korean, Thai, Vietnamese, Malaysian, Turkish, Greek,
+  // Spanish, Portuguese, Swedish, Caribbean, West African and Cajun dishes stay unlabelled (no such cuisine on offer)
+  ...cuisine("chinese", "dan-dan-beef-noodles-spinach", "hot-sour-noodle-soup-ham-egg", "sweet-sour-chicken-rice", "sichuan-chilli-garlic-mushrooms-rice"),
+  ...cuisine("indian", "masala-omelette-spinach-tomato", "masala-oats-peas-tomato", "mushroom-pea-pilau-almonds", "tandoori-chicken-rice-raita", "egg-biryani-rice-raita", "mushroom-pea-keema-naan"),
+  ...cuisine("italian", "italian-rice-salad-tuna-egg", "chicken-parmigiana-spaghetti", "salmon-pea-lemon-risotto", "arancini-tomato-mozzarella-rice-bake"),
+  ...cuisine("mexican", "chicken-tinga-rice-bowl", "fajita-salmon-rice-bowl-salsa", "beef-enchilada-rice-bake"),
+  ...cuisine("middle-eastern", "spiced-beef-houmous-naan", "moroccan-chicken-tagine-rice", "moroccan-meatballs-tomato-baked-eggs"),
 ];
 
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
@@ -126,6 +134,12 @@ export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion:
   ...occasion("lunchbox", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad", "cold-peanut-noodles-cucumber-egg"),
   ...occasion("picnic", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad", "cold-peanut-noodles-cucumber-egg"),
   ...occasion("summer-barbecue", "beef-koftas-cucumber-yogurt-naan", "chicken-satay-skewers-rice", "ham-cheddar-pea-pasta-salad", "salmon-pea-lemon-pasta-salad", "greek-style-chicken-pasta-salad"),
+  // the world recipes added 2026-11-21 (worldMeals.ts): the egg muffins and the cold rice salad go in a box or a picnic; the grilled peri peri chicken and the
+  // tandoori-style chicken suit a barbecue, like the koftas and satay above, and so does the rice salad, which keeps; the soups are for Bonfire Night
+  ...occasion("lunchbox", "bacon-spinach-tomato-egg-muffins", "italian-rice-salad-tuna-egg"),
+  ...occasion("picnic", "bacon-spinach-tomato-egg-muffins", "italian-rice-salad-tuna-egg"),
+  ...occasion("summer-barbecue", "peri-peri-chicken-spicy-rice", "tandoori-chicken-rice-raita", "italian-rice-salad-tuna-egg"),
+  ...occasion("bonfire-night", "pho-chicken-noodle-soup", "hot-sour-noodle-soup-ham-egg", "thai-coconut-noodle-soup-mushrooms"),
 ];
 
 /** Every recipe's niche, by recipe id (a recipe in neither table is not here). Built from the two tables above; whoever writes a recipe adds its lines there. */

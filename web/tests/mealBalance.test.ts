@@ -80,6 +80,8 @@ describe("real weeks are balanced", () => {
       expect(r.cheesyDay).toBe(0);
       // a budget well under what the week costs (£70-90 for two at these shops) leaves a few repeats; never more than a handful
       expect(r.overWeek + r.cheesyWeek).toBeLessThanOrEqual(6);
+      // and never toast and a sandwich day after day: bread at two meals of a day twice at most (21 November evening: it was 8 days at Sainsbury's)
+      expect(r.breadDay).toBeLessThanOrEqual(2);
     });
   }
 });

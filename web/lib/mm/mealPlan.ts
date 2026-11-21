@@ -1198,9 +1198,15 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
 /**
  * makePlan's last step for a week a budget has changed (founder 2026-11-21: a tight budget made it tuna or cheese at nearly every meal): the week is made as
  * balanced as the recipes allow (mealBalance.ts), a few varietyRepair moves at most, never adding a dish-form fault, never taking a meal further from its size
- * than the week already is (PACK_FIT_LIMIT at least), and never over the budget it meets (5% over the bill at most), and a bill already over its budget 5% more at most.
+ * than the week already is or MAX_SWAP_DISTANCE, and never over the budget it meets (5% over the bill at most). A bill already over its budget (the cheapest week
+ * the choices allow) may grow BALANCED_CHEAPEST_EXTRA for a balanced week: at 5%, two people's cheapest week at Sainsbury's had bread at both breakfast and lunch
+ * nearly every day (21 November evening, with the world recipes; founder: "who wants to have bread every single day"); at 20% it is £88, not £76, with bread
+ * on 5 meals and no repeats.
  * Changes `chosen` in place.
  */
+/** How much more than the bare cheapest week a balanced cheapest week may cost (balanceRepair). */
+const BALANCED_CHEAPEST_EXTRA = 0.2;
+
 function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number, formFaultsOf: (ids: PlanIds) => number, balancedOf: (ids: PlanIds) => number, tieBreak: () => number): void {
   const byId = new Map<string, PlanCandidate>();
   for (const list of candidates.values()) for (const c of list) byId.set(`${c.meal}:${c.recipe.id}`, c);
@@ -1211,14 +1217,14 @@ function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
   const forms = formFaultsOf(start);
   if (balancedOf(start) - FORM_FAULT * forms < 1e-9) return; // already balanced
   const bill = billOf(start);
-  // within the budget, never over it; already over it (the cheapest week the choices allow), up to 5% more for a balanced week
-  const billCap = (bill <= budget ? Math.min(budget, bill * 1.05) : bill * 1.05) + 0.005;
-  const fitCap = Math.max(PACK_FIT_LIMIT, farthest(start)) + 1e-9;
+  // within the budget, never over it; already over it (the cheapest week the choices allow), up to BALANCED_CHEAPEST_EXTRA more for a balanced week
+  const billCap = (bill <= budget ? Math.min(budget, bill * 1.05) : bill * (1 + BALANCED_CHEAPEST_EXTRA)) + 0.005;
+  const fitCap = Math.max(PACK_FIT_LIMIT, MAX_SWAP_DISTANCE, farthest(start)) + 1e-9;
   varietyRepair(candidates, chosen, counts, types, () => {
     const now = ids();
     const f = formFaultsOf(now);
     return (f > forms ? 1000 : 0) + (balancedOf(now) - FORM_FAULT * f) + (billOf(now) > billCap ? 1000 : 0) + (farthest(now) > fitCap ? 1000 : 0);
-  }, tieBreak, 20, [VARIETY_FIT_SLACK]);
+  }, tieBreak, 60, [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]);
 }
 
 /** The pack search's score for a week (packScore weighed: fresh food left, the bill at COST_WEIGHT, the fit at FIT_WEIGHT), with its own memo. */

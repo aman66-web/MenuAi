@@ -16,6 +16,7 @@ import { PALEO_MEALS_LOOKS } from "./paleoMeals";
 import { QUICK_DINNERS_LOOKS } from "./quickDinners";
 import { VEGAN_MAINS_LOOKS } from "./veganMains";
 import { VEGAN_MORNING_LOOKS } from "./veganMorning";
+import { WORLD_MEALS_LOOKS } from "./worldMeals";
 
 export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   "overnight-oats": "Overnight oats in a wide shallow white bowl: a thick, pale oat and yogurt surface with a golden-brown spiral of peanut butter from the centre outwards, and a tight cluster of glossy deep red and purple mixed berries heaped on one side.",
@@ -154,4 +155,6 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   ...QUICK_DINNERS_LOOKS,
   // founder 2026-11-21 ("all the shops, like, they should have recipes"): lunches and dinners nearly every supermarket can make
   ...EVERY_SHOP_LOOKS,
+  // founder 2026-11-21 ("different recipes from around the planet"): world plates, bowls and breakfasts
+  ...WORLD_MEALS_LOOKS,
 };

@@ -4150,3 +4150,15 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Others in a household: only age group and portion size are sent. Needs numbite.com deployed with this route before it works in the app (until then the
   phone's own week, with "Pip couldn't plan with your answers this time"). Tests: tests/planAi.test.ts (22), e2e/planAi.mjs 5/5, household 6/6, mealplan
   13/13 (its budget step now allows the best fit to be the cheapest week: there the slider says "The green spot", not "The cheapest week").
+- (21 Nov, evening) **49 world recipes from meal-prep menus** (founder: "too many recipes to do with like wraps, sandwiches ... recipes from around the planet,
+  like ones people actually want to see ... look at Simmer Eats, look at Frive ... what they're serving"). lib/mm/recipeBook/worldMeals.ts: 8 breakfasts (none
+  on toast), 16 lunches and 25 dinners: Vietnamese, Mexican, Thai, Chinese, Japanese, Korean, Indian, Middle Eastern, Moroccan, West African, Caribbean,
+  Greek, Cajun, Italian, Portuguese, Malaysian, Swedish, Spanish; no wraps or sandwiches. Ideas from Mindful Chef, Frive and Gousto's dish names (Simmer Eats
+  and Prep Kitchen couldn't be read: script-drawn pages, robots.txt 429). Only the everyday pantry kinds (no prawns, white fish, lamb, turkey, tofu or lentils:
+  EVERYDAY_KINDS, founder 15 Oct). Every one makes at Sainsbury's, Morrisons, Waitrose, Iceland and Asda; M&S 45, Aldi 13. 382 recipes in all, each with
+  an AI illustration (50 Higgsfield credits). Generated files rebuilt (coverage, scan refs, prompts, images, keys).
+- (21 Nov, evening) **A tight budget no longer means bread every day.** Measured with the world recipes, two people on £40 at Sainsbury's (the cheapest week
+  £76) had toast and a sandwich on 8 days. A cheapest week may now cost up to 20% more than the bare cheapest for balance (BALANCED_CHEAPEST_EXTRA in
+  mealPlan.ts balanceRepair, which now also looks wider and longer): £88 at Sainsbury's with bread on 5 meals, no repeats; Asda £104, Morrisons £102, Aldi
+  £85 for two. Weeks within their budget are unchanged (never over it). The slider's Cheapest end rises with it. tests/mealBalance.test.ts checks bread twice a
+  day at most on a tight budget.
