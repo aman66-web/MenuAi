@@ -1,5 +1,6 @@
 "use client";
 
+import { warnPreferences } from "@/lib/mm/user-data";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { mealSlotFor } from "@/lib/mm/budget";
@@ -70,7 +71,7 @@ export function RecipeChoice({ chosen, onChoose }: { chosen: string | null; onCh
   const products = state.status === "ready" ? state.products : null;
   // shown as written: no target before "Your daily targets"; the book a few recipes at a time, so the step never freezes (the second sort of the 21 November
   // meeting, Xena)
-  const { cards, ready: cardsReady } = useRecipeCards(null, products, settings.preferences, null, { chunked: true });
+  const { cards, ready: cardsReady } = useRecipeCards(null, products, warnPreferences(settings), null, { chunked: true });
   const now = useNow();
   const slot = mealSlotFor(now);
   const smaller = settings.goal === "lose" || settings.goal === "glp1" ? SMALLER_MEAL_KCAL : undefined;

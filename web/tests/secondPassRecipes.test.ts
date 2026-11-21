@@ -95,7 +95,7 @@ describe("the recipe screens work the book out a few recipes at a time (Xena #33
 
   it("welcome step 4 counts the chunked book as still working, so 'nothing fits' never flashes", () => {
     const choice = source("app/app/welcome/RecipeChoice.tsx");
-    expect(choice).toContain("const { cards, ready: cardsReady } = useRecipeCards(null, products, settings.preferences, null, { chunked: true });");
+    expect(choice).toContain("const { cards, ready: cardsReady } = useRecipeCards(null, products, warnPreferences(settings), null, { chunked: true });");
     expect(choice).toContain('const working = manifest === null || (shop !== null && (state.status === "loading" || (state.status === "ready" && !cardsReady)));');
   });
 });

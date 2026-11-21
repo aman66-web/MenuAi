@@ -1,5 +1,6 @@
 "use client";
 
+import { warnPreferences } from "@/lib/mm/user-data";
 import { useEffect, useMemo, useState } from "react";
 import { assetUrl, GATING_ENABLED } from "@/lib/mm/config";
 import { EXAMPLE_MEALS, exampleWeek, knownExample, shopExample, type ExampleMeal, type ShopExample } from "@/lib/mm/exampleWeek";
@@ -89,8 +90,11 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
   const isPro = useIsPro();
   const premium = GATING_ENABLED && !isPro;
   const language = useLanguage();
-  const book = useMemo(() => exampleWeek(settings.preferences), [settings.preferences]);
-  const priced = useShopExample(under18, settings.preferences, settings.shops);
+  // the example suits what the person just told us (founder 2026-11-21: a vegan was shown chicken korma once sign-up answers stopped being filters): a preview,
+  // nothing in the app is hidden
+  const told = useMemo(() => warnPreferences(settings), [settings]);
+  const book = useMemo(() => exampleWeek(told), [told]);
+  const priced = useShopExample(under18, told, settings.shops);
   const week = priced.example?.days ?? book;
   const dayName = (i: number, weekday: "short" | "long") => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday }).format(new Date(2026, 10, 16 + i, 12)); // 16 November 2026 was a Monday
   const empty = week.every((d) => d.meals.length === 0);
@@ -102,10 +106,12 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
           <p className="text-[0.9375rem] leading-snug text-foreground">{t("Meal plan makes your week from your shop, with one shopping list.")}</p>
         ) : (
           <>
+            {/* plainly an example, not the person's plan (founder 2026-11-21: "This should say example plan and show a photo of a phone screen so they know it's
+                not their plan") */}
             <div className="mb-3 flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <h2 className="text-[1.125rem] font-bold leading-tight">{t("Meal plan")}</h2>
-                <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("An example of what you can make.")}</p>
+                <h2 className="text-[1.125rem] font-bold leading-tight">{t("Example plan")}</h2>
+                <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("What Meal plan could make you.")}</p>
               </div>
               {premium && <PremiumBadge />}
             </div>
@@ -115,21 +121,30 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
                 <li key={i}>{t("{day}: {meals}.", { day: dayName(i, "long"), meals: d.meals.map((m) => t(m.name)).join(", ") })}</li>
               ))}
             </ul>
-            <div aria-hidden>
-              <div className={`${GRID} pb-1.5 text-[0.8125rem] font-semibold leading-tight text-muted`}>
-                <span />
-                {EXAMPLE_MEALS.map((c) => <span key={c} className="truncate text-center">{t(COLUMN[c])}</span>)}
-              </div>
-              <div className="space-y-1.5">
-                {week.map((d, i) => (
-                  <div key={i} className={GRID}>
-                    <span className="text-[0.9375rem] font-bold">{dayName(i, "short")}</span>
-                    {EXAMPLE_MEALS.map((c) => {
-                      const m = d.meals.find((x) => x.meal === c);
-                      return m ? <Thumb key={c} recipeId={m.recipeId} meal={c} /> : <span key={c} className="aspect-square w-full rounded-xl bg-background" />;
-                    })}
+            {/* the week as a picture of the app on a phone: a dark frame, a rounded screen with the camera's pill, Meal plan's own heading, the first days, and
+                the rest fading out below as a screenshot would */}
+            <div aria-hidden className="mx-auto w-full max-w-[18.5rem]">
+              <div className="rounded-[2.5rem] bg-ink p-2 shadow-[var(--card-shadow)]">
+                <div className="relative h-[25rem] overflow-hidden rounded-[2rem] bg-background px-3 pt-8">
+                  <span className="absolute left-1/2 top-2.5 h-[1.1rem] w-[4.5rem] -translate-x-1/2 rounded-full bg-ink" />
+                  <p className="mb-2 text-[1rem] font-[800] leading-tight">{t("Meal plan")}</p>
+                  <div className={`${GRID} pb-1.5 text-[0.75rem] font-semibold leading-tight text-muted`}>
+                    <span />
+                    {EXAMPLE_MEALS.map((c) => <span key={c} className="truncate text-center">{t(COLUMN[c])}</span>)}
                   </div>
-                ))}
+                  <div className="space-y-1.5">
+                    {week.map((d, i) => (
+                      <div key={i} className={GRID}>
+                        <span className="text-[0.8125rem] font-bold">{dayName(i, "short")}</span>
+                        {EXAMPLE_MEALS.map((c) => {
+                          const m = d.meals.find((x) => x.meal === c);
+                          return m ? <Thumb key={c} recipeId={m.recipeId} meal={c} /> : <span key={c} className="aspect-square w-full rounded-xl bg-card" />;
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent" />
+                </div>
               </div>
             </div>
             {priced.working ? (

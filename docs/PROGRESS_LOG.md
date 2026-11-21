@@ -4073,3 +4073,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   brought them); a choice made in this run stays ticked when the person goes on and comes Back. The goal screen with nothing ticked says "Pick one, or tap
   Skip."; the shops screen's Continue with none ticked uses the default recipe shop, as before. e2e firstvisit 10/10, homepages 12/12, onboarding-body (k)
   updated to the new rule ((g) and (m) were failing before today). On `iap`, next build.
+- (21 Nov, late afternoon) **Your plan's example week: "Example plan" on a phone** (founder: "This should say example plan and show a photo of a phone
+  screen so they know it's not their plan"). Headed "Example plan" / "What Meal plan could make you." (was "Meal plan" / "An example of what you can
+  make."); the week is drawn inside a phone outline (ink frame, rounded screen with the camera's pill, Meal plan's own heading, the first days, the rest
+  fading as a screenshot would). The sign-up previews (recipes to cook first, the example week, Your plan's restaurant dishes) suit the diet and allergies
+  just told (warnPreferences): a preview, nothing in the app hidden (a vegan had been shown chicken korma once sign-up answers stopped being filters).
+  e2e showcase 14/14, firstvisit 10/10; unit tests 4,003. On `iap`, next build.

@@ -14,7 +14,7 @@ import { mealPlanStore, settingsStore, updateSettings } from "@/lib/mm/stores";
 import { afterSignIn, sanitizeResume, SIGN_IN_RESUME_KEY, TYPED_SETUP_KEYS, typedSetup, type SignInReason, type SignInResume, type TypedSetup } from "@/lib/mm/signInGate";
 import type { PlanNote } from "@/lib/mm/targets";
 import type { Goal } from "@/lib/mm/types";
-import { DEFAULT_SETTINGS, type UserSettings } from "@/lib/mm/user-data";
+import { DEFAULT_SETTINGS, type UserSettings, warnPreferences } from "@/lib/mm/user-data";
 import {
   backFrom, BODY_STEPS, moveOn, NO_ANSWERS, progressNote, resumeAt, SKIP_STEPS, startRun, stepCounter, welcomeProgressStore,
   type FirstDish, type WelcomeAnswers, type WelcomeMove, type WelcomeRun, type WelcomeStepId,
@@ -502,7 +502,7 @@ function Welcome() {
             <PlanStep
               counter={counter}
               goal={settings.goal}
-              prefs={settings.preferences}
+              prefs={warnPreferences(settings)}
               replay
               planLine={planThisWeek(savedPlan?.start, dayParam(new Date()))}
               targets={{ fields: target.fields, setField: target.setField, reading: targetReading, starting: false, under18: false, notes: [], save: () => true }}
