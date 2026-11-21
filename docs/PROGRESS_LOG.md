@@ -3823,3 +3823,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   MEDITERRANEAN_CHEESE_MAX_G 40, KETO_CARBS_MAX 0.10, MAX_WRAPS_A_WEEK 2. Pictures: 12 made in Higgsfield (now 1 credit each, not 0.5); the other 103 next.
   Swap now judges a style on the whole recipe (ingredient rules too). Tests: vitest 3,600 pass; e2e mealplan 13/13, household 6/6, showcase 14/14, recipes 17/17,
   photorecipe 18/18, smoke 24/24.
+- (about 01:10, 21 Nov) **`FREE_WEEK_HASH_SECRET` set in Vercel (Production, Sensitive)**: made with `openssl rand -base64 48` and piped straight into `vercel env add`,
+  never shown or saved (the founder's go-ahead: "can you do it all for me"). **Never change it** (every email hash would change and everyone could have a second
+  free week). `vercel link` in web/ also downloaded a `.env.local`; it was deleted unread (gitignored). The Xcode test store and its test have no introductory
+  offer now.
