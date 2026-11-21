@@ -16,12 +16,14 @@ const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain"
 let passed = 0, failed = 0;
 async function step(name, fn) { try { await fn(); passed++; console.log("PASS", name); } catch (e) { failed++; console.log("FAIL", name, "\n     ", String(e.message).split("\n").slice(0, 3).join(" | ")); } }
 const expect = (c, m) => { if (!c) throw new Error(m); };
-/** The week's two figures (founder 2026-11-20): "Your first shop: about £N" and "Each week after: about £M", as numbers, from within `scope`. */
+/** The week's money (founder 2026-11-20 and 21): the first shop ("Your first shop: about £N" on the check screen, "Your first shop is about £N: ..." on the week)
+ *  and the food a day ("Your food: about £X a day", or the week's big "£X a day"), as numbers (`after`: the day times seven), from within `scope`. */
 async function twoWeeks(scope, timeout = 60000) {
-  const first = scope.getByText(/^Your first shop: about £[\d,]+$/);
+  const first = scope.getByText(/^Your first shop(: about £[\d,]+| is about £[\d,]+: it also stocks your cupboard\.)$/);
   await first.first().waitFor({ timeout });
-  const pounds = async (l) => Number((await l.first().innerText()).replace(/[^\d]/g, ""));
-  return { first: await pounds(first), after: await pounds(scope.getByText(/^Each week after: about £[\d,]+$/)), why: await scope.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).first().innerText() };
+  const pounds = async (l) => Number(/£([\d,]+)/.exec(await l.first().innerText())[1].replace(/,/g, ""));
+  const day = Number(/£([\d.]+)/.exec(await scope.getByText(/^(Your food: about £[\d.]+ a day|£[\d.]+ a day)$/).first().innerText())[1]);
+  return { first: await pounds(first), after: Math.round(day * 7), day, why: await scope.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).first().innerText() };
 }
 async function context(patch) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
@@ -252,7 +254,10 @@ await step("the week: 21 meals from the two shops, a shop on each meal, the shop
   expect(w.first > w.after && w.after > 0, "the two figures: " + JSON.stringify(w));
   expect((await page.getByText(/for the week's shopping/).count()) === 0, "the one figure as well as the two");
   // no Pip on the money card (founder 2026-11-20: "keep him as the guide, not the decoration")
-  const money = page.locator("div").filter({ has: page.getByText(/^Your first shop: about £/) }).filter({ hasText: /budget/ }).last();
+  const money = page.locator("div").filter({ has: page.getByText(/^Your first shop is about £/) }).filter({ hasText: /budget/ }).last();
+  // the food a day, big (founder 2026-11-21: "Rather than weekly shopping ... show the cost per each day for food")
+  await money.getByText(/^£[\d.]+ a day$/).waitFor();
+  await money.getByText(/^About £[\d,]+ a week\.$/).waitFor();
   await money.getByText(/^(Both are within your budget of £[\d.]+ a day\.|Each week after is within your budget of £[\d.]+ a day; the first shop also stocks your cupboard\.|£[\d.]+ a week over your budget of £[\d.]+ a day(: the cheapest week our recipes allow| with your swaps)\.)$/).waitFor();
   expect((await money.locator("svg, img").count()) === 0, "no Pip on the money card");
   const days = page.getByRole("radiogroup", { name: "Day" }).getByRole("radio");

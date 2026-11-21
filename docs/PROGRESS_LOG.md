@@ -4202,3 +4202,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Pip's request is no longer stopped when Meal plan closes (only by the next plan); _lib/planMaking.ts keeps its progress in memory, and PlanMakingBanner, at
   the top of every screen but "Making your plan", says "Pip is making your plan…" with a bar and See it, then "Your meal plan is ready" with Open and a close
   button; opening the week puts it away. e2e/planAi.mjs 6/6 (a new step leaves for Recipes while Pip works).
+- (21 Nov, late evening) **The finished plan says the food a day, not the week's shopping** (founder: "Rather than weekly shopping / Then at the end show the
+  cost per each day for food"). The week's money tile: "Your food, about £7.50 a day" big (the week-after cost over seven days, the measure the budget is held
+  to), then "About £52 a week." and, when the cupboard makes it dearer, "Your first shop is about £82: it also stocks your cupboard." with what lasts; each
+  day's card says its own food ("£7.58 food"; "food for 3" in a household). The check screen and the example week: "Your food: about £7.50 a day", then
+  "Your first shop: about £82". e2e mealplan 13/13, household 6/6, showcase 14/14 (run with NEXT_PUBLIC_PRO=1), smoke updated.

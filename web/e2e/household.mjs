@@ -109,7 +109,7 @@ await step("meals, shops, then the home's allergies (the button says the usual a
 });
 
 await step("the budget, then the check screen: who's eating, the allergies in the one fixed sentence, the home's diets, Change on every line; axe", async () => {
-  await h1("Your budget for the week").waitFor();
+  await h1("Your food budget a day").waitFor();
   await page.getByRole("slider").waitFor({ timeout: 180000 });
   await tap("Continue");
   // Pip's extra questions (21 November 2026), nothing chosen: each one skipped
@@ -128,7 +128,8 @@ await step("the week: for 3, only the user's numbers, the allergy sentence, each
   await page.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 120000 });
   // the money card: one figure "for the week's shopping for 3 people", or, when packs that keep make the first shop dearer, the first shop and each week after
   // (TwoWeeks, 20 November 2026), which doesn't name the people
-  await page.getByText(/for the week's shopping for 3 people|^Your first shop: about £[\d,]+$/).first().waitFor();
+  // the food a day for everyone since 21 November evening (founder: "show the cost per each day for food")
+  await page.getByText(/^Your food for 3 people, about$/).first().waitFor();
   await page.getByText(/Every meal fits your diet: .*No onion or garlic/).waitFor();
   await page.getByText("Recipes made with peanuts are left out. Always check the label.").waitFor();
   const card = page.locator("li", { hasText: "Servings each" }).first();

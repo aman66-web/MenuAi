@@ -211,7 +211,9 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   const firstShop = weekBox.getByText(/^Your first shop: about £[\d,]+$/);
   await firstShop.waitFor({ timeout: 60000 });
   const pounds = async (l) => Number((await l.innerText()).replace(/[^\d]/g, ""));
-  const [weekOne, weekAfter] = [await pounds(firstShop), await pounds(weekBox.getByText(/^Each week after: about £[\d,]+$/))];
+  // the food a day under it (founder 2026-11-21: "show the cost per each day for food"), a seventh of what each week after costs
+  const day = Number(/£([\d.]+)/.exec(await weekBox.getByText(/^Your food: about £[\d.]+ a day$/).innerText())[1]);
+  const [weekOne, weekAfter] = [await pounds(firstShop), Math.round(day * 7)];
   expect(weekOne > weekAfter && weekAfter > 0, `the first shop £${weekOne}, each week after £${weekAfter}`);
   await weekBox.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).waitFor();
   await weekBox.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();

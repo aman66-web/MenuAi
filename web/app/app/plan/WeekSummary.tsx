@@ -2,11 +2,9 @@
 
 import type { ReactNode } from "react";
 import { formatInt } from "@/lib/mm/format";
-import { formatPrice } from "@/lib/mm/groceries";
 import type { WeekCosts, WeekPlan } from "@/lib/mm/mealPlan";
 import { useT } from "../_lib/i18n";
-import { Rich } from "../_lib/Rich";
-import { useLastingLine } from "./TwoWeeks";
+import { foodADay, useLastingLine } from "./TwoWeeks";
 
 // The top of the finished week (founder 2026-11-21: "the meal plan screen is way too basic ... make it look better visually"): on the meal plan's own pale
 // green (tint-plan, as its card on Home), the day's calories and protein as two big figures, each with a bar against the person's own target, then the money in
@@ -27,19 +25,6 @@ function Figure({ value, unit, word, fraction, target }: { value: string; unit: 
         <div className="h-full rounded-full bg-bar" style={{ width: `${Math.round(Math.min(1, Math.max(0, fraction)) * 100)}%` }} />
       </div>
       <p className="app-numbers mt-1.5 text-[0.8125rem] leading-snug text-muted">{target}</p>
-    </div>
-  );
-}
-
-/** "Your first shop" over "about £59", big. */
-function Money({ label, pounds, className = "" }: { label: string; pounds: number; className?: string }) {
-  const t = useT();
-  return (
-    <div className={`min-w-0 ${className}`}>
-      <p className="text-[0.8125rem] font-semibold leading-snug text-muted">{label}</p>
-      <p className="app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-none text-muted [overflow-wrap:anywhere]">
-        <Rich text={t("about {n}")} values={{ n: <span className="whitespace-nowrap text-[2rem] font-[800] tracking-[-0.02em] text-foreground">£{formatInt(Math.round(pounds))}</span> }} />
-      </p>
     </div>
   );
 }
@@ -87,20 +72,17 @@ export function WeekSummary({ week, costs, twoWeeks, people, kcal, protein, targ
 
       {/* the money: never green or red, and no picture or icon on it */}
       <div className="mt-2.5 rounded-[1.125rem] border border-line bg-card px-3.5 py-3">
-        {twoWeeks ? (
+        {/* the food a day, big (founder 2026-11-21: "Rather than weekly shopping ... show the cost per each day for food"): what the week's food costs week after
+            week over seven days, the measure a budget is held to; then the week, and the first shop when the cupboard makes it dearer */}
+        <p className="text-[0.8125rem] font-semibold leading-snug text-muted">{people > 1 ? t("Your food for {n} people, about", { n: people }) : t("Your food, about")}</p>
+        <p className="app-numbers mt-1.5 text-[0.9375rem] font-semibold leading-none text-muted">
+          <span className="text-[2rem] font-[800] tracking-[-0.02em] text-foreground">{foodADay(costs)}</span> {t("a day")}
+        </p>
+        <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("About £{cost} a week.", { cost: formatInt(Math.round(costs.after)) })}</p>
+        {twoWeeks && (
           <>
-            <p className="sr-only">{t("Your first shop: about £{cost}", { cost: formatInt(Math.round(costs.first)) })}</p>
-            <p className="sr-only">{t("Each week after: about £{cost}", { cost: formatInt(Math.round(costs.after)) })}</p>
-            <div aria-hidden className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,7rem),1fr))] gap-x-4 gap-y-3">
-              <Money label={t("Your first shop")} pounds={costs.first} />
-              <Money label={t("Each week after")} pounds={costs.after} />
-            </div>
-            {lasting && <p className="mt-3 text-[0.875rem] leading-snug text-muted">{lasting}</p>}
-          </>
-        ) : (
-          <>
-            <p className="app-numbers text-[2rem] font-[800] leading-none tracking-[-0.02em]">{formatPrice(week.shoppingCost)}</p>
-            <p className="mt-1.5 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
+            <p className="app-numbers mt-1 text-[0.9375rem] leading-snug">{t("Your first shop is about £{cost}: it also stocks your cupboard.", { cost: formatInt(Math.round(costs.first)) })}</p>
+            {lasting && <p className="mt-1 text-[0.875rem] leading-snug text-muted">{lasting}</p>}
           </>
         )}
         <p className="mt-3 border-t border-line pt-3 text-[0.9375rem] font-semibold leading-snug">{budgetLine}</p>

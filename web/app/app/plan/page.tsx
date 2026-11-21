@@ -48,7 +48,7 @@ import { PhotoTile } from "../groceries/ProductPhoto";
 import { MEAL_LOOK } from "../recipes/RecipeTile";
 import { RecipeThumb } from "../recipes/RecipeThumb";
 import { DayStrip, type StripDay } from "./DayStrip";
-import { TwoWeeks } from "./TwoWeeks";
+import { TwoWeeks, foodADay } from "./TwoWeeks";
 import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, STYLE_LABEL, StyleStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
 import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, LeftoversStep, NotesStep, SkipCuisines, SpiceStep, TrainingStep, pipAnswerLines } from "./PipSteps";
 import { SwapPicker } from "./SwapPicker";
@@ -304,7 +304,7 @@ function WeekPreview({ shop, preview }: { shop: string | null; preview: Preview 
               <CapNote gap={preview.gap} className="mt-2" />
               {/* the first shop and each week after when the packs that keep make the first dearer (TwoWeeks), else the one line */}
               {showsWeekAfter(preview.costs) ? <TwoWeeks costs={preview.costs} week={preview.week} className="mt-2" />
-                : <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("Shopping for the week at {shop}: about £{total}", { shop: shopName, total: formatInt(Math.round(preview.total)) })}</p>}
+                : <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("Your food at {shop}: about {cost} a day", { shop: shopName, cost: foodADay(preview.costs) })}</p>}
               <p className="mt-1.5 text-[0.9375rem] leading-snug">{t("With Premium, Meal plan makes this week for you.")}</p>
               <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName, date: formatDate(preview.checkedOn, t) })}</p>
             </>
@@ -1656,7 +1656,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
           {[
             { value: formatInt(shown.kcal), label: "kcal" },
             { value: `${formatInt(shown.protein)} g`, label: t("protein") },
-            { value: formatPrice(shown.cost), label: people > 1 ? t("for {n}", { n: people }) : t("Total") },
+            // the food this day's meals use (founder 2026-11-21: "show the cost per each day for food")
+            { value: formatPrice(shown.cost), label: people > 1 ? t("food for {n}", { n: people }) : t("food") },
           ].map((f) => (
             <span key={f.label} className="min-w-0 px-1.5">
               <span className="block text-[1.375rem] font-[800] leading-tight tracking-[-0.01em] [overflow-wrap:anywhere]">{f.value}</span>

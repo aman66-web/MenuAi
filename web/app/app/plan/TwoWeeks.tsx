@@ -1,6 +1,7 @@
 "use client";
 
 import { formatInt } from "@/lib/mm/format";
+import { formatPrice } from "@/lib/mm/groceries";
 import { localeInfo } from "@/lib/mm/i18n";
 import { lastingThings, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
 import { useLanguage, useT } from "../_lib/i18n";
@@ -30,6 +31,11 @@ export function useLastingLine(week: Pick<WeekPlan, "shopping">, things = 3): st
   return lasting.more ? t("It includes {items} that last for weeks.", { items: names }) : t("It includes {items}, which last for weeks.", { items: names });
 }
 
+/** What the food costs a day: the week after's cost (what a budget is held to: mealPlan.ts budgetCost) over seven days, to the nearest 10p. */
+export function foodADay(costs: Pick<WeekCosts, "after">): string {
+  return formatPrice(Math.round((costs.after / 7) * 10) / 10);
+}
+
 export function TwoWeeks({ costs, week, things = 3, large = false, className = "" }: {
   costs: WeekCosts;
   /** The week whose shopping is named in the "why" line. */
@@ -45,8 +51,10 @@ export function TwoWeeks({ costs, week, things = 3, large = false, className = "
   const figure = large ? "text-[1.375rem] font-[800] leading-tight" : "text-[1.0625rem] font-bold leading-snug";
   return (
     <div className={className}>
-      <p className={`app-numbers ${figure}`}>{t("Your first shop: about £{cost}", { cost: formatInt(Math.round(costs.first)) })}</p>
-      <p className={`app-numbers ${large ? "mt-1.5" : "mt-0.5"} ${figure}`}>{t("Each week after: about £{cost}", { cost: formatInt(Math.round(costs.after)) })}</p>
+      {/* the food a day first (founder 2026-11-21: "Rather than weekly shopping ... show the cost per each day for food"): what the week's food costs week after
+          week, a seventh of it; then the first shop, which also stocks the cupboard */}
+      <p className={`app-numbers ${figure}`}>{t("Your food: about {cost} a day", { cost: foodADay(costs) })}</p>
+      <p className={`app-numbers ${large ? "mt-1.5" : "mt-0.5"} text-[0.9375rem] leading-snug`}>{t("Your first shop: about £{cost}", { cost: formatInt(Math.round(costs.first)) })}</p>
       {lasting && <p className="mt-1.5 text-[0.9375rem] leading-snug text-foreground">{lasting}</p>}
     </div>
   );
