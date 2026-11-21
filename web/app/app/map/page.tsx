@@ -10,7 +10,6 @@ import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { tk } from "@/lib/mm/i18n";
 import { hasNative, nativeCall } from "@/lib/mm/native";
 import { site } from "@/site.config";
-import { settingsStore } from "@/lib/mm/stores";
 import { ChainMark } from "../_components/ChainMark";
 import { DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
 import { PageHeader } from "../_components/PageHeader";
@@ -75,7 +74,7 @@ export default function NearbyPage() {
   const [radius, setRadius] = useState<number>(DEFAULT_RADIUS_MILES);
   const [types, setTypes] = useState<ReadonlySet<string>>(new Set());
   const [fullOnly, setFullOnly] = useState(false);
-  const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  const [halalOnly, setHalalOnly] = useState(false) /* starts off: only a switch chosen here filters (founder 2026-11-21) */;
   const [typed, setTyped] = useState("");
   const [choices, setChoices] = useState<Area[]>([]);
   const [lookupMessage, setLookupMessage] = useState<string | null>(null);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { analytics } from "@/lib/mm/analytics";
-import { favoritesStore, settingsStore } from "@/lib/mm/stores";
+import { favoritesStore } from "@/lib/mm/stores";
 import { isAllHalal } from "@/lib/mm/halal";
 import { tk } from "@/lib/mm/i18n";
 import { SAMPLES_ENABLED } from "@/lib/mm/config";
@@ -46,9 +46,9 @@ export default function EatOutPage() {
   const [requesting, setRequesting] = useState(false);
   const [type, setType] = useBrowseType();
   const [fullOnly, setFullOnly] = useState(false);
-  const [halalOnly, setHalalOnly] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  const [halalOnly, setHalalOnly] = useState(false) /* starts off: only a switch chosen here filters (founder 2026-11-21) */;
   const anyHalal = useMemo(() => menu.chains.some((c) => isAllHalal(c.id)), [menu.chains]);
-  const [moreOpen, setMoreOpen] = useState(() => settingsStore.get().preferences.halalOnly ?? false);
+  const [moreOpen, setMoreOpen] = useState(false) /* starts off: only a switch chosen here filters (founder 2026-11-21) */;
   useEffect(() => { if (type) setMoreOpen(true); }, [type]); // eslint-disable-line react-hooks/set-state-in-effect -- a type restored for this tab shows its choices
   const finder = useNumbersFinder();
   const toggleMore = () => {

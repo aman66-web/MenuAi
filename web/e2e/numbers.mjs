@@ -84,7 +84,7 @@ await step("allergies: picking Milk narrows the list, the link carries it, and t
   await page.waitForTimeout(800);
   const after = await count(page);
   expect(after < before, `milk: ${before} -> ${after}`);
-  await page.getByText(/don't publish an allergen guide/).waitFor();
+  await page.getByText("Restaurants with no allergen guide are left out.").first().waitFor();
   await page.getByText(/^Where a restaurant publishes allergens, dishes that list them/).first().waitFor(); // lib/mm/menu-view.ts filterCaution
   const row = page.locator('a[href^="/app/chain?id="]').filter({ hasText: /dish(es)? fits?/ }).first();
   expect(/avoid=milk/.test((await row.getAttribute("href")) ?? ""), "link carries milk");

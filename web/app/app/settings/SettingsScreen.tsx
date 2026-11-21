@@ -1,5 +1,6 @@
 "use client";
 
+import { NO_PREFERENCES } from "@/lib/mm/types";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState, type MouseEvent } from "react";
@@ -497,7 +498,10 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
       </Section>
 
       <Section title={t("Diet and allergies")} id="diet">
-        <DietPicker value={settings.preferences} onChange={(preferences) => updateSettings({ preferences })} />
+        {/* what the person told us (founder 2026-11-21: "it shouldn't restrict what you can see ... unless they go on those pages and filter themselves"):
+            it warns on a dish or product page and hides nothing; the filters are on the pages themselves */}
+        <p className="-mt-1 mb-3 text-[0.9375rem] leading-snug text-muted">{t("Used to warn you. Nothing is hidden: to narrow things down, use Filters in Recipes or “Your diet” on a restaurant's page.")}</p>
+        <DietPicker value={settings.toldUs ?? NO_PREFERENCES} onChange={(toldUs) => updateSettings({ toldUs })} />
       </Section>
 
       <Section title={t("Your supermarkets")}>

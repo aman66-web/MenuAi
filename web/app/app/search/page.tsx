@@ -1,5 +1,6 @@
 "use client";
 
+import { NO_PREFERENCES } from "@/lib/mm/types";
 import { useSearchHelp } from "../_lib/searchHelp";
 import Link from "next/link";
 import { chainHref, itemHref } from "@/lib/mm/routes";
@@ -20,7 +21,7 @@ import { RequestChainSheet } from "../_components/Submit";
 import { Badge, Button, Chip, EmptyIcon, EmptyState, ErrorBox, inputClass, SampleBadge } from "../_components/ui";
 import { useEntryQuery } from "../_lib/backNav";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
-import { useMenu, useSearchIndex, useSettings } from "../_lib/hooks";
+import { useMenu, useSearchIndex } from "../_lib/hooks";
 import { menuClient } from "../_lib/menu";
 import { useT } from "../_lib/i18n";
 
@@ -49,7 +50,8 @@ export default function SearchPage() {
   const [requesting, setRequesting] = useState(false);
   const [recent, setRecent] = useRecentSearches();
   // The diet settings (Settings › Diet) apply here as on a restaurant's page; one tap shows every dish.
-  const prefs = useSettings().preferences;
+  // every dish shows (founder 2026-11-21: "it shouldn't restrict what you can see"); a restaurant's own page has the filter
+  const prefs = NO_PREFERENCES;
   const [dietOn, setDietOn] = useState(true);
   const diet = anyDietFilter(prefs) && dietOn;
   const results = useMemo(() => search(searchIndex, deferred, 40, diet ? prefs : undefined), [searchIndex, deferred, diet, prefs]);

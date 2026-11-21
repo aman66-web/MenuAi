@@ -1,5 +1,6 @@
 "use client";
 
+import { warnPreferences } from "@/lib/mm/user-data";
 import { useEffect, useMemo, useState } from "react";
 import { PAID_ACCESS_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { hasMacros } from "@/lib/mm/nutrients";
@@ -28,7 +29,9 @@ export function TruthButton({ chain, item }: { chain: Chain; item: MenuItem }) {
     if (!PAID_ACCESS_ENABLED || pro || tryOpenTruth(`${chain.id}/${item.id}`)) setOpen(which);
     else showPaywall("truthLimit");
   };
-  const swap = useMemo(() => smartSwap(chain, item, settings.preferences), [chain, item, settings.preferences]);
+  // the swap offered fits the diet and allergies they told us and any filter they chose (a suggestion, not a filter: nothing is hidden)
+  const warn = useMemo(() => warnPreferences(settings), [settings]);
+  const swap = useMemo(() => smartSwap(chain, item, warn), [chain, item, warn]);
 
   useEffect(() => {
     if (open !== "swap") return;

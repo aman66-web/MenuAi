@@ -8,7 +8,7 @@ import { mealTargetFor } from "@/lib/mm/mealTarget";
 import type { CatalogChain } from "@/lib/mm/menu-client";
 import { findRestaurants, hasLimits, hasMacroLimits, limitsToParams, toAsciiDigits, type FinderHit, type FinderResult, type NumberLimits } from "@/lib/mm/numbers";
 import { chainHref } from "@/lib/mm/routes";
-import { ALLERGEN_KEYS, type AllergenKey, type Preferences } from "@/lib/mm/types";
+import { ALLERGEN_KEYS, type AllergenKey, type Preferences, NO_PREFERENCES } from "@/lib/mm/types";
 import { AllergenTiles, dietWords } from "../_components/DietPicker";
 import { ChainMark } from "../_components/ChainMark";
 import { ChevronRightIcon } from "../_components/icons";
@@ -105,7 +105,8 @@ export function useNumbersFinder(): NumbersFinderState {
     if (fat !== undefined) out.maxFat = fat;
     return out;
   }, [fields]);
-  const saved = settings.preferences;
+  // only what is picked here (founder 2026-11-21: nothing is narrowed by the sign-up answers or another page's filters)
+  const saved = NO_PREFERENCES;
   const prefs = useMemo<Preferences>(() => {
     const all = ALLERGEN_KEYS.filter((k) => picked.includes(k) || (saved.avoidAllergens ?? []).includes(k));
     const { avoidAllergens: _drop, ...rest } = saved; // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -160,8 +161,7 @@ function showResults() {
 /** The boxes and the allergy buttons, and under the boxes one line saying what the numbers found (the list itself can be a screen further down). */
 export function NumbersPanel({ state, found }: { state: NumbersFinderState; found: FinderFound }) {
   const t = useT();
-  const settings = useSettings();
-  const words = dietWords(t, settings.preferences);
+  const words = dietWords(t, NO_PREFERENCES);
   const { hits, result, failed } = found;
   const summary = !state.active ? null
     : failed ? t("Couldn't load the numbers just now.")

@@ -4020,3 +4020,12 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   portion" (spoken "Add my portion to {meal}") with "Swap this meal" on one row. New files plan/WeekSummary.tsx, plan/DayStrip.tsx; RecipeThumb sizes wide and
   fit. e2e mealplan 13/13, household 6/6, axe clean at 1× and 1.3× text; unit tests 3,993 passed. Search fix: a close match starts at a word ("ugge" is not
   "nuggets"). On `iap`, next build.
+- (21 Nov, afternoon) **The restaurant section never narrows itself** (founder: "when they go into the restaurant section, it shouldn't restrict automatically
+  options based on the dietary restrictions ... I can't see products on restaurant pages ... Unless they go on those pages and filter themselves").
+  A restaurant's page starts with nothing left out (its own "Your diet" is for the visit; "Change it in Settings" removed); restaurant search shows
+  every dish (no "Fits my diet" switch); Eat out's and the map's Halal switch start off; Find by numbers uses only the allergies picked there. Settings ›
+  Diet and allergies now edits what the person told us (warnings only), with "Used to warn you. Nothing is hidden: to narrow things down, use Filters in
+  Recipes or “Your diet” on a restaurant's page." Smart Swap's suggestion fits the told-us diet and allergies too (a suggestion hides nothing). Recipes'
+  Filters and the meal plan's diet step are the filters people choose. e2e: diet.mjs seeds filters as chosen in the app and checks search shows every
+  dish (its 3 grocery checks wait for a stand-in list the grocery search no longer reads: stale before today); numbers.mjs 12/12 (wording updated);
+  smoke 24/24. Unit tests 3,993. On `iap`, next build.

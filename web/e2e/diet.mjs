@@ -8,7 +8,8 @@ import { createRequire } from "node:module";
 const AXE = createRequire(import.meta.url).resolve("axe-core/axe.min.js");
 const BASE = process.env.BASE ?? "http://localhost:3101";
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
-const settings = (prefs) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false, ...prefs }, hasCompletedOnboarding: true } });
+// the filters as chosen in the app (signUpApart: what was told at sign-up filters nothing, founder 2026-11-21)
+const settings = (prefs) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, hasSetTargets: true, signUpApart: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false, ...prefs }, hasCompletedOnboarding: true } });
 
 const chicken = { gtin: "4056489000011", name: "Chicken Breast Fillets", brand: "Aldi", size: "650 g", per: "g", kcal: 110, protein: 24, carbs: 0.5, fat: 1.5, allergens: null, category: "meat" };
 const tuna = { gtin: "4056489000028", name: "Tuna Chunks in Spring Water", brand: "Aldi", size: "160 g", per: "g", kcal: 105, protein: 25, carbs: 0, fat: 0.6, allergens: { contains: ["fish"], mayContain: [] }, category: "cupboard" };
@@ -125,16 +126,12 @@ await step("a shop's full list: vegetarian keeps the bread and the meat-free bac
   await ctx.close();
 });
 
-await step("search: vegetarian leaves out the sample Chicken bowl, and one tap brings it back", async () => {
+await step("search shows every dish whatever filters are on elsewhere (founder 2026-11-21: \"it shouldn't restrict what you can see\")", async () => {
   const { ctx, page } = await newPage();
   await page.goto(BASE + "/app/search");
   await page.getByRole("searchbox").fill("chicken bowl");
-  const chip = page.getByRole("button", { name: "Fits my diet" });
-  await chip.waitFor({ timeout: 20000 });
-  const sample = page.getByRole("link", { name: /^Chicken bowl · Bowl & Co\./ });
-  expect((await sample.count()) === 0, "sample chicken bowl hidden");
-  await chip.click();
-  await sample.first().waitFor({ timeout: 10000 });
+  await page.getByRole("link", { name: /^Chicken bowl · Bowl & Co\./ }).first().waitFor({ timeout: 30000 });
+  expect((await page.getByRole("button", { name: "Fits my diet" }).count()) === 0, "no diet switch on search");
   await ctx.close();
 });
 

@@ -14,9 +14,9 @@ import { indexChain } from "@/lib/mm/chain-index";
 import { allergensFromParams, fitsLimits, hasLimits, limitsFromParams, limitWords, type NumberLimits } from "@/lib/mm/numbers";
 import { candidatesFor } from "@/lib/mm/ranking";
 import { itemHref } from "@/lib/mm/routes";
-import { settingsStore, favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
+import { favoritesStore, recentStore, toggleFavorite } from "@/lib/mm/stores";
 import { recentFor } from "@/lib/mm/recent";
-import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences } from "@/lib/mm/types";
+import { ALLERGEN_KEYS, type Meal, type MenuItem, type Preferences, NO_PREFERENCES } from "@/lib/mm/types";
 import { sanitizeSettings } from "@/lib/mm/user-data";
 import { BestForYou } from "../_components/BestForYou";
 import { ALLERGEN_SHORT, DietPicker, dietWords } from "../_components/DietPicker";
@@ -119,7 +119,9 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
   const [limits, setLimits] = useState<NumberLimits>(() => limitsFromParams(link));
   const [prefs, setPrefs] = useState<Preferences>(() => {
     if (visit?.prefs) return visit.prefs;
-    const saved = settingsStore.get().preferences;
+    // nothing left out until chosen here (founder 2026-11-21: "it shouldn't restrict automatically options based on the dietary restrictions"): neither the
+    // sign-up answers nor a filter chosen in Recipes or the meal plan narrow a restaurant's menu
+    const saved = NO_PREFERENCES;
     const fromLink = allergensFromParams(link);
     if (fromLink.length === 0) return saved;
     return { ...saved, avoidAllergens: ALLERGEN_KEYS.filter((k) => (saved.avoidAllergens ?? []).includes(k) || fromLink.includes(k)) };
@@ -361,8 +363,7 @@ function Loaded({ index }: { index: NonNullable<ReturnType<typeof useChain>["ind
       <Sheet open={dietOpen} onClose={() => setDietOpen(false)} title={t("Your diet")}>
         {/* the choice here is for this visit only (the 20 November 2026 audit: Vegetarian chosen at KFC wasn't kept at Nando's): said, with the way to keep it */}
         <p className="mb-4 text-[0.9375rem] leading-snug text-muted">
-          {t("Just for this visit.")}{" "}
-          <Link href="/app/settings#diet" className={LINK}>{t("Change it in Settings")}</Link>
+          {t("Just for this visit.")}
         </p>
         <DietPicker value={prefs} onChange={changeDiet} halal={false} />
         <div className="mt-5"><Button full onClick={() => setDietOpen(false)}>{t("Done")}</Button></div>
