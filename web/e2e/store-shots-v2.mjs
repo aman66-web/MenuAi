@@ -90,7 +90,7 @@ async function page(name) {
 async function save(p, name) {
   await p.waitForTimeout(1200);
   const photos = PHOTO_SHOTS.has(name);
-  const drawn = await p.evaluate(([logos, photos]) => [...document.images].filter((i) => (logos ? (photos ? /menu-images/ : /menu-images|grocery-images|scene7|groceries-co|wtrecom|iceland|marksandspencer|aldi\.cx|morrisons/) : /\/logos\/|menu-images|grocery-images/).test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length, [LOGOS, photos]);
+  const drawn = await p.evaluate(([logos, photos]) => [...document.images].filter((i) => (logos ? (photos ? /menu-images/ : /menu-images|grocery-images|^https:\/\/(?!localhost)/) : /\/logos\/|menu-images|grocery-images|^https:\/\/(?!localhost)/).test(i.currentSrc || i.src) && !/\/logos\//.test(logos ? i.currentSrc || i.src : "") && i.complete && i.naturalWidth > 0).length, [LOGOS, photos]);
   if (drawn) throw new Error(`${name}: ${drawn} ${LOGOS ? "photo" : "logo or photo"} images on screen`);
   const logos = await p.evaluate(() => [...document.images].filter((i) => /\/logos\//.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
   await p.screenshot({ path: `${OUT}${name}.png` });
