@@ -56,12 +56,16 @@ const SIZE = {
   md: { box: "h-16 w-16 rounded-[0.875rem]", plate: "h-12 w-12", glyph: "h-7 w-7", px: 64 },
   // the overlapping stacks (three at most)
   sm: { box: "h-10 w-10 rounded-xl", plate: "h-8 w-8", glyph: "h-5 w-5", px: 40 },
+  // as wide as the space it sits in, up to 40 px (Meal plan's seven days across a narrow phone)
+  fit: { box: "aspect-square w-full max-w-10 rounded-xl", plate: "h-[80%] w-[80%]", glyph: "h-5 w-5", px: 40 },
+  // across a card's width, twice as wide as it is tall (Meal plan's meals): the full picture first, the small copy only if it can't load
+  wide: { box: "aspect-[2/1] w-full", plate: "h-20 w-20", glyph: "h-10 w-10", px: 800 },
 } as const;
 
-/** A recipe's picture as a small square (64 px, or 40 px for a stack), never stretched (object-cover), with the card's drawing when no picture loads. */
+/** A recipe's picture as a small square (64 px, or 40 px for a stack) or across a card (`wide`), never stretched (object-cover), with the card's drawing when no picture loads. */
 export function RecipeThumb({ id, name, meal, size = "md", className = "" }: { id: string; name: string; meal?: MealType; size?: keyof typeof SIZE; className?: string }) {
   const own = useRecipePhoto(id);
-  const srcs = [own, RECIPE_THUMBS[id], RECIPE_IMAGES[id]].filter((s): s is string => !!s).map((s) => (s.startsWith("/") ? assetUrl(s) : s));
+  const srcs = (size === "wide" ? [own, RECIPE_IMAGES[id], RECIPE_THUMBS[id]] : [own, RECIPE_THUMBS[id], RECIPE_IMAGES[id]]).filter((s): s is string => !!s).map((s) => (s.startsWith("/") ? assetUrl(s) : s));
   const image = useImageChain(srcs);
   const s = SIZE[size];
   const Dish = DISH.find(([re]) => re.test(name))?.[1] ?? MEAL_GLYPH[meal ?? "dinner"] ?? MoonIcon;
@@ -69,7 +73,7 @@ export function RecipeThumb({ id, name, meal, size = "md", className = "" }: { i
     <span aria-hidden className={`grid shrink-0 place-items-center overflow-hidden ${s.box} bg-fill ${className}`}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element -- static file named by its hash (or the person's own photo); decorative, the name is beside it
-        <img key={image.src} src={image.src} alt="" width={s.px} height={s.px} loading="lazy" decoding="async" onError={image.fail} className="h-full w-full object-cover" />
+        <img key={image.src} src={image.src} alt="" width={s.px} height={size === "wide" ? s.px / 2 : s.px} loading="lazy" decoding="async" onError={image.fail} className="h-full w-full object-cover" />
       ) : (
         <span className={`grid place-items-center rounded-full border border-line bg-card text-ink ${s.plate}`}>
           <Dish className={s.glyph} strokeWidth={1.6} />

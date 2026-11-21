@@ -4012,3 +4012,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   kept in memory for a day; `NEXT_PUBLIC_SEARCH_HELP=0` switches it off. Privacy page: a "Search help" section, and search help in the Anthropic row.
   Tests: searchClose (real search file) and searchHelp unit tests; e2e/searchhelp.mjs 3 of 3 (Pip's answer stubbed). Not yet tried with the real AI (the
   route needs the website deployed with ANTHROPIC_API_KEY). On `iap`, not live.
+- (21 Nov, afternoon) **Meal plan screen redesigned** (founder: "the meal plan screen is way too basic ... make it look better visually"). The finished week
+  only (questions, Making your plan and the Premium preview unchanged; every number, saved value and button the same): a summary card on the plan's own green
+  with big "Each day, about" kcal and protein (bars against the person's targets, "Your target: …") and the first shop and each week after as big prices,
+  the ring for "81% of the fresh food you buy is eaten this week."; the seven days as picture tiles in one row (no sideways scroll, "More days" gone); a day
+  total strip (kcal, protein, price); meal cards led by the recipe's picture with kcal on it, price beside the name, a protein, carbs and fat strip, and "Add my
+  portion" (spoken "Add my portion to {meal}") with "Swap this meal" on one row. New files plan/WeekSummary.tsx, plan/DayStrip.tsx; RecipeThumb sizes wide and
+  fit. e2e mealplan 13/13, household 6/6, axe clean at 1× and 1.3× text; unit tests 3,993 passed. Search fix: a close match starts at a word ("ugge" is not
+  "nuggets"). On `iap`, next build.

@@ -24,7 +24,7 @@ import type { DietPrefs } from "@/lib/mm/pantry";
 import { NO_PREFERENCES, type Preferences } from "@/lib/mm/types";
 import { ShopMark } from "../_components/ChainMark";
 import { DietPicker, dietWords } from "../_components/DietPicker";
-import { CalendarIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, PlusIcon, SwapIcon } from "../_components/icons";
+import { CalendarIcon, CheckIcon, ChevronLeftIcon, PlusIcon, SwapIcon } from "../_components/icons";
 import { PipSays, type PipMood } from "../_components/Mascot";
 import { InfoBanner } from "../_components/Note";
 import { PageHeader } from "../_components/PageHeader";
@@ -39,10 +39,13 @@ import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { listHref } from "../groceries/ListChoice";
 import { CARD, CHIP, CHIP_ON, HEADING, TITLE } from "../groceries/PageBits";
 import { PhotoTile } from "../groceries/ProductPhoto";
+import { MEAL_LOOK } from "../recipes/RecipeTile";
 import { RecipeThumb } from "../recipes/RecipeThumb";
+import { DayStrip, type StripDay } from "./DayStrip";
 import { TwoWeeks } from "./TwoWeeks";
 import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, STYLE_LABEL, StyleStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
 import { SwapPicker } from "./SwapPicker";
+import { WeekSummary } from "./WeekSummary";
 
 // The meal plan (founder 2026-11-18; lib/mm/mealPlan.ts has the rules). Premium ("a third icon, which has meal plan, and that has pro on it"). Pip asks one thing
 // a screen ("they just got to type in all their stuff, like Pip's guiding them through"): the daily numbers from the person's own plan, their diet and allergies,
@@ -1173,6 +1176,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const ownTargets = useSlotTargets(shape);
   const targets = useMemo(() => styleTargets(ownTargets, style), [ownTargets, style]);
   const gap = useCapGap(shape, targets);
+  const daily = macroTargets(settings);
   const [loaded, setLoaded] = useState<Loaded[] | null>(null);
   const [candidates, setCandidates] = useState<Candidates | null>(null);
   const [failed, setFailed] = useState(false);
@@ -1284,31 +1288,6 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   }, [saved.start, language]);
   const lastDay = useMemo(() => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long", day: "numeric", month: "long" }).format(new Date(new Date(`${saved.start}T12:00:00`).getTime() + (PLAN_DAYS - 1) * 86_400_000)), [saved.start, language]);
   const shopName = (id: string) => shopsAll.find((s) => s.id === id)?.name ?? id;
-  // the days run off the right edge at large text: while there are more to see, a pinned "›" button on the page's own grey says so and scrolls on (no fade
-  // over the words: a faded Sunday looked switched off), and the day chosen scrolls into view (usability test 2026-11-19: Irene didn't know the strip scrolled)
-  const dayStrip = useRef<HTMLDivElement>(null);
-  const [moreRight, setMoreRight] = useState(false);
-  useEffect(() => {
-    const el = dayStrip.current;
-    if (!el) return;
-    const check = () => setMoreRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-    check();
-    el.addEventListener("scroll", check, { passive: true });
-    const observer = new ResizeObserver(check);
-    observer.observe(el);
-    return () => { el.removeEventListener("scroll", check); observer.disconnect(); };
-  }, [week]);
-  useEffect(() => {
-    // sideways only (scrollIntoView would also move the page to the strip)
-    const el = dayStrip.current;
-    const b = el?.querySelector<HTMLElement>('[aria-checked="true"]');
-    if (!el || !b) return;
-    const r = b.getBoundingClientRect();
-    const box = el.getBoundingClientRect();
-    if (r.right > box.right - 16) el.scrollBy({ left: r.right - box.right + 40, behavior: "smooth" });
-    else if (r.left < box.left + 16) el.scrollBy({ left: r.left - box.left - 40, behavior: "smooth" });
-  }, [day, week]);
-
   const header = <PageHeader back={{ href: "/app", label: t("Back to Home") }} />;
   if (failed) return <div>{header}<h1 className={`mt-4 ${TITLE}`}>{t("Your meal plan")}</h1><div className="mt-4"><ErrorBox message={t("Couldn't load the products. Check your connection.")} onRetry={() => setRetry((n) => n + 1)} /></div></div>;
   if (!candidates || !loaded) return <div>{header}<h1 className={`mt-4 ${TITLE}`}>{t("Your meal plan")}</h1><Spinner label={t("Opening your plan")} /></div>;
@@ -1335,6 +1314,30 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const forN = (meal: MealType) => (people > 1 && meal !== "snack" ? <span className="block text-[0.8125rem] font-semibold text-muted">{t("for {n}", { n: people })}</span>
     : savedHome && meal === "snack" ? <span className="block text-[0.8125rem] font-semibold text-muted">{t("Just for you")}</span> : null);
   const several = saved.shops.length > 1;
+  // the budget in plain dark words, within it or over it alike (money is never green or red); a budget is whole pounds
+  const budgetLine = week.budget === null ? t("No budget set.")
+    : twoWeeks ? twoWeeksBudget(t, costs, week.budget, saved.swapped)
+    : week.overBudget && saved.swapped ? t("{over} over your {budget} budget with your swaps.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
+    : week.overBudget ? t("{over} over your {budget} budget: the cheapest week our recipes allow.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
+    : t("Within your {budget} budget.", { budget: pounds(week.budget) });
+  // the seven days across the screen: each its short name, its date and a picture of its main meal (the last that isn't a snack: dinner when there is one),
+  // never of a meal hidden because the diet changed
+  const htmlLang = localeInfo(language).htmlLang;
+  const startNoon = new Date(`${saved.start}T12:00:00`).getTime();
+  const shortDay = new Intl.DateTimeFormat(htmlLang, { weekday: "short" });
+  const dateOnly = new Intl.DateTimeFormat(htmlLang, { day: "numeric" });
+  const fullDay = new Intl.DateTimeFormat(htmlLang, { weekday: "long", day: "numeric", month: "long" });
+  const stripDays: StripDay[] = week.days.map((d, i) => {
+    const at = new Date(startNoon + i * 86_400_000);
+    const shownMeals = d.meals.filter((m) => !dietChanged || fitsNow(m.candidate.recipe.id));
+    const main = [...shownMeals].reverse().find((m) => m.meal !== "snack") ?? shownMeals[0];
+    return {
+      short: shortDay.format(at),
+      date: dateOnly.format(at),
+      label: i === todayIndex ? t("{day} (today)", { day: fullDay.format(at) }) : fullDay.format(at),
+      picture: main ? { id: main.candidate.recipe.id, name: main.candidate.recipe.name, meal: main.meal } : null,
+    };
+  });
   const choose = (recipeId: string) => {
     if (swapping === null) return;
     const ids: PlanIds = setMeal(saved.ids, day, swapping, recipeId);
@@ -1387,14 +1390,18 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
     <div className="pb-6">
       {header}
       <h1 className={`mt-4 ${TITLE}`}>{t("Your meal plan")}</h1>
-      <p className="mt-2 text-base leading-snug text-muted">
-        {snackCount ? t("{meals} meals and {snacks} snacks from {shops}.", { meals: mealCount, snacks: snackCount, shops: names(shopsAll, week.shops) })
-          : t("{meals} meals from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
-        {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it), with a home's diets */}
-        {/* each diet as its picker names it, capitals kept (Jain, Kosher style; and German nouns) */}
-        {/* not while the diet has changed since: some meals may not fit it now (the 21 November meeting, Kemi) */}
-        {dietLine.length > 0 && !dietChanged && <> {t("Every meal fits your diet: {diet}.", { diet: dietLine.join(", ") })}</>}
-      </p>
+      {/* the shop's own logo beside its name (CLAUDE.md rule 2: unmodified, small, to say which shop) */}
+      <div className="mt-2 flex items-start gap-2.5">
+        <span className="flex shrink-0 gap-1">{week.shops.map((sh) => <ShopMark key={sh} shopId={sh} size="xs" />)}</span>
+        <p className="min-w-0 text-base leading-snug text-muted">
+          {snackCount ? t("{meals} meals and {snacks} snacks from {shops}.", { meals: mealCount, snacks: snackCount, shops: names(shopsAll, week.shops) })
+            : t("{meals} meals from {shops}.", { meals: mealCount, shops: names(shopsAll, week.shops) })}
+          {/* the diet said on the plan itself (usability test 2026-11-19: Raj looked for "all vegetarian" and didn't find it), with a home's diets */}
+          {/* each diet as its picker names it, capitals kept (Jain, Kosher style; and German nouns) */}
+          {/* not while the diet has changed since: some meals may not fit it now (the 21 November meeting, Kemi) */}
+          {dietLine.length > 0 && !dietChanged && <> {t("Every meal fits your diet: {diet}.", { diet: dietLine.join(", ") })}</>}
+        </p>
+      </div>
       {/* the plan's week is over: follow it again from today, or make a new one (an old plan used to open on its first day for ever) */}
       {ended && (
         <div className={`${CARD} mt-4 p-4`}>
@@ -1431,125 +1438,122 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         )}
       </div>
 
-      {/* the money first: what the shopping comes to, against the budget. No Pip on it (founder 2026-11-20, "keep him as the guide, not the decoration";
-          the onboarding meeting: no Pip near money) */}
-      <div className={`${CARD} mt-4 p-4`}>
-        {/* the first shop and each week after, as the headline, when the packs that keep make the first dearer (founder 2026-11-20: "how much it's going to cost
-            the first food shop I need to buy, but then in coming weeks, how much it was going to cost me"); else the one figure, as before */}
-        {twoWeeks ? <TwoWeeks costs={costs} week={week} large /> : (
-          <>
-            <p className="app-numbers text-[1.75rem] font-[800] leading-none">{formatPrice(week.shoppingCost)}</p>
-            <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{people > 1 ? t("for the week's shopping for {n} people", { n: people }) : t("for the week's shopping")}</p>
-          </>
-        )}
-        {/* the budget in plain dark words, within it or over it alike (money is never green or red); a budget is whole pounds */}
-        <p className="mt-3 text-[0.9375rem] leading-snug">
-          {week.budget === null ? t("No budget set.")
-            : twoWeeks ? twoWeeksBudget(t, costs, week.budget, saved.swapped)
-            : week.overBudget && saved.swapped ? t("{over} over your {budget} budget with your swaps.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
-            : week.overBudget ? t("{over} over your {budget} budget: the cheapest week our recipes allow.", { over: formatPrice(week.shoppingCost - week.budget), budget: pounds(week.budget) })
-            : t("Within your {budget} budget.", { budget: pounds(week.budget) })}
-        </p>
-        {week.fresh.bought > 0 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("{pct}% of the fresh food you buy is eaten this week.", { pct: Math.round((100 * week.fresh.eaten) / week.fresh.bought) })}</p>}
-        <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(avg("kcal")), protein: formatInt(avg("protein")), target: formatInt(settings.dailyCalories) })}</p>
+      {/* the week at a glance, before the days (founder 2026-11-21: "make it look far better"): the day's calories and protein as big figures against the
+          person's targets, then the money (the first shop and each week after, against the budget). No Pip on it (founder 2026-11-20, "keep him as the
+          guide, not the decoration"; the onboarding meeting: no Pip near money) */}
+      <WeekSummary week={week} costs={costs} twoWeeks={twoWeeks} people={people} kcal={avg("kcal")} protein={avg("protein")} targetKcal={settings.dailyCalories}
+        targetProtein={daily.protein} budgetLine={budgetLine} fresh={week.fresh.bought > 0 ? Math.round((100 * week.fresh.eaten) / week.fresh.bought) : null}>
         {short && (
-          <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{shape.snacks < MAX_SNACKS
+          <p className="app-numbers text-[0.9375rem] leading-snug">{shape.snacks < MAX_SNACKS
             ? t("Our recipes go up to about {max} kcal a meal, so your days come to about {avg} of your {daily} kcal. Add snacks on the meals step to make up the rest.", { max: formatInt(short.max), avg: formatInt(short.avg), daily: formatInt(settings.dailyCalories) })
             : t("Our recipes go up to about {max} kcal a meal, so your days come to about {avg} of your {daily} kcal.", { max: formatInt(short.max), avg: formatInt(short.avg), daily: formatInt(settings.dailyCalories) })}</p>
         )}
-        <CapNote gap={gap} className="mt-2" />
+        <CapNote gap={gap} />
         {/* the allergies the plan leaves out, in the one amber note with "Always check the label" (never a promise): a home's and the person's own, or (Just
             me) the person's own; "No allergies at home." stays a plain line */}
         {savedHome ? (savedHome.allergies.length || ownAllergies.length
-          ? <AllergyNote className="mt-3"><p>{allergyLine(t, savedHome.allergies, ownAllergies)}</p></AllergyNote>
-          : <p className="mt-2 text-[0.9375rem] font-semibold leading-snug">{allergyLine(t, [])}</p>)
-          : ownAllergies.length > 0 && <AllergyNote className="mt-3"><p>{allergyLine(t, ownAllergies)}</p></AllergyNote>}
-        {savedHome ? <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("Cooked for {n} of you. The numbers are your own portion.", { n: people })}</p>
-          : people > 1 && <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("The shopping is for {n} people: each has the same meals, sized to your numbers.", { n: people })}</p>}
-      </div>
+          ? <AllergyNote><p>{allergyLine(t, savedHome.allergies, ownAllergies)}</p></AllergyNote>
+          : <p className="text-[0.9375rem] font-semibold leading-snug">{allergyLine(t, [])}</p>)
+          : ownAllergies.length > 0 && <AllergyNote><p>{allergyLine(t, ownAllergies)}</p></AllergyNote>}
+        {savedHome ? <p className="app-numbers text-[0.9375rem] leading-snug">{t("Cooked for {n} of you. The numbers are your own portion.", { n: people })}</p>
+          : people > 1 && <p className="app-numbers text-[0.9375rem] leading-snug">{t("The shopping is for {n} people: each has the same meals, sized to your numbers.", { n: people })}</p>}
+      </WeekSummary>
 
-      {/* the days: big buttons, the one showing lime with the dark green edge and a dot (chosen, not "do this"); the others white with the edge */}
-      <div className="relative -mx-5 mt-5">
-        <div ref={dayStrip} role="radiogroup" aria-label={t("Day")} className="no-scrollbar flex gap-2 overflow-x-auto px-5 py-0.5">
-          {dayNames.map((name, i) => (
-            <button key={i} type="button" role="radio" aria-checked={day === i} onClick={() => setDay(i)}
-              className={`inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border-[1.5px] px-4 text-[0.9375rem] transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${day === i ? "border-on-sun bg-sun font-bold text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-edge bg-card font-semibold text-foreground hover:bg-background"}`}>
-              <ChoiceMark on={day === i} kind="dot" />{i === todayIndex ? t("Today") : name}
-            </button>
-          ))}
-          {/* room at the end so the last day can scroll clear of the pinned button */}
-          {moreRight && <span aria-hidden className="w-12 shrink-0" />}
-        </div>
-        {moreRight && (
-          <span className="absolute inset-y-0 end-0 flex items-center bg-background pe-5 ps-2">
-            <button type="button" onClick={() => dayStrip.current?.scrollBy({ left: (dayStrip.current.clientWidth * 0.6) * (document.dir === "rtl" ? -1 : 1), behavior: "smooth" })} aria-label={t("More days")}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-edge bg-card text-ink transition active:scale-95 hover:bg-background">
-              <ChevronRightIcon aria-hidden className="h-5 w-5" />
-            </button>
-          </span>
-        )}
-      </div>
+      {/* the seven days, all in view: the one shown lime with the dark green edge (chosen, not "do this"), today with a dot */}
+      <DayStrip days={stripDays} day={day} todayIndex={todayIndex} onDay={setDay} />
 
-      <section aria-labelledby="day-h" className="mt-4">
+      <section aria-labelledby="day-h" className="mt-6">
         <h2 id="day-h" className={HEADING}>{day === todayIndex ? t("Today, {day}", { day: dayNames[day]! }) : dayNames[day]}</h2>
+        {/* the day's total, under its name: drawn as three figures, said as one sentence */}
+        <p className="sr-only">{savedHome
+          ? t("{day}: your {kcal} kcal · {protein} g protein · {cost} for {n}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost), n: people })
+          : people > 1
+          ? t("{day}: {kcal} kcal · {protein} g protein each · {cost} for {n}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost), n: people })
+          : t("{day}: {kcal} kcal · {protein} g protein · {cost}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost) })}</p>
+        <div aria-hidden className={`${CARD} app-numbers mt-3 grid grid-cols-3 divide-x divide-line py-3 text-center`}>
+          {[
+            { value: formatInt(shown.kcal), label: "kcal" },
+            { value: `${formatInt(shown.protein)} g`, label: t("protein") },
+            { value: formatPrice(shown.cost), label: people > 1 ? t("for {n}", { n: people }) : t("Total") },
+          ].map((f) => (
+            <span key={f.label} className="min-w-0 px-1.5">
+              <span className="block text-[1.375rem] font-[800] leading-tight tracking-[-0.01em] [overflow-wrap:anywhere]">{f.value}</span>
+              <span className="mt-0.5 block text-[0.8125rem] font-semibold leading-snug text-muted">{f.label}</span>
+            </span>
+          ))}
+        </div>
         {logged && <Toast key={logged.id} onUndo={undoLog} onClose={() => setLogged(null)}>{logged.text}</Toast>}
-        <ul className="mt-3 space-y-3">
+        <ul className="mt-5 space-y-6">
           {shown.meals.map((m, i) => {
             const addKey = `${day}-${i}-${m.candidate.recipe.id}`;
             const isAdded = loggedKeys.has(addKey);
             const meal = slotName(i).toLowerCase();
+            const MealIcon = MEAL_LOOK[m.meal].Icon;
+            // the meal's name over its card, with the meal's own icon (the card's picture is the dish)
+            const label = <p className="flex items-center gap-2 px-1 text-[1.0625rem] font-[800] leading-snug tracking-[-0.01em]"><MealIcon aria-hidden className="h-5 w-5 shrink-0 text-ink" />{slotName(i)}</p>;
             // a meal that no longer suits the person's diet or allergies (changed since the plan was made) is hidden: Swap, or a new plan
             if (dietChanged && !fitsNow(m.candidate.recipe.id)) {
               return (
-                <li key={`${m.meal}-${i}`} className={`${CARD} p-4`}>
-                  <p className="text-[0.8125rem] font-semibold text-muted">{slotName(i)}</p>
-                  <p className="mt-1 text-[0.9375rem] font-semibold leading-snug">{t("This meal doesn't fit your diet or allergies now, so it's hidden. Swap it, or make a new plan.")}</p>
-                  <Button variant="secondary" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}", { meal })} className="mt-3 gap-1.5 px-4"><SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}</Button>
+                <li key={`${m.meal}-${i}`}>
+                  {label}
+                  <div className={`${CARD} mt-2 p-4`}>
+                    <p className="text-[0.9375rem] font-semibold leading-snug">{t("This meal doesn't fit your diet or allergies now, so it's hidden. Swap it, or make a new plan.")}</p>
+                    <Button variant="secondary" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}", { meal })} className="mt-3 gap-1.5 px-4"><SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}</Button>
+                  </div>
                 </li>
               );
             }
+            const c = m.candidate;
             return (
-            <li key={`${m.meal}-${i}`} className={`${CARD} p-3`}>
-              <p className="px-1 text-[0.8125rem] font-semibold text-muted">{slotName(i)}</p>
-              <div className="mt-2 flex items-center gap-3">
-                <Link href={recipeHref(m.candidate, m.meal)} className="flex min-w-0 flex-1 items-center gap-3">
-                  <RecipeThumb id={m.candidate.recipe.id} name={m.candidate.recipe.name} meal={m.meal} size="sm" />
-                  <span className="min-w-0">
-                    <span className="block font-bold leading-snug [overflow-wrap:anywhere]">{t(m.candidate.recipe.name)}</span>
-                    <span className="app-numbers mt-0.5 block text-[0.875rem] text-muted">{formatInt(m.candidate.perServing.kcal)} kcal · {formatInt(m.candidate.perServing.protein)} g {t("protein")}</span>
-                    {several && <span className="mt-1 flex items-center gap-1.5 text-[0.8125rem] text-muted"><ShopMark shopId={m.candidate.shop} size="xs" />{shopName(m.candidate.shop)}</span>}
-                    {m.candidate.better && <span className="mt-1 block"><Badge>{t("Pricier products")}</Badge></span>}
+            <li key={`${m.meal}-${i}`}>
+              {label}
+              {/* the dish first, big (our own recipe pictures), its calories on the picture's corner, then the name and price, then protein, carbs and fat */}
+              <div className={`${CARD} mt-2 overflow-hidden rounded-[1.5rem]`}>
+                <Link href={recipeHref(c, m.meal)} className="relative block rounded-[1.5rem] focus-visible:outline-offset-[-3px]">
+                  <RecipeThumb id={c.recipe.id} name={c.recipe.name} meal={m.meal} size="wide" />
+                  <span className="block px-4 pt-3.5">
+                    <span className="flex items-start gap-3">
+                      <span className="min-w-0 flex-1 text-[1.1875rem] font-bold leading-snug tracking-[-0.01em] [overflow-wrap:anywhere]">{t(c.recipe.name)}</span>
+                      <span className="app-numbers shrink-0 text-end text-[1.1875rem] font-[800] leading-snug">{formatPrice(c.cost)}{forN(m.meal)}</span>
+                    </span>
+                    {several && <span className="mt-1.5 flex items-center gap-1.5 text-[0.875rem] text-muted"><ShopMark shopId={c.shop} size="xs" />{shopName(c.shop)}</span>}
+                    {c.better && <span className="mt-1.5 block"><Badge>{t("Pricier products")}</Badge></span>}
+                    {/* the literal spaces keep each cell's words apart for a screen reader; the dots are protein's, carbs' and fat's own colours (labels only) */}
+                    <span className="app-numbers mt-3 grid grid-cols-3 divide-x divide-line rounded-xl bg-fill py-2 text-center">
+                      {([[t("protein"), c.perServing.protein, "bg-protein"], [t("carbs"), c.perServing.carbs, "bg-carbs"], [t("fat"), c.perServing.fat, "bg-fat"]] as const).map(([word, grams, dot]) => (
+                        <span key={dot} className="min-w-0 px-1">
+                          <span className="block text-[1rem] font-semibold leading-tight">{formatInt(grams)}g</span>{" "}
+                          <span className="inline-flex items-center gap-1 text-[0.8125rem] leading-tight text-muted"><span aria-hidden className={`dot ${dot}`} />{word}</span>
+                        </span>
+                      ))}
+                    </span>
                   </span>
+                  {/* after the name in the markup, so a screen reader hears the name first; drawn on the picture's top corner, like the recipe cards */}
+                  <span className="app-numbers photo-tag absolute start-3 top-3 inline-flex items-baseline gap-[0.25em] whitespace-nowrap rounded-full px-3 py-1 text-[1.0625rem] font-[800] leading-[1.3]">{formatInt(c.perServing.kcal)}<span className="text-[0.8125rem] font-semibold">kcal</span></span>
                 </Link>
-                <span className="app-numbers shrink-0 text-end text-base font-[800]">{formatPrice(m.candidate.cost)}{forN(m.meal)}</span>
-              </div>
-              {/* who gets how much, in servings of the recipe as written (household plans; only the user's own numbers are shown) */}
-              {savedHome && m.candidate.plates && m.meal !== "snack" && (
-                <p className="app-numbers mt-2 px-1 text-[0.9375rem] leading-snug"><Rich text={t("Servings each: {list}.")} values={{ list: plateList(m.candidate.plates) }} /></p>
-              )}
-              <div className="mt-2 flex flex-wrap gap-2">
-              {/* today's meals only go into today's food diary (another day's would be logged today); every add is a compact ink pill; once tapped it shows
-                  Added (lime with the dark green edge and a tick) until the toast's Undo */}
-              {day === todayIndex && (
-                <button type="button" aria-disabled={isAdded || undefined} onClick={() => { if (!isAdded) logMine(m.candidate, m.meal, addKey); }}
-                  className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isAdded ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-transparent bg-ink text-on-ink hover:bg-ink-pressed"}`}>
-                  {isAdded ? <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4" /> : <PlusIcon aria-hidden className="h-4 w-4" />}
-                  {isAdded ? t("Added to {meal}", { meal }) : t("Add my portion to {meal}", { meal })}
-                </button>
-              )}
-              <Button variant="secondary" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}, {recipe}", { meal, recipe: t(m.candidate.recipe.name) })} className="gap-1.5 px-4">
-                <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
-              </Button>
+                {/* who gets how much, in servings of the recipe as written (household plans; only the user's own numbers are shown) */}
+                {savedHome && c.plates && m.meal !== "snack" && (
+                  <p className="app-numbers mt-3 px-4 text-[0.9375rem] leading-snug"><Rich text={t("Servings each: {list}.")} values={{ list: plateList(c.plates) }} /></p>
+                )}
+                <div className="flex flex-wrap gap-2 px-4 pb-4 pt-3">
+                  {/* today's meals only go into today's food diary (another day's would be logged today); once tapped it shows Added (lime with the dark green
+                      edge and a tick) until the toast's Undo. The button says "Add my portion"; its full name says which meal */}
+                  {day === todayIndex && (
+                    <button type="button" aria-disabled={isAdded || undefined} onClick={() => { if (!isAdded) logMine(m.candidate, m.meal, addKey); }} aria-label={isAdded ? undefined : t("Add my portion to {meal}", { meal })}
+                      className={`inline-flex min-h-11 flex-[1_1_auto] items-center justify-center gap-1.5 rounded-full border-[1.5px] px-4 text-[0.9375rem] font-bold transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${isAdded ? "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]" : "border-transparent bg-ink text-on-ink hover:bg-ink-pressed"}`}>
+                      {isAdded ? <CheckIcon aria-hidden strokeWidth={3} className="h-4 w-4" /> : <PlusIcon aria-hidden className="h-4 w-4" />}
+                      {isAdded ? t("Added to {meal}", { meal }) : t("Add my portion")}
+                    </button>
+                  )}
+                  <Button variant="secondary" onClick={() => setSwapping(i)} aria-label={t("Swap this meal: {meal}, {recipe}", { meal, recipe: t(c.recipe.name) })} className="flex-[1_1_auto] gap-1.5 px-4">
+                    <SwapIcon aria-hidden className="h-4 w-4" />{t("Swap this meal")}
+                  </Button>
+                </div>
               </div>
             </li>
             );
           })}
         </ul>
-        <p className="app-numbers mt-3 px-1 text-[0.9375rem] font-semibold">{savedHome
-          ? t("{day}: your {kcal} kcal · {protein} g protein · {cost} for {n}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost), n: people })
-          : people > 1
-          ? t("{day}: {kcal} kcal · {protein} g protein each · {cost} for {n}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost), n: people })
-          : t("{day}: {kcal} kcal · {protein} g protein · {cost}", { day: dayNames[day]!, kcal: formatInt(shown.kcal), protein: formatInt(shown.protein), cost: formatPrice(shown.cost) })}</p>
       </section>
 
       <section aria-labelledby="buy-h" className="mt-8">

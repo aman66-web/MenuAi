@@ -19,6 +19,17 @@ function inSentence(name: string): string {
   return /^\p{Lu}\p{Ll}/u.test(plain) ? plain.charAt(0).toLocaleLowerCase() + plain.slice(1) : plain;
 }
 
+/** "It includes olive oil, rice and other things that last for weeks.": the week's own long-lasting things in one line, or null when it has none. */
+export function useLastingLine(week: Pick<WeekPlan, "shopping">, things = 3): string | null {
+  const t = useT();
+  const language = useLanguage();
+  const lasting = lastingThings(week, things);
+  if (!lasting.names.length) return null;
+  // "olive oil, rice and other things", in the language's own way of joining a list
+  const names = new Intl.ListFormat(localeInfo(language).htmlLang, { type: "conjunction" }).format([...lasting.names.map((n) => inSentence(t(n))), ...(lasting.more ? [t("other things")] : [])]);
+  return lasting.more ? t("It includes {items} that last for weeks.", { items: names }) : t("It includes {items}, which last for weeks.", { items: names });
+}
+
 export function TwoWeeks({ costs, week, things = 3, large = false, className = "" }: {
   costs: WeekCosts;
   /** The week whose shopping is named in the "why" line. */
@@ -30,18 +41,13 @@ export function TwoWeeks({ costs, week, things = 3, large = false, className = "
   className?: string;
 }) {
   const t = useT();
-  const language = useLanguage();
-  const lasting = lastingThings(week, things);
-  // "olive oil, rice and other things", in the language's own way of joining a list
-  const names = new Intl.ListFormat(localeInfo(language).htmlLang, { type: "conjunction" }).format([...lasting.names.map((n) => inSentence(t(n))), ...(lasting.more ? [t("other things")] : [])]);
+  const lasting = useLastingLine(week, things);
   const figure = large ? "text-[1.375rem] font-[800] leading-tight" : "text-[1.0625rem] font-bold leading-snug";
   return (
     <div className={className}>
       <p className={`app-numbers ${figure}`}>{t("Your first shop: about £{cost}", { cost: formatInt(Math.round(costs.first)) })}</p>
       <p className={`app-numbers ${large ? "mt-1.5" : "mt-0.5"} ${figure}`}>{t("Each week after: about £{cost}", { cost: formatInt(Math.round(costs.after)) })}</p>
-      {lasting.names.length > 0 && (
-        <p className="mt-1.5 text-[0.9375rem] leading-snug text-foreground">{lasting.more ? t("It includes {items} that last for weeks.", { items: names }) : t("It includes {items}, which last for weeks.", { items: names })}</p>
-      )}
+      {lasting && <p className="mt-1.5 text-[0.9375rem] leading-snug text-foreground">{lasting}</p>}
     </div>
   );
 }

@@ -285,13 +285,14 @@ const slipsFor = (word: string) => (word.length >= 9 ? 2 : word.length >= 5 ? 1 
 
 /**
  * A close match for a name (founder 2026-11-21: "one little spelling mistake will mean that they won't be able to get the right thing"): 2 when the typed
- * letters without spaces are inside the name without spaces ("mc chick" in "mcchicken sandwich"), 3 when every typed word starts a word of the name or is a
+ * letters without spaces start a word of the name without spaces ("mc chick" in "mcchicken sandwich"), 3 when every typed word starts a word of the name or is a
  * slip or two from one ("mcdonals", "chiken burger"), null otherwise.
  */
 export function closeRank(norm: string, q: string): 2 | 3 | null {
   const qc = q.replace(/ /g, "");
-  if (qc.length >= 4 && norm.replace(/ /g, "").includes(qc)) return 2;
   const words = norm.split(" ");
+  // from the start of a word, never the middle of one ("ugge" is not "nuggets")
+  if (qc.length >= 4 && words.some((_, k) => words.slice(k).join("").startsWith(qc))) return 2;
   const typed = q.split(" ").filter(Boolean);
   if (!typed.some((t) => t.length >= 4)) return null;
   for (const t of typed) {
