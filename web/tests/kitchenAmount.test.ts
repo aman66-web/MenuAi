@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { methodAmount, placeAmounts, scaleMethodStep, spoonText } from "../lib/mm/kitchenAmount";
+import { kitchenSize, methodAmount, placeAmounts, scaleMethodStep, spoonText } from "../lib/mm/kitchenAmount";
 import { scaleServings } from "../lib/mm/recipes";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { splitStep } from "../lib/mm/recipeSteps";
@@ -156,5 +156,34 @@ describe("every recipe's method, as the page shows it", () => {
   });
   it("puts a shared salt-and-pepper bracket after both words, and never inside a name", () => {
     expect(steps.filter((s) => /\bsalt\[[^\]]*\] and pepper|\] (?:slices|strips|wedges)\b/.test(s.text)).map((s) => `${s.id}: ${s.text}`)).toEqual([]);
+  });
+});
+
+// The everyday size beside each weight in the ingredient list (founder 2026-11-21: "80 grams slash half a pepper ... salt and herbs and stuff, you can use
+// teaspoons")
+describe("the everyday size in the ingredient list", () => {
+  const size = (amount: number, pantry: string, unit: "g" | "ml" = "g", countsOk = true) => kitchenSize({ amount, unit, pantry }, countsOk);
+  it("says pieces of vegetables and fruit: halves and quarters of a cut one, whole ones counted", () => {
+    expect(size(80, "peppers")).toEqual({ text: "½ pepper", spoon: false });
+    expect(size(160, "peppers")).toEqual({ text: "1 pepper", spoon: false });
+    expect(size(75, "cucumber")).toEqual({ text: "¼ cucumber", spoon: false });
+    expect(size(225, "onion")).toEqual({ text: "1½ onions", spoon: false });
+    expect(size(10, "fresh-garlic")).toEqual({ text: "2 cloves", spoon: false });
+    expect(size(50, "broccoli")).toEqual({ text: "3 florets", spoon: false });
+    expect(size(120, "eggs")).toEqual({ text: "2 eggs", spoon: false });
+    expect(size(30, "spinach")).toEqual({ text: "a handful", spoon: false });
+  });
+  it("gives salt, spices, dried herbs and oils in level spoons, said first", () => {
+    expect(size(6, "salt")).toEqual({ text: "1 tsp", spoon: true });
+    expect(size(1, "oregano")).toEqual({ text: "1 tsp", spoon: true });
+    expect(size(2, "dill")).toEqual({ text: "2 tsp", spoon: true });
+    expect(size(15, "olive-oil", "ml")).toEqual({ text: "1 tbsp", spoon: true });
+    expect(size(1, "black-pepper")).toEqual({ text: "½ tsp", spoon: true });
+  });
+  it("says nothing for what has no everyday size, a sliver too small to count, or a product in much smaller pieces", () => {
+    expect(size(120, "rice")).toBeNull();
+    expect(size(200, "milk", "ml")).toBeNull();
+    expect(size(20, "peppers")).toBeNull();
+    expect(size(85, "tomatoes", "g", false)).toBeNull();
   });
 });

@@ -4119,3 +4119,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   words Settings › Subscription already uses; last day "Free week: 1 day left"), opening the plans page. iPhone app only (the website sells nothing).
   e2e/freeweek.mjs 7/7 (its plans-page step expected the old "Get more with Premium" headline, changed earlier the same day: fixed). New words (rule 8):
   "Your free week has started", "{days} days of Premium, free", "Until {date}", "No card needed, and nothing to cancel.", "Start exploring".
+- (21 Nov, evening) **Everyday sizes beside the weights** (founder, on a recipe's "Peppers 80 g": "you can say 80 grams slash half a pepper or like one pepper
+  ... because people aren't going to listen. Also ... salt and herbs and stuff, you can use teaspoons"). The recipe page's ingredient list says each weight with
+  its everyday size: pieces after the weight ("80 g / ½ pepper", "75 g / 4 florets", "10 g / 2 cloves", "120 g / 2 eggs", "30 g / a handful" of spinach), cut
+  vegetables to the quarter under one and the half above, small ones counted whole, nothing for a sliver under a fifth of one; level spoons first for small
+  amounts of salt, spices, dried herbs, oils and sauces ("1 tsp / 6 g", "1 tbsp / 15 ml"). A count note the size already says ("about 2 eggs") isn't said twice.
+  Usual UK piece weights in lib/mm/kitchenAmount.ts PIECES (the pantry's where it has one; carrots 80 g as the method already used); the method uses the same
+  table ("about ½ a pepper"). Only ever beside the weight, which the nutrition and the price come from (rule 1 untouched). Tests: kitchenAmount (3 new);
+  e2e/recipes.mjs 17/17 (its allergy step expected Recipes' filters to change Settings, untrue since the sign-up answers were split from the filters today).

@@ -16,7 +16,7 @@ import { formatCalories, formatDate, formatGrams, formatInt, nutrientAriaLabel }
 import { tk, type T } from "@/lib/mm/i18n";
 import { firstMentions } from "@/lib/mm/stepIngredients";
 import { recipeTicks } from "@/lib/mm/listRecipes";
-import { methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
+import { kitchenSize, methodAmount, placeAmounts, scaleMethodStep } from "@/lib/mm/kitchenAmount";
 import { LOCAL_RANGE_SHOP, LOCAL_SHOP_PRODUCTS } from "@/lib/mm/localRange";
 import { localTipFor } from "@/lib/mm/localTips";
 import { MAX_RECIPE_SERVINGS, MEAL_TYPES, candidates, countsSuit, fitOutcome, haveKey, isMeatFree, noteForPick, pickFor, recipeTotals, recipeView, resolveRecipe, roundedAmountsMatter, scaleServings, scaleSpec, subSpec, type IngredientPick, type IngredientSpec, type MealTarget, type Recipe } from "@/lib/mm/recipes";
@@ -730,15 +730,30 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
                       </Link>
                     ) : <PhotoTile sources={[]} />}
                     <div className="min-w-0 flex-1">
-                      {/* the name wraps beside a fixed amount, so the amount never drops onto a line of its own */}
-                      <p className="flex items-start gap-3">
-                        <span className="min-w-0 flex-1 text-base font-bold leading-snug [overflow-wrap:anywhere]">{t(spec.label)}</span>
-                        <span className="app-numbers shrink-0 whitespace-nowrap text-[0.9375rem] font-semibold leading-snug">{amountText(spec)}</span>
-                      </p>
                       {(() => {
-                        // "about 1 tomato" is dropped for 80 g of baby plum tomatoes (lib/mm/recipes.ts noteForPick)
+                        // the weight and its everyday size (founder 2026-11-21: "80 grams slash half a pepper ... salt and herbs ... teaspoons"): spoons first for
+                        // small amounts of salt, spices, herbs and oils ("1 tsp / 6 g"), pieces after the weight ("80 g / ½ pepper"); the size can wrap under the weight
+                        const size = kitchenSize(spec, countsSuit(spec.pantry, p?.product.name));
+                        const weight = amountText(spec);
+                        // "about 1 tomato" is dropped for 80 g of baby plum tomatoes (lib/mm/recipes.ts noteForPick); a count the size already says isn't said twice
                         const note = noteForPick(spec, p?.product.name);
-                        return note ? <p className="text-[0.8125rem] text-muted">{noteText(t, note)}</p> : null;
+                        const shownNote = note && !(size && /^about \d/.test(note)) ? note : null;
+                        return (
+                          <>
+                            {/* the name wraps beside the amount, so the amount never drops onto a line of its own */}
+                            <p className="flex items-start gap-3">
+                              <span className="min-w-0 flex-1 text-base font-bold leading-snug [overflow-wrap:anywhere]">{t(spec.label)}</span>
+                              <span className="app-numbers max-w-[55%] shrink-0 text-end text-[0.9375rem] font-semibold leading-snug">
+                                {size?.spoon ? (
+                                  <><span className="whitespace-nowrap">{size.text}</span> <span className="whitespace-nowrap font-normal text-muted">/ {weight}</span></>
+                                ) : (
+                                  <><span className="whitespace-nowrap">{weight}</span>{size && <> <span className="whitespace-nowrap">/ {size.text}</span></>}</>
+                                )}
+                              </span>
+                            </p>
+                            {shownNote ? <p className="text-[0.8125rem] text-muted">{noteText(t, shownNote)}</p> : null}
+                          </>
+                        );
                       })()}
                       {spec.subFor && (
                         <p className="mt-0.5 text-[0.8125rem] leading-snug text-muted">{written.original || written.subFor ? t("Instead of {name}.", { name: lowerFirst(t(spec.subFor)) }) : t("We couldn't match {name} at {shop}, so this uses {sub} instead.", { shop: first.name, name: lowerFirst(t(spec.subFor)), sub: lowerFirst(t(spec.label)) })}</p>

@@ -466,11 +466,12 @@ await step("allergies: Recipes > More has the 14 allergens; choosing Milk leaves
   expect(after < before && after > 0, `recipes with milk leave the list: ${before} -> ${after}`);
   await page.getByText("No milk").first().waitFor();
   await page.getByText(/^Chosen by their ingredients, not the packs' allergen labels: check each pack before you buy\.$/).waitFor();
-  // the same setting as Settings' own picker
+  // a filter here narrows Recipes only; Settings keeps what the person told us, which hides nothing (founder 2026-11-21: "you should not filter people based
+  // on what they've put in ... if they want to narrow things down, then they have to use the app filters")
   await page.goto(BASE + "/app/settings");
   const settingsMilk = page.getByRole("group", { name: "Allergies to avoid" }).getByRole("button", { name: "Milk", exact: true });
   await settingsMilk.waitFor();
-  expect((await settingsMilk.getAttribute("aria-pressed")) === "true", "Settings shows Milk chosen");
+  expect((await settingsMilk.getAttribute("aria-pressed")) === "false", "Settings' own answers are apart from Recipes' filters");
   // and back: choosing it off here brings every recipe back
   await page.goto(BASE + "/app/recipes");
   await page.getByRole("group", { name: "Filters" }).getByRole("button", { name: "More" }).click();

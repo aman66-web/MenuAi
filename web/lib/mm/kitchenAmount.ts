@@ -12,6 +12,7 @@ const TSP_G: Record<string, number> = {
   turmeric: 3, "curry-powder": 2, "mixed-herbs": 1, oregano: 1, thyme: 1, rosemary: 1, "mixed-spice": 2, nutmeg: 2.5, "fajita-seasoning": 3,
   "light-mayo": 5, mustard: 5, honey: 7, "curry-paste": 5, "thai-curry-paste": 5, "chopped-tomato-puree": 5, pesto: 5, "peanut-butter": 5,
   "sweet-chilli": 6, "bbq-sauce": 6, houmous: 5, "sesame-seeds": 3, "mixed-seeds": 3.5, "cranberry-sauce": 6, "apple-sauce": 5, mincemeat: 6, ginger: 5, garlic: 5,
+  dill: 1, mint: 1, chives: 1,
 };
 /** Measured in ml with spoons up to this amount: oils, soy and other sauces, lemon and lime juice. */
 const SPOON_ML = new Set(["olive-oil", "vegetable-oil", "soy", "teriyaki", "horseradish", "lemon-juice", "lime-juice"]);
@@ -39,18 +40,60 @@ export function spoonText(amount: number, unit: "g" | "ml", kind: string | undef
   return `${amountWords(Math.max(0.25, Math.round(tsps * 4) / 4))} tsp`;
 }
 
-// Vegetables and fruit weighed in grams, with the usual weight of one (so "75 g" can also say "about ½ an onion").
-const PIECES: Record<string, [number, string, string]> = {
+// The everyday size of a weighed ingredient (founder 2026-11-21, on a recipe's "Peppers 80 g": "you can say 80 grams slash half a pepper or like one pepper ...
+// because people aren't going to listen"): the usual weight of one piece, its name and its plural, and whether it is counted whole (a clove, an egg) or cut
+// (half a pepper). Usual UK sizes, the same as the pantry's piece weights where it has one (pantry.ts pieceGrams); only ever beside the weight, which is what
+// the nutrition and the price come from.
+const PIECES: Record<string, [grams: number, one: string, many: string, whole?: true]> = {
   onion: [150, "onion", "onions"], "red-onion": [150, "red onion", "red onions"], carrots: [80, "carrot", "carrots"], tomatoes: [85, "tomato", "tomatoes"],
-  banana: [120, "banana", "bananas"], apple: [150, "apple", "apples"], parsnips: [150, "parsnip", "parsnips"],
+  peppers: [160, "pepper", "peppers"], cucumber: [300, "cucumber", "cucumbers"], banana: [120, "banana", "bananas"], apple: [150, "apple", "apples"],
+  parsnips: [150, "parsnip", "parsnips"], "red-cabbage": [900, "red cabbage", "red cabbages"],
+  "spring-onions": [15, "spring onion", "spring onions", true], "fresh-garlic": [5, "clove", "cloves", true], "cherry-tomatoes": [15, "cherry tomato", "cherry tomatoes", true],
+  mushrooms: [15, "mushroom", "mushrooms", true], "fresh-chilli": [15, "chilli", "chillies", true], broccoli: [20, "floret", "florets", true],
+  "brussels-sprouts": [15, "sprout", "sprouts", true],
+  spinach: [30, "handful", "handfuls"], "salad-leaves": [20, "handful", "handfuls"], "fresh-coriander": [10, "handful", "handfuls"],
+  "fresh-parsley": [10, "handful", "handfuls"], "fresh-basil": [10, "handful", "handfuls"],
+  eggs: [60, "egg", "eggs", true], wraps: [60, "wrap", "wraps", true], bread: [40, "slice", "slices", true], "white-bread": [40, "slice", "slices", true],
+  "wheat-biscuits": [19, "biscuit", "biscuits", true], "stock-cube": [6, "stock cube", "stock cubes", true], "pork-chipolatas": [30, "chipolata", "chipolatas", true],
 };
-function aboutPieces(amount: number, kind: string | undefined): string | null {
+const MAX_PIECES = 15;
+
+/** How many pieces, as words: whole pieces counted ("2 cloves"), cut ones to the quarter under one and the half above ("¼ cucumber", "1½ onions"). */
+function piecesOf(amount: number, kind: string | undefined): { n: number; one: string; many: string } | null {
   const p = kind ? PIECES[kind] : undefined;
-  if (!p) return null;
-  const n = Math.round((amount / p[0]) * 2) / 2; // to the nearest half
-  if (n < 0.5 || n > 6) return null;
-  if (n === 0.5) return `about ½ ${/^[aeiou]/.test(p[1]) ? "an" : "a"} ${p[1]}`;
-  return `about ${amountWords(n)} ${n > 1 ? p[2] : p[1]}`;
+  if (!p || amount <= 0) return null;
+  const raw = amount / p[0];
+  const n = p[3] ? Math.max(1, Math.round(raw)) : raw < 1 ? Math.round(raw * 4) / 4 : Math.round(raw * 2) / 2;
+  // a sliver (under a fifth of one) has no everyday size, nor does less than half of a piece counted whole
+  if (raw < (p[3] ? 0.5 : 0.2) || n > MAX_PIECES) return null;
+  return { n, one: p[1], many: p[2] };
+}
+
+function piecesWords(x: { n: number; one: string; many: string }): string {
+  if (x.one === "handful") return x.n === 1 ? "a handful" : `${amountWords(x.n)} ${x.n > 1 ? x.many : x.one}`;
+  return `${amountWords(x.n)} ${x.n > 1 ? x.many : x.one}`;
+}
+
+function aboutPieces(amount: number, kind: string | undefined): string | null {
+  const x = piecesOf(amount, kind);
+  if (!x || x.n > 6) return null;
+  if (x.n === 0.5 && x.one !== "handful") return `about ½ ${/^[aeiou]/.test(x.one) ? "an" : "a"} ${x.one}`;
+  return `about ${piecesWords(x)}`;
+}
+
+/**
+ * The everyday size beside an ingredient's weight in the recipe's list (founder 2026-11-21: "80 grams slash half a pepper ... when it comes to like salt and
+ * herbs and stuff, you can use teaspoons"): level spoons for small amounts of salt, spices, dried herbs, oils and sauces ("1 tsp", `spoon`: said first, the
+ * weight after it), else pieces ("½ pepper", "2 cloves", "a handful"); null when it has no everyday size. `countsOk` false: the product picked comes in much
+ * smaller pieces than the usual one (baby plum tomatoes: recipes.ts countsSuit), so no count is said.
+ */
+export function kitchenSize(spec: { amount: number; unit: "g" | "ml"; pantry?: string }, countsOk = true): { text: string; spoon: boolean } | null {
+  if (spec.pantry === "oil-spray") return { text: `${Math.max(1, Math.round(spec.amount / 0.2))} sprays`, spoon: true };
+  const spoons = spoonText(spec.amount, spec.unit, spec.pantry);
+  if (spoons) return { text: spoons, spoon: true };
+  if (!countsOk) return null;
+  const x = piecesOf(spec.amount, spec.pantry);
+  return x ? { text: piecesWords(x), spoon: false } : null;
 }
 
 /** An ingredient's amount for the method: `full` beside its own name ("1 tbsp, 15 g"), `short` where several share one word ("1 tsp"). */
