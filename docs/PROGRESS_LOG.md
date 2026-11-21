@@ -4043,3 +4043,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (21 Nov, afternoon) **Morrisons: 139 more labels** (recipe queue, second run; nothing blocked; one page cut off in the reader's transcript, porridge oats
   105361929, left unread for the next round). Morrisons now 10,847 labels; lists, leaderboards and recipe counts rebuilt (Morrisons 329), unit tests 3,993;
   237 recipe-queue pages left. On `iap`, not live.
+- (21 Nov, afternoon) **Morrisons: 132 more labels** (recipe queue, third run; nothing blocked). Held back: 114258034 (a review in the may-contain field),
+  113346913 (garbled figures), 109889835 (sugar-free mint balls at 394 kcal). Kept: 113337347 (Buchanan's Mint Crumbles; only its per-sweet column is odd, the
+  per-100 g one is used). Morrisons now 10,979 labels; lists, leaderboards and counts rebuilt (Morrisons 329), unit tests 3,993; 97 recipe-queue pages left.

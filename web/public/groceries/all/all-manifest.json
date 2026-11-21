@@ -35,7 +35,7 @@
    "community": 5285,
    "sameProduct": 1588,
    "priced": 10506,
-   "sha256": "07036103a33ecc81e815431f81e1081aa0e9bce725d8ae35181f72bda836721b"
+   "sha256": "4101029e74898bd8e0f040a2f88076b2b6c54825ace9f57b2e4c805c09c342d1"
   },
   {
    "id": "aldi",
@@ -65,11 +65,11 @@
    "file": "morrisons.json",
    "count": 16367,
    "checkedOn": "2026-10-08",
-   "nutrition": 12598,
+   "nutrition": 12596,
    "community": 407,
-   "sameProduct": 997,
+   "sameProduct": 998,
    "priced": 16367,
-   "sha256": "a83a0dbc73d41a0001b0d0682f448d074f6039a352582470f1275dc5f39c78df"
+   "sha256": "55db1a820425f94085b022596a675a828436a23d9e702ce337d26d64e6a9607b"
   },
   {
    "id": "waitrose",
