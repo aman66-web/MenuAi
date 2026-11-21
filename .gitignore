@@ -29,3 +29,6 @@ data/recipe-images/
 # Chrome label harvest progress (local)
 data/groceries/nutrition/.harvest_state.*
 data/groceries/nutrition/.mprice_state.json
+
+# App Store screenshots (made by web/e2e/store-shots-v2.mjs + store-frames.mjs; large PNGs, kept out of git)
+App Store screenshots */
