@@ -21,7 +21,8 @@ const shops = ["sainsburys", "tesco", "asda", "aldi", "lidl", "morrisons", "wait
 const LOGOS = process.env.NO_LOGOS !== "1";
 // shots that show a product's own photo as the app does (founder 2026-11-21, on the Asda milk: "should have the Asda logo and also an image of ... the food
 // itself"): the supermarket's picture from its own image server or our stored copy of it; every other photo stays refused
-const PHOTO_SHOTS = new Set(LOGOS ? (process.env.PHOTO_SHOTS ?? "04-scan").split(",").filter(Boolean) : []);
+// and the dish's own photo on the Truth card (founder 2026-11-21: "you need a photo of the dish on it too")
+const PHOTO_SHOTS = new Set(LOGOS ? (process.env.PHOTO_SHOTS ?? "02-truth,04-scan").split(",").filter(Boolean) : []);
 const PHOTO_HOST = /^https:\/\/(asdagroceries\.scene7\.com|assets\.sainsburys-groceries\.co\.uk|groceries\.morrisons\.com|ecom-su-static-prod\.wtrecom\.com|assets\.iceland\.co\.uk|assets\.digitalcontent\.marksandspencer\.app|dm\.emea\.cms\.aldi\.cx)\//;
 const hidden = LOGOS ? [] : [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
 const { privateJwk } = JSON.parse(readFileSync(new URL("./.paykey.json", import.meta.url), "utf8"));
@@ -81,7 +82,7 @@ async function page(name) {
   await p.route(/\/(menu-images|grocery-images)\//, (r) => r.abort());
   await p.route((url) => url.protocol === "https:" && url.origin !== new URL(LIVE).origin, (r) => r.abort());
   if (PHOTO_SHOTS.has(name)) {
-    await p.route(/\/grocery-images\//, (r) => r.continue());
+    await p.route(/\/(grocery-images|menu-images)\//, (r) => r.continue());
     await p.route((url) => PHOTO_HOST.test(url.href), (r) => r.continue());
   }
   return { ctx, p };
@@ -90,7 +91,7 @@ async function page(name) {
 async function save(p, name) {
   await p.waitForTimeout(1200);
   const photos = PHOTO_SHOTS.has(name);
-  const drawn = await p.evaluate(([logos, photos]) => [...document.images].filter((i) => (logos ? (photos ? /menu-images/ : /menu-images|grocery-images|^https:\/\/(?!localhost)/) : /\/logos\/|menu-images|grocery-images|^https:\/\/(?!localhost)/).test(i.currentSrc || i.src) && !/\/logos\//.test(logos ? i.currentSrc || i.src : "") && i.complete && i.naturalWidth > 0).length, [LOGOS, photos]);
+  const drawn = await p.evaluate(([logos, photos]) => [...document.images].filter((i) => (logos ? (photos ? /^$/ : /menu-images|grocery-images|^https:\/\/(?!localhost)/) : /\/logos\/|menu-images|grocery-images|^https:\/\/(?!localhost)/).test(i.currentSrc || i.src) && !/\/logos\//.test(logos ? i.currentSrc || i.src : "") && i.complete && i.naturalWidth > 0).length, [LOGOS, photos]);
   if (drawn) throw new Error(`${name}: ${drawn} ${LOGOS ? "photo" : "logo or photo"} images on screen`);
   const logos = await p.evaluate(() => [...document.images].filter((i) => /\/logos\//.test(i.currentSrc || i.src) && i.complete && i.naturalWidth > 0).length);
   await p.screenshot({ path: `${OUT}${name}.png` });

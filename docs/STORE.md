@@ -19,7 +19,7 @@ data on 12 October 2026; if web/app-content.json leaves shops or photos out of t
 
 **Never** put a restaurant's or supermarket's name or logo in the app name, subtitle, keywords or icon (App Review 2.3.7, 4.1(c); CLAUDE.md rule 2).
 **Screenshots** (founder 2026-11-21, accepted risk under 2.3.9): app screens may show chains' and shops' names and their official logo files as the app
-shows them and a supermarket's own product photo where the app shows it (the scanned milk), never a restaurant's dish photo; each one with a logo carries "Not affiliated with any restaurant or shop shown." A set without logos is kept
+shows them, and a supermarket's product photo or a restaurant's dish photo where the app shows it (the scanned milk, the Truth card); each one with a logo carries "Not affiliated with any restaurant or shop shown." A set without logos is kept
 (`NO_LOGOS=1 node web/e2e/store-shots-v2.mjs`) in case App Review objects. Never call food healthy, good or bad (rule 3); GLP-1 copy is "smaller, protein-first orders".
 
 ## Description (draft)
