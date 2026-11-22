@@ -1,10 +1,12 @@
-// The bridge to the iPhone app around the web app (docs/APP_BUILD.md). Inside the app, a few things are done by the iPhone itself instead of
+// The bridge to the iPhone app (and the Android app) around the web app (docs/APP_BUILD.md, docs/ANDROID_BRIDGE.md). Inside the app, a few things are done by the phone itself instead of
 // the browser: scanning a barcode (the iPhone's own scanner), finding the person's location (one system prompt, the location stays on the
 // phone), the share sheet, and ringing reminders (local notifications scheduled by the phone itself). On the website there is no bridge and every
 // caller keeps its browser path.
 //
 // Protocol: the page posts { id, action, payload } to window.webkit.messageHandlers.menumath; the app answers by calling
 // window.__menumathReply(id, result) with a plain JSON object. A call the app doesn't answer within its timeout resolves { error: "timeout" }.
+// The Android app installs the same two names (a shim written before the page's scripts run) and also sets window.__numbitePlatform = "android", so the page can tell which
+// phone it is on (nativePlatform below); an action the Android app can't do answers { error: "unavailable" } and the page takes its browser path.
 
 import type { PlanItem } from "./reminders";
 
@@ -24,6 +26,7 @@ export type NativeAction =
   | "iap.entitlements"
   | "iap.restore"
   | "iap.manage"
+  | "iap.acknowledge"
   | "review.request"
   | "session.load"
   | "session.save"
@@ -37,6 +40,12 @@ export interface NativeProduct {
   period: "month" | "year" | "none";
   /** The free trial's length in days: only when the product has one and this Apple ID can still have it (one per subscription group per Apple ID). */
   trialDays?: number;
+}
+
+/** One Google Play purchase as Play Billing gives it to the Android app. */
+export interface NativePurchase {
+  productId: string;
+  token: string;
 }
 
 export interface NativeResult {
@@ -61,6 +70,9 @@ export interface NativeResult {
   products?: NativeProduct[];
   /** "iap.purchase", "iap.entitlements", "iap.restore": Apple's signed transactions (JWS), verified by StoreKit on the phone and checked again by our server. */
   transactions?: string[];
+  /** Android: "iap.purchase", "iap.entitlements", "iap.restore": Google Play purchases, each the subscription's id and Play Billing's purchase token (opaque). Our server asks Google about each
+   *  one (lib/payments/google.ts). The iPhone's answers are `transactions`, which stay as they are. */
+  purchases?: NativePurchase[];
   /** "iap.purchase": waiting for approval (Ask to Buy, or the bank's extra check). */
   pending?: boolean;
   /** "session.load": the account's saved sign-in as the page handed it to "session.save" (kept in the iPhone's Keychain). */
@@ -85,9 +97,21 @@ function handler(): Handler | null {
   return w.webkit?.messageHandlers?.menumath ?? null;
 }
 
-/** True inside the iPhone app (the app installs the bridge before the page loads). */
+/** True inside the iPhone app or the Android app (the app installs the bridge before the page loads). */
 export function hasNative(): boolean {
   return handler() !== null;
+}
+
+export type NativePlatform = "ios" | "android";
+
+/**
+ * Which app the page is in: "android" when the Android app's shim says so (window.__numbitePlatform), "ios" for the iPhone app (the bridge is there and says nothing else),
+ * null on the website. Read at call time; the apps install the bridge before any page script runs.
+ */
+export function nativePlatform(): NativePlatform | null {
+  if (typeof window === "undefined") return null;
+  if ((window as unknown as { __numbitePlatform?: unknown }).__numbitePlatform === "android" && handler() !== null) return "android";
+  return handler() !== null ? "ios" : null;
 }
 
 const waiting = new Map<string, (result: NativeResult) => void>();
@@ -99,12 +123,21 @@ const JWS = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
 function cleanProduct(raw: unknown): NativeProduct | null {
   const p = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
   const text = (v: unknown, max: number) => (typeof v === "string" && v.trim() !== "" && v.length <= max && !/[<>]/.test(v) ? v.trim() : null);
-  const id = typeof p.id === "string" && /^[a-z0-9.]{3,100}$/.test(p.id) ? p.id : null;
+  // an Android plan is named `<subscription id>:<base plan id>`, so a colon is allowed
+  const id = typeof p.id === "string" && /^[a-z0-9.:]{3,100}$/.test(p.id) ? p.id : null;
   const name = text(p.name, 100);
   const price = text(p.price, 40);
   const period = p.period === "month" || p.period === "year" || p.period === "none" ? p.period : null;
   const trial = typeof p.trialDays === "number" && Number.isInteger(p.trialDays) && p.trialDays >= 1 && p.trialDays <= 31 ? p.trialDays : null;
   return id && name && price && period ? { id, name, price, period, ...(trial ? { trialDays: trial } : {}) } : null;
+}
+
+/** Play Billing's answer: a product id (the subscription's, or `<subscription id>:<base plan id>`) and its purchase token. Anything else in an entry is dropped; an entry that isn't both is left out. */
+function cleanPurchase(raw: unknown): NativePurchase | null {
+  const p = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
+  const productId = typeof p.productId === "string" && /^[a-z0-9._:]{3,100}$/.test(p.productId) ? p.productId : null;
+  const token = typeof p.token === "string" && /^[A-Za-z0-9._-]{10,4000}$/.test(p.token) ? p.token : null;
+  return productId && token ? { productId, token } : null;
 }
 
 export function cleanNativeResult(raw: unknown): NativeResult {
@@ -124,6 +157,11 @@ export function cleanNativeResult(raw: unknown): NativeResult {
   if (r.permission === "granted" || r.permission === "denied" || r.permission === "notDetermined") out.permission = r.permission;
   if (Array.isArray(r.products)) out.products = r.products.slice(0, 10).map(cleanProduct).filter((p): p is NativeProduct => p !== null);
   if (Array.isArray(r.transactions) && r.transactions.length <= 20 && r.transactions.every((t) => typeof t === "string" && t.length <= 20_000 && JWS.test(t))) out.transactions = r.transactions as string[];
+  // an empty list is a real answer ("nothing current"); more than 10, or one entry that isn't a purchase, means the answer isn't trusted at all
+  if (Array.isArray(r.purchases) && r.purchases.length <= 10) {
+    const purchases = r.purchases.map(cleanPurchase);
+    if (purchases.every((p) => p !== null)) out.purchases = purchases;
+  }
   if (r.pending === true) out.pending = true;
   if (typeof r.session === "string" && r.session.length > 0 && r.session.length <= 16_384) out.session = r.session;
   if (typeof r.deviceToken === "string" && r.deviceToken.length >= 16 && r.deviceToken.length <= 12_000 && /^[A-Za-z0-9+/=]+$/.test(r.deviceToken)) {
@@ -131,7 +169,7 @@ export function cleanNativeResult(raw: unknown): NativeResult {
     if (r.deviceEnv === "development" || r.deviceEnv === "production") out.deviceEnv = r.deviceEnv;
   }
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.pending && !out.session && !out.deviceToken && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.purchases && !out.pending && !out.session && !out.deviceToken && !out.error) out.error = "unavailable";
   return out;
 }
 

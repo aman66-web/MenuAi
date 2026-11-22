@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
 import { localeInfo, tk } from "@/lib/mm/i18n";
+import { storeCopy } from "@/lib/mm/storeCopy";
 import {
   localDateString, MAX_EVERY_DAYS, MAX_NOTE_LENGTH, MAX_REMINDERS, MAX_TITLE_LENGTH, MIN_EVERY_DAYS, weekdayName,
   type Reminder, type ReminderDraft, type ReminderError, type RepeatRule,
@@ -12,6 +13,7 @@ import { PickTile } from "./DietPicker";
 import { NumberDone, SearchDone } from "./SearchDone";
 import { Button, Chip, Sheet, inputClass, radioKeyNav } from "./ui";
 import { useLanguage, useT } from "../_lib/i18n";
+import { useNativePlatform } from "../_lib/platform";
 import { useReminderStatus } from "../_lib/reminderSync";
 
 // "Add a reminder" and "Edit reminder" (founder 2026-10-16, on Home: "a section here for reminders, some people are GLP-1 and some people need to know
@@ -95,6 +97,7 @@ const doneKey = {
 
 function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | null; onSave: (draft: ReminderDraft) => ReminderError | null; onDelete: (r: Reminder) => void }) {
   const t = useT();
+  const copy = storeCopy(useNativePlatform());
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const id = useId();
   const [form, setForm] = useState<Form>(() => startForm(reminder));
@@ -280,7 +283,7 @@ function ReminderForm({ reminder, onSave, onDelete }: { reminder: Reminder | nul
       {onPhone ? (
         <p className="text-[0.9375rem] leading-snug text-muted">{t("{app} rings at the times you choose, but a reminder may not appear if notifications are off or silenced, so don't rely on it alone.", { app: site.name })}</p>
       ) : (
-        <p className="text-[0.9375rem] font-semibold leading-snug">{t("Reminders ring in the {app} iPhone app. On the website you'll see what's due today here.", { app: site.name })}</p>
+        <p className="text-[0.9375rem] font-semibold leading-snug">{t(copy.remindersRing, { app: site.name })}</p>
       )}
       <p className="text-[0.9375rem] leading-snug text-muted">{t("Follow the advice of your doctor or pharmacist about any medication.")}</p>
 

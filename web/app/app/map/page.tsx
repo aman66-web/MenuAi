@@ -8,7 +8,8 @@ import { DEFAULT_RADIUS_MILES, directionsUrl, formatMiles, geocode, groupByChain
 import { chainHref } from "@/lib/mm/routes";
 import { HALAL_CAUTION, isAllHalal } from "@/lib/mm/halal";
 import { tk } from "@/lib/mm/i18n";
-import { hasNative, nativeCall } from "@/lib/mm/native";
+import { hasNative, nativeCall, nativePlatform } from "@/lib/mm/native";
+import { storeCopy } from "@/lib/mm/storeCopy";
 import { site } from "@/site.config";
 import { ChainMark } from "../_components/ChainMark";
 import { DirectionsIcon, ForkIcon, LocateIcon, PinIcon } from "../_components/icons";
@@ -104,6 +105,25 @@ export default function NearbyPage() {
       setChoices([]);
       setSelectedId(null);
     };
+    /** The browser's own location (the website; and the Android app when it leaves the question to the page, answering "unavailable" to `locate`: its web view hands it to Android's location permission). */
+    const fromBrowser = () => {
+      if (!("geolocation" in navigator)) {
+        setLocating({ state: "error", message: tk("This browser can't share your location. Type a postcode or town instead.") });
+        return;
+      }
+      setLocating({ state: "locating" });
+      navigator.geolocation.getCurrentPosition(
+        (pos) => found(pos.coords.latitude, pos.coords.longitude),
+        (err) =>
+          setLocating({
+            state: "error",
+            message: err.code === err.PERMISSION_DENIED
+              ? (nativePlatform() === "android" ? storeCopy("android").locationDenied : tk("Location is turned off for this site. Turn it on in your browser settings, or type a postcode or town instead."))
+              : tk("Couldn't work out where you are. Try again, or type a postcode or town instead."),
+          }),
+        { enableHighAccuracy: false, timeout: 15_000, maximumAge: 300_000 },
+      );
+    };
     if (hasNative()) {
       // In the iPhone app the iPhone finds the location (one system prompt); it stays on the phone like in the browser.
       if (!quietly) setLocating({ state: "locating" });
@@ -111,32 +131,22 @@ export default function NearbyPage() {
       // (lib/mm/native.ts), not the 20 seconds a quiet look gets (the meeting of 21 November 2026, Will #28, Arjun #57)
       void nativeCall("locate", { onlyIfAllowed: quietly }, quietly ? 20_000 : 120_000).then((r) => {
         if (r.lat !== undefined && r.lng !== undefined) return found(r.lat, r.lng);
+        if (r.error === "unavailable" && nativePlatform() === "android") {
+          // the Android app has no `locate` of its own: the page asks the browser, as the website does (quietly: only if it was already allowed)
+          if (!quietly) return fromBrowser();
+          return void navigator.permissions?.query({ name: "geolocation" }).then((p) => { if (p.state === "granted") fromBrowser(); }, () => undefined);
+        }
         if (quietly) return;
         setLocating({
           state: "error",
           message: r.error === "denied"
-            ? tk("{app} isn't allowed to use your location. Turn it on in the iPhone's Settings, under {app}, or type a postcode or town instead.")
+            ? storeCopy(nativePlatform()).locationDenied
             : tk("Couldn't work out where you are. Try again, or type a postcode or town instead."),
         });
       });
       return;
     }
-    if (!("geolocation" in navigator)) {
-      setLocating({ state: "error", message: tk("This browser can't share your location. Type a postcode or town instead.") });
-      return;
-    }
-    setLocating({ state: "locating" });
-    navigator.geolocation.getCurrentPosition(
-      (pos) => found(pos.coords.latitude, pos.coords.longitude),
-      (err) =>
-        setLocating({
-          state: "error",
-          message: err.code === err.PERMISSION_DENIED
-            ? tk("Location is turned off for this site. Turn it on in your browser settings, or type a postcode or town instead.")
-            : tk("Couldn't work out where you are. Try again, or type a postcode or town instead."),
-        }),
-      { enableHighAccuracy: false, timeout: 15_000, maximumAge: 300_000 },
-    );
+    fromBrowser();
   }, []);
 
   // On opening: use the location straight away if this site was already allowed it, else the area typed last time.

@@ -14,6 +14,7 @@ import { paidActive, shareUnlockActive } from "@/lib/mm/paid";
 import { FREE_WEEK_LAST_DAY, FREE_WEEK_LEFT, PREMIUM_GIFT, freeWeekDaysLeft } from "@/lib/mm/freeWeek";
 import { useFreeWeekHad } from "../_lib/freeWeek";
 import { manageSubscriptions } from "@/lib/payments/iap";
+import { storeCopy } from "@/lib/mm/storeCopy";
 import { YOUR_DATA_SYNCED } from "@/lib/mm/syncStores";
 import { coachStore, paidStore, logStore, outbox, outboxStore, tourStore, updateSettings, homePagesStore } from "@/lib/mm/stores";
 import type { TextSize } from "@/lib/mm/user-data";
@@ -31,6 +32,7 @@ import { trialDaysOf, useStoreProducts } from "../_lib/storeProducts";
 import { travelBack } from "../_lib/backNav";
 import { tk } from "@/lib/mm/i18n";
 import { useT } from "../_lib/i18n";
+import { useNativePlatform } from "../_lib/platform";
 import { Rich } from "../_lib/Rich";
 import { ContactForm } from "../_components/Submit";
 import { AccountSection } from "../_components/AccountSection";
@@ -193,6 +195,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
+  const store = storeCopy(useNativePlatform());
   const menu = useMenu();
   const outboxItems = useStore(outboxStore);
   const [contactOpen, setContactOpen] = useState(false);
@@ -524,7 +527,7 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
                 : t("Premium")}
             </p>
             {subscribed && nowPremium && !(PRO_PREVIEW_FROM_ENV || settings.devProOverride) && (
-              <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{IAP_ENABLED ? t("Renews through the App Store.") : t("Renews until you cancel. To cancel, email us from the support page.")}</p>
+              <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{IAP_ENABLED ? t(store.renewsThrough) : t("Renews until you cancel. To cancel, email us from the support page.")}</p>
             )}
             {paying && paid.plan === "pass90" && paid.until && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Your pass ends on {date}.", { date: formatDate(new Date(paid.until).toISOString().slice(0, 10), t) })}</p>}
             {!paying && shareUnlockActive(paid, nowMs) && paid.unlockUntil && <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("Unlocked for sharing, until {date}.", { date: formatDate(new Date(paid.unlockUntil).toISOString().slice(0, 10), t) })}</p>}

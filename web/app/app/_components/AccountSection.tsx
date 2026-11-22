@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { site } from "@/site.config";
 import { AccountError, appleDeleteConfirm } from "@/lib/mm/account";
 import { hasNative, nativeCall } from "@/lib/mm/native";
+import { storeCopy } from "@/lib/mm/storeCopy";
 import { localeInfo } from "@/lib/mm/i18n";
 import { APP_BUILD, APP_PREMIUM, IAP_ENABLED } from "@/lib/mm/config";
 import { formatDate } from "@/lib/mm/format";
@@ -16,6 +17,7 @@ import { useSignInRequired } from "../_lib/appSwitches";
 import { communityCacheStore } from "../_lib/communityCache";
 import { useStore } from "../_lib/hooks";
 import { useLanguage, useT } from "../_lib/i18n";
+import { useNativePlatform } from "../_lib/platform";
 import { Button, Card, Sheet } from "./ui";
 import { TrashIcon } from "./icons";
 import { SIGN_IN_MESSAGES, SignInSheet } from "./SignIn";
@@ -36,6 +38,8 @@ const noteClass = "mt-3.5 rounded-[0.875rem] bg-fill px-3.5 py-3 text-[0.9375rem
 
 export function AccountSection() {
   const t = useT();
+  const platform = useNativePlatform();
+  const store = storeCopy(platform);
   const htmlLang = localeInfo(useLanguage()).htmlLang;
   const router = useRouter();
   const user = useAccountUser();
@@ -123,8 +127,9 @@ export function AccountSection() {
 
   // A round mark with the first letter of the address: decorative, like a contact's initial.
   const initial = (user.email ?? "").trim().charAt(0).toUpperCase();
-  // an account that signs in with Apple, in the iPhone app: Apple's own sheet asks to confirm while the account is deleted (said first, so it is no surprise)
-  const appleConfirms = !!user.providers?.includes("apple") && hasNative();
+  // an account that signs in with Apple, in the iPhone app: Apple's own sheet asks to confirm while the account is deleted (said first, so it is no surprise).
+  // The Android app has no such sheet (an Apple account there signed in through the browser): it deletes without asking Apple.
+  const appleConfirms = !!user.providers?.includes("apple") && platform === "ios";
 
   return (
     <Card className="p-4">
@@ -172,7 +177,7 @@ export function AccountSection() {
             so here and show how to cancel). In the iPhone app the button opens Apple's own screen; on the website, Apple's subscriptions page. */}
         {APP_PREMIUM && (
           <div className="mt-3 rounded-[1rem] bg-fill p-3.5">
-            <p className="text-base leading-snug">{t("Deleting your account doesn't cancel an App Store subscription. To stop being charged, cancel it in your App Store settings.")}</p>
+            <p className="text-base leading-snug">{t(store.deleteNote)}</p>
             {IAP_ENABLED && hasNative()
               ? <Button full variant="secondary" className="mt-3 min-h-11" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>
               : <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent underline underline-offset-4">{t("Manage subscription")}</a>}

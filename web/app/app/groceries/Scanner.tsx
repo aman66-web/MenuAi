@@ -5,7 +5,7 @@ import { createVoter, decodeImage, toGray } from "@/lib/mm/barcode";
 import { barcodeDigits } from "@/lib/mm/barcodes";
 import { barcodeQuery } from "@/lib/mm/groceries";
 import { tk } from "@/lib/mm/i18n";
-import { hasNative, nativeCall } from "@/lib/mm/native";
+import { nativeCall, nativePlatform } from "@/lib/mm/native";
 import { site } from "@/site.config";
 import { CloseIcon, PhotoIcon } from "../_components/icons";
 import { Button, Sheet } from "../_components/ui";
@@ -188,7 +188,8 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
   const [note, setNote] = useState<string | null>(null);
   const [mode, setMode] = useState<"camera" | "typed">("camera");
   const [scanRound, setScanRound] = useState(0);
-  const native = open && hasNative();
+  // the iPhone's own scanner is the iPhone app's; the Android app answers "unavailable" to it, so there (and on the website) the page's own camera reads the barcode
+  const native = open && nativePlatform() === "ios";
   // the parent passes a new onCode every time it renders: the iPhone's scanner must not start again for that (2026-11-20: a second scanner opened over the
   // first, and its Cancel did nothing), so it is read from here when a code comes back
   const onCodeRef = useRef(onCode);

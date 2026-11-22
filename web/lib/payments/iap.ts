@@ -1,15 +1,19 @@
-// The iPhone app's side of buying Premium with Apple In-App Purchase (app version 1.1; App Store rule 3.1.1: digital features bought inside the app go through Apple).
-// StoreKit on the phone shows Apple's own payment sheet and checks the purchase (MenuMacros/Services/StoreKitPurchaseService.swift); our server checks Apple's
-// signature again and answers with the same access token the rest of the app reads (lib/payments/token.ts, POST /api/v1/entitlement/apple). Only used in an In-App
-// Purchase build of the app (config.ts IAP_ENABLED); the website never calls any of this.
+// The apps' side of buying Premium: Apple In-App Purchase in the iPhone app (app version 1.1; App Store rule 3.1.1: digital features bought inside the app go through Apple)
+// and Google Play Billing in the Android app (docs/ANDROID_BRIDGE.md). StoreKit on the phone shows Apple's own payment sheet and checks the purchase
+// (MenuMacros/Services/StoreKitPurchaseService.swift); our server checks Apple's signature again and answers with the same access token the rest of the app reads
+// (lib/payments/token.ts, POST /api/v1/entitlement/apple). Play Billing shows Google's sheet and hands the app a purchase token; our server asks Google about it
+// (POST /api/v1/entitlement/google) and answers with the same kind of token, and the page then tells the app to acknowledge the purchase (Google refunds one that
+// isn't acknowledged within 3 days). Only used in an In-App Purchase build of the app (config.ts IAP_ENABLED); the website never calls any of this.
 //
-// Apple keeps the purchase record. A new phone, a reinstall or "Restore purchases" asks StoreKit for the person's current purchases and swaps them for a fresh token;
-// a refund or a subscription that has ended disappears from that list, and the token goes at the next start-up or return to the app.
+// The store keeps the purchase record. A new phone, a reinstall or "Restore purchases" asks the store for the person's current purchases and swaps them for a fresh
+// token; a refund or a subscription that has ended disappears from that list, and the token goes at the next start-up or return to the app. Which store is asked is
+// the phone's (nativePlatform()); every function takes the platform last so tests can name it, and the iPhone's behaviour is exactly what it was.
 
 import { API_BASE } from "../mm/config";
-import { nativeCall, type NativeAction, type NativeProduct, type NativeResult } from "../mm/native";
+import { nativeCall, nativePlatform, type NativeAction, type NativePlatform, type NativeProduct, type NativePurchase, type NativeResult } from "../mm/native";
 import { forgetPaidToken, paidStore } from "../mm/stores";
 import { acceptToken, publicKey } from "./client";
+import { googleProductId } from "./googleIds";
 import { isAccountPlan, verifyToken } from "./token";
 
 /**
@@ -27,6 +31,17 @@ export const IAP_PRODUCT_IDS: Readonly<Record<IapPlanId, string>> = {
   monthly: "com.amanmarwaha.numbite.pro.monthly",
 };
 
+/** The Google Play product of each plan: one subscription with two base plans, named `<subscription id>:<base plan id>` (Play Console; docs/ANDROID_BRIDGE.md). */
+export const GOOGLE_PRODUCT_IDS: Readonly<Record<IapPlanId, string>> = {
+  annual: googleProductId("annual"),
+  monthly: googleProductId("monthly"),
+};
+
+/** The phone's own store: Google Play in the Android app, the App Store in the iPhone app (and in anything else that asks, such as a test). */
+export const currentPlatform = (): NativePlatform => nativePlatform() ?? "ios";
+/** The product ids to ask the phone's store about. */
+export const productIdsFor = (platform: NativePlatform): Readonly<Record<IapPlanId, string>> => (platform === "android" ? GOOGLE_PRODUCT_IDS : IAP_PRODUCT_IDS);
+
 /** A token with less than this left is swapped for a fresh one when the app starts or comes back to the front. */
 export const REFRESH_BEFORE_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -37,11 +52,12 @@ export interface StoreProduct extends NativeProduct {
   plan: IapPlanId;
 }
 
-/** The plans as the App Store sells them on this phone (names and prices from StoreKit), in the app's order; null when StoreKit didn't answer. */
-export async function loadProducts(call: Call = nativeCall): Promise<StoreProduct[] | null> {
-  const r = await call("iap.products", { ids: IAP_PLAN_IDS.map((p) => IAP_PRODUCT_IDS[p]) }, 30_000);
+/** The plans as the phone's store sells them (names and prices from StoreKit, or from Play Billing: the store's own text, never ours), in the app's order; null when the store didn't answer. */
+export async function loadProducts(call: Call = nativeCall, platform: NativePlatform = currentPlatform()): Promise<StoreProduct[] | null> {
+  const ids = productIdsFor(platform);
+  const r = await call("iap.products", { ids: IAP_PLAN_IDS.map((p) => ids[p]) }, 30_000);
   const found = IAP_PLAN_IDS.flatMap((plan) => {
-    const p = r.products?.find((x) => x.id === IAP_PRODUCT_IDS[plan]);
+    const p = r.products?.find((x) => x.id === ids[plan]);
     return p ? [{ ...p, plan }] : [];
   });
   return found.length > 0 ? found : null;
@@ -66,25 +82,57 @@ export async function claimTransactions(transactions: string[], fetchImpl: Fetch
   }
 }
 
-/** "not_confirmed": Apple took the payment but our server couldn't be reached or didn't agree; Restore purchases tries again (nothing is charged twice). */
-export type BuyResult = "ok" | "cancelled" | "pending" | "unavailable" | "not_confirmed";
-
-export async function buyPlan(plan: IapPlanId, call: Call = nativeCall, fetchImpl: Fetch = fetch): Promise<BuyResult> {
-  // Apple's sheet stays open while the person reads it, signs in or checks with their bank: a long wait is normal.
-  const r = await call("iap.purchase", { id: IAP_PRODUCT_IDS[plan] }, 15 * 60_000);
-  if (r.pending) return "pending";
-  if (r.error === "cancelled") return "cancelled";
-  if (!r.transactions || r.transactions.length === 0) return "unavailable";
-  return (await claimTransactions(r.transactions, fetchImpl)) === "ok" ? "ok" : "not_confirmed";
+/**
+ * Swaps Google Play purchase tokens (Android) for our access token (our server asks Google about each one), then tells the app to acknowledge them: Google refunds a
+ * purchase that isn't acknowledged within 3 days, and only a purchase our server accepted is acknowledged. The server answers with one token, so every token sent is
+ * acknowledged once it said yes; the app sends only purchases of our own subscription, and acknowledging one twice does nothing. A failed acknowledgement is not
+ * the person's problem (the next start-up or Restore purchases claims again and tries again).
+ */
+export async function claimPurchases(purchases: NativePurchase[], fetchImpl: Fetch = fetch, call: Call = nativeCall): Promise<ClaimResult> {
+  if (purchases.length === 0) return "not_paid";
+  const sent = purchases.slice(0, 10).map(({ productId, token }) => ({ productId, token }));
+  try {
+    const res = await fetchImpl(`${API_BASE}entitlement/google`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ purchases: sent }) });
+    if (res.status === 402) return "not_paid";
+    const body = (await res.json().catch(() => ({}))) as { token?: unknown };
+    if (!(res.ok && typeof body.token === "string" && (await acceptToken(body.token)))) return "failed";
+  } catch {
+    return "failed";
+  }
+  await Promise.allSettled(sent.map((p) => call("iap.acknowledge", { token: p.token }, 30_000)));
+  return "ok";
 }
 
-/** Forgets a stored token that came from Apple (or no longer checks out). A token from elsewhere is left alone. */
-async function forgetAppleToken(nowMs: number): Promise<void> {
+/** What a phone's answer holds: how many purchases, and how to swap them for our token. Null when the store gave no list at all. */
+function heldIn(r: NativeResult, platform: NativePlatform, fetchImpl: Fetch, call: Call): { count: number; claim: () => Promise<ClaimResult> } | null {
+  if (platform === "android") {
+    const purchases = r.purchases;
+    return purchases ? { count: purchases.length, claim: () => claimPurchases(purchases, fetchImpl, call) } : null;
+  }
+  const transactions = r.transactions;
+  return transactions ? { count: transactions.length, claim: () => claimTransactions(transactions, fetchImpl) } : null;
+}
+
+/** "not_confirmed": the store took the payment but our server couldn't be reached or didn't agree; Restore purchases tries again (nothing is charged twice). */
+export type BuyResult = "ok" | "cancelled" | "pending" | "unavailable" | "not_confirmed";
+
+export async function buyPlan(plan: IapPlanId, call: Call = nativeCall, fetchImpl: Fetch = fetch, platform: NativePlatform = currentPlatform()): Promise<BuyResult> {
+  // The store's sheet stays open while the person reads it, signs in or checks with their bank: a long wait is normal.
+  const r = await call("iap.purchase", { id: productIdsFor(platform)[plan] }, 15 * 60_000);
+  if (r.pending) return "pending";
+  if (r.error === "cancelled") return "cancelled";
+  const held = heldIn(r, platform, fetchImpl, call);
+  if (!held || held.count === 0) return "unavailable";
+  return (await held.claim()) === "ok" ? "ok" : "not_confirmed";
+}
+
+/** Forgets a stored token that came from this phone's store (or no longer checks out). A token from elsewhere (the website, the account's free week, the other store) is left alone. */
+async function forgetStoreToken(nowMs: number, platform: NativePlatform): Promise<void> {
   const { token } = paidStore.get();
   if (!token) return;
   const key = publicKey();
   const claims = key ? await verifyToken(token, key, nowMs) : null;
-  if (!claims || claims.src === "apple") forgetPaidToken();
+  if (!claims || claims.src === (platform === "android" ? "google" : "apple")) forgetPaidToken();
 }
 
 /**
@@ -93,36 +141,38 @@ async function forgetAppleToken(nowMs: number): Promise<void> {
  */
 export type RestoreResult = "restored" | "none" | "refused" | "cancelled" | "failed";
 
-/** "Restore purchases": StoreKit syncs with the App Store (it may ask for the Apple ID password), then the current purchases are swapped for a token. */
-export async function restorePurchases(call: Call = nativeCall, fetchImpl: Fetch = fetch, nowMs: number = Date.now()): Promise<RestoreResult> {
+/** "Restore purchases": the phone's store syncs (StoreKit may ask for the Apple ID password; Play Billing asks Google Play), then the current purchases are swapped for a token. */
+export async function restorePurchases(call: Call = nativeCall, fetchImpl: Fetch = fetch, nowMs: number = Date.now(), platform: NativePlatform = currentPlatform()): Promise<RestoreResult> {
   const r = await call("iap.restore", {}, 5 * 60_000);
   if (r.error === "cancelled") return "cancelled";
-  if (!r.transactions) return "failed";
-  if (r.transactions.length === 0) {
-    await forgetAppleToken(nowMs);
+  const held = heldIn(r, platform, fetchImpl, call);
+  if (!held) return "failed";
+  if (held.count === 0) {
+    await forgetStoreToken(nowMs, platform);
     return "none";
   }
-  const c = await claimTransactions(r.transactions, fetchImpl);
+  const c = await held.claim();
   return c === "ok" ? "restored" : c === "not_paid" ? "refused" : "failed";
 }
 
 let running: Promise<void> | null = null;
 
 /**
- * At start-up and when the app comes back to the front. Apple's list of current purchases decides: nothing there (refunded, cancelled and ended) and an Apple token
- * is forgotten; something there and no token, or one running out within a week, and a fresh token is fetched. No answer from StoreKit or the server (no signal)
- * changes nothing. Never shows a dialog.
+ * At start-up and when the app comes back to the front. The store's list of current purchases decides: nothing there (refunded, cancelled and ended) and a token from
+ * that store is forgotten; something there and no token, or one running out within a week, and a fresh token is fetched. No answer from the store or the server (no
+ * signal) changes nothing. Never shows a dialog. (The name is the iPhone's; on Android it asks Google Play.)
  */
-export function refreshAppStoreAccess(call: Call = nativeCall, fetchImpl: Fetch = fetch, nowMs: number = Date.now()): Promise<void> {
+export function refreshAppStoreAccess(call: Call = nativeCall, fetchImpl: Fetch = fetch, nowMs: number = Date.now(), platform: NativePlatform = currentPlatform()): Promise<void> {
   running ??= (async () => {
     try {
       const r = await call("iap.entitlements", {}, 30_000);
-      if (!r.transactions) return;
-      if (r.transactions.length === 0) return await forgetAppleToken(nowMs);
-      // the account's own free week or gift never stands in for a purchase Apple holds: the purchase's token replaces it at once
+      const held = heldIn(r, platform, fetchImpl, call);
+      if (!held) return;
+      if (held.count === 0) return await forgetStoreToken(nowMs, platform);
+      // the account's own free week or gift never stands in for a purchase the store holds: the purchase's token replaces it at once
       const { until, plan } = paidStore.get();
       if (until !== null && until - nowMs > REFRESH_BEFORE_MS && !isAccountPlan(plan)) return;
-      await claimTransactions(r.transactions, fetchImpl);
+      await held.claim();
     } finally {
       running = null;
     }
@@ -130,7 +180,7 @@ export function refreshAppStoreAccess(call: Call = nativeCall, fetchImpl: Fetch 
   return running;
 }
 
-/** Apple's own screen for changing or cancelling a subscription. */
+/** The store's own screen for changing or cancelling a subscription (Apple's, or Google Play's). */
 export async function manageSubscriptions(call: Call = nativeCall): Promise<void> {
   await call("iap.manage", {}, 10 * 60_000);
 }

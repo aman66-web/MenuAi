@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { API_BASE, APP_BUILD, TELEMETRY_ENABLED } from "@/lib/mm/config";
 import { AccountError } from "@/lib/mm/account";
 import { tk, type T } from "@/lib/mm/i18n";
-import { nativeCall, hasNative } from "@/lib/mm/native";
+import { nativeCall, nativePlatform, hasNative } from "@/lib/mm/native";
 import { CODE_LENGTH, CODE_RESEND_SECONDS, codeDigits, looksLikeEmail, resendWait } from "@/lib/mm/signInGate";
 import { site } from "@/site.config";
 import { accountApi, keepHashForSignIn, signedIn } from "../_lib/account";
@@ -19,6 +19,7 @@ import { Button, Sheet } from "./ui";
 // Three ways in, one big button each: Apple, Google, and a 6-digit code by email (no password to remember).
 //   * Website: Apple and Google are a normal sign-in on numbite.com (the browser leaves for the provider and comes back).
 //   * iPhone app: Apple uses the iPhone's own Apple sheet; Google opens numbite.com in the iPhone's secure browser sheet.
+//   * Android app: Apple and Google both open numbite.com's own sign-in in the phone's secure browser tab (Custom Tabs) and come back with a one-time code.
 //   * Email: two screens of one question each (founder 2026-11-20, "short and simple", laid out like his reference screens): "What's your email?" typed big
 //     in the middle with Continue held just above the keyboard, then "Enter the code" with six places that go on by themselves (EmailSignIn). The app keeps the session it is
 //     given, the website gets http-only cookies.
@@ -131,7 +132,9 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
     if (!native) return; // the website uses a plain link (providerHref below)
     setBusy(true);
     try {
-      if (provider === "apple") {
+      // Apple's own sheet is the iPhone app's. The Android app has none ("unavailable"), so there Apple, like Google, goes through the secure browser (Custom Tabs) to
+      // numbite.com's own Apple sign-in, which hands back a one-time code the same way: Sign in with Apple stays offered next to Google (docs/ANDROID_BRIDGE.md).
+      if (provider === "apple" && nativePlatform() !== "android") {
         // 11 minutes, not the bridge's usual 2: the server's sign-in flow allows 10, and someone may take a while over Apple's or Google's sheet (typing a
         // password, a code from another device) (the meeting of 21 November 2026, Ben)
         const r = await nativeCall("appleSignIn", {}, SIGN_IN_SHEET_MS);
@@ -141,10 +144,10 @@ export function SignInPanel({ onDone, community, required = false, intro = true,
         setFinishing(true);
         signedIn(await accountApi().signInWithApple(r.idToken, r.nonce));
       } else {
-        const r = await nativeCall("webAuth", { provider: "google" }, SIGN_IN_SHEET_MS);
+        const r = await nativeCall("webAuth", { provider }, SIGN_IN_SHEET_MS);
         if (r.error === "cancelled") return;
         if (!r.authCode || !r.verifier) throw new Error(r.error ?? "failed");
-        setHow("google");
+        setHow(provider);
         setFinishing(true);
         signedIn(await accountApi().exchange(r.authCode, r.verifier));
       }

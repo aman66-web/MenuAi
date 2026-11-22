@@ -1,14 +1,15 @@
-// The iPhone app's side of the free week and gifts of Premium (lib/payments/freeWeek.ts on the server): after signing in, at start-up and when the app comes back
-// to the front, the signed-in account asks POST /api/v1/entitlement/account (with Apple's DeviceCheck token for this iPhone when the phone can make one) and keeps
+// The apps' side of the free week and gifts of Premium (lib/payments/freeWeek.ts on the server): after signing in, at start-up and when the app comes back
+// to the front, the signed-in account asks POST /api/v1/entitlement/account (with Apple's DeviceCheck token for this iPhone when the phone can make one; the Android app
+// has none, so there the account's email alone decides) and keeps
 // the answer's signed token exactly as a purchase's is kept (lib/mm/stores.ts paidStore), so isPro and every gate follow, and the AI routes accept it. What the
 // server said goes into freeWeekStore for the screens (Settings › Subscription, Home's one line, the paywall's headline once the free week has ended).
 //
-// A bought token always wins: while one from the App Store (or the website) is running, the account isn't asked at all (so a subscriber's free week isn't used up
+// A bought token always wins: while one from the App Store or Google Play (or the website) is running, the account isn't asked at all (so a subscriber's free week isn't used up
 // either). The account's token is the account's: a different account on this phone, signing out, Delete my account and Clear data forget it
 // (forgetAccountAccess). No answer (offline, the server down, the tables not made yet) changes nothing.
 
 import type { NativeAction, NativeResult } from "../mm/native";
-import { nativeCall } from "../mm/native";
+import { nativeCall, nativePlatform } from "../mm/native";
 import { boughtActive } from "../mm/paid";
 import { forgetPaidToken, freeWeekStore, paidStore } from "../mm/stores";
 import { NO_FREE_WEEK, type FreeWeekState } from "../mm/freeWeek";
@@ -68,7 +69,8 @@ async function run({ userId, request, call = nativeCall, nowMs = Date.now(), for
   // Apple's DeviceCheck token, only while the server may still start a free week for this account (it has none yet that this phone knows of)
   const mine = freeWeekStore.get();
   const needsDevice = !(mine.user === userId && (mine.status === "running" || mine.status === "ended"));
-  const device = needsDevice ? await call("deviceCheck.token", {}, 10_000) : null;
+  // (Android has no DeviceCheck: nothing to ask, so no round trip)
+  const device = needsDevice && nativePlatform() !== "android" ? await call("deviceCheck.token", {}, 10_000) : null;
   const body = device?.deviceToken ? { deviceToken: device.deviceToken, ...(device.deviceEnv ? { deviceEnv: device.deviceEnv } : {}) } : {};
 
   let res: Response;

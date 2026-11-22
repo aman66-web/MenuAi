@@ -4,6 +4,7 @@ import type { CorsOptions } from "../cors";
 import { ipHash } from "../http";
 import { parseCertificate } from "./apple";
 import type { AppleEntitlementDeps } from "./appleHandler";
+import { entitlementPrivateJwk } from "./signingKey";
 import { signClaims } from "./token";
 
 // The glue between POST /api/v1/entitlement/apple and its pure handler (appleHandler.ts): read the server's settings, rate-limit the caller. Nothing is read at import time.
@@ -21,16 +22,6 @@ const limit = makeLimit();
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 30;
 
-function privateJwk(): JsonWebKey | null {
-  try {
-    const raw = process.env.ENTITLEMENT_PRIVATE_JWK;
-    const parsed: unknown = raw ? JSON.parse(raw) : null;
-    return typeof parsed === "object" && parsed !== null && !Array.isArray(parsed) ? (parsed as JsonWebKey) : null;
-  } catch {
-    return null; // a key that isn't JSON counts as not set up
-  }
-}
-
 /** Xcode's test certificate, when one is set for a test. */
 export function xcodeRootFromEnv(env: Record<string, string | undefined> = process.env): Buffer | undefined {
   const raw = env.APPLE_XCODE_TEST_CERT;
@@ -38,7 +29,7 @@ export function xcodeRootFromEnv(env: Record<string, string | undefined> = proce
 }
 
 export function appleContext(request: Request, nowMs: number = Date.now()): AppleEntitlementDeps {
-  const jwk = privateJwk();
+  const jwk = entitlementPrivateJwk();
   return {
     sign: jwk ? (claims) => signClaims(claims, jwk) : null,
     nowMs,

@@ -4,18 +4,21 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { tk } from "@/lib/mm/i18n";
 import { boughtActive, paidActive } from "@/lib/mm/paid";
 import { paidStore } from "@/lib/mm/stores";
+import { storeCopy, type StoreCopy } from "@/lib/mm/storeCopy";
 import { buyPlan, manageSubscriptions, restorePurchases, type IapPlanId, type RestoreResult, type StoreProduct } from "@/lib/payments/iap";
 import { site } from "@/site.config";
 import { useNow, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
+import { useNativePlatform } from "../_lib/platform";
 import { storeProducts, useStoreProducts } from "../_lib/storeProducts";
 import { ErrorBanner } from "./Note";
 import { InkBadge } from "./PremiumBadge";
 import { PremiumHero, TrialStory } from "./PremiumOffer";
 import { Button, ChoiceMark, ErrorBox, radioKeyNav } from "./ui";
 
-// The plans in the iPhone app (version 1.1), sold with Apple In-App Purchase (App Store rule 3.1.1). Names and prices come from StoreKit, never from our own table, so
-// the screen always shows what Apple will charge. Under the plans: the chosen plan's billed amount, the largest price on the screen, with the free trial's line
+// The plans in the iPhone app (version 1.1), sold with Apple In-App Purchase (App Store rule 3.1.1), and in the Android app, sold with Google Play Billing (the same two
+// plans; the lines that name the store are lib/mm/storeCopy.ts's, the iPhone's exactly as they were). Names and prices come from StoreKit (or Play Billing), never from our own table, so
+// the screen always shows what the store will charge. Under the plans: the chosen plan's billed amount, the largest price on the screen, with the free trial's line
 // smaller beneath it and "Continue" (the onboarding meeting of 20 November 2026, App Review 3.1.2(c): the main button used to say "Start my {days}-day free trial",
 // and the trial headline sat above the prices); then the free trial's own card (PremiumOffer.tsx TrialStory), Restore, Apple's required words about renewing and
 // cancelling, and links to the Terms of Use and the Privacy Policy (App Store rule 3.1.2). Nothing here mentions the website or any other way to pay. Colours
@@ -49,27 +52,30 @@ const BUY_NOTE = {
   not_confirmed: tk("Your purchase went through, but Premium couldn't be switched on just now. Check your connection, then tap Restore purchases."),
 } as const;
 
-const RESTORE_NOTE = {
-  restored: tk("Your purchases are restored."),
-  none: tk("There's nothing to restore for this Apple ID."),
-  refused: tk("Apple has a purchase for this Apple ID, but Premium couldn't be switched on. Please try again later or contact us."),
+const RESTORED = tk("Your purchases are restored.");
+
+/** What Restore purchases says, in the phone's store's words (the two that name the store or the account come from storeCopy). */
+const restoreNote = (copy: StoreCopy) => ({
+  restored: RESTORED,
+  none: copy.restoreNone,
+  refused: copy.restoreRefused,
   failed: tk("Couldn't check just now. Please try again."),
-} as const;
+}) as const;
 
 const LINK = "inline-flex min-h-11 items-center text-accent underline underline-offset-[3px]";
 /** What failed is said in the error banner; anything else (on, waiting, restored) in a plain status line. */
-const FAILED: readonly string[] = [BUY_NOTE.unavailable, BUY_NOTE.not_confirmed, RESTORE_NOTE.failed, RESTORE_NOTE.refused];
+const failedNotes = (copy: StoreCopy): readonly string[] => [BUY_NOTE.unavailable, BUY_NOTE.not_confirmed, restoreNote(copy).failed, restoreNote(copy).refused];
 /** Premium has just switched on: said once, in the "Premium is on" box. */
-const UNLOCKED: readonly string[] = [BUY_NOTE.ok, RESTORE_NOTE.restored];
+const UNLOCKED: readonly string[] = [BUY_NOTE.ok, RESTORED];
 
-/** Apple's renewal words, naming the plans StoreKit returned that renew (App Store rule 3.1.2), then the non-renewing sentence only if one is on sale. */
-function renewalWords(products: readonly StoreProduct[] | null, t: ReturnType<typeof useT>): string[] {
+/** The store's renewal words, naming the plans it returned that renew (App Store rule 3.1.2), then the non-renewing sentence only if one is on sale. */
+function renewalWords(products: readonly StoreProduct[] | null, t: ReturnType<typeof useT>, copy: StoreCopy): string[] {
   const renewing = (products ?? []).filter((p) => p.period !== "none").map((p) => p.name);
   const once = (products ?? []).filter((p) => p.period === "none").map((p) => p.name);
   const words: string[] = [];
   if (renewing.length === 1) words.push(t("{plan} is a subscription that renews automatically.", { plan: renewing[0]! }));
   else if (renewing.length > 1) words.push(t("{plans} and {last} are subscriptions that renew automatically.", { plans: renewing.slice(0, -1).join(", "), last: renewing[renewing.length - 1]! }));
-  words.push(t("Payment is charged to your Apple ID when you confirm. A subscription renews at the same price and length unless you cancel at least 24 hours before the period ends; the renewal is charged within those 24 hours. Manage or cancel it in your App Store account settings."));
+  words.push(t(copy.renewal));
   for (const name of once) words.push(t("{plan} is one payment and doesn't renew.", { plan: name }));
   return words;
 }
@@ -86,6 +92,7 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
   level?: "h2" | "h3";
 } = {}) {
   const t = useT();
+  const copy = storeCopy(useNativePlatform());
   const paid = useStore(paidStore);
   const now = useNow();
   const { products: found, retry } = useStoreProducts();
@@ -123,7 +130,7 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
     const r = await restorePurchases();
     setBusy(null);
     if (r === "restored" && onUnlocked) return onUnlocked();
-    if (r !== "cancelled") setNote({ key: RESTORE_NOTE[r], text: t(RESTORE_NOTE[r]) });
+    if (r !== "cancelled") setNote({ key: restoreNote(copy)[r], text: t(restoreNote(copy)[r]) });
   };
 
   return (
@@ -137,9 +144,9 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
           )}
         </div>
       ) : products === "loading" ? (
-        <p role="status" className="rounded-[1.25rem] bg-soft p-4 text-base font-semibold">{t("Getting prices from the App Store…")}</p>
+        <p role="status" className="rounded-[1.25rem] bg-soft p-4 text-base font-semibold">{t(copy.gettingPrices)}</p>
       ) : products === null ? (
-        <ErrorBox message={t("Couldn't reach the App Store. Check your connection and try again.")} onRetry={retry} />
+        <ErrorBox message={t(copy.cantReach)} onRetry={retry} />
       ) : (
         <>
           {/* founder 2026-11-16 ("looks basic, make it look more interesting"): the plans as one choice and one big button, the price of each on the right */}
@@ -196,7 +203,7 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
               <p className="app-numbers mt-1 text-center text-[0.9375rem] leading-snug">
                 {selected.trialDays ? t("First {days} days free, then {price} {per}. Renews until you cancel.", { days: selected.trialDays, price: selected.price, per: perOf(selected) }) : selected.period === "none" ? t("{price}, one payment. It doesn't renew.", { price: selected.price }) : t("{price} {per}. Renews until you cancel.", { price: selected.price, per: perOf(selected) })}
               </p>
-              <Button size="lg" full className="mt-3.5 min-h-14 text-[1.0625rem]" busy={busy !== null && busy !== "restore"} busyLabel={t("Waiting for the App Store…")} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
+              <Button size="lg" full className="mt-3.5 min-h-14 text-[1.0625rem]" busy={busy !== null && busy !== "restore"} busyLabel={t(copy.waiting)} disabled={busy === "restore"} onClick={() => void buy(selected.plan)}>
                 {selected.trialDays ? t("Continue") : selected.period === "none" ? t("Buy for {price}", { price: selected.price }) : t("Subscribe for {price} {per}", { price: selected.price, per: perOf(selected) })}
               </Button>
             </>
@@ -205,8 +212,8 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
       )}
 
       {/* the purchase's outcome, straight under Continue where the finger was (a success that switched Premium on is said in the box above instead) */}
-      {note && !justOn && (FAILED.includes(note.key)
-        ? <div ref={noteRef} className="mt-3 scroll-mb-32"><ErrorBanner heading={null}>{note.text}{note.key === RESTORE_NOTE.refused && <> <a className={LINK} href="/support">{t("Contact us")}</a></>}</ErrorBanner></div>
+      {note && !justOn && (failedNotes(copy).includes(note.key)
+        ? <div ref={noteRef} className="mt-3 scroll-mb-32"><ErrorBanner heading={null}>{note.text}{note.key === copy.restoreRefused && <> <a className={LINK} href="/support">{t("Contact us")}</a></>}</ErrorBanner></div>
         : <p ref={noteRef} role="status" className="mt-3 scroll-mb-32 text-center text-base font-semibold">{note.text}</p>)}
 
       {afterContinue}
@@ -218,10 +225,10 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
 
       {/* an underlined link; while it checks it says so (and does nothing on a second tap) */}
       <button type="button" disabled={busy !== null && busy !== "restore"} aria-busy={busy === "restore" || undefined} onClick={() => { if (busy === null) void restore(); }} className="mx-auto mt-4 flex min-h-11 items-center px-3 text-[0.9375rem] font-semibold text-accent underline underline-offset-[3px] disabled:cursor-not-allowed disabled:text-muted">
-        {busy === "restore" ? t("Checking with the App Store…") : t("Restore purchases")}
+        {busy === "restore" ? t(copy.checking) : t("Restore purchases")}
       </button>
 
-      <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{renewalWords(listed, t).join(" ")}</p>
+      <p className="mt-4 text-[0.9375rem] leading-snug text-muted">{renewalWords(listed, t, copy).join(" ")}</p>
       {trial && (
         <p className="mt-2 text-[0.9375rem] leading-snug text-muted">
           {/* Apple's free-trial terms (guideline 3.1.2): what happens when the trial ends must stay on this screen; the words pass of 20 Nov cut it, restored */}
@@ -229,8 +236,12 @@ export function AppStorePlans({ reason, afterContinue, features, onUnlocked, lev
         </p>
       )}
       <p className="mt-2 text-[0.9375rem] leading-snug text-muted">
-        <a className={LINK} href={site.appleStandardEula} target="_blank" rel="noopener noreferrer">{t("Terms of Use (EULA)")}</a>
-        {" · "}
+        {copy.eulaLink && (
+          <>
+            <a className={LINK} href={site.appleStandardEula} target="_blank" rel="noopener noreferrer">{t("Terms of Use (EULA)")}</a>
+            {" · "}
+          </>
+        )}
         <a className={LINK} href="/terms">{t("Terms")}</a>
         {" · "}
         <a className={LINK} href="/privacy">{t("Privacy Policy")}</a>
@@ -250,9 +261,11 @@ function useShowNote(note: string | null) {
   return ref;
 }
 
-/** Settings › Subscription in the In-App Purchase app: Restore purchases, and Apple's own Manage subscription screen while a subscription is running. */
+/** Settings › Subscription in the In-App Purchase app: Restore purchases, and the store's own Manage subscription screen (Apple's, or Google Play's) while a subscription is running. */
 export function AppStoreAccountButtons() {
   const t = useT();
+  const copy = storeCopy(useNativePlatform());
+  const notes = restoreNote(copy);
   const paid = useStore(paidStore);
   const now = useNow();
   const [busy, setBusy] = useState(false);
@@ -269,10 +282,10 @@ export function AppStoreAccountButtons() {
   return (
     <div className="mt-3 space-y-2.5">
       {subscribed && <Button size="lg" full variant="secondary" onClick={() => void manageSubscriptions()}>{t("Manage subscription")}</Button>}
-      <Button size="lg" full variant="secondary" busy={busy} busyLabel={t("Checking with the App Store…")} onClick={() => void restore()}>{t("Restore purchases")}</Button>
+      <Button size="lg" full variant="secondary" busy={busy} busyLabel={t(copy.checking)} onClick={() => void restore()}>{t("Restore purchases")}</Button>
       {note && (note === "failed" || note === "refused"
-        ? <div ref={noteRef} className="scroll-mb-32"><ErrorBanner heading={null}>{t(RESTORE_NOTE[note])}{note === "refused" && <> <a className={LINK} href="/support">{t("Contact us")}</a></>}</ErrorBanner></div>
-        : <p ref={noteRef} role="status" className="scroll-mb-32 text-base font-semibold">{t(RESTORE_NOTE[note])}</p>)}
+        ? <div ref={noteRef} className="scroll-mb-32"><ErrorBanner heading={null}>{t(notes[note])}{note === "refused" && <> <a className={LINK} href="/support">{t("Contact us")}</a></>}</ErrorBanner></div>
+        : <p ref={noteRef} role="status" className="scroll-mb-32 text-base font-semibold">{t(notes[note])}</p>)}
     </div>
   );
 }

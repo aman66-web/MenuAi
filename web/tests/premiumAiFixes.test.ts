@@ -69,6 +69,8 @@ describe("the AI rate limits (Chloe, Priya)", () => {
     // the app is given a new token (a new iat) each time it checks the same free week or App Store purchase
     expect(await who(claims({ iat: now - 60 }))).toBe(await who(claims({ iat: now })));
     expect(await who(claims({ src: "apple", plan: "annual", iat: now - 3600 }))).toBe(await who(claims({ src: "apple", plan: "annual" })));
+    // the same for a Google Play purchase (the Android app)
+    expect(await who(claims({ src: "google", plan: "annual", iat: now - 3600 }))).toBe(await who(claims({ src: "google", plan: "annual" })));
     const limit = makeLimiter(1, 5);
     expect(limit(await who(claims({ iat: now - 60 })))).toBe(true);
     expect(limit(await who(claims({ iat: now })))).toBe(false);

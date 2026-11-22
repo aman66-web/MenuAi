@@ -1,7 +1,7 @@
 // The access token a device keeps after paying: a short signed statement "this device may use paid features until <date>", signed by the server with an ECDSA P-256
 // key (ES256) and checked on the device with the matching public key, so it also works with no signal. It carries no name, email or card detail: only the plan,
 // the dates and where the payment came from. Works in Node and in the browser (Web Crypto).
-// Besides a payment (Stripe on the website, Apple in the iPhone app), the server gives the same token to a signed-in account for its free week (plan "trial") or
+// Besides a payment (Stripe on the website, Apple in the iPhone app, Google Play in the Android app), the server gives the same token to a signed-in account for its free week (plan "trial") or
 // for Premium the founder gave it (plan "gift"), both src "account" (lib/payments/freeWeek.ts, POST /api/v1/entitlement/account).
 
 import type { PlanId } from "./plans";
@@ -18,8 +18,8 @@ export const isAccountPlan = (v: unknown): v is AccountPlan => typeof v === "str
 export interface EntitlementClaims {
   v: 1;
   plan: AccessPlan;
-  /** Where it came from: a payment on the website, an App Store purchase, or the account itself (its free week or a gift). */
-  src: "stripe" | "apple" | "account";
+  /** Where it came from: a payment on the website, an App Store purchase, a Google Play purchase, or the account itself (its free week or a gift). */
+  src: "stripe" | "apple" | "google" | "account";
   /** Issued at, seconds since 1970. */
   iat: number;
   /** Access ends, seconds since 1970. */
@@ -66,7 +66,7 @@ function validClaims(x: unknown): x is EntitlementClaims {
   const c = x as EntitlementClaims;
   if (!c || c.v !== 1 || !Number.isFinite(c.iat) || !Number.isFinite(c.exp)) return false;
   // a paid plan comes from a payment; a free week or a gift only from the account
-  return ((PLAN_IDS as readonly string[]).includes(c.plan) && (c.src === "stripe" || c.src === "apple")) || (isAccountPlan(c.plan) && c.src === "account");
+  return ((PLAN_IDS as readonly string[]).includes(c.plan) && (c.src === "stripe" || c.src === "apple" || c.src === "google")) || (isAccountPlan(c.plan) && c.src === "account");
 }
 
 /** The claims if the signature is the server's and the token has not run out; null for anything else (never throws). */

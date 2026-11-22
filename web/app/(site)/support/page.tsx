@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SupportForm } from "./SupportForm";
 
@@ -38,7 +38,7 @@ export default function Support() {
               <>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Cancel or manage your subscription</h2>
-                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Subscription › Manage subscription. Or on your iPhone: Settings › your name › Subscriptions. Refunds are handled by Apple, at reportaproblem.apple.com.</p>
+                  <p className="mt-1 text-[0.9375rem] leading-[1.6] text-muted">In the app: Settings › Subscription › Manage subscription. Or on your iPhone: Settings › your name › Subscriptions.{ANDROID_TEXT ? " On Android: Google Play › Payments & subscriptions." : ""} Refunds are handled by Apple, at reportaproblem.apple.com{ANDROID_TEXT ? ", or by Google Play for the Android app" : ""}.</p>
                 </div>
                 <div className="py-4">
                   <h2 className="text-base font-bold tracking-[-0.01em]">Restore a purchase</h2>

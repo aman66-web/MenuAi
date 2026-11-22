@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
@@ -29,10 +29,10 @@ export default function Terms() {
 
       <Section title="The app">
         <p className={para}>
-          Your use of the {site.name} app is governed by Apple&apos;s{" "}
-          <a className={LINK} href={site.appleStandardEula}>Licensed Application End User License Agreement</a>.{" "}
+          {ANDROID_TEXT ? "On an iPhone, your use" : "Your use"} of the {site.name} app is governed by Apple&apos;s{" "}
+          <a className={LINK} href={site.appleStandardEula}>Licensed Application End User License Agreement</a>{ANDROID_TEXT ? "; on Android, by these Terms." : "."}{" "}
           {APP_PREMIUM
-            ? "Premium in the iPhone app is bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
+            ? "Premium in the iPhone app is bought with Apple In-App Purchase. Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings." + (ANDROID_TEXT ? " Premium in the Android app is bought with Google Play Billing: subscriptions are billed and managed by Google Play, and you can cancel any time in Google Play." : "")
             : PRO_ENABLED
               ? "Subscriptions are billed and managed by Apple; you can cancel any time in your App Store account settings."
               : WEB_PRO_ENABLED
@@ -59,11 +59,11 @@ export default function Terms() {
           <p className={para}>
             {/* Corrected 21 November 2026 (meeting, Dev): Apple's own free trial, which charges when it ends, is no longer sold; the free week is ours
                 (lib/mm/freeWeek.ts), given by our server on the first sign-in in the iPhone app, charges nothing and never becomes a subscription. */}
-            <strong>The free week.</strong> Every new account has Premium free for its first {FREE_WEEK_DAYS} days after its first sign-in in the iPhone app,
-            once per person. Nothing is charged and it doesn&apos;t turn into a subscription; after it, Premium is Monthly or Annual through Apple.{" "}
-            <strong>Cancelling and refunds.</strong> Cancel any time in the app (Settings › Subscription › Manage
-            subscription) or in your iPhone&apos;s Settings › your name › Subscriptions; Premium carries on until the end of the period you paid for. Refunds are
-            handled by Apple at reportaproblem.apple.com. Deleting your {site.name} account doesn&apos;t cancel a subscription.
+            <strong>The free week.</strong> Every new account has Premium free for its first {FREE_WEEK_DAYS} days after its first sign-in in the iPhone app{ANDROID_TEXT ? " or the Android app" : ""},
+            once per person. Nothing is charged and it doesn&apos;t turn into a subscription; after it, Premium is Monthly or Annual through Apple{ANDROID_TEXT ? " (iPhone) or Google Play (Android)" : ""}.{" "}
+            <strong>Cancelling and refunds.</strong> Cancel any time in the app (Settings › Subscription › Manage{" "}
+            subscription){ANDROID_TEXT ? <>, on an iPhone in Settings › your name › Subscriptions, or on Android in Google Play › Payments &amp; subscriptions</> : <>{" "}or in your iPhone&apos;s Settings › your name › Subscriptions</>}; Premium carries on until the end of the period you paid for. Refunds are
+            handled by Apple at reportaproblem.apple.com{ANDROID_TEXT ? ", or by Google Play for the Android app" : ""}. Deleting your {site.name} account doesn&apos;t cancel a subscription.
           </p>
         </Section>
       )}

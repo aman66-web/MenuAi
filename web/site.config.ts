@@ -14,4 +14,6 @@ export const site = {
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL ?? "",
   appleStandardEula: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
   privacyLastUpdated: "21 November 2026",
+  /** The policy's date on the website and in the Android app, which name the Android app (the iPhone app's copy is the 21 November text, so its date stays). */
+  privacyLastUpdatedAndroid: "22 November 2026",
 } as const;

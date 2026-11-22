@@ -4,7 +4,7 @@ import { PLAN_AI_API_ENABLED } from "@/lib/mm/planAi";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
-import { AI_RECIPES_ENABLED, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -55,7 +55,7 @@ export default function Privacy() {
       <header>
         <h1 className="text-[2rem] font-[800] leading-none tracking-[-0.02em] sm:text-[2.5rem]">Privacy policy</h1>
         <p className={`${FILL} mt-5 inline-flex min-h-9 max-w-full items-center rounded-[1.125rem] px-3.5 py-1.5 text-sm font-semibold text-muted`}>
-          Last updated: {site.privacyLastUpdated}
+          Last updated: {ANDROID_TEXT ? site.privacyLastUpdatedAndroid : site.privacyLastUpdated}
         </p>
       </header>
 
@@ -80,8 +80,10 @@ export default function Privacy() {
               <>If you choose to sign in, to keep your data on all your devices, the section &ldquo;Signing in and syncing (optional)&rdquo; below says exactly what we then keep.</>
             )}
           </>
-        )} This policy covers the {site.name} iPhone app, the {site.name} web app (at /app on this website) and this website. The iPhone app
-        is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone. To keep the app small, it loads
+        )} This policy covers the {site.name} iPhone app, {ANDROID_TEXT ? <>the {site.name} Android app, </> : null}the {site.name} web app (at /app on this website) and this website. The iPhone app
+        is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone.
+        {ANDROID_TEXT ? <>{" "}The Android app is the same web app packed into an app: everything this policy says about the iPhone app applies to it too, with Android&apos;s own notifications, location permission and Settings in place of the iPhone&apos;s. Only purchases differ (see &ldquo;Purchases&rdquo;).</> : null}{" "}
+        To keep the app small, it loads
         photos of dishes, recipes and products from this website the first time you look at them (like the web app does), and keeps them on your phone to show again.
       </p>
 
@@ -379,6 +381,7 @@ export default function Privacy() {
           {PRO_ENABLED || APP_PREMIUM || WEB_PRO_ENABLED
             ? <>
                 {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. To switch paid features on, the app sends our server the purchase record Apple signed (which plan, its dates, the price, the currency and the country of the App Store, and Apple&apos;s reference number for the purchase) so we can check it is genuine; we don&apos;t keep it. </> : null}
+                {ANDROID_TEXT && (APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED)) ? <>Purchases in the Android app are handled by Google Play. We don&apos;t receive your name, email or payment details from Google. To switch paid features on, the app sends our server the purchase token Google Play gave it (no name or email is in it), and our server sends that token to Google to check it is genuine and to learn which plan it is and when it ends; we don&apos;t keep it. </> : null}
                 {WEB_PRO_ENABLED ? <>When you pay on the website, Stripe takes your payment on its own page and tells us your email address, what you bought, the amount, the dates and a payment reference. We never see your card number. We keep these records for as long as your access lasts and for six years after, because we must keep our accounts. If you arrived through a creator&apos;s link, we also record the creator&apos;s code against your payment so the creator can be credited, and we never tell the creator who you are. </> : null}
                 {!WEB_PRO_ENABLED ? <>Paid features aren&apos;t available in the web app yet.</> : null}
               </>
@@ -386,9 +389,9 @@ export default function Privacy() {
         </p>
         {APP_PREMIUM && (
           <p className={para}>
-            <strong>Free week:</strong> every new account has Premium free for {FREE_WEEK_DAYS} days in the iPhone app. To stop a second free week we keep a one-way code made
+            <strong>Free week:</strong> every new account has Premium free for {FREE_WEEK_DAYS} days in the {ANDROID_TEXT ? "iPhone and Android apps" : "iPhone app"}. To stop a second free week we keep a one-way code made
             from your email address (and your Apple ID, if you sign in with Apple) that can&apos;t be turned back into it, even after you delete your account, and use it for
-            nothing else; and Apple&apos;s DeviceCheck marks the iPhone as having had it (Apple runs it, and it tells us nothing about you). Premium we give you as a gift is kept with your account.
+            nothing else; and{ANDROID_TEXT ? ", on an iPhone," : ""} Apple&apos;s DeviceCheck marks the iPhone as having had it (Apple runs it, and it tells us nothing about you). Premium we give you as a gift is kept with your account.
           </p>
         )}
         {WEB_PRO_ENABLED && (
@@ -447,6 +450,7 @@ export default function Privacy() {
             and Apple or Google confirm your identity if you choose them (see their own privacy policies for what they keep).
           </li>
           {(PRO_ENABLED || APP_PREMIUM) && <li className={row}>Apple processes App Store purchases for the iPhone app.</li>}
+          {ANDROID_TEXT && (PRO_ENABLED || APP_PREMIUM) && <li className={row}>Google processes Google Play purchases for the Android app, and checks the purchase token our server sends it.</li>}
           {WEB_PRO_ENABLED && <li className={row}>Stripe takes payments on the website (card, Apple Pay and Google Pay) and sends us the email address and payment details above.</li>}
           <li className={row}>On the Groceries screen, product photos not stored on our own site are served by the supermarket&apos;s own website (Tesco, Sainsbury&apos;s and the others listed there), or by Open Food Facts for a product no supermarket has a photo of.</li>
           <li className={row}>postcodes.io looks up the postcode or town you type on the Near me map, and OpenFreeMap serves the map tiles there.</li>

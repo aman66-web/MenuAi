@@ -12,6 +12,8 @@ const src = (f: string) => readFileSync(f, "utf8");
 const PICTURES = src("app/app/_components/PremiumPictures.tsx");
 const OFFER = src("app/app/_components/PremiumOffer.tsx");
 const PLANS = src("app/app/_components/AppStorePlans.tsx");
+// the lines that name the phone's store (Apple's on the iPhone, Google Play's on Android) live in lib/mm/storeCopy.ts and are shown by AppStorePlans
+const STORE_WORDS = src("lib/mm/storeCopy.ts");
 const TRIAL = src("app/app/_components/TrialOffer.tsx");
 
 /** px of a Tailwind arbitrary rem size, e.g. text-[1.625rem] → 26. */
@@ -61,13 +63,15 @@ describe("the free trial and the price on the sheet (App Review 3.1.2)", () => {
   it("keeps Apple's words, Restore and the links on the sheet", () => {
     for (const words of [
       "With the free trial you pay nothing for the first {days} days. If you don't cancel at least 24 hours before it ends, the subscription starts and you're charged. There is one free trial per Apple ID.",
-      "Payment is charged to your Apple ID when you confirm.",
       "Restore purchases",
       "Terms of Use (EULA)",
       "Privacy Policy",
       "First {days} days free, then {price} {per}. Renews until you cancel.",
       "First {days} days free",
     ]) expect(PLANS, words).toContain(words);
+    // the renewal words are still on the sheet, taken from the store's own lines (storeCopy), and the iPhone's are Apple's, unchanged
+    expect(PLANS).toContain("t(copy.renewal)");
+    expect(STORE_WORDS).toContain("Payment is charged to your Apple ID when you confirm. A subscription renews at the same price and length unless you cancel at least 24 hours before the period ends; the renewal is charged within those 24 hours. Manage or cancel it in your App Store account settings.");
   });
 
   it("the trial's steps say when it is charged and how to cancel, and promise no reminder (the app sends none)", () => {

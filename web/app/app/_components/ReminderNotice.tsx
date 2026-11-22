@@ -1,13 +1,15 @@
 "use client";
 
 import { remindersStore } from "@/lib/mm/stores";
+import { storeCopy } from "@/lib/mm/storeCopy";
 import { site } from "@/site.config";
 import { Button } from "./ui";
 import { openNotificationSettings, useReminderStatus } from "../_lib/reminderSync";
 import { useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
+import { useNativePlatform } from "../_lib/platform";
 
-// The calm line about whether reminders can ring (Home's Reminders section and /app/reminders). Reminders ring only in the iPhone app, through the phone's
+// The calm line about whether reminders can ring (Home's Reminders section and /app/reminders). Reminders ring only in the iPhone and Android apps, through the phone's
 // own notifications: on the website there is nothing to ring, so it says so once, honestly; in the app, if the person said no to notifications, it says
 // how to turn them on; and if the phone has no room for some reminders (it keeps only so many), it says to delete or pause some (the rows that won't
 // ring are marked "Won't ring"; the notice never tells anyone to change the days of a reminder, which may be their medication). The wrapper is always
@@ -16,6 +18,7 @@ import { useT } from "../_lib/i18n";
 
 export function ReminderNotice() {
   const t = useT();
+  const copy = storeCopy(useNativePlatform());
   const { permission, droppedIds } = useReminderStatus();
   const list = useStore(remindersStore);
   const anyOn = list.some((r) => r.enabled);
@@ -23,11 +26,11 @@ export function ReminderNotice() {
   return (
     <div role="status">
       {permission === "unavailable" && (
-        <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t("Reminders ring in the {app} iPhone app. On the website you'll see what's due today here.", { app: site.name })}</p>
+        <p className="mt-2 text-[0.9375rem] leading-snug text-muted">{t(copy.remindersRing, { app: site.name })}</p>
       )}
       {permission === "denied" && anyOn && (
         <div className="glass mt-3 rounded-[1.25rem] p-4">
-          <p className="text-base leading-snug">{t("Notifications are off for {app}, so reminders won't ring. Turn them on in your iPhone's Settings.", { app: site.name })}</p>
+          <p className="text-base leading-snug">{t(copy.notificationsOff, { app: site.name })}</p>
           <Button variant="secondary" className="mt-3" onClick={openNotificationSettings}>{t("Open Settings")}</Button>
         </div>
       )}

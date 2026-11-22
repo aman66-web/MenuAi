@@ -62,6 +62,51 @@ and never mentions the website or another way to pay. The WhatsApp "share to unl
 Not done for Apple purchases: no `pro_entitlements` row (not needed: restore goes through the Apple ID), no creator code (an App Store purchase can't carry one), no App Store Server Notifications (a refund is
 noticed at the next start-up; the token of a refunded purchase still checks until then).
 
+## Android (Google Play Billing): built 22 November 2026 (branch `iap`)
+
+The Android app is the same web app inside a Kotlin web view (`android/`, package `com.amanmarwaha.numbite`). Google Play requires digital features sold in the app to use Play Billing, so
+like the iPhone app it never shows the Stripe page (`/api/v1/checkout` and `/api/v1/entitlement` refuse both apps' origins: `app://menumath` and `https://appassets.androidplatform.net`). The contract
+between the page, the app and the server (names, actions, answers) is `docs/ANDROID_BRIDGE.md`; this is the money side.
+
+1. **Product** (Play Console › Monetize with Play › Subscriptions): **one** subscription `com.amanmarwaha.numbite.premium` with **two base plans**, `annual` (£49.99 every year) and `monthly` (£4.99 every month),
+   both auto-renewing, **no free-trial or introductory offer** (the 7-day free week is the account's own, as on the iPhone: `web/lib/payments/freeWeek.ts`). One subscription with two base plans is what lets Google
+   itself stop anyone holding both and offer a plan change. Names and prices on screen are Play's own (`iap.products`), never from our table. The page names a plan `<subscription id>:<base plan id>`
+   (`web/lib/payments/googleIds.ts`).
+2. **Buying** (`AppStorePlans.tsx` → `web/lib/payments/iap.ts` → bridge `iap.purchase` → Play Billing in the app): Google's own sheet; the app hands the page Play's **purchase token** (`{purchases:[{productId, token}]}`).
+3. **Checking** (`POST /api/v1/entitlement/google`, `web/lib/payments/google.ts`): unlike Apple's signed transaction, a token proves nothing alone, so the server asks Google (Play Developer API
+   `purchases.subscriptionsv2.get` for our package) with a service account: OAuth with an RS256 JWT signed with `node:crypto` (no new dependency), the access token kept in memory until a minute before it ends.
+   It accepts a line item that is our subscription with base plan `annual` or `monthly` (that is the plan) in state `ACTIVE`, `IN_GRACE_PERIOD`, or `CANCELED` with its paid period still running; on hold,
+   paused, pending, expired (Google reports a refunded or revoked purchase as expired) and anything else is refused (402). The access ends at the paid period's end plus the same 3 days' grace as every
+   subscription (`plans.ts`), and the answer is the same signed token (`src: "google"`). Several purchases: the one whose access ends last. It keeps nothing: Google keeps the purchase record. Google
+   unreachable, our service account refused (403) or no access token: 503 (the app keeps what it has and asks again), never "not paid". Rate limit: 30 requests per caller per 10 minutes.
+4. **Acknowledging**: after our server accepts, the page tells the app `iap.acknowledge {token}` for each token it sent (Google refunds a purchase not acknowledged within 3 days). A failed acknowledgement
+   changes nothing for the person; the next start-up or Restore purchases claims, and acknowledges, again.
+5. **Keeping it current**: as on the iPhone, at start-up and whenever the app comes back to the front the page asks Play Billing for the current purchases (`iap.entitlements`); nothing there and the Google
+   token goes; a purchase there and no token (new phone, reinstall), or one with under a week left, and a fresh token is fetched. **Restore purchases** asks Google Play to sync first. **Manage subscription**
+   opens Google Play's subscription screen. A Google Play purchase wins over the account's free week and gifts, exactly as an App Store one does (`accountAccess.ts`, `iap.ts`). The Android app has no
+   DeviceCheck: the free week there is decided by the account's email hash alone (`deviceCheck.token` answers "unavailable" and the page doesn't even ask).
+6. **Server env (Vercel, Production and Preview):** `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (**Sensitive**: the whole key file of the service account below, as downloaded; the same text in base64 also works) and, only
+   if the package name ever changes, `GOOGLE_PLAY_PACKAGE_NAME` (default `com.amanmarwaha.numbite`). `ENTITLEMENT_PRIVATE_JWK` is the same key as for Apple. Without the service account the route answers 503
+   and checks nothing. The Android build of the page needs the same build switches as the iPhone's (`NEXT_PUBLIC_IAP=1`, `APP_BUILD=1`) and `NEXT_PUBLIC_APP_VERSION="Android 1.1 (<versionCode>)"`.
+
+**What you do in Google (I can't: it needs your accounts):**
+
+1. **Play Console** › the app › **Monetize with Play** › **Products** › **Subscriptions** › **Create subscription**: product ID `com.amanmarwaha.numbite.premium`, name "Numbite Premium". Add **two base plans**:
+   ID `annual` (auto-renewing, billing period 1 year, price £49.99) and ID `monthly` (auto-renewing, 1 month, £4.99); **Activate** both. **Do not add any offer** (no free trial, no introductory price).
+   (The app must have been uploaded to an internal testing track at least once before subscriptions can be created; the Payments profile and merchant account must be set up.)
+2. **Google Cloud Console** (console.cloud.google.com): pick or create a project, **APIs & Services › Library › Google Play Android Developer API › Enable**; then **IAM & Admin › Service Accounts › Create service
+   account** (name `numbite-play-reader`; no project roles needed) › **Keys › Add key › Create new key › JSON** (it downloads once).
+3. **Play Console › Users and permissions › Invite new users**: paste the service account's email address (`…@….iam.gserviceaccount.com`), and under **Account permissions** tick **View financial data, orders and
+   cancellation survey responses** and **Manage orders and subscriptions**. (Permissions can take a few hours to reach the API; until then our route logs `forbidden` and answers 503.)
+4. **Vercel** › the project › Settings › Environment Variables: add `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON`, paste the **whole text of the downloaded JSON file**, mark it **Sensitive**, Production and Preview, then
+   redeploy. **Never paste the file into chat**, the app or the repository, and delete the downloaded file afterwards.
+5. **Test**: add your own Google account under Play Console › **Settings › License testing** (a licence tester buys without being charged and renews quickly, five minutes for a month, up to six times), install from an
+   internal testing track, buy each plan, and check Settings › Subscription says Premium; then cancel in Google Play and confirm Premium carries on until the end of the period; refund an order in Play Console and
+   confirm it goes at the next start-up. Logs: Vercel's runtime logs show only reason codes (`google entitlement: none of 1 gave access (not_found)`; never a token or a key).
+
+Not done for Google purchases: no `pro_entitlements` row (not needed: restore goes through the Google account), no creator code, no Real-time developer notifications (a refund or an ended subscription is
+noticed at the next start-up; the token of a refunded purchase still checks until then, at most its paid period plus 3 days), no server-side acknowledgement (the app does it).
+
 ## Not decided (yours)
 
 - ~~Whether to show a cookie/consent banner for the creator code.~~ Decided 14 Nov 2026: no storage, so no banner.

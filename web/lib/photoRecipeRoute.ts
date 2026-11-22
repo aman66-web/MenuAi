@@ -38,13 +38,13 @@ export async function premiumFor(request: Request, nowMs = Date.now()): Promise<
 }
 
 /**
- * What a rate limit counts for a valid token (hashed). An App Store purchase or a free week is re-signed with a new `iat` on every check, so counting the token's
+ * What a rate limit counts for a valid token (hashed). An App Store or Google Play purchase or a free week is re-signed with a new `iat` on every check, so counting the token's
  * text let each new token start a fresh allowance (meeting 21 November 2026, Chloe); their end (`exp`) is fixed (the subscription's end, the free week's end),
  * so they are counted by where they came from, the plan and that end. A gift's end moves with each token (up to GIFT_TOKEN_DAYS ahead), and counting it by its
  * claims would let gift holders share one allowance, so a gift (and anything else) is still counted by its own text.
  */
 export function limitKey(token: string, c: EntitlementClaims): string {
-  const fixedEnd = c.src === "apple" || (c.src === "account" && c.plan === "trial");
+  const fixedEnd = c.src === "apple" || c.src === "google" || (c.src === "account" && c.plan === "trial");
   return createHash("sha256").update(fixedEnd ? `claim:${c.src}:${c.plan}:${c.exp}` : `token:${token}`).digest("hex");
 }
 

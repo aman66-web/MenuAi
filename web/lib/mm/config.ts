@@ -156,9 +156,19 @@ export const LOGOS_ENABLED = process.env.NEXT_PUBLIC_APP_LOGOS !== "0";
 
 /**
  * The version line under Settings and the one sent with reports. In the iPhone app it is the app's own version and build, which scripts/build_app_web.sh reads from
- * the Xcode project (MARKETING_VERSION, CURRENT_PROJECT_VERSION) and passes in as NEXT_PUBLIC_APP_VERSION, e.g. "iPhone 1.1 (9)"; the website stays "web 1.0".
+ * the Xcode project (MARKETING_VERSION, CURRENT_PROJECT_VERSION) and passes in as NEXT_PUBLIC_APP_VERSION, e.g. "1.1 (9)", shown as "iPhone 1.1 (9)"; the website stays "web 1.0".
+ * The Android app's build passes the whole line, e.g. NEXT_PUBLIC_APP_VERSION="Android 1.1 (3)" (versionName and versionCode), which is shown as it is: a value that already starts
+ * with a platform name ("Android ", "iPhone ") is not given another.
  */
-export const APP_VERSION = APP_BUILD ? `iPhone ${(process.env.NEXT_PUBLIC_APP_VERSION ?? "").trim()}`.trim() : "web 1.0";
+const APP_VERSION_TEXT = (process.env.NEXT_PUBLIC_APP_VERSION ?? "").trim();
+/** The Android app's packed copy (its build passes the whole version line, "Android 1.1 (3)"). */
+export const ANDROID_PACK = APP_BUILD && /^Android /.test(APP_VERSION_TEXT);
+/**
+ * The legal and support pages (privacy, terms, support) mention the Android app on the website and in the Android app's copy, and are exactly as they were in the iPhone app's copy
+ * (founder, 22 November 2026: nothing visible changes on the iPhone).
+ */
+export const ANDROID_TEXT = !APP_BUILD || ANDROID_PACK;
+export const APP_VERSION = APP_BUILD ? (/^(Android|iPhone) /.test(APP_VERSION_TEXT) ? APP_VERSION_TEXT : `iPhone ${APP_VERSION_TEXT}`.trim()) : "web 1.0";
 /** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */
 export const API_BASE = `${REMOTE_BASE}/api/v1/`;
 export const FREE_SAVED_ORDER_LIMIT = 3;

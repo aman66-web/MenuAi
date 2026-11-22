@@ -1,5 +1,5 @@
 import "server-only";
-import { ACCOUNT_CORS, APP_ORIGIN, preflight, withCors } from "../cors";
+import { ACCOUNT_CORS, isAppOrigin, preflight, withCors } from "../cors";
 import { serverEnv } from "../env";
 import { NOT_JSON, ipHash, isJsonRequest } from "../http";
 import { site } from "../../site.config";
@@ -44,7 +44,7 @@ export function authContext(request: Request): AuthCtx {
     secure: origin.startsWith("https://"),
     method: request.method,
     sameOrigin,
-    fromApp: fromHeader === APP_ORIGIN,
+    fromApp: isAppOrigin(fromHeader),
   };
 }
 

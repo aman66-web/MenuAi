@@ -298,7 +298,7 @@ requests for a limited time under its own terms. Both types are already in the q
 
 Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what you have, Scan your food, everyone signing in and the fixes from the usability tests.
 
-**What's New in This Version** (build 20, as submitted 22 Nov; the description there also now says 241 restaurants, 382 recipes and "Easy to use. A plain layout, big buttons and a short guided tour."; promotional text says 241):
+**What's New in This Version** (build 11: the founder pastes this block):
 
 ```
 What's new in 1.1
@@ -381,3 +381,5 @@ stored, so no new row and no PrivacyInfo.xcprivacy change (re-check before submi
 ```
 In-App Purchase: two auto-renewable subscriptions in one group, Annual and Monthly (no introductory offer). Every new account gets Premium free for its first 7 days automatically after signing in, with no payment details; we keep a one-way hash of the email or Apple ID and use Apple's DeviceCheck so each person and device has one free week. After it ends, Premium features show the plans. You can subscribe at any time, also during the free week: Settings (gear on Home) > Subscription > See plans. Restore purchases is on the plans screen and in Settings > Subscription. Purchases are checked with Apple's signed transaction on our server; sandbox purchases work. One free week per person and per iPhone: if this iPhone or Apple ID already had it, the plans show at once and a sandbox purchase unlocks Premium.
 ```
+
+(22 Nov: build 20's What's New and description were edited in App Store Connect: the description says 241 restaurants, 382 recipes and "Easy to use. A plain layout, big buttons and a short guided tour."; the promotional text says 241; What's New gained "Meal plan with Pip" and "382 recipes, each cooked the way a chef would". The block above is the build 11 text with the meal-plan bullet updated.)
