@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The only folders the FileProvider may hand to other apps: a photo taken for a photo field (camera/) and the picture of a share (share/). Both are in the
+     app's cache and are emptied at every start. -->
+<paths>
+    <cache-path name="camera" path="camera/" />
+    <cache-path name="share" path="share/" />
+</paths>

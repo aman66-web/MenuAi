@@ -12,10 +12,13 @@ built in parallel (the web/server side, the app shell, Play Billing). If you mus
 * The app answers by running `window.__menumathReply(id, result)` (result = plain JSON object) with `evaluateJavascript`.
 * The page's origin inside the app is **`https://appassets.androidplatform.net`** (WebViewAssetLoader serves the packed web app from the app's assets; the iPhone
   app's is `app://menumath`). The API's CORS allow-list must accept it (web/lib/cors.ts).
-* Actions the Android app answers: `scan` (`{error:"unavailable"}`: the page's own camera scanner takes over, web/lib/mm/barcode.ts), `locate` (browser
-  geolocation is used if the page falls back), `share`, `webAuth` (Custom Tabs, returns to `numbite://auth?code=…`), `appleSignIn` (`{error:"unavailable"}`),
-  `notifications.*` (local notifications), `keyboard.hide`, `review.request` (`{error:"unavailable"}`), `session.load` / `session.save` (Android Keystore),
-  `deviceCheck.token` (`{error:"unavailable"}`: the free week is then decided by the account's email hash alone), and `iap.*` below.
+* Actions the Android app answers (updated 22 Nov by the shell: the lead's addendum): `scan` (**Google's code scanner**: `{code}` with 8-14 digits as the iPhone's scanner gives them,
+  `{error:"cancelled"|"denied"}`, or `{error:"unavailable"}` when Google Play services can't provide it; the page uses it once Scanner.tsx treats Android as native, see
+  docs/ANDROID_BUILD.md), `locate` (the platform LocationManager with the approximate permission, one system question, `{lat,lng}` or `{error:"denied"|"unavailable"}`: the page asks
+  the app whenever the bridge exists, web/app/app/map/page.tsx), `share`, `webAuth` (Custom Tabs for **google and apple**, returns to `numbite://auth?code=…`), `appleSignIn`
+  (`{error:"unavailable"}`), `notifications.*` (local notifications), `keyboard.hide`, `review.request` (Google Play's in-app review pop-up: `{done:true}` whether or not Google shows
+  it, `{error:"unavailable"}` if Play can't give it), `session.load` / `session.save` (Android Keystore), `deviceCheck.token` (`{error:"unavailable"}`: the free week is then decided by the
+  account's email hash alone), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
 
 ## In-app purchase (Google Play Billing)
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No cleartext anywhere: the app's own pages come from its assets over https://appassets.androidplatform.net (served by the app, never the network) and
+     everything it asks the internet for is https. Only the system's trusted certificate authorities (no user-added ones) count. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

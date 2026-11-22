@@ -188,8 +188,11 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
   const [note, setNote] = useState<string | null>(null);
   const [mode, setMode] = useState<"camera" | "typed">("camera");
   const [scanRound, setScanRound] = useState(0);
-  // the iPhone's own scanner is the iPhone app's; the Android app answers "unavailable" to it, so there (and on the website) the page's own camera reads the barcode
-  const native = open && nativePlatform() === "ios";
+  // each app has its own scanner (the iPhone's VisionKit one, Google's code scanner on Android); on the website, and on an Android phone where Google's scanner is not
+  // available (it answers "unavailable"), the page's own camera reads the barcode
+  const [noPhoneScanner, setNoPhoneScanner] = useState(false);
+  const platform = nativePlatform();
+  const native = open && (platform === "ios" || (platform === "android" && !noPhoneScanner));
   // the parent passes a new onCode every time it renders: the iPhone's scanner must not start again for that (2026-11-20: a second scanner opened over the
   // first, and its Cancel did nothing), so it is read from here when a code comes back
   const onCodeRef = useRef(onCode);
@@ -214,6 +217,7 @@ export function Scanner({ open, onClose, onCode }: { open: boolean; onClose: () 
       if (!live) return;
       if (r.code && barcodeQuery(r.code)) onCodeRef.current(r.code);
       else if (r.error === "denied") setNote(tk("{app} isn't allowed to use the camera. Turn it on in the iPhone's Settings, under {app}, or type the number printed under the barcode."));
+      else if (r.error === "unavailable" && nativePlatform() === "android") setNoPhoneScanner(true); // the page's own camera takes over
       else if (r.error === "unavailable") setNote(tk("This iPhone can't scan barcodes with the camera. Type the number printed under the barcode instead."));
       else setNote(tk("Type the number printed under the barcode, or scan again."));
     });

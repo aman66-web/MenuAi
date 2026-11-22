@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The app's page grey (web/app/globals.css, the app's background, #f4f5f6): behind the web view, the system bars and the splash, so nothing flashes white. -->
+    <color name="page">#FFF4F5F6</color>
+    <color name="splash_background">#FFF4F5F6</color>
+</resources>

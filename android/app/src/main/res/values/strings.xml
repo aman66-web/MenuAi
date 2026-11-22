@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Numbite</string>
+    <string name="reminders_channel_name">Reminders</string>
+    <string name="reminders_channel_description">Your own reminders, at the times you set</string>
+    <string name="webview_missing_title">Numbite needs Android System WebView</string>
+    <string name="webview_missing_body">Open Google Play, update or turn on Android System WebView, then open Numbite again.</string>
+</resources>
