@@ -125,3 +125,5 @@ What is still open: the service-account key in Vercel (problem 2), then activate
 Production release "3 (1.1)" (versionCode 3: the free week is remembered per phone, see docs/PAYMENTS.md "Android phones") and the Data safety form (Device or other IDs added: `android/store/data_safety.csv`) were sent for review together;
 the console ran its quick checks first (up to 14 minutes). It replaces 1.1 (2). The one build warning is Play's "no deobfuscation file" note (the app does not use R8). Managed publishing is off: it goes live by itself when approved.
 Google approved and published it the same day (Submission activity: Published; Production track: latest release 3 (1.1)).
+
+**22 Nov, about 17:00 GMT: both base plans were set to Active again** (founder: "Switch them on now."), with the Play service account not yet accepted by Google: see docs/PROGRESS_LOG.md.
