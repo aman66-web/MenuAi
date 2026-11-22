@@ -4245,3 +4245,10 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (00:37, 22 Nov) **iPhone 1.1 build 20 uploaded to App Store Connect** (266d35a0; founder: "that's the final version of my app"): build 19 plus the 13 remade
   pictures. Not submitted: build 11 is still the one in App Review; to put build 20 in review, swap it into 1.1 in App Store Connect and resubmit, after the
   two App Privacy lines (Meal plan with Pip, search help).
+- (00:51, 22 Nov) **iPhone 1.1 build 20 submitted for App Review in place of build 11** (founder: "Please do all that for me ... let me know when
+  everything's done"). In App Store Connect (Chrome): App Privacy got two new data types, both App Functionality, not linked, no tracking, and was
+  published: **Search History** (search help sends the words of a search that found nothing) and **Fitness** (Meal plan with Pip sends the training answer;
+  the plan's answers live only in `mm.v1.mealPlan`, never in a synced store). Meal plan with Pip's answers and note are covered by the existing Other User
+  Content line. Then 1.1 was removed from review (build 11), build 20 chosen (already "Ready to Submit", no export question), saved and added for review
+  with the Numbite Premium group and both plans (Annual, Monthly), the same 4 items as before; submitted. Release stays **manual**; review text, notes and
+  screenshots unchanged.
