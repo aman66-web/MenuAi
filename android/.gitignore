@@ -1,0 +1,12 @@
+.gradle/
+build/
+local.properties
+*.keystore
+*.jks
+keystore.properties
+app/src/main/assets/WebApp/
+app/release/
+*.aab
+*.apk
+.idea/
+.kotlin/
