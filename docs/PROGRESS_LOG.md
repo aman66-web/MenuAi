@@ -4295,3 +4295,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   dpl_6yMJp5MW6JoBKgcQ2mj948jvKwwp READY (rollback target: dpl_Ho31JQAnRWTyjxciaXJPjpzpMCEv at a5313bf0). Checked live: the CORS preflight from `https://appassets.androidplatform.net` now answers with `access-control-allow-origin`,
   `/api/v1/entitlement/google` answers 503 `unavailable` (route exists; no service-account key yet), the privacy page carries the Google Play lines. So the live Android app can now sign in and sync. Premium stays unbuyable on Android:
   both base plans are Inactive until `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` is in Vercel.
+- (22 Nov, about 10:55 GMT) **Android payments: the Google side is done (founder: "can you do all for me? Or as much as you can")**: in the founder's Chrome, Google Cloud project `numbite`: enabled the Google Play Android Developer API; created the service account
+  `numbite-play-billing@numbite.iam.gserviceaccount.com`; created one JSON key (id 07db2778...), which downloaded to the Mac and was moved to `~/.numbite-play/play-service-account.json` (folder 700, file 600, outside the repo; never committed, never
+  printed). In Play Console › Users and permissions the service account was invited and shows Active with "View financial data, orders, and cancellation survey responses" and "Manage orders and subscriptions". Left for the founder: put the key in
+  Vercel as `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (Sensitive; the one command is in docs/ANDROID_BILLING.md "Putting the key in Vercel"), then Claude redeploys, activates the two base plans and a licence tester buys the plan on a real phone.
+  Google can take a few hours before a newly invited service account is accepted by the Play Developer API.

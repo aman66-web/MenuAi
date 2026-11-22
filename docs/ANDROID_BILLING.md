@@ -194,3 +194,15 @@ adb shell run-as com.amanmarwaha.numbite rm shared_prefs/numbite_debug.xml && ad
 * **The shell** must call `createPurchaseService` with an `activityProvider` that reads the current Activity from a holder (a `WeakReference`), and run bridge calls in an
   application-level scope, not `lifecycleScope`, or a rotation cancels the waiting call (the late result is then still kept for the next `iap.entitlements`, but the page's
   buy button would wait for an answer that never comes).
+
+## Putting the key in Vercel (the founder's one step)
+
+The service account `numbite-play-billing@numbite.iam.gserviceaccount.com` (Google Cloud project `numbite`) exists, has the Play permissions, and its key is at `~/.numbite-play/play-service-account.json` (back this folder up; never commit it, never paste it in chat).
+Run this once in Terminal (the project is already linked and logged in); it sends the file straight to Vercel as a Sensitive Production variable, nothing is printed:
+
+```bash
+cd ~/MenuAi/web && vercel env add GOOGLE_PLAY_SERVICE_ACCOUNT_JSON production --sensitive < ~/.numbite-play/play-service-account.json
+```
+
+Then tell Claude "the key is in": it redeploys numbite.com (a variable only takes effect on a new deployment), checks that `POST /api/v1/entitlement/google` no longer answers 503, and activates the two base plans.
+If the route answers "unavailable" (503) or 402 for a real purchase within a few hours of the invite, wait: Google can take hours before a new service account may call the Play Developer API.
