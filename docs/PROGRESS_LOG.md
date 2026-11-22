@@ -4252,3 +4252,13 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Content line. Then 1.1 was removed from review (build 11), build 20 chosen (already "Ready to Submit", no export question), saved and added for review
   with the Numbite Premium group and both plans (Annual, Monthly), the same 4 items as before; submitted. Release stays **manual**; review text, notes and
   screenshots unchanged.
+- (01:05, 22 Nov) **New App Store screenshots and listing text; 1.1 build 20 resubmitted** (founder: "make new screenshots then ... If you have any improvements
+  for anything, just do it and then add the new screenshots"). The version had only the 6 plain October screenshots (the annotated set of 21 November had
+  never been uploaded). Retaken from a throwaway-key test copy of build 20 (`store-shots-v2.mjs`, `SHOT_H=902`), each framed with a real iPhone status bar
+  (9:41, Dynamic Island, signal, Wi-Fi, battery, on the screen's own top colour; `store-frames.mjs`); Pip's permission pre-given for the plan; Top picks
+  set to Lunch whatever the hour; the fridge screen lowered so no row is cut; the plan's subline now "Fits your calories, budget and 5 a day" (the day's
+  food cost and fruit-and-veg portions show on it). In "App Store screenshots 1.1", same order and names. In App Store Connect: 1.1 removed from review,
+  the 6 old large-display screenshots removed (kept in the Asset Library), the 10 new ones uploaded (the medium size uses them), promotional text and
+  description 238 → 241 restaurants, 165 → 382 recipes, "Large text options" removed (build 20 has standard text only), What's New gains Meal plan with
+  Pip and the 382 chef-made recipes (docs/STORE.md); then added for review with the Premium group and both plans and submitted (4 items). Build unchanged
+  (screenshots and text are not in the build); release still manual.

@@ -298,14 +298,16 @@ requests for a limited time under its own terms. Both types are already in the q
 
 Build 7 replaces build 6 (never uploaded) and adds the meal plan, Cook with what you have, Scan your food, everyone signing in and the fixes from the usability tests.
 
-**What's New in This Version** (build 11: the founder pastes this block):
+**What's New in This Version** (build 20, as submitted 22 Nov; the description there also now says 241 restaurants, 382 recipes and "Easy to use. A plain layout, big buttons and a short guided tour."; promotional text says 241):
 
 ```
 What's new in 1.1
 
 • Premium: every Truth card, Smart Swap and Quick answer, the Top 5 picks for your goal at chains that publish protein, the full Nutrition leaderboards, as many saved orders as you like, the meal plan, Make it at home, Scan your food and Pip's own recipes from what you have. Your first 7 days of Premium are free (one free week per person and iPhone), then choose Monthly or Annual. Every menu, recipe and label stays free, and so does your food diary.
 
-• Meal plan (Premium): a week of meals from our recipes for your goal, diet, budget and the food you like, with the shopping list, from one supermarket or several.
+• Meal plan with Pip (Premium): answer a few questions and Pip plans a week of meals for your goal, diet, daily food budget and training days, with your 5 a day counted, the food cost for each day and one shopping list, from one supermarket or several.
+
+• 382 recipes, each cooked the way a chef would, with marinades for meat and fish and everyday sizes such as "80 g / ½ pepper".
 
 • Cook with what you have: type what's in your fridge and cupboards and see which of our recipes use it. Pip can also write a new recipe around it (Premium).
 

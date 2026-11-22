@@ -51,7 +51,8 @@ const log = JSON.stringify({ v: 1, data: [
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 
 async function page(name) {
-  const ctx = await browser.newContext({ viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, colorScheme: "light", isMobile: true, hasTouch: true, serviceWorkers: "block" });
+  // SHOT_H=902: the screen below the iPhone's 54-point status bar, which store-frames.mjs draws above it (22 Nov)
+  const ctx = await browser.newContext({ viewport: { width: 440, height: Number(process.env.SHOT_H ?? 956) }, deviceScaleFactor: 3, colorScheme: "light", isMobile: true, hasTouch: true, serviceWorkers: "block" });
   await ctx.addInitScript(([s, h, p, l]) => {
     if (sessionStorage.getItem("seeded")) return;
     sessionStorage.setItem("seeded", "1");
@@ -62,6 +63,8 @@ async function page(name) {
     localStorage.setItem("mm.v1.tour", JSON.stringify({ v: 1, data: 99 }));
     localStorage.setItem("mm.v1.coach", JSON.stringify({ v: 1, data: { armed: false, seen: ["home", "eatOut", "groceries", "recipes", "homeLater"] } }));
     localStorage.setItem("mm.v1.trialOffer", JSON.stringify({ v: 1, data: true }));
+    // Pip's one permission already given (the plan's "Make my plan" asks it first otherwise)
+    localStorage.setItem("mm.v1.aiOk", JSON.stringify({ v: 1, data: ["scan", "photoRecipe", "fridgeRecipe", "mealPlan"] }));
     localStorage.setItem("mm.v1.homePages", JSON.stringify({ v: 1, data: { seen: true, slid: true, hintDays: 5, lastHintDay: "2026-01-01" } }));
     localStorage.setItem("mm.v1.rating", JSON.stringify({ v: 1, data: { firstDay: "2026-11-01", lastDay: "2026-11-21", daysUsed: 3, lastAsked: "2026-11-20", reviewAsked: true } }));
   }, [settings, hidden, paid, log]);
@@ -129,6 +132,9 @@ const SHOTS = {
     await p.goto(BASE + "/app/chain?id=" + (process.env.BEST_CHAIN ?? "nandos"));
     await p.getByRole("heading", { level: 1 }).waitFor({ timeout: 30000 });
     await scrollTo(p, "Best for you", 24);
+    // lunch, whatever the hour the shots are taken (at night it opens on Breakfast)
+    await p.getByRole("group", { name: "Meal" }).getByRole("button", { name: /Lunch/ }).tap({ timeout: 30000 });
+    await p.waitForTimeout(800);
   },
   "04-scan": async (p) => {
     await p.goto(BASE + "/app/groceries/product?code=5063089019924&scan=1");
