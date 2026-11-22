@@ -8,14 +8,14 @@ import org.json.JSONObject
  * iap.restore, iap.manage, plus iap.acknowledge. Every function answers with a plain JSON object the page reads (see docs/ANDROID_BUILD.md "Bridge");
  * nothing here ever throws to the caller: a failure is `{"error": "unavailable"}`.
  *
- * Product ids: com.amanmarwaha.numbite.pro.annual and com.amanmarwaha.numbite.pro.monthly (two subscriptions in Play Console, each with one base plan).
- * A purchase the page sends to our server is `{"productId": "...", "token": "<purchaseToken>"}`.
+ * One subscription, `com.amanmarwaha.numbite.premium`, with two base plans `annual` and `monthly`; the page names a plan `<subscription id>:<base plan id>`
+ * (docs/ANDROID_BRIDGE.md). A purchase the page sends to our server is `{"productId": "com.amanmarwaha.numbite.premium", "token": "<purchaseToken>"}`.
  */
 interface PurchaseService {
-    /** iap.products {ids}: `{"products":[{"id","name","price","period":"month"|"year"}]}` (price = Play's own localised text, e.g. "£4.99"); `{"error":"unavailable"}` when Play can't be reached. */
+    /** iap.products {ids}: `{"products":[{"id":"<subscription>:<base plan>","name","price","period":"month"|"year"}]}` (price = Play's own localised text, e.g. "£4.99"); `{"error":"unavailable"}` when Play can't be reached. */
     suspend fun products(ids: List<String>): JSONObject
 
-    /** iap.purchase {id}: opens Google Play's own sheet. `{"purchases":[...]}` when bought, `{"pending":true}` while a payment waits, `{"error":"cancelled"}`, `{"error":"unavailable"}`. */
+    /** iap.purchase {id: "<subscription>:<base plan>"}: opens Google Play's own sheet. `{"purchases":[...]}` when bought, `{"pending":true}` while a payment waits, `{"error":"cancelled"}`, `{"error":"unavailable"}`. */
     suspend fun purchase(productId: String): JSONObject
 
     /** iap.entitlements: the person's current (not expired, not refunded) purchases: `{"purchases":[{"productId","token"}]}` (an empty list is a real answer); `{"error":"unavailable"}` when Play can't be reached. */

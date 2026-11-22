@@ -19,18 +19,21 @@ built in parallel (the web/server side, the app shell, Play Billing). If you mus
 
 ## In-app purchase (Google Play Billing)
 
-Products (two auto-renewable subscriptions, each with one base plan, **no free-trial offer**: the 7-day free week is the account's own, exactly as on the iPhone,
-`web/lib/payments/freeWeek.ts`): `com.amanmarwaha.numbite.pro.annual` (£49.99 a year) and `com.amanmarwaha.numbite.pro.monthly` (£4.99 a month).
+Product (**one** auto-renewable subscription with **two base plans**, so Google itself stops anyone holding both and offers a plan change; **no free-trial offer**:
+the 7-day free week is the account's own, exactly as on the iPhone, `web/lib/payments/freeWeek.ts`): subscription id `com.amanmarwaha.numbite.premium`,
+base plans `annual` (£49.99 a year) and `monthly` (£4.99 a month). The page and the app name a plan as **`<subscription id>:<base plan id>`**, e.g.
+`com.amanmarwaha.numbite.premium:annual` (never the iPhone's `…pro.annual` ids).
 
 | Action | payload | answer |
 |---|---|---|
-| `iap.products` | `{ids:[…]}` | `{products:[{id,name,price,period:"month"\|"year"}]}` (price is Play's own formatted text) or `{error:"unavailable"}` |
-| `iap.purchase` | `{id}` | `{purchases:[{productId,token}]}` \| `{pending:true}` \| `{error:"cancelled"\|"unavailable"}` |
+| `iap.products` | `{ids:["…premium:annual","…premium:monthly"]}` | `{products:[{id:"…premium:annual",name,price,period:"month"\|"year"}]}` (price is Play's own formatted text of the base plan) or `{error:"unavailable"}` |
+| `iap.purchase` | `{id:"…premium:annual"}` | `{purchases:[{productId,token}]}` \| `{pending:true}` \| `{error:"cancelled"\|"unavailable"}`. If the person already holds the other plan, the app asks Play for a plan change (replacement), never a second subscription |
 | `iap.entitlements` | – | `{purchases:[{productId,token}]}` (current, not expired or refunded; empty list is a real answer) \| `{error:"unavailable"}` |
 | `iap.restore` | – | same as `iap.entitlements`, after syncing with Google Play |
-| `iap.manage` | – | `{done:true}` (opens Google Play's subscription screen) |
+| `iap.manage` | – | `{done:true}` (opens Google Play's subscription screen for our subscription) |
 | `iap.acknowledge` | `{token}` | `{done:true}`; the page sends it **after our server has accepted the purchase** (Google refunds an unacknowledged purchase after 3 days) |
 
+`productId` in a purchase is the subscription id (`com.amanmarwaha.numbite.premium`); which plan it is comes from Google's answer to our server (the base plan id).
 `token` is Google's `purchaseToken` (opaque, `[A-Za-z0-9._-]`, up to 4,000 characters). The new result field is **`purchases`** (the iPhone's `transactions` are
 Apple JWS strings and stay as they are).
 
@@ -39,7 +42,7 @@ Apple JWS strings and stay as they are).
 `POST {API_BASE}entitlement/google` body `{ "purchases": [ { "productId": "...", "token": "..." } ] }` (up to 10) →
 `200 { token, plan, expiresAt }` (the same signed access token as every other source, `src: "google"`, plan `annual`|`monthly`) · `402` nothing paid · `400` bad body ·
 `429` too many · `503` not set up. The server asks Google (Play Developer API `purchases.subscriptionsv2.get`) with a service account and checks: our package name,
-a product of ours, the subscription is active (`SUBSCRIPTION_STATE_ACTIVE`, or `…_IN_GRACE_PERIOD`, or `…_CANCELED` while its expiry is in the future), not refunded or
+our subscription id, the base plan (`annual`→ plan annual, `monthly`→ plan monthly), the subscription is active (`SUBSCRIPTION_STATE_ACTIVE`, or `…_IN_GRACE_PERIOD`, or `…_CANCELED` while its expiry is in the future), not refunded or
 revoked. Server env (Vercel, Sensitive): `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (the whole key file), `GOOGLE_PLAY_PACKAGE_NAME` (default `com.amanmarwaha.numbite`).
 
 The free week and gifts use the existing `POST /api/v1/entitlement/account` unchanged (keyed hash of the account's email; DeviceCheck is skipped on Android).
