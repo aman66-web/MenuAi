@@ -4291,3 +4291,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   bought; see docs/ANDROID_STORE.md "LIVE on Google Play". Needs the founder: go-ahead to release `iap` to main and deploy, then the service-account key.
 - (22 Nov, about 09:30 GMT) **Android: 7-day grace period on both Premium plans** (founder: "Give them a 7 day grace period"). The annual plan was at Play's recommended 14 days; it is now 7, like the monthly plan (account hold
   calculates to 53 days on both). Checked after a reload of each base plan page. Both plans are still Inactive (see the entry above). A failed card keeps Premium for 7 days (`IN_GRACE_PERIOD` counts as active on the server).
+- (22 Nov, about 09:25 GMT) **numbite.com now runs `main` at fd2787d1 = all of `iap` (founder: "Yes please" to releasing it so the Android app works)**: fast-forward of 31 commits (a5313bf0 to fd2787d1); web tests 4215 passed, production build OK; Vercel deployment
+  dpl_6yMJp5MW6JoBKgcQ2mj948jvKwwp READY (rollback target: dpl_Ho31JQAnRWTyjxciaXJPjpzpMCEv at a5313bf0). Checked live: the CORS preflight from `https://appassets.androidplatform.net` now answers with `access-control-allow-origin`,
+  `/api/v1/entitlement/google` answers 503 `unavailable` (route exists; no service-account key yet), the privacy page carries the Google Play lines. So the live Android app can now sign in and sync. Premium stays unbuyable on Android:
+  both base plans are Inactive until `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` is in Vercel.

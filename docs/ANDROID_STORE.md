@@ -115,3 +115,6 @@ Two things are not ready, found by checking the live site (an OPTIONS call from 
 Protective step taken: both base plans (annual, monthly) were set to **Inactive** in Play Console, so nobody can be charged for a subscription the server cannot deliver. To switch them on again: Monetize with Play › Subscriptions ›
 Numbite Premium › each base plan › Activate. Release order that makes it work: (a) release `iap` to main and deploy (founder's go-ahead), (b) service-account key in Vercel, redeploy, (c) activate the plans, (d) test a purchase with
 a licence tester (Play Console › Settings › License testing), (e) add the reviewer demo login. If you would rather not have the app visible meanwhile: Play Console › Test and release › Production › Manage › Unpublish (or Publishing overview › Managed publishing).
+
+**Update, 22 Nov about 09:25 GMT: problem 1 is fixed.** numbite.com was released from `iap` (main fd2787d1): the Android origin passes CORS, the Google route exists (503 until the key is set) and the privacy and terms pages carry the Android lines.
+What is still open: the service-account key in Vercel (problem 2), then activate both base plans (grace period is 7 days on both), a licence-tester purchase test, the reviewers' demo login.
