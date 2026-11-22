@@ -52,12 +52,13 @@ export const SNACKS: readonly Recipe[] = [
   },
   {
     id: "ham-soft-cheese-roll-ups", meal: "snack", tags: ["No cook", "Savoury"], name: "Ham and soft cheese roll-ups", blurb: "Slices of ham rolled around soft cheese and crunchy cucumber.", servings: 2, minutes: 10,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): one thick cucumber stick in each roll, as in the photo
     ingredients: [ing("ham", 120), ing("soft-cheese", 60), ing("cucumber", 100)],
     method: [
-      "Cut the cucumber: Rinse the cucumber, cut off the ends and cut it into pieces as long as the ham slices are wide. Halve them lengthways, cut into sticks about as thick as a pencil and pat them dry.",
+      "Cut the cucumber: Rinse the cucumber, cut off the ends and cut it into pieces as long as the ham slices are wide. Cut each into sticks about 2 cm thick and pat them dry.",
       "Lay out the ham: Lay the ham slices flat on a clean board, side by side, gently peeling apart any that are stuck together.",
       "Spread the cheese: Spread a thin layer of soft cheese over each slice with a teaspoon or butter knife, leaving about 1 cm clear round the edge.",
-      "Roll them up: Lay a few cucumber sticks along one edge of each slice and roll the ham up tightly around them. The cheese holds it closed.",
+      "Roll them up: Lay one cucumber stick along one edge of each slice and roll the ham up tightly around it. The cheese holds it closed.",
       "Serve: Put the roll-ups on a plate with the join underneath. Eat straight away, or cover them, keep them in the fridge and eat them the same day.",
     ],
   },
@@ -76,14 +77,15 @@ export const SNACKS: readonly Recipe[] = [
   {
     id: "tuna-chickpea-dip", meal: "snack", tags: ["No cook", "Savoury"], name: "Tuna and chickpea dip", blurb: "A creamy tuna and chickpea dip with lemon, for vegetable sticks.", servings: 3, minutes: 10,
     // 2026-11-21 (founder: "Nothing should be plain"): a pinch of cumin mashed into the chickpeas, as in houmous
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): green flecks all through the dip, with tuna flakes and spring onion rings on top, as in the photo
     ingredients: [ing("tuna", 102), ing("chickpeas", 130), ing("olive-oil", 10), ing("carrots", 100, { note: "about 1 carrot" }), ing("cucumber", 120), ing("peppers", 160, { note: "about 1 pepper" }), ing("lemon-juice", 10), ing("spring-onions", 30), ing("black-pepper", 1), ing("cumin", 1)],
     method: [
       "Drain the chickpeas and tuna: Rinse the chickpeas in a sieve and leave them to drain. Tip the tuna into a second sieve and press it with a spoon to squeeze out as much water as you can.",
       "Mash the chickpeas: Put the chickpeas in a large bowl with the oil, lemon juice, cumin and a splash of cold water. Mash with a fork for 2 to 3 minutes, until it looks like a thick, rough paste.",
-      "Slice the spring onions: Trim the spring onions and slice them thinly into rings, keeping your fingers curled away from the blade.",
-      "Mix the dip: Stir in the tuna and spring onions, breaking up the tuna, until the dip holds its shape on a spoon. Stir in a pinch of black pepper, then taste and add more if you like.",
+      "Slice the spring onions: Trim the spring onions. Slice the white parts thinly into rings and chop the green tops very finely, keeping your fingers curled away from the blade.",
+      "Mix the dip: Stir in the tuna and the chopped green tops, keeping back a few flakes of tuna and the spring onion rings. Break up the tuna until the dip holds its shape on a spoon. Stir in a pinch of black pepper.",
       "Cut the sticks: Rinse the vegetables. Peel the carrot, then cut it and the cucumber into sticks about 7 cm long and as thick as your finger. Cut the pepper in half, scoop out the seeds and slice it into strips.",
-      "Serve: Spoon the dip into a small bowl and arrange the sticks around it. Serve straight away. Keep any leftover dip covered in the fridge and eat it within a day.",
+      "Serve: Spoon the dip into a small bowl, scatter the tuna flakes and spring onion rings you kept over the top and arrange the sticks around it. Serve straight away. Keep any leftover dip covered in the fridge and eat it within a day.",
     ],
   },
   {

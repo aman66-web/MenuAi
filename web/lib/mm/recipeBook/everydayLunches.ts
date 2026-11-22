@@ -8,11 +8,12 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "tuna-sweetcorn-cucumber-sandwiches", meal: "lunch", tags: ["Quick", "Fish", "British"], name: "Tuna, sweetcorn and cucumber sandwiches", blurb: "Tuna and sweetcorn mayonnaise with crisp cucumber in wholemeal bread.", servings: 2, minutes: 15,
     ingredients: [ing("bread", 160), ing("tuna", 160), ing("sweetcorn", 100), ing("light-mayo", 30), ing("cucumber", 80), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
-      "Salt the cucumber: Wash the cucumber and cut it into thin rounds, about as thick as a pound coin. Toss them with the salt in a sieve and leave them for 10 minutes, so they stay crisp and the bread doesn't go soggy.",
-      "Get the sweetcorn ready: Drain tinned sweetcorn in a sieve. If it is frozen, cook it in a small pan of boiling water for 2 to 3 minutes, drain it and cool it under the cold tap.",
       "Drain the tuna: Open the tins and press the lids down firmly over the sink to squeeze out all the liquid. Tip the tuna into a bowl and break it into flakes with a fork.",
-      "Mix the filling: Add the sweetcorn, the mayonnaise and a good grind of black pepper to the tuna and stir until creamy and every flake is coated.",
+      "Get the sweetcorn ready: Drain tinned sweetcorn in a sieve. If it is frozen, cook it in a small pan of boiling water for 2 to 3 minutes, drain it and cool it under the cold tap.",
+      "Mix the filling: Add the sweetcorn, the mayonnaise and a good grind of black pepper to the tuna and stir until creamy and every flake is coated. Leave it while the cucumber drains, so the flavours soak in.",
+      "Salt the cucumber: Wash the cucumber and cut it into rounds about 5 mm thick. Toss them with the salt in a sieve and leave them for 10 minutes, so they stay crisp and the bread doesn't go soggy.",
       "Fill the sandwiches: Pat the cucumber dry with kitchen paper. Lay half the bread on a board, spread the tuna filling evenly over it, right to the edges, then lay the cucumber slices on top.",
       "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Eat straight away, or wrap them and keep them in the fridge to eat the same day.",
     ],
@@ -20,10 +21,11 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "chicken-salad-sandwiches", meal: "lunch", tags: ["British"], name: "Chicken salad sandwiches", blurb: "Pan-fried chicken breast with lettuce, tomato and mayonnaise in wholemeal bread.", servings: 2, minutes: 20,
     ingredients: [ing("bread", 160), ing("chicken", 200), ing("lettuce", 60), ing("tomatoes", 120), ing("light-mayo", 30), ing("olive-oil", 5), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
-      "Get the salad ready: Wash the lettuce and tomatoes and shake them dry. Shred the lettuce and cut the tomatoes into thin slices.",
-      "Thin the chicken: Lay the chicken on a board and slice each fillet in half sideways, so it cooks evenly. Pat it dry and sprinkle with the salt and a grind of black pepper. Wash your hands, the board and the knife after touching raw chicken.",
-      "Fry the chicken: Heat the oil in a non-stick frying pan on a medium-high heat until it shimmers. Lay the chicken in and leave it for 3 to 4 minutes without moving it, until golden underneath.",
+      "Marinate the chicken: Slice each chicken fillet in half sideways, so it cooks evenly. Pat it dry and toss it with the oil, the salt and a grind of black pepper. Wash your hands, the board and the knife after touching raw chicken.",
+      "Get the salad ready: While the chicken sits (10 minutes), wash the lettuce and tomatoes and shake them dry. Shred the lettuce and cut the tomatoes into thin slices. If marinating longer than 30 minutes, cover and keep in the fridge.",
+      "Fry the chicken: Heat a non-stick frying pan on a medium-high heat until hot. Lay the chicken in and leave it for 3 to 4 minutes without moving it, until golden underneath.",
       "Turn the chicken: Turn it over and fry for 3 to 4 minutes more, until golden on the other side too.",
       "Check the chicken: Cut into the thickest piece. It must be piping hot all the way through, with no pink left and clear juices. Cook it a little longer if not, then leave it to cool for 5 minutes.",
       "Slice the chicken: Cut the chicken into thin slices, so every slice has a golden edge.",
@@ -32,13 +34,14 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
     ],
   },
   {
-    id: "egg-mayo-lettuce-sandwiches", meal: "lunch", tags: ["Eggs", "British"], name: "Egg mayonnaise and lettuce sandwiches", blurb: "Mashed boiled eggs in mayonnaise with shredded lettuce in wholemeal bread.", servings: 2, minutes: 15,
+    id: "egg-mayo-lettuce-sandwiches", meal: "lunch", tags: ["Eggs", "British"], name: "Egg mayonnaise and lettuce sandwiches", blurb: "Chopped boiled eggs in mayonnaise with shredded lettuce in wholemeal bread.", servings: 2, minutes: 15,
     ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("light-mayo", 40), ing("lettuce", 40), ing("bread", 160), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Boil the eggs: Half-fill a saucepan with water and bring it to the boil. Lower the eggs in gently on a spoon and boil them for 9 to 10 minutes, until the whites and yolks are completely set. Wash your hands after touching raw eggs.",
       "Cool the eggs: Drain the eggs and put them straight into a bowl of cold water for 2 to 3 minutes, so the yolks stay bright yellow and they are cool enough to hold.",
       "Peel the eggs: Tap each egg on the worktop, roll it gently to crack the shell all over and peel it off under the cold tap.",
-      "Mix the filling: Mash the eggs in a bowl with a fork, then stir in the mayonnaise, the salt and a good grind of black pepper until thick and creamy.",
+      "Mix the filling: Chop the eggs roughly with a knife, leaving small pieces of white and yolk, then stir in the mayonnaise, the salt and a good grind of black pepper until coated.",
       "Get the lettuce ready: Wash the lettuce, shake it dry and shred it thinly.",
       "Fill the sandwiches: Lay half the bread on a board and spread the egg mayonnaise over it, right to the edges. Scatter the lettuce on top.",
       "Serve: Put the rest of the bread on top, press down gently and cut each sandwich in half. Keep any for later in the fridge and eat it the same day.",
@@ -74,11 +77,12 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "chicken-vegetable-soup", meal: "lunch", tags: ["Soup", "Make ahead", "British"], name: "Chicken and vegetable soup with toast", blurb: "Chunks of chicken, carrot, onion and peas in a herby broth, with wholemeal toast.", servings: 4, minutes: 40,
     ingredients: [ing("chicken", 400), ing("carrots", 300, { note: "about 3 carrots" }), ing("onion", 150, { note: "about 1 onion" }), ing("peas", 200), ing("stock-cube", 12), ing("mixed-herbs", 1), ing("olive-oil", 10), ing("black-pepper", 1), ing("bread", 320)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Get ready: Peel and chop the onion. Peel the carrots and cut them into small cubes, about 1 cm across.",
-      "Cut the chicken: Cut the chicken into small pieces, about 2 cm across. Wash your hands, the board and the knife after touching raw chicken.",
+      "Marinate the chicken: Cut the chicken into 2 cm pieces and toss them with the dried herbs and some black pepper. Wash your hands, the board and the knife. Leave it while the vegetables soften. If marinating longer than 30 minutes, cover and keep in the fridge.",
       "Soften the onion and carrots: Heat the oil in a large saucepan on a medium heat. Fry the onion and carrots for 8 minutes, stirring now and then, until the onion is soft, sweet and golden at the edges.",
-      "Add the chicken: Add the chicken and the dried herbs and cook for 3 to 4 minutes, stirring, until the chicken is white all over and the herbs smell fragrant.",
+      "Add the chicken: Add the chicken and cook for 3 to 4 minutes, stirring, until it is white all over and the herbs smell fragrant.",
       "Add the stock: Crumble the stock cubes into a heatproof jug and stir in 900 ml of boiling water until they dissolve. Pour it into the pan, scraping up any bits from the bottom.",
       "Simmer the soup: Bring it to the boil, then turn the heat down, cover and simmer for 15 minutes, until the carrots are soft.",
       "Add the peas: Stir in the peas and simmer for 3 to 4 minutes more. Cut into a few of the biggest pieces of chicken: they must be piping hot all the way through with no pink left.",
@@ -89,10 +93,11 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "crushed-potatoes-tuna-sweetcorn", meal: "lunch", tags: ["Quick", "Fish"], name: "Crushed new potatoes with tuna and sweetcorn", blurb: "Warm crushed new potatoes and sweetcorn topped with tuna, spring onion and yogurt.", servings: 2, minutes: 20,
     ingredients: [ing("new-potatoes", 500), ing("tuna", 160), ing("sweetcorn", 150), ing("greek-yogurt", 80), ing("spring-onions", 30), ing("salad-leaves", 60), ing("olive-oil", 5), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Warm the potatoes: Drain the potatoes, put them in a saucepan and cover them with boiling water from the kettle. Simmer for 2 minutes on a medium heat.",
       "Add the sweetcorn: Drain the sweetcorn if it is tinned. Tip it into the pan with the potatoes and simmer for 3 to 4 minutes more, until everything is hot all the way through.",
-      "Make the topping: Meanwhile, drain the tuna well and flake it into a bowl. Slice the spring onions thinly and stir them in with the yogurt and a good grind of black pepper.",
+      "Make the topping: Meanwhile, drain the tuna well and flake it into a bowl. Slice the spring onions on a slant and stir them in with the yogurt and a good grind of black pepper. Leave it while the potatoes cook, so the flavours soak in.",
       "Crush the potatoes: Drain the potatoes and sweetcorn in a colander and tip them back into the pan with the oil. Press each potato with a fork so it splits open but keeps some shape, then turn them in the oil until glossy.",
       "Get the leaves ready: Rinse the salad leaves unless the bag says they are ready washed and shake them dry.",
       "Serve: Spread the salad leaves on plates, spoon the warm potatoes and sweetcorn on top and finish with the tuna and yogurt topping.",
@@ -113,21 +118,24 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "tuna-cucumber-rice-bowl", meal: "lunch", tags: ["Quick", "Fish", "Bowl"], name: "Tuna, cucumber and sweetcorn rice bowl", blurb: "Warm rice topped with tuna, cucumber, sweetcorn and spring onion, with a soy and lemon dressing.", servings: 2, minutes: 20,
     ingredients: [ing("rice", 150), ing("tuna", 160), ing("cucumber", 150), ing("sweetcorn", 100), ing("soy", 10), ing("spring-onions", 30), ing("lemon-juice", 10)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water and simmer for 10 to 12 minutes, until soft with no hard centre.",
-      "Add the sweetcorn: For the last 3 minutes, add the sweetcorn to the rice pan so it heats through. Drain them together well in the sieve.",
-      "Chop the cucumber: Meanwhile, cut the cucumber into small cubes, about 1 cm across, and slice the spring onions thinly.",
       "Make the dressing: Stir the soy sauce and lemon juice together in a cup. It should taste salty and sharp, as it seasons the whole bowl.",
-      "Drain the tuna: Open the tins, press the lids down over the sink to squeeze out the liquid and break the tuna into flakes.",
-      "Serve: Spoon the rice and sweetcorn into bowls. Top with the tuna, cucumber and spring onions and spoon the dressing over. Eat straight away, or cool any left within an hour, keep it in the fridge and eat it within a day.",
+      "Dress the tuna: Open the tins, press the lids down over the sink to squeeze out the liquid and break the tuna into large flakes in a bowl. Spoon half the dressing over and leave it while the rice cooks, so it soaks in.",
+      "Chop the cucumber: Cut the cucumber into small cubes, about 1 cm across, and slice the spring onions into thin rings.",
+      "Warm the sweetcorn: For the last 3 minutes of the rice, cook the sweetcorn in a small pan of boiling water, then drain it. If it is tinned, just drain it.",
+      "Serve: Drain the rice and spoon it into bowls. Top it in sections with the tuna, cucumber and sweetcorn, scatter the spring onions over and spoon the rest of the dressing over the tuna. Eat straight away.",
+      "Keep it safe: To eat it later, cool it within an hour, keep it in the fridge and eat it within a day.",
     ],
   },
   {
     id: "ham-pea-cheddar-omelette", meal: "lunch", tags: ["Eggs", "Quick"], name: "Ham, pea and cheddar omelette", blurb: "A folded omelette filled with ham, peas and melting cheddar.", servings: 1, minutes: 15,
     ingredients: [ing("eggs", 180, { note: "about 3 eggs" }), ing("ham", 50), ing("peas", 60), ing("cheddar", 20, { role: "carb" }), ing("olive-oil", 5), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Cook the peas: Put the peas in a small pan of boiling water from the kettle and simmer for 2 to 3 minutes, until hot. Drain them well.",
-      "Get the filling ready: Tear the ham into small pieces and grate the cheddar on the coarse side of a grater.",
+      "Get the filling ready: Cut the ham into small squares, about 2 cm, and grate the cheddar on the coarse side of a grater.",
       "Beat the eggs: Crack the eggs into a jug, picking out any shell. Add a grind of black pepper and beat with a fork until smooth. Wash your hands after touching raw eggs.",
       "Start the omelette: Heat the oil in a non-stick frying pan, about 20 cm across, on a medium heat until it shimmers. Pour in the eggs and tilt the pan so they cover the bottom.",
       "Cook the eggs: Cook for 1 to 2 minutes, pulling the set edges into the middle with a spatula and tipping the runny egg into the gaps.",
@@ -138,14 +146,16 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "chicken-rice-spinach-lemon-bowl", meal: "lunch", tags: ["Bowl", "One pan"], name: "Lemon chicken, rice and spinach bowl", blurb: "Golden garlic and lemon chicken with peas and wilted spinach on rice.", servings: 2, minutes: 25,
     ingredients: [ing("chicken", 240), ing("rice", 140), ing("spinach", 100), ing("peas", 100), ing("lemon-juice", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("olive-oil", 10), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
+      "Marinate the chicken: Cut the chicken into flat pieces about 4 cm across. Toss them with half the lemon juice, the salt and a good grind of black pepper. Wash your hands, the board and the knife after touching raw chicken.",
+      "Let it marinate: Leave the chicken while you start the rice (about 10 minutes). If marinating longer than 30 minutes, cover and keep in the fridge.",
       "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water and simmer for 10 to 12 minutes, until soft with no hard centre.",
-      "Cut the chicken: Meanwhile, cut the chicken into bite-sized pieces, about 2 cm across. Pat them dry with kitchen paper and sprinkle with the salt. Wash your hands, the board and the knife after touching raw chicken.",
-      "Brown the chicken: Heat the oil in a large non-stick frying pan on a high heat until it shimmers. Add the chicken in one layer and leave it for 3 minutes without stirring, until golden underneath.",
+      "Brown the chicken: Meanwhile, heat the oil in a large non-stick frying pan on a high heat until it shimmers. Add the chicken in one layer and leave it for 3 minutes without stirring, until golden underneath.",
       "Turn the chicken: Turn the pieces and fry for 3 to 4 minutes more, turning now and then, until golden on all sides.",
       "Check the chicken: Cut into the biggest piece. It must be piping hot all the way through with no pink left. Cook it a little longer if not.",
       "Add the garlic and peas: Turn the heat down to medium. Stir in the garlic purée and the peas and cook for 2 to 3 minutes, until the peas are hot.",
-      "Wilt the spinach: Add the spinach a handful at a time and stir for about 2 minutes, until soft and dark green. Stir in the lemon juice and a grind of black pepper, scraping the golden bits from the pan into the juices.",
+      "Wilt the spinach: Add the spinach a handful at a time and stir for about 2 minutes, until soft and dark green. Stir in the rest of the lemon juice and a grind of black pepper, scraping the golden bits from the pan into the juices.",
       "Serve: Drain the rice well, spoon it into warm bowls and pile the chicken, peas and spinach on top with the pan juices.",
     ],
   },
@@ -166,11 +176,12 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
   {
     id: "pea-ham-potato-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "New potato, ham and pea salad", blurb: "New potatoes, ham, peas and spring onion in a mustard yogurt dressing on crisp lettuce.", servings: 2, minutes: 20,
     ingredients: [ing("new-potatoes", 400), ing("ham", 100), ing("peas", 120), ing("spring-onions", 30), ing("greek-yogurt", 80), ing("mustard", 5), ing("lemon-juice", 5), ing("lettuce", 60), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Cook the peas: Bring a small saucepan of water to the boil, add the peas and cook for 3 minutes. Drain them in a sieve and cool them under the cold tap.",
-      "Prepare the potatoes: Drain the potatoes, cut any large ones in half and put them in a large bowl.",
+      "Prepare the potatoes: Drain the potatoes, cut them all in half and put them in a large bowl.",
       "Make the dressing: Stir the yogurt, mustard, lemon juice and a good grind of black pepper together in a mug until smooth. It should taste creamy, sharp and peppery.",
-      "Chop the rest: Slice the spring onions thinly and tear the ham into bite-sized pieces. Wash the lettuce, shake it dry and shred it.",
+      "Chop the rest: Slice the spring onions thinly and cut the ham into squares about 2 cm across. Wash the lettuce, shake it dry and shred it.",
       "Mix the salad: Add the peas, spring onions and ham to the potatoes, spoon the dressing over and turn everything gently until coated.",
       "Serve: Spread the lettuce on plates and pile the salad on top. Keep any for later covered in the fridge and eat it within a day.",
     ],
@@ -209,7 +220,7 @@ export const EVERYDAY_LUNCHES: readonly Recipe[] = [
 export const EVERYDAY_LUNCHES_LOOKS: Readonly<Record<string, string>> = {
   "tuna-sweetcorn-cucumber-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing a creamy tuna and yellow sweetcorn filling under thin green-edged cucumber rounds.",
   "chicken-salad-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the cut edges showing golden slices of pan-fried chicken, crisp shredded green lettuce, red tomato slices and a thin layer of mayonnaise.",
-  "egg-mayo-lettuce-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing a thick pale yellow egg mayonnaise filling with shredded green lettuce, flecked with black pepper.",
+  "egg-mayo-lettuce-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves side by side, the cut edges showing a chunky egg mayonnaise with pieces of white and yolk and shredded green lettuce, flecked with black pepper.",
   "cheddar-apple-spinach-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the cut edges showing layers of dark green spinach leaves, thin red-skinned apple slices and pale orange mature cheddar.",
   "mushroom-soup-toast": "A round white bowl of smooth, creamy pale brown mushroom soup flecked with tiny dark specks of herbs and black pepper, beside two slices of golden wholemeal toast on a small white plate.",
   "chicken-vegetable-soup": "A round white bowl of golden broth filled with small cubes of orange carrot, soft onion, bright green peas and pale chunks of chicken, flecked with dried herbs, beside two slices of golden wholemeal toast.",

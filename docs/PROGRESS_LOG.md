@@ -4221,3 +4221,16 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Has everything of 21 November: the chef-made recipes, Meal plan with Pip, 5 or 7 a day, the daily budget and food a day, the plan carrying on with a notice,
   the double-tap guard, one Pip permission, the free week sheet and pill, the barcode photo button, everyday sizes. Apple's usual warning: from April 2027
   uploads need the iOS 27 SDK (Xcode 27).
+- (22 Nov, 00:30) **Every recipe checked against its actual photo, and meat and fish marinated** (founder: "All Recipes should be accurate exactly to how the
+  photo looks if they're not edit the recipe ingredients and way to do it. This is extremely important" and "Marinating chicken beef etc ... they can marinate
+  on the spot [it doesn't] have to be left in the [fridge] for a few hrs but also makes a big difference"). Four agents looked at every one of the 382
+  pictures (data/recipe-images/<id>.png) beside its recipe, planned, then applied: about 260 recipes changed (19 ingredient changes, the rest methods: cuts,
+  colours, plating, toppings), 165 marinades (every recipe with raw chicken, beef, salmon or other fish: "Leave it for 10 minutes, or covered for up to a few
+  hours in the fridge", never "in the fridge for", which would cost Quick; ready-cooked ham, cured bacon, tinned tuna and smoked salmon have none), about 70
+  look sentences rewritten to describe the photos, "Mushroom and pea keema" renamed "Mushroom and pea masala curry with naan" (the photo shows slices).
+  Everyday kinds only; no allergen added; every diet, eating style and shop kept (checked against the real lists at Sainsbury's and Morrisons; three styles
+  gained). Generated files rebuilt; vitest 4,153. **Still to do (founder chose "All 13"):** remake 13 pictures the recipes can't match: sweet-sour-chicken-rice
+  (batter), satay-egg-noodles (courgette), chicken-thigh-potato-traybake and greek-style-lemon-chicken-traybake (skin-on bone-in thighs),
+  chipolatas-red-cabbage-mash (thick sausages), bacon-tomato-sandwich and grilled-full-english (rashers, not medallions), eggy-bread-berries (brioche),
+  smoked-salmon-egg-spinach-salad (dill flecks), tuna-chickpea-dip (parsley-like flecks), crispy-chicken-goujons-peas (herb flecks), crispy-potatoes-garlic-
+  mushrooms and lemon-garlic-chicken-potatoes (chopped garlic). The plans are in the session scratchpad (photo-match/*.md).

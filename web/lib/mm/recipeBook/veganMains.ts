@@ -20,8 +20,9 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "tomato-pepper-chickpea-soup", meal: "lunch", tags: ["Soup", "Make ahead"], name: "Tomato, pepper and chickpea soup", blurb: "A thick, half-blended soup of tomatoes, sweet peppers and chickpeas.", servings: 4, minutes: 40,
     ingredients: [ing("chopped-tomatoes", 400), ing("peppers", 320, { note: "about 2 peppers" }), ing("chickpeas", 480), ing("chopped-tomato-puree", 30), ing("stock-cube", 6), ing("olive-oil", 15), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 2), ing("lemon-juice", 10), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Prepare the vegetables: Peel the onion and chop it small. Cut the peppers in half, scoop out the seeds and chop them into small pieces. Drain the chickpeas and rinse them under the cold tap.",
+      "Prepare the vegetables: Peel the onion and chop it small. Cut the peppers in half, scoop out the seeds and cut them into short strips about 1 cm wide. Drain the chickpeas and rinse them under the cold tap.",
       "Soften the onion and peppers: Heat the oil in a large saucepan over a medium heat. Add the onion and peppers and cook for 10 minutes, stirring now and then, until soft and sweet.",
       "Make the stock: Boil the kettle. Crumble the stock cube into a jug, add 600 ml of boiling water and stir until it dissolves.",
       "Add the garlic and paprika: Stir in the garlic purée, the paprika and the tomato purée and cook for 1 to 2 minutes, stirring, until the tomato purée darkens to a brick red.",
@@ -74,9 +75,10 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "coconut-vegetable-curry", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Coconut vegetable curry with rice", blurb: "Chickpeas and vegetables in a creamy coconut curry sauce, with rice.", servings: 4, minutes: 45,
     ingredients: [ing("chickpeas", 480), ing("coconut-milk", 400), ing("curry-paste", 60), ing("rice", 250), ing("peppers", 320, { note: "about 2 peppers" }), ing("carrots", 200, { note: "about 2 carrots" }), ing("peas", 150), ing("spinach", 120), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("vegetable-oil", 8), ing("lemon-juice", 10), ing("salt", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil for the rice.",
-      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into thin rounds. Cut the peppers into bite-sized pieces.",
+      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into rounds about 5 mm thick. Cut the peppers into bite-sized pieces.",
       "Rinse the chickpeas: Drain the chickpeas in a sieve and rinse them under the cold tap.",
       "Soften the onion and carrots: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and carrots and cook for 8 minutes, stirring now and then, until the onion is soft and golden.",
       "Add the peppers: Add the peppers and cook for 3 minutes, stirring, until they start to soften.",
@@ -91,26 +93,28 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "mushroom-pea-risotto-rice", meal: "dinner", tags: ["Italian", "One pan"], name: "Mushroom and pea risotto-style rice", blurb: "Rice cooked slowly in stock with mushrooms and peas until soft and creamy.", servings: 3, minutes: 45,
     ingredients: [ing("rice", 250), ing("mushrooms", 300), ing("peas", 200), ing("stock-cube", 12), ing("olive-oil", 20), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 1), ing("lemon-juice", 10), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Make the stock: Boil the kettle. Crumble the stock cubes into a jug, add 800 ml of boiling water and stir until they dissolve.",
-      "Prepare the vegetables: Peel the onion and chop it small. Wipe the mushrooms clean and slice them thinly.",
+      "Prepare the vegetables: Peel the onion and chop it small. Wipe the mushrooms clean and cut them into thick slices, about 5 mm.",
       "Soften the onion: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and cook for 5 minutes, stirring now and then, until soft but not brown.",
-      "Brown the mushrooms: Turn the heat up high, add the mushrooms and leave them for 2 minutes without stirring. Then fry for 4 to 5 minutes more, stirring now and then, until golden and their juices have cooked away.",
+      "Brown the mushrooms: Turn the heat up high, add the mushrooms and leave them for 2 minutes without stirring. Then fry for 4 to 5 minutes more, stirring now and then, until golden and their juices have cooked away. Lift out a handful for the top.",
       "Add the garlic and herbs: Turn the heat down to medium. Stir in the garlic purée and the dried herbs and cook for 1 minute, stirring so the garlic doesn't burn.",
       "Coat the rice: Add the rice and stir for 1 minute, until every grain is shiny with oil.",
       "Simmer the rice: Pour in about a third of the stock and simmer for 14 minutes, stirring often. Add more stock each time the rice has nearly soaked it up.",
       "Add the peas: Stir in the peas and the rest of the stock and simmer for 4 minutes more, until the rice is soft with no hard bit in the middle.",
       "Finish: Take the pan off the heat, stir in the lemon juice and season with black pepper. Leave it to stand for 2 minutes, until soft and creamy.",
-      "Serve: Spoon the rice into warm bowls and eat it straight away.",
+      "Serve: Spoon the rice into warm bowls, lay the mushroom slices you kept on top and eat it straight away.",
       "Store leftovers: Cool leftover rice quickly, put it in the fridge within 1 hour and eat it the next day, reheated until steaming hot.",
     ],
   },
   {
     id: "garlic-mushroom-spinach-spaghetti", meal: "dinner", tags: ["Italian", "Quick"], name: "Garlic mushroom and spinach spaghetti", blurb: "Spaghetti tossed with garlicky mushrooms, spinach and a squeeze of lemon.", servings: 3, minutes: 25,
     ingredients: [ing("pasta-long", 270), ing("mushrooms", 400), ing("spinach", 200), ing("garlic", 20, { note: "about 4 cloves" }), ing("olive-oil", 30), ing("lemon-juice", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Boil the water: Fill a large pan with water, add a pinch of the salt and bring it to the boil over a high heat.",
-      "Slice the mushrooms: Wipe the mushrooms clean and slice them thinly.",
+      "Slice the mushrooms: Wipe the mushrooms clean and cut them into thick slices, about 5 mm.",
       "Cook the spaghetti: Add the spaghetti, push it under the water as it softens and cook for the time on the pack, usually 10 to 12 minutes.",
       "Brown the mushrooms: Heat half the oil in a large frying pan over a high heat. Add half the mushrooms in one layer and leave them for 3 minutes without stirring, then fry for 2 minutes more, until golden. Tip them on to a plate.",
       "Brown the rest: Fry the rest of the mushrooms in the rest of the oil the same way, then put the first batch back in the pan.",
@@ -125,15 +129,17 @@ export const VEGAN_MAINS: readonly Recipe[] = [
     id: "potato-pea-curry", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Potato and pea curry with rice", blurb: "Potatoes and peas in a spiced tomato curry sauce, served with rice.", servings: 4, minutes: 40,
     // the potatoes cook in the curry sauce: fitting moves them at most half as much again
     ingredients: [ing("new-potatoes", 690, { fit: [0.5, 1.5] }), ing("peas", 300), ing("chopped-tomatoes", 400), ing("chopped-tomato-puree", 30), ing("rice", 250), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 2), ing("turmeric", 1), ing("curry-powder", 6), ing("vegetable-oil", 15), ing("salt", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil for the rice.",
-      "Prepare the vegetables: Peel the onion and chop it small. Drain the potatoes and cut each one in half.",
-      "Soften the onion: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and cook for 8 minutes, stirring now and then, until soft and golden at the edges.",
-      "Add the garlic and spices: Stir in the garlic purée, cumin, turmeric, curry powder and tomato purée and cook for 1 minute, until fragrant, stirring so nothing burns.",
-      "Simmer the curry: Add the potatoes, the chopped tomatoes and 200 ml of water. Bring to the boil, then simmer for 15 minutes, stirring now and then, until the sauce is thick and coats the potatoes.",
+      "Prepare the vegetables: Peel the onion and chop it small. Drain the potatoes, cut each one in half and pat them dry with kitchen paper.",
+      "Brown the potatoes: Toss the potatoes with the turmeric. Heat half the oil in a large, deep frying pan over a medium-high heat and fry them cut side down for 5 to 6 minutes, until golden. Lift them on to a plate.",
+      "Soften the onion: Heat the rest of the oil in the same pan over a medium heat. Add the onion and cook for 8 minutes, stirring now and then, until soft and golden at the edges.",
+      "Add the garlic and spices: Stir in the garlic purée, cumin, curry powder and tomato purée and cook for 1 minute, until fragrant, stirring so nothing burns.",
+      "Simmer the curry: Add the chopped tomatoes and 200 ml of water and bring to the boil. Sit the potatoes in the sauce, golden side up, and simmer for 15 minutes, until the sauce is thick.",
       "Cook the rice: Add the rice to the boiling water and cook for the time on the pack, usually 10 to 15 minutes, until soft with no hard bit in the middle. Drain it well.",
-      "Add the peas: Stir the peas into the curry and simmer for 3 minutes, until the peas and potatoes are steaming hot.",
-      "Season the curry: Taste the curry and stir in a pinch of salt.",
+      "Add the peas: Scatter the peas around the potatoes and simmer for 3 minutes, until the peas and potatoes are steaming hot.",
+      "Season the curry: Taste the sauce and stir in a pinch of salt.",
       "Serve: Spoon the rice into warm bowls with the curry beside it.",
       "Store leftovers: Cool leftover rice quickly, put it in the fridge within 1 hour and eat it the next day, reheated until steaming hot.",
     ],
@@ -141,9 +147,10 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "rice-stuffed-peppers", meal: "dinner", tags: ["Bake", "Vegan"], name: "Rice-stuffed peppers with beans and tomatoes", blurb: "Peppers baked with a filling of rice, kidney beans, sweetcorn and tomato.", servings: 4, minutes: 70,
     ingredients: [ing("peppers", 640, { note: "about 4 peppers" }), ing("rice", 150), ing("kidney-beans", 240), ing("sweetcorn", 100), ing("chopped-tomatoes", 400), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 2), ing("cumin", 2), ing("olive-oil", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Fill a pan with water and bring it to the boil for the rice.",
-      "Prepare the peppers: Cut the peppers in half from top to bottom and scoop out the seeds. Put them cut side up in a large ovenproof dish and rub them with a little of the oil.",
+      "Prepare the peppers: Cut the peppers in half from top to bottom, through the stalk, and scoop out the seeds (red and yellow look best). Put them cut side up in a large ovenproof dish and rub them with a little of the oil.",
       "Soften the peppers: Bake the empty pepper halves for 10 minutes, until they start to soften.",
       "Cook the rice: Add the rice to the boiling water and cook for the time on the pack, usually 10 to 15 minutes, until soft. Drain it well.",
       "Soften the onion: Peel the onion and chop it small. Heat the rest of the oil in a frying pan over a medium heat and cook the onion for 6 to 8 minutes, until soft and golden.",
@@ -158,9 +165,10 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "bean-vegetable-goulash", meal: "dinner", tags: ["One pot", "Batch cook"], name: "Paprika bean and vegetable goulash-style stew with rice", blurb: "Kidney beans and vegetables in a rich paprika and tomato stew, with rice.", servings: 4, minutes: 50,
     ingredients: [ing("kidney-beans", 480), ing("chopped-tomatoes", 400), ing("chopped-tomato-puree", 30), ing("rice", 250), ing("peppers", 320, { note: "about 2 peppers" }), ing("carrots", 200, { note: "about 2 carrots" }), ing("mushrooms", 250), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 8), ing("stock-cube", 6), ing("olive-oil", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Make the stock: Boil the kettle. Crumble the stock cube into a jug, add 300 ml of boiling water and stir until it dissolves.",
-      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into thin rounds. Cut the peppers into bite-sized pieces and slice the mushrooms.",
+      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into rounds about 5 mm thick. Cut the peppers into bite-sized pieces and cut the mushrooms into thick slices.",
       "Soften the onion and carrots: Heat the oil in a large saucepan over a medium heat. Add the onion and carrots and cook for 8 minutes, stirring now and then, until the onion is soft and golden.",
       "Add the peppers and mushrooms: Add the peppers and mushrooms and cook for 5 minutes, stirring, until the mushrooms are soft and brown.",
       "Add the paprika: Stir in the paprika, the garlic purée and the tomato purée and cook for 1 minute, stirring, until it smells sweet and turns a deep brick red.",
@@ -174,9 +182,10 @@ export const VEGAN_MAINS: readonly Recipe[] = [
   {
     id: "peanut-vegetable-stew", meal: "dinner", tags: ["One pot", "Vegan"], name: "Peanut and vegetable stew with rice", blurb: "Chickpeas and vegetables in a creamy peanut and tomato sauce, with rice.", servings: 4, minutes: 45,
     ingredients: [ing("peanut-butter", 80), ing("chickpeas", 240), ing("chopped-tomatoes", 400), ing("rice", 250), ing("peppers", 160, { note: "about 1 pepper" }), ing("carrots", 200, { note: "about 2 carrots" }), ing("spinach", 120), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 3), ing("chilli-powder", 1), ing("stock-cube", 6), ing("vegetable-oil", 8), ing("lemon-juice", 10), ing("salt", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Make the stock: Boil the kettle. Crumble the stock cube into a jug, add 400 ml of boiling water and stir until it dissolves.",
-      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into thin rounds. Cut the pepper into bite-sized pieces.",
+      "Prepare the vegetables: Peel the onion and chop it small. Peel the carrots and slice them into rounds about 5 mm thick. Cut the pepper into bite-sized pieces.",
       "Rinse the chickpeas: Drain the chickpeas in a sieve and rinse them under the cold tap.",
       "Soften the onion and carrots: Heat the oil in a large saucepan over a medium heat. Add the onion and carrots and cook for 8 minutes, stirring now and then, until the onion is soft and golden.",
       "Add the pepper and spices: Add the pepper, garlic purée, cumin and chilli powder and cook for 2 minutes, until fragrant, stirring so the garlic doesn't burn.",
@@ -200,7 +209,7 @@ export const VEGAN_MAINS_LOOKS: Readonly<Record<string, string>> = {
   "coconut-vegetable-curry": "A wide white bowl with a mound of fluffy white rice on one side and a creamy orange coconut curry on the other, full of red pepper pieces, orange carrot rounds, green peas, golden chickpeas and wilted dark green spinach.",
   "mushroom-pea-risotto-rice": "A wide shallow white bowl of soft, creamy rice studded with golden-brown sliced mushrooms and bright green peas, with tiny flecks of dried herbs and black pepper through it.",
   "garlic-mushroom-spinach-spaghetti": "A twirled nest of spaghetti in a wide white bowl, glossy with olive oil and tangled with golden-brown sliced mushrooms and dark green wilted spinach, flecked with black pepper.",
-  "potato-pea-curry": "A round white plate with fluffy white rice on one side and a golden-orange potato and pea curry on the other, the halved new potatoes coated in thick spiced tomato sauce and dotted with bright green peas.",
+  "potato-pea-curry": "A round white plate with fluffy white rice on one side and a golden-orange potato and pea curry on the other, the halved new potatoes golden-brown on top, sitting in thick spiced tomato sauce dotted with bright green peas.",
   "rice-stuffed-peppers": "Two baked pepper halves on a round white plate, one red and one yellow, their skins soft and browned at the edges, each heaped with rice mixed with dark red kidney beans, yellow sweetcorn and chopped tomato.",
   "bean-vegetable-goulash": "A wide shallow grey bowl with fluffy white rice on one side and a thick, deep brick-red paprika stew on the other, full of dark red kidney beans, red pepper pieces, orange carrot rounds and soft brown mushroom slices.",
   "peanut-vegetable-stew": "A deep white bowl of thick, creamy orange-brown peanut and tomato stew with golden chickpeas, orange carrot rounds, red pepper pieces and wilted dark green spinach, beside a mound of fluffy white rice.",

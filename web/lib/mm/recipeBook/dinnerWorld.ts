@@ -5,15 +5,17 @@ import { ing, type Recipe } from "../recipes";
 export const DINNER_WORLD: readonly Recipe[] = [
   {
     id: "chicken-jalfrezi", meal: "dinner", tags: ["Indian"], name: "Chicken jalfrezi with rice", blurb: "Chicken and peppers in a punchy tomato and chilli sauce.", servings: 3, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in petals, a red and a yellow pepper, the chicken golden-orange; marinade (founder 21 Nov: "marinating ... makes a big difference"): curry paste, chilli powder, garlic, oil.
     // 2026-11-21: oil 8 -> 13 ml so the chicken browns as the picture shows (founder: "has to look exactly as much as you can as the product")
-    ingredients: [ing("chicken", 450), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("rice", 210), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 320, { note: "about 2 peppers" }), ing("chilli-powder", 2), ing("vegetable-oil", 13), ing("garlic", 10)],
+    ingredients: [ing("chicken", 450), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("rice", 210), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("chilli-powder", 2), ing("vegetable-oil", 13), ing("garlic", 10)],
     method: [
-      "Chop the vegetables: Peel the onion and chop it into pieces about 2 cm across. Cut the peppers in half, pull out the stalks and seeds, and cut them into large chunks about 3 cm across.",
-      "Cut the chicken: Cut the chicken into chunks about 3 cm across and pat them dry with kitchen paper, so they brown. Wash your hands, the knife and the board in hot soapy water straight after.",
-      "Brown the chicken: Heat the oil in a large, deep frying pan over a high heat until shimmery. Add the chicken in one layer with space between (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden brown underneath.",
+      "Marinate the chicken: Cut the chicken into chunks about 3 cm across. In a bowl, toss them with a third of the curry paste, the chilli powder, half the garlic purée and 1 tsp of the oil until coated.",
+      "Let it marinate: Leave the chicken 10 minutes while you cut the vegetables, or keep it covered in the fridge up to a few hours. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Cut the vegetables: Peel the onion, cut it into thin wedges and pull the layers apart. Cut the peppers in half, pull out the stalks and seeds, and cut them into large chunks about 3 cm across.",
+      "Brown the chicken: Heat the rest of the oil in a large, deep frying pan over a medium-high heat. Add the chicken in one layer with space between (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden-orange underneath.",
       "Turn the chicken: Turn the pieces and fry for 2 minutes more, until browned on another side. Lift the chicken onto a clean plate: it finishes cooking in the sauce.",
       "Soften the onion and peppers: Turn the heat down to medium. Add the onion and peppers to the same pan and fry for 5 to 6 minutes, stirring now and then, until the onion is soft and the peppers have a few browned edges.",
-      "Add the spices: Stir in the garlic purée, curry paste and chilli powder and cook for 1 minute, until you can smell the spices and the oil turns red. Add a splash of water if it sticks.",
+      "Add the spices: Stir in the rest of the garlic purée and curry paste and cook for 1 minute, until you can smell the spices and the oil turns red. Add a splash of water if it sticks.",
       "Simmer the curry: Tip in the chopped tomatoes and the chicken with any juices, and stir, scraping up the brown bits from the bottom. Bring to the boil, then turn the heat down low and simmer gently for 15 minutes, stirring now and then.",
       "Cook the rice: While the curry simmers, bring a large pan of water to the boil. Add the rice, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, simmer for 3 to 4 minutes more and check again.",
@@ -24,13 +26,15 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "beef-keema-peas", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Beef keema with peas and rice", blurb: "Spiced beef mince and peas in a rich tomato sauce.", servings: 4, minutes: 40,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in 1 cm pieces; marinade (founder 21 Nov: "marinating ... makes a big difference"): curry paste, cumin, garlic.
     ingredients: [ing("beef-mince", 500), ing("curry-paste", 60), ing("chopped-tomatoes", 400), ing("peas", 200), ing("rice", 280), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("vegetable-oil", 8), ing("cumin", 2)],
     method: [
-      "Chop the onion: Peel the onion and chop it small, about the size of a pea.",
+      "Marinate the mince: Mix the mince in a bowl with the cumin, half the garlic purée and a third of the curry paste. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
+      "Chop the onion: Peel the onion and chop it into pieces about 1 cm across.",
       "Soften the onion: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and fry for 8 to 10 minutes, stirring now and then, until soft, sweet and golden at the edges.",
       "Brown the mince: Turn the heat up to high, add the mince and spread it out. Leave it for 2 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break the mince up finely with a spoon and fry for 4 to 5 minutes more, until brown all over with no pink left.",
-      "Add the paste and garlic: Turn the heat down to medium. Stir in the curry paste, garlic purée and cumin and cook for 1 to 2 minutes, stirring all the time, until you can smell the spices and the oil turns red.",
+      "Add the paste and garlic: Turn the heat down to medium. Stir in the rest of the curry paste and garlic purée and cook for 1 to 2 minutes, stirring all the time, until you can smell the spices and the oil turns red.",
       "Simmer the keema: Pour in the chopped tomatoes and stir. Bring to the boil, then turn the heat down low and simmer gently for 15 minutes, stirring now and then. Add a splash of water if it gets too thick.",
       "Cook the rice: While the keema simmers, bring a large pan of water to the boil. Add the rice, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Add the peas: Stir the frozen peas into the keema. Bring back to a gentle simmer and cook for 5 minutes, until the peas are tender and the keema is steaming hot all the way through.",
@@ -59,9 +63,10 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "kidney-bean-curry", meal: "dinner", tags: ["Indian", "Batch cook"], name: "Kidney bean curry with rice", blurb: "Kidney beans simmered in a spiced tomato sauce, served with rice.", servings: 4, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in 1.5 cm pieces.
     ingredients: [ing("kidney-beans", 480), ing("chopped-tomatoes", 400), ing("curry-paste", 60), ing("rice", 250), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("lemon-juice", 10), ing("vegetable-oil", 8), ing("cumin", 2)],
     method: [
-      "Chop the onion: Peel the onion and chop it small, about the size of a pea.",
+      "Chop the onion: Peel the onion and chop it into pieces about 1.5 cm across.",
       "Rinse the beans: Drain the kidney beans in a sieve and rinse them under cold water until it runs clear. Leave them to drain.",
       "Soften the onion: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and fry for 8 to 10 minutes, stirring now and then, until soft, sweet and golden at the edges.",
       "Add the paste and garlic: Stir in the curry paste, garlic purée and cumin and cook for 1 minute, stirring all the time, until you can smell the spices and the oil turns red.",
@@ -76,33 +81,37 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "chicken-chow-mein", meal: "dinner", tags: ["Chinese", "Quick"], name: "Chicken chow mein", blurb: "Noodles tossed with chicken, crunchy vegetables and soy sauce.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): spring onions in slanted 2 cm pieces; marinade (founder 21 Nov: "marinating ... makes a big difference"): soy, garlic, black pepper.
     // 2026-11-21: oil 5 -> 10 ml so the chicken browns as the picture shows (founder: "has to look exactly as much as you can as the product")
     ingredients: [ing("chicken", 300), ing("noodles", 300), ing("soy", 30), ing("stir-fry-veg", 300), ing("spring-onions", 30), ing("garlic", 5, { note: "about 1 clove" }), ing("vegetable-oil", 10), ing("black-pepper", 1)],
     method: [
-      "Slice the chicken: Slice the chicken into thin strips, about as wide as your little finger. Pat the strips dry with kitchen paper, so they brown, and grind the black pepper over them. Wash your hands, the knife and the board in hot soapy water straight after.",
-      "Prepare the vegetables: Cut the roots off the spring onions and slice them thinly. Cut any big pieces of the stir-fry vegetables down so everything is about the same size.",
+      "Slice the chicken: Slice the chicken into thin strips, about as wide as your little finger, and pat them dry with kitchen paper.",
+      "Marinate the chicken: Toss the strips with a third of the soy sauce, half the garlic purée and the black pepper. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands, the knife and the board straight after.",
+      "Prepare the vegetables: Cut the roots off the spring onions and cut them on a slant into pieces about 2 cm long. Cut any big pieces of the stir-fry vegetables down so everything is about the same size.",
       "Loosen the noodles: Pull the noodles apart with your fingers so they don't clump together in the pan.",
       "Heat the wok: Heat a wok or large frying pan over a high heat for 2 minutes, until very hot. Add the oil and swirl it around until it looks thin and shimmery.",
       "Brown the chicken: Lay the chicken in the pan in one layer with space between the strips (if they don't all fit, fry them in two batches). Leave them for 2 to 3 minutes without stirring, until golden brown underneath.",
       "Turn the chicken: Turn the strips over and fry for 2 to 3 minutes more, until golden on the other side too.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, fry for 1 to 2 minutes more and check again. Lift the chicken onto a clean plate.",
-      "Add the vegetables and garlic: Add the stir-fry vegetables and garlic purée to the pan and stir-fry for 3 to 4 minutes, until hot but still a little crunchy. Add a splash of water if the pan gets dry.",
-      "Add the noodles and soy: Add the noodles, tip the chicken and any juices back in and pour over the soy sauce. Toss for 2 to 3 minutes, until the noodles are glossy and evenly brown and everything is steaming hot. Add a splash of water if they stick.",
+      "Add the vegetables and garlic: Add the stir-fry vegetables and the rest of the garlic purée to the pan and stir-fry for 3 to 4 minutes, until hot but still a little crunchy. Add a splash of water if the pan gets dry.",
+      "Add the noodles and soy: Add the noodles, tip the chicken and any juices back in and pour over the rest of the soy sauce. Toss for 2 to 3 minutes, until the noodles are glossy, brown and steaming hot. Add a splash of water if they stick.",
       "Serve: Share between warm bowls, scatter the spring onions over the top and serve straight away.",
     ],
   },
   {
     id: "sticky-beef-noodles", meal: "dinner", tags: ["Chinese", "Quick"], name: "Sticky soy beef noodles", blurb: "Beef mince, broccoli and noodles in a sticky soy and honey sauce.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): big broccoli florets, wider pepper strips; marinade (founder 21 Nov: "marinating ... makes a big difference"): soy, garlic.
     ingredients: [ing("beef-mince", 300), ing("noodles", 300), ing("soy", 30), ing("honey", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("broccoli", 150), ing("peppers", 160, { note: "about 1 pepper" }), ing("spring-onions", 30), ing("vegetable-oil", 5)],
     method: [
-      "Prepare the vegetables: Cut the broccoli into small florets, about 2 cm across, and slice any thick stalk thinly. Halve the pepper, pull out the stalk and seeds, and slice it into thin strips. Trim and thinly slice the spring onions.",
-      "Make the sauce: Mix the soy sauce and honey with 2 tbsp water in a small bowl or mug until the honey has dissolved and it looks smooth.",
+      "Marinate the mince: Mix the mince in a bowl with a third of the soy sauce and half the garlic purée. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
+      "Prepare the vegetables: Cut the broccoli into florets about 4 cm across, keeping a little stalk on each. Halve the pepper, pull out the stalk and seeds, and slice it into strips about 1.5 cm wide. Trim and thinly slice the spring onions.",
+      "Make the sauce: Mix the rest of the soy sauce with the honey and 2 tbsp water in a small bowl or mug until the honey has dissolved and it looks smooth.",
       "Loosen the noodles: Pull the noodles apart with your fingers so they don't clump together in the pan.",
       "Heat the wok: Heat a wok or large frying pan over a high heat for 2 minutes, until very hot. Add the oil and swirl it around until it looks thin and shimmery.",
       "Brown the mince: Add the mince and press it out flat in one layer. Leave it for 2 to 3 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break the mince into small crumbles with a spoon and fry for 3 to 4 minutes more, stirring now and then, until brown all over and a little crisp at the edges.",
       "Check the mince: Break open a lump with the spoon. It should be brown all the way through, with no pink left. Lift the mince onto a plate.",
-      "Add the vegetables: Add the garlic purée, pepper and broccoli and stir-fry for 3 to 4 minutes, until the broccoli is bright green and just tender, no longer, or it goes dark. Add a splash of water if the pan gets dry.",
+      "Add the vegetables: Add the rest of the garlic purée, the pepper and the broccoli and stir-fry for 4 to 5 minutes, until the broccoli is bright green and just tender, no longer, or it goes dark. Add a splash of water if the pan gets dry.",
       "Add the noodles: Turn the heat down to medium. Add the noodles and half the soy and honey mixture and toss for 2 minutes, until the noodles are glossy, dark brown and steaming hot. Share them and the vegetables between warm bowls.",
       "Glaze the mince: Tip the mince back into the pan with the rest of the sauce. Let it bubble for about 1 minute, stirring, until glossy and sticky. Don't let it cook away: add a splash of water if it starts to catch.",
       "Serve: Spoon the mince into the middle of each bowl and scatter the spring onions over the top. Serve straight away.",
@@ -110,6 +119,7 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "sweet-chilli-chicken", meal: "dinner", tags: ["Thai", "Quick"], name: "Sweet chilli chicken stir-fry", blurb: "Chicken and crunchy vegetables in sweet chilli sauce, with rice.", servings: 2, minutes: 25,
+    // 2026-11-22, marinade (founder 21 Nov: "marinating ... makes a big difference"): oil, salt, garlic.
     ingredients: [ing("chicken", 300), ing("sweet-chilli", 100), ing("rice", 150), ing("peppers", 160, { note: "about 1 pepper" }), ing("broccoli", 100), ing("spring-onions", 30), ing("lemon-juice", 15), ing("vegetable-oil", 10), ing("salt", 1), ing("garlic", 5)],
     // founder 2026-11-21, cooked it and the chicken came out white ("the one in the image looks so tasty ... the chicken's white"): the chicken is dried, fried in
     // a hot pan without stirring until golden underneath, in two batches when the pan is small, and kept aside while the vegetables cook.
@@ -121,15 +131,16 @@ export const DINNER_WORLD: readonly Recipe[] = [
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil over a high heat, ready for the rice.",
       "Slice the chicken: Slice the chicken into thin strips, about as wide as your little finger. Pat the strips dry with kitchen paper: dry chicken browns, wet chicken steams and stays white. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Toss the strips with 1 tsp of the oil, the salt and the garlic purée. Leave them 10 minutes while you prepare the vegetables, or keep them covered in the fridge up to a few hours. Wash your hands after touching the raw chicken.",
       "Prepare the vegetables: Halve the pepper, remove the stalk and seeds and slice it into thin strips about 1 cm wide. Cut the broccoli into small florets, about 2 cm across. Trim the spring onions and cut them on a slant into 2 to 3 cm pieces.",
       "Cook the rice: Add the rice to the boiling water, stir once and cook as the pack says (usually 10 to 15 minutes), with the lid half on, until soft with no hard bit in the middle.",
       "Mix the sauce: While the rice cooks, stir the sweet chilli sauce and lemon juice together in a cup with 4 tbsp water.",
-      "Heat the wok: Heat a wok or large frying pan over a high heat for 2 minutes, until very hot. Add the oil and swirl it around until it looks thin and shimmery.",
+      "Heat the wok: Heat a wok or large frying pan over a high heat for 2 minutes, until very hot. Add the rest of the oil and swirl it around until it looks thin and shimmery.",
       "Brown the chicken: Lay the chicken in the pan in one layer with space between the strips (if they don't all fit, fry them in two batches). Leave them for 2 to 3 minutes without stirring, until golden brown underneath.",
-      "Turn the chicken: Turn the strips over, sprinkle the salt over them and fry for 2 to 3 minutes more, until golden on the other side too.",
+      "Turn the chicken: Turn the strips over and fry for 2 to 3 minutes more, until golden on the other side too.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, fry for 1 to 2 minutes more and check again. Lift the chicken onto a clean plate.",
       "Drain the rice: Drain the rice well, fluff it up with a fork and put it back in its pan with the lid on to keep warm.",
-      "Fry the vegetables: Put the pan back on a high heat. Add the pepper and broccoli and stir-fry for 1 minute, adding the garlic purée for the last 30 seconds, until it smells sweet.",
+      "Fry the vegetables: Put the pan back on a high heat. Add the pepper and broccoli and stir-fry for 1 minute, until the pepper starts to soften.",
       "Steam the broccoli: Add 2 tbsp water, cover the pan with a lid or a large plate and steam for 2 minutes, until the broccoli is bright green and just tender. Take the lid off straight away: any longer and the broccoli goes dark.",
       "Add the sauce: Turn the heat down to medium. Tip the chicken and any juices back in, add the spring onions and pour in the sauce mixture from the cup.",
       "Glaze the chicken: Let it bubble for about 1 minute, tossing, until it thickens into a glossy red sauce that coats the chicken and vegetables. Don't let it cook away: if it gets thick and sticky, add a splash more water.",
@@ -138,15 +149,17 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "spiced-chicken-naan", meal: "dinner", tags: ["Indian"], name: "Spiced yogurt chicken with naan", blurb: "Chicken marinated in curry paste and yogurt, roasted with peppers and onion, served with warm naan.", servings: 3, minutes: 40,
-    ingredients: [ing("chicken", 450), ing("curry-paste", 45), ing("greek-yogurt", 150), ing("naan", 330), ing("lemon-juice", 15), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8), ing("garlic", 5), ing("paprika", 2)],
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a red and a yellow pepper, charred edges; marinade (founder 21 Nov: "marinating ... makes a big difference"): the yogurt marinade it had, now with a few hours in the fridge as the other choice.
+    ingredients: [ing("chicken", 450), ing("curry-paste", 45), ing("greek-yogurt", 150), ing("naan", 330), ing("lemon-juice", 15), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8), ing("garlic", 5), ing("paprika", 2)],
     method: [
       "Heat the oven: Heat the oven to 220°C (200°C fan, gas 7), with a shelf near the top.",
       "Coat the chicken: Cut the chicken into chunks about 3 cm across. In a large bowl, stir the curry paste, yogurt, lemon juice, garlic purée and paprika until smooth, then stir in the chicken until coated. Wash your hands, the knife and the board straight after.",
-      "Leave it to stand: Cover the bowl and leave the chicken for 10 minutes while you cut up the vegetables, so it takes on the flavour.",
+      "Marinate the chicken: Cover the bowl and leave the chicken 10 minutes while you cut up the vegetables, or keep it in the fridge up to a few hours for more flavour.",
       "Cut the vegetables: Halve the peppers, pull out the stalks and seeds and cut them into chunks about 3 cm across. Peel the onion, cut it in half through the root, then cut each half into wedges, keeping a little root on each.",
       "Oil the vegetables: Tip the peppers and onion into a large roasting tin, pour over the oil and toss until everything is coated and shiny.",
       "Fill the tin: Spoon the chicken and its yogurt coating into the tin and spread everything out in one layer with a little space between the pieces. If it won't fit, use two tins, as crowded pieces steam and stay pale. Put it in the oven.",
       "Roast the chicken: Roast for 20 to 25 minutes, until the chicken is golden with browned edges and the vegetables are soft and browned at the edges. Halfway through, use oven gloves to take the tin out, turn the chicken and stir the vegetables.",
+      "Char the edges: If the chicken has no dark edges yet, put the tin under a hot grill for 2 to 3 minutes, watching it all the time.",
       "Warm the naan: Warm the naan one at a time in a dry frying pan over a medium heat, about 1 minute each side, until soft and puffed. Start in the last 6 or 7 minutes of roasting. Wrap them in a tea towel.",
       "Check the chicken: Take the tin out with oven gloves and cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, roast for 5 minutes more and check again.",
       "Serve: Put the naan on warm plates, spoon the chicken and vegetables alongside and pour over any juices from the tin. Serve straight away.",
@@ -154,32 +167,36 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "chicken-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Chicken fajitas with salsa", blurb: "Spiced chicken and peppers in warm wraps with salsa and yogurt.", servings: 2, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a red and a yellow pepper, wraps toasted with brown spots and rolled into open cones; marinade (founder 21 Nov: "marinating ... makes a big difference"): fajita seasoning, oil, garlic.
     // 2026-11-21: oil 5 -> 10 ml so the chicken browns as the picture shows (founder: "has to look exactly as much as you can as the product")
-    ingredients: [ing("chicken", 300), ing("fajita-seasoning", 15), ing("wraps", 240, { fit: [0.5, 2] }), ing("salsa", 100), ing("greek-yogurt", 100), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 10), ing("garlic", 5)],
+    ingredients: [ing("chicken", 300), ing("fajita-seasoning", 15), ing("wraps", 240, { fit: [0.5, 2] }), ing("salsa", 100), ing("greek-yogurt", 100), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 10), ing("garlic", 5)],
     method: [
+      "Marinate the chicken: Cut the chicken into strips about 1 cm thick and 6 cm long and pat them dry. Toss them with the fajita seasoning, 1 tsp of the oil and half the garlic purée. Wash your hands, the knife and the board straight after.",
+      "Let it marinate: Leave the chicken 10 minutes while you slice the vegetables, or keep it covered in the fridge up to a few hours.",
       "Slice the vegetables: Peel the onion, halve it and slice it into thin strips about 5 mm thick. Halve the peppers, pull out the stalks and seeds, and slice them into strips about 1 cm wide.",
-      "Coat the chicken: Cut the chicken into strips about 1 cm thick and 6 cm long and pat them dry with kitchen paper. Toss them in a bowl with the fajita seasoning until coated. Wash your hands, the knife and the board straight after.",
-      "Heat the pan: Put a large non-stick frying pan over a medium-high heat for 2 minutes, add the oil and tilt the pan to spread it. Heat until a piece of onion sizzles hard when it goes in.",
+      "Heat the pan: Put a large non-stick frying pan over a medium-high heat for 2 minutes, add the rest of the oil and tilt the pan to spread it. Heat until a piece of onion sizzles hard when it goes in.",
       "Brown the chicken: Lay the chicken in the pan in one layer with space between the strips (two batches if your pan is small). Leave for 2 minutes without stirring, until golden brown underneath. Turn the heat down a little if the spices smell burnt.",
       "Turn the chicken: Turn the strips over and fry for 2 minutes more, until golden on the other side too.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, cook for 1 to 2 minutes more and check again. Lift the chicken onto a clean plate.",
-      "Add the vegetables: Add the onion and peppers to the pan and fry for 5 to 6 minutes, stirring now and then, until the onion is soft and the peppers are tender with a few browned edges. Stir in the garlic purée for the last 30 seconds.",
+      "Add the vegetables: Add the onion and peppers to the pan and fry for 5 to 6 minutes, until the onion is soft and the peppers are tender with a few browned edges. Stir in the rest of the garlic purée for the last 30 seconds.",
       "Put the chicken back: Tip the chicken and any juices back in and toss for 1 minute, until steaming hot. Turn off the heat and cover the pan with a lid or a large plate while you warm the wraps.",
-      "Warm the wraps: Warm the wraps in a second dry frying pan for about 20 seconds on each side, or as the pack says, so they bend without cracking. Stack them and keep them covered.",
-      "Fill and roll: Lay a warm wrap flat, spoon some chicken and vegetables down the middle and add a spoonful each of salsa and yogurt. Fold in the bottom and sides and roll it up. Fill the rest the same way and serve straight away.",
+      "Warm the wraps: Warm the wraps in a second dry frying pan for 30 to 40 seconds on each side, until soft with a few brown spots. Stack them and keep them covered.",
+      "Fill and roll: Lay a warm wrap flat, spoon some chicken and vegetables down the middle and add a spoonful each of salsa and yogurt. Fold up the bottom and roll it from one side into a cone, top open. Fill the rest the same way.",
     ],
   },
   {
     id: "beef-burrito-bowl", meal: "dinner", tags: ["Mexican", "Batch cook"], name: "Beef burrito bowl", blurb: "Spiced beef mince, rice, kidney beans, sweetcorn and salsa in one bowl.", servings: 4, minutes: 30,
+    // 2026-11-22, marinade (founder 21 Nov: "marinating ... makes a big difference"): fajita seasoning, garlic.
     ingredients: [ing("beef-mince", 500), ing("fajita-seasoning", 20), ing("rice", 240), ing("kidney-beans", 240, { role: "other" }), ing("sweetcorn", 160), ing("salsa", 200), ing("lettuce", 90), ing("onion", 75), ing("garlic", 10)],
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil over a high heat, ready for the rice.",
+      "Marinate the mince: Mix the mince in a bowl with half the fajita seasoning and half the garlic purée. Leave it 10 minutes while you prepare the rest, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
       "Drain the beans and sweetcorn: Drain the kidney beans in a sieve and rinse them under cold water until it runs clear. If the sweetcorn is tinned, drain it but don't rinse it.",
       "Shred the lettuce: Wash the lettuce, shake it dry and cut it into thin strips, about as wide as a pencil. Peel the onion and chop the amount you need small, about the size of a pea.",
       "Brown the mince: Heat a large non-stick frying pan over a medium-high heat. Add the mince, press it flat and leave it for 3 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break it up, add the onion and fry for 5 to 6 minutes more, stirring now and then, until the mince is brown all over with no pink left and the onion is soft.",
       "Cook the rice: Add the rice to the boiling water and stir once. Turn the heat down a little and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
-      "Spice the mince: Turn the heat under the mince down to medium. Stir in the garlic purée for 30 seconds, then sprinkle over the fajita seasoning, add a splash of water and stir. Cook for 2 minutes, until the mince is coated and the water has mostly gone.",
+      "Spice the mince: Turn the heat down to medium. Stir in the rest of the garlic purée for 30 seconds, then the rest of the fajita seasoning and a splash of water. Cook for 2 minutes, stirring, until the mince is coated and the water has gone.",
       "Check the mince: Break open a large lump. It should be brown all the way through, with no pink left, and steaming hot. Turn off the heat and cover the pan to keep it hot.",
       "Warm the beans and sweetcorn: Put the kidney beans and sweetcorn (frozen sweetcorn straight from the bag) in a small pan with a splash of water. Warm them over a medium heat for 4 to 5 minutes, stirring now and then, until steaming hot.",
       "Drain the rice: Drain the rice well in a colander and fluff it up with a fork.",
@@ -189,18 +206,19 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "chicken-shawarma-wraps", meal: "dinner", tags: ["Middle Eastern"], name: "Chicken shawarma-style wraps", blurb: "Warmly spiced chicken thighs in wraps with garlic yogurt and salad.", servings: 3, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): torn lettuce, wraps toasted with brown spots and rolled into open cones; marinade (founder 21 Nov: "marinating ... makes a big difference"): the yogurt marinade it had, now with a few hours in the fridge as the other choice.
     ingredients: [ing("chicken-thigh", 450), ing("natural-yogurt", 150), ing("wraps", 360, { fit: [0.5, 2] }), ing("cumin", 2), ing("paprika", 2), ing("garlic", 10, { note: "about 2 cloves" }), ing("lemon-juice", 15), ing("lettuce", 90), ing("tomatoes", 120), ing("cucumber", 120), ing("salt", 2), ing("black-pepper", 1)],
     method: [
       "Mix the marinade: In a large bowl, stir half the yogurt with the cumin, paprika, half the salt, half the garlic purée and the lemon juice until smooth.",
-      "Coat the chicken: Trim any big lumps of fat off the chicken thighs, then turn them in the bowl until coated. Cover and leave for 10 minutes, or longer in the fridge. Wash your hands, the knife and the board straight after.",
+      "Coat the chicken: Trim any big lumps of fat off the chicken thighs, then turn them in the bowl until coated. Cover and leave 10 minutes, or keep it in the fridge up to a few hours. Wash your hands, the knife and the board straight after.",
       "Heat the grill: Turn the grill to high and let it heat for about 5 minutes, with the shelf about 10 cm below the heat.",
       "Make the garlic yogurt: In a small clean bowl, stir the rest of the yogurt with the rest of the garlic purée, the rest of the salt and a pinch of black pepper.",
-      "Prepare the salad: Cut the lettuce into thin strips. Halve the tomatoes and slice them thinly. Halve the cucumber lengthways and slice it into half-moons about as thick as a pound coin.",
+      "Prepare the salad: Tear the lettuce into bite-sized pieces. Halve the tomatoes and slice them about 5 mm thick. Halve the cucumber lengthways and slice it into half-moons about 5 mm thick.",
       "Grill the chicken: Lift the thighs onto a baking tray and throw away the marinade left in the bowl. Wash your hands, the bowl and the spoon. Grill for 12 to 15 minutes, turning halfway, until golden brown with a few darker edges.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through, with no pink left, clear juices and steaming hot. If not, grill for 2 to 3 minutes more and check again.",
       "Slice the chicken: Leave the chicken to rest for 3 minutes, then slice it into strips about 1 cm wide.",
-      "Warm the wraps: Warm the wraps in a dry frying pan for about 20 seconds on each side, or as the pack says, so they bend without cracking.",
-      "Fill and roll: Spread a spoonful of garlic yogurt down the middle of a warm wrap. Add some lettuce, tomatoes, cucumber and chicken, then a little more yogurt. Fold in the bottom and roll it up. Make the rest the same way and serve.",
+      "Warm the wraps: Warm the wraps in a dry frying pan for 30 to 40 seconds on each side, until soft with a few brown spots.",
+      "Fill and roll: Spread a spoonful of garlic yogurt down the middle of a warm wrap. Add some lettuce, tomatoes, cucumber and chicken. Fold up the bottom and roll it into a cone, top open, then drizzle a little more yogurt over the filling.",
     ],
   },
   {
@@ -223,14 +241,16 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "soy-honey-salmon-bowl", meal: "dinner", tags: ["Japanese"], name: "Soy and honey salmon rice bowl", blurb: "Sticky glazed salmon on rice with broccoli.", servings: 2, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): cucumber rounds, slanted spring onions, darker glazed edges; marinade (founder 21 Nov: "marinating ... makes a big difference"): the soy, honey and garlic glaze.
     ingredients: [ing("salmon", 240), ing("soy", 30), ing("honey", 15), ing("rice", 150), ing("broccoli", 150), ing("spring-onions", 30), ing("cucumber", 80), ing("garlic", 5)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6) and line a baking tray with baking paper.",
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil over a high heat, ready for the rice.",
-      "Prepare the vegetables: Cut the broccoli into florets about 3 cm across and slice any thick stalk. Trim and thinly slice the spring onions. Halve the cucumber lengthways and slice it into half-moons about as thick as a pound coin.",
+      "Prepare the vegetables: Cut the broccoli into florets about 3 cm across and slice any thick stalk. Trim the spring onions and slice them thinly on a slant. Slice the cucumber into rounds about 5 mm thick.",
       "Make the glaze: Mix the soy sauce, honey and garlic purée in a small bowl until smooth. Pour half into a second bowl and set it aside for later, so it never touches the raw fish.",
-      "Glaze the salmon: Put the salmon on the tray, skin side down if it has skin, with a little space between the pieces. Spoon over the glaze from the first bowl. Wash your hands and the spoon straight after.",
-      "Bake the salmon: Bake in the middle of the oven for 12 to 15 minutes, until the glaze is bubbling and sticky at the edges. After 6 minutes, spoon any glaze that has run onto the tray back over the salmon.",
+      "Marinate the salmon: Put the salmon in a dish, spoon over the glaze from the first bowl and turn it to coat. Leave it 10 minutes while the oven heats, or keep it covered in the fridge up to 1 hour. Wash your hands straight after.",
+      "Lay out the salmon: Lift the salmon onto the tray, skin side down if it has skin, with a little space between the pieces. Spoon over any glaze left in the dish, then wash your hands.",
+      "Bake the salmon: Bake in the middle of the oven for 12 to 15 minutes, until the glaze is bubbling and sticky at the edges. After 6 minutes, spoon any glaze on the tray back over the salmon. For darker edges, grill it for the last 2 minutes.",
       "Cook the rice: Add the rice to the boiling water, stir once and cook as the pack says (usually 10 to 15 minutes). Drain it well and fluff it up with a fork.",
       "Cook the broccoli: While the salmon bakes, bring a medium pan of water to the boil. Add the broccoli and cook for 3 to 4 minutes, until bright green and tender with a little bite. Drain it.",
       "Check the salmon: It is cooked when it is opaque (not see-through) and flakes easily with a fork. If not, bake for 2 to 3 minutes more and check again.",
@@ -254,14 +274,15 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "vegetable-almond-stir-fry", meal: "dinner", tags: ["Chinese"], name: "Vegetable and almond stir-fry with rice", blurb: "Crunchy vegetables and toasted almonds tossed with soy and sweet chilli, on rice.", servings: 2, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): carrot in slanted ovals, slanted spring onions.
     ingredients: [ing("rice", 150), ing("almonds", 50), ing("soy", 30), ing("sweet-chilli", 40), ing("peppers", 160, { note: "about 1 pepper" }), ing("broccoli", 150), ing("carrots", 100, { note: "about 1 carrot" }), ing("spring-onions", 30), ing("garlic", 5, { note: "about 1 clove" }), ing("vegetable-oil", 5)],
     method: [
       "Boil the water: Fill a large pan with water, put the lid on and bring it to the boil over a high heat, ready for the rice.",
-      "Prepare the vegetables: Peel the carrot and slice it into thin rounds. Cut the broccoli into small florets, about 2 cm across. Halve the pepper, remove the stalk and seeds and slice it into 1 cm strips. Thinly slice the spring onions.",
+      "Prepare the vegetables: Peel the carrot and slice it on a slant, about 5 mm thick. Cut the broccoli into florets about 2 cm across. Halve and seed the pepper and slice it into 1 cm strips. Slice the spring onions on a slant.",
       "Cook the rice: Add the rice to the boiling water, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Toast the almonds: Toast the almonds in a large dry frying pan or wok over a medium heat for 3 to 4 minutes, shaking often, until golden. Tip them onto a board straight away so they don't burn.",
       "Chop the almonds: Chop the almonds roughly into halves or thirds and set them aside.",
-      "Fry the carrot and broccoli: Heat the oil in the same pan over a medium-high heat. Add the carrot and broccoli and stir-fry for 3 minutes, stirring all the time. Add a splash of water if it sticks.",
+      "Fry the carrot and broccoli: Heat the oil in the same pan over a medium-high heat. Add the carrot and broccoli and stir-fry for 4 minutes, stirring all the time. Add a splash of water if it sticks.",
       "Add the pepper and garlic: Add the pepper and garlic purée and stir-fry for 3 minutes more, until the vegetables are tender but still have a little bite.",
       "Add the sauces: Turn the heat down to medium. Pour in the soy sauce and sweet chilli sauce with 2 tbsp water and toss for about 1 minute, until it bubbles into a glossy glaze that coats the vegetables. Don't let it cook away.",
       "Drain the rice: Drain the rice well in a colander and fluff it up with a fork.",
@@ -270,17 +291,18 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "mexican-chicken-rice", meal: "dinner", tags: ["Mexican", "One pot"], name: "Mexican chicken and bean rice", blurb: "Spiced chicken, rice and kidney beans cooked together in one pan.", servings: 4, minutes: 40,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in 1.5 cm pieces, pepper in 2 cm pieces; marinade (founder 21 Nov: "marinating ... makes a big difference"): fajita seasoning, oil, garlic.
     // the rice cooks in the method's own 600 ml of water and the salsa, so fitting leaves it as written
     // 2026-11-21: oil 8 -> 13 ml so the chicken browns as the picture shows (founder: "has to look exactly as much as you can as the product")
     ingredients: [ing("chicken", 500), ing("fajita-seasoning", 20), ing("rice", 240, { role: "other" }), ing("kidney-beans", 240, { role: "other" }), ing("salsa", 200), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("vegetable-oil", 13), ing("garlic", 10)],
     method: [
-      "Chop the vegetables: Peel the onion and chop it small. Halve the pepper, remove the stalk and seeds and chop it into pieces about 1 cm across.",
-      "Cut the chicken: Cut the chicken into chunks about 2 to 3 cm across and pat them dry with kitchen paper, so they brown. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Cut the chicken into 2 to 3 cm chunks and pat them dry. Toss them in a bowl with half the fajita seasoning, 1 tsp of the oil and half the garlic purée. Wash your hands, the knife and the board straight after.",
+      "Chop the vegetables: Leave the chicken 10 minutes, or keep it covered in the fridge up to a few hours. Meanwhile, peel the onion and chop it into pieces about 1.5 cm across. Halve the pepper, remove the stalk and seeds and cut it into 2 cm pieces.",
       "Rinse the beans: Drain the kidney beans in a sieve and rinse them under cold water until it runs clear. Fill the kettle and switch it on.",
-      "Brown the chicken: Heat the oil in a large, deep frying pan with a lid over a high heat until shimmery. Add the chicken in one layer with space between (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden underneath.",
+      "Brown the chicken: Heat the rest of the oil in a large, deep pan with a lid over a medium-high heat. Add the chicken in one layer with space between (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden underneath.",
       "Turn the chicken: Turn the pieces and fry for 2 minutes more, until golden on another side. Lift the chicken onto a clean plate.",
-      "Soften the vegetables: Turn the heat down to medium. Add the onion and pepper to the pan and fry for 5 to 6 minutes, stirring now and then, until soft and sweet. Stir in the garlic purée for the last 30 seconds.",
-      "Coat the rice: Sprinkle over the fajita seasoning and the rice and stir for 1 minute, until every grain is coated.",
+      "Soften the vegetables: Turn the heat down to medium. Add the onion and pepper to the pan and fry for 5 to 6 minutes, stirring now and then, until soft and sweet. Stir in the rest of the garlic purée for the last 30 seconds.",
+      "Coat the rice: Sprinkle over the rest of the fajita seasoning and the rice and stir for 1 minute, until every grain is coated.",
       "Add the water: Pour in the salsa and 600 ml of boiling water, put the chicken and any juices back in and stir, scraping up any bits from the bottom. Bring it to the boil.",
       "Simmer the rice: Put the lid on, turn the heat down low and simmer gently for 15 minutes. Stir now and then, adding a splash more water if it looks dry or sticks.",
       "Add the beans: Stir in the kidney beans, put the lid back on and cook for 5 minutes more, until the rice is tender and most of the liquid has soaked in.",
@@ -291,7 +313,8 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "bean-pepper-fajitas", meal: "dinner", tags: ["Mexican", "Quick"], name: "Bean and pepper fajitas", blurb: "Peppers and spiced kidney beans in warm wraps with salsa.", servings: 3, minutes: 20,
-    ingredients: [ing("kidney-beans", 480), ing("fajita-seasoning", 15), ing("wraps", 360, { fit: [0.5, 2] }), ing("salsa", 150), ing("peppers", 320, { note: "about 2 peppers" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8), ing("garlic", 5)],
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a red and a yellow pepper, wraps toasted with brown spots.
+    ingredients: [ing("kidney-beans", 480), ing("fajita-seasoning", 15), ing("wraps", 360, { fit: [0.5, 2] }), ing("salsa", 150), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 8), ing("garlic", 5)],
     method: [
       "Slice the peppers: Wash the peppers, halve them and pull out the stalks and seeds. Slice them into strips about as thick as your little finger.",
       "Slice the onion: Peel the onion, halve it from top to bottom and slice it into thin half-moons, about as thick as a pound coin.",
@@ -300,20 +323,21 @@ export const DINNER_WORLD: readonly Recipe[] = [
       "Add the spices: Stir in the garlic purée for 30 seconds, then sprinkle over the fajita seasoning and stir for 1 minute, until everything is coated and you can smell the spices.",
       "Warm the beans: Add the beans and a splash of water and stir. Cook for 3 to 4 minutes, stirring now and then, until the beans are steaming hot and coated in the spices.",
       "Keep it hot: Tip the filling into a bowl and cover it with a plate. Put the empty pan back over a medium heat for about 1 minute, so it is hot and dry.",
-      "Warm the wraps: Warm the wraps in the dry pan, one or two at a time, for about 20 seconds on each side, or as the pack says. Stack them under a clean tea towel.",
+      "Warm the wraps: Warm the wraps in the dry pan, one or two at a time, for 30 to 40 seconds on each side, until soft with a few brown spots. Stack them under a clean tea towel.",
       "Fill and roll: Lay a warm wrap on a plate, spoon some of the filling down the middle and add a spoonful of salsa. Fold in the sides, roll it up and serve straight away.",
     ],
   },
   {
     id: "moroccan-chickpea-stew", meal: "dinner", tags: ["Middle Eastern", "One pot"], name: "Moroccan-style chickpea stew with rice", blurb: "Chickpeas simmered with tomatoes, warm spices and sweet raisins.", servings: 4, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): carrot in 2 cm chunks.
     ingredients: [ing("chickpeas", 480), ing("chopped-tomatoes", 400), ing("raisins", 40), ing("stock-cube", 6), ing("rice", 240), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("cumin", 2), ing("cinnamon", 1), ing("paprika", 2), ing("lemon-juice", 15), ing("vegetable-oil", 8), ing("garlic", 10), ing("salt", 1)],
     method: [
-      "Chop the vegetables: Peel the onion and chop it small. Peel the carrot and cut it into small cubes about 1 cm across, so it softens quickly.",
+      "Chop the vegetables: Peel the onion and chop it small. Peel the carrot and cut it into chunks about 2 cm across.",
       "Rinse the chickpeas: Drain the chickpeas in a sieve and rinse them under cold water until it runs clear. Leave them to drain.",
       "Make the stock: Boil the kettle. Dissolve the stock cube in 300 ml of boiling water in a heatproof jug.",
       "Soften the onion and carrot: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and carrot and fry for 8 minutes, stirring now and then, until the onion is soft and sweet but not brown.",
       "Add the spices: Turn the heat down a little. Stir in the garlic purée, cumin, cinnamon and paprika and cook for 1 minute, stirring all the time, until they smell warm and sweet. Add a splash of water if they stick.",
-      "Simmer the stew: Add the chickpeas, chopped tomatoes, raisins, salt and stock. Bring to the boil, then turn the heat down low and simmer gently, uncovered, for 20 minutes, stirring now and then. Add a splash of water if it gets too thick.",
+      "Simmer the stew: Add the chickpeas, chopped tomatoes, raisins, salt and stock. Bring to the boil, then turn the heat down low and simmer gently, uncovered, for 20 to 25 minutes, stirring now and then. Add a splash of water if it gets too thick.",
       "Cook the rice: While the stew simmers, bring a large pan of water to the boil. Add the rice, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Drain the rice: Drain the rice well in a colander and fluff it up with a fork.",
       "Finish the stew: Check a piece of carrot is soft when pressed with a fork and dragging the spoon through the sauce makes a trail. Take the pan off the heat and stir in the lemon juice.",
@@ -353,13 +377,15 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "chinese-style-chicken-curry", meal: "dinner", tags: ["Batch cook"], name: "Chinese-style chicken curry with rice and peas", blurb: "A golden takeaway-style curry with chicken, onion and peas, served with rice.", servings: 3, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in petals, pale golden chicken; marinade (founder 21 Nov: "marinating ... makes a big difference"): curry powder, garlic, oil.
     ingredients: [ing("chicken", 360), ing("curry-powder", 10), ing("onion", 150), ing("peas", 150), ing("stock-cube", 6), ing("garlic", 5), ing("rice", 210), ing("vegetable-oil", 8), ing("turmeric", 1)],
     method: [
-      "Prepare the onion and chicken: Peel the onion and chop it small. Cut the chicken into bite-sized pieces, about 2 cm across. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Cut the chicken into bite-sized pieces, about 2 cm across. Toss them in a bowl with half the curry powder, half the garlic purée and 1 tsp of the oil. Wash your hands, the knife and the board straight after.",
+      "Cut the onion: Leave the chicken 10 minutes, or keep it covered in the fridge up to a few hours. Meanwhile, peel the onion, cut it into thin wedges and pull the layers apart.",
       "Make the stock: Boil the kettle. Dissolve the stock cube in 300 ml of boiling water in a heatproof jug.",
-      "Soften the onion: Heat the oil in a large, deep frying pan over a medium heat. Add the onion and fry for 5 to 8 minutes, stirring now and then, until soft and see-through but not brown.",
-      "Add the spices: Stir in the curry powder, turmeric and garlic purée and cook for 1 minute, stirring, until you can smell the spices. Add a splash of water if they stick.",
-      "Cook the chicken: Add the chicken and stir until coated. Cook for 3 to 4 minutes, stirring often, until the outside has turned white.",
+      "Soften the onion: Heat the rest of the oil in a large, deep frying pan over a medium heat. Add the onion and fry for 6 to 8 minutes, stirring now and then, until soft and see-through but not brown.",
+      "Add the spices: Stir in the rest of the curry powder and garlic purée with the turmeric and cook for 1 minute, stirring, until you can smell the spices. Add a splash of water if they stick.",
+      "Cook the chicken: Add the chicken and stir until coated. Cook for 3 to 4 minutes, stirring often, until the outside has turned pale gold.",
       "Simmer the curry: Pour in the stock and bring to the boil. Turn the heat down low and simmer gently, uncovered, for 10 to 15 minutes, stirring now and then, until the sauce has thickened and coats the back of a spoon.",
       "Cook the rice: While the curry simmers, bring a large pan of water to the boil. Add the rice, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Add the peas: Stir the frozen peas into the curry and simmer for 3 minutes, until the peas are tender and the sauce is steaming hot.",
@@ -370,19 +396,20 @@ export const DINNER_WORLD: readonly Recipe[] = [
   },
   {
     id: "spiced-chicken-rice-bowl", meal: "dinner", tags: ["Bowl"], name: "Spiced chicken and rice bowl with yogurt", blurb: "Spiced chicken thighs on rice with cucumber, tomato and a cool lemon yogurt.", servings: 2, minutes: 30,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): cucumber and tomato in separate piles of 1.5 cm cubes; marinade (founder 21 Nov: "marinating ... makes a big difference"): oil, cumin, paprika, lemon, salt, black pepper.
     ingredients: [ing("chicken-thigh", 300), ing("rice", 150), ing("cumin", 3), ing("paprika", 3), ing("natural-yogurt", 120), ing("cucumber", 150), ing("tomatoes", 160), ing("lemon-juice", 15), ing("olive-oil", 8), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Cook the rice: Bring a large pan of water to the boil. Add the rice, stir once and cook as the pack says (usually 10 to 15 minutes), until soft with no hard bit in the middle.",
       "Cut the chicken: Cut the chicken into chunks about 3 cm across, trimming off any large pieces of fat.",
-      "Coat the chicken: Stir the chicken in a bowl with the oil, cumin, paprika, salt and black pepper until every piece is coated. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Stir the chicken with the oil, cumin, paprika, salt, black pepper and a third of the lemon juice. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands, the knife and the board straight after.",
       "Heat the pan: Heat a large non-stick frying pan over a medium-high heat for 1 to 2 minutes, until a drop of water sizzles in it.",
       "Fry the chicken: Spread the chicken out in one layer with space between the pieces. Leave it for 3 minutes without moving, until golden underneath.",
       "Turn the chicken: Cook for 7 to 9 minutes more, turning every couple of minutes, until golden brown all over. Turn the heat down to medium if the spices smell burnt.",
-      "Chop the salad: While the chicken cooks, cut the cucumber and tomatoes into small cubes about 1 cm across and mix them in a bowl.",
-      "Make the lemon yogurt: Mix the yogurt with the lemon juice in a small bowl until smooth.",
+      "Chop the salad: While the chicken cooks, cut the cucumber and tomatoes into cubes about 1.5 cm across. Keep them in separate piles.",
+      "Make the lemon yogurt: Mix the yogurt with the rest of the lemon juice in a small bowl until smooth.",
       "Check the chicken: Cut into the thickest piece. It should be white or pale brown all the way through, with no pink left, clear juices and steaming hot. If not, cook for 2 minutes more and check again.",
       "Drain the rice: Drain the rice well in a colander and fluff it up with a fork.",
-      "Serve: Share the rice between warm bowls, add the chicken, cucumber and tomatoes and spoon the lemon yogurt over the top.",
+      "Serve: Share the rice between warm bowls. Pile the chicken on one side, the cucumber and the tomatoes side by side next to it, and add a big spoonful of the lemon yogurt.",
     ],
   },
   {

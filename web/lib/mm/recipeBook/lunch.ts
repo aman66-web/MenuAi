@@ -20,27 +20,29 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "chicken-caesar-wraps", meal: "lunch", tags: ["Wrap"], name: "BBQ chicken and pepper wraps", blurb: "Chicken and peppers in barbecue sauce with crisp lettuce and grated cheese, rolled up.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): whole lettuce leaves, wraps toasted with brown spots; marinade (founder 21 Nov: "marinating ... makes a big difference"): paprika, black pepper, barbecue sauce.
     ingredients: [ing("chicken", 280), ing("wraps", 120), ing("bbq-sauce", 40), ing("peppers", 160, { note: "about 1 pepper" }), ing("cheddar", 25), ing("lettuce", 60), ing("oil-spray", 1), ing("paprika", 2), ing("black-pepper", 1)],
     method: [
-      "Prepare the lettuce and cheese: Rinse the lettuce, shake it dry and shred it into thin strips. Grate the cheddar on the coarse side of the grater. Set both aside.",
+      "Prepare the lettuce and cheese: Rinse the lettuce, shake it dry and keep the leaves whole, tearing any very big ones in half. Grate the cheddar on the coarse side of the grater. Set both aside.",
       "Slice the pepper: Cut off the stalk end, halve the pepper and scrape out the seeds and white inside. Slice it into strips about as wide as your finger.",
       "Slice the chicken: Cut the chicken into thin strips about as wide as your finger and pat them dry with kitchen paper.",
-      "Season the chicken: Put the strips in a bowl, sprinkle over the paprika and black pepper and toss until every strip is coated. Wash your hands, the knife and the board in hot soapy water straight after.",
-      "Warm the wraps: Warm the wraps one at a time in a dry non-stick frying pan over a medium heat, about 20 seconds a side, until they bend without cracking. Keep them under a clean tea towel.",
-      "Start the chicken: Take the pan off the heat and spray it lightly with the oil spray. Heat it on a high heat for 2 minutes, then lay the chicken in one layer with space between the strips (two batches if your pan is small).",
+      "Marinate the chicken: Toss the strips in a bowl with the paprika, black pepper and 1 tbsp of the barbecue sauce. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands, the knife and the board.",
+      "Warm the wraps: Warm the wraps one at a time in a dry non-stick frying pan over a medium heat, 30 to 40 seconds a side, until soft with a few brown spots. Keep them under a clean tea towel.",
+      "Start the chicken: Take the pan off the heat and spray it lightly with the oil spray. Heat it on a medium-high heat for 2 minutes, then lay the chicken in one layer with space between the strips (two batches if your pan is small).",
       "Brown the chicken: Leave the strips for 2 to 3 minutes without stirring, until golden brown underneath. Turn them and fry for 2 to 3 minutes more, until golden on the other side.",
       "Check the chicken: Cut into the thickest piece: it should be piping hot and white all the way through, with no pink left. If not, fry for 1 to 2 minutes more and check again. Lift it onto a clean plate.",
       "Fry the pepper: Add the pepper strips to the pan and fry for 3 to 4 minutes, stirring now and then, until just soft and browned in places. Add a splash of water if anything sticks.",
-      "Add the sauce: Turn the heat down to low. Put the chicken back, add the barbecue sauce with 1 tbsp water and toss for about 1 minute, until glossy and coating everything. Don't let it cook away. Turn off the heat.",
-      "Fill and roll: Lay each wrap flat. Add lettuce down the middle, then the hot chicken and pepper, then the cheddar. Fold up the bottom, fold in the sides and roll up tightly. Cut in half and serve straight away.",
+      "Add the sauce: Turn the heat down to low. Put the chicken back, add the rest of the barbecue sauce with 1 tbsp water and toss for about 1 minute, until glossy and coating everything. Don't let it cook away. Turn off the heat.",
+      "Fill and roll: Lay each wrap flat and line the middle with the lettuce leaves. Add the hot chicken and pepper, then the cheddar. Fold up the bottom, fold in the sides and roll up tightly. Cut in half and serve straight away.",
     ],
   },
   {
     id: "mushroom-wrap-pizzas", meal: "lunch", tags: ["Wrap", "Quick"], name: "Mushroom and mozzarella wrap pizzas", blurb: "Crisp wraps topped with passata, mushrooms and melted mozzarella.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): thick mushroom slices.
     ingredients: [ing("wraps", 120), ing("passata", 100), ing("mozzarella", 125, { role: "protein" }), ing("mushrooms", 100), ing("oregano", 1), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6), with a shelf in the middle.",
-      "Slice the mushrooms: Wipe the mushrooms with damp kitchen paper and trim the dry stalk ends. Slice them thinly. Don't wash them, or the pizzas turn soggy.",
+      "Slice the mushrooms: Wipe the mushrooms with damp kitchen paper and trim the dry stalk ends. Slice them from top to stalk, about 5 mm thick. Don't wash them, or the pizzas turn soggy.",
       "Tear the mozzarella: Drain the mozzarella, pat it dry with kitchen paper and tear it into pieces about the size of a grape.",
       "Lay out the wraps: Lay the wraps flat on a large baking tray. Use two trays if they would overlap.",
       "Spread the passata: Spread the passata thinly over each wrap with the back of a spoon, leaving about 1 cm bare around the edge so it bakes crisp.",
@@ -92,12 +94,14 @@ export const LUNCH: readonly Recipe[] = [
     ],
   },
   {
-    id: "ham-soft-cheese-wraps", meal: "lunch", tags: ["Wrap", "Quick"], name: "Ham and soft cheese wraps", blurb: "Ham, soft cheese, tomato and salad leaves, ready in five minutes.", servings: 2, minutes: 5,
+    id: "ham-soft-cheese-wraps", meal: "lunch", tags: ["Wrap", "Quick"], name: "Ham and soft cheese wraps", blurb: "Ham, soft cheese, tomato and salad leaves, in toasted wraps.", servings: 2, minutes: 8,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): wraps toasted with brown spots (the ham is ready-cooked: no marinade).
     ingredients: [ing("ham", 120), ing("soft-cheese", 60), ing("wraps", 120), ing("tomatoes", 120), ing("salad-leaves", 40), ing("mustard", 5)],
     method: [
       "Dry the leaves: Rinse the salad leaves, shake them well and pat them dry with kitchen paper, so the wraps don't go soggy.",
       "Slice the tomatoes: Cut out the hard core and slice the tomatoes thinly. Lay the slices on kitchen paper for a minute to soak up the juice.",
       "Separate the ham: Peel the ham slices apart gently and lay them on a plate.",
+      "Toast the wraps: Warm each wrap in a dry frying pan over a medium-high heat for 30 to 40 seconds a side, until a few brown spots appear. Let them cool for a minute.",
       "Spread the cheese: Lay the wraps flat and spread the soft cheese over each one in an even layer, leaving about 2 cm bare around the edge.",
       "Add the mustard: Spread a very thin layer of mustard over the soft cheese. It is strong, so use only a little.",
       "Add the filling: Lay the ham along the third of each wrap nearest you. Top with the tomato slices and a handful of salad leaves.",
@@ -106,12 +110,13 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "chickpea-tomato-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "Chickpea, cucumber and tomato salad", blurb: "Chickpeas, cucumber, tomato and red onion with a lemon dressing.", servings: 2, minutes: 10,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): 2 cm cucumber chunks, tomato wedges, thin slivers of red onion.
     ingredients: [ing("chickpeas", 240), ing("olive-oil", 10), ing("cucumber", 80), ing("tomatoes", 120), ing("red-onion", 75, { note: "about half a red onion" }), ing("lemon-juice", 20), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Rinse the chickpeas: Drain the chickpeas in a sieve and rinse them under the cold tap for about 30 seconds, until the water runs clear. Shake well and tip them into a large bowl.",
-      "Chop the cucumber: Cut the cucumber into small chunks, about 1 cm across, and add them to the bowl.",
-      "Chop the tomatoes: Cut the tomatoes into chunks the same size, or into quarters if they are small. Add them to the bowl with any juice from the board.",
-      "Chop the onion: Peel the red onion and chop the amount you need very small, about the size of a pea. Keep it on the board for the dressing.",
+      "Chop the cucumber: Cut the cucumber into chunks about 2 cm across and add them to the bowl.",
+      "Chop the tomatoes: Cut the tomatoes into wedges about 2 cm across. Add them to the bowl with any juice from the board.",
+      "Slice the onion: Peel the red onion, slice the amount you need very thinly and cut the slices into 2 cm lengths. Keep them on the board for the dressing.",
       "Make the dressing: Whisk the oil, lemon juice, salt and black pepper with a fork in a mug for about 30 seconds, until thick and cloudy. Stir in the onion and leave it for 5 minutes to soften its raw taste.",
       "Dress the salad: Pour the dressing and onion over the salad and stir gently from the bottom until everything is coated. Taste: it should be fresh and sharp with lemon. Add a little more salt if it tastes flat.",
       "Serve: Leave the salad for 5 minutes if you can, so the chickpeas soak up the dressing. Spoon it into bowls with any dressing left in the bottom.",
@@ -134,17 +139,19 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "sweet-chilli-chicken-noodle-salad", meal: "lunch", tags: ["Salad"], name: "Sweet chilli chicken noodle salad", blurb: "Noodles, chicken and crunchy vegetables in sweet chilli.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): the chicken cooked flat and whole with charred lines, then sliced and fanned; long carrot strands; marinade (founder 21 Nov: "marinating ... makes a big difference"): sweet chilli, lemon, salt, black pepper.
     ingredients: [ing("chicken", 250), ing("noodles", 300), ing("sweet-chilli", 50), ing("carrots", 100, { note: "about 1 carrot" }), ing("cucumber", 80), ing("spring-onions", 30), ing("lemon-juice", 15), ing("oil-spray", 1), ing("salt", 1), ing("black-pepper", 1)],
     method: [
-      "Prepare the vegetables: Peel the carrot and grate it coarsely into a large bowl. Cut the cucumber into thin sticks about 5 cm long and add them. Slice the spring onions into thin rings and keep them aside.",
-      "Slice the chicken: Cut the chicken into thin strips, about 1 cm wide, and pat them dry with kitchen paper. Sprinkle over the salt and black pepper and toss. Wash your hands, the knife and the board in hot soapy water straight after.",
-      "Heat the pan: Spray a large non-stick frying pan with the oil spray and heat it over a high heat for 2 minutes, until very hot.",
-      "Brown the chicken: Lay the chicken in one layer with space between the strips (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden brown underneath, then turn and fry for 2 to 3 minutes more, until golden.",
+      "Prepare the vegetables: Peel the carrot and grate it coarsely along its length into a large bowl, so you get long strands. Cut the cucumber into thin sticks about 5 cm long and add them. Slice the spring onions into thin rings and keep them aside.",
+      "Cut the chicken: Cut each fillet in half through the middle into two thin, flat pieces, about 1.5 cm thick, and pat them dry.",
+      "Marinate the chicken: Turn the pieces in the salt, black pepper, a third of the lemon juice and 1 tbsp of the sweet chilli sauce. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands and the board.",
+      "Heat the pan: Spray a large non-stick frying pan with the oil spray and heat it over a medium-high heat for 2 minutes, until hot.",
+      "Brown the chicken: Lay the pieces in the pan with space between them. Fry for 4 to 5 minutes without moving them, until golden with dark charred lines underneath, then turn and fry for 4 to 5 minutes more.",
       "Soak the noodles: Meanwhile, put the noodles in a heatproof bowl, cover them with boiling water from the kettle and leave for 2 to 3 minutes, or as the pack says. Loosen them with a fork.",
-      "Check the chicken: Cut into the thickest piece: it should be piping hot and white all the way through, with no pink left. If not, fry for 1 to 2 minutes more. Lift it onto a plate.",
+      "Check the chicken: Cut into the thickest piece: it should be piping hot and white all the way through, with no pink left. If not, fry 1 to 2 minutes more. Rest it 2 minutes on a board, then slice it into strips about 1.5 cm wide.",
       "Cool the noodles: Drain the noodles and rinse them under the cold tap for about 30 seconds, until cool. Shake off the water and add them to the bowl with the carrot and cucumber.",
-      "Dress the noodles: Add the sweet chilli sauce and lemon juice. Toss with two forks for about 1 minute, until the noodles are coated and glossy. Taste: it should be sweet, sour and a little hot.",
-      "Serve: Share the noodles between bowls, fan the chicken strips across one side and scatter over the spring onions. Serve while the chicken is still warm.",
+      "Dress the noodles: Add the rest of the sweet chilli sauce and lemon juice. Toss with two forks for about 1 minute, until the noodles are coated and glossy. Taste: it should be sweet, sour and a little hot.",
+      "Serve: Share the noodles between bowls, fan the chicken slices across one side, spoon a little dressing from the bowl over them and scatter over the spring onions. Serve while the chicken is still warm.",
     ],
   },
   {
@@ -166,30 +173,33 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "sweetcorn-potato-soup", meal: "lunch", tags: ["Soup", "Make ahead"], name: "Sweetcorn and potato soup", blurb: "A thick, warming soup from store-cupboard staples.", servings: 3, minutes: 30,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): potato in 1.5 cm cubes that stay whole.
     // the potatoes cook in the method's own 700 ml of water: fitting moves them at most half as much again, or the soup turns to mash
     ingredients: [ing("sweetcorn", 395), ing("new-potatoes", 340, { fit: [0.5, 1.5] }), ing("stock-cube", 12), ing("olive-oil", 15), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 1), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Chop the onion: Peel the onion, cut it in half and chop it small, about the size of a pea.",
-      "Drain the potatoes: Drain the potatoes and cut any large ones in half. Drain the sweetcorn too if it is tinned.",
+      "Drain the potatoes: Drain the potatoes and cut them into cubes about 1.5 cm across. Drain the sweetcorn too if it is tinned.",
       "Soften the onion: Heat the oil in a large saucepan over a medium heat. Add the onion and cook for 8 to 10 minutes, stirring now and then, until soft, sweet and see-through but not brown.",
       "Make the stock: Meanwhile, boil the kettle. Crumble the stock cubes into a heatproof jug, add 700 ml of boiling water and stir until they dissolve.",
       "Add the garlic and paprika: Stir in the garlic purée and paprika and cook for 1 minute, stirring so they don't catch.",
       "Simmer the soup: Add the potatoes, sweetcorn and stock and bring to the boil. Turn the heat down low and simmer gently for 15 minutes, until a potato breaks apart easily and the soup is steaming hot.",
-      "Thicken the soup: Take the pan off the heat. Mash it a few times with a potato masher, or give it 3 or 4 short bursts with a stick blender, so it thickens but plenty of whole sweetcorn and pieces of potato are left.",
+      "Thicken the soup: Take the pan off the heat. Mash it just 2 or 3 times with a potato masher, or give it 2 short bursts with a stick blender, so it thickens but most of the potato cubes and sweetcorn stay whole.",
       "Season and serve: Season with salt and pepper to taste and add a splash of hot water if it is too thick. Warm it over a low heat for 2 minutes if it has cooled, then ladle into warm bowls.",
       "Keep leftovers: Cool any leftovers, put them in the fridge within 2 hours and eat them within 2 days. Reheat until steaming hot all the way through.",
     ],
   },
   {
-    id: "chicken-sweetcorn-soup", meal: "lunch", tags: ["Soup"], name: "Chicken and sweetcorn soup", blurb: "A takeaway-style soup with ribbons of egg.", servings: 2, minutes: 25,
+    id: "chicken-sweetcorn-soup", meal: "lunch", tags: ["Soup"], name: "Chicken and sweetcorn soup", blurb: "A takeaway-style soup with ribbons of egg.", servings: 2, minutes: 30,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): the chicken poached in big pieces and shredded (minutes 25 -> 30); marinade (founder 21 Nov: "marinating ... makes a big difference"): garlic, black pepper.
     // the chicken cooks in the method's own 800 ml of stock: at most half as much again when fitted
     ingredients: [ing("chicken", 250, { fit: [0.5, 1.5] }), ing("sweetcorn", 195), ing("stock-cube", 12), ing("eggs", 60, { role: "other", note: "1 egg" }), ing("spring-onions", 30), ing("black-pepper", 1), ing("garlic", 5)],
     method: [
-      "Cut the chicken: Cut the chicken into small pieces, about 1.5 cm across, and put them in a bowl. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Cut each chicken fillet into 3 large pieces and toss them with the garlic purée and a pinch of black pepper. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands, the knife and the board.",
       "Prepare the rest: Slice the spring onions into thin rings and set them aside. Drain the sweetcorn if it is tinned.",
       "Make the stock: Crumble the stock cubes into a large saucepan, pour in 800 ml of boiling water from the kettle and stir until they dissolve.",
-      "Cook the chicken: Bring the stock to the boil over a high heat and stir in the garlic purée, then add the chicken. Turn the heat down low and simmer gently for 10 to 12 minutes, stirring now and then.",
+      "Cook the chicken: Bring the stock to the boil over a high heat, then add the chicken. Turn the heat down low and simmer gently for 12 to 14 minutes, stirring now and then.",
       "Check the chicken: Lift out the biggest piece and cut it open: it should be piping hot and white all the way through, with no pink left. If not, simmer for 2 to 3 minutes more.",
+      "Shred the chicken: Lift all the chicken onto a board and pull it into thin strands with two forks. Put it back in the soup.",
       "Add the sweetcorn: Stir in the sweetcorn, bring the soup back to a gentle simmer and cook for 3 minutes, until hot all the way through.",
       "Beat the egg: Meanwhile, crack the egg into a mug and beat it with a fork until smooth. Wash your hands after touching the raw egg.",
       "Add the egg: Turn the heat as low as it goes. Stir the soup in one direction and pour in the egg in a thin stream to make ribbons. Cook for 1 minute, until the egg is completely set.",
@@ -198,16 +208,17 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "bean-tomato-soup", meal: "lunch", tags: ["Soup", "Make ahead"], name: "Bean and tomato soup", blurb: "Kidney beans blended with tomatoes and a little paprika.", servings: 3, minutes: 30,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a swirl of olive oil on top.
     ingredients: [ing("kidney-beans", 480), ing("chopped-tomatoes", 400), ing("chopped-tomato-puree", 30), ing("stock-cube", 6), ing("olive-oil", 15), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 2), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Chop the onion: Peel the onion, cut it in half and chop it small, about the size of a pea.",
       "Rinse the beans: Drain the kidney beans in a sieve and rinse them under the cold tap until the water runs clear.",
-      "Soften the onion: Heat the oil in a large saucepan over a medium heat. Add the onion and cook for 5 to 8 minutes, stirring now and then, until soft but not brown.",
+      "Soften the onion: Heat most of the oil in a large saucepan over a medium heat. Add the onion and cook for 5 to 8 minutes, stirring now and then, until soft but not brown.",
       "Make the stock: Meanwhile, boil the kettle. Crumble the stock cube into a heatproof jug, add 500 ml of boiling water and stir until it dissolves.",
       "Add the flavourings: Stir in the garlic purée, tomato purée and paprika and cook for 1 minute, until the tomato purée turns a darker red. Add a splash of water if it sticks.",
       "Simmer the soup: Add the beans, chopped tomatoes and stock and bring to the boil. Turn the heat down low and simmer gently for 15 minutes, until the beans squash easily and the soup is steaming hot.",
       "Blend: Take the pan off the heat and blend with a stick blender until smooth, keeping the blender under the soup. Without a blender, mash the beans against the side of the pan.",
-      "Season and serve: Season with salt and pepper to taste and add a splash of hot water if it is too thick. Warm it over a low heat for 2 to 3 minutes, until steaming hot, then ladle into warm bowls.",
+      "Season and serve: Season with salt and pepper to taste, adding a splash of hot water if it is too thick. Warm it over a low heat until steaming hot. Ladle into warm bowls and drizzle the rest of the oil over the top.",
       "Keep leftovers: Cool any leftovers, put them in the fridge within 2 hours and eat them within 2 days. Reheat until steaming hot all the way through.",
     ],
   },
@@ -225,7 +236,8 @@ export const LUNCH: readonly Recipe[] = [
   },
   {
     id: "potato-egg-salad", meal: "lunch", tags: ["Salad"], name: "New potato, egg and pea salad", blurb: "Boiled eggs, potatoes and peas with a mustard dressing.", servings: 2, minutes: 20,
-    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("new-potatoes", 340), ing("peas", 100), ing("light-mayo", 30), ing("mustard", 5), ing("lemon-juice", 10), ing("salad-leaves", 30), ing("black-pepper", 1)],
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): eggs halved lengthways, wholegrain mustard.
+    ingredients: [ing("eggs", 240, { note: "about 4 eggs" }), ing("new-potatoes", 340), ing("peas", 100), ing("light-mayo", 30), ing("mustard", 5, { note: "wholegrain if you can" }), ing("lemon-juice", 10), ing("salad-leaves", 30), ing("black-pepper", 1)],
     method: [
       "Boil the water: Fill a medium saucepan two-thirds full with water and bring it to the boil over a high heat.",
       "Cut the potatoes: Drain the potatoes, cut any larger than a walnut in half and put them all in a large bowl.",
@@ -233,21 +245,22 @@ export const LUNCH: readonly Recipe[] = [
       "Boil the eggs: Turn the heat down so the water bubbles steadily. Lower in the eggs gently with a spoon and cook for 9 to 10 minutes. Wash your hands after touching the raw eggs.",
       "Add the peas: For the last 3 minutes, tip the frozen peas into the same pan and cook until bright green and tender.",
       "Cool the eggs and peas: Pour everything into a colander, standing back from the steam. Run cold water over it for about 2 minutes, until the eggs are cool enough to hold.",
-      "Peel the eggs: Crack and peel the eggs, then cut them into quarters. The whites and yolks should be completely set. If any part is runny, boil those pieces for 2 minutes more.",
+      "Peel the eggs: Crack and peel the eggs, then cut them in half lengthways. The whites and yolks should be completely set. If any part is runny, boil those pieces for 2 minutes more.",
       "Mix the salad: Add the peas and the dressing to the potatoes and stir gently until everything is lightly coated.",
       "Serve: Put the salad leaves on plates, spoon the potatoes and peas on top and arrange the eggs over them.",
     ],
   },
   {
     id: "cheese-bean-quesadillas", meal: "lunch", tags: ["Wrap", "Quick"], name: "Cheese and bean quesadillas", blurb: "Crisp toasted wraps filled with beans, salsa and melted cheese.", servings: 2, minutes: 15,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): chunky spring onion, deep golden toasting with dark patches.
     ingredients: [ing("wraps", 240, { fit: [0.5, 2] }), ing("kidney-beans", 240), ing("cheddar", 60), ing("salsa", 60), ing("cumin", 2), ing("spring-onions", 30), ing("salad-leaves", 40), ing("paprika", 2)],
     method: [
       "Rinse the beans: Rinse the kidney beans in a sieve under cold running water for about 30 seconds. Shake them dry and tip them into a large bowl.",
       "Make the filling: Mash the beans roughly with a fork, leaving some whole. Stir in the salsa, cumin and paprika until you have a thick, smoky-smelling mix you can spread.",
-      "Prepare the toppings: Grate the cheddar on the coarse side of the grater and slice the spring onions thinly.",
+      "Prepare the toppings: Grate the cheddar on the coarse side of the grater and slice the spring onions about 5 mm thick.",
       "Fill the wraps: Spread the bean mix almost to the edge of half the wraps. Scatter over the cheese and spring onions, top each with another wrap and press down firmly.",
       "Heat the pan: Heat a large non-stick frying pan, with nothing in it, over a medium heat for about 2 minutes, until hot.",
-      "Cook the first side: Lift one filled wrap into the pan with a fish slice. Cook for 2 to 3 minutes, pressing down gently, until golden and crisp underneath. Turn the heat down if it browns too fast.",
+      "Cook the first side: Lift one filled wrap into the pan with a fish slice. Cook for 2 to 3 minutes, pressing down gently, until golden with dark brown patches underneath. Turn the heat down if it browns too fast.",
       "Cook the second side: Turn it over, or slide it onto a plate and flip it back in. Cook for 2 to 3 minutes more, until golden and the cheese has melted. Cook the rest the same way.",
       "Serve: Leave each one for 1 minute, then cut it into wedges and serve with the salad leaves. The filling is very hot, so let it cool a little first.",
     ],
@@ -268,17 +281,20 @@ export const LUNCH: readonly Recipe[] = [
     ],
   },
   {
-    id: "chicken-mushroom-noodle-soup", meal: "lunch", tags: ["Soup"], name: "Chicken and mushroom noodle soup", blurb: "Chicken, mushrooms and noodles in a savoury stock.", servings: 2, minutes: 25,
+    id: "chicken-mushroom-noodle-soup", meal: "lunch", tags: ["Soup"], name: "Chicken and mushroom noodle soup", blurb: "Chicken, mushrooms and noodles in a savoury stock.", servings: 2, minutes: 30,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): shredded chicken, thick browned mushroom slices (minutes 25 -> 30); marinade (founder 21 Nov: "marinating ... makes a big difference"): soy, garlic.
     // the chicken cooks in the method's own 800 ml of stock: at most half as much again when fitted
     ingredients: [ing("chicken", 250, { fit: [0.5, 1.5] }), ing("mushrooms", 200), ing("noodles", 200, { subs: [] }), ing("stock-cube", 12), ing("soy", 20), ing("spring-onions", 30), ing("garlic", 5)],
     method: [
-      "Prepare the mushrooms: Wipe the mushrooms with damp kitchen paper and slice them thinly. Slice the spring onions thinly and set them aside for the end.",
+      "Prepare the mushrooms: Wipe the mushrooms with damp kitchen paper and slice them from top to stalk, about 6 mm thick. Slice the spring onions on a slant and set them aside.",
+      "Brown the mushrooms: Put a dry non-stick frying pan over a high heat. Fry the mushrooms in one layer for 5 to 6 minutes, turning once, until browned. Tip them onto a plate.",
       "Make the stock: Crumble the stock cubes into a large saucepan, pour in 800 ml of boiling water from the kettle and stir until they dissolve. Put the pan over a medium heat.",
-      "Slice the chicken: Cut the chicken across the fillet into thin strips, about as wide as your little finger.",
-      "Add the chicken: Add the chicken, mushrooms and garlic purée to the pan and stir so the strips don't stick together. Wash your hands, the knife and the board in hot soapy water.",
-      "Simmer: When the stock starts to bubble, turn the heat down low and simmer gently for 10 minutes, stirring now and then. Fast boiling makes the chicken tough.",
+      "Marinate the chicken: Cut each chicken fillet into 3 large pieces and toss them with half the soy sauce and the garlic purée. Leave them 10 minutes while the stock heats, or keep them covered in the fridge up to a few hours.",
+      "Add the chicken: Add the chicken to the pan. Wash your hands, the knife and the board in hot soapy water.",
+      "Simmer: When the stock starts to bubble, turn the heat down low and simmer gently for 12 to 14 minutes, stirring now and then. Fast boiling makes the chicken tough.",
       "Check the chicken: Cut into the thickest piece: it should be piping hot and white all the way through, with no pink left. If not, simmer for 2 minutes more.",
-      "Add the noodles: Add the noodles and soy sauce, pulling the noodles apart with a fork. Simmer for 2 to 3 minutes, until piping hot.",
+      "Shred the chicken: Lift the chicken onto a board and pull it into thin strands with two forks. Put it back in the pan.",
+      "Add the noodles: Add the noodles, the mushrooms and the rest of the soy sauce, pulling the noodles apart with a fork. Simmer for 2 to 3 minutes, until piping hot.",
       "Taste and serve: Taste and add a little more soy sauce if needed. Ladle into warm bowls and scatter the spring onions on top.",
     ],
   },

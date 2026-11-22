@@ -10,13 +10,15 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
     id: "salmon-pepper-chickpea-traybake", meal: "dinner", tags: ["Fish", "One pan", "Bake"], name: "Salmon, pepper and chickpea traybake", blurb: "Peppers, red onion, tomatoes and chickpeas roasted with paprika, with salmon fillets baked on top.", servings: 2, minutes: 35,
     // the chickpeas are the dish's starch, so a bigger or smaller meal moves them, not the salmon alone
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("chickpeas", 240, { role: "carb" }), ing("peppers", 240), ing("red-onion", 150), ing("cherry-tomatoes", 200), ing("olive-oil", 20), ing("paprika", 2), ing("cumin", 1), ing("garlic", 5), ing("lemon-juice", 15), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
+      "Marinate the salmon: Turn the salmon in a dish with the lemon juice, a pinch of the paprika, a teaspoon of the oil and a grind of black pepper. Cover it and put it in the fridge while the vegetables roast. Wash your hands after touching raw fish.",
       "Heat the oven: Heat the oven to 220°C (200°C fan, gas 7). Wash the peppers, cut them in half, pull out the seeds and white pith, then cut them into strips about 2 cm wide.",
-      "Get the rest ready: Peel the red onion, cut it in half and slice each half into thin wedges. Drain the chickpeas in a sieve, rinse them under the cold tap and pat them dry with kitchen paper, so they turn golden in the oven.",
-      "Mix the vegetables: Put the peppers, onion and chickpeas in a large roasting tin. Add the oil, paprika, cumin, garlic purée and a good grind of black pepper, and toss with a spoon until everything is coated.",
+      "Get the rest ready: Peel the red onion, cut it in half and slice each half into wedges. Halve the cherry tomatoes. Drain the chickpeas, rinse them under the cold tap and pat them dry with kitchen paper, so they turn golden in the oven.",
+      "Mix the vegetables: Put the peppers, onion and chickpeas in a large roasting tin. Add the rest of the oil and paprika, the cumin, garlic purée and a good grind of black pepper, and toss with a spoon until everything is coated.",
       "Roast the vegetables: Spread everything out in a single layer, using two tins if it is crowded. Roast for 20 minutes, until the peppers are soft and browned at the edges.",
-      "Add the tomatoes: Take the tin out of the oven, add the whole cherry tomatoes and stir everything round. Push the vegetables aside to make a space for each salmon fillet.",
-      "Add the salmon: Lay the salmon fillets in the spaces, skin side down, spoon the lemon juice over the fish and brush it with the oil from the tin. Wash your hands after handling raw fish.",
+      "Add the tomatoes: Take the tin out of the oven, add the tomatoes, cut side up, and stir everything round gently. Push the vegetables aside to make a space for each salmon fillet.",
+      "Add the salmon: Lay the salmon fillets in the spaces, skin side down, and spoon any lemony juices from the dish over them.",
       "Bake the salmon: Put the tin back in the oven for 10 to 12 minutes, until the salmon is opaque all the way through and flakes easily when pressed with a fork, the chickpeas are golden and the tomatoes have split.",
       "Serve: Share the vegetables, chickpeas and salmon between warm plates and spoon over any juices from the tin. Serve straight away.",
     ],
@@ -24,31 +26,34 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "bean-mushroom-bolognese", meal: "dinner", tags: ["Pasta", "Batch cook"], name: "Bean and mushroom bolognese", blurb: "Spaghetti with a rich tomato sauce of kidney beans, mushrooms, carrot and onion.", servings: 4, minutes: 40,
     ingredients: [ing("pasta-long", 300), ing("kidney-beans", 480), ing("mushrooms", 300), ing("carrots", 150), ing("onion", 150), ing("chopped-tomatoes", 800), ing("chopped-tomato-puree", 30), ing("olive-oil", 20), ing("garlic", 10, { note: "about 2 cloves" }), ing("oregano", 2), ing("salt", 2), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Get the vegetables ready: Peel and finely chop the onion. Peel the carrots and grate them on the coarse side of a grater. Wipe the mushrooms clean and chop them into small pieces, about 1 cm across.",
+      "Get the vegetables ready: Peel and finely chop the onion. Peel the carrots and grate them on the coarse side of a grater. Wipe the mushrooms clean and cut them into slices about 5 mm thick.",
       "Soften the vegetables: Heat the oil in a large saucepan on a medium heat. Add the onion and carrots and cook for 8 to 10 minutes, stirring now and then, until soft, sweet and starting to turn golden.",
       "Brown the mushrooms: Turn the heat up high, add the mushrooms and leave them for 2 minutes without stirring. Then fry for 4 to 5 minutes more, stirring now and then, until browned and their liquid has gone.",
-      "Add the flavours: Stir in the garlic purée, tomato purée and oregano and cook for 1 to 2 minutes, stirring all the time, until the tomato purée turns a darker brick red.",
+      "Add the flavours: Stir in the garlic purée, tomato purée and most of the oregano and cook for 1 to 2 minutes, stirring all the time, until the tomato purée turns a darker brick red.",
       "Get the beans ready: Drain the kidney beans in a sieve and rinse them under the cold tap. Put about a third of them in a bowl and mash them roughly with a fork, so they thicken the sauce.",
       "Simmer the sauce: Tip all the beans, the chopped tomatoes and the salt into the pan, stir well and bring to a bubble. Turn the heat down, part-cover the pan and simmer for 15 to 20 minutes, stirring now and then, until thick and rich.",
       "Cook the spaghetti: Meanwhile, bring a large pan of water to the boil. Add the spaghetti and boil for 10 to 12 minutes, or as the pack says, stirring now and then so it doesn't stick, until tender.",
       "Drain the spaghetti: Scoop out a mugful of the cooking water, then drain the spaghetti in a colander.",
       "Finish the sauce: Stir a good grind of black pepper into the sauce. If it is too thick, loosen it with a splash of the pasta water.",
-      "Serve: Share the spaghetti between warm bowls and spoon the sauce on top. Cool any sauce left over quickly, cover it and keep it in the fridge, then eat it within 2 days, reheated until piping hot.",
+      "Serve: Share the spaghetti between warm bowls, spoon the sauce on top and scatter over the rest of the oregano. Cool any sauce left over quickly, cover it and keep it in the fridge, then eat it within 2 days, reheated until piping hot.",
     ],
   },
   {
     id: "salmon-garlic-spinach-peas-rice", meal: "dinner", tags: ["Fish"], name: "Salmon with garlic spinach, peas and rice", blurb: "Pan-fried salmon on rice and peas, with garlicky spinach and warm cherry tomatoes.", servings: 2, minutes: 25,
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("rice", 150), ing("spinach", 200), ing("peas", 240), ing("cherry-tomatoes", 150), ing("garlic", 10, { note: "about 2 cloves" }), ing("olive-oil", 15), ing("lemon-juice", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water from the kettle and simmer for 10 to 12 minutes, or as the pack says, until tender.",
       "Get ready: While the rice cooks, cut the cherry tomatoes in half. Rinse the spinach unless the bag says it is ready washed and shake it dry.",
-      "Heat the pan: Pat the salmon skin dry with kitchen paper and sprinkle it with half the salt. Heat half the oil in a large non-stick frying pan on a medium-high heat until hot.",
-      "Fry the salmon: Lay the fillets in, skin side down, press them flat for 10 seconds and fry for 4 minutes without moving them, until the skin is crisp and golden. Wash your hands after handling raw fish.",
+      "Marinate the salmon: Pat the skin dry and sprinkle it with half the salt. Turn the fillets skin side up and spoon a teaspoon of the lemon juice and some black pepper over the flesh. If marinating longer than 30 minutes, cover and keep in the fridge.",
+      "Heat the pan: When the rice has been cooking for 5 minutes, heat half the oil in a large non-stick frying pan on a medium-high heat until hot.",
+      "Fry the salmon: Lay the fillets in, skin side down, press them flat for 10 seconds and fry for 4 minutes without moving them, until the skin is crisp and golden. Wash your hands after touching raw fish.",
       "Turn the salmon: Turn the fillets over and cook for 3 to 4 minutes more, until the fish is opaque all the way through and flakes easily. Lift them on to a plate and keep them warm.",
       "Add the peas: Tip the frozen peas into the rice for its last 3 minutes of cooking, then drain the rice and peas together in a sieve and put them back in the pan.",
       "Cook the spinach: Wipe out the frying pan, add the rest of the oil and put it on a medium heat. Stir in the garlic purée and cherry tomatoes for 1 minute, until the garlic smells sweet, then add the spinach and stir until wilted.",
-      "Add the lemon: Take the pan off the heat and stir in the lemon juice, the rest of the salt and a good grind of black pepper.",
+      "Add the lemon: Take the pan off the heat and stir in the rest of the lemon juice, the rest of the salt and a good grind of black pepper.",
       "Serve: Spoon the rice and peas on to warm plates, top with the spinach and tomatoes, and lay the salmon on top, crisp skin side up. Serve straight away.",
     ],
   },
@@ -70,9 +75,11 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
     id: "lemon-salmon-crushed-chickpeas", meal: "dinner", tags: ["Fish", "Bake"], name: "Lemon salmon with crushed chickpeas and broccoli", blurb: "Lemony baked salmon on warm chickpeas crushed with garlic and cumin, with broccoli.", servings: 2, minutes: 25,
     // the crushed chickpeas take the place of potatoes, so they are what a bigger or smaller meal moves
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("chickpeas", 240, { role: "carb" }), ing("broccoli", 200), ing("olive-oil", 20), ing("lemon-juice", 20), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6) and line a baking tray with baking paper. Boil the kettle.",
-      "Get the salmon ready: Lay the salmon fillets on the tray, skin side down, and brush them with a little of the oil. Spoon half the lemon juice over them and add a grind of black pepper. Wash your hands after handling raw fish.",
+      "Coat the salmon: Lay the salmon on the tray, skin side down, and coat it with a little of the oil, half the lemon juice and some black pepper. Wash your hands after touching raw fish.",
+      "Let it marinate: Leave the salmon while the oven heats (about 10 minutes). If marinating longer than 30 minutes, cover and keep in the fridge.",
       "Bake the salmon: Bake for 12 to 15 minutes, until the fish is opaque all the way through and flakes easily when pressed with a fork.",
       "Cook the broccoli: Meanwhile, cut the broccoli into small florets and slice the stalk thinly. Put it in a saucepan, cover with boiling water and simmer for 3 to 4 minutes, until bright green and just tender. No longer, or it goes dark and soft. Drain well.",
       "Fry the chickpeas: Drain the chickpeas, rinse them and pat them dry. Heat the rest of the oil in a frying pan on a medium-high heat and fry them for 4 to 5 minutes, stirring now and then, until golden in places.",
@@ -100,13 +107,15 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "salmon-broccoli-pea-stir-fry-rice", meal: "dinner", tags: ["Fish", "Quick"], name: "Salmon, broccoli and pea stir-fry with rice", blurb: "Salmon pieces stir-fried with broccoli, peas and vegetables in soy sauce, on rice.", servings: 2, minutes: 20,
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("broccoli", 200), ing("peas", 160), ing("stir-fry-veg", 150), ing("rice", 140), ing("soy", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("olive-oil", 10), ing("spring-onions", 50)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Cook the rice: Rinse the rice in a sieve under the cold tap. Put it in a saucepan of boiling water from the kettle and simmer for 10 to 12 minutes, or as the pack says, until tender. Drain well.",
-      "Get ready: Meanwhile, cut the broccoli into small florets. Trim the spring onions and slice them thinly. Pull the skin off the salmon and cut the fish into 3 cm chunks. Wash your hands after handling raw fish.",
-      "Fry the salmon: Heat the oil in a large non-stick frying pan or wok on a high heat until it shimmers. Add the salmon in one layer and fry for 3 to 4 minutes, turning gently once, until lightly golden and opaque. Lift it on to a plate.",
+      "Get ready: Meanwhile, cut the broccoli into small florets. Trim the spring onions and slice them on a slant, about 5 mm thick.",
+      "Marinate the salmon: Skin the salmon and cut it into 4 cm chunks. Toss with a third of the soy sauce and half the garlic purée, then wash your hands. Leave it while the rice cooks. If marinating longer than 30 minutes, cover and keep in the fridge.",
+      "Fry the salmon: Heat the oil in a large non-stick frying pan or wok on a high heat until it shimmers. Add the salmon in one layer and fry for 3 to 4 minutes, turning gently once, until golden and opaque. Lift it on to a plate.",
       "Fry the broccoli: Add the broccoli and a splash of water to the pan and stir-fry for 3 minutes, until bright green and starting to soften.",
-      "Add the vegetables: Add the stir-fry vegetables, peas and garlic purée and stir-fry on a high heat for 2 to 3 minutes, until the peas are hot and the vegetables are just tender but still crisp.",
-      "Add the soy sauce: Pour in the soy sauce with a splash of water and put the salmon back. Toss gently for 1 minute, until the vegetables are glossy and the salmon is hot and flakes easily when pressed.",
+      "Add the vegetables: Add the stir-fry vegetables, peas and the rest of the garlic purée and stir-fry on a high heat for 2 to 3 minutes, until the peas are hot and the vegetables are just tender but still crisp.",
+      "Add the soy sauce: Pour in the rest of the soy sauce with a splash of water and put the salmon back. Toss gently for 1 minute, until the vegetables are glossy and the salmon is hot and flakes easily when pressed.",
       "Add the spring onions: Scatter most of the spring onions over and toss everything together once more.",
       "Serve: Spoon the rice into warm bowls, top with the salmon and vegetables, and scatter the rest of the spring onions over the top.",
     ],
@@ -114,15 +123,16 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "spiced-bean-pepper-baked-eggs", meal: "dinner", tags: ["Eggs", "One pan"], name: "Spiced bean and pepper baked eggs", blurb: "Eggs cooked in a cumin-spiced bean, pepper and tomato sauce, with wholemeal toast to dip.", servings: 2, minutes: 30,
     ingredients: [ing("eggs", 240), ing("kidney-beans", 240), ing("peppers", 240), ing("onion", 150), ing("chopped-tomatoes", 400), ing("cumin", 2), ing("paprika", 2), ing("olive-oil", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("bread", 160), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Get ready: Peel and thinly slice the onion. Wash the peppers, cut them in half, pull out the seeds and white pith and cut them into thin strips. Drain the kidney beans in a sieve and rinse them.",
       "Soften the vegetables: Heat the oil in a large frying pan that has a lid on a medium heat. Add the onion and peppers and cook for 10 to 12 minutes, stirring now and then, until soft, sweet and golden at the edges.",
-      "Add the spices: Stir in the garlic purée, cumin and paprika and cook for 30 seconds to 1 minute, stirring all the time, until they smell warm and toasty. Don't let them burn.",
+      "Add the spices: Stir in the garlic purée, cumin and most of the paprika and cook for 30 seconds to 1 minute, stirring all the time, until they smell warm and toasty. Don't let them burn.",
       "Simmer the sauce: Add the chopped tomatoes, beans and a good grind of black pepper, stir well and bring to a bubble. Turn the heat down and simmer for 8 to 10 minutes, stirring now and then, until thick enough to hold a hollow.",
       "Add the eggs: Make a hollow in the sauce with the back of a spoon for each egg. Crack the eggs one at a time into a cup and slide each into a hollow. Wash your hands after handling raw eggs.",
       "Cook the eggs: Cover the pan with the lid and cook on a low heat for 6 to 8 minutes, until the whites are completely set with no runny white left. Cook a little longer for firmer yolks.",
       "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
-      "Serve: Spoon the beans and eggs on to warm plates, keeping the eggs whole, and serve with the toast to dip.",
+      "Serve: Dust the eggs with the rest of the paprika. Spoon the beans and eggs on to warm plates, keeping the eggs whole, and serve with the toast to dip.",
     ],
   },
   {
@@ -144,13 +154,15 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
     id: "tuna-bean-tomato-spaghetti", meal: "dinner", tags: ["Pasta", "Quick", "Fish"], name: "Tuna, bean and tomato spaghetti", blurb: "Spaghetti in a quick tomato and oregano sauce with tuna and kidney beans.", servings: 2, minutes: 20,
     // the tuna is the dish's protein; the beans stay as written so the sauce keeps its thickness
     ingredients: [ing("pasta-long", 160), ing("tuna", 160), ing("kidney-beans", 240, { role: "other" }), ing("chopped-tomatoes", 400), ing("onion", 75, { note: "about half an onion" }), ing("garlic", 5, { note: "about 1 clove" }), ing("olive-oil", 10), ing("oregano", 1), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
-      "Boil the water: Fill a large saucepan with hot water from the kettle and bring it back to the boil on a high heat. Peel and finely chop the onion.",
+      "Boil the water: Fill a large saucepan with hot water from the kettle and bring it back to the boil on a high heat. Peel the onion and chop it into pieces about 1 cm across.",
       "Cook the spaghetti: Add the spaghetti and boil for 10 to 12 minutes, or as the pack says, stirring now and then so it doesn't stick, until tender.",
-      "Soften the onion: Meanwhile, heat the oil in a large frying pan on a medium heat. Add the onion and cook for 6 to 8 minutes, stirring now and then, until soft and sweet.",
-      "Add the garlic: Stir in the garlic purée and oregano and cook for 30 seconds, until fragrant, stirring all the time so the garlic doesn't burn.",
+      "Marinate the tuna: Drain the tuna and break it into large flakes. Toss it gently with a teaspoon of the oil, half the oregano and a grind of black pepper, and leave it while the sauce cooks.",
+      "Soften the onion: Meanwhile, heat the rest of the oil in a large frying pan on a medium heat. Add the onion and cook for 6 to 8 minutes, stirring now and then, until soft and sweet.",
+      "Add the garlic: Stir in the garlic purée and the rest of the oregano and cook for 30 seconds, until fragrant, stirring all the time so the garlic doesn't burn.",
       "Simmer the sauce: Drain the kidney beans in a sieve and rinse them. Add them to the pan with the chopped tomatoes and the salt, bring to a bubble and simmer for 8 minutes, stirring now and then, until thick.",
-      "Add the tuna: Drain the tuna, add it to the sauce in large flakes and stir gently for 1 to 2 minutes, until hot.",
+      "Add the tuna: Add the tuna to the sauce and stir gently for 1 to 2 minutes, until hot.",
       "Drain the spaghetti: Scoop out a mugful of the cooking water, then drain the spaghetti in a colander.",
       "Mix and serve: Toss the spaghetti through the sauce with a good grind of black pepper, loosening it with a splash of the pasta water until glossy. Serve straight away in warm bowls.",
     ],
@@ -158,12 +170,14 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "salmon-broccoli-fishcakes-salad", meal: "dinner", tags: ["Fish"], name: "Salmon and broccoli fishcakes with peas and salad", blurb: "Fishcakes of salmon, potato, broccoli and spring onion, fried golden, with peas and salad leaves.", servings: 2, minutes: 35,
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("new-potatoes", 400), ing("broccoli", 120), ing("spring-onions", 30), ing("lemon-juice", 10), ing("olive-oil", 15), ing("salad-leaves", 60), ing("peas", 160), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6) and line a baking tray with baking paper.",
-      "Bake the salmon: Lay the salmon fillets on the tray and bake for 12 to 15 minutes, until the fish is opaque all the way through and flakes easily. Wash your hands after handling raw fish.",
+      "Marinate the salmon: Lay the salmon fillets on the tray, spoon half the lemon juice over and add a grind of black pepper. Leave them while the oven heats. If marinating longer than 30 minutes, cover and keep in the fridge. Wash your hands after touching raw fish.",
+      "Bake the salmon: Bake for 12 to 15 minutes, until the fish is opaque all the way through and flakes easily.",
       "Cook the broccoli: Meanwhile, chop the broccoli into very small pieces. Boil it in a saucepan of water for 3 minutes, until tender, then drain it well in a sieve.",
       "Mash the potatoes: Drain the potatoes, put them in a large bowl and mash them with a fork or masher until fairly smooth. Trim the spring onions and slice them thinly.",
-      "Mix the fishcakes: Flake the salmon into the bowl, leaving the skin behind. Add the broccoli, spring onions, lemon juice, the salt and a good grind of black pepper, and mix gently.",
+      "Mix the fishcakes: Flake the salmon into the bowl, leaving the skin behind. Add the broccoli, spring onions, the rest of the lemon juice, the salt and a good grind of black pepper, and mix gently.",
       "Shape the fishcakes: With wet hands, shape the mixture into flat cakes about 8 cm across and 2 cm thick, pressing them firmly. Chill them for 10 minutes if you can, so they hold together in the pan.",
       "Fry the fishcakes: Heat the oil in a large non-stick frying pan on a medium heat until it shimmers. Fry the fishcakes for 4 to 5 minutes without moving them, until a golden crust forms underneath.",
       "Turn the fishcakes: Turn them carefully with a fish slice and fry for 4 to 5 minutes more, until golden and piping hot in the middle.",
@@ -174,14 +188,16 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "spiced-chickpea-vegetable-rice-almonds", meal: "dinner", tags: ["One pan", "Vegan"], name: "Spiced chickpea and vegetable rice with almonds", blurb: "One-pan spiced rice with chickpeas, carrots and peas, topped with toasted almonds.", servings: 2, minutes: 30,
     ingredients: [ing("rice", 150), ing("chickpeas", 240), ing("carrots", 150), ing("peas", 120), ing("onion", 150), ing("cumin", 2), ing("turmeric", 1), ing("almonds", 30), ing("olive-oil", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Get ready: Peel and finely chop the onion. Peel the carrots and cut them into small cubes, about 1 cm. Drain the chickpeas in a sieve and rinse them. Rinse the rice in a sieve until the water runs clear. Boil the kettle.",
-      "Toast the almonds: Roughly chop the almonds. Toast them in a large dry saucepan that has a lid on a medium heat for 2 to 3 minutes, shaking the pan, until golden and smelling nutty. Tip them on to a plate.",
-      "Soften the vegetables: Heat the oil in the same pan on a medium heat. Add the onion and carrots and cook for 8 to 10 minutes, stirring now and then, until soft and the onion is golden.",
-      "Add the spices: Stir in the cumin and turmeric for 30 seconds, until fragrant, then add the rice and stir for 1 minute, until every grain is coated and golden yellow.",
-      "Add the water: Pour in 350 ml of boiling water from the kettle and add the chickpeas and the salt. Stir once and bring to a bubble, then put the lid on and turn the heat down low.",
+      "Get ready: Peel and finely chop the onion. Peel the carrots and cut them into small cubes, about 1 cm. Drain the chickpeas, rinse them and pat them dry. Rinse the rice in a sieve until the water runs clear. Boil the kettle.",
+      "Toast the almonds: Cut the almonds into thin slices. Toast them in a large dry saucepan that has a lid on a medium heat for 2 to 3 minutes, shaking the pan, until golden and smelling nutty. Tip them on to a plate.",
+      "Brown the chickpeas: Heat a third of the oil in the same pan on a medium-high heat. Add the chickpeas and half the cumin and fry for 4 to 5 minutes, shaking the pan, until golden and coated. Tip them on to the plate.",
+      "Soften the vegetables: Heat the rest of the oil in the pan on a medium heat. Add the onion and carrots and cook for 8 to 10 minutes, stirring now and then, until soft and the onion is golden.",
+      "Add the spices: Stir in the rest of the cumin and the turmeric for 30 seconds, until fragrant, then add the rice and stir for 1 minute, until every grain is coated and golden yellow.",
+      "Add the water: Pour in 350 ml of boiling water from the kettle and add the salt. Stir once and bring to a bubble, then put the lid on and turn the heat down low.",
       "Cook the rice: Cook gently for 12 minutes without lifting the lid, until the rice has taken up nearly all the water.",
-      "Add the peas: Scatter the frozen peas over the rice, put the lid back on and turn off the heat. Leave it for 5 minutes, until the peas are hot and the rice is tender.",
+      "Add the peas: Scatter the frozen peas and the chickpeas over the rice, put the lid back on and turn off the heat. Leave it for 5 minutes, until the peas are hot and the rice is tender.",
       "Serve: Fluff the rice up with a fork, stir in a good grind of black pepper and spoon it into warm bowls. Scatter the toasted almonds over the top.",
     ],
   },
@@ -189,13 +205,15 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
     id: "salmon-tomato-chickpeas-spinach", meal: "dinner", tags: ["Fish", "Bake"], name: "Salmon baked in tomatoes with chickpeas and spinach", blurb: "Salmon fillets baked on a garlic tomato sauce with chickpeas and spinach, with crispy new potatoes.", servings: 2, minutes: 35,
     // the chickpeas are part of the sauce, so they stay as written; the salmon and potatoes move for a bigger or smaller meal
     ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("chopped-tomatoes", 400), ing("spinach", 120), ing("chickpeas", 240, { role: "other" }), ing("new-potatoes", 300), ing("garlic", 5, { note: "about 1 clove" }), ing("oregano", 1), ing("olive-oil", 15), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"; marinated, "marinating ... makes a big difference").
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Drain the potatoes, pat them dry with kitchen paper and cut them in half.",
+      "Marinate the salmon: Rub the salmon with a teaspoon of the oil, a pinch of the oregano and a grind of black pepper. Leave it while you make the sauce. If marinating longer than 30 minutes, cover and keep in the fridge. Wash your hands.",
       "Roast the potatoes: Toss the potatoes on a baking tray with half the oil and a grind of black pepper, then turn them cut side down, spaced apart. Roast on the top shelf for 25 to 30 minutes, turning them once, until golden and crisp.",
-      "Start the sauce: Meanwhile, heat the rest of the oil in a frying pan on a medium heat. Stir in the garlic purée and oregano for 30 seconds, until fragrant, then add the chopped tomatoes.",
+      "Start the sauce: Meanwhile, heat the rest of the oil in a frying pan on a medium heat. Stir in the garlic purée and the rest of the oregano for 30 seconds, until fragrant, then add the chopped tomatoes.",
       "Add the chickpeas: Drain the chickpeas in a sieve, rinse them and stir them into the tomatoes. Simmer for 8 minutes, stirring now and then, until the sauce is thick.",
       "Wilt the spinach: Stir in the spinach a handful at a time for 1 to 2 minutes, until wilted. Tip everything into an ovenproof dish and spread it out.",
-      "Add the salmon: Lay the salmon fillets on top of the sauce, skin side down, and add a grind of black pepper. Wash your hands after handling raw fish.",
+      "Add the salmon: Lay the salmon fillets on top of the sauce, skin side down.",
       "Bake the salmon: Put the dish in the oven beside the potatoes for 15 minutes, until the salmon is opaque all the way through and flakes easily, and the sauce is bubbling.",
       "Serve: Spoon the sauce and salmon on to warm plates, with the crispy potatoes beside them. Serve straight away.",
     ],
@@ -227,20 +245,21 @@ export const LONGEVITY_DINNERS: readonly Recipe[] = [
   {
     id: "spiced-bean-dip-vegetable-sticks", meal: "snack", tags: ["Quick", "No cook", "Vegan"], name: "Spiced bean dip with vegetable sticks", blurb: "A smooth kidney bean dip with lemon, cumin and garlic, with carrot and cucumber sticks.", servings: 4, minutes: 10,
     ingredients: [ing("kidney-beans", 240), ing("lemon-juice", 15), ing("olive-oil", 10), ing("cumin", 1), ing("garlic", 5, { note: "about 1 clove" }), ing("carrots", 200), ing("cucumber", 200), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Drain the beans: Tip the kidney beans into a sieve, rinse them under the cold tap and shake them well to get rid of the water.",
-      "Make the dip: Put the beans, lemon juice, oil, cumin, garlic purée and a grind of black pepper in a food processor or a bowl. Blend, or mash hard with a fork, until fairly smooth, adding a splash of cold water if it is too thick.",
+      "Make the dip: Put the beans, lemon juice, oil, most of the cumin, the garlic purée and a grind of black pepper in a food processor or bowl. Blend, or mash hard with a fork, until fairly smooth, adding a splash of cold water if too thick.",
       "Let it stand: Taste the dip: it should be lemony, garlicky and warm with cumin. Leave it for 5 minutes, so the flavours come together.",
       "Cut the vegetable sticks: Peel the carrots and cut them into sticks about the length of a finger. Wash the cucumber, cut it in half across, then cut each half into long sticks.",
-      "Serve: Spoon the dip into a small bowl and serve it with the carrot and cucumber sticks around it. Keep any dip left over covered in the fridge and eat it within 2 days.",
+      "Serve: Spoon the dip into a small bowl, swirl the top with a spoon and dust it with the rest of the cumin. Put the carrot and cucumber sticks around it. Keep any dip left over covered in the fridge and eat it within 2 days.",
     ],
   },
 ];
 
 // How each looks from directly above, for its picture (docs/RECIPE_IMAGE_PROMPTS.md): one portion, only the recipe's own foods, served as the method says.
 export const LONGEVITY_DINNERS_LOOKS: Readonly<Record<string, string>> = {
-  "salmon-pepper-chickpea-traybake": "A round white plate with a roasted salmon fillet on a heap of soft red and yellow pepper strips, red onion wedges, golden roasted chickpeas and split cherry tomatoes, all glossy with oil and dusted with red paprika.",
-  "bean-mushroom-bolognese": "A wide white bowl of spaghetti topped with a thick, rich red tomato sauce full of dark red kidney beans, small pieces of brown mushroom and orange flecks of grated carrot, with specks of dried oregano and black pepper.",
+  "salmon-pepper-chickpea-traybake": "A round white plate with a roasted salmon fillet dusted with red paprika on a heap of soft red and yellow pepper strips, red onion wedges, golden roasted chickpeas and halved roasted cherry tomatoes, all glossy with oil.",
+  "bean-mushroom-bolognese": "A wide white bowl of spaghetti topped with a thick, rich red tomato sauce full of dark red kidney beans, sliced brown mushrooms and orange flecks of grated carrot, with specks of dried oregano and black pepper.",
   "salmon-garlic-spinach-peas-rice": "A round white plate with a bed of white rice studded with bright green peas, a heap of dark green wilted spinach with halved red cherry tomatoes, and a pan-fried salmon fillet with crisp golden skin on top.",
   "chickpea-spinach-tomato-pasta": "A wide white bowl of pasta shapes in a glossy red tomato sauce with plump golden chickpeas and soft ribbons of dark green wilted spinach, flecked with black pepper.",
   "lemon-salmon-crushed-chickpeas": "A round white plate with a baked salmon fillet, its pink flesh just flaking, on a mound of roughly crushed golden chickpeas glossy with oil, beside a pile of bright green broccoli florets.",
@@ -250,7 +269,7 @@ export const LONGEVITY_DINNERS_LOOKS: Readonly<Record<string, string>> = {
   "vegetable-chickpea-balti": "A wide white bowl with fluffy white rice on one side and a thick red-brown balti curry on the other, full of chickpeas, chunks of red pepper, mushroom quarters and wilted dark green spinach.",
   "tuna-bean-tomato-spaghetti": "A wide white bowl of spaghetti tossed in a red tomato sauce with pale pink flakes of tuna, dark red kidney beans and soft chopped onion, flecked with dried oregano and black pepper.",
   "salmon-broccoli-fishcakes-salad": "A round white plate with two golden pan-fried salmon fishcakes flecked with green broccoli and spring onion, a heap of bright green peas and a small pile of mixed salad leaves.",
-  "spiced-chickpea-vegetable-rice-almonds": "A wide white bowl of golden yellow spiced rice with chickpeas, small orange carrot cubes and bright green peas, scattered with toasted chopped almonds and a few flecks of black pepper.",
+  "spiced-chickpea-vegetable-rice-almonds": "A wide white bowl of golden yellow spiced rice with golden-brown spice-coated chickpeas, small orange carrot cubes and bright green peas, scattered with toasted sliced almonds and a few flecks of black pepper.",
   "salmon-tomato-chickpeas-spinach": "A round white plate with a baked salmon fillet on a thick red tomato sauce with chickpeas and dark green wilted spinach, beside a few golden, crispy roasted new potatoes.",
   "bean-vegetable-stew-toast": "A wide white bowl of thick red bean stew with kidney beans, chickpeas, orange carrot rounds, red pepper chunks and dark green spinach, with two slices of golden wholemeal toast on the side.",
   "apple-almond-yogurt-pot": "A small white bowl of thick white yogurt topped with small chunks of red-skinned apple and roughly chopped almonds, finished with a fine dusting of brown cinnamon.",

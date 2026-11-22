@@ -12,27 +12,29 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   // ---- breakfasts
   {
     id: "crushed-chickpeas-tomatoes-toast", meal: "breakfast", tags: ["Vegan", "Quick", "Savoury"], name: "Crushed chickpeas and tomatoes on toast", blurb: "Warm chickpeas crushed with garlic, lemon and cumin, with soft cherry tomatoes and spinach on wholemeal toast.", servings: 2, minutes: 15,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): the tomato halves keep their shape on top, most chickpeas stay whole, and a little oil is drizzled over, as in the photo
     ingredients: [ing("bread", 160), ing("chickpeas", 240, { role: "protein" }), ing("cherry-tomatoes", 200), ing("spinach", 60), ing("olive-oil", 15), ing("garlic", 5), ing("lemon-juice", 10), ing("cumin", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Drain the chickpeas in a sieve, rinse them under the cold tap and pat them dry with kitchen paper. Cut the cherry tomatoes in half. Rinse the spinach unless the bag says it is ready washed.",
-      "Soften the tomatoes: Heat half the oil in a large frying pan on a medium heat. Add the tomatoes, cut side down, and cook for 3 to 4 minutes, until soft and starting to brown.",
-      "Brown the chickpeas: Push the tomatoes to one side and turn the heat up to medium-high. Add the rest of the oil and the chickpeas and fry for 4 to 5 minutes, stirring now and then, until golden. Stir in the garlic and cumin for 30 seconds.",
-      "Crush the chickpeas: Take the pan off the heat and crush the chickpeas roughly with a fork, leaving some whole. Stir in the lemon juice and a good grind of black pepper.",
+      "Warm the tomatoes: Heat a little of the oil in a large frying pan on a medium heat. Add the tomatoes, cut side down, and warm them for 1 to 2 minutes, until warm but still holding their shape. Lift them onto a plate.",
+      "Brown the chickpeas: Turn the heat up to medium-high. Add the chickpeas with all but a teaspoon of the remaining oil and fry for 4 to 5 minutes, stirring now and then, until golden. Stir in the garlic and cumin for 30 seconds.",
+      "Crush a few: Take the pan off the heat and crush a few of the chickpeas with a fork, leaving most whole. Stir in the lemon juice and a good grind of black pepper.",
       "Wilt the spinach: Put the pan back on a low heat, add the spinach and stir for 1 minute, until soft and dark green.",
       "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
-      "Serve: Put the toast on warm plates and pile the chickpeas, tomatoes and spinach on top, with any juices from the pan. Eat straight away.",
+      "Serve: Put the toast on warm plates and pile the chickpeas and spinach on top. Sit the tomatoes on top, cut side up, and drizzle over the last of the oil. Eat straight away.",
     ],
   },
   {
     id: "berry-almond-porridge", meal: "breakfast", tags: ["Vegan", "Porridge", "Quick", "Sweet"], name: "Berry and almond porridge", blurb: "Creamy oats cooked in oat drink with cinnamon, topped with warm berries and chopped almonds.", servings: 2, minutes: 10,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): cinnamon dusted over the top, berries heaped in the middle
     ingredients: [ing("oats", 100), ing("oat-drink", 400, { follows: "oats" }), ing("berries", 160), ing("almonds", 30), ing("cinnamon", 1)],
     method: [
       "Chop the almonds: Roughly chop the almonds on a board with a large knife and keep them to one side.",
-      "Mix the porridge: Put the oats, oat drink and cinnamon into a medium saucepan and stir well, so no dry oats are left at the bottom.",
+      "Mix the porridge: Put the oats, oat drink and half the cinnamon into a medium saucepan and stir well, so no dry oats are left at the bottom.",
       "Bring to a bubble: Put the pan on a medium heat and stir often, scraping the bottom so nothing sticks. After 2 to 3 minutes it will start to bubble gently.",
       "Cook until creamy: Turn the heat down a little and keep stirring for 3 to 4 minutes, until thick and creamy. Stir in a splash of hot water if it gets too thick.",
       "Warm the berries: Meanwhile, put the berries in a small saucepan on a low heat for 3 to 4 minutes, stirring now and then, until soft and juicy. Frozen ones take a minute or two longer.",
-      "Serve: Spoon the porridge into bowls, top with the warm berries and their juice, and scatter the almonds over. Eat it straight away, while it is hot.",
+      "Serve: Spoon the porridge into bowls and dust the rest of the cinnamon over the top. Heap the warm berries and their juice in the middle and scatter the almonds over. Eat it straight away, while it is hot.",
     ],
   },
   {
@@ -49,9 +51,10 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "smoky-tomato-beans-toast", meal: "breakfast", tags: ["Vegan", "Quick", "Savoury"], name: "Tomato and paprika beans on toast", blurb: "Kidney beans simmered in chopped tomatoes with onion and paprika, spooned over wholemeal toast.", servings: 2, minutes: 15,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): the onion is in 1 cm squares in the photo
     ingredients: [ing("kidney-beans", 240), ing("chopped-tomatoes", 200), ing("onion", 75), ing("olive-oil", 10), ing("paprika", 2), ing("garlic", 5), ing("bread", 160), ing("black-pepper", 1)],
     method: [
-      "Get ready: Peel and finely chop the onion. Drain the beans in a sieve and rinse them under the cold tap.",
+      "Get ready: Peel the onion and chop it into small squares, about 1 cm. Drain the beans in a sieve and rinse them under the cold tap.",
       "Soften the onion: Heat the oil in a medium saucepan on a medium heat. Add the onion and cook for 4 to 5 minutes, stirring now and then, until soft and see-through.",
       "Add the spices: Stir in the garlic and paprika and cook for 30 seconds, stirring all the time so they don't burn.",
       "Simmer the beans: Add the chopped tomatoes and the beans and stir well. Bring to a bubble, then turn the heat down and simmer for 5 minutes, stirring now and then, until thick and piping hot.",
@@ -72,24 +75,26 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "carrot-raisin-porridge", meal: "breakfast", tags: ["Porridge", "Sweet"], name: "Carrot and raisin porridge with almonds", blurb: "Oats cooked in milk with grated carrot, raisins and cinnamon, like a carrot cake, with chopped almonds on top.", servings: 2, minutes: 12,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): raisins and cinnamon scattered over the top too
     ingredients: [ing("oats", 100), ing("milk", 400, { follows: "oats" }), ing("carrots", 150), ing("raisins", 30), ing("cinnamon", 1), ing("almonds", 20)],
     method: [
       "Grate the carrots: Peel the carrots, trim the ends and grate them on the fine side of a grater. Roughly chop the almonds on a board with a large knife.",
-      "Mix the porridge: Put the oats, milk, carrots, raisins and cinnamon into a medium saucepan and stir well, so no dry oats are left at the bottom.",
+      "Mix the porridge: Put the oats, milk, carrots, most of the raisins and half the cinnamon into a medium saucepan and stir well, so no dry oats are left at the bottom.",
       "Bring to a bubble: Put the pan on a medium heat and stir often, scraping the bottom so nothing sticks. After 2 to 3 minutes it will start to bubble gently.",
       "Cook until creamy: Turn the heat down a little and keep stirring for 5 to 6 minutes, until thick and creamy and the carrot is soft. Stir in a splash of hot water if it gets too thick.",
-      "Serve: Spoon the porridge into bowls and scatter the almonds over. Eat it straight away, while it is hot.",
+      "Serve: Spoon the porridge into bowls and scatter the almonds and the rest of the raisins over. Dust the rest of the cinnamon over the middle and eat it straight away, while it is hot.",
     ],
   },
   {
     id: "peanut-butter-banana-oat-smoothie", meal: "breakfast", tags: ["Vegan", "Quick", "No cook"], name: "Peanut butter, banana and oat smoothie", blurb: "A thick, cold smoothie of banana, oats and peanut butter blended with oat drink and cinnamon.", servings: 1, minutes: 5,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): cinnamon dusted over the top
     ingredients: [ing("oat-drink", 300), ing("banana", 120), ing("oats", 50), ing("peanut-butter", 25), ing("cinnamon", 1)],
     method: [
       "Get the banana ready: Peel the banana and break it into 3 or 4 pieces. A banana kept in the freezer, peeled and sliced, makes the smoothie thicker and colder.",
-      "Fill the blender: Put the oats in the blender first, then the banana, peanut butter and cinnamon, and pour the oat drink over the top.",
+      "Fill the blender: Put the oats in the blender first, then the banana, peanut butter and half the cinnamon, and pour the oat drink over the top.",
       "Blend: Put the lid on firmly and blend for 1 to 2 minutes, until completely smooth, with no lumps of banana or whole oats left.",
       "Check how thick it is: If it is too thick to pour, add a splash of water and blend for a few seconds more.",
-      "Serve: Pour into a glass and drink straight away, or cover it and keep it in the fridge to drink the same day. Stir it before drinking.",
+      "Serve: Pour into a glass and dust the rest of the cinnamon over the top. Drink it straight away, or cover it and keep it in the fridge to drink the same day, stirring before drinking.",
     ],
   },
   {
@@ -121,11 +126,13 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   {
     id: "salmon-chickpea-lemon-salad", meal: "lunch", tags: ["Fish", "Salad"], name: "Salmon and chickpea salad with lemon", blurb: "Baked salmon flaked over chickpeas, cucumber, cherry tomatoes and salad leaves, with a lemon and olive oil dressing.", servings: 2, minutes: 25,
     // 2026-11-21: no salt added (a pinch took it over the Longevity salt line at Morrisons); the pepper goes on the salmon before it bakes
+    // 2026-11-22 (founder 21 Nov: "marinating ... makes a big difference"): the salmon sits in oil, lemon and pepper while the oven heats
     ingredients: [ing("salmon", 240), ing("chickpeas", 240, { role: "carb" }), ing("cucumber", 150), ing("cherry-tomatoes", 200), ing("salad-leaves", 60), ing("olive-oil", 20), ing("lemon-juice", 20), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a small baking tray with foil or baking paper.",
-      "Bake the salmon: Lay the salmon on the tray skin side down, brush it with a little of the oil and sprinkle over half the black pepper. Bake for 12 to 15 minutes, until the fish is opaque and flakes easily. Wash your hands after handling raw fish.",
-      "Make the dressing: Meanwhile, whisk the rest of the oil with the lemon juice and the rest of the black pepper in a small bowl.",
+      "Marinate the salmon: Rub it with a little oil, a quarter of the lemon juice and half the black pepper. Leave it while the oven heats (10 minutes), or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
+      "Bake the salmon: Lay the salmon on the tray skin side down and bake for 12 to 15 minutes, until the fish is opaque and flakes easily. Wash your hands after handling raw fish.",
+      "Make the dressing: Meanwhile, whisk the rest of the oil and lemon juice with the rest of the black pepper in a small bowl.",
       "Get the salad ready: Drain the chickpeas in a sieve and rinse them under the cold tap. Cut the cucumber into small chunks and the cherry tomatoes in half. Rinse the leaves unless the bag says they are ready washed.",
       "Mix the salad: Put the chickpeas, cucumber and tomatoes in a large bowl, pour over most of the dressing and toss gently.",
       "Flake the salmon: Leave the salmon to cool for 2 to 3 minutes, then lift it off its skin with a fish slice and break it into large flakes with a fork.",
@@ -134,13 +141,14 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "egg-chickpea-spinach-salad", meal: "lunch", tags: ["Eggs", "Salad", "Quick"], name: "Egg, chickpea and spinach salad", blurb: "Boiled eggs on spinach with chickpeas, cherry tomatoes and red onion in a lemon and cumin dressing.", servings: 2, minutes: 20,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): the eggs are halved in the photo
     ingredients: [ing("eggs", 180), ing("chickpeas", 240, { role: "carb" }), ing("spinach", 100), ing("cherry-tomatoes", 160), ing("red-onion", 40), ing("olive-oil", 15), ing("lemon-juice", 15), ing("cumin", 1), ing("black-pepper", 1)],
     method: [
       "Boil the water: Half-fill a saucepan with hot water from the kettle and bring it to a gentle boil on a medium-high heat.",
       "Cook the eggs: Lower the eggs in gently one at a time on a spoon. Boil them for 9 minutes, until the whites and yolks are firm and set. Wash your hands after handling raw eggs.",
       "Make the dressing: Meanwhile, whisk the oil, lemon juice, cumin and a good grind of black pepper together in a large bowl.",
       "Get the salad ready: Peel the red onion and slice it very thinly. Cut the cherry tomatoes in half. Drain the chickpeas in a sieve and rinse them. Rinse the spinach unless the bag says it is ready washed.",
-      "Peel the eggs: Lift the eggs into a bowl of cold water for 2 minutes, until cool enough to handle. Tap them all over, peel off the shells and cut each egg into quarters.",
+      "Peel the eggs: Lift the eggs into a bowl of cold water for 2 minutes, until cool enough to handle. Tap them all over, peel off the shells and cut each egg in half lengthways.",
       "Mix the salad: Add the chickpeas, tomatoes, onion and spinach to the dressing in the bowl and toss gently until everything is coated.",
       "Serve: Pile the salad on to plates and put the eggs on top. Eat straight away, or keep it covered in the fridge and eat it the same day.",
     ],
@@ -160,9 +168,10 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "bean-vegetable-chilli-soup", meal: "lunch", tags: ["Soup", "Vegan", "Batch cook"], name: "Bean and vegetable chilli soup with toast", blurb: "A chunky soup of kidney beans, peppers, carrots and tomatoes with cumin and chilli, with wholemeal toast.", servings: 4, minutes: 35,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): onion and pepper in squares, as in the photo
     ingredients: [ing("kidney-beans", 480), ing("peppers", 240), ing("onion", 150), ing("carrots", 150), ing("chopped-tomatoes", 800), ing("olive-oil", 15), ing("cumin", 3), ing("chilli-powder", 2), ing("paprika", 3), ing("garlic", 10), ing("black-pepper", 1), ing("bread", 320)],
     method: [
-      "Get ready: Peel and finely chop the onion. Peel the carrots and cut them into small cubes. Cut the peppers in half, pull out the stalks and seeds, and chop them. Drain the beans in a sieve and rinse them.",
+      "Get ready: Peel the onion and chop it into small squares, about 1 cm. Peel the carrots and cut them into small cubes. Seed the peppers and chop them into squares about 1.5 cm. Drain the beans and rinse them.",
       "Soften the vegetables: Heat the oil in a large saucepan on a medium heat. Add the onion, carrots and peppers and cook for 8 minutes, stirring now and then, until the onion is soft.",
       "Add the spices: Stir in the garlic, cumin, chilli powder and paprika and cook for 1 minute, stirring all the time so they don't burn.",
       "Simmer the soup: Add the chopped tomatoes, the beans and 500 ml of hot water from the kettle. Bring to the boil, then turn the heat down, cover and simmer for 15 minutes, until the carrots are soft.",
@@ -201,6 +210,7 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
   },
   {
     id: "smashed-chickpea-carrot-sandwiches", meal: "lunch", tags: ["Vegan", "Quick", "No cook"], name: "Smashed chickpea and carrot sandwiches", blurb: "Wholemeal sandwiches of chickpeas mashed with lemon and cumin, with grated carrot and spinach.", servings: 2, minutes: 10,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): cut corner to corner, as in the photo
     ingredients: [ing("bread", 160), ing("chickpeas", 240, { role: "protein" }), ing("carrots", 150), ing("spinach", 40), ing("olive-oil", 15), ing("lemon-juice", 15), ing("cumin", 1), ing("black-pepper", 1)],
     method: [
       "Drain the chickpeas: Drain the chickpeas in a sieve, rinse them under the cold tap and shake them dry.",
@@ -208,26 +218,28 @@ export const LONGEVITY_MORNING: readonly Recipe[] = [
       "Grate the carrots: Peel the carrots, trim the ends and grate them on the coarse side of a grater.",
       "Get the spinach ready: Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
       "Fill the sandwiches: Lay half the bread on a board. Spread the chickpea mash over it, right to the edges, then add the carrot and spinach. Put the rest of the bread on top and press down gently.",
-      "Serve: Cut each sandwich in half and eat straight away, or cover them and keep them in the fridge to eat the same day.",
+      "Serve: Cut each sandwich in half corner to corner and eat straight away, or cover them and keep them in the fridge to eat the same day.",
     ],
   },
   {
     id: "salmon-cucumber-soft-cheese-sandwiches", meal: "lunch", tags: ["Fish", "Quick"], name: "Salmon and cucumber sandwiches", blurb: "Baked salmon mixed with soft cheese and lemon in wholemeal sandwiches with sliced cucumber.", servings: 2, minutes: 20,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): the salmon sits in lemon and pepper while the oven heats; cut corner to corner, as in the photo
     ingredients: [ing("salmon", 200), ing("bread", 160), ing("soft-cheese", 50), ing("cucumber", 160), ing("lemon-juice", 10), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a small baking tray with baking paper.",
+      "Marinate the salmon: Rub the salmon with half the lemon juice and half the black pepper. Leave it while the oven heats (10 minutes), or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Bake the salmon: Lay the salmon on the tray skin side down and bake for 12 to 15 minutes, until the fish is opaque all the way through and flakes easily. Wash your hands after handling raw fish.",
       "Cool the salmon: Lift the salmon off its skin on to a plate with a fish slice and leave it for 5 minutes to cool. Slice the cucumber thinly while you wait.",
-      "Make the filling: Flake the salmon into a bowl with a fork. Add the soft cheese, lemon juice and a good grind of black pepper and mix gently.",
+      "Make the filling: Flake the salmon into a bowl with a fork. Add the soft cheese and the rest of the lemon juice and black pepper and mix gently.",
       "Fill the sandwiches: Lay half the bread on a board. Spread the salmon filling over it, right to the edges, and cover with the cucumber slices. Put the rest of the bread on top and press down gently.",
-      "Serve: Cut each sandwich in half and eat straight away, or cover them and keep them in the fridge to eat the same day.",
+      "Serve: Cut each sandwich in half corner to corner and eat straight away, or cover them and keep them in the fridge to eat the same day.",
     ],
   },
 ];
 
 // How each looks from directly above, for its picture (docs/RECIPE_IMAGE_PROMPTS.md): one portion, only the recipe's own foods, served as the method says.
 export const LONGEVITY_MORNING_LOOKS: Readonly<Record<string, string>> = {
-  "crushed-chickpeas-tomatoes-toast": "Two slices of golden wholemeal toast on a round white plate, piled with roughly crushed golden chickpeas, soft halved red cherry tomatoes and dark green wilted spinach, glistening with olive oil and flecked with black pepper.",
+  "crushed-chickpeas-tomatoes-toast": "Two slices of golden wholemeal toast on a round white plate, piled with golden chickpeas, mostly whole with a few crushed, and dark green wilted spinach, topped with glossy halved red cherry tomatoes cut side up, drizzled with olive oil and flecked with black pepper.",
   "berry-almond-porridge": "A round white bowl of thick, creamy pale oat porridge dusted with brown cinnamon, topped with a heap of glossy warm purple and red mixed berries in their juice and a scatter of roughly chopped almonds.",
   "tomato-olive-oil-toast-eggs": "Two slices of golden wholemeal toast on a round white plate, piled with glossy chopped red tomatoes in olive oil flecked with black pepper, beside four boiled egg halves with firm white edges and set yellow yolks.",
   "smoky-tomato-beans-toast": "Two slices of golden wholemeal toast on a round white plate, covered with deep red kidney beans in a thick chopped tomato and onion sauce tinged orange with paprika, with flecks of black pepper.",
@@ -237,11 +249,11 @@ export const LONGEVITY_MORNING_LOOKS: Readonly<Record<string, string>> = {
   "wheat-biscuits-banana-almonds": "Three wholewheat breakfast biscuits in a round white bowl of cold milk, topped with a dollop of thick white yogurt, overlapping rounds of sliced banana, roughly chopped almonds and a dusting of brown cinnamon.",
   "spiced-carrot-chickpea-soup": "A round white bowl of smooth, thick bright orange carrot and chickpea soup with a few flecks of black pepper, beside two slices of golden wholemeal toast on a small white plate.",
   "salmon-chickpea-lemon-salad": "A wide white bowl of green salad leaves topped with chickpeas, chunks of cucumber and halved red cherry tomatoes, scattered with large flakes of pink baked salmon and glistening with a lemon and olive oil dressing.",
-  "egg-chickpea-spinach-salad": "A round white plate of dark green spinach leaves tossed with golden chickpeas, halved red cherry tomatoes and thin slices of purple red onion, topped with quartered boiled eggs with set yellow yolks.",
+  "egg-chickpea-spinach-salad": "A round white plate of dark green spinach leaves tossed with golden chickpeas, halved red cherry tomatoes and thin slices of purple red onion, topped with boiled eggs cut in half lengthways, with set yellow yolks.",
   "roasted-pepper-houmous-sandwiches": "Two slices of golden wholemeal toast on a round white plate, spread with pale houmous and topped with a few dark green spinach leaves and soft, browned strips of roasted red and yellow pepper and red onion.",
   "bean-vegetable-chilli-soup": "A round white bowl of chunky deep red soup with kidney beans, small cubes of orange carrot and pieces of red pepper and onion in a thick tomato broth, beside two slices of golden wholemeal toast.",
   "warm-broccoli-chickpea-almond-salad": "A round white plate of roasted broccoli florets browned at the edges, golden roasted chickpeas, toasted chopped almonds and thin slices of purple red onion, glistening with a lemon and garlic olive oil dressing.",
   "bean-sweetcorn-pepper-rice-salad": "A round white bowl of cold fluffy white rice mixed with deep red kidney beans, bright yellow sweetcorn, small pieces of red pepper and finely chopped red onion, glistening with a lemon dressing.",
-  "smashed-chickpea-carrot-sandwiches": "A wholemeal sandwich cut in half on a round white plate, the two halves set slightly apart, the cut edges showing a thick layer of pale mashed chickpeas, grated orange carrot and dark green spinach.",
+  "smashed-chickpea-carrot-sandwiches": "A wholemeal sandwich cut in half corner to corner on a round white plate, the two halves set slightly apart, the cut edges showing a thick layer of pale mashed chickpeas, grated orange carrot and dark green spinach.",
   "salmon-cucumber-soft-cheese-sandwiches": "A wholemeal sandwich cut in half on the diagonal on a round white plate, the two halves set slightly apart, the cut edges showing a creamy pale pink salmon filling and thin slices of green cucumber.",
 };

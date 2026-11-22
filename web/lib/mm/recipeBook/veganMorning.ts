@@ -7,12 +7,13 @@ export const VEGAN_MORNING: readonly Recipe[] = [
     id: "apple-cinnamon-baked-oats", meal: "breakfast", tags: ["Vegan", "Bake"], name: "Apple and cinnamon baked oats", blurb: "Oats baked with chopped apple, raisins and cinnamon until golden on top.", servings: 4, minutes: 45,
     // the oat drink and the banana that binds the oats follow the oats, so the bake keeps its texture when it is fitted
     ingredients: [ing("oats", 160), ing("oat-drink", 400, { follows: "oats" }), ing("banana", 120, { follows: "oats" }), ing("apple", 300), ing("raisins", 40), ing("cinnamon", 2), ing("oil-spray", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Heat the oven: Turn the oven on to 180°C (160°C fan, gas 4). Spray a baking dish about 20 cm across with a little oil.",
       "Mash the banana: Peel the banana and mash it in a large bowl with a fork until it is smooth.",
-      "Chop the apples: Cut the apples into quarters, cut out the cores and chop them into small cubes. Keep a handful of the cubes for the top.",
-      "Mix it together: Add the oats, oat drink, raisins, most of the cinnamon and the rest of the apple to the banana. Stir until there are no dry oats left.",
-      "Fill the dish: Pour the mixture into the dish, spread it flat and scatter the apple you kept over the top. Dust the rest of the cinnamon over it.",
+      "Chop the apples: Cut the apples into quarters, cut out the cores and chop them into cubes about 2 cm across, skin and all. Keep a good handful of the cubes for the top.",
+      "Mix it together: Add the oats, oat drink, most of the raisins, most of the cinnamon and the rest of the apple to the banana. Stir until there are no dry oats left.",
+      "Fill the dish: Pour the mixture into the dish and spread it flat. Scatter the apple you kept and the rest of the raisins over the top, then dust with the rest of the cinnamon.",
       "Bake: Bake on the middle shelf for 30 to 35 minutes, until golden on top and firm in the middle when you press it gently.",
       "Serve: Leave it to stand for 5 minutes, then cut it into squares and serve warm.",
     ],
@@ -21,12 +22,13 @@ export const VEGAN_MORNING: readonly Recipe[] = [
     id: "coconut-rice-pudding-berries", meal: "breakfast", tags: ["Vegan", "Sweet"], name: "Coconut rice pudding with berries", blurb: "Rice simmered in coconut milk with cinnamon and raisins, topped with warm berries.", servings: 4, minutes: 40,
     // the coconut milk follows the rice, so the pudding stays creamy when it is fitted
     ingredients: [ing("rice", 100), ing("coconut-milk", 400, { follows: "rice" }), ing("raisins", 40), ing("cinnamon", 2), ing("berries", 200)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Start the pudding: Put the rice, coconut milk, raisins and cinnamon in a medium saucepan. Add 300 ml of cold water and stir well.",
+      "Start the pudding: Put the rice, coconut milk, raisins and most of the cinnamon in a medium saucepan. Add 300 ml of cold water and stir well.",
       "Bring to a simmer: Heat over a medium heat for about 5 minutes, stirring, until it starts to bubble gently.",
       "Cook the rice: Turn the heat to low and cook for 25 to 30 minutes, stirring every few minutes so it doesn't stick, until the rice is soft and the pudding is thick. Add a splash of water if it thickens first.",
       "Warm the berries: Put the berries in a small pan with a splash of water. Warm them over a low heat for 3 to 4 minutes, until soft and juicy.",
-      "Serve: Spoon the rice pudding into bowls and top with the warm berries and their juice.",
+      "Serve: Spoon the rice pudding into bowls, dust with the rest of the cinnamon and top with the warm berries and their juice.",
     ],
   },
   {
@@ -48,38 +50,41 @@ export const VEGAN_MORNING: readonly Recipe[] = [
     id: "banana-berry-overnight-oats", meal: "breakfast", tags: ["Vegan", "Make ahead"], name: "Banana and berry overnight oats", blurb: "Oats soaked overnight in oat drink with mashed banana, topped with berries.", servings: 2, minutes: 10,
     // the oat drink follows the oats, so they soak to the same thickness when the recipe is fitted
     ingredients: [ing("oats", 80), ing("oat-drink", 250, { follows: "oats" }), ing("banana", 120), ing("berries", 120), ing("cinnamon", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Mash half the banana: Peel the banana and cut it in half. Mash one half in a bowl with a fork until smooth, and keep the other half for the morning.",
       "Mix the oats: Add the oats, oat drink and cinnamon to the mashed banana. Stir until there are no dry oats left.",
       "Soak overnight: Cover the bowl and leave it in the fridge overnight, or for at least 4 hours, until the oats are soft and thick.",
       "Thaw the berries: If the berries are frozen, put them in a small covered bowl in the fridge at the same time, so they thaw overnight.",
       "Loosen the oats: In the morning, give the oats a stir. If they are too thick, stir in a splash of water.",
-      "Top and serve: Slice the rest of the banana into thin rounds. Spoon the oats into bowls, top with the banana and berries and eat cold.",
+      "Top and serve: Slice the rest of the banana into rounds about 1 cm thick. Spoon the oats into bowls, lay the banana in a row on one side, heap the berries beside it and eat cold.",
     ],
   },
   {
     id: "peanut-butter-banana-wraps", meal: "breakfast", tags: ["Vegan", "Quick"], name: "Peanut butter and banana breakfast wraps", blurb: "Toasted wraps filled with peanut butter, sliced banana and a pinch of cinnamon.", servings: 2, minutes: 10,
     ingredients: [ing("wraps", 120), ing("peanut-butter", 40), ing("banana", 240), ing("cinnamon", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Slice the bananas: Peel the bananas and cut them into thin rounds, about as thick as a pound coin.",
+      "Slice the bananas: Peel the bananas and cut them into rounds about 1 cm thick.",
       "Spread the wraps: Lay the wraps flat and spread the peanut butter over each one, leaving a gap of about 2 cm round the edge.",
-      "Add the filling: Lay the banana slices in a line down the middle of each wrap and sprinkle the cinnamon over them.",
+      "Add the filling: Lay the banana slices in a line down the middle of each wrap and sprinkle most of the cinnamon over them.",
       "Roll them up: Fold the bottom of each wrap over the filling, fold in the sides and roll it up tightly.",
       "Toast the wraps: Heat a dry non-stick frying pan over a medium heat. Toast the wraps join side down for 1 to 2 minutes on each side, until golden.",
-      "Serve: Cut each wrap in half and serve warm.",
+      "Serve: Cut each wrap in half, dust the tops with the rest of the cinnamon and serve warm.",
     ],
   },
   {
     id: "turmeric-chickpea-wraps", meal: "breakfast", tags: ["Vegan", "Wrap"], name: "Turmeric chickpea breakfast wraps", blurb: "Warm wraps filled with crushed spiced chickpeas, spinach and cherry tomatoes.", servings: 2, minutes: 20,
     ingredients: [ing("chickpeas", 240), ing("wraps", 120), ing("spinach", 60), ing("cherry-tomatoes", 120), ing("spring-onions", 30), ing("garlic", 5, { note: "about 1 clove" }), ing("turmeric", 2), ing("cumin", 1), ing("olive-oil", 10), ing("lemon-juice", 10), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Get everything ready: Drain and rinse the chickpeas and pat them dry. Slice the spring onions thinly and cut the cherry tomatoes in half.",
+      "Get everything ready: Drain and rinse the chickpeas and pat them dry. Slice the spring onions into thin rings, keeping a few back for the end, and cut the cherry tomatoes in half.",
       "Warm the wraps: Heat a dry frying pan over a medium heat and warm the wraps for about 20 seconds on each side. Stack them under a clean tea towel.",
       "Soften the spring onions: Heat the oil in the same pan over a medium heat. Add the spring onions and cook for 2 minutes, until soft.",
       "Add the garlic and spices: Stir in the garlic, turmeric and cumin and cook for 30 seconds, until fragrant, stirring so the garlic doesn't burn.",
-      "Crush the chickpeas: Add the chickpeas and fry for 2 minutes, stirring, until golden yellow in the spiced oil. Add a splash of water and cook for 2 to 3 minutes more, crushing them roughly with a fork, until hot all the way through.",
+      "Crush the chickpeas: Add the chickpeas and fry for 2 minutes, stirring, until golden yellow in the spiced oil. Add a splash of water and cook for 2 to 3 minutes more, crushing about a third of them with a fork, until hot all the way through.",
       "Wilt the spinach: Stir in the spinach and cook for 1 minute, until it wilts. Stir in the lemon juice, a pinch of salt and some black pepper.",
-      "Fill and serve: Spoon the chickpeas down the middle of each wrap and top with the cherry tomatoes. Fold in the sides, roll up tightly and serve warm.",
+      "Fill and serve: Spoon the chickpeas down the middle of each wrap and top with the cherry tomatoes and the spring onion rings you kept. Fold in the sides, roll up tightly and serve warm.",
     ],
   },
   {
@@ -140,12 +145,13 @@ export const VEGAN_MORNING: readonly Recipe[] = [
   {
     id: "sweetcorn-pepper-lettuce-cups", meal: "snack", tags: ["No cook", "Savoury"], name: "Sweetcorn and pepper salsa in lettuce cups", blurb: "Crisp lettuce leaves filled with a sweetcorn, pepper and tomato salsa.", servings: 2, minutes: 15,
     ingredients: [ing("sweetcorn", 200), ing("peppers", 160, { note: "about 1 pepper" }), ing("cherry-tomatoes", 100), ing("red-onion", 40, { note: "about a quarter of a red onion" }), ing("lemon-juice", 15), ing("olive-oil", 5), ing("chilli-powder", 1), ing("salt", 1), ing("black-pepper", 1), ing("lettuce", 120, { prefer: ["lettuce"] })],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Get the sweetcorn ready: If it is tinned, drain it well in a sieve. If it is frozen, boil it for 3 minutes, then drain it and cool it under the cold tap.",
       "Chop the pepper and onion: Cut the pepper in half, scoop out the seeds and chop it into small cubes. Peel the red onion and chop it finely.",
-      "Mix the salsa: Cut the cherry tomatoes into quarters and put them in a bowl with the sweetcorn, pepper and onion. Stir in the oil, lemon juice, chilli powder, a pinch of salt and some black pepper.",
+      "Mix the salsa: Cut the cherry tomatoes in half. Put the sweetcorn, pepper and onion in a bowl and stir in the oil, lemon juice, a pinch of salt and some black pepper.",
       "Get the lettuce ready: Cut the core out of the lettuce and gently pull off whole, cup-shaped leaves. Rinse them under the cold tap and pat them dry.",
-      "Fill and serve: Spoon the salsa into the lettuce leaves and serve straight away, while the lettuce is crisp.",
+      "Fill and serve: Spoon the salsa into the lettuce leaves, set the tomato halves on top and dust with the chilli powder. Serve straight away, while the lettuce is crisp.",
     ],
   },
 ];
@@ -163,7 +169,7 @@ export const VEGAN_MORNING_LOOKS: Readonly<Record<string, string>> = {
   "frozen-banana-berry-ice": "A small round white bowl holding two scoops of thick, smooth frozen banana and berry ice, a deep pinky-purple colour with a soft, creamy texture and rounded edges.",
   "wrap-crisps-tomato-salsa": "Golden, crisp triangles of baked tortilla wrap fanned around a small white bowl of chunky salsa made from diced red tomato, pale green cucumber and purple red onion, flecked with black pepper, on a round white plate.",
   "baked-cinnamon-apple-slices": "Soft baked apple slices with their skins on, fanned in an overlapping ring on a round white plate, golden at the edges and dusted with warm brown cinnamon.",
-  "sweetcorn-pepper-lettuce-cups": "Crisp, cup-shaped pale green lettuce leaves on a round white plate, each filled with a bright salsa of yellow sweetcorn, diced red pepper, quartered cherry tomatoes and finely chopped purple onion, dusted with red chilli powder.",
+  "sweetcorn-pepper-lettuce-cups": "Crisp, cup-shaped pale green lettuce leaves on a round white plate, each filled with a bright salsa of yellow sweetcorn, diced red pepper and finely chopped purple onion, topped with halved cherry tomatoes and dusted with red chilli powder.",
 };
 
 // Suggested lines for niches.ts (cuisine and occasions), for the lead to add: [id, kind, value]

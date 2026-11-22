@@ -52,13 +52,16 @@ export const KETO_MEALS: readonly Recipe[] = [
   // ---- lunches
   {
     id: "chicken-bacon-lettuce-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "Chicken, bacon and lettuce salad", blurb: "Crunchy lettuce, tomato and cucumber with warm chicken, bacon, cheddar and a lemony mayonnaise dressing.", servings: 2, minutes: 20,
-    ingredients: [ing("chicken-thigh", 300), ing("bacon", 80), ing("lettuce", 200), ing("cherry-tomatoes", 100), ing("cucumber", 100), ing("cheddar", 60), ing("light-mayo", 40), ing("olive-oil", 15), ing("lemon-juice", 10), ing("black-pepper", 1)],
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): whole thighs marinated in lemon, browned and sliced across, with crisp bacon pieces, as in the photo
+    ingredients: [ing("chicken-thigh", 300), ing("bacon", 80), ing("lettuce", 200), ing("cherry-tomatoes", 100), ing("cucumber", 100), ing("cheddar", 60), ing("light-mayo", 40), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
-      "Get ready: Cut the chicken and the bacon into thin strips on a separate board, then pat the chicken dry with kitchen paper. Wash the board, knife and your hands well after handling the raw meat.",
-      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice and a grind of black pepper until smooth. Keep it to one side.",
-      "Brown the chicken: Heat the oil in a large frying pan over a high heat. Lay the chicken in one layer with space between the strips (if they don't all fit, fry them in two batches). Leave for 3 minutes without stirring, until golden underneath.",
-      "Add the bacon: Turn the chicken, add the bacon to the gaps and fry for 4 to 5 minutes more, turning now and then, until the bacon is browned and the chicken is golden, piping hot and has no pink left in the middle.",
+      "Get ready: Pat the chicken thighs dry with kitchen paper and leave them whole. Cut the bacon into pieces about 2 cm on a separate board. Wash the board, knife and your hands well after handling the raw meat.",
+      "Marinate the chicken: Turn the thighs with a third of the oil, a third of the lemon juice and a grind of black pepper. Leave them for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
+      "Make the dressing: In a small bowl, mix the mayonnaise, the rest of the lemon juice and a grind of black pepper until smooth. Keep it to one side.",
+      "Brown the chicken: Heat the rest of the oil in a large frying pan over a medium-high heat. Lay the thighs in flat and leave them for 5 to 6 minutes without moving, until deep golden underneath.",
+      "Add the bacon: Turn the chicken, add the bacon to the gaps and fry for 5 to 6 minutes more, turning the bacon now and then, until it is crisp and the chicken is deep golden, piping hot and has no pink left in the middle.",
       "Prepare the salad: Meanwhile, wash the lettuce, shake it dry and tear it into pieces. Halve the cherry tomatoes, slice the cucumber and grate the cheddar.",
+      "Slice the chicken: Lift the chicken onto a board, leave it for 2 minutes, then slice it across into strips.",
       "Toss the salad: Put the lettuce, tomatoes and cucumber in a large bowl, pour over the dressing and toss gently until everything is coated.",
       "Serve: Pile the salad into bowls, top with the warm chicken and bacon and scatter the cheese over. Eat straight away.",
     ],
@@ -80,14 +83,15 @@ export const KETO_MEALS: readonly Recipe[] = [
   {
     id: "bacon-mushroom-cheddar-frittata", meal: "lunch", tags: ["Eggs", "Make ahead"], name: "Bacon, mushroom and cheddar frittata", blurb: "A thick egg frittata with bacon, mushrooms, spinach and cheddar, good warm or cold.", servings: 4, minutes: 30,
     // one frying pan holds at most half as many eggs again
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"): bacon in squares, thick mushroom slices and spring onion on top, as in the photo
     ingredients: [ing("eggs", 600, { fit: [0.5, 1.5] }), ing("bacon", 160), ing("mushrooms", 250), ing("spinach", 100), ing("cheddar", 160, FAT), ing("spring-onions", 50), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
-      "Get ready: Turn the grill on to medium-high. Wipe and slice the mushrooms, trim and slice the spring onions, and grate the cheddar. Cut the bacon into strips, then wash your hands.",
+      "Get ready: Turn the grill on to medium-high. Wipe the mushrooms and slice them thickly, trim and slice the spring onions, and grate the cheddar. Cut the bacon into pieces about 2 cm, then wash your hands.",
       "Beat the eggs: Crack the eggs into a large bowl, picking out any shell. Add a good grind of black pepper and beat with a fork until smooth. Wash your hands after handling raw eggs.",
       "Fry the bacon: Heat the oil in a large non-stick frying pan, about 26 cm across, over a medium-high heat. Fry the bacon for 4 to 5 minutes, stirring now and then, until cooked through and golden. Lift it on to a plate.",
       "Brown the mushrooms: Turn the heat up to high. Spread the mushrooms out in the pan and leave them for 3 minutes without stirring, until golden underneath, then fry for 2 minutes more, stirring now and then.",
-      "Add the greens: Put the bacon back in. Stir in the spinach and spring onions for 1 to 2 minutes, until the spinach shrinks down.",
-      "Add the eggs: Turn the heat down low and spread everything out evenly. Stir half the cheddar into the eggs, pour them into the pan and scatter the rest of the cheddar on top.",
+      "Add the greens: Put the bacon back in. Stir in the spinach and most of the spring onions for 1 to 2 minutes, until the spinach shrinks down.",
+      "Add the eggs: Turn the heat down low and spread everything out evenly. Stir half the cheddar into the eggs, pour them into the pan and scatter the rest of the cheddar and spring onions on top.",
       "Cook the frittata: Cook without stirring for 10 to 12 minutes, until the edges are set and the base is golden. Lift an edge with a fish slice to check.",
       "Finish under the grill: Grill the frittata for 3 to 4 minutes, until the top is completely set and golden, with no runny egg in the middle. If the handle can't go under the grill, cover the pan with a lid for 5 to 6 minutes instead.",
       "Serve: Leave it to stand for 2 minutes, then slide it on to a board and cut it into wedges. Eat it warm, or cold the next day.",
@@ -95,12 +99,15 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "chicken-caesar-style-salad", meal: "lunch", tags: ["Salad", "Quick"], name: "Chicken Caesar-style salad", blurb: "Pan-fried chicken on crisp lettuce with a garlic and lemon mayonnaise dressing and grated cheddar.", servings: 2, minutes: 20,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): whole thighs marinated in lemon and garlic, browned in stripes and sliced, as in the photo
     ingredients: [ing("chicken-thigh", 300), ing("lettuce", 200), ing("cheddar", 60), ing("light-mayo", 60), ing("lemon-juice", 15), ing("garlic", 5), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
-      "Get ready: Cut the chicken into thin strips on a separate board and pat them dry with kitchen paper. Wash the board, knife and your hands well after handling raw chicken.",
-      "Make the dressing: In a small bowl, mix the mayonnaise, lemon juice, garlic and a good grind of black pepper until smooth. Keep it to one side.",
-      "Brown the chicken: Heat the oil in a large frying pan over a high heat. Lay the chicken in one layer with space between the strips (if they don't all fit, fry them in two batches). Leave for 3 minutes without stirring, until golden underneath.",
-      "Turn the chicken: Turn the strips and fry for 3 to 4 minutes more, until golden all over, piping hot and no pink is left in the middle.",
+      "Get ready: Pat the chicken thighs dry with kitchen paper and leave them whole. Wash your hands and anything the raw chicken touched in hot soapy water.",
+      "Marinate the chicken: Turn the thighs in a bowl with a third of the oil, a third of the lemon juice, half the garlic and a grind of black pepper.",
+      "Let it sit: Leave them for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
+      "Make the dressing: In a small bowl, mix the mayonnaise with the rest of the lemon juice and garlic and a good grind of black pepper until smooth. Keep it to one side.",
+      "Brown the chicken: Heat the rest of the oil in a large frying pan over a medium-high heat. Lay the thighs in flat, press them down with a fish slice and leave for 5 to 6 minutes, until deep golden with dark lines underneath.",
+      "Turn the chicken: Turn the thighs and cook for 5 to 6 minutes more, pressing them flat, until deep golden, piping hot and no pink is left in the middle. Leave them on a board for 2 minutes, then slice across.",
       "Prepare the lettuce: Meanwhile, wash the lettuce, shake it dry and cut or tear it into bite-sized pieces. Grate the cheddar.",
       "Toss the salad: Put the lettuce in a large bowl with half the cheddar, pour over the dressing and toss until every piece is coated.",
       "Serve: Pile the salad into bowls, top with the warm chicken and scatter the rest of the cheese over. Eat straight away.",
@@ -146,13 +153,15 @@ export const KETO_MEALS: readonly Recipe[] = [
   // ---- dinners
   {
     id: "creamy-mushroom-chicken-thighs-broccoli", meal: "dinner", tags: ["One pan"], name: "Chicken thighs in a creamy mushroom sauce with broccoli", blurb: "Golden chicken thighs in a creamy mushroom and cheese sauce, with broccoli.", servings: 2, minutes: 30,
+    // 2026-11-22 (founder 21 Nov: "marinating ... makes a big difference"): the thighs sit in oil, garlic, herbs and pepper before they brown
     ingredients: [ing("chicken-thigh", 300), ing("mushrooms", 250), ing("soft-cheese", 150), ing("cheddar", 40, FAT), ing("garlic", 5), ing("olive-oil", 15), ing("broccoli", 200), ing("mixed-herbs", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Wipe the mushrooms clean and slice them. Cut the broccoli into small florets. Grate the cheddar.",
-      "Season the chicken: Pat the chicken thighs dry with kitchen paper and season both sides with black pepper. Wash your hands, and anything the raw chicken touched, straight away.",
+      "Marinate the chicken: Pat the thighs dry and rub them with a little of the oil, half the garlic, half the herbs and the black pepper. Wash your hands, and anything the raw chicken touched, straight away.",
+      "Let it sit: Leave them for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Brown the chicken: Heat half the oil in a large frying pan over a medium-high heat. Lay the chicken in and leave it for 5 minutes without moving it, until golden underneath. Turn it and fry for 5 minutes more. Lift it on to a plate.",
       "Brown the mushrooms: Turn the heat up to high. Add the rest of the oil and spread the mushrooms out in the pan. Leave them for 3 minutes without stirring, until golden underneath, then fry for 2 minutes more, stirring now and then.",
-      "Make the sauce: Turn the heat down to medium. Stir in the garlic and herbs for 30 seconds, then stir in the soft cheese and 4 tablespoons of water until smooth and creamy. Stir in the cheddar until it melts.",
+      "Make the sauce: Turn the heat down to medium. Stir in the rest of the garlic and herbs for 30 seconds, then stir in the soft cheese and 4 tablespoons of water until smooth and creamy. Stir in the cheddar until it melts.",
       "Finish the chicken: Put the chicken back in the pan, golden side up, with any juices. Cover and simmer gently for 8 to 10 minutes, until piping hot all the way through with no pink left in the middle.",
       "Cook the broccoli: Meanwhile, boil the kettle and cook the broccoli in a pan of boiling water for 3 to 4 minutes, until bright green and just tender. No longer, or it goes dark and soft. Drain it well.",
       "Serve: Put the chicken and the mushroom sauce on warm plates with the broccoli beside it, and add a grind of black pepper.",
@@ -160,13 +169,15 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "cheesy-chicken-broccoli-bake", meal: "dinner", tags: ["Bake", "Batch cook"], name: "Cheesy chicken and broccoli bake", blurb: "Chicken and broccoli baked in a creamy garlic sauce under a golden cheddar top.", servings: 4, minutes: 40,
+    // 2026-11-22 (founder 21 Nov: "marinating ... makes a big difference"): the chicken sits in oil, garlic and pepper before it browns
     ingredients: [ing("chicken-thigh", 500), ing("broccoli", 400), ing("soft-cheese", 200), ing("cheddar", 160, FAT), ing("garlic", 10), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6). Cut the broccoli into small florets and grate the cheddar.",
       "Cut the chicken: Cut the chicken into bite-sized pieces on a separate board. Wash the board, knife and your hands well after handling raw chicken.",
-      "Brown the chicken: Heat the oil in a large frying pan over a high heat. Fry the chicken in one layer (two batches if your pan is small) for 5 to 6 minutes, turning now and then, until golden all over. It will finish cooking in the oven.",
+      "Marinate the chicken: Toss the pieces with a third of the oil, half the garlic and a grind of black pepper. Leave them for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
+      "Brown the chicken: Heat the rest of the oil in a large frying pan over a high heat. Fry the chicken (two batches if your pan is small) for 5 to 6 minutes, turning, until golden all over. It will finish cooking in the oven.",
       "Cook the broccoli: Meanwhile, boil the kettle and cook the broccoli in a pan of boiling water for 2 minutes, until bright green. Drain it in a colander and rinse it under the cold tap, so it stays bright green in the oven.",
-      "Make the sauce: Take the frying pan off the heat. Stir in the soft cheese, garlic, half the cheddar, a good grind of black pepper and a splash of water, until the chicken is coated in a creamy sauce.",
+      "Make the sauce: Take the frying pan off the heat. Stir in the soft cheese, the rest of the garlic, half the cheddar, another grind of black pepper and a splash of water, until the chicken is coated in a creamy sauce.",
       "Fill the dish: Tip the chicken and sauce into a medium baking dish, add the broccoli and stir gently so everything is mixed. Scatter the rest of the cheese over the top.",
       "Bake: Bake for 20 minutes, until bubbling and golden on top and the chicken is piping hot all the way through with no pink left. Cut a large piece open to check.",
       "Serve: Leave it to stand for 2 minutes, as the sauce is very hot, then spoon it on to warm plates. Cool any left over quickly, then keep it in the fridge and eat it within 2 days.",
@@ -174,13 +185,16 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "beef-mushroom-spinach-skillet", meal: "dinner", tags: ["One pan", "Quick"], name: "Beef, mushroom and spinach pan with cheddar", blurb: "Beef mince, mushrooms and spinach in a tomato sauce, topped with melted cheddar.", servings: 2, minutes: 20,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): the mince is seasoned first; onion in slices and thick mushroom slices, as in the photo
     ingredients: [ing("beef-mince", 300), ing("mushrooms", 200), ing("spinach", 150), ing("onion", 75, { note: "about half an onion" }), ing("garlic", 5), ing("chopped-tomatoes", 200), ing("cheddar", 60, FAT), ing("olive-oil", 15), ing("oregano", 1), ing("black-pepper", 1)],
     method: [
-      "Get ready: Peel and finely chop the onion. Wipe the mushrooms clean and slice them. Grate the cheddar.",
+      "Season the mince: Mix the mince in a bowl with half the garlic, half the oregano and a grind of black pepper, then wash your hands in hot soapy water.",
+      "Let it sit: Leave the mince for 10 minutes while you get the vegetables ready, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
+      "Get ready: Peel the onion, halve it and slice it thinly. Wipe the mushrooms clean and slice them thickly, about 1 cm. Grate the cheddar.",
       "Brown the mince: Heat the oil in a large frying pan over a high heat until hot. Add the beef mince, press it out flat and leave it for 3 minutes without stirring, until browned underneath.",
       "Break it up: Break the mince up with a wooden spoon and fry for 3 minutes more, stirring now and then, until browned all over with no pink left.",
       "Soften the onion: Turn the heat down to medium-high. Add the onion and mushrooms and fry for 4 to 5 minutes, stirring often, until soft and starting to turn golden.",
-      "Add the flavours: Stir in the garlic and oregano for 30 seconds, then add the chopped tomatoes and a good grind of black pepper.",
+      "Add the flavours: Stir in the rest of the garlic and oregano for 30 seconds, then add the chopped tomatoes and another grind of black pepper.",
       "Simmer: Let it bubble gently for 4 to 5 minutes, stirring now and then, until the sauce is thick, not watery, and the mince is piping hot.",
       "Wilt the spinach: Stir in the spinach a handful at a time for 1 to 2 minutes, until it has shrunk down and is dark green.",
       "Melt the cheese: Scatter the cheddar over the top, cover the pan with a lid or a large plate and leave on a low heat for 2 minutes, until the cheese has melted.",
@@ -189,27 +203,33 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "pesto-chicken-tomatoes-broccoli", meal: "dinner", tags: ["One pan"], name: "Pesto chicken with roast tomatoes and broccoli", blurb: "Pesto-topped chicken thighs roasted with cherry tomatoes and broccoli, finished with melted mozzarella.", servings: 2, minutes: 30,
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): the thighs sit in pesto while the oven heats; the mozzarella turns golden in spots, as in the photo
     ingredients: [ing("chicken-thigh", 300), ing("pesto", 60), ing("cherry-tomatoes", 150), ing("broccoli", 200), ing("mozzarella", 125, FAT), ing("olive-oil", 15), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6). Cut the broccoli into small florets and pat them dry if they are wet. Drain the mozzarella and tear it into small pieces.",
-      "Coat the chicken: Lay the chicken thighs in a large roasting tin and spread the pesto over the top of each one. Wash your hands, and anything the raw chicken touched, straight away.",
+      "Marinate the chicken: Rub the chicken thighs all over with a third of the pesto and a grind of black pepper and lay them in a large roasting tin. Wash your hands, and anything the raw chicken touched, straight away.",
+      "Let it sit: Leave the chicken while the oven heats (10 minutes), or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes. Spread the rest of the pesto over the top of each thigh.",
       "Roast the chicken: Roast for 10 minutes, so the chicken starts to cook before the vegetables go in.",
       "Add the vegetables: Toss the broccoli and cherry tomatoes with the oil and a grind of black pepper. Take the tin out carefully and spread them around the chicken in one layer, not piled up, so they roast rather than steam.",
       "Roast again: Roast for 12 to 15 minutes more, until the broccoli is tender and browned at the edges and the tomatoes have started to burst.",
-      "Add the cheese: Scatter the mozzarella over the chicken and roast for 3 minutes more, until it has melted.",
+      "Add the cheese: Scatter the mozzarella over the chicken and roast for 3 to 5 minutes more, until it has melted and is golden in spots.",
       "Check the chicken: Cut into the thickest piece. It must be piping hot all the way through, with no pink left and clear juices. If not, roast for a few minutes more and check again.",
       "Serve: Lift the chicken on to warm plates with the vegetables and spoon over any juices from the tin.",
     ],
   },
   {
     id: "mozzarella-chicken-tomato-sauce", meal: "dinner", tags: ["One pan"], name: "Mozzarella chicken in tomato sauce with salad", blurb: "Chicken thighs simmered in a garlic and oregano tomato sauce under melted mozzarella, with a side salad.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken-thigh", 300), ing("passata", 200), ing("mozzarella", 125, FAT), ing("garlic", 5), ing("oregano", 1), ing("olive-oil", 15), ing("salad-leaves", 80), ing("black-pepper", 1)],
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): the photo's sauce has pieces of tomato, so chopped tomatoes replace the passata; the thighs marinate
+    // in garlic and oregano, and the cheese is browned in spots with oregano on top
+    ingredients: [ing("chicken-thigh", 300), ing("chopped-tomatoes", 200), ing("mozzarella", 125, FAT), ing("garlic", 5), ing("oregano", 1), ing("olive-oil", 15), ing("salad-leaves", 80), ing("black-pepper", 1)],
     method: [
       "Get ready: Drain the mozzarella and cut it into thin slices. Pat the chicken thighs dry with kitchen paper, then wash your hands well after handling raw chicken.",
+      "Marinate the chicken: Rub the thighs with a little of the oil, half the garlic, half the oregano and a grind of black pepper. Leave them for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Brown the chicken: Heat half the oil in a large frying pan over a medium-high heat. Lay the chicken in and leave it for 4 to 5 minutes, until golden underneath. Turn it and fry for 4 to 5 minutes more. Lift it on to a plate.",
-      "Make the sauce: Turn the heat down to medium. Stir the garlic and oregano into the pan for 30 seconds, then pour in the passata and add a good grind of black pepper.",
+      "Make the sauce: Turn the heat down to medium. Stir the rest of the garlic into the pan for 30 seconds, then add the chopped tomatoes and another grind of black pepper.",
       "Simmer the chicken: Put the chicken back in the sauce, golden side up, cover the pan and let it bubble gently for 10 minutes. Don't turn it, so the top stays golden.",
-      "Add the cheese: Lay the mozzarella slices over the chicken, cover again and cook for 3 to 4 minutes, until the cheese has melted.",
+      "Add the cheese: Lay the mozzarella slices over the chicken and sprinkle the rest of the oregano over them. Cover again and cook for 3 to 4 minutes, until the cheese has melted.",
+      "Brown the top: If your pan's handle can go under the grill, slide it under a hot grill for 2 to 3 minutes, until the cheese is golden in spots.",
       "Check the chicken: Cut into the thickest piece. It must be piping hot all the way through with no pink left. If not, cook for a few minutes more and check again.",
       "Dress the salad: Meanwhile, toss the salad leaves with the rest of the oil in a bowl.",
       "Serve: Put the chicken and sauce on warm plates with the salad beside it.",
@@ -217,42 +237,49 @@ export const KETO_MEALS: readonly Recipe[] = [
   },
   {
     id: "salmon-creamy-spinach-broccoli", meal: "dinner", tags: ["Fish", "Quick"], name: "Salmon with creamy spinach and broccoli", blurb: "Pan-fried salmon with creamy garlic and lemon spinach, and broccoli.", servings: 2, minutes: 20,
-    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("soft-cheese", 120), ing("garlic", 5), ing("lemon-juice", 10), ing("olive-oil", 15), ing("broccoli", 150), ing("black-pepper", 1)],
+    // 2026-11-22 (founder 21 Nov: "marinating ... makes a big difference"): the salmon sits in oil, lemon and pepper before it fries
+    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("soft-cheese", 120), ing("garlic", 5), ing("lemon-juice", 15), ing("olive-oil", 15), ing("broccoli", 150), ing("black-pepper", 1)],
     method: [
       "Get ready: Boil the kettle. Cut the broccoli into small florets. Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
-      "Season the salmon: Pat the salmon dry with kitchen paper and season it on both sides with black pepper. Wash your hands after handling raw fish.",
+      "Marinate the salmon: Pat the salmon dry and rub it with a little of the oil, a third of the lemon juice and the black pepper. Wash your hands after handling raw fish.",
+      "Let it sit: Leave it for 10 minutes, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Cook the broccoli: Cook the broccoli in a pan of boiling water from the kettle for 3 to 4 minutes, until bright green and just tender. No longer, or it goes dark. Drain it well.",
       "Fry the salmon: Meanwhile, heat half the oil in a large frying pan over a medium-high heat. Lay the salmon in, skin side up, and leave it for 4 minutes without moving it, until golden underneath. Turn it carefully and cook for 3 to 4 minutes more.",
       "Check the fish: The salmon is done when it is opaque all the way through and flakes easily when pressed with a fork. Lift it on to warm plates, golden side up.",
       "Wilt the spinach: Add the rest of the oil and the garlic to the pan for 30 seconds. Stir in the spinach for 2 minutes, until it has shrunk down.",
-      "Make it creamy: Stir in the soft cheese and lemon juice for 1 minute, until the spinach is coated in a smooth, creamy sauce.",
+      "Make it creamy: Stir in the soft cheese and the rest of the lemon juice for 1 minute, until the spinach is coated in a smooth, creamy sauce.",
       "Serve: Spoon the spinach beside the salmon with the broccoli and add a grind of black pepper.",
     ],
   },
   {
     id: "salmon-garlic-spinach-tomatoes", meal: "dinner", tags: ["Fish", "Quick", "One pan"], name: "Salmon with garlic spinach and cherry tomatoes", blurb: "Pan-fried salmon on garlicky spinach and soft cherry tomatoes, with a squeeze of lemon.", servings: 2, minutes: 20,
     // 2026-11-21 (founder: "Nothing should be plain"): the salmon seasoned with salt as well as pepper
-    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("cherry-tomatoes", 200), ing("garlic", 10), ing("olive-oil", 15), ing("lemon-juice", 10), ing("black-pepper", 1), ing("salt", 1)],
+    // 2026-11-22 (founder 21 Nov: "accurate exactly to how the photo looks"; "marinating ... makes a big difference"): the salmon sits in oil, salt, pepper and lemon; the tomato halves keep their shape, as in the photo
+    ingredients: [ing("salmon", 260), ing("spinach", 200), ing("cherry-tomatoes", 200), ing("garlic", 10), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1), ing("salt", 1)],
     method: [
+      "Marinate the salmon: Pat the salmon dry and rub it with a little of the oil, the salt, the black pepper and a third of the lemon juice. Wash your hands after handling raw fish.",
+      "Let it sit: Leave the salmon for 10 minutes while you get the rest ready, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Get ready: Halve the cherry tomatoes. Rinse the spinach unless the bag says it is ready washed, and shake it dry.",
-      "Season the salmon: Pat the salmon dry with kitchen paper and sprinkle both sides with the salt and black pepper. Wash your hands after handling raw fish.",
       "Fry the salmon: Heat half the oil in a large frying pan over a medium-high heat. Lay the salmon in, skin side up, and leave it for 4 minutes without moving it, until golden underneath. Turn it carefully and cook for 3 to 4 minutes more.",
       "Check the fish: The salmon is done when it is opaque all the way through and flakes easily when pressed with a fork. Lift it on to a warm plate, golden side up.",
-      "Soften the tomatoes: Add the rest of the oil and the cherry tomatoes to the pan and fry for 2 to 3 minutes, until they start to soften and split.",
+      "Warm the tomatoes: Add the rest of the oil and the cherry tomatoes to the pan and fry for 1 to 2 minutes, just until warm but still holding their shape.",
       "Add the garlic: Stir in the garlic for 30 seconds, taking care that it doesn't burn.",
-      "Wilt the spinach: Add the spinach a handful at a time and stir for 2 minutes, until it has shrunk down. Stir in the lemon juice.",
+      "Wilt the spinach: Add the spinach a handful at a time and stir for 2 minutes, until it has shrunk down. Stir in the rest of the lemon juice.",
       "Serve: Spoon the spinach and tomatoes on to warm plates, sit the salmon on top, golden side up, and spoon over any juices from the pan.",
     ],
   },
   {
     id: "chilli-beef-pepper-broccoli-stir-fry", meal: "dinner", tags: ["Quick", "One pan"], name: "Chilli beef with peppers, broccoli and a fried egg", blurb: "Spiced beef mince stir-fried with peppers, broccoli and spinach, finished with lemon and topped with a fried egg.", servings: 2, minutes: 20,
     // the egg on top, as Thai chilli beef is served, gives the dish its richness (review 2026-11-21: the mince is lean, and a second spoon of oil was filler)
+    // 2026-11-22 (founder 21 Nov: "marinating ... makes a big difference"): the mince is seasoned with chilli and garlic before it browns
     ingredients: [ing("beef-mince", 300), ing("eggs", 120), ing("peppers", 160), ing("broccoli", 100), ing("spinach", 100), ing("garlic", 10), ing("chilli-powder", 1), ing("olive-oil", 15), ing("lemon-juice", 15), ing("black-pepper", 1)],
     method: [
+      "Season the mince: Mix the mince in a bowl with the chilli powder, half the garlic and a grind of black pepper, then wash your hands in hot soapy water.",
+      "Let it sit: Leave the mince for 10 minutes while you cut the vegetables, or for more flavour up to a few hours, covered in the fridge if longer than 30 minutes.",
       "Get ready: Cut the pepper in half, pull out the stalk and seeds and slice it into thin strips. Cut the broccoli into small florets. Rinse the spinach unless the bag says it is ready washed.",
       "Brown the mince: Heat half the oil in a large frying pan or wok over a high heat. Add the beef mince, press it out flat and leave it for 3 minutes without stirring, until browned underneath.",
       "Break it up: Break the mince up with a wooden spoon and fry for 2 to 3 minutes more, until browned all over with no pink left.",
-      "Add the spices: Stir in the garlic and chilli powder for 30 seconds, until they smell fragrant.",
+      "Add the garlic: Stir in the rest of the garlic for 30 seconds, until it smells fragrant.",
       "Add the vegetables: Add the broccoli, the pepper and a splash of water. Stir-fry for 3 to 4 minutes, until the broccoli is bright green and just tender and the mince is piping hot. No longer, or the broccoli goes dark.",
       "Wilt the spinach: Stir in the spinach a handful at a time for 1 to 2 minutes, until it has shrunk down. Take the pan off the heat and stir in the lemon juice and a good grind of black pepper.",
       "Keep it warm: Spoon the beef and vegetables into warm bowls and cover them with plates. Wipe the pan clean with kitchen paper.",
@@ -278,8 +305,8 @@ export const KETO_MEALS_LOOKS: Readonly<Record<string, string>> = {
   "cheesy-chicken-broccoli-bake": "A portion of chicken and broccoli bake on a round white plate, pieces of chicken and bright green broccoli florets in a creamy sauce under a bubbling, golden-brown cheddar top.",
   "beef-mushroom-spinach-skillet": "A wide white bowl of browned beef mince in a thick tomato sauce with sliced mushrooms, wilted dark green spinach and soft onion, topped with patches of melted orange cheddar.",
   "pesto-chicken-tomatoes-broccoli": "A roast chicken thigh spread with green pesto and melted white mozzarella on a round white plate, beside roasted broccoli florets browned at the edges and blistered red cherry tomatoes in their juices.",
-  "mozzarella-chicken-tomato-sauce": "A golden chicken thigh covered with melted white mozzarella in a glossy red tomato sauce flecked with oregano on a round white plate, beside a small heap of green salad leaves.",
+  "mozzarella-chicken-tomato-sauce": "A golden chicken thigh covered with melted white mozzarella, golden in spots and sprinkled with dried oregano, in a chunky red tomato sauce with pieces of tomato on a round white plate, beside a small heap of green salad leaves.",
   "salmon-creamy-spinach-broccoli": "A pan-fried salmon fillet with a golden top on a round white plate, beside creamy dark green spinach and bright green broccoli florets, flecked with black pepper.",
-  "salmon-garlic-spinach-tomatoes": "A golden pan-fried salmon fillet on a bed of wilted dark green spinach and soft, split red cherry tomatoes on a round white plate, glistening with lemony pan juices.",
+  "salmon-garlic-spinach-tomatoes": "A golden pan-fried salmon fillet on a bed of wilted dark green spinach and warm halved red cherry tomatoes that still hold their shape, on a round white plate, glistening with lemony pan juices.",
   "chilli-beef-pepper-broccoli-stir-fry": "A wide white bowl of browned spiced beef mince with strips of red pepper, bright green broccoli florets and wilted dark green spinach, topped with a fried egg with a set white and a golden yolk.",
 };

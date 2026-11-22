@@ -10,12 +10,13 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
     id: "cheesy-beans-on-toast", meal: "breakfast", tags: ["Quick", "British"], name: "Cheesy beans on toast", blurb: "Hot baked beans on wholemeal toast with grated cheddar melting on top.", servings: 2, minutes: 10,
     // the beans are the dish, so a bigger or smaller meal moves them with the toast (at most half as many again: a tin and a half)
     ingredients: [ing("baked-beans", 400, { role: "protein", fit: [0.5, 1.5] }), ing("bread", 160), ing("cheddar", 40), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Grate the cheese: Grate the cheddar on the fine side of a grater on to a plate and keep it beside the hob.",
+      "Grate the cheese: Grate the cheddar on the coarse side of a grater on to a plate and keep it beside the hob.",
       "Warm the beans: Tip the beans into a small saucepan and warm them on a medium heat for 4 to 5 minutes, stirring now and then, until bubbling, thick and glossy.",
       "Toast the bread: Meanwhile, toast the bread in a toaster or under a hot grill for 2 to 3 minutes, turning it once under the grill, until golden and crisp.",
       "Season the beans: Take the beans off the heat and stir in a good grind of black pepper.",
-      "Serve: Put the hot toast on warm plates, spoon the beans over and scatter the cheese on top so it starts to melt. Eat straight away.",
+      "Serve: Put the hot toast on warm plates, spoon the beans over and scatter the cheese on top so it starts to melt. Add another grind of black pepper over the cheese and eat straight away.",
     ],
   },
   {
@@ -69,11 +70,12 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
   {
     id: "peanut-butter-banana-toast", meal: "breakfast", tags: ["Quick", "Vegan", "Sweet"], name: "Peanut butter and banana on toast", blurb: "Warm wholemeal toast spread with peanut butter and topped with sliced banana.", servings: 1, minutes: 5,
     ingredients: [ing("bread", 80), ing("peanut-butter", 30), ing("banana", 120, { note: "about 1 banana" }), ing("cinnamon", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Toast the bread: Toast the bread in a toaster or under a hot grill for 2 to 3 minutes, until golden and crisp on both sides.",
-      "Slice the banana: Meanwhile, peel the banana and cut it into thin rounds, about as thick as a pound coin.",
-      "Spread the peanut butter: Stir the peanut butter well if it has separated in the jar. Spread it thinly over the warm toast, right to the edges.",
-      "Add the banana: Lay the banana slices over the peanut butter in overlapping rows, pressing them down gently so they stay put.",
+      "Slice the banana: Meanwhile, peel the banana and cut it into rounds about 1 cm thick.",
+      "Spread the peanut butter: Stir the peanut butter well if it has separated in the jar. Spread it over the warm toast, right to the edges.",
+      "Add the banana: Lay the banana slices over the peanut butter in neat rows, just touching, pressing them down gently so they stay put.",
       "Finish and serve: Dust the cinnamon over the banana and eat straight away, while the toast is still warm.",
     ],
   },
@@ -93,8 +95,9 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
   {
     id: "grilled-full-english", meal: "breakfast", tags: ["Eggs", "Brunch", "British"], name: "Grilled full English breakfast", blurb: "Grilled bacon and tomatoes, fried eggs, mushrooms, baked beans and toast.", servings: 2, minutes: 25,
     ingredients: [ing("bacon", 120), ing("eggs", 120, { note: "about 2 eggs" }), ing("baked-beans", 400), ing("mushrooms", 200), ing("tomatoes", 160, { note: "about 2 tomatoes" }), ing("bread", 80), ing("oil-spray", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Heat the grill: Turn the grill on to a medium-high heat. Wipe the mushrooms clean and slice them about as thick as a pound coin. Wash the tomatoes and cut them in half.",
+      "Heat the grill: Turn the grill on to a medium-high heat. Wipe the mushrooms clean and cut them into thick slices, about 5 mm. Wash the tomatoes and cut them in half.",
       "Grill the bacon and tomatoes: Lay the bacon and the tomato halves, cut side up, in a single layer on the grill rack. Grill for 4 to 5 minutes, until the bacon starts to brown. Wash your hands after handling raw bacon.",
       "Turn the bacon: Turn the bacon over, leaving the tomatoes as they are, and grill for 4 to 5 minutes more, until the bacon is browned and the tomatoes are soft. Lower the grill if they brown too fast.",
       "Fry the mushrooms: Meanwhile, spray a large non-stick frying pan with the oil spray, away from any flame, and heat it on a medium-high heat. Spread the mushrooms out in one layer and leave them for 2 to 3 minutes, until golden underneath.",
@@ -110,8 +113,9 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
   {
     id: "ham-cheese-toastie", meal: "breakfast", tags: ["Quick"], name: "Ham and cheese toastie", blurb: "Wholemeal bread filled with ham and cheddar, toasted golden in a pan.", servings: 2, minutes: 12,
     ingredients: [ing("bread", 160), ing("ham", 80), ing("cheddar", 60), ing("oil-spray", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Get the filling ready: Grate the cheddar on the coarse side of a grater. Tear the ham into pieces about 3 cm across.",
+      "Get the filling ready: Grate the cheddar on the coarse side of a grater. Fold the ham slices in half so they fit the bread.",
       "Fill the sandwiches: Lay half the bread on a board. Scatter over half the cheese, add the ham, then the rest of the cheese, leaving a small gap round the edges. Put the rest of the bread on top and press down firmly.",
       "Heat the pan: Spray a large non-stick frying pan with the oil spray, away from any flame, and heat it on a medium-low heat for 1 minute.",
       "Cook the first side: Put the sandwiches in the pan and press them down with a fish slice. Cook for 3 to 4 minutes, until the underside is golden brown.",
@@ -122,8 +126,9 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
   {
     id: "garlic-mushrooms-on-toast", meal: "breakfast", tags: ["Vegan", "Quick"], name: "Garlic mushrooms on toast", blurb: "Golden garlic mushrooms and spinach piled on wholemeal toast.", servings: 2, minutes: 15,
     ingredients: [ing("mushrooms", 300), ing("bread", 160), ing("spinach", 60), ing("garlic", 5, { note: "about 1 clove" }), ing("olive-oil", 10), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
-      "Get ready: Wipe the mushrooms clean, trim the dry stalk ends and slice them about as thick as a pound coin. Rinse the spinach unless the bag says it is ready washed.",
+      "Get ready: Wipe the mushrooms clean, trim the dry stalk ends and cut them into thick slices, about 5 mm. Rinse the spinach unless the bag says it is ready washed.",
       "Fry the mushrooms: Heat the oil in a large non-stick frying pan on a high heat until it shimmers. Add the mushrooms in one layer (in two batches if your pan is small) and leave them for 3 minutes, until golden underneath.",
       "Brown the mushrooms: Stir and fry for 3 to 4 minutes more, until their liquid has gone and they are golden brown all over.",
       "Add the garlic: Turn the heat down to medium, stir in the garlic purée and cook for 30 seconds, stirring all the time so it doesn't burn.",
@@ -146,12 +151,13 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
   {
     id: "apple-cinnamon-porridge", meal: "breakfast", tags: ["Porridge"], name: "Apple and cinnamon porridge", blurb: "Creamy oats cooked with grated apple and cinnamon, with a drizzle of honey.", servings: 2, minutes: 12,
     ingredients: [ing("oats", 100), ing("milk", 400, { follows: "oats" }), ing("apple", 150, { note: "about 1 apple" }), ing("cinnamon", 2), ing("honey", 10)],
+    // 2026-11-22: cooked to match its photo (founder 21 Nov: "accurate exactly to how the photo looks").
     method: [
       "Grate the apple: Wash the apple and grate it on the coarse side of a grater, skin and all, stopping at the core.",
-      "Mix the porridge: Put the oats, milk, cinnamon and half the apple into a medium saucepan and stir well, so no dry oats are left at the bottom.",
+      "Mix the porridge: Put the oats, milk, most of the cinnamon and half the apple into a medium saucepan and stir well, so no dry oats are left at the bottom.",
       "Bring to a bubble: Put the pan on a medium heat and stir often, scraping the bottom so nothing sticks. After 2 to 3 minutes it will start to bubble gently.",
       "Cook until creamy: Turn the heat down a little and keep stirring for 4 to 5 minutes, until thick and creamy and the apple is soft. Stir in a splash of hot water if it gets too thick.",
-      "Serve: Spoon the porridge into bowls, top with the rest of the apple and drizzle the honey over. Eat it straight away, while it is hot.",
+      "Serve: Spoon the porridge into bowls, top with the rest of the apple, drizzle the honey over and dust with the rest of the cinnamon. Eat it straight away, while it is hot.",
     ],
   },
   {
@@ -170,7 +176,7 @@ export const EVERYDAY_BREAKFAST: readonly Recipe[] = [
 
 // How each looks from directly above, for its picture (docs/RECIPE_IMAGE_PROMPTS.md): one portion, only the recipe's own foods, served as the method says.
 export const EVERYDAY_BREAKFAST_LOOKS: Readonly<Record<string, string>> = {
-  "cheesy-beans-on-toast": "Two slices of golden wholemeal toast on a round white plate, covered with glossy orange-red baked beans in tomato sauce and topped with a scatter of finely grated orange cheddar just starting to melt, with flecks of black pepper.",
+  "cheesy-beans-on-toast": "Two slices of golden wholemeal toast on a round white plate, covered with glossy orange-red baked beans in tomato sauce and topped with a scatter of coarsely grated orange cheddar just starting to melt, with flecks of black pepper.",
   "scrambled-eggs-on-toast": "Two slices of golden wholemeal toast side by side on a round white plate, heaped with soft, glossy pale yellow scrambled eggs in large folds, flecked with cracked black pepper.",
   "poached-eggs-spinach-toast": "Two slices of golden wholemeal toast on a round white plate, each topped with a heap of dark green wilted spinach and a poached egg with a smooth, set white and a soft yellow yolk, with a few flecks of black pepper.",
   "boiled-eggs-toast-soldiers": "Two soft-boiled eggs in white egg cups on a round white plate, their tops sliced off to show set whites and runny bright yellow yolks with a few white salt flecks, beside a neat row of golden wholemeal toast soldiers.",

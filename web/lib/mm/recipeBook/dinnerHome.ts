@@ -5,14 +5,16 @@ import { ing, type Recipe } from "../recipes";
 export const DINNER_HOME: readonly Recipe[] = [
   {
     id: "spaghetti-bolognese", meal: "dinner", tags: ["Italian", "Batch cook"], name: "Spaghetti bolognese", blurb: "The family classic with a rich tomato sauce.", servings: 4, minutes: 40,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): carrot in 1 cm cubes; marinade (founder 21 Nov: "marinating ... makes a big difference"): garlic, oregano, salt, black pepper.
     ingredients: [ing("beef-mince", 500), ing("passata", 500), ing("chopped-tomato-puree", 30), ing("pasta-long", 320), ing("cheddar", 30), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("oregano", 1), ing("salt", 1), ing("black-pepper", 1)],
     method: [
-      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and chop it small too, or grate it.",
+      "Marinate the mince: Mix the mince in a bowl with half the garlic purée, the oregano, the salt and the black pepper. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
+      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and cut it into small cubes about 1 cm across.",
       "Brown the mince: Put a large, deep frying pan on a medium-high heat and add the mince. Press it flat with a wooden spoon and leave it for 3 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break it up and fry for 4 to 5 minutes more, until it is brown all over with no pink left and smells meaty and toasty.",
       "Soften the vegetables: Turn the heat down to medium. Add the onion and carrot and cook for about 8 minutes, stirring now and then, until the onion is soft, sweet and see-through.",
-      "Add the purées: Stir in the garlic purée and the tomato purée. Cook for 1 minute, stirring all the time, until the tomato purée turns a darker red and the garlic smells sweet.",
-      "Add the passata: Pour in the passata and add the oregano. Stir well and season with the salt and pepper.",
+      "Add the purées: Stir in the rest of the garlic purée and the tomato purée. Cook for 1 minute, stirring all the time, until the tomato purée turns a darker red and the garlic smells sweet.",
+      "Add the passata: Pour in the passata and stir well, scraping up any brown bits from the bottom of the pan.",
       "Simmer the sauce: Turn the heat down low and let the sauce simmer gently, with just a few small bubbles, for 20 minutes, until thick and glossy. Stir every 5 minutes or so, and add a splash of water if it gets too thick.",
       "Boil the water: About 12 minutes before the sauce is ready, fill a large saucepan with water and bring it to the boil over a high heat.",
       "Cook the spaghetti: Add the spaghetti to the boiling water and push it down gently as it softens. Cook it for the time on the pack (usually 10 to 12 minutes), stirring once or twice so it doesn't stick together.",
@@ -22,14 +24,16 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "beef-pasta-bake", meal: "dinner", tags: ["Italian", "Bake"], name: "Cheesy beef pasta bake", blurb: "Pasta in a rich beef and tomato sauce, baked under a creamy cheese topping.", servings: 4, minutes: 60,
+    // 2026-11-22, marinade (founder 21 Nov: "marinating ... makes a big difference"): garlic, oregano, salt, black pepper.
     ingredients: [ing("beef-mince", 500), ing("passata", 500), ing("chopped-tomato-puree", 30), ing("pasta-shapes", 250), ing("soft-cheese", 200), ing("milk", 100), ing("mozzarella", 125), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("oregano", 1), ing("salt", 1), ing("black-pepper", 1)],
     method: [
+      "Marinate the mince: Mix the mince in a bowl with half the garlic purée, the oregano, the salt and the black pepper. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
       "Get ready: Heat the oven to 200°C (180°C fan, gas 6). Peel the onion and carrot and chop them small, about the size of a pea, or grate the carrot. Drain the mozzarella, pat it dry and tear it into small pieces.",
       "Brown the mince: Put the mince in a large, deep non-stick frying pan on a medium-high heat. Press it flat with a wooden spoon and leave it for 3 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break it up and fry for 4 to 5 minutes more, until it is brown all over with no pink left.",
       "Soften the vegetables: Turn the heat down to medium. Add the onion and carrot and cook for about 8 minutes, stirring now and then, until the onion is soft, sweet and see-through. Add a splash of water if the pan looks dry.",
-      "Add the purées: Stir in the garlic purée and the tomato purée. Cook for 1 minute, stirring all the time, until the tomato purée turns a darker red.",
-      "Simmer the sauce: Pour in the passata, add the oregano and season with the salt and pepper. Turn the heat down low and simmer gently for 10 minutes, stirring now and then, then keep it on a very low heat.",
+      "Add the purées: Stir in the rest of the garlic purée and the tomato purée. Cook for 1 minute, stirring all the time, until the tomato purée turns a darker red.",
+      "Simmer the sauce: Pour in the passata and stir. Turn the heat down low and simmer gently for 10 minutes, stirring now and then, then keep it on a very low heat.",
       "Cook the pasta: Boil the kettle and bring the water to a fast boil in a large saucepan on a high heat. Cook the pasta for 2 minutes less than the time on the pack (usually 8 to 10 minutes), stirring once or twice.",
       "Make the cheese topping: While the pasta cooks, put the soft cheese and the milk in a bowl. Beat them together with a fork or whisk until smooth and creamy, with no lumps.",
       "Mix the pasta and sauce: Drain the pasta in a colander. Taste the sauce and add a little more salt and pepper if it needs it, then stir in the pasta until every piece is coated.",
@@ -40,14 +44,16 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "cottage-pie", meal: "dinner", tags: ["British", "Bake"], name: "Cottage pie with cheesy mash", blurb: "Savoury beef mince under a mashed potato top with melted cheddar.", servings: 4, minutes: 60,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): carrot in 1.5 cm cubes; marinade (founder 21 Nov: "marinating ... makes a big difference"): garlic, salt, black pepper.
     ingredients: [ing("beef-mince", 500), ing("peas", 150), ing("chopped-tomato-puree", 30), ing("stock-cube", 6), ing("new-potatoes", 1035), ing("cheddar", 40), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("salt", 1), ing("black-pepper", 1), ing("garlic", 10)],
     method: [
-      "Get ready: Heat the oven to 200°C (180°C fan, gas 6). Peel the onion and carrot and chop them small, about the size of a pea, or grate the carrot.",
+      "Marinate the mince: Mix the mince in a bowl with half the garlic purée and a pinch of salt and pepper. Leave it 10 minutes, or keep it covered in the fridge up to a few hours. Wash your hands after touching raw mince.",
+      "Get ready: Heat the oven to 200°C (180°C fan, gas 6). Peel the onion and chop it small, about the size of a pea. Peel the carrot and cut it into cubes about 1.5 cm across.",
       "Brown the mince: Put the mince in a large, deep non-stick frying pan on a medium-high heat. Press it flat with a wooden spoon and leave it for 3 minutes without stirring, until browned underneath. Wash your hands after touching the raw mince.",
       "Break up the mince: Break it up and fry for 4 to 5 minutes more, until it is brown all over with no pink left.",
       "Soften the vegetables: Turn the heat down to medium. Add the onion and carrot and cook for about 8 minutes, stirring now and then, until the onion is soft, sweet and see-through. Add a splash of water if the pan looks dry.",
-      "Add purée, stock and peas: Stir in the garlic purée and tomato purée for 1 minute, until the purée turns a darker red. Dissolve the stock cube in 300 ml of boiling water from the kettle, then pour it in with the frozen peas and stir well.",
-      "Simmer the filling: Bring it to the boil, then turn the heat down low and simmer gently for 15 minutes, stirring now and then, until thick. A spoon dragged across the bottom of the pan should leave a clear line.",
+      "Add purée, stock and peas: Stir in the rest of the garlic purée and the tomato purée for 1 minute, until the purée turns a darker red. Dissolve the stock cube in 300 ml of boiling water, then pour it in with the frozen peas and stir well.",
+      "Simmer the filling: Bring it to the boil, then turn the heat down low and simmer gently for 15 to 20 minutes, stirring now and then, until thick and the carrot is soft. A spoon dragged across the bottom of the pan should leave a clear line.",
       "Warm the potatoes: When the mince has simmered for 5 minutes, drain the potatoes and put them in a medium saucepan. Cover them with boiling water, bring to the boil on a high heat and cook for 5 minutes, until hot all the way through.",
       "Mash the potatoes: Drain the potatoes, leaving a splash of the hot water in the pan. Add a pinch of salt and pepper and mash until smooth. Stir in another splash of hot water if the mash is too stiff.",
       "Check the filling: Taste the mince and add a pinch of salt and pepper if it needs it, then turn the heat off. It should be thick, not watery, and steaming hot all the way through.",
@@ -58,15 +64,16 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "chicken-mozzarella-pasta-bake", meal: "dinner", tags: ["Italian", "Bake"], name: "Chicken, tomato and mozzarella pasta bake", blurb: "Pasta, chicken and tomato sauce under bubbling mozzarella.", servings: 4, minutes: 40,
+    // 2026-11-22, marinade (founder 21 Nov: "marinating ... makes a big difference"): salt, black pepper, oregano, garlic.
     ingredients: [ing("chicken", 480), ing("pasta-shapes", 300), ing("passata", 500), ing("mozzarella", 125), ing("garlic", 10, { note: "about 2 cloves" }), ing("oregano", 1), ing("spinach", 120), ing("oil-spray", 2), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Get ready: Heat the oven to 200°C (180°C fan, gas 6). Boil the kettle, pour the water into a large saucepan and put it on a high heat with the lid on.",
-      "Prepare the chicken and cheese: Cut the chicken into bite-sized pieces, about 2 cm across, and toss them with the salt and black pepper. Wash your hands, the knife and the board in hot soapy water. Drain the mozzarella, pat it dry and tear it into small pieces.",
+      "Marinate the chicken: Cut the chicken into 2 cm pieces. Toss them with the salt, black pepper, oregano and half the garlic purée. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands, the knife and the board.",
       "Cook the pasta: When the water is bubbling hard, add the pasta. Cook it for 2 minutes less than the time on the pack (usually 8 to 10 minutes), stirring once or twice. It finishes cooking in the oven.",
       "Fry the chicken: While the pasta cooks, spray a large non-stick frying pan with the oil spray and heat it on medium-high for a minute. Add the chicken in a single layer and fry for 6 to 8 minutes, turning every 2 minutes, until golden in places.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through and piping hot, with no pink left and clear juices. If not, fry for 1 to 2 minutes more and check again.",
-      "Drain the pasta: Drain the pasta in a colander over the sink. Turn the heat under the chicken down to low.",
-      "Make the sauce: Stir the garlic purée and the oregano into the chicken and cook for 1 minute. Pour in the passata, then add the spinach a handful at a time, stirring until each handful has gone soft.",
+      "Drain the pasta: Drain the pasta in a colander over the sink. Turn the heat under the chicken down to low. Drain the mozzarella, pat it dry and tear it into small pieces.",
+      "Make the sauce: Stir the rest of the garlic purée into the chicken and cook for 1 minute. Pour in the passata, then add the spinach a handful at a time, stirring until each handful has gone soft.",
       "Simmer the sauce: Let the sauce simmer gently for 5 minutes, stirring now and then, until it thickens a little and is hot all the way through. Taste it: it should be rich and tomatoey.",
       "Fill the dish: Tip the pasta into a large ovenproof dish, spoon the chicken and sauce over it and stir until every piece is coated. Spread it level and scatter the torn mozzarella over the top.",
       "Bake: Bake on the middle shelf for 20 minutes, until the mozzarella is melted and golden in places and the sauce bubbles at the edges. If it is still pale, give it 5 minutes on the top shelf. It must be piping hot right through.",
@@ -75,59 +82,66 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "salmon-new-potatoes-peas", meal: "dinner", tags: ["Fish", "Quick"], name: "Salmon with new potatoes and peas", blurb: "Oven-baked salmon with soft new potatoes and sweet peas.", servings: 2, minutes: 25,
-    ingredients: [ing("salmon", 240), ing("new-potatoes", 345), ing("peas", 160), ing("lemon-juice", 15), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): olive oil (8 ml) for the golden top and the shine on the potatoes; marinade (founder 21 Nov: "marinating ... makes a big difference"): olive oil, lemon, salt, black pepper.
+    ingredients: [ing("salmon", 240), ing("new-potatoes", 345), ing("peas", 160), ing("lemon-juice", 15), ing("olive-oil", 8), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a baking tray with baking paper so the fish doesn't stick.",
-      "Season the salmon: Put the salmon on the tray, skin-side down if it has skin, with a little space between the fillets. Sprinkle a pinch of salt and pepper over, then wash your hands in hot soapy water.",
-      "Bake the salmon: When the oven is hot, slide the tray onto the middle shelf and bake for 12 to 15 minutes.",
+      "Marinate the salmon: Turn the salmon in half the oil, a third of the lemon juice and a pinch of salt and pepper. Leave it 10 minutes while the oven heats, or keep it covered in the fridge up to 1 hour. Wash your hands.",
+      "Lay out the salmon: Put the salmon on the tray, skin-side down if it has skin, with a little space between the fillets. Wash your hands in hot soapy water.",
+      "Bake the salmon: When the oven is hot, slide the tray onto the middle shelf and bake for 12 to 15 minutes. Then put it under a hot grill for 2 minutes, until golden on top.",
       "Heat the potatoes: As soon as the tray is in, boil the kettle. Drain the potatoes, put them in a medium saucepan and cover them with the boiling water. Bring it back to the boil on a high heat.",
       "Add the peas: Let the potatoes bubble for 2 minutes, then add the frozen peas. Bring back to the boil and cook for 3 minutes more, until the peas are tender and the potatoes are hot all the way through.",
-      "Drain the vegetables: Turn the heat off. Drain the potatoes and peas in a colander, tip them back into the pan with a little black pepper, toss gently and put the lid on to keep them warm.",
+      "Drain the vegetables: Turn the heat off. Drain the potatoes and peas in a colander, tip them back into the pan with the rest of the oil and a little black pepper, toss gently until shiny and put the lid on to keep them warm.",
       "Check the salmon: Take the tray out with oven gloves. The salmon is cooked when it is opaque (not see-through) and flakes easily when you press it with a fork. If it is still see-through in the middle, bake for 2 to 3 minutes more.",
-      "Serve: Put the salmon on warm plates with the potatoes and peas beside it. Drizzle the lemon juice over the salmon and serve straight away.",
+      "Serve: Put the salmon on warm plates with the potatoes and peas beside it. Drizzle the rest of the lemon juice over the salmon and serve straight away.",
     ],
   },
   {
     id: "pesto-salmon-crushed-potatoes", meal: "dinner", tags: ["Fish", "Quick"], name: "Pesto salmon with crushed potatoes", blurb: "Salmon baked under green pesto with roasted cherry tomatoes.", servings: 2, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): long-stemmed broccoli florets; marinade (founder 21 Nov: "marinating ... makes a big difference"): olive oil, salt, black pepper under the pesto.
     ingredients: [ing("salmon", 240), ing("pesto", 30), ing("new-potatoes", 345), ing("olive-oil", 10), ing("cherry-tomatoes", 100), ing("broccoli", 150), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Line a baking tray with baking paper so the fish doesn't stick.",
-      "Lay out the salmon: Put the salmon on the tray, skin-side down if it has skin, with a little space between the fillets. Wash your hands in hot soapy water after touching the raw fish.",
+      "Lay out the salmon: Put the salmon on the tray, skin-side down if it has skin, with a little space between the fillets.",
+      "Marinate the salmon: Rub the tops with 1 tsp of the oil and a pinch of salt and pepper. Leave it 10 minutes while the oven heats, or keep it covered in the fridge up to 1 hour. Wash your hands after touching the raw fish.",
       "Add the pesto and tomatoes: Rinse the cherry tomatoes. Spread the pesto evenly over the top of each fillet with the back of a spoon, then scatter the whole tomatoes round the fish.",
       "Bake the salmon: When the oven is hot, slide the tray onto the middle shelf and bake for 12 to 15 minutes.",
-      "Prepare the broccoli: As soon as the tray is in, boil the kettle. Wash the broccoli and cut it into small florets, about the size of a walnut. Slice any thick stalk about as thick as a pound coin.",
+      "Prepare the broccoli: As soon as the tray is in, boil the kettle. Wash the broccoli and cut it into florets about 6 cm long, keeping a long piece of stalk on each.",
       "Heat the potatoes: Drain the potatoes, put them in a medium saucepan and cover them with boiling water from the kettle. Bring to the boil on a high heat and let them bubble for 2 minutes.",
-      "Add the broccoli: Add the broccoli, bring back to the boil and cook for 3 to 4 minutes, until it is bright green and a knife slides easily into a stalk. Turn off the heat.",
+      "Add the broccoli: Add the broccoli, bring back to the boil and cook for 4 to 5 minutes, until it is bright green and a knife slides easily into a stalk. Turn off the heat.",
       "Crush the potatoes: Drain the potatoes and broccoli and tip them back into the pan. Press each potato with the back of a fork until it splits and flattens: crushed, not mashed smooth.",
-      "Dress and keep warm: Drizzle over the olive oil, add a pinch of salt and pepper and turn everything over gently. Put the lid on to keep it warm.",
+      "Dress and keep warm: Drizzle over the rest of the olive oil, add a pinch of salt and pepper and turn everything over gently. Put the lid on to keep it warm.",
       "Check the salmon: Take the tray out with oven gloves. The salmon is cooked when it is opaque (not see-through) and flakes easily when you press it with a fork. If not, bake for 2 to 3 minutes more.",
       "Serve: Share the potatoes and broccoli between warm plates and add the salmon. Spoon the soft tomatoes and any pesto left on the tray over the top.",
     ],
   },
   {
     id: "ham-egg-potatoes", meal: "dinner", tags: ["British", "Quick"], name: "Ham, egg and crispy potatoes with peas", blurb: "A pub-style dinner made at home.", servings: 2, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): fried eggs with golden, lacy edges.
     ingredients: [ing("ham", 200), ing("eggs", 240, { note: "about 4 eggs" }), ing("new-potatoes", 345), ing("peas", 160), ing("olive-oil", 15), ing("mustard", 5), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Prepare the potatoes: Drain the potatoes, pat them dry with kitchen paper so they go crisp, and cut each one in half. Take the ham out of the fridge.",
       "Heat the pan: Heat a large non-stick frying pan on a medium-high heat for a minute. Pour in about two-thirds of the oil and tilt the pan so it covers the bottom.",
       "Fry the potatoes: Add the potatoes cut-side down in a single layer. Fry for 10 to 12 minutes, leaving them alone for the first 4 minutes, then turning every few minutes, until golden and crisp all over.",
       "Cook the peas: When the potatoes are about halfway done, boil the kettle and pour the water into a small saucepan on a high heat. Add the frozen peas, bring back to the boil and cook for 3 minutes, until tender. Drain them.",
-      "Keep the potatoes warm: Season the potatoes with a pinch of salt and pepper. Tip them onto a plate and cover loosely with another plate. Turn the heat under the pan down to medium.",
+      "Keep the potatoes warm: Season the potatoes with a pinch of salt and pepper. Tip them onto a plate and cover loosely with another plate. Keep the pan on a medium-high heat.",
       "Crack in the eggs: Pour the rest of the oil into the pan and warm it for 30 seconds. Crack each egg into a cup, pick out any shell, then slide it into the pan. Wash your hands after touching the raw eggs.",
-      "Fry the eggs: Fry for 3 to 4 minutes, until the whites are completely set, with no clear or runny white left. If the top is slow to set, cover the pan with a lid or plate for 1 minute.",
+      "Fry the eggs: Fry for 3 to 4 minutes, until the whites are completely set, with no clear or runny white left, and the edges are golden and lacy. If the top is slow to set, cover the pan for 1 minute.",
       "Serve: Lay the ham on warm plates with the crispy potatoes, peas and eggs. Add a small spoonful of mustard on the side and serve straight away.",
     ],
   },
   {
     id: "chicken-thigh-potato-traybake", meal: "dinner", tags: ["One pan", "British"], name: "Chicken thigh and potato traybake", blurb: "Everything roasts together in one tin.", servings: 4, minutes: 50,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): red peppers, red onion quarters, potatoes cut-side down; marinade (founder 21 Nov: "marinating ... makes a big difference"): olive oil, garlic, paprika, salt, black pepper.
     // 2026-11-21: oil 15 -> 20 ml so the potatoes, chicken and vegetables brown as the picture shows (founder: "has to look exactly as much as you can as the product")
-    ingredients: [ing("chicken-thigh", 600), ing("new-potatoes", 690), ing("olive-oil", 20), ing("red-onion", 150, { note: "about 1 red onion" }), ing("peppers", 320, { note: "about 2 peppers" }), ing("paprika", 4), ing("garlic", 10, { note: "about 2 cloves" }), ing("salt", 2), ing("black-pepper", 1)],
+    ingredients: [ing("chicken-thigh", 600), ing("new-potatoes", 690), ing("olive-oil", 20), ing("red-onion", 150, { note: "about 1 red onion" }), ing("peppers", 320, { note: "2 red peppers" }), ing("paprika", 4), ing("garlic", 10, { note: "about 2 cloves" }), ing("salt", 2), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Get out your largest roasting tin, or two tins: everything must fit in one layer with a little space.",
+      "Marinate the chicken: Turn the chicken thighs in a bowl with half the oil, half the garlic purée, half the paprika and a pinch of salt and black pepper. Leave them 10 minutes, or keep them covered in the fridge up to a few hours. Wash your hands.",
       "Prepare the potatoes: Drain the potatoes and pat them dry with kitchen paper so they go golden. Cut any large ones in half so the pieces are about the same size.",
-      "Chop the vegetables: Peel the red onion, halve it from top to bottom and cut each half into wedges about 2 cm wide. Halve the peppers, pull out the stalks and seeds and cut them into chunks about 3 cm across.",
-      "Fill the tin: Put the chicken thighs, potatoes, onion and peppers in the roasting tin. Wash your hands, the knife and the board in hot soapy water after handling the raw chicken.",
-      "Add oil and spices: Add the oil, garlic purée, paprika, salt and black pepper. Mix with a large spoon until everything is coated orange-red, turning the chicken so both sides are covered.",
+      "Chop the vegetables: Peel the red onion and cut it into quarters, keeping a little root on each so they hold together. Halve the peppers, pull out the stalks and seeds and cut them into chunks about 3 cm across.",
+      "Coat the vegetables: Put the potatoes, onion and peppers in the roasting tin with the rest of the oil, garlic purée and paprika, and the rest of the salt and black pepper. Mix until coated orange-red, with the potatoes cut-side down.",
+      "Add the chicken: Lay the chicken thighs on top with any marinade from the bowl. Wash your hands, the knife and the board in hot soapy water after handling the raw chicken.",
       "Start roasting: Spread everything out in one layer with a little space between the pieces, using two tins if it is crowded: crowded food steams and stays pale. Roast for 20 minutes, with one tin on the middle shelf and any second tin above it.",
       "Turn and roast again: Take the tin out with oven gloves, turn the chicken and stir the vegetables (swap the shelves of two tins). Roast for another 15 to 20 minutes, until the chicken and potatoes are golden brown and the onion and peppers are browned at the edges.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through and piping hot, with no pink left and clear juices. If not, roast for 5 more minutes and check again.",
@@ -137,25 +151,28 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "potato-tomato-mozzarella-bake", meal: "dinner", tags: ["Italian", "Bake"], name: "Potato, tomato and mozzarella bake", blurb: "Soft potatoes in tomato sauce under melted mozzarella, no meat.", servings: 3, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): potatoes browned golden on the cut side first.
     // the potatoes bake in one tin of tomatoes: fitting moves them at most half as much again
     ingredients: [ing("new-potatoes", 690, { fit: [0.5, 1.5] }), ing("chopped-tomatoes", 400), ing("mozzarella", 125), ing("garlic", 10, { note: "about 2 cloves" }), ing("oregano", 1), ing("oil-spray", 2), ing("salt", 1), ing("black-pepper", 1), ing("chopped-tomato-puree", 15)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Get out an ovenproof dish about 20 cm by 25 cm and a medium non-stick saucepan.",
       "Prepare the potatoes: Drain the potatoes and shake off the water. Cut each one in half, and cut any large ones smaller so they are all about the same size.",
+      "Brown the potatoes: Pat the potatoes dry. Spray a large frying pan with half the oil spray and fry them cut-side down on a medium-high heat for 5 to 6 minutes, until golden. Turn off the heat.",
       "Tear the mozzarella: Pour away the liquid from the mozzarella and pat it dry with kitchen paper. Tear it into pieces about the size of a walnut.",
-      "Cook the garlic: Spray the saucepan with the oil spray and put it on a low to medium heat. Add the garlic purée and tomato purée and stir for 1 minute, until the garlic smells sweet and the tomato purée turns a darker red, without letting it brown.",
+      "Cook the garlic: Spray the saucepan with the rest of the oil spray and put it on a low to medium heat. Stir in the garlic purée and tomato purée for 1 minute, until the garlic smells sweet and the tomato purée turns a darker red.",
       "Add the tomatoes: Pour in the chopped tomatoes, add the oregano and stir well. Turn the heat up a little and bring it to the boil.",
       "Simmer the sauce: Turn the heat down low and simmer gently for 10 minutes, stirring now and then, until thick and no longer watery. Add a splash of water if it starts to stick.",
       "Add the potatoes: Take the pan off the heat. Gently stir in the potatoes with a pinch of salt and a pinch of black pepper. Taste and add a little more salt and pepper if it needs it.",
-      "Fill the dish: Tip everything into the dish and spread it level. Scatter the mozzarella over the top, leaving a few gaps so the sauce shows through.",
+      "Fill the dish: Tip everything into the dish, spread it level and turn the potatoes golden side up. Scatter the mozzarella over the top, leaving a few gaps so the sauce shows through.",
       "Bake: Bake on the middle shelf for 15 to 20 minutes, until the mozzarella has melted and is golden in patches and the sauce is bubbling at the edges. If it is still pale, give it 5 minutes on the top shelf.",
       "Rest and serve: Take the dish out with oven gloves and check it is steaming hot all the way through (bake it for 5 more minutes if not). Leave it for 3 minutes, then spoon onto warm plates.",
     ],
   },
   {
     id: "easy-macaroni-cheese", meal: "dinner", tags: ["British", "Quick"], name: "Easy macaroni cheese", blurb: "A creamy cheese sauce made in the pasta pan, finished under the grill.", servings: 4, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): elbow macaroni.
     // the cheese sauce follows the pasta, so a bigger or smaller dish is still coated
-    ingredients: [ing("pasta-shapes", 300), ing("soft-cheese", 200, { follows: "pasta-shapes" }), ing("cheddar", 100, { follows: "pasta-shapes" }), ing("milk", 200, { follows: "pasta-shapes" }), ing("mustard", 5), ing("black-pepper", 1), ing("tomatoes", 180)],
+    ingredients: [ing("pasta-shapes", 300, { note: "macaroni if you can" }), ing("soft-cheese", 200, { follows: "pasta-shapes" }), ing("cheddar", 100, { follows: "pasta-shapes" }), ing("milk", 200, { follows: "pasta-shapes" }), ing("mustard", 5), ing("black-pepper", 1), ing("tomatoes", 180)],
     method: [
       "Boil the water: Boil the kettle, pour the water into a large saucepan and bring it back to a rolling boil on a high heat. Get out a large ovenproof dish and a colander.",
       "Prepare the cheese and tomatoes: Grate the cheddar on the large holes of the grater and set about a third aside for the top. Wash the tomatoes, cut out any hard core and slice them about as thick as a pound coin.",
@@ -171,13 +188,14 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "bacon-carbonara-spaghetti", meal: "dinner", tags: ["Italian", "Quick"], name: "Bacon carbonara-style spaghetti", blurb: "Spaghetti in a silky egg and cheese sauce with crispy bacon.", servings: 2, minutes: 20,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): wider bacon strips, coarse cheddar on top (bacon is cured: no marinade).
     // the egg and cheese sauce follows the spaghetti, so there is always enough to coat it
     ingredients: [ing("pasta-long", 180), ing("bacon", 150), ing("eggs", 120, { note: "about 2 eggs", follows: "pasta-long" }), ing("cheddar", 30, { follows: "pasta-long" }), ing("black-pepper", 1), ing("garlic", 5, { note: "about 1 clove" })],
     method: [
       "Boil the water: Boil the kettle, pour the water into a large saucepan and bring it back to a rolling boil on a high heat. Put a colander in the sink.",
-      "Mix the egg and cheese: Finely grate the cheddar. Crack the eggs into a bowl, add most of the cheddar and plenty of black pepper, and beat with a fork until smooth. Keep the rest of the cheddar for the top. Wash your hands after touching the raw eggs.",
+      "Mix the egg and cheese: Finely grate most of the cheddar and coarsely grate the rest for the top. Crack the eggs into a bowl, add the finely grated cheddar and plenty of black pepper, and beat with a fork until smooth. Wash your hands after touching the raw eggs.",
       "Cook the spaghetti: Add the spaghetti to the boiling water and push it down gently as it softens. Cook it for the time on the pack (usually 10 to 12 minutes), stirring once or twice.",
-      "Cut the bacon: While the spaghetti cooks, cut the bacon into strips about 1 cm wide. Put them in a large, dry non-stick frying pan on a medium heat. Wash your hands, the knife and the board in hot soapy water.",
+      "Cut the bacon: While the spaghetti cooks, cut the bacon into strips about 1.5 cm wide. Put them in a large, dry non-stick frying pan on a medium heat. Wash your hands, the knife and the board in hot soapy water.",
       "Fry the bacon: Fry the bacon for 6 to 7 minutes, turning the strips now and then, until golden and crisp at the edges with no pink left.",
       "Add the garlic: Stir in the garlic purée and cook for 1 minute, stirring all the time so it doesn't catch. Add a splash of water if it sticks, then turn the heat down to low.",
       "Drain the spaghetti: When the spaghetti is cooked, scoop out a mugful of the cooking water and set it aside. Drain the spaghetti in the colander.",
@@ -189,11 +207,13 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "beef-meatballs-spaghetti", meal: "dinner", tags: ["Italian", "Batch cook"], name: "Beef meatballs with spaghetti", blurb: "Herby meatballs simmered in tomato sauce.", servings: 4, minutes: 40,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): meatballs browned deep brown; marinade (founder 21 Nov: "marinating ... makes a big difference"): the herb and garlic mix now rests before shaping.
     ingredients: [ing("beef-mince", 500), ing("passata", 500), ing("pasta-long", 320), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 1), ing("oil-spray", 2), ing("salt", 2), ing("black-pepper", 1)],
     method: [
       "Mix the meatballs: Put the mince in a mixing bowl with the garlic purée, the mixed herbs, a good pinch of salt and a pinch of black pepper. Mix with a fork for about 1 minute, until it holds together.",
+      "Let it marinate: Cover the bowl and leave it 10 minutes, or keep it in the fridge up to a few hours for more flavour.",
       "Shape the meatballs: Roll the mixture into balls about the size of a walnut, squeezing each one firmly, and put them on a plate. Wet your hands under the cold tap if the mixture sticks.",
-      "Brown the meatballs: Spray a large, deep non-stick pan that has a lid with the oil spray and heat it on medium-high for a minute. Fry the meatballs in one layer, in two batches if needed, for 6 to 8 minutes, turning gently, until brown all over.",
+      "Brown the meatballs: Spray a large, deep non-stick pan that has a lid with the oil spray and heat it on medium-high for a minute. Fry the meatballs in one layer, in two batches if needed, for 6 to 8 minutes, turning gently, until deep brown all over.",
       "Wash your hands: Wash your hands, the bowl and the plate that held the raw meatballs in hot soapy water.",
       "Add the passata: Put all the meatballs back in the pan. Pour in the passata carefully, as it may spit, and bring it to the boil, scraping up any brown bits from the bottom.",
       "Simmer the meatballs: Turn the heat down low, put the lid on and simmer gently for 15 minutes, until the sauce is thick and clings to the meatballs. Turn them once or twice, and add a splash of water if the sauce gets too thick.",
@@ -206,11 +226,13 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "salmon-fish-pie", meal: "dinner", tags: ["British", "Bake"], name: "Salmon and pea fish pie", blurb: "Chunks of salmon and peas in a creamy sauce under a mashed potato top.", servings: 4, minutes: 55,
+    // 2026-11-22, marinade (founder 21 Nov: "marinating ... makes a big difference"): lemon, black pepper.
     ingredients: [ing("salmon", 480), ing("peas", 200), ing("soft-cheese", 200), ing("milk", 150), ing("new-potatoes", 1035), ing("cheddar", 40), ing("lemon-juice", 10), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Get out an ovenproof dish about 20 cm by 25 cm and at least 5 cm deep.",
-      "Make the sauce: Put the soft cheese, lemon juice and a pinch of salt in a large bowl. Whisk in the milk a little at a time until smooth, with no lumps. Taste and add a little more salt or black pepper if it needs it.",
-      "Prepare the salmon: Pull out any small bones, slice off any skin and cut the salmon into chunks about 3 cm across. Wash your hands, the knife and the board in hot soapy water.",
+      "Cut the salmon: Pull out any small bones, slice off any skin and cut the salmon into chunks about 3 cm across.",
+      "Marinate the salmon: Turn the chunks in a bowl with half the lemon juice and a pinch of black pepper. Leave them 10 minutes, or keep them covered in the fridge up to 1 hour. Wash your hands, the knife and the board.",
+      "Make the sauce: Put the soft cheese, the rest of the lemon juice and a pinch of salt in a large bowl. Whisk in the milk a little at a time until smooth. Taste and add a little more salt or black pepper if it needs it.",
       "Fill the dish: Spread the salmon and the frozen peas in the dish. Pour the sauce over, stir gently so everything is coated and smooth the top level.",
       "Warm the potatoes: Boil the kettle. Drain the potatoes, put them in a large saucepan, cover them with the boiling water and put the pan on a medium heat. Once it bubbles, cook for 5 minutes, until hot all the way through.",
       "Mash the potatoes: Scoop out a mugful of the cooking water, then drain the potatoes and tip them back into the pan. Mash until smooth with the black pepper, adding splashes of the cooking water until soft but not runny.",
@@ -223,14 +245,15 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "bean-cottage-pie", meal: "dinner", tags: ["British", "Bake"], name: "Bean and mushroom cottage pie", blurb: "A meat-free cottage pie with beans, mushrooms and a mashed potato top.", servings: 4, minutes: 75,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): carrot in 1.5 cm cubes, thick mushroom slices.
     ingredients: [ing("kidney-beans", 480), ing("mushrooms", 250), ing("peas", 150), ing("chopped-tomatoes", 400), ing("chopped-tomato-puree", 30), ing("stock-cube", 6), ing("new-potatoes", 1035), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 1), ing("salt", 1), ing("black-pepper", 1), ing("paprika", 2)],
     method: [
       "Get ready: Heat the oven to 200°C (180°C fan, gas 6). Drain the kidney beans in a sieve and rinse them under cold water until it runs clear.",
-      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and cut it into cubes about 1 cm across, or grate it. Wipe the mushrooms and slice them about as thick as a pound coin.",
+      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and cut it into cubes about 1.5 cm across. Wipe the mushrooms and slice them thickly, about 5 mm.",
       "Soften the onion and carrot: Heat the oil in a large, deep frying pan on a medium heat for a minute. Add the onion and carrot and fry for 5 to 8 minutes, stirring now and then, until soft and see-through but not brown.",
       "Cook the mushrooms: Turn the heat up to high, add the mushrooms and leave them for 2 minutes without stirring. Then stir now and then for 3 minutes, until browned and their liquid has gone. Stir in the garlic purée and paprika for 1 minute more.",
       "Add the stock and tomatoes: Boil the kettle and dissolve the stock cube in 150 ml of boiling water. Add the beans, frozen peas, chopped tomatoes, tomato purée, mixed herbs and stock to the pan and stir well.",
-      "Simmer the filling: Bring it to the boil, then turn the heat down low and simmer gently for 15 minutes, stirring now and then. Press a few beans against the pan to thicken it, and add a splash of water if it gets too dry.",
+      "Simmer the filling: Bring it to the boil, then simmer gently for 15 to 20 minutes, until the carrot is soft, stirring now and then. Press a few beans against the pan to thicken it, adding a splash of water if it gets dry.",
       "Warm the potatoes: While the filling simmers, drain the potatoes, put them in a large saucepan and cover them with boiling water from the kettle. Once it bubbles on a medium heat, cook for 5 minutes, until hot all the way through.",
       "Mash the potatoes: Scoop out a mugful of the cooking water, drain the potatoes and tip them back into the pan. Mash with a pinch of salt and pepper until smooth, adding splashes of the water until soft but not runny.",
       "Fill the dish: Take the filling off the heat: it should be thick and steaming hot. Taste and add more salt and pepper if it needs it. Spoon it into an ovenproof dish about 20 cm by 25 cm and spread it level.",
@@ -241,28 +264,30 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "chicken-chickpea-stew", meal: "dinner", tags: ["One pan", "Batch cook"], name: "Chicken and chickpea stew", blurb: "Chicken and chickpeas in a paprika and tomato sauce.", servings: 4, minutes: 40,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): onion in petals, paprika-crusted chicken; marinade (founder 21 Nov: "marinating ... makes a big difference"): lemon, garlic, paprika, cumin.
     ingredients: [ing("chicken", 480), ing("chickpeas", 480, { role: "carb" }), ing("chopped-tomatoes", 400), ing("stock-cube", 6), ing("onion", 150, { note: "about 1 onion" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 2), ing("spinach", 120), ing("oil-spray", 2), ing("cumin", 2), ing("lemon-juice", 15)],
     method: [
-      "Prepare the onion and chickpeas: Peel the onion and chop it small, about the size of a pea. Drain the chickpeas in a sieve, rinse them under cold water and leave them to drain.",
-      "Cut the chicken: Cut the chicken into chunks about 3 cm across and pat them dry with kitchen paper, so they brown. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Marinate the chicken: Cut the chicken into chunks about 3 cm across and pat them dry. Toss them with a third of the lemon juice and half the garlic purée, paprika and cumin. Wash your hands, the knife and the board straight after.",
+      "Prepare the onion and chickpeas: Leave the chicken 10 minutes, or keep it covered in the fridge up to a few hours. Peel the onion, cut it into thin wedges and pull the layers apart. Drain and rinse the chickpeas.",
       "Heat the pan: Spray a large, deep non-stick pan with the oil spray and heat it on a medium-high heat for 2 minutes, until hot.",
       "Brown the chicken: Add the chicken in one layer with space between the pieces (two batches if your pan is small). Leave for 2 to 3 minutes without stirring, until golden underneath, then turn and brown another side for 2 minutes.",
       "Lift out the chicken: Lift the chicken onto a clean plate. It won't be cooked through yet: it finishes in the stew.",
       "Soften the onion: Turn the heat down to medium and add the onion. Fry for 6 to 8 minutes, stirring often, until soft, sweet and see-through. Add a splash of water if it sticks, and switch the kettle on.",
-      "Add the garlic and spices: Stir in the garlic purée, paprika and cumin and cook for 1 minute, stirring all the time, until they smell warm and toasty.",
+      "Add the garlic and spices: Stir in the rest of the garlic purée, paprika and cumin and cook for 1 minute, stirring all the time, until they smell warm and toasty.",
       "Add the stock and tomatoes: Dissolve the stock cube in 200 ml of boiling water. Pour it into the pan with the chopped tomatoes, the chickpeas and the chicken with its juices, stir and turn the heat up to high for about 2 minutes, until it bubbles.",
       "Simmer the stew: Turn the heat down low, put the lid on and simmer gently for 15 minutes, then take the lid off for 5 minutes more so the sauce thickens. Stir every 5 minutes or so, and add a splash of water if it gets too thick.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through and piping hot, with no pink left and clear juices. If not, simmer for 3 to 5 minutes more and check again.",
       "Stir in the spinach: Add the spinach a handful at a time, stirring for 1 to 2 minutes until each handful has gone soft. The stew should be steaming hot all the way through.",
-      "Serve: Stir in the lemon juice, which brightens the sauce. Spoon the stew into warm bowls and serve straight away.",
+      "Serve: Stir in the rest of the lemon juice, which brightens the sauce. Spoon the stew into warm bowls and serve straight away.",
       "Store leftovers: Cool any leftovers, put them in the fridge within 2 hours and eat them within 2 days. Reheat until steaming hot all the way through.",
     ],
   },
   {
     id: "bacon-tomato-linguine", meal: "dinner", tags: ["Italian"], name: "Bacon and tomato linguine", blurb: "Crispy bacon in a garlicky tomato sauce with a little chilli.", servings: 3, minutes: 25,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): bacon in 2 cm pieces, some on top (bacon is cured: no marinade).
     ingredients: [ing("bacon", 200), ing("pasta-long", 240, { prefer: ["linguine"] }), ing("chopped-tomatoes", 400), ing("olive-oil", 10), ing("garlic", 10, { note: "about 2 cloves" }), ing("chilli-powder", 1), ing("black-pepper", 1)],
     method: [
-      "Cut the bacon: Cut the bacon into strips about 1 cm wide. Wash your hands, the knife and the board in hot soapy water straight after.",
+      "Cut the bacon: Cut the bacon into pieces about 2 cm wide. Wash your hands, the knife and the board in hot soapy water straight after.",
       "Fry the bacon: Heat the oil in a large, deep non-stick frying pan on a medium-high heat for a minute. Add the bacon and fry for 5 to 6 minutes, stirring now and then, until golden and crisp at the edges with no pink left.",
       "Boil the water: While the bacon fries, boil the kettle, pour the water into a large saucepan and bring it to a fast boil on a high heat with the lid on.",
       "Add the garlic and chilli: Lift the bacon onto a plate with a slotted spoon, leaving the oil in the pan. Turn the heat down to medium. Stir in the garlic purée and the chilli powder and cook for 1 minute, stirring all the time so the garlic doesn't catch.",
@@ -270,33 +295,35 @@ export const DINNER_HOME: readonly Recipe[] = [
       "Cook the linguine: Add the linguine to the boiling water and push it down gently as it softens. Cook it for the time on the pack (usually 10 to 12 minutes), stirring once or twice.",
       "Thicken the sauce: Meanwhile, simmer the sauce for 8 to 10 minutes, stirring now and then, until a spoon dragged across the pan shows a clear trail. Add a splash of water if it gets too thick.",
       "Drain and season: Drain the linguine in a colander. Stir the black pepper into the sauce, then taste and add a little more if it needs it. The sauce should be steaming hot all the way through.",
-      "Toss together: Tip the linguine back into its pan, add the sauce and bacon and toss with two spoons for about 1 minute, until every strand is coated.",
-      "Serve: Spoon the linguine into warm bowls and serve straight away while it is hot.",
+      "Toss together: Tip the linguine back into its pan, add the sauce and most of the bacon and toss with two spoons for about 1 minute, until every strand is coated.",
+      "Serve: Spoon the linguine into warm bowls, scatter the rest of the bacon on top and serve straight away while it is hot.",
     ],
   },
   {
     id: "chickpea-potato-traybake", meal: "dinner", tags: ["One pan", "Bake"], name: "Chickpea, potato and pepper traybake", blurb: "Roasted potatoes, chickpeas and peppers with warm spices.", servings: 3, minutes: 45,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a red and a yellow pepper, red onion quarters, halved cherry tomatoes roasted cut side up.
     // 2026-11-21: oil 15 -> 20 ml so the potatoes and chickpeas brown as the picture shows (founder: "has to look exactly as much as you can as the product")
-    ingredients: [ing("chickpeas", 480), ing("new-potatoes", 690), ing("olive-oil", 20), ing("red-onion", 150, { note: "about 1 red onion" }), ing("peppers", 320, { note: "about 2 peppers" }), ing("cherry-tomatoes", 150), ing("cumin", 2), ing("paprika", 2), ing("lemon-juice", 15), ing("garlic", 5), ing("salt", 1)],
+    ingredients: [ing("chickpeas", 480), ing("new-potatoes", 690), ing("olive-oil", 20), ing("red-onion", 150, { note: "about 1 red onion" }), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("cherry-tomatoes", 150), ing("cumin", 2), ing("paprika", 2), ing("lemon-juice", 15), ing("garlic", 5), ing("salt", 1)],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6). Get out a large roasting tin, or two if you have them.",
       "Prepare the chickpeas and potatoes: Drain the chickpeas in a sieve and rinse them, then drain the potatoes. Pat both dry on a clean tea towel or kitchen paper so they turn golden. Cut the potatoes in half, or into quarters if very big.",
-      "Chop the vegetables: Halve the peppers, pull out the stalks, seeds and white inside, and cut them into chunks about 3 cm across. Peel the red onion, halve it from top to bottom and cut each half into wedges about 2 cm wide.",
+      "Chop the vegetables: Halve the peppers, pull out the stalks, seeds and white inside, and cut them into chunks about 3 cm across. Peel the red onion and cut it into quarters, keeping a little root on each.",
       "Coat with oil and spices: Put the potatoes, chickpeas, peppers and onion in a large bowl with the oil, garlic purée, cumin, paprika and salt. Mix until everything has a light coating.",
       "Spread it out: Tip everything into the roasting tin, or two tins, in a single layer so it roasts rather than steams.",
       "Start roasting: Roast on the middle shelf for 20 minutes. If you are using two tins, put the second one on the shelf above.",
-      "Add the tomatoes: Take the tin out with oven gloves and stir everything round. Scatter the cherry tomatoes over the top and put it back. With two tins, share the tomatoes between them and swap their shelves.",
-      "Finish roasting: Roast for another 15 minutes, until the potatoes are golden and crisp at the edges, the peppers are soft and browned and the tomatoes have split. Give it 5 more minutes if it isn't golden yet.",
+      "Add the tomatoes: Take the tin out with oven gloves and stir everything round. Halve the cherry tomatoes and put them on top, cut side up. With two tins, share the tomatoes between them and swap their shelves.",
+      "Finish roasting: Roast for another 15 minutes, until the potatoes are golden and crisp at the edges, the peppers are soft and browned and the tomatoes are soft with browned edges. Give it 5 more minutes if it isn't golden yet.",
       "Add the lemon: Take the tin out with oven gloves, sprinkle over the lemon juice and stir gently. Everything should be steaming hot all the way through.",
       "Serve: Spoon the traybake into warm bowls and serve straight away while it is hot.",
     ],
   },
   {
     id: "minestrone-beans-pasta", meal: "dinner", tags: ["Italian", "Batch cook"], name: "Minestrone with beans and pasta", blurb: "A thick Italian vegetable soup with kidney beans and pasta.", servings: 3, minutes: 35,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): small macaroni, carrot in 1 cm cubes.
     // the pasta cooks in the soup's own 750 ml: fitting moves it at most half as much again (the beans are held the same way by the pantry)
-    ingredients: [ing("pasta-shapes", 120, { fit: [0.5, 1.5] }), ing("kidney-beans", 240), ing("peas", 100), ing("chopped-tomatoes", 400), ing("stock-cube", 12), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 1), ing("salt", 1), ing("black-pepper", 1)],
+    ingredients: [ing("pasta-shapes", 120, { fit: [0.5, 1.5], note: "small shapes such as macaroni" }), ing("kidney-beans", 240), ing("peas", 100), ing("chopped-tomatoes", 400), ing("stock-cube", 12), ing("olive-oil", 10), ing("onion", 150, { note: "about 1 onion" }), ing("carrots", 100, { note: "about 1 carrot" }), ing("garlic", 10, { note: "about 2 cloves" }), ing("mixed-herbs", 1), ing("salt", 1), ing("black-pepper", 1)],
     method: [
-      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and chop it into pieces the same size, so it cooks quickly in the soup.",
+      "Chop the vegetables: Peel the onion and chop it small, about the size of a pea. Peel the carrot and cut it into cubes about 1 cm across.",
       "Soften the vegetables: Heat the oil in a large saucepan on a medium heat. Add the onion and carrot and fry for 5 to 8 minutes, stirring now and then, until the onion is soft and see-through but not brown. Switch the kettle on.",
       "Add the garlic and herbs: Stir in the garlic purée and the dried mixed herbs and cook for 1 minute, stirring all the time so the garlic doesn't catch.",
       "Add the stock: Add the chopped tomatoes and crumble in the stock cubes. Carefully pour in 750 ml of boiling water and stir until the stock cubes have dissolved.",
@@ -311,31 +338,33 @@ export const DINNER_HOME: readonly Recipe[] = [
   },
   {
     id: "chicken-pepper-kebabs", meal: "dinner", tags: ["Barbecue"], name: "Chicken and pepper kebabs with yogurt dressing", blurb: "Chicken, pepper and red onion skewers with a lemony yogurt dressing, served in warm wraps.", servings: 3, minutes: 55,
-    ingredients: [ing("chicken", 450), ing("peppers", 320), ing("red-onion", 150), ing("natural-yogurt", 120), ing("oregano", 2), ing("lemon-juice", 20), ing("garlic", 5), ing("olive-oil", 10), ing("wraps", 180), ing("salt", 1), ing("black-pepper", 1)],
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): a red and a yellow pepper, wrap toasted and rolled into an open cone; marinade (founder 21 Nov: "marinating ... makes a big difference"): the marinade it had, now with a few hours in the fridge as the other choice.
+    ingredients: [ing("chicken", 450), ing("peppers", 320, { note: "1 red and 1 yellow pepper" }), ing("red-onion", 150), ing("natural-yogurt", 120), ing("oregano", 2), ing("lemon-juice", 20), ing("garlic", 5), ing("olive-oil", 10), ing("wraps", 180), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Soak the skewers: If you are using wooden skewers, soak them in a long dish of cold water for 30 minutes so they don't burn under the grill. Metal skewers don't need soaking.",
       "Make the marinade: In a large bowl, stir together the oregano, salt, black pepper, half of the lemon juice, the garlic purée and the olive oil with a fork.",
-      "Coat the chicken: Cut the chicken into chunks about 3 cm across and stir them into the marinade until coated. Wash your hands, the knife and the board in hot soapy water. Cover the bowl and leave it in the fridge for at least 10 minutes.",
+      "Coat the chicken: Cut the chicken into chunks about 3 cm across and stir them into the marinade until coated. Wash your hands, the knife and the board. Cover the bowl and keep it in the fridge at least 10 minutes, or up to a few hours.",
       "Chop the vegetables: Halve the peppers, pull out the stalk, seeds and white inside, and cut them into squares about 3 cm across. Peel the red onion, halve it, cut it into wedges and pull the layers apart into pieces about 3 cm across.",
       "Heat the grill: Turn the grill on to high with the shelf about 10 cm below it, and line the grill tray with foil. It needs about 5 minutes to get hot. Check wooden skewers have had their full soak.",
       "Thread the skewers: Thread the chicken, peppers and onion onto the skewers, close together but not squashed, leaving a little bare at each end. No skewers? Spread everything out on the lined tray. Then wash your hands and the bowl.",
       "Grill the kebabs: Grill for 15 to 20 minutes, turning every 5 minutes, until the chicken is golden and the peppers and onion are soft with browned edges. On a barbecue, cook over coals that have turned grey and white for the same time.",
       "Make the dressing: While the kebabs cook, spoon the yogurt into a small bowl and stir in the rest of the lemon juice.",
       "Check the chicken: Cut into the thickest piece. It should be white all the way through and piping hot, with no pink left and clear juices. If not, cook for 2 to 3 minutes more and check again.",
-      "Warm the wraps: Warm the wraps in a dry frying pan for about 20 seconds on each side, or as the pack says, so they bend without cracking.",
-      "Fill and serve: Spoon some dressing down the middle of each warm wrap. Slide the chicken, peppers and onion off a skewer onto it, holding the hot skewer end with a fork. Roll it up and serve straight away.",
+      "Warm the wraps: Warm the wraps in a dry frying pan for 30 to 40 seconds on each side, until soft and toasted in places.",
+      "Fill and serve: Spoon some dressing down the middle of each warm wrap. Slide the chicken, peppers and onion off a skewer onto it, holding the hot skewer end with a fork. Fold up the bottom and roll it into a cone, top open. Serve straight away.",
     ],
   },
   {
     id: "bbq-chicken-thigh-skewers", meal: "dinner", tags: ["Barbecue"], name: "Barbecue chicken thigh skewers with corn salad", blurb: "Sticky barbecue chicken skewers with a fresh sweetcorn, tomato and cucumber salad.", servings: 3, minutes: 55,
+    // 2026-11-22, to match its photo (founder 21 Nov: "accurate exactly to how the photo looks"): cucumber in 1.5 cm cubes; marinade (founder 21 Nov: "marinating ... makes a big difference"): the barbecue sauce marinade it had, now with a few hours in the fridge as the other choice.
     ingredients: [ing("chicken-thigh", 450), ing("bbq-sauce", 90), ing("sweetcorn", 200), ing("cherry-tomatoes", 160), ing("cucumber", 150), ing("spring-onions", 30), ing("lemon-juice", 15), ing("salt", 1), ing("black-pepper", 1)],
     method: [
       "Soak the skewers: If you are using wooden skewers, soak them in a long dish of cold water for 30 minutes so they don't burn under the grill. Metal skewers don't need soaking.",
       "Cut the chicken: Cut the chicken thighs into chunks about 3 cm across, trimming off big lumps of fat. Toss them in a bowl with the salt.",
       "Coat the chicken: Spoon a third of the barbecue sauce into a cup and keep it for the end. Stir the rest into the chicken until every piece is coated.",
-      "Put it in the fridge: Wash your hands, the knife and the board in hot soapy water. Cover the bowl and leave it in the fridge for at least 10 minutes.",
+      "Marinate the chicken: Wash your hands, the knife and the board in hot soapy water. Cover the bowl and keep it in the fridge at least 10 minutes, or up to a few hours for more flavour.",
       "Get the sweetcorn ready: Drain tinned sweetcorn in a sieve. If it is frozen, boil it for the time on the pack, drain it and run cold water over it until cool. Shake off the water.",
-      "Make the salad: Halve the cherry tomatoes, cut the cucumber into cubes about 1 cm across and thinly slice the trimmed spring onions. Mix them in a large bowl with the sweetcorn, lemon juice and black pepper and set aside.",
+      "Make the salad: Halve the cherry tomatoes, cut the cucumber into cubes about 1.5 cm across and thinly slice the trimmed spring onions. Mix them in a large bowl with the sweetcorn, lemon juice and black pepper and set aside.",
       "Heat the grill: Turn the grill on to high with the shelf about 15 cm below it, as the sticky sauce burns easily. Line the grill tray with foil. Check wooden skewers have had their full soak.",
       "Thread the skewers: Thread the chicken onto the skewers, close but not squashed, leaving a little bare at each end. No skewers? Spread it on the lined tray. Throw away the sauce left in the bowl, as it has touched raw chicken, then wash your hands.",
       "Grill the skewers: Grill for 15 to 20 minutes, turning every 5 minutes, until golden and sticky with dark brown edges. Move the tray further from the heat if the sauce starts to turn black. On a barbecue, cook over grey and white coals for the same time.",
