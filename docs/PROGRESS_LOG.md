@@ -4236,3 +4236,9 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   mushrooms and lemon-garlic-chicken-potatoes (chopped garlic). The plans are in the session scratchpad (photo-match/*.md).
 - (00:27, 22 Nov) **iPhone 1.1 build 19 uploaded to App Store Connect** (e7628da1): the photo-matched, marinated recipes on top of build 18. Not submitted
   (build 11 is still in App Review). Next session: remake the 13 pictures (list above), then build 20.
+- (00:40, 22 Nov) **The 13 pictures remade to match their recipes** (founder chose "All 13"; then "remake the images, add them to the app, commit everything,
+  upload the new build ... that's the final version of my app"): Higgsfield GPT Image 2.6, medium, 1k, 4:3, the three scenes in turn, each prompt the
+  recipe's own look sentence plus what to show (sweet and sour chicken pan-browned with no batter; satay noodles with no courgette; skinless thigh fillets in
+  both traybakes; thin chipolatas; bacon medallions in the bacon sandwich and the full English; wholemeal eggy bread; no herb flecks in the salmon salad's
+  dressing or the goujons' dip; spring onion only in the tuna dip; no chopped garlic on the crispy potatoes or the lemon garlic chicken). 13 credits. Checked
+  on a contact sheet: each shows only its recipe's foods, no writing or logos. Imported (`import_recipe_images.py`): 382 of 382 recipes have a picture.
