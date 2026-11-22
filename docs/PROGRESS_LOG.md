@@ -4280,3 +4280,5 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   or root SPF record (checked in Vercel DNS: only the Google site verification, Resend's `send`, `rsend`, `resend._domainkey`, `_dmarc` and the CAA/ALIAS records); adding the three ImprovMX records
   was refused by the permission check (DNS stays the founder's, as docs/MAILBOX_SETUP.md says), so the steps are for him. Until it works, mail to hello@ bounces. The Android bundle will be built
   with `NEXT_PUBLIC_SUPPORT_EMAIL=hello@numbite.com` once he says "mailbox works"; the live site and iPhone build 20 still show the Hotmail address.
+- (22 Nov, 03:40) **Play contact emails back to aman66@hotmail.co.uk** (founder: "can you make it aman66@hotmail.co.uk ill change it later"): the store listing contact and the content-rating email, both in Play Console;
+  either can be changed at any time there (the store contact shows to the public only once the listing is published). hello@numbite.com forwarding is still not set up (steps above).
