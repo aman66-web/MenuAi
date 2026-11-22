@@ -91,3 +91,16 @@ App created: **Numbite: Calories & Protein**, `com.amanmarwaha.numbite`, free, E
 * **Not done:** the subscription (Play only lets you create it once a build with the Billing permission is uploaded), the first release (needs the signed bundle), countries (United Kingdom), pricing check, the trader status
   declaration (the founder's own, due by February 2027), tester set-up, production release.
 * The 7-day free week is the account's (server), so the Play subscription has **no free-trial offer**.
+
+## Submitted to Google (22 November 2026, about 05:00; founder: "please approve and send for production review")
+
+* **Production release 1.1 (2)** (versionCode 2: version 1 was replaced because Google flagged a REQUIRED portrait screen that a library activity implied; the manifest now says portrait and landscape are
+  not required), United Kingdom only, sent for review in Publishing overview (10 changes: the release, the country, the store listing and the declarations). Managed publishing is off, so it goes live by itself
+  when Google approves (usually within 7 days, the first review can take longer). Build: `NEXT_PUBLIC_SUPPORT_EMAIL=aman66@hotmail.co.uk ./scripts/build_android.sh aab`, signed with the founder's upload key
+  (`~/.numbite-android/`, made 22 Nov), 61 MB, target SDK 36, API 26+. Play's 10 MB limit on the browser tool meant the bundle was fed to the console in 8 chunks and re-assembled in the page
+  (SHA-256 checked against the file on disk).
+* **Subscription** `com.amanmarwaha.numbite.premium` "Numbite Premium": base plans `annual` (GBP 49.99 a year, grace 14 days) and `monthly` (GBP 4.99 a month, grace 7 days), both **Active**, United Kingdom, no free-trial
+  offer, benefits "Meal plan with Pip and shopping list" and "Truth cards, Smart Swap, Quick answers". (Play's bulk "Set prices" box adds 20% VAT on top: the price is set in each country's own cell, which is the
+  figure customers see.)
+* **Still open:** `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` in Vercel (until then a purchase in the app cannot be confirmed by our server: the route answers 503 and the app says the purchase is not confirmed); a demo login for
+  Google's reviewers; the website release so the Android lines are on numbite.com's privacy and terms; deep-link `assetlinks.json` with the Play signing fingerprint; the trader-status declaration.

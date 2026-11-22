@@ -4282,3 +4282,7 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   with `NEXT_PUBLIC_SUPPORT_EMAIL=hello@numbite.com` once he says "mailbox works"; the live site and iPhone build 20 still show the Hotmail address.
 - (22 Nov, 03:40) **Play contact emails back to aman66@hotmail.co.uk** (founder: "can you make it aman66@hotmail.co.uk ill change it later"): the store listing contact and the content-rating email, both in Play Console;
   either can be changed at any time there (the store contact shows to the public only once the listing is published). hello@numbite.com forwarding is still not set up (steps above).
+- (22 Nov, about 05:00) **Android 1.1 (2) sent to Google Play for production review** (founder: "please approve and send for production review"). Upload key made by the founder; signed 61 MB bundle built with
+  the Hotmail support address; first draft (versionCode 1) replaced after Play's pre-check found a REQUIRED portrait screen (manifest: `uses-feature` portrait and landscape not required, versionCode 2). Production
+  track: United Kingdom, release notes, submitted (Managed publishing off: publishes itself on approval). Subscription `com.amanmarwaha.numbite.premium` created with base plans annual GBP 49.99 and monthly
+  GBP 4.99 (UK only, no trial offer), both Active. Open items before purchases work: the service-account key in Vercel (docs/PAYMENTS.md "Android"), a reviewer demo login, the website release. See docs/ANDROID_STORE.md.

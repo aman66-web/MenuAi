@@ -17,6 +17,9 @@
     <uses-feature android:name="android.hardware.location" android:required="false" />
     <uses-feature android:name="android.hardware.location.network" android:required="false" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <!-- A library activity (Google's code scanner) locks portrait, which Android turns into a REQUIRED portrait screen: say it is not required, so tablets and desktops that only turn can still install the app. -->
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false" />
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false" />
 
     <!-- Other apps the app opens: the browser (chains' allergen pages), mail, the dialler, a share sheet and the camera. -->
     <queries>
