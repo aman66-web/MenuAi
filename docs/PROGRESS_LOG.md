@@ -4234,3 +4234,5 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   chipolatas-red-cabbage-mash (thick sausages), bacon-tomato-sandwich and grilled-full-english (rashers, not medallions), eggy-bread-berries (brioche),
   smoked-salmon-egg-spinach-salad (dill flecks), tuna-chickpea-dip (parsley-like flecks), crispy-chicken-goujons-peas (herb flecks), crispy-potatoes-garlic-
   mushrooms and lemon-garlic-chicken-potatoes (chopped garlic). The plans are in the session scratchpad (photo-match/*.md).
+- (00:27, 22 Nov) **iPhone 1.1 build 19 uploaded to App Store Connect** (e7628da1): the photo-matched, marinated recipes on top of build 18. Not submitted
+  (build 11 is still in App Review). Next session: remake the 13 pictures (list above), then build 20.
