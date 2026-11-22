@@ -4300,3 +4300,11 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   printed). In Play Console › Users and permissions the service account was invited and shows Active with "View financial data, orders, and cancellation survey responses" and "Manage orders and subscriptions". Left for the founder: put the key in
   Vercel as `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (Sensitive; the one command is in docs/ANDROID_BILLING.md "Putting the key in Vercel"), then Claude redeploys, activates the two base plans and a licence tester buys the plan on a real phone.
   Google can take a few hours before a newly invited service account is accepted by the Play Developer API.
+- (22 Nov, about 12:55 GMT) **Android: stop a second free week on the same phone, built and tested, NOT released (founder: "Does Android have one of those too ... Yes, please do that for me.")**: Google's "device recall" (the Android twin of
+  DeviceCheck, in Play Integrity) is a closed beta for apps with production Play Integrity and Play Billing usage, so Numbite cannot use it yet. Built the working alternative: the app sends SHA-256("numbite-device:" + ANDROID_ID)
+  (`device.id`, DeviceIdentity.kt; the Android ID never leaves the phone), the server hashes it again with its secret (kind `android`) and keeps it in `trial_claims` like the email hash (web/lib/payments/freeWeek.ts). An account with no
+  week of its own on a phone that had one gets none (`device_used`) and is stored as having no week; a phone is remembered only by the week that began on it; storing the phone is best effort until
+  `supabase/migrations/20261122120000_trial_claims_android.sql` is run (the table's check allows only email and apple today), so deploying the website first is safe. The Android ID survives uninstall and reinstall, not a factory reset.
+  Web tests 4223 passed, Android unit tests pass, tsc clean. Committed on `iap` (5b1c0844 and the version bump); signed bundle Android 1.1 (3), `android/app/build/outputs/bundle/release/app-release.aab`, 64 MB, sha256 c7e5ad72...f3b41e4,
+  jarsigner verified, contains the new calls. **Not yet done (needs the founder's go-ahead because it changes what the app collects):** release `iap` to main, run the migration in Supabase, set "Device or other IDs" to collected in
+  Play Console's Data safety, upload 1.1 (3) and send it for review.
