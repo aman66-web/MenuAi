@@ -99,7 +99,7 @@ App created: **Numbite: Calories & Protein**, `com.amanmarwaha.numbite`, free, E
   when Google approves (usually within 7 days, the first review can take longer). Build: `NEXT_PUBLIC_SUPPORT_EMAIL=aman66@hotmail.co.uk ./scripts/build_android.sh aab`, signed with the founder's upload key
   (`~/.numbite-android/`, made 22 Nov), 61 MB, target SDK 36, API 26+. Play's 10 MB limit on the browser tool meant the bundle was fed to the console in 8 chunks and re-assembled in the page
   (SHA-256 checked against the file on disk).
-* **Subscription** `com.amanmarwaha.numbite.premium` "Numbite Premium": base plans `annual` (GBP 49.99 a year, grace 14 days) and `monthly` (GBP 4.99 a month, grace 7 days), both **Active**, United Kingdom, no free-trial
+* **Subscription** `com.amanmarwaha.numbite.premium` "Numbite Premium": base plans `annual` (GBP 49.99 a year, grace 7 days since 22 Nov, founder: "Give them a 7 day grace period"; Play recommends 14 for yearly and shows an account hold of 53 days) and `monthly` (GBP 4.99 a month, grace 7 days), both **Active**, United Kingdom, no free-trial
   offer, benefits "Meal plan with Pip and shopping list" and "Truth cards, Smart Swap, Quick answers". (Play's bulk "Set prices" box adds 20% VAT on top: the price is set in each country's own cell, which is the
   figure customers see.)
 * **Still open:** `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` in Vercel (until then a purchase in the app cannot be confirmed by our server: the route answers 503 and the app says the purchase is not confirmed); a demo login for

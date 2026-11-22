@@ -4289,3 +4289,5 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (22 Nov, 09:05 GMT) **Android 1.1 (2) is LIVE on Google Play (UK)**: Google approved it within hours. Found by checking the live site that numbite.com has no Android support yet (no CORS for the Android origin,
   no `/api/v1/entitlement/google`), so the live app cannot sign in or sync until the website is released from `iap`; no service-account key yet either. The two Premium base plans were set to Inactive so nothing can be
   bought; see docs/ANDROID_STORE.md "LIVE on Google Play". Needs the founder: go-ahead to release `iap` to main and deploy, then the service-account key.
+- (22 Nov, about 09:30 GMT) **Android: 7-day grace period on both Premium plans** (founder: "Give them a 7 day grace period"). The annual plan was at Play's recommended 14 days; it is now 7, like the monthly plan (account hold
+  calculates to 53 days on both). Checked after a reload of each base plan page. Both plans are still Inactive (see the entry above). A failed card keeps Premium for 7 days (`IN_GRACE_PERIOD` counts as active on the server).
