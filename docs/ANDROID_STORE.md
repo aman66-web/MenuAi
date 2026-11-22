@@ -127,3 +127,5 @@ the console ran its quick checks first (up to 14 minutes). It replaces 1.1 (2). 
 Google approved and published it the same day (Submission activity: Published; Production track: latest release 3 (1.1)).
 
 **22 Nov, about 17:00 GMT: both base plans were set to Active again** (founder: "Switch them on now."), with the Play service account not yet accepted by Google: see docs/PROGRESS_LOG.md.
+
+**Decision, 22 Nov (founder): no demo login for Google's reviewers.** They can sign in with Google, an email code or Apple like anyone, and every new account gets the free week of Premium, so they can try the Premium features. Ignore the earlier "demo login advisable" and "(e) add the reviewer demo login" lines above.
