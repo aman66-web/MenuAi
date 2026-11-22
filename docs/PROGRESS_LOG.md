@@ -4262,3 +4262,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   description 238 → 241 restaurants, 165 → 382 recipes, "Large text options" removed (build 20 has standard text only), What's New gains Meal plan with
   Pip and the 382 chef-made recipes (docs/STORE.md); then added for review with the Premium group and both plans and submitted (4 items). Build unchanged
   (screenshots and text are not in the build); release still manual.
+- (01:10, 22 Nov) **1.1 now releases automatically once Apple approves it** (founder: "once they've accepted Apple, I want the build to be automatically set
+  live"): App Store Version Release changed from manual to "Automatically release this version" while waiting for review (no resubmission needed); update
+  to all users at once (no phased release); existing rating kept.
