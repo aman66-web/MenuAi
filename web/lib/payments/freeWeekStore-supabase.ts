@@ -3,7 +3,7 @@ import { serverDb } from "../store-supabase";
 import type { FreeWeekStore, TrialClaim } from "./freeWeek";
 
 // public.trial_claims and public.premium_gifts through the secret key (supabase/migrations/20261121120000_free_week.sql). Every column name below is a column of
-// that migration. Until the founder runs it, every call fails and the route answers 500: the app then changes nothing (no free week, the paywall as before).
+// that migration (and supabase/migrations/20261122120000_trial_claims_android.sql, which lets kind be "android"). Until the founder runs the first, every call fails and the route answers 500: the app then changes nothing (no free week, the paywall as before).
 
 interface ClaimRow {
   key_hash: string;
@@ -16,7 +16,7 @@ function fail(what: string, error: { message: string } | null): never {
   throw new Error(`Supabase ${what} failed: ${error?.message ?? "unknown error"}`);
 }
 
-const toClaim = (r: ClaimRow): TrialClaim => ({ keyHash: r.key_hash, kind: r.kind === "apple" ? "apple" : "email", claimedAt: Date.parse(r.claimed_at), endsAt: Date.parse(r.ends_at) });
+const toClaim = (r: ClaimRow): TrialClaim => ({ keyHash: r.key_hash, kind: r.kind === "apple" ? "apple" : r.kind === "android" ? "android" : "email", claimedAt: Date.parse(r.claimed_at), endsAt: Date.parse(r.ends_at) });
 
 export const supabaseFreeWeek: FreeWeekStore = {
   async findClaims(keyHashes) {

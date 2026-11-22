@@ -91,7 +91,7 @@ this site.
 | `POST /api/v1/auth/email/start` `{ email }` | Emails a 6-digit code (Resend via Supabase SMTP); the same answer for every address |
 | `POST /api/v1/auth/email/verify` `{ email, code, mode }` | `mode "web"`: cookies, `{ user }`; `mode "token"` (app only): `{ session }` |
 | `POST /api/v1/auth/refresh` `{ refreshToken }` | The app renews its session |
-| `POST /api/v1/entitlement/account` `{ deviceToken?, deviceEnv? }` | The account's free week or gift (docs/PAYMENTS.md "Free week and gifts"): `{ premium, token?, plan?, expiresAt?, freeWeek, freeWeekEndsAt?, claimedNow?, giftUntil?, deviceCheck }` |
+| `POST /api/v1/entitlement/account` `{ deviceToken?, deviceEnv?, androidDeviceHash? }` | The account's free week or gift (docs/PAYMENTS.md "Free week and gifts"): `{ premium, token?, plan?, expiresAt?, freeWeek, freeWeekEndsAt?, claimedNow?, giftUntil?, deviceCheck }` |
 | `GET /api/v1/auth/session` | Who is signed in (renews the website's cookies when the access token has run out): `{ user }` or `{ user: null }` |
 | `POST /api/v1/auth/signout` | Ends the session and clears the cookies |
 | `DELETE /api/v1/account` `{ confirm: true }` | Deletes the account; the database cascade removes every `user_data` row in the same step |

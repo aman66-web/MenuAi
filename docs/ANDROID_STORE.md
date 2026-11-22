@@ -70,7 +70,8 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 | Messages › Other in-app messages | yes | "Contact us" and reports | optional |
 | Financial info › Purchase history | yes | the Google Play purchase token is sent to our server only to confirm the subscription (no name or email in it) | required to buy |
 | Location | **no** (used on the phone only, never sent) |
-| Device or other IDs, Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
+| Device or other IDs | **yes since the build with `device.id` (1.1 (3))** | fraud prevention, security and compliance: a one-way hash of the Android ID stops a second free week on the same phone (the server keeps only a second hash of it, even after the account is deleted); not shared | required |
+| Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
 
 ## What's new (first release)
 

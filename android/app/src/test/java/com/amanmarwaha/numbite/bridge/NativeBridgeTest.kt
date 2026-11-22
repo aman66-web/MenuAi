@@ -43,6 +43,7 @@ class NativeBridgeTest {
     private var shared: ShareContent? = null
     private var signIn: WebSignInOutcome = WebSignInOutcome.Cancelled
     private val session = InMemorySessionStore()
+    private var deviceHash: String? = "0123456789abcdef".repeat(4)
 
     private fun bridge(purchases: PurchaseService = FakePurchases()) = NativeBridge(
         scope = CoroutineScope(Dispatchers.Unconfined),
@@ -59,6 +60,7 @@ class NativeBridgeTest {
         purchases = purchases,
         reviews = object : ReviewRequesting { override suspend fun requestReview(): Boolean { reviewAsked++; return reviewShown } },
         session = session,
+        device = object : DeviceIdentifying { override fun deviceHash() = deviceHash },
         hideKeyboard = { keyboardHidden++ },
         runInPage = { replies += it },
     )
@@ -100,6 +102,15 @@ class NativeBridgeTest {
             send(b, "u$i", action)
             assertEquals("""{"error":"unavailable"}""", replyFor("u$i").toString())
         }
+    }
+
+    @Test fun deviceIdAnswersWithTheHashOrUnavailable() {
+        val b = bridge()
+        send(b, "d1", "device.id")
+        assertEquals("0123456789abcdef".repeat(4), replyFor("d1").getString("deviceHash"))
+        deviceHash = null
+        send(b, "d2", "device.id")
+        assertEquals("""{"error":"unavailable"}""", replyFor("d2").toString())
     }
 
     @Test fun reviewIsDoneWhenGoogleRanItAndUnavailableWhenItCouldNot() {

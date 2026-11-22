@@ -9,6 +9,12 @@
 //   2. the same for the account's Sign in with Apple user id (Apple's "sub", the same for this person in our app however their email looks);
 //   3. Apple's DeviceCheck: bit 0 of this iPhone's two bits means "this iPhone had the free week" (lib/payments/deviceCheck.ts). Only when the app sent a
 //      DeviceCheck token and the DeviceCheck key is set on the server; otherwise this check is skipped and the answer says so. It never fails the request.
+//   4. On Android, the same job is done by a keyed hash of the phone's Android ID (founder, 22 November 2026: "Does Android have one of those too to prevent that?"
+//      "Yes, please do that for me."): the app sends SHA-256("numbite-device:" + ANDROID_ID), this server hashes that again with its secret (kind "android") and keeps it
+//      in trial_claims like the email hash. An account with no week of its own on a phone that had one gets none ("device_used", as on an iPhone). The Android ID
+//      survives uninstalling and reinstalling, not a factory reset. Google's own "device recall" (Play Integrity) would survive a reset too, but it is a closed beta
+//      for apps with production usage, which Numbite does not have yet. Storing this key is best effort (see insertKeys): until the kind is allowed in the table
+//      (supabase/migrations/20261122120000_trial_claims_android.sql) the week is simply not remembered by phone.
 // An App Store subscription wins over all of this on the phone (lib/payments/accountAccess.ts never replaces a bought token). Nothing personal is logged or put
 // in the token. The answer says why in machine-readable words (`freeWeek`, `deviceCheck`).
 
@@ -28,7 +34,7 @@ export const MIN_HASH_SECRET_LENGTH = 32;
 
 // ---- the keys
 
-export type ClaimKind = "email" | "apple";
+export type ClaimKind = "email" | "apple" | "android";
 
 /**
  * The email address as one mailbox: trimmed, lower case, without a "+tag" after the name (most providers deliver a+b@x to a@x), and for Gmail without the dots
@@ -49,6 +55,11 @@ export function normaliseEmail(email: string): string | null {
  *  address, and it can't be turned back into the address. */
 export function claimKey(kind: ClaimKind, value: string, secret: string): string {
   return createHmac("sha256", secret).update(`numbite-free-week:${kind}:${value}`).digest("hex");
+}
+
+/** The key of an Android phone: the app's SHA-256 of the Android ID (64 hex characters), hashed again with the server's secret. */
+export function deviceClaimKey(deviceHash: string, secret: string): { keyHash: string; kind: ClaimKind } {
+  return { keyHash: claimKey("android", deviceHash, secret), kind: "android" };
 }
 
 /** The account's keys: its normalised email and its Apple user id, whichever it has. */
@@ -148,7 +159,29 @@ export type FreeWeekAnswer = "running" | "ended" | "device_used" | "no_identity"
 const bodySchema = z.strictObject({
   deviceToken: z.string().min(16).max(12_000).regex(/^[A-Za-z0-9+/=]+$/).optional(),
   deviceEnv: z.enum(["development", "production"]).optional(),
+  /** An Android phone: the app's SHA-256 of its Android ID, 64 lower-case hex characters. */
+  androidDeviceHash: z.string().regex(/^[0-9a-f]{64}$/).optional(),
 });
+
+/**
+ * Stores the keys with these dates. The account's own keys (email, Apple ID) must be stored: a failure is thrown, and the route answers 500 (nothing changes on the
+ * phone). The Android phone's key is best effort: if the table doesn't take its kind yet (the migration not run), the week is simply not remembered by phone, and
+ * that is said in the notes. Returns whether the phone's key, when there is one, was stored (true when there is none).
+ */
+async function insertKeys(deps: AccountEntitlementDeps, keys: Array<{ keyHash: string; kind: ClaimKind }>, claimedAt: number, endsAt: number): Promise<boolean> {
+  const rows = (list: typeof keys) => list.map((k) => ({ ...k, claimedAt, endsAt }));
+  const own = keys.filter((k) => k.kind !== "android");
+  const phone = keys.filter((k) => k.kind === "android");
+  if (own.length > 0) await deps.store.insertClaims(rows(own));
+  if (phone.length === 0) return true;
+  try {
+    await deps.store.insertClaims(rows(phone));
+    return true;
+  } catch {
+    deps.note?.("free week: Android phone key not stored");
+    return false;
+  }
+}
 
 export async function handleAccountEntitlement(identity: AccountIdentity, body: unknown, deps: AccountEntitlementDeps): Promise<Result> {
   if (!deps.sign || !deps.secret || deps.secret.length < MIN_HASH_SECRET_LENGTH) return { status: 503, body: { error: "unavailable" } };
@@ -165,22 +198,35 @@ export async function handleAccountEntitlement(identity: AccountIdentity, body: 
     return { status: 200, body: { premium: true, plan: "gift", token: await token("gift", expiresAt), expiresAt, giftUntil: gift.until, freeWeek: "not_checked", deviceCheck: "not_needed" } };
   }
 
-  // 2. the free week, by the account's email and Apple ID
+  // 2. the free week, by the account's email and Apple ID, and by this Android phone
   const keys = claimKeys(identity, deps.secret);
   if (keys.length === 0) return { status: 200, body: { premium: false, freeWeek: "no_identity", deviceCheck: "not_needed" } };
-  const found = await deps.store.findClaims(keys.map((k) => k.keyHash));
+  const { deviceToken, deviceEnv = "production", androidDeviceHash } = parsed.data;
+  const phoneKey = androidDeviceHash ? deviceClaimKey(androidDeviceHash, deps.secret) : null;
+  const lookup = phoneKey ? [...keys, phoneKey] : keys;
+  const found = await deps.store.findClaims(lookup.map((k) => k.keyHash));
   if (found.length > 0) {
-    const claim = found.reduce((a, b) => (b.endsAt > a.endsAt ? b : a));
-    // a key of this account not stored yet (a new email on the same Apple ID, say) is stored with the same dates, so it can't start a week of its own later
+    // the account's own keys decide its dates (a phone's key may belong to another account's week); with none of them known, it is this Android phone that had the
+    // week (on another account), as on an iPhone whose DeviceCheck bit is set
+    const own = found.filter((c) => keys.some((k) => k.keyHash === c.keyHash));
+    const phoneOnly = own.length === 0;
+    const claim = (phoneOnly ? found : own).reduce((a, b) => (b.endsAt > a.endsAt ? b : a));
+    // a key of this account not stored yet (a new email on the same Apple ID, say) is stored with the same dates, so it can't start a week of its own later.
+    // An account that only the phone gave away is stored as having no week at all (it ends the moment it began): its own later asks then say "ended", never the days
+    // that are left of the other account's week. A phone is remembered only by the week that began on it: an account that signs in on a second phone doesn't make that
+    // phone "used" for whoever has it next.
     const missing = keys.filter((k) => !found.some((c) => c.keyHash === k.keyHash));
-    if (missing.length > 0) await deps.store.insertClaims(missing.map((k) => ({ ...k, claimedAt: claim.claimedAt, endsAt: claim.endsAt })));
+    if (missing.length > 0) await insertKeys(deps, missing, claim.claimedAt, phoneOnly ? claim.claimedAt : claim.endsAt);
+    if (phoneOnly) {
+      deps.note?.("free week: this Android phone had it already");
+      return { status: 200, body: { premium: false, freeWeek: "device_used", deviceCheck: "checked" } };
+    }
     if (claim.endsAt <= now) return { status: 200, body: { premium: false, freeWeek: "ended", freeWeekEndsAt: claim.endsAt, deviceCheck: "not_needed" } };
     return { status: 200, body: { premium: true, plan: "trial", token: await token("trial", claim.endsAt), expiresAt: claim.endsAt, freeWeek: "running", freeWeekEndsAt: claim.endsAt, claimedNow: false, deviceCheck: "not_needed" } };
   }
 
   // 3. a new account: this iPhone, when Apple can be asked
-  const { deviceToken, deviceEnv = "production" } = parsed.data;
-  let deviceCheck: DeviceCheckOutcome = !deps.deviceCheck ? "not_configured" : !deviceToken ? "not_sent" : "checked";
+  let deviceCheck: DeviceCheckOutcome = phoneKey ? "checked" : !deps.deviceCheck ? "not_configured" : !deviceToken ? "not_sent" : "checked";
   let bits: DeviceBits | null = null;
   if (deps.deviceCheck && deviceToken) {
     bits = await deps.deviceCheck.query(deviceToken, deviceEnv).catch(() => null);
@@ -192,11 +238,12 @@ export async function handleAccountEntitlement(identity: AccountIdentity, body: 
   }
 
   // 4. claim it now
-  await deps.store.insertClaims(keys.map((k) => ({ ...k, claimedAt: now, endsAt: now + FREE_WEEK_DAYS * DAY_MS })));
+  const phoneStored = await insertKeys(deps, lookup, now, now + FREE_WEEK_DAYS * DAY_MS);
   // read back: when two requests claimed at once, the first one's dates stand
-  const stored = await deps.store.findClaims(keys.map((k) => k.keyHash));
+  const stored = await deps.store.findClaims(lookup.map((k) => k.keyHash));
   const endsAt = stored.length > 0 ? Math.max(...stored.map((c) => c.endsAt)) : now + FREE_WEEK_DAYS * DAY_MS;
   const claimedNow = stored.some((c) => c.claimedAt === now);
+  if (phoneKey) deviceCheck = phoneStored ? "set" : "failed";
   if (deps.deviceCheck && deviceToken && bits) {
     const marked = await deps.deviceCheck.markFreeWeek(deviceToken, deviceEnv, bits).catch(() => false);
     deviceCheck = marked ? "set" : "failed";

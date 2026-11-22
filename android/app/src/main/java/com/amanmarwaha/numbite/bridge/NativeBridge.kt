@@ -15,7 +15,7 @@ import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Answers the page's requests ([BridgeRequest]) with Google's barcode scanner, Android's own location, share sheet, sign-in tab, reminder notifications, keyboard, the Keystore-sealed
- * session, Google Play's review pop-up and Google Play Billing, and hands the result back with window.__menumathReply (web/lib/mm/native.ts; NativeBridge.swift on the iPhone;
+ * session, the phone's one-way identity for the free week, Google Play's review pop-up and Google Play Billing, and hands the result back with window.__menumathReply (web/lib/mm/native.ts; NativeBridge.swift on the iPhone;
  * docs/ANDROID_BRIDGE.md is the contract). It never crashes and never throws: whatever goes wrong is `{"error": "unavailable"}`.
  *
  * Who may talk to it is decided one layer up, in [com.amanmarwaha.numbite.web.BridgeHost]: only the app's own page (its main frame on https://appassets.androidplatform.net).
@@ -30,6 +30,8 @@ class NativeBridge(
     private val purchases: PurchaseService,
     private val reviews: ReviewRequesting,
     private val session: SessionStoring,
+    /** The phone's one-way identity for the free week. */
+    private val device: DeviceIdentifying,
     /** Puts the keyboard away (runs on the main thread). */
     private val hideKeyboard: () -> Unit,
     /** Runs a script in the page (on the main thread). */
@@ -71,8 +73,9 @@ class NativeBridge(
         is BridgeRequest.AppleSignIn -> BridgeReply.failure("unavailable")
         // the page asks only after someone rated the app 5; Google decides whether its pop-up appears, so the flow finishing is "done"
         is BridgeRequest.RequestReview -> if (reviews.requestReview()) BridgeReply.done() else BridgeReply.failure("unavailable")
-        // the free week is then decided by the account's email hash alone (docs/ANDROID_BRIDGE.md)
+        // Apple's DeviceCheck: not on Android; the phone's own hash (device.id) does that job (docs/ANDROID_BRIDGE.md)
         is BridgeRequest.DeviceCheckToken -> BridgeReply.failure("unavailable")
+        is BridgeRequest.DeviceId -> device.deviceHash()?.let { JSONObject().put("deviceHash", it) } ?: BridgeReply.failure("unavailable")
         is BridgeRequest.Locate -> when (val found = location.currentLocation(request.onlyIfAllowed)) {
             is LocationOutcome.Found -> JSONObject().put("lat", found.latitude).put("lng", found.longitude)
             LocationOutcome.Denied -> BridgeReply.failure("denied")

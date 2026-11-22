@@ -277,12 +277,13 @@ describe("refreshing at start-up on Android", () => {
 });
 
 describe("the free week on Android", () => {
-  it("never asks for a DeviceCheck token (there is none), and asks the account with an empty body", async () => {
+  it("never asks for a DeviceCheck token (there is none): it asks the app for the phone's one-way hash instead, and asks the account with an empty body when the app has none", async () => {
     vi.stubGlobal("window", { webkit: { messageHandlers: { menumath: { postMessage: () => undefined } } }, __numbitePlatform: "android" });
     const call = phone({ "deviceCheck.token": { deviceToken: "cGhvbmUtb25lLXRva2VuLWZyb20tYXBwbGU=", deviceEnv: "production" } });
     const request = vi.fn(async () => new Response(JSON.stringify({ premium: false, freeWeek: "ended", deviceCheck: "not_sent" }), { status: 200 }));
     await refreshAccountAccess({ userId: "u1", request, call, nowMs: NOW, force: true });
-    expect(call).not.toHaveBeenCalled();
+    expect(call).not.toHaveBeenCalledWith("deviceCheck.token", expect.anything(), expect.anything());
+    expect(call).toHaveBeenCalledWith("device.id", {}, 5_000);
     expect(request).toHaveBeenCalledWith("entitlement/account", { method: "POST", body: {} });
   });
 });

@@ -1,6 +1,5 @@
 // The apps' side of the free week and gifts of Premium (lib/payments/freeWeek.ts on the server): after signing in, at start-up and when the app comes back
-// to the front, the signed-in account asks POST /api/v1/entitlement/account (with Apple's DeviceCheck token for this iPhone when the phone can make one; the Android app
-// has none, so there the account's email alone decides) and keeps
+// to the front, the signed-in account asks POST /api/v1/entitlement/account (with Apple's DeviceCheck token for this iPhone when the phone can make one, or on an Android phone a one-way hash of its Android ID) and keeps
 // the answer's signed token exactly as a purchase's is kept (lib/mm/stores.ts paidStore), so isPro and every gate follow, and the AI routes accept it. What the
 // server said goes into freeWeekStore for the screens (Settings › Subscription, Home's one line, the paywall's headline once the free week has ended).
 //
@@ -69,9 +68,12 @@ async function run({ userId, request, call = nativeCall, nowMs = Date.now(), for
   // Apple's DeviceCheck token, only while the server may still start a free week for this account (it has none yet that this phone knows of)
   const mine = freeWeekStore.get();
   const needsDevice = !(mine.user === userId && (mine.status === "running" || mine.status === "ended"));
-  // (Android has no DeviceCheck: nothing to ask, so no round trip)
-  const device = needsDevice && nativePlatform() !== "android" ? await call("deviceCheck.token", {}, 10_000) : null;
-  const body = device?.deviceToken ? { deviceToken: device.deviceToken, ...(device.deviceEnv ? { deviceEnv: device.deviceEnv } : {}) } : {};
+  // (An Android phone has no DeviceCheck: the app gives a one-way hash of its Android ID instead, which the server hashes again and remembers the same way)
+  const android = nativePlatform() === "android";
+  const device = needsDevice ? await call(android ? "device.id" : "deviceCheck.token", {}, android ? 5_000 : 10_000) : null;
+  const body = device?.deviceToken
+    ? { deviceToken: device.deviceToken, ...(device.deviceEnv ? { deviceEnv: device.deviceEnv } : {}) }
+    : device?.deviceHash ? { androidDeviceHash: device.deviceHash } : {};
 
   let res: Response;
   try {

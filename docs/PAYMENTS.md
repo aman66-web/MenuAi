@@ -84,7 +84,8 @@ between the page, the app and the server (names, actions, answers) is `docs/ANDR
 5. **Keeping it current**: as on the iPhone, at start-up and whenever the app comes back to the front the page asks Play Billing for the current purchases (`iap.entitlements`); nothing there and the Google
    token goes; a purchase there and no token (new phone, reinstall), or one with under a week left, and a fresh token is fetched. **Restore purchases** asks Google Play to sync first. **Manage subscription**
    opens Google Play's subscription screen. A Google Play purchase wins over the account's free week and gifts, exactly as an App Store one does (`accountAccess.ts`, `iap.ts`). The Android app has no
-   DeviceCheck: the free week there is decided by the account's email hash alone (`deviceCheck.token` answers "unavailable" and the page doesn't even ask).
+   DeviceCheck: the page asks `device.id` instead and sends the app's one-way hash of the phone's Android ID, which the server hashes again (kind `android`) and keeps in `trial_claims` like the email hash
+   (see "Free week and gifts" below; google's "device recall" is a closed beta for apps with production usage and is not used yet).
 6. **Server env (Vercel, Production and Preview):** `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (**Sensitive**: the whole key file of the service account below, as downloaded; the same text in base64 also works) and, only
    if the package name ever changes, `GOOGLE_PLAY_PACKAGE_NAME` (default `com.amanmarwaha.numbite`). `ENTITLEMENT_PRIVATE_JWK` is the same key as for Apple. Without the service account the route answers 503
    and checks nothing. The Android build of the page needs the same build switches as the iPhone's (`NEXT_PUBLIC_IAP=1`, `APP_BUILD=1`) and `NEXT_PUBLIC_APP_VERSION="Android 1.1 (<versionCode>)"`.
@@ -122,6 +123,11 @@ noticed at the next start-up; the token of a refunded purchase still checks unti
   `FREE_WEEK_HASH_SECRET`) of the normalised email and of the Sign in with Apple ID: a claim under either decides running or ended; with no claim, Apple's
   DeviceCheck bit 0 for this iPhone (set = no free week); otherwise the week is claimed now and the bit set. DeviceCheck never blocks anyone: unconfigured,
   no token sent or Apple failing, it is skipped and the answer says so.
+- **Android phones (22 Nov 2026):** the body may carry `androidDeviceHash` (64 lower-case hex: SHA-256 of "numbite-device:" + the Android ID, made on the phone). The server keys it again
+  (HMAC-SHA256, kind `android`) and looks it up with the account's keys. An account with no claim of its own on a phone that had a week gets none (`freeWeek: "device_used"`, as on an iPhone) and is
+  stored as having had no week, so its later asks say "ended", never the days left of the other account's week. A phone is remembered only by the week that began on it (not by an account that merely signs
+  in on it). The Android ID survives uninstalling and reinstalling, not a factory reset. Storing the phone's key is best effort: until `supabase/migrations/20261122120000_trial_claims_android.sql`
+  is run the table refuses kind `android`, the week still starts, and the answer says `deviceCheck: "failed"`.
 - **Apple wins on the phone:** while an App Store token runs, the account endpoint isn't asked, so a subscriber's week isn't used up.
 - **Gifts** (founder: "if I give their email to you, you can give them a premium account ... I won't have to do a new build"): a row in `premium_gifts`
   (account, optional end). The SQL to give, take away and list gifts is in `supabase/migrations/20261121120000_free_week.sql`. A gift token lasts at most 30 days

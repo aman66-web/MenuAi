@@ -30,7 +30,8 @@ export type NativeAction =
   | "review.request"
   | "session.load"
   | "session.save"
-  | "deviceCheck.token";
+  | "deviceCheck.token"
+  | "device.id";
 
 /** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
 export interface NativeProduct {
@@ -81,6 +82,9 @@ export interface NativeResult {
    *  Xcode uses the development one). Sent only to our server, which asks Apple whether this iPhone had the free week (lib/payments/freeWeek.ts). */
   deviceToken?: string;
   deviceEnv?: "development" | "production";
+  /** "device.id" (Android only): SHA-256 of "numbite-device:" + this phone's Android ID, 64 lower-case hex characters. Sent only to our server, which hashes it again
+   *  with its own secret and keeps only that, to stop a second free week on the same phone (lib/payments/freeWeek.ts). The Android ID itself never leaves the phone. */
+  deviceHash?: string;
   /** "denied" (the person said no in Settings), "unavailable" (this iPhone can't), "cancelled", "timeout". */
   error?: "denied" | "unavailable" | "cancelled" | "timeout";
 }
@@ -168,8 +172,9 @@ export function cleanNativeResult(raw: unknown): NativeResult {
     out.deviceToken = r.deviceToken;
     if (r.deviceEnv === "development" || r.deviceEnv === "production") out.deviceEnv = r.deviceEnv;
   }
+  if (typeof r.deviceHash === "string" && /^[0-9a-f]{64}$/.test(r.deviceHash)) out.deviceHash = r.deviceHash;
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.purchases && !out.pending && !out.session && !out.deviceToken && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.purchases && !out.pending && !out.session && !out.deviceToken && !out.deviceHash && !out.error) out.error = "unavailable";
   return out;
 }
 

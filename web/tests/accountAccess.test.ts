@@ -62,6 +62,28 @@ describe("asking the account for its own Premium", () => {
     expect(freeWeekStore.get().welcomeDue).toBe(false);
   });
 
+  it("an Android phone: asks the app for the one-way hash of its Android ID (never DeviceCheck) and sends only that", async () => {
+    vi.stubGlobal("window", { webkit: { messageHandlers: { menumath: { postMessage: () => undefined } } }, __numbitePlatform: "android" });
+    try {
+      const hash = "0123456789abcdef".repeat(4);
+      const call = phone({ "device.id": { deviceHash: hash }, "deviceCheck.token": DEVICE });
+      const request = server(200, await trialAnswer());
+      expect(await refreshAccountAccess({ userId: "user-1", request, call, nowMs: NOW, force: true })).toBe("trial");
+      expect(call).toHaveBeenCalledTimes(1);
+      expect(call).toHaveBeenCalledWith("device.id", {}, 5_000);
+      expect(request).toHaveBeenCalledWith("entitlement/account", { method: "POST", body: { androidDeviceHash: hash } });
+      // no answer from the app: asks anyway with an empty body (the server then has only the email to go by)
+      resetAccountAccessForTests();
+      freeWeekStore.set(NO_FREE_WEEK);
+      paidStore.set(NO_PAID);
+      const none = server(200, await trialAnswer());
+      expect(await refreshAccountAccess({ userId: "user-1", request: none, call: phone({}), nowMs: NOW, force: true })).toBe("trial");
+      expect(none).toHaveBeenCalledWith("entitlement/account", { method: "POST", body: {} });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it("no DeviceCheck token (the Simulator): asks anyway, with an empty body", async () => {
     const request = server(200, await trialAnswer());
     expect(await refreshAccountAccess({ userId: "user-1", request, call: phone({}), nowMs: NOW, force: true })).toBe("trial");

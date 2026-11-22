@@ -59,3 +59,16 @@ describe("session.load's answer (2026-11-18)", () => {
     expect(cleanNativeResult({ session: 7 })).toEqual({ error: "unavailable" });
   });
 });
+
+describe("device.id's answer (Android, 2026-11-22)", () => {
+  it("keeps only a SHA-256 in lower-case hex; anything else is no answer", async () => {
+    const { cleanNativeResult } = await import("../lib/mm/native");
+    const hash = "0123456789abcdef".repeat(4);
+    expect(cleanNativeResult({ deviceHash: hash })).toEqual({ deviceHash: hash });
+    for (const bad of ["", "xyz", hash.toUpperCase(), hash.slice(1), `${hash}0`, 12, null]) {
+      expect(cleanNativeResult({ deviceHash: bad })).toEqual({ error: "unavailable" });
+    }
+    // an iPhone's DeviceCheck token is still its own field
+    expect(cleanNativeResult({ deviceToken: "cGhvbmUtb25lLXRva2VuLWZyb20tYXBwbGU=" })).toEqual({ deviceToken: "cGhvbmUtb25lLXRva2VuLWZyb20tYXBwbGU=" });
+  });
+});

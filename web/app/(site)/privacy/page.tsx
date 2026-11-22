@@ -391,7 +391,7 @@ export default function Privacy() {
           <p className={para}>
             <strong>Free week:</strong> every new account has Premium free for {FREE_WEEK_DAYS} days in the {ANDROID_TEXT ? "iPhone and Android apps" : "iPhone app"}. To stop a second free week we keep a one-way code made
             from your email address (and your Apple ID, if you sign in with Apple) that can&apos;t be turned back into it, even after you delete your account, and use it for
-            nothing else; and{ANDROID_TEXT ? ", on an iPhone," : ""} Apple&apos;s DeviceCheck marks the iPhone as having had it (Apple runs it, and it tells us nothing about you). Premium we give you as a gift is kept with your account.
+            nothing else; and{ANDROID_TEXT ? ", on an iPhone," : ""} Apple&apos;s DeviceCheck marks the iPhone as having had it (Apple runs it, and it tells us nothing about you).{ANDROID_TEXT ? <>{" "}On an Android phone the app makes a one-way code from the phone&apos;s Android ID (the ID itself never leaves the phone), and we keep a second one-way code made from that, the same way and for nothing else; it lasts until the phone is reset to factory settings.</> : null} Premium we give you as a gift is kept with your account.
           </p>
         )}
         {WEB_PRO_ENABLED && (

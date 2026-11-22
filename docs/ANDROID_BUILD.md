@@ -50,7 +50,8 @@ Full contract: docs/ANDROID_BRIDGE.md. Summary of what the shell does for each a
 | `keyboard.hide` | hides the keyboard and clears the focus |
 | `review.request` | Google Play's in-app review pop-up (`play:review-ktx`); `{done:true}` whether or not Google shows it, `unavailable` if Play can't give it |
 | `session.load` / `session.save` | the sign-in text (≤ 16 KB) sealed with AES-256-GCM, key in the Android Keystore, file in app-private storage; survives the app being killed; `value:null` forgets it. Backup and device transfer are off (`allowBackup=false`, `data_extraction_rules.xml`) |
-| `deviceCheck.token` | `unavailable` (the free week is then decided by the account's email hash alone) |
+| `deviceCheck.token` | `unavailable` (Apple's DeviceCheck) |
+| `device.id` | `{deviceHash}`: SHA-256 of "numbite-device:" + the Android ID (DeviceIdentity.kt), so a second free week on the same phone can be stopped; `unavailable` without an Android ID |
 | `iap.*` | `PurchaseService` from `createPurchaseService` (billing/); when it reports a purchase that arrives with nobody waiting (`PurchaseUpdateSource`), the shell dispatches `menumath:purchases` on the page, as the iPhone does |
 
 ### Switch the page to the native scanner (one line, web/)

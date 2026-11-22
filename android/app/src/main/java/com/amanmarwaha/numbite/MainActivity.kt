@@ -26,6 +26,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.webkit.WebViewAssetLoader
 import com.amanmarwaha.numbite.auth.CustomTabsWebSignIn
+import com.amanmarwaha.numbite.bridge.AndroidDeviceIdentity
 import com.amanmarwaha.numbite.bridge.AndroidLocationService
 import com.amanmarwaha.numbite.bridge.AndroidNotifications
 import com.amanmarwaha.numbite.bridge.GmsBarcodeScanner
@@ -121,6 +122,7 @@ class MainActivity : AppCompatActivity() {
                 purchases = purchases,
                 reviews = PlayReviewPrompt(applicationContext, front),
                 session = KeystoreSessionStore(applicationContext),
+                device = AndroidDeviceIdentity(applicationContext),
                 hideKeyboard = { me.get()?.hideKeyboard() },
                 runInPage = { script -> me.get()?.runInPage(script) },
             ),

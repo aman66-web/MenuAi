@@ -17,8 +17,8 @@ built in parallel (the web/server side, the app shell, Play Billing). If you mus
   docs/ANDROID_BUILD.md), `locate` (the platform LocationManager with the approximate permission, one system question, `{lat,lng}` or `{error:"denied"|"unavailable"}`: the page asks
   the app whenever the bridge exists, web/app/app/map/page.tsx), `share`, `webAuth` (Custom Tabs for **google and apple**, returns to `numbite://auth?code=…`), `appleSignIn`
   (`{error:"unavailable"}`), `notifications.*` (local notifications), `keyboard.hide`, `review.request` (Google Play's in-app review pop-up: `{done:true}` whether or not Google shows
-  it, `{error:"unavailable"}` if Play can't give it), `session.load` / `session.save` (Android Keystore), `deviceCheck.token` (`{error:"unavailable"}`: the free week is then decided by the
-  account's email hash alone), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
+  it, `{error:"unavailable"}` if Play can't give it), `session.load` / `session.save` (Android Keystore), `deviceCheck.token` (`{error:"unavailable"}`: Apple's DeviceCheck), `device.id` (`{deviceHash}`: SHA-256 of
+  `"numbite-device:" + Settings.Secure.ANDROID_ID`, 64 lower-case hex characters; `{error:"unavailable"}` without an Android ID; the Android ID itself never leaves the phone), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
 
 ## In-app purchase (Google Play Billing)
 
@@ -48,5 +48,5 @@ Apple JWS strings and stay as they are).
 our subscription id, the base plan (`annual`→ plan annual, `monthly`→ plan monthly), the subscription is active (`SUBSCRIPTION_STATE_ACTIVE`, or `…_IN_GRACE_PERIOD`, or `…_CANCELED` while its expiry is in the future), not refunded or
 revoked. Server env (Vercel, Sensitive): `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` (the whole key file), `GOOGLE_PLAY_PACKAGE_NAME` (default `com.amanmarwaha.numbite`).
 
-The free week and gifts use the existing `POST /api/v1/entitlement/account` unchanged (keyed hash of the account's email; DeviceCheck is skipped on Android).
+The free week and gifts use the existing `POST /api/v1/entitlement/account` unchanged (keyed hash of the account's email; on Android the page sends `{androidDeviceHash}` from `device.id` in place of DeviceCheck's token, and the server hashes it again with its own secret, kind `android`; web/lib/payments/freeWeek.ts).
 A purchase from Google Play wins over the account's free week the way an App Store one does (web/lib/payments/accountAccess.ts, iap.ts).

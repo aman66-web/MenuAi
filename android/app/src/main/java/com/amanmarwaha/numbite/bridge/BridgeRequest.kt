@@ -34,6 +34,8 @@ sealed interface BridgeRequest {
     /** `value` null forgets the session. */
     data class SessionSave(override val id: String, val value: String?) : BridgeRequest
     data class DeviceCheckToken(override val id: String) : BridgeRequest
+    /** Android only: the one-way hash of this phone's Android ID, for the free week (DeviceIdentity.kt). */
+    data class DeviceId(override val id: String) : BridgeRequest
 
     /** What became of a message. */
     sealed interface Parsed {
@@ -115,6 +117,7 @@ sealed interface BridgeRequest {
                     }
                 }
                 "deviceCheck.token" -> DeviceCheckToken(id)
+                "device.id" -> DeviceId(id)
                 else -> null
             }
         }

@@ -2,7 +2,7 @@ import { createVerify, generateKeyPairSync } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import {
-  FREE_WEEK_DAYS, GIFT_TOKEN_DAYS, claimKey, claimKeys, handleAccountEntitlement, memoryFreeWeekStore, normaliseEmail,
+  FREE_WEEK_DAYS, GIFT_TOKEN_DAYS, claimKey, claimKeys, deviceClaimKey, handleAccountEntitlement, memoryFreeWeekStore, normaliseEmail,
   type AccountEntitlementDeps, type AccountIdentity, type DeviceBits, type DeviceCheckPort,
 } from "../lib/payments/freeWeek";
 import { NO_BITS_YET, appleDeviceCheck, deviceCheckConfigFromEnv, deviceCheckJwt } from "../lib/payments/deviceCheck";
@@ -59,6 +59,9 @@ function deps(over: Partial<AccountEntitlementDeps> = {}): AccountEntitlementDep
 const person = (over: Partial<AccountIdentity> = {}): AccountIdentity => ({ userId: "user-1", email: "Anna.Smith@example.com", appleSub: null, ...over });
 const PHONE = { deviceToken: "cGhvbmUtb25lLXRva2VuLWZyb20tYXBwbGU=" };
 const OTHER_PHONE = { deviceToken: "cGhvbmUtdHdvLXRva2VuLWZyb20tYXBwbGU=" };
+// Android phones: the app's SHA-256 of the Android ID (the server hashes it again with its secret)
+const DROID = { androidDeviceHash: "a".repeat(64) };
+const OTHER_DROID = { androidDeviceHash: "b".repeat(64) };
 
 describe("the keys: a normalised email and the Apple ID, hashed with the server's secret", () => {
   it("treats one mailbox as one address", () => {
@@ -169,6 +172,77 @@ describe("the free week", () => {
     // a port that throws is the same as no answer
     const throwing: DeviceCheckPort = { query: async () => { throw new Error("boom"); }, markFreeWeek: async () => { throw new Error("boom"); } };
     expect((await handleAccountEntitlement(person(), PHONE, deps({ deviceCheck: throwing }))).body).toMatchObject({ premium: true, deviceCheck: "failed" });
+  });
+
+  it("an Android phone: the week starts, the phone is remembered only as a second hash, never as the app sent it", async () => {
+    const d = deps();
+    const first = await handleAccountEntitlement(person(), DROID, d);
+    expect(first.body).toMatchObject({ premium: true, plan: "trial", expiresAt: NOW + 7 * DAY, claimedNow: true, deviceCheck: "set" });
+    const claims = (d.store as ReturnType<typeof memoryFreeWeekStore>).claims;
+    expect(claims.map((c) => c.kind).sort()).toEqual(["android", "email"]);
+    const stored = claims.find((c) => c.kind === "android")!;
+    expect(stored.keyHash).toBe(deviceClaimKey(DROID.androidDeviceHash, SECRET).keyHash);
+    expect(stored.keyHash).not.toContain(DROID.androidDeviceHash);
+    expect(stored.keyHash).not.toBe(claimKey("android", DROID.androidDeviceHash, "another-secret-that-is-long-enough-for-keys"));
+    expect(stored).toMatchObject({ claimedAt: NOW, endsAt: NOW + 7 * DAY });
+  });
+
+  it("is never had twice on the same Android phone, even with a new email, a new Google account or after the week; another phone still can", async () => {
+    const d = deps();
+    await handleAccountEntitlement(person(), DROID, d);
+    // a new email on the same phone the next day: no week, and the answer says it was the phone
+    const second = await handleAccountEntitlement(person({ userId: "user-2", email: "someone.else@example.com" }), DROID, { ...d, nowMs: NOW + DAY });
+    expect(second.body).toEqual({ premium: false, freeWeek: "device_used", deviceCheck: "checked" });
+    // asking again (the phone doesn't know yet): still none, and never the days that are left of the other account's week
+    const again = await handleAccountEntitlement(person({ userId: "user-2", email: "someone.else@example.com" }), DROID, { ...d, nowMs: NOW + 2 * DAY });
+    expect(again.body).toMatchObject({ premium: false, freeWeek: "ended" });
+    // and that email can't start a week on another phone either
+    const elsewhere = await handleAccountEntitlement(person({ userId: "user-2", email: "someone.else@example.com" }), OTHER_DROID, { ...d, nowMs: NOW + 3 * DAY });
+    expect(elsewhere.body).toMatchObject({ premium: false, freeWeek: "ended" });
+    // after the week, a third account on the phone: nothing
+    const late = await handleAccountEntitlement(person({ userId: "user-3", email: "third@example.com" }), DROID, { ...d, nowMs: NOW + 30 * DAY });
+    expect(late.body).toMatchObject({ premium: false, freeWeek: "device_used" });
+    // a phone that never had a week gives one to an account that has none
+    const fresh = await handleAccountEntitlement(person({ userId: "user-4", email: "fourth@example.com" }), OTHER_DROID, { ...d, nowMs: NOW + 30 * DAY });
+    expect(fresh.body).toMatchObject({ premium: true, plan: "trial", deviceCheck: "set" });
+  });
+
+  it("the account that had the week keeps it on its own phone and on another phone too, and signing in on a second phone doesn't use that phone up for others", async () => {
+    const d = deps();
+    await handleAccountEntitlement(person(), DROID, d);
+    const same = await handleAccountEntitlement(person(), DROID, { ...d, nowMs: NOW + DAY });
+    expect(same.body).toMatchObject({ premium: true, plan: "trial", expiresAt: NOW + 7 * DAY, claimedNow: false });
+    const other = await handleAccountEntitlement(person(), OTHER_DROID, { ...d, nowMs: NOW + 2 * DAY });
+    expect(other.body).toMatchObject({ premium: true, plan: "trial", expiresAt: NOW + 7 * DAY, claimedNow: false });
+    // only the phone the week began on is remembered
+    const claims = (d.store as ReturnType<typeof memoryFreeWeekStore>).claims;
+    expect(claims.filter((c) => c.kind === "android")).toHaveLength(1);
+    // so a different person with a different account gets their week on that second phone
+    const partner = await handleAccountEntitlement(person({ userId: "partner", email: "partner@example.com" }), OTHER_DROID, { ...d, nowMs: NOW + 3 * DAY });
+    expect(partner.body).toMatchObject({ premium: true, plan: "trial", claimedNow: true, deviceCheck: "set" });
+  });
+
+  it("remembering the phone is best effort: if the table doesn't take Android keys yet, the week still starts, and the answer and the notes say so", async () => {
+    const base = memoryFreeWeekStore();
+    const store = { ...base, insertClaims: async (c: Parameters<typeof base.insertClaims>[0]) => {
+      if (c.some((x) => x.kind === "android")) throw new Error("violates check constraint trial_claims_kind_check");
+      await base.insertClaims(c);
+    } };
+    const notes: string[] = [];
+    const r = await handleAccountEntitlement(person(), DROID, deps({ store, note: (m) => notes.push(m) }));
+    expect(r.body).toMatchObject({ premium: true, plan: "trial", expiresAt: NOW + 7 * DAY, deviceCheck: "failed" });
+    expect(base.claims.map((c) => c.kind)).toEqual(["email"]);
+    expect(notes).toEqual(["free week: Android phone key not stored"]);
+    // the account's own keys are not best effort: a failure there is still a failure
+    const broken = { ...base, insertClaims: async () => { throw new Error("down"); } };
+    await expect(handleAccountEntitlement(person({ userId: "u9", email: "nine@example.com" }), DROID, deps({ store: broken }))).rejects.toThrow("down");
+  });
+
+  it("only a SHA-256 in lower-case hex is taken as an Android phone (anything else is a bad request)", async () => {
+    for (const bad of ["", "xyz", "A".repeat(64), "a".repeat(63), "a".repeat(65), 12345]) {
+      expect((await handleAccountEntitlement(person(), { androidDeviceHash: bad }, deps())).status).toBe(400);
+    }
+    expect((await handleAccountEntitlement(person(), { ...DROID, deviceToken: PHONE.deviceToken }, deps())).status).toBe(200);
   });
 
   it("two requests at once give one week", async () => {
@@ -313,5 +387,14 @@ describe("the migration", () => {
       expect(sql).toContain(`revoke all on public.${t} from anon, authenticated;`);
     }
     expect(sql).not.toMatch(/create policy/i);
+  });
+
+  it("the Android migration lets kind be 'android' (and keeps email and apple), and the adapter reads it back", () => {
+    const android = readFileSync(new URL("../../supabase/migrations/20261122120000_trial_claims_android.sql", import.meta.url), "utf8");
+    expect(android).toMatch(/drop constraint if exists trial_claims_kind_check/);
+    expect(android).toMatch(/check \(kind in \('email', 'apple', 'android'\)\)/);
+    // the table's own constraint is a column check, which Postgres names trial_claims_kind_check
+    expect(sql).toMatch(/kind\s+text not null check \(kind in \('email', 'apple'\)\)/);
+    expect(adapter).toContain('r.kind === "android" ? "android"');
   });
 });

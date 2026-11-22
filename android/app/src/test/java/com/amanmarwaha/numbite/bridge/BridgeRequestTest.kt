@@ -24,6 +24,7 @@ class BridgeRequestTest {
         assertEquals(BridgeRequest.HideKeyboard("a1"), ok(message("a1", "keyboard.hide")))
         assertEquals(BridgeRequest.RequestReview("a1"), ok(message("a1", "review.request")))
         assertEquals(BridgeRequest.DeviceCheckToken("a1"), ok(message("a1", "deviceCheck.token")))
+        assertEquals(BridgeRequest.DeviceId("a1"), ok(message("a1", "device.id")))
         assertEquals(BridgeRequest.SessionLoad("a1"), ok(message("a1", "session.load")))
         assertEquals(BridgeRequest.IapEntitlements("a1"), ok(message("a1", "iap.entitlements")))
         assertEquals(BridgeRequest.IapRestore("a1"), ok(message("a1", "iap.restore")))
