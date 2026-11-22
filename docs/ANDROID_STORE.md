@@ -119,3 +119,8 @@ a licence tester (Play Console › Settings › License testing), (e) add the re
 
 **Update, 22 Nov about 09:25 GMT: problem 1 is fixed.** numbite.com was released from `iap` (main fd2787d1): the Android origin passes CORS, the Google route exists (503 until the key is set) and the privacy and terms pages carry the Android lines.
 What is still open: the service-account key in Vercel (problem 2), then activate both base plans (grace period is 7 days on both), a licence-tester purchase test, the reviewers' demo login.
+
+## 1.1 (3) submitted (22 November 2026, about 13:08 GMT)
+
+Production release "3 (1.1)" (versionCode 3: the free week is remembered per phone, see docs/PAYMENTS.md "Android phones") and the Data safety form (Device or other IDs added: `android/store/data_safety.csv`) were sent for review together;
+the console ran its quick checks first (up to 14 minutes). It replaces 1.1 (2). The one build warning is Play's "no deobfuscation file" note (the app does not use R8). Managed publishing is off: it goes live by itself when approved.
