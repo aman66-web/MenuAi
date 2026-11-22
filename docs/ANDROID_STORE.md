@@ -77,3 +77,17 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 ```
 Numbite for Android: calories, protein and prices for UK restaurant menus, supermarket products and 382 recipes. Free week of Premium for every new account.
 ```
+
+## State in Play Console (22 November 2026, 03:00)
+
+App created: **Numbite: Calories & Protein**, `com.amanmarwaha.numbite`, free, English (UK), Clarifo Developers Ltd (app id 4972454069279403743). Done through Chrome while the founder slept:
+
+* **App content (all 10 declarations done):** privacy policy https://numbite.com/privacy; ads: none; sign-in details (Google or email code, free 7-day week, no card; this one is the weakest: Google says reviewers can't create accounts, use
+  their own or use free trials, so **a demo login with a Premium gift is advisable before production**); content rating (IARC: alcohol and medical-drug references, rarely; no user chat; digital purchases yes); target audience 18+;
+  data safety (imported from CSV, see the table above, nothing shared); advertising ID: no; government: no; financial features: none; health apps: nutrition and weight management only (medication management NOT ticked, the
+  reminders are the person's own clock).
+* **Store listing (default, en-GB):** short and full description above, icon, feature graphic and 8 phone screenshots (`android/store/screenshots/`, in the same order as the App Store set, minus "Top 20 supermarket lists" and "Top
+  picks"; the AI-picture label is set on the three that show recipe pictures). Category Food & Drink; contact email and website set.
+* **Not done:** the subscription (Play only lets you create it once a build with the Billing permission is uploaded), the first release (needs the signed bundle), countries (United Kingdom), pricing check, the trader status
+  declaration (the founder's own, due by February 2027), tester set-up, production release.
+* The 7-day free week is the account's (server), so the Play subscription has **no free-trial offer**.

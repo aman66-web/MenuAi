@@ -12,7 +12,7 @@ import { mkdirSync, readFileSync } from "node:fs";
 
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
-const OUT = new URL(process.env.NO_LOGOS === "1" ? "./shots/store-v2/no-logos/raw/" : "./shots/store-v2/raw/", import.meta.url).pathname;
+const OUT = new URL(process.env.RAW_DIR ?? (process.env.NO_LOGOS === "1" ? "./shots/store-v2/no-logos/raw/" : "./shots/store-v2/raw/"), import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
@@ -52,7 +52,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 
 async function page(name) {
   // SHOT_H=902: the screen below the iPhone's 54-point status bar, which store-frames.mjs draws above it (22 Nov)
-  const ctx = await browser.newContext({ viewport: { width: 440, height: Number(process.env.SHOT_H ?? 956) }, deviceScaleFactor: 3, colorScheme: "light", isMobile: true, hasTouch: true, serviceWorkers: "block" });
+  const ctx = await browser.newContext({ viewport: { width: Number(process.env.SHOT_W ?? 440), height: Number(process.env.SHOT_H ?? 956) }, deviceScaleFactor: 3, colorScheme: "light", isMobile: true, hasTouch: true, serviceWorkers: "block" });
   await ctx.addInitScript(([s, h, p, l]) => {
     if (sessionStorage.getItem("seeded")) return;
     sessionStorage.setItem("seeded", "1");

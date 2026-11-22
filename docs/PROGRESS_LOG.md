@@ -4265,3 +4265,13 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (01:10, 22 Nov) **1.1 now releases automatically once Apple approves it** (founder: "once they've accepted Apple, I want the build to be automatically set
   live"): App Store Version Release changed from manual to "Automatically release this version" while waiting for review (no resubmission needed); update
   to all users at once (no phased release); existing rating kept.
+- (22 Nov, 01:30 to 03:10) **Android app for Google Play** (founder: "i wanted to also upload my app to the google play store", "do android all for me", Premium through
+  Google Play Billing "the same way they get the free 7 day trial", "everything on the Android app should match the Apple app"). Native Kotlin web view around the same packed
+  web app (`android/`, docs/ANDROID_BUILD.md, docs/ANDROID_BRIDGE.md, docs/ANDROID_BILLING.md): the bridge (share, Google and Apple sign-in through Custom Tabs, local reminders,
+  Keystore session, Google's code scanner, Play in-app review, locate), Play Billing (one subscription `com.amanmarwaha.numbite.premium`, base plans annual £49.99 and monthly £4.99,
+  no trial offer), the server check `POST /api/v1/entitlement/google` (service account, Play Developer API `subscriptionsv2`, same signed token with `src: "google"`, 38 tests),
+  platform-aware store wording and the Android origin in CORS (web 4,215 tests), targetSdk 36. 61 MB bundle. Android unit tests 182 pass; emulator checks by the shell agent
+  (offline start, persistence, bridge, reminders, links, safe areas). Not verifiable without a real Play account: Google's payment sheet, plan changes, the Play scanner and in-app review.
+  **Play Console** (Chrome, Clarifo Developers Ltd): app created, the 10 App content declarations, default store listing with 8 new screenshots, category and contact done
+  (docs/ANDROID_STORE.md "State in Play Console"). **Waiting on the founder:** `scripts/android_make_upload_key.sh` (he types the password; nothing is signed without it), then
+  `./scripts/build_android.sh aab`, the upload to Internal testing, the subscription (Play needs a build first), and the Google Cloud service account for purchase checks.
