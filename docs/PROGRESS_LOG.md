@@ -4242,3 +4242,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   both traybakes; thin chipolatas; bacon medallions in the bacon sandwich and the full English; wholemeal eggy bread; no herb flecks in the salmon salad's
   dressing or the goujons' dip; spring onion only in the tuna dip; no chopped garlic on the crispy potatoes or the lemon garlic chicken). 13 credits. Checked
   on a contact sheet: each shows only its recipe's foods, no writing or logos. Imported (`import_recipe_images.py`): 382 of 382 recipes have a picture.
+- (00:37, 22 Nov) **iPhone 1.1 build 20 uploaded to App Store Connect** (266d35a0; founder: "that's the final version of my app"): build 19 plus the 13 remade
+  pictures. Not submitted: build 11 is still the one in App Review; to put build 20 in review, swap it into 1.1 in App Store Connect and resubmit, after the
+  two App Privacy lines (Meal plan with Pip, search help).
