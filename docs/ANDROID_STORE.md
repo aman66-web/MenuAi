@@ -104,3 +104,14 @@ App created: **Numbite: Calories & Protein**, `com.amanmarwaha.numbite`, free, E
   figure customers see.)
 * **Still open:** `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON` in Vercel (until then a purchase in the app cannot be confirmed by our server: the route answers 503 and the app says the purchase is not confirmed); a demo login for
   Google's reviewers; the website release so the Android lines are on numbite.com's privacy and terms; deep-link `assetlinks.json` with the Play signing fingerprint; the trader-status declaration.
+
+## LIVE on Google Play (found 22 November 2026, about 09:00 GMT) and what was done about it
+
+Google approved 1.1 (2) within hours: the production track is **Active**, the store page answers 200 (https://play.google.com/store/apps/details?id=com.amanmarwaha.numbite), United Kingdom.
+Two things are not ready, found by checking the live site (an OPTIONS call from the Android origin gets no CORS headers; `POST /api/v1/entitlement/google` is a 404):
+1. **numbite.com does not have the Android changes** (main is at a5313bf0; the CORS allow-list for `https://appassets.androidplatform.net`, the Google purchase route and the platform wording are only on `iap`). So the
+   live Android app's calls to the API (sign-in, sync, Pip, reports) are refused by the browser, and sign-in is required for everyone: **the Android app cannot be used until the website is released.**
+2. **GOOGLE_PLAY_SERVICE_ACCOUNT_JSON is not in Vercel**, so even after the release a purchase cannot be confirmed (503).
+Protective step taken: both base plans (annual, monthly) were set to **Inactive** in Play Console, so nobody can be charged for a subscription the server cannot deliver. To switch them on again: Monetize with Play › Subscriptions ›
+Numbite Premium › each base plan › Activate. Release order that makes it work: (a) release `iap` to main and deploy (founder's go-ahead), (b) service-account key in Vercel, redeploy, (c) activate the plans, (d) test a purchase with
+a licence tester (Play Console › Settings › License testing), (e) add the reviewer demo login. If you would rather not have the app visible meanwhile: Play Console › Test and release › Production › Manage › Unpublish (or Publishing overview › Managed publishing).

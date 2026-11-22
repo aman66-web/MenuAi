@@ -4286,3 +4286,6 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   the Hotmail support address; first draft (versionCode 1) replaced after Play's pre-check found a REQUIRED portrait screen (manifest: `uses-feature` portrait and landscape not required, versionCode 2). Production
   track: United Kingdom, release notes, submitted (Managed publishing off: publishes itself on approval). Subscription `com.amanmarwaha.numbite.premium` created with base plans annual GBP 49.99 and monthly
   GBP 4.99 (UK only, no trial offer), both Active. Open items before purchases work: the service-account key in Vercel (docs/PAYMENTS.md "Android"), a reviewer demo login, the website release. See docs/ANDROID_STORE.md.
+- (22 Nov, 09:05 GMT) **Android 1.1 (2) is LIVE on Google Play (UK)**: Google approved it within hours. Found by checking the live site that numbite.com has no Android support yet (no CORS for the Android origin,
+  no `/api/v1/entitlement/google`), so the live app cannot sign in or sync until the website is released from `iap`; no service-account key yet either. The two Premium base plans were set to Inactive so nothing can be
+  bought; see docs/ANDROID_STORE.md "LIVE on Google Play". Needs the founder: go-ahead to release `iap` to main and deploy, then the service-account key.
