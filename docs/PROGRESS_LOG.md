@@ -4275,3 +4275,8 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   **Play Console** (Chrome, Clarifo Developers Ltd): app created, the 10 App content declarations, default store listing with 8 new screenshots, category and contact done
   (docs/ANDROID_STORE.md "State in Play Console"). **Waiting on the founder:** `scripts/android_make_upload_key.sh` (he types the password; nothing is signed without it), then
   `./scripts/build_android.sh aab`, the upload to Internal testing, the subscription (Play needs a build first), and the Google Cloud service account for purchase checks.
+- (22 Nov, 03:25) **Public contact email is hello@numbite.com** (founder: "make it something like hello@numbite.com ... forwarded to my own mailbox ... I don't want people to
+  contact my personal inbox"). Done: Google Play's store contact email and the content-rating (IARC) email changed from the Hotmail address. Not done: the forwarding itself. numbite.com has no MX
+  or root SPF record (checked in Vercel DNS: only the Google site verification, Resend's `send`, `rsend`, `resend._domainkey`, `_dmarc` and the CAA/ALIAS records); adding the three ImprovMX records
+  was refused by the permission check (DNS stays the founder's, as docs/MAILBOX_SETUP.md says), so the steps are for him. Until it works, mail to hello@ bounces. The Android bundle will be built
+  with `NEXT_PUBLIC_SUPPORT_EMAIL=hello@numbite.com` once he says "mailbox works"; the live site and iPhone build 20 still show the Hotmail address.
