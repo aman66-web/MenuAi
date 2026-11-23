@@ -137,3 +137,5 @@ noticed at the next start-up; the token of a refunded purchase still checks unti
   Developer > Certificates, Identifiers & Profiles > Keys > + > DeviceCheck > Continue > Register > Download, once). Without the secret or
   `ENTITLEMENT_PRIVATE_JWK` the route answers 503; before the migration, 500; either way the app changes nothing.
 - **Apple's own 7-day introductory offer is removed** from the subscriptions so nobody sees two free weeks; the plans show no trial.
+
+(23 Nov 2026) The Google Play service account needs "View app information and download bulk reports (read-only)" as well as the two financial permissions, or the Play Developer API answers 401 "insufficient permissions": see docs/ANDROID_BILLING.md.

@@ -127,7 +127,7 @@ internal-testing build first (the library puts the permission in automatically).
 6. **Activate both base plans** (status Draft to **Active**; a base plan that is Draft or Inactive is not returned by Play, and `iap.products` answers without it). The subscription
    itself must also show Active.
 7. **License testers** (Play Console > Settings > License testing): add the founder's and testers' Google accounts, licence response "RESPOND_NORMALLY".
-8. **Service account for the server** (the web/server agent's part, for completeness): Play Console > Users and permissions, invite the service account email with "View financial
+8. **Service account for the server** (the web/server agent's part, for completeness): Play Console > Users and permissions, invite the service account email with "View app information and download bulk reports (read-only)" (without it the API answers 401 "insufficient permissions"), "View financial
    data" and "Manage orders and subscriptions", Google Cloud: enable the Google Play Android Developer API; its JSON key goes in Vercel as `GOOGLE_PLAY_SERVICE_ACCOUNT_JSON`.
 
 **Grace period: why 7 days.** The server treats `IN_GRACE_PERIOD` as active, so a failed card does not lock someone out while Google retries it for 7 days; after that the
