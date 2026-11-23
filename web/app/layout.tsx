@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local"; // font files live in app/fonts: nothing is fetched from Google by visitors
+import { APP_BUILD } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import "./globals.css";
 
@@ -39,6 +40,12 @@ const serif = localFont({
   style: "italic",
   display: "swap",
 });
+
+// Inside the iPhone app the web view draws under the status bar and the Dynamic Island and gets its safe areas only from the page: viewport-fit=cover makes
+// env(safe-area-inset-*) real (MenuMacros/Features/WebApp/WebAppView.swift sets contentInsetAdjustmentBehavior = .never). /app has it in its own layout; the pages
+// outside it (Terms, Privacy, Support, the invite and shared-list pages, Page not found) had none, so their Back bar sat under the clock: App Review rejected build 20
+// under 4.0 Design on 23 November 2026 ("the screen elements overlap on an iPhone at the top of the screen", Terms on an iPhone 17 Pro Max). The website is unchanged.
+export const viewport: Viewport = APP_BUILD ? { viewportFit: "cover" } : {};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

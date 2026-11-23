@@ -72,5 +72,12 @@ fi
 if [ "$NEXT_PUBLIC_IAP" = "1" ]; then
   grep -rlF "Restore purchases" "$bundle/_next/static/chunks" > /dev/null 2>&1 || fail "no part of the app has Restore purchases: In-App Purchase is missing."
 fi
+# Every page must reach under the status bar with safe areas of its own: the web view has no inset (contentInsetAdjustmentBehavior = .never), so a page without
+# viewport-fit=cover gets env(safe-area-inset-top) = 0 and its top bar sits under the clock (App Review 4.0 Design, 23 November 2026: Terms).
+for page in "$bundle"/*.html; do
+  if grep -q '<meta name="viewport"' "$page" && ! grep -q 'viewport-fit=cover' "$page"; then
+    fail "$(basename "$page") has no viewport-fit=cover, so its top bar would sit under the status bar on an iPhone."
+  fi
+done
 grep -rlF "$NEXT_PUBLIC_APP_VERSION" "$bundle/_next/static/chunks" > /dev/null 2>&1 || fail "the version $NEXT_PUBLIC_APP_VERSION isn't in the app's files."
 echo "Packed $NEXT_PUBLIC_APP_VERSION into $bundle."
