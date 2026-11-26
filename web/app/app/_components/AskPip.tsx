@@ -27,6 +27,16 @@ import { useGate } from "./Paywall";
 const BUBBLE = "max-w-[85%] whitespace-pre-wrap break-words rounded-3xl px-4 py-2.5 text-[1.0625rem] leading-snug";
 const CARD = "mt-2 overflow-hidden rounded-2xl border border-line bg-card";
 
+/** The Pip button's face: Pip in the 1.5 px edge circle every top-bar control has. Also drawn in the welcome screens' "Tap Pip to ask anything" picture
+ *  (app/app/welcome/AskPipStep.tsx), so the two always look the same. */
+export function AskPipFace() {
+  return (
+    <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border-[1.5px] border-edge bg-card transition-colors group-hover:bg-background">
+      <Pip mood="wave" size={34} className="-mb-1.5" />
+    </span>
+  );
+}
+
 /** The Pip button: Pip's face in the 1.5 px edge circle every top-bar control has, in a 44 pt target, named "Ask Pip". Hidden while the chat is switched off. */
 export function AskPipButton() {
   const t = useT();
@@ -35,9 +45,7 @@ export function AskPipButton() {
   return (
     <>
       <button type="button" onClick={() => gate("askPip", () => pipOpenStore.set(true))} aria-label={t("Ask Pip")} aria-haspopup="dialog" className="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
-        <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border-[1.5px] border-edge bg-card transition-colors group-hover:bg-background">
-          <Pip mood="wave" size={34} className="-mb-1.5" />
-        </span>
+        <AskPipFace />
       </button>
       <AskPipSheet />
     </>

@@ -84,3 +84,23 @@ describe("examples of the app are drawn on a phone that can't be tapped", () => 
     expect(row).not.toMatch(/tabIndex|onClick|href=/);
   });
 });
+
+// Ask Pip's onboarding moment (founder 2026-11-26: "make sure to say that all you have to do is just press Pip"): only in a build with Ask Pip on.
+describe("Tap Pip to ask anything", () => {
+  const step = read("app/app/welcome/AskPipStep.tsx");
+  it("is one headline and the real Pip button on the phone that can't be tapped", () => {
+    expect(words("app/app/welcome/AskPipStep.tsx")).toContain("Tap Pip to ask anything");
+    expect(step).toContain("<PhoneFrame");
+    // the button's own face, shared with the top bar's Pip button, so the picture always matches it
+    expect(step).toContain("<AskPipFace />");
+    expect(read("app/app/_components/AskPip.tsx")).toMatch(/export function AskPipFace\(\)[\s\S]*<AskPipFace \/>\s*<\/button>/);
+    // the example questions are the chat's own first ones
+    expect(step).toMatch(/ASK_PIP_STARTERS\.slice\(0, 2\)/);
+    expect(step).not.toMatch(/SUBLINE/);
+  });
+  it("is shown only with Ask Pip switched on (the same switch as the chat)", () => {
+    expect(read("lib/mm/welcomeSteps.ts")).toMatch(/import \{ ASK_PIP_ENABLED \} from "\.\/askPip"/);
+    expect(read("lib/mm/welcomeSteps.ts")).toMatch(/askPip: boolean = ASK_PIP_ENABLED/);
+    expect(read("app/app/welcome/page.tsx")).toMatch(/step === "pip" && \(/);
+  });
+});

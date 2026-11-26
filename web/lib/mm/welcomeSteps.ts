@@ -9,9 +9,12 @@
 //    5 about     About you                    (sex, age, height and weight on one screen; top-right Skip skips 5 and 6)
 //    6 active    How active are you?          (tiles; top-right Skip skips it too)
 //    7 plan      Your plan                    (daily calories and protein, the week as pictures, its shopping, restaurant dishes)
+//      pip       Tap Pip to ask anything      (founder 2026-11-26: "make sure to say that all you have to do is just press Pip"; only while Ask Pip is switched on,
+//                                              lib/mm/askPip.ts ASK_PIP_ENABLED, so the app never promises a chat that isn't there; the Pip button on a phone)
 //    8 colours   Pick your colours            (founder 2026-11-26: "at the end of the onboarding ... they then can pick a color scheme, and the default one's the
 //                                              one it's on now"; today's Lime is ticked, a tap recolours the app at once; lib/mm/colourSchemes.ts)
 //    9 save      the account (the sign-in screen; CLAUDE.md rule 4)
+// (With Ask Pip on, its screen is step 8 and the numbers after it move up one.)
 // A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step
 // and step 8's button goes to Home. The run's steps are fixed before step 1 and never change; the bar only moves forward on a jump: Skip on 5 or 6
 // (and an age under 18) goes to 7. Back goes to the last screen actually shown. No "Step n of N" is written on screen (the bar alone); a screen reader still
@@ -27,9 +30,10 @@
 // The note also says whether a goal was chosen on step 1 (so Back to step 1 after "Carry on" shows it ticked), and "Carry on" past the questions about the
 // person marks their answers as gone (bodyGone), which is not the same as skipping them: the targets worked out from them before are the person's own.
 
+import { ASK_PIP_ENABLED } from "./askPip";
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
-export const WELCOME_STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"] as const;
+export const WELCOME_STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "pip", "colours", "save"] as const;
 export type WelcomeStepId = (typeof WELCOME_STEPS)[number];
 
 /** The questions about the person (sex, age, height and weight; activity): skipped together, and never kept. */
@@ -47,15 +51,18 @@ export const isWelcomeStep = (x: unknown): x is WelcomeStepId => typeof x === "s
 export interface WelcomeRun {
   /** Someone was signed in when the run began: no account step. */
   readonly signedIn: boolean;
-  /** The steps, in order (9, or 8 without "save"). */
+  /** The steps, in order (9, or 8 without "save"; one more with Ask Pip's "pip"). */
   readonly steps: readonly WelcomeStepId[];
   /** How many segments the bar has (and N in the "Step n of N" a screen reader hears). */
   readonly total: number;
 }
 
-/** The run for someone signed in, or not, when it starts. Sign-in during the run (the account step, or the cover's link) never changes it. */
-export function startRun(signedInAtStart: boolean): WelcomeRun {
-  const steps = signedInAtStart ? WELCOME_STEPS.filter((s) => s !== "save") : [...WELCOME_STEPS];
+/**
+ * The run for someone signed in, or not, when it starts. Sign-in during the run (the account step, or the cover's link) never changes it. `askPip`: Ask Pip is
+ * switched on in this build (its screen is shown only then).
+ */
+export function startRun(signedInAtStart: boolean, askPip: boolean = ASK_PIP_ENABLED): WelcomeRun {
+  const steps = WELCOME_STEPS.filter((s) => !(signedInAtStart && s === "save") && !(!askPip && s === "pip"));
   return Object.freeze({ signedIn: signedInAtStart, steps: Object.freeze(steps), total: steps.length });
 }
 
@@ -217,7 +224,8 @@ export function progressNote(x: { step: WelcomeStepId; firstRecipeId?: string | 
 export function resumeAt(run: WelcomeRun, progress: WelcomeProgress | null, ownTargets = true): { step: WelcomeStepId; answers: WelcomeAnswers } | null {
   if (!progress || progress.step === "goal") return null;
   const wanted: WelcomeStepId = BODY_STEPS.includes(progress.step) ? "about" : progress.step;
-  let step = run.steps.includes(wanted) ? wanted : run.steps[run.steps.length - 1]!;
+  // a step this run doesn't have: the next one it does (Ask Pip's screen in a build where it is off), else its last
+  let step = WELCOME_STEPS.slice(WELCOME_STEPS.indexOf(wanted)).find((s) => run.steps.includes(s)) ?? run.steps[run.steps.length - 1]!;
   if (step === "plan" && !ownTargets && run.steps.includes("about")) step = "about";
   const past = WELCOME_STEPS.indexOf(step) > WELCOME_STEPS.indexOf("active");
   return { step, answers: { bodySkipped: past, under18: false, ...(past ? { bodyGone: true } : {}) } };

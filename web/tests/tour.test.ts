@@ -214,7 +214,8 @@ describe("someone who quits at any step comes back through the cover", () => {
     const note = storedData((k) => leftAt(step).getItem(k))(WELCOME_PROGRESS_KEY);
     const at = resumeAt(startRun(false), note as never);
     if (step === "goal") expect(at).toBeNull();
-    else expect(stepCounter(startRun(false), at!.step)!.step).toBe(["about", "active"].includes(step) ? 5 : WELCOME_STEPS.indexOf(step) + 1);
+    // the same step number as when it was left (Ask Pip's screen, off in this build, carries on at the colours after it)
+    else expect(stepCounter(startRun(false), at!.step)!.step).toBe(["about", "active"].includes(step) ? 5 : startRun(false).steps.indexOf(step === "pip" ? "colours" : step) + 1);
   });
 
   it("but a link still opens at once", () => {

@@ -55,8 +55,8 @@ function walk(run: WelcomeRun, choose: (s: WelcomeStepId) => WelcomeMove = () =>
 }
 
 describe("the steps and the bar", () => {
-  it("has the eight screens in the founder's order (the colours last), then the account, each named once", () => {
-    expect(WELCOME_STEPS).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"]);
+  it("has the screens in the founder's order (Ask Pip's before the colours, the colours last), then the account, each named once", () => {
+    expect(WELCOME_STEPS).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "pip", "colours", "save"]);
     expect(BODY_STEPS).toEqual(["about", "active"]);
     expect(QUESTION_STEPS).toEqual(["goal", "avoid", "shops"]);
     // Skip at the top right: the three questions and the two about the person, never the recipes, Your plan, the colours or the account
@@ -68,7 +68,10 @@ describe("the steps and the bar", () => {
     expect(signedOut.total).toBe(9);
     expect(signedIn.total).toBe(8);
     expect(signedIn.steps).not.toContain("save");
-    expect(WELCOME_STEPS.map((s) => stepCounter(signedOut, s))).toEqual(WELCOME_STEPS.map((_, i) => ({ step: i + 1, total: 9 })));
+    // Ask Pip is off in this build (NEXT_PUBLIC_ASK_PIP unset), so its screen isn't one of the run's
+    expect(signedOut.steps).not.toContain("pip");
+    expect(stepCounter(signedOut, "pip")).toBeNull();
+    expect(signedOut.steps.map((s) => stepCounter(signedOut, s))).toEqual(signedOut.steps.map((_, i) => ({ step: i + 1, total: 9 })));
     expect(stepCounter(signedIn, "plan")).toEqual({ step: 7, total: 8 });
     expect(stepCounter(signedIn, "colours")).toEqual({ step: 8, total: 8 });
     expect(stepCounter(signedIn, "save")).toBeNull();
@@ -90,6 +93,29 @@ describe("the steps and the bar", () => {
     expect(moveOn(signedOut, NO_ANSWERS, "save").to).toBe("home");
     expect(moveOn(signedIn, NO_ANSWERS, "plan").to).toBe("colours");
     expect(moveOn(signedIn, NO_ANSWERS, "colours").to).toBe("home");
+  });
+});
+
+describe("Ask Pip's screen (founder 2026-11-26: \"all you have to do is just press Pip\")", () => {
+  const pipOut = startRun(false, true);
+  const pipIn = startRun(true, true);
+  it("is in the run only while Ask Pip is switched on, after Your plan and before the colours", () => {
+    expect(startRun(false, false).steps).not.toContain("pip");
+    expect(startRun(true, false).steps).not.toContain("pip");
+    expect(pipOut.steps).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "pip", "colours", "save"]);
+    expect(pipOut.total).toBe(10);
+    expect(pipIn.total).toBe(9);
+    expect(stepCounter(pipOut, "pip")).toEqual({ step: 8, total: 10 });
+    expect(moveOn(pipOut, NO_ANSWERS, "plan").to).toBe("pip");
+    expect(moveOn(pipOut, NO_ANSWERS, "pip").to).toBe("colours");
+    expect(backFrom(pipOut, NO_ANSWERS, "colours")).toBe("pip");
+    expect(backFrom(pipOut, NO_ANSWERS, "pip")).toBe("plan");
+    expect(walk(pipIn)).toEqual(pipIn.steps);
+    expect(moveOn(pipIn, NO_ANSWERS, "colours").to).toBe("home");
+  });
+  it("has no Skip (Continue is the only way on) and carries on where it was left", () => {
+    expect(SKIP_STEPS).not.toContain("pip");
+    expect(resumeAt(pipOut, progressNote({ step: "pip" }, "2026-11-26"))!.step).toBe("pip");
   });
 });
 
@@ -163,7 +189,8 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
   const today = "2026-11-20";
 
   it("reopens each step where it was left, the questions about the person at About you (their answers are never kept); step 1 has nothing to carry on", () => {
-    const want: Record<WelcomeStepId, WelcomeStepId | null> = { goal: null, avoid: "avoid", shops: "shops", recipes: "recipes", about: "about", active: "about", plan: "plan", colours: "colours", save: "save" };
+    // Ask Pip's screen, left in a build where it is now off, carries on at the next screen there is
+    const want: Record<WelcomeStepId, WelcomeStepId | null> = { goal: null, avoid: "avoid", shops: "shops", recipes: "recipes", about: "about", active: "about", plan: "plan", pip: "colours", colours: "colours", save: "save" };
     for (const step of WELCOME_STEPS) {
       const storage = new MemoryStorage();
       createWelcomeProgressStore(storage).set(progressNote({ step }, today));
@@ -173,7 +200,7 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
       expect(at?.step ?? null, step).toBe(want[step]);
       if (at) {
         // Carry on from step {n}: the same number as when it was left (5 for the questions about the person)
-        expect(n(signedOut, at.step), step).toBe(BODY_STEPS.includes(step) ? 5 : WELCOME_STEPS.indexOf(step) + 1);
+        expect(n(signedOut, at.step), step).toBe(BODY_STEPS.includes(step) ? 5 : signedOut.steps.indexOf(want[step]!) + 1);
         // past the questions about the person their answers are gone, so Back from Your plan goes to About you
         if (at.step === "plan") expect(backFrom(signedOut, at.answers, "plan")).toBe("about");
         if (at.step === "colours") expect(backFrom(signedOut, at.answers, "colours")).toBe("plan");

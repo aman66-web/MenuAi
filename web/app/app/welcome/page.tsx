@@ -31,6 +31,7 @@ import { useHydrated, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { aboutProblemLine, ActivityStep, AboutYouStep, BODY_BOX, typedUnder18 } from "./BodySteps";
+import { AskPipStep } from "./AskPipStep";
 import { ColoursStep } from "./ColoursStep";
 import { Cover, type CoverNotice } from "./Cover";
 import { RecipesStep } from "./FeatureSteps";
@@ -46,7 +47,7 @@ import { useTargetFields } from "./useTargetFields";
 // input, Continue pinned at the bottom, Back top left, far fewer words, pictures over text, no labels on what the app shows, no "Step n of N" words, no Pip
 // speech bubbles). lib/mm/welcomeSteps.ts holds the order:
 //    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan ·
-//    8 Pick your colours (founder 2026-11-26; ColoursStep.tsx) · the account
+//    Tap Pip to ask anything (only while Ask Pip is on; AskPipStep.tsx) · 8 Pick your colours (founder 2026-11-26; ColoursStep.tsx) · the account
 // A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step,
 // and Your plan's button is "Continue" (founder 2026-11-21: the week is only an example; just the numbers are kept). Skip (top right) on 1 to 3 skips that question; on 5 and 6 it skips both, to Your plan with the starting
 // numbers (and an age under 18 goes from 5 to 7 too). Back goes to the last screen actually shown.
@@ -679,6 +680,14 @@ function Welcome() {
               },
             }}
           />
+        </>
+      )}
+
+      {/* Tap Pip to ask anything: only in a build with Ask Pip switched on (startRun leaves the step out otherwise) */}
+      {step === "pip" && (
+        <>
+          {top}
+          <AskPipStep counter={counter} onContinue={() => forward("pip")} />
         </>
       )}
 
