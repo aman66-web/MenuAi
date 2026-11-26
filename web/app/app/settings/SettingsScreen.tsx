@@ -33,6 +33,7 @@ import { travelBack } from "../_lib/backNav";
 import { tk } from "@/lib/mm/i18n";
 import { useT } from "../_lib/i18n";
 import { useNativePlatform } from "../_lib/platform";
+import { useSteps } from "../_lib/steps";
 import { Rich } from "../_lib/Rich";
 import { ContactForm } from "../_components/Submit";
 import { AccountSection } from "../_components/AccountSection";
@@ -196,7 +197,10 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
   const nowMs = useNow().getTime();
   const settings = useSettings();
   const t = useT();
-  const store = storeCopy(useNativePlatform());
+  const platform = useNativePlatform();
+  const store = storeCopy(platform);
+  const stepsPermission = useSteps().permission;
+  const stepsShown = platform !== null && stepsPermission !== null && stepsPermission !== "unavailable";
   const menu = useMenu();
   const outboxItems = useStore(outboxStore);
   const [contactOpen, setContactOpen] = useState(false);
@@ -506,6 +510,15 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
           <LinkRow href="/app/reminders">{t("Manage reminders")}</LinkRow>
         </div>
       </Section>
+
+      {/* steps, in the phone apps only, on a phone that can count them (lib/mm/steps.ts): on, off and the daily goal are on the Steps page */}
+      {stepsShown && (
+        <Section title={t("Steps")}>
+          <div className="glass divide-y divide-line overflow-hidden rounded-[1.25rem]">
+            <LinkRow href="/app/steps">{t("Step counting")}</LinkRow>
+          </div>
+        </Section>
+      )}
 
       <Section title={t("Diet and allergies")} id="diet">
         {/* what the person told us (founder 2026-11-21: "it shouldn't restrict what you can see ... unless they go on those pages and filter themselves"):

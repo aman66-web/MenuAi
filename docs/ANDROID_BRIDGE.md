@@ -18,7 +18,9 @@ built in parallel (the web/server side, the app shell, Play Billing). If you mus
   the app whenever the bridge exists, web/app/app/map/page.tsx), `share`, `webAuth` (Custom Tabs for **google and apple**, returns to `numbite://auth?code=…`), `appleSignIn`
   (`{error:"unavailable"}`), `notifications.*` (local notifications), `keyboard.hide`, `review.request` (Google Play's in-app review pop-up: `{done:true}` whether or not Google shows
   it, `{error:"unavailable"}` if Play can't give it), `session.load` / `session.save` (Android Keystore), `deviceCheck.token` (`{error:"unavailable"}`: Apple's DeviceCheck), `device.id` (`{deviceHash}`: SHA-256 of
-  `"numbite-device:" + Settings.Secure.ANDROID_ID`, 64 lower-case hex characters; `{error:"unavailable"}` without an Android ID; the Android ID itself never leaves the phone), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
+  `"numbite-device:" + Settings.Secure.ANDROID_ID`, 64 lower-case hex characters; `{error:"unavailable"}` without an Android ID; the Android ID itself never leaves the phone), `steps.status` / `steps.get {days, ask}` / `steps.openSettings` / `steps.stop` (`bridge/StepCounter.kt`, the same answers as the
+iPhone's, docs/APP_BUILD.md "Steps"; **26 Nov: answered `{error:"unavailable"}` by `NoStepCounter`, so the page shows no steps, until Google's Recording API is added (approved by the founder 26 Nov)**: an
+app in the background can't read Android's step sensor since Android 9), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
 
 ## In-app purchase (Google Play Billing)
 

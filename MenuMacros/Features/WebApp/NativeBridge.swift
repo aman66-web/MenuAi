@@ -3,8 +3,8 @@ import OSLog
 import StoreKit
 import WebKit
 
-/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets, reminder notifications and the App
-/// Store's In-App Purchase, and hands
+/// Answers the page's requests (BridgeRequest) with the iPhone's own scanner, location, share sheet, sign-in sheets, reminder notifications, step counter
+/// (Core Motion) and the App Store's In-App Purchase, and hands
 /// the result back with window.__menumathReply (web/lib/mm/native.ts). Only the app's own pages (the main frame on app://menumath) are listened to.
 final class NativeBridge: NSObject, WKScriptMessageHandler {
     static let handlerName = "menumath"
@@ -19,8 +19,9 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
     private let purchases: any PurchaseService
     private let session: any SessionStoring
     private let deviceCheck: any DeviceChecking
+    private let steps: any StepCounting
 
-    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore(), deviceCheck: any DeviceChecking = FakeDeviceCheck(outcome: .unavailable)) {
+    init(scanner: any BarcodeScanning, location: any LocationProviding, sharer: any Sharing, appleSignIn: any AppleSigningIn, webSignIn: any WebSigningIn, notifications: any NotificationScheduling, purchases: any PurchaseService, session: any SessionStoring = InMemorySessionStore(), deviceCheck: any DeviceChecking = FakeDeviceCheck(outcome: .unavailable), steps: any StepCounting = FakeStepCounter(access: .unavailable)) {
         self.scanner = scanner
         self.location = location
         self.sharer = sharer
@@ -30,6 +31,7 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
         self.purchases = purchases
         self.session = session
         self.deviceCheck = deviceCheck
+        self.steps = steps
         super.init()
         // A purchase that arrives while the app is open (StoreKitPurchaseService's updates listener posts this on the main actor): the page checks Apple's list
         // at once (web/app/app/_components/AppShell.tsx listens for "menumath:purchases") instead of at the next return to the front.
@@ -139,6 +141,22 @@ final class NativeBridge: NSObject, WKScriptMessageHandler {
             case .token(let token, let environment): return BridgeReply(deviceToken: token, deviceEnv: environment)
             case .unavailable: return .failure("unavailable")
             }
+        case .stepsStatus:
+            let access = steps.access()
+            return access == .unavailable ? .failure("unavailable") : BridgeReply(permission: access.rawValue)
+        case .steps(_, let days, let ask):
+            switch await steps.steps(days: days, ask: ask) {
+            case .days(let list): return BridgeReply(steps: list)
+            case .notDetermined: return BridgeReply(permission: StepAccess.notDetermined.rawValue)
+            case .denied: return .failure("denied")
+            case .unavailable: return .failure("unavailable")
+            }
+        case .openStepSettings:
+            steps.openSettings()
+            return BridgeReply(done: true)
+        case .stopSteps:
+            // Core Motion counts whether or not Numbite asks; the page simply stops asking
+            return BridgeReply(done: true)
         }
     }
 }

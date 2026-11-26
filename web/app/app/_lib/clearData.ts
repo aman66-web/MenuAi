@@ -4,8 +4,9 @@ import { aiConsentStore } from "@/lib/mm/aiConsent";
 import { forgetInstallId } from "@/lib/mm/analytics";
 import {
   clearReminders, coachStore, comparePicksStore, compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, householdStore, logStore, mealPlanStore,
-  myRecipesStore, outbox, pipChatStore, ratingStore, recentStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, waterStore,
+  myRecipesStore, outbox, pipChatStore, ratingStore, recentStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, stepsStore, tourStore, waterStore,
 } from "@/lib/mm/stores";
+import { nativeSteps } from "@/lib/mm/native";
 import { DEFAULT_SETTINGS } from "@/lib/mm/user-data";
 import { forgetAccountAccess } from "@/lib/payments/accountAccess";
 import { leaveForClearing } from "./account";
@@ -42,6 +43,12 @@ const CLEARED: Record<string, () => void> = {
   "mm.v1.saved": () => savedStore.reset(),
   "mm.v1.log": () => logStore.reset(),
   "mm.v1.water": () => waterStore.reset(),
+  // step counting off again (on Android the phone also stops recording steps for Numbite); the steps themselves were never stored
+  "mm.v1.steps": () => {
+    const wasOn = stepsStore.get().on;
+    stepsStore.reset();
+    if (wasOn) void nativeSteps.stop();
+  },
   "mm.v1.reminders": () => clearReminders(),
   "mm.v1.favorites": () => favoritesStore.reset(),
   "mm.v1.shopping": () => shoppingStore.reset(),

@@ -36,6 +36,11 @@ sealed interface BridgeRequest {
     data class DeviceCheckToken(override val id: String) : BridgeRequest
     /** Android only: the one-way hash of this phone's Android ID, for the free week (DeviceIdentity.kt). */
     data class DeviceId(override val id: String) : BridgeRequest
+    /** Steps (StepCounter.kt): whether the app may read them, the last `days` days (Android's question only when `ask`), the app's Settings page, and stop. */
+    data class StepsStatus(override val id: String) : BridgeRequest
+    data class Steps(override val id: String, val days: Int, val ask: Boolean) : BridgeRequest
+    data class OpenStepSettings(override val id: String) : BridgeRequest
+    data class StopSteps(override val id: String) : BridgeRequest
 
     /** What became of a message. */
     sealed interface Parsed {
@@ -118,6 +123,11 @@ sealed interface BridgeRequest {
                 }
                 "deviceCheck.token" -> DeviceCheckToken(id)
                 "device.id" -> DeviceId(id)
+                "steps.status" -> StepsStatus(id)
+                // 1 to 7 days (7 when not said); the question is asked only when `ask` is exactly true
+                "steps.get" -> Steps(id, (payload.opt("days") as? Number)?.toInt()?.let(StepDays::clamp) ?: StepDays.MAX_DAYS, payload.opt("ask") == true)
+                "steps.openSettings" -> OpenStepSettings(id)
+                "steps.stop" -> StopSteps(id)
                 else -> null
             }
         }

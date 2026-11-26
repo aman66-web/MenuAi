@@ -15,7 +15,7 @@ import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Answers the page's requests ([BridgeRequest]) with Google's barcode scanner, Android's own location, share sheet, sign-in tab, reminder notifications, keyboard, the Keystore-sealed
- * session, the phone's one-way identity for the free week, Google Play's review pop-up and Google Play Billing, and hands the result back with window.__menumathReply (web/lib/mm/native.ts; NativeBridge.swift on the iPhone;
+ * session, the phone's one-way identity for the free week, the step count, Google Play's review pop-up and Google Play Billing, and hands the result back with window.__menumathReply (web/lib/mm/native.ts; NativeBridge.swift on the iPhone;
  * docs/ANDROID_BRIDGE.md is the contract). It never crashes and never throws: whatever goes wrong is `{"error": "unavailable"}`.
  *
  * Who may talk to it is decided one layer up, in [com.amanmarwaha.numbite.web.BridgeHost]: only the app's own page (its main frame on https://appassets.androidplatform.net).
@@ -32,6 +32,8 @@ class NativeBridge(
     private val session: SessionStoring,
     /** The phone's one-way identity for the free week. */
     private val device: DeviceIdentifying,
+    /** The phone's step count (StepCounter.kt); none until the app has one. */
+    private val steps: StepCounting = NoStepCounter(),
     /** Puts the keyboard away (runs on the main thread). */
     private val hideKeyboard: () -> Unit,
     /** Runs a script in the page (on the main thread). */
@@ -112,6 +114,16 @@ class NativeBridge(
         }
         is BridgeRequest.SessionSave -> withContext(sessionDispatcher) {
             session.save(request.value)
+            BridgeReply.done()
+        }
+        is BridgeRequest.StepsStatus -> steps.access().let { if (it == "unavailable") BridgeReply.failure("unavailable") else BridgeReply.permission(it) }
+        is BridgeRequest.Steps -> StepDays.reply(steps.steps(request.days, request.ask))
+        is BridgeRequest.OpenStepSettings -> {
+            steps.openSettings()
+            BridgeReply.done()
+        }
+        is BridgeRequest.StopSteps -> {
+            steps.stop()
             BridgeReply.done()
         }
     }

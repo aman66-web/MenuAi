@@ -289,6 +289,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode (that picture stays on this iPhone). For Scan your food and Make it at home, the photo you take is sent to Numbite's server and Anthropic's AI to work out its numbers or a recipe, and isn't kept. It can also add a photo to a report you choose to send.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Saves the picture you choose to save, such as your order card, to your Photos.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this iPhone.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Shows your steps on Home if you turn on step counting. Your steps stay on this iPhone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -479,6 +480,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scans a product's barcode (that picture stays on this iPhone). For Scan your food and Make it at home, the photo you take is sent to Numbite's server and Anthropic's AI to work out its numbers or a recipe, and isn't kept. It can also add a photo to a report you choose to send.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Saves the picture you choose to save, such as your order card, to your Photos.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows restaurants near you on the map. Your location stays on this iPhone.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Shows your steps on Home if you turn on step counting. Your steps stay on this iPhone.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

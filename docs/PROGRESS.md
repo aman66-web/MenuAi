@@ -42,6 +42,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
 - **26 November, on `iap` only (not live, not uploaded):** colour schemes ("Pick your colours" at the end of onboarding and Settings › Colours; six light schemes, Lime the default, kept on the device only); onboarding with a headline only on every screen and Pip met as "your food guide and nutrition coach"; the example meal plan and restaurant dishes drawn on a phone that can't be tapped; Pip's button tips only from Settings; "Tap Pip to ask anything" in onboarding while Ask Pip is on. Details in docs/PROGRESS_LOG.md.
+- **Steps, 26 November, on `iap` only (not live, not uploaded):** today's steps on Home under Water and the last 7 days at /app/steps, with a daily goal; iPhone
+  through Core Motion (never Health), nothing stored or sent, nothing on the website; Android shows nothing yet: the founder approved Google's Recording API on 26 Nov and it is being added in a cloud session. Details in docs/PROGRESS_LOG.md.
 - **Meal plan's goal questions, 26 November, on `iap` only (not live, not uploaded):** the aim leads on like a flowchart (Lose fat, Build muscle: about you, weight,
   body fat typed or from the drawings behind "What's my body fat?", goal weight, pregnant or breastfeeding for women, day to day, training, lifting, "Shall I plan your
   exercise too?", pace; Train for a sport: weight, height, the sport, sessions); "Your numbers" explains the day's kcal and protein, the weekly change and a realistic
@@ -106,6 +108,10 @@ Moved to docs/PROGRESS_LOG.md (see above).
 - `docs/BUILD_PLAN.md` M0–M10 (native iPhone app) are untouched and still planned.
 
 ## Founder to-do (things Claude can't do)
+
+- [ ] **Steps (26 Nov, on `iap`):** (1) Android: Google's Recording API (`play-services-fitness`) approved by you on 26 Nov; until that change lands
+  Android shows no steps. (2) **Try it on your real iPhone** (cable + Run in Xcode, Home › Steps › Turn on step counting): iOS asks for Motion & Fitness once; the
+  Simulator can't count steps. No Xcode capability is needed and App Privacy doesn't change (steps never leave the phone)
 
 - [ ] **Ask Pip (switched on 26 Nov, not live yet):** done for you: the Anthropic monthly spend limit is **$200** (was $20; credit balance $204.88), `NEXT_PUBLIC_ASK_PIP=1` is set in Vercel (Production) and in both app pack scripts, and both stores' privacy answers already cover the chat (checked live on 26 Nov: Google Play's Data safety and Apple's App Privacy). It reaches people with the next website deploy (`iap` to `main`) and the next iPhone and Android builds, which wait for your other updates. **Also:** the Anthropic console asks you to "Verify your payment method" (a one-time card check with your bank); do it at platform.claude.com so future credit top-ups aren't declined
 - [x] **Android free week per phone (22 Nov): released and submitted.** Website, Supabase migration and Data safety are done; Android 1.1 (3) was sent for review at about 13:08 on 22 Nov and Google had approved and published it (with the Data safety form) within the hour. Docs/PAYMENTS.md "Android phones".

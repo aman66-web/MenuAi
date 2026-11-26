@@ -104,6 +104,21 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
   ...cuisine("italian", "italian-rice-salad-tuna-egg", "chicken-parmigiana-spaghetti", "salmon-pea-lemon-risotto", "arancini-tomato-mozzarella-rice-bake"),
   ...cuisine("mexican", "chicken-tinga-rice-bowl", "fajita-salmon-rice-bowl-salsa", "beef-enchilada-rice-bake"),
   ...cuisine("middle-eastern", "spiced-beef-houmous-naan", "moroccan-chicken-tagine-rice", "moroccan-meatballs-tomato-baked-eggs"),
+  // the protein recipes added 2026-11-26 (proteinMeals.ts): the tofu and Quorn stir-fries and fried rice are Chinese-style dishes, the curries Indian, the
+  // fajitas Mexican and the wraps with houmous go where houmous goes; the bowls, salads and the frittata stay unlabelled
+  ...cuisine("chinese", "crispy-tofu-broccoli-stir-fry-rice", "tofu-pea-sweetcorn-fried-rice", "quorn-broccoli-soy-stir-fry-rice"),
+  ...cuisine("indian", "tofu-spinach-tomato-curry-rice", "quorn-tikka-style-curry-rice", "egg-chickpea-spinach-curry-naan"),
+  ...cuisine("italian", "creamy-cottage-cheese-tomato-pasta-spinach"),
+  ...cuisine("mexican", "quorn-pepper-fajitas"),
+  ...cuisine("middle-eastern", "smoky-tofu-pepper-wraps"),
+  // the recipes added 2026-11-26 for diets with no onion or garlic (onionFreeMeals.ts) and for 15-minute dinners and the cuisines with the fewest lunches
+  // (fastMeals.ts): the curries are Indian, the curried wraps an Indian-spiced lunch, the noodles Chinese-style, the quesadillas Mexican, the bake Italian, and
+  // the shawarma-style salad and the wraps with houmous Middle Eastern; the rest are no one cuisine's kind of food
+  ...cuisine("indian", "chickpea-spinach-tomato-curry-rice", "tofu-pea-tomato-curry-rice", "kidney-bean-tomato-curry-rice", "chickpea-spinach-curry-naan-quick", "curried-chicken-wraps-cucumber-yogurt", "curried-chickpea-salad-wraps"),
+  ...cuisine("chinese", "chicken-vegetable-soy-noodles", "egg-spinach-pea-soy-noodles"),
+  ...cuisine("italian", "pepper-spinach-mozzarella-pasta-bake"),
+  ...cuisine("mexican", "cheese-sweetcorn-pepper-quesadillas", "tuna-sweetcorn-cheddar-quesadillas"),
+  ...cuisine("middle-eastern", "chicken-shawarma-style-salad-houmous", "warm-spiced-chickpea-spinach-wraps"),
 ];
 
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
@@ -140,6 +155,12 @@ export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion:
   ...occasion("picnic", "bacon-spinach-tomato-egg-muffins", "italian-rice-salad-tuna-egg"),
   ...occasion("summer-barbecue", "peri-peri-chicken-spicy-rice", "tandoori-chicken-rice-raita", "italian-rice-salad-tuna-egg"),
   ...occasion("bonfire-night", "pho-chicken-noodle-soup", "hot-sour-noodle-soup-ham-egg", "thai-coconut-noodle-soup-mushrooms"),
+  // the snacks, bakes and meals added 2026-11-26 (homeSnacks.ts, proteinMeals.ts, onionFreeMeals.ts): the bakes, balls, muffins and cold salads keep in a box;
+  // the dips, boats and bites are finger food; the chilli and the soup are for Bonfire Night
+  ...occasion("lunchbox", "peanut-butter-protein-flapjacks", "oat-raisin-protein-balls", "cottage-cheese-spinach-egg-muffins", "banana-raisin-baked-oat-cups", "crispy-soy-paprika-tofu-bites", "cottage-cheese-chickpea-tomato-salad", "lemony-chickpea-cucumber-rice-salad"),
+  ...occasion("picnic", "peanut-butter-protein-flapjacks", "cottage-cheese-spinach-egg-muffins", "cottage-cheese-spinach-pepper-frittata-salad", "lemony-chickpea-cucumber-rice-salad"),
+  ...occasion("party-food", "cottage-cheese-spinach-egg-muffins", "whipped-cottage-cheese-dip-sticks", "cucumber-garlic-yogurt-dip-carrots", "tuna-sweetcorn-cucumber-boats", "crispy-soy-paprika-tofu-bites", "warm-edamame-soy-lemon"),
+  ...occasion("bonfire-night", "tofu-kidney-bean-chilli-rice", "spiced-chickpea-tomato-soup-toast"),
 ];
 
 /** Every recipe's niche, by recipe id (a recipe in neither table is not here). Built from the two tables above; whoever writes a recipe adds its lines there. */

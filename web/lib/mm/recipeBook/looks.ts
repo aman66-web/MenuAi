@@ -6,13 +6,18 @@
 import { EVERYDAY_BREAKFAST_LOOKS } from "./everydayBreakfast";
 import { EVERYDAY_LUNCHES_LOOKS } from "./everydayLunches";
 import { EVERY_SHOP_LOOKS } from "./everyShop";
+import { FAST_MEALS_LOOKS } from "./fastMeals";
 import { GLUTEN_FREE_LOOKS } from "./glutenFree";
+import { HOME_SNACKS_LOOKS } from "./homeSnacks";
 import { KETO_MEALS_LOOKS } from "./ketoMeals";
 import { LONGEVITY_DINNERS_LOOKS } from "./longevityDinners";
 import { LONGEVITY_MORNING_LOOKS } from "./longevityMorning";
 import { MEDITERRANEAN_LOOKS } from "./mediterranean";
 import { MORE_MAINS_LOOKS } from "./moreMains";
+import { ONION_FREE_MEALS_LOOKS } from "./onionFreeMeals";
 import { PALEO_MEALS_LOOKS } from "./paleoMeals";
+import { PROTEIN_MEALS_LOOKS } from "./proteinMeals";
+import { PROTEIN_MORNINGS_LOOKS } from "./proteinMornings";
 import { QUICK_DINNERS_LOOKS } from "./quickDinners";
 import { VEGAN_MAINS_LOOKS } from "./veganMains";
 import { VEGAN_MORNING_LOOKS } from "./veganMorning";
@@ -157,4 +162,9 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   ...EVERY_SHOP_LOOKS,
   // founder 2026-11-21 ("different recipes from around the planet"): world plates, bowls and breakfasts
   ...WORLD_MEALS_LOOKS,
+  ...HOME_SNACKS_LOOKS,
+  ...PROTEIN_MORNINGS_LOOKS,
+  ...PROTEIN_MEALS_LOOKS,
+  ...ONION_FREE_MEALS_LOOKS,
+  ...FAST_MEALS_LOOKS,
 };

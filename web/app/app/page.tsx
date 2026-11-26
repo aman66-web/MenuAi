@@ -29,6 +29,7 @@ import { useGate } from "./_components/Paywall";
 import { RemindersSection } from "./_components/RemindersSection";
 import { StartHere, useStartHere } from "./_components/StartHere";
 import { WaterCard } from "./_components/WaterCard";
+import { StepsCard } from "./_components/StepsCard";
 import { ChevronRightIcon, FlameIcon, PlusIcon } from "./_components/icons";
 import { PageHeader } from "./_components/PageHeader";
 import { RecipeTools } from "./_components/RecipeTools";
@@ -46,6 +47,7 @@ import { useLanguage, useT } from "./_lib/i18n";
 // grey centre, and carbs and fat with targets and bars too (worked out from calories and protein unless typed in Settings: targets.ts
 // macroTargets). The picture's bodyweight card is left out (the app doesn't track weight) and Numbite's lime stays (founder's answers).
 // Under the meals, "Water" (founder 2026-10-15): today's millilitres against the person's own goal, a small bottle and a + that opens "Add water" (WaterCard).
+// Under Water, "Steps" (founder 2026-11-26), in the phone apps only: the offer to turn step counting on, or today's steps against the goal (StepsCard).
 // Logging follows the real gate (needsPaywall("log"), lib/mm/entitlements.ts): on a build where it is paid (SPEC §7.8, NEXT_PUBLIC_PRO=1) a free user's + opens the
 // paywall, Home shows the log card and the week and labels pages say their numbers come once you log; where logging is free (the paid tier alone, as in the 1.1
 // In-App Purchase build: PAID_TIER_ONLY) none of that is shown, so Home never sells what + already does for free (the onboarding meeting, 2026-11-19).
@@ -303,6 +305,9 @@ export default function HomePage() {
       </ul>
 
       <WaterCard now={now} guard={(go) => gate("log", go)} />
+
+      {/* today's steps, in the phone apps only (lib/mm/steps.ts): nothing on the website */}
+      <StepsCard now={now} />
 
       <RemindersSection now={now} />
 

@@ -208,6 +208,23 @@ not touched.
 None in Xcode, App Store Connect or the Apple Developer site for this feature. Try it on your iPhone once the Mac session has built it (list above).
 The App Privacy answers don't change (reminders never leave the phone); the age-rating and review-note lines for reminders are in docs/STORE.md.
 
+## Steps (Core Motion, 26 November 2026)
+
+Founder: "the app should also track peoples steps too". Home shows today's steps under Water and /app/steps the last seven days and a daily goal (8,000 to start;
+web/lib/mm/steps.ts, app/app/_components/StepsCard.tsx, app/app/steps/page.tsx). Inside the apps only: the website shows nothing.
+
+* **Where the steps come from:** the iPhone's own step counter through Core Motion's `CMPedometer` (`MenuMacros/Services/StepCounter.swift`), **never
+  HealthKit** (CLAUDE.md rule 4: Health is write-only). No capability or entitlement is needed; the purpose text is `INFOPLIST_KEY_NSMotionUsageDescription`
+  ("Shows your steps on Home if you turn on step counting. Your steps stay on this iPhone."). Core Motion keeps seven days.
+* **When iOS asks:** only when the person taps "Turn on step counting" (`steps.get` with `ask: true`); opening Home only reads (`steps.status`, `steps.get` with
+  `ask: false`, which answers `{permission:"notDetermined"}` when nobody has been asked). A refusal shows a calm line and "Open Settings" (`steps.openSettings`:
+  Numbite's page in iPhone Settings, where Motion & Fitness is). The Simulator has no step counter and answers `{error:"unavailable"}`, so nothing shows there;
+  a Debug build launched with `-NumbiteFakeSteps` uses a made-up week instead, to check the screens (`xcrun simctl launch <device> com.amanmarwaha.MenuMacros -NumbiteFakeSteps`).
+* **Bridge:** `steps.status` → `{permission}` or `{error:"unavailable"}`; `steps.get {days: 1-7, ask}` → `{steps:[{date:"YYYY-MM-DD", steps, partial?}]}` (oldest first),
+  `{permission:"notDetermined"}`, `{error:"denied"}` or `{error:"unavailable"}`; `steps.openSettings` and `steps.stop` → `{done:true}` (nothing to stop on the iPhone).
+* **Privacy:** the counts are shown and forgotten: never stored by the page or the app, never sent, never synced (not in SYNC_STORES), never given to Pip.
+  The device keeps only `mm.v1.steps` (on/off, "Not now", the goal), cleared by Clear data. App Privacy: nothing collected (docs/STORE.md).
+
 ## Testing 1.1 (Premium with In-App Purchase) on your iPhone (16 November 2026)
 
 Xcode's Run uses the test store in `Config/Numbite.storekit` (the scheme's Run option): purchases are free test purchases, no App Store Connect products or agreements

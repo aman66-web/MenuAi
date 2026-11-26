@@ -29,6 +29,12 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
     case sessionSave(id: String, value: String?)
     /// Apple's DeviceCheck token for this iPhone (Services/DeviceCheckService.swift), so our server can tell whether this iPhone already had the free week.
     case deviceCheckToken(id: String)
+    /// Steps (Services/StepCounter.swift; web/lib/mm/steps.ts): whether Numbite may read them, the last `days` days (asking iOS's question only when `ask`),
+    /// Numbite's page in iPhone Settings, and "stop" (nothing to stop on the iPhone: Core Motion counts anyway).
+    case stepsStatus(id: String)
+    case steps(id: String, days: Int, ask: Bool)
+    case openStepSettings(id: String)
+    case stopSteps(id: String)
 
     /// The longest session text the page may hand over (Supabase's tokens are about 2 KB together).
     static let maxSessionLength = 16_384
@@ -41,7 +47,8 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
         case .scan(let id), .locate(let id, _), .share(let id, _), .appleSignIn(let id), .webAuth(let id, _),
              .notificationPermission(let id), .notificationStatus(let id), .syncReminders(let id, _), .openNotificationSettings(let id), .hideKeyboard(let id),
              .iapProducts(let id, _), .iapPurchase(let id, _), .iapEntitlements(let id), .iapRestore(let id), .iapManage(let id), .requestReview(let id),
-             .sessionLoad(let id), .sessionSave(let id, _), .deviceCheckToken(let id): id
+             .sessionLoad(let id), .sessionSave(let id, _), .deviceCheckToken(let id),
+             .stepsStatus(let id), .steps(let id, _, _), .openStepSettings(let id), .stopSteps(let id): id
         }
     }
 
@@ -104,6 +111,16 @@ nonisolated enum BridgeRequest: Equatable, Sendable {
             }
         case "deviceCheck.token":
             self = .deviceCheckToken(id: id)
+        case "steps.status":
+            self = .stepsStatus(id: id)
+        case "steps.get":
+            // 1 to 7 days (7 when not said); the question is asked only when `ask` is exactly true
+            let days = (payload["days"] as? Int).map(StepDays.clamp) ?? StepDays.maxDays
+            self = .steps(id: id, days: days, ask: payload["ask"] as? Bool ?? false)
+        case "steps.openSettings":
+            self = .openStepSettings(id: id)
+        case "steps.stop":
+            self = .stopSteps(id: id)
         default:
             return nil
         }
@@ -178,6 +195,8 @@ nonisolated struct BridgeReply: Codable, Equatable, Sendable {
     /// "deviceCheck.token": Apple's DeviceCheck token (base64) and the DeviceCheck server it is for ("development" or "production").
     var deviceToken: String?
     var deviceEnv: String?
+    /// "steps.get": one entry a day, oldest first. Handed to the page and kept nowhere.
+    var steps: [DaySteps]?
     var error: String?
 
     static func failure(_ reason: String) -> BridgeReply { BridgeReply(error: reason) }

@@ -93,6 +93,12 @@ tracking, and there is no analytics in this version.
   and not used for tracking. They ring as **local** notifications scheduled by iOS on the phone: no Push Notifications capability, no device token and
   no server involved, so there is nothing to declare under "Identifiers" or "Health". Keep it that way: if reminders ever sync or a push server is
   added, this table, the privacy manifest and the website privacy policy change first (and "Health" then covers reminders too).
+- **Steps (Home › Steps and /app/steps, added 26 November 2026, not uploaded yet): nothing collected, so no new row and no change to `PrivacyInfo.xcprivacy`.**
+  The iPhone reads its own step counter through Core Motion's pedometer (`MenuMacros/Services/StepCounter.swift`), never HealthKit, only after the person taps
+  "Turn on step counting" and allows Motion & Fitness (`NSMotionUsageDescription`). The counts are handed to the page and shown: never stored by the app, never sent
+  to us or anyone, never synced (not in SYNC_STORES), not given to Pip or any AI. Data processed only on the device is not "collected" under Apple's definition, so
+  Health & Fitness › Fitness gains nothing from this. If steps ever leave the phone (sync, the meal plan's AI, analytics), this table, the manifest and the privacy
+  page change first.
 - **Sign-in (required for everyone since 2026-11-17, SIGN_IN_REQUIRED; optional before, docs/ACCOUNTS_SYNC.md):** the four rows marked "only if the person signs in"
   now apply to everyone (re-check the App Privacy answers in App Store Connect before submitting a build with sign-in required). They are why the manifest changed on 13 October
   2026. "Health" is declared because the synced goal (which can be a GLP-1 goal), calorie and protein targets, allergies and logged meals are

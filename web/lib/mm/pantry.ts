@@ -152,7 +152,8 @@ const KINDS: PantryKind[] = [
   },
   {
     key: "tofu", label: "Firm tofu", unit: "g", role: "protein", contains: ["soya"],
-    match: { all: ["tofu"], any: ["firm", "block"], none: ["silken", "marinated", "smoked", "pieces", "stir fry"], kcal: [80, 180], minProtein: 10 },
+    // 2026-11-26: "naked" and "authentic" too (The Tofoo Co. at Waitrose, Cauldron at Asda), and never THIS's mushroom "tofu"
+    match: { all: ["tofu"], any: ["firm", "block", "naked", "authentic"], none: ["silken", "marinated", "smoked", "pieces", "stir fry", "mushroom", "this"], kcal: [80, 180], minProtein: 10 },
   },
   {
     key: "quorn", fungi: true, label: "Quorn pieces", unit: "g", role: "protein", animal: true, contains: ["eggs"],
@@ -385,10 +386,18 @@ const KINDS: PantryKind[] = [
   // printed that way (10 g cubes print the made-up stock). Pots are left out: a method crumbles or dissolves "the stock cube".
   { key: "stock-cube", allium: true, label: "Vegetable stock cube", unit: "g", role: "other", contains: ["celery", "gluten"], pieceGrams: 6, pieceName: ["stock cube", "stock cubes"], match: { all: ["vegetable"], any: ["stock cube"], none: ["chicken", "beef", "fish", "lamb", "gravy", "pot", "pots", "reduced"], kcal: [100, 400], pieceWeight: [5, 7] } },
   { key: "fajita-seasoning", allium: true, label: "Fajita seasoning", unit: "g", role: "other", labelOptional: true, contains: ["soya"], match: { all: ["fajita"], any: ["seasoning", "spice mix"], none: ["kit", "chicken", "wraps", "strips", "sauce", "cooking", "meal"] } },
+  // 2026-11-26 (founder: "make more recipes so that my app caters for multiple inputs"): soya drink, for vegan porridge, oats and bakes that need more protein
+  // than oat drink gives; every shop that makes recipes sells one with a label (unsweetened first)
+  { key: "soya-drink", label: "Soya drink", unit: "ml", density: 1.03, role: "other", contains: ["soya"], match: { all: ["soya"], any: ["drink", "milk"], none: ["chocolate", "barista", "coffee", "protein", "vanilla", "strawberry", "banana", "caramel", "kids", "growing up", "oat", "almond", "coconut", "cream", "yogurt", "yoghurt", "dessert", "light", "mini"], kcal: [25, 50], prefer: ["unsweetened", "no sugar"] } },
   { key: "oat-drink", label: "Oat drink", unit: "ml", density: 1.03, role: "other", contains: ["gluten"], match: { all: ["oat"], any: ["drink", "milk"], none: ["chocolate", "barista", "coffee", "protein", "vanilla", "chilled latte", "mini", "kids", "bar", "biscuit", "cookie", "porridge"], kcal: [30, 70] } },
   { key: "almonds", label: "Whole almonds", unit: "g", role: "other", contains: ["nuts"], match: { all: ["almonds"], none: ["chocolate", "yogurt", "coated", "flaked", "ground", "salted", "smoked", "roasted salted", "milk", "drink", "butter", "mix", "honey", "biscuits", "cake", "croissant", "marzipan", "fruit", "cocoa", "dusted", "flaxseed", "milled", "yeast", "extract", "cashews", "peanuts", "chilli", "barbecue", "bbq", "sweet", "wasabi", "caramel", "toffee", "praline"], kcal: [550, 680] } },
   { key: "mixed-seeds", label: "Mixed seeds", unit: "g", role: "other", contains: ["sesame"], match: { all: ["seeds"], any: ["mixed seeds", "seed mix", "omega seed"], none: ["bread", "loaf", "bagel", "crackers", "bar", "granola", "cereal", "oil", "bird"], kcal: [450, 650] } },
   { key: "soy", label: "Soy sauce", unit: "ml", density: 1.17, role: "other", contains: ["soya", "gluten"], match: { all: ["soy", "sauce"], none: ["sweet", "noodle", "chicken", "dark", "mushroom", "teriyaki", "garlic", "chilli", "vinegar", "pack", "less salt"], kcal: [20, 120] } },
+  // 2026-11-26 (founder: "also have like protein flapjack etc recipes ones that people may just want to cook at home"): whey protein powder for home bakes and
+  // snacks, its label as printed per 100 g of powder (a label per serving made up with water falls outside the kcal range). Vanilla, chocolate or unflavoured only:
+  // the fruit, sweet and biscuit flavours print other allergens, and the "diet" wheys add other things (PhD's prints gluten). Sainsbury's, Morrisons and Iceland
+  // sell one; a recipe with it isn't offered elsewhere. soya: the soya lecithin in most of them
+  { key: "whey-protein", label: "Whey protein powder", unit: "g", role: "protein", animal: true, contains: ["milk", "soya"], match: { all: ["whey"], any: ["protein", "powder"], none: ["clear", "diet", "water", "yogurt", "yoghurt", "bar", "shake", "drink", "rtd", "cookie", "cookies", "crisps", "pancake", "wafer", "snickers", "brownie", "caramel", "peanut", "strawberry", "banana", "raspberry", "lemon", "mango", "peach", "tea", "vimto", "chupa", "marvel", "orange", "watermelon", "cream flavour", "hulk"], kcal: [320, 460], minProtein: 55, prefer: ["vanilla"] } },
   { key: "peanut-butter", label: "Peanut butter", unit: "g", role: "other", contains: ["peanuts"], match: { all: ["peanut", "butter"], none: ["cups", "chocolate", "cookies", "bar", "biscuit", "bites", "powder", "jelly", "protein", "honey", "spread with"], kcal: [550, 700] } },
   { key: "houmous", allium: true, label: "Houmous", unit: "g", role: "other", contains: ["sesame"], match: { all: ["houmous"], none: ["pepper", "chilli", "caramelised", "lemon", "garlic", "pine", "beetroot", "snack", "dippers", "pot", "x4", "4x", "olive", "harissa", "smoked", "jalapeno", "basil", "coriander", "edamame", "moroccan", "aromatic", "style", "topped", "spiced", "sweet", "falafel"], kcal: [150, 340] } },
   // ---- seasonings, dried herbs and oils (founder 2026-10-11: every recipe lists, prices and counts everything it uses, down to the pinch of salt)
@@ -555,6 +564,7 @@ const SUBS: Record<string, Array<string | [string, number]>> = {
   "light-mayo": ["greek-yogurt"],
   "milk": ["oat-drink"],
   "oat-drink": ["milk"],
+  "soya-drink": ["oat-drink", "milk"],
   "chopped-tomatoes": ["passata"],
   "passata": ["chopped-tomatoes"],
   "sweetcorn": ["peas", "mixed-veg"],
@@ -636,6 +646,14 @@ export const EVERYDAY_KINDS: ReadonlySet<string> = new Set([
   "onion", "red-onion", "garlic", "lemon-juice", "carrots", "peppers", "tomatoes", "cherry-tomatoes", "cucumber", "lettuce", "salad-leaves", "spinach",
   "mushrooms", "broccoli", "spring-onions", "stir-fry-veg", "banana", "apple", "berries", "raisins", "almonds",
 ]);
+
+// The protein kinds (founder 2026-11-26: "if my app hasn't good foods suitable for every possible input please make more recipes ... they all have different diet
+// plans that may vary a lot"; "also have like protein flapjack etc recipes"): foods most of the supermarkets in the app sell, though not every small shop, that a
+// recipe may use on top of the everyday kinds. With the everyday kinds alone a vegan plan had no lunch or dinner that reached a fat-loss or muscle meal's protein,
+// and a vegetarian high-protein plan none either (docs/RECIPE_COVERAGE_2026-11-26.md). A shop without one makes the recipe with the kind's substitute (tofu ->
+// chickpeas for a vegan, edamame -> peas, soya drink -> oat drink), or doesn't offer it (protein powder). tests/recipeBook.test.ts checks each still resolves to a
+// read label at Sainsbury's.
+export const PROTEIN_KINDS: ReadonlySet<string> = new Set(["tofu", "quorn", "edamame", "whey-protein", "soya-drink"]);
 
 // The festive kinds (founder 2026-10-17: "christmas recipies can have festive ingreidents"): foods that are sold in Christmas weeks and not
 // stocked by every small shop all year. Only recipes the Occasion list files under Christmas (niches.ts) may use them, on top of the everyday ones

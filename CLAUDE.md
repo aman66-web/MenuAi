@@ -93,7 +93,8 @@ Scheme: `MenuMacros`. Tests: Swift Testing (`import Testing`, `@Test`, `#expect`
    copy of the last friend list and inbox for offline display, cleared by signing out, deleting the account and "Clear data". Sign in with Apple is always offered next to Google, and "Delete my account" stays inside the app (it removes the Community rows too, except reports as above). **Never put a
    Supabase key in the app or the browser**; the app and the website only call the Vercel API (`AppConfig.apiBaseURL`), which holds the server-only
    key. Never run `supabase db push` or change production data without the founder's go-ahead; schema changes are new migration files. Location is
-   used on device only, reminders ring as local notifications (no push server), Health is write-only and never used for anything else.
+   used on device only, reminders ring as local notifications (no push server), Health is write-only and never used for anything else. Steps (founder 2026-11-26)
+   are read from the phone's own step counter (Core Motion on the iPhone, never Health), shown, and never stored, synced or sent.
 5. **Sample chains are fictional** (`sample: true`): visible in DEBUG only, never in Release.
 6. **No new third-party dependencies** without asking the founder (TelemetryDeck in M9 and MapLibre GL for the web Nearby map, approved 2026-10-06, are pre-approved).
 7. Use the exact user-facing copy from `docs/SPEC.md` §8, §9, §12 when it's given.

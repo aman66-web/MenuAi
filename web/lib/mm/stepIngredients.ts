@@ -13,6 +13,8 @@ export const USED_AS: Record<string, RegExp> = {
   mozzarella: /\bmozzarella\b|(?<!soft |cottage )\bcheese\b(?! sauce)/i, milk: /(?<!coconut )\bmilk\b/i, bacon: /\bbacon\b/i, ham: /\bham\b/i,
   "greek-yogurt": /\byogh?urt\b/i, "natural-yogurt": /\byogh?urt\b/i, "soft-cheese": /\bsoft cheese\b/i, "cottage-cheese": /\bcottage cheese\b/i,
   "oat-drink": /\boat drink\b/i,
+  // the protein kinds (lib/mm/pantry.ts PROTEIN_KINDS, 2026-11-26)
+  tofu: /\btofu\b/i, quorn: /\bquorn\b/i, edamame: /\bedamame\b/i, "whey-protein": /\bprotein powder\b/i, "soya-drink": /\bsoya drink\b/i,
   // carbs
   rice: /\brice\b(?! noodles)/i, "pasta-long": /\bpasta\b|\bspaghetti\b|\blinguine\b/i, "pasta-shapes": /\bpasta\b|\bpenne\b|\bfusilli\b/i, noodles: /\bnoodles\b/i,
   "egg-noodles": /\bnoodles\b/i, wraps: /\bwraps?\b|\btortillas?\b/i, oats: /\boats\b/i, naan: /\bnaans?\b/i, "new-potatoes": /\bpotato(?:es)?\b/i,

@@ -1,6 +1,6 @@
 // The bridge to the iPhone app (and the Android app) around the web app (docs/APP_BUILD.md, docs/ANDROID_BRIDGE.md). Inside the app, a few things are done by the phone itself instead of
 // the browser: scanning a barcode (the iPhone's own scanner), finding the person's location (one system prompt, the location stays on the
-// phone), the share sheet, and ringing reminders (local notifications scheduled by the phone itself). On the website there is no bridge and every
+// phone), the share sheet, ringing reminders (local notifications scheduled by the phone itself), and counting steps (lib/mm/steps.ts). On the website there is no bridge and every
 // caller keeps its browser path.
 //
 // Protocol: the page posts { id, action, payload } to window.webkit.messageHandlers.menumath; the app answers by calling
@@ -9,6 +9,7 @@
 // phone it is on (nativePlatform below); an action the Android app can't do answers { error: "unavailable" } and the page takes its browser path.
 
 import type { PlanItem } from "./reminders";
+import { cleanStepDays, STEP_DAYS, type DaySteps, type StepPermission } from "./steps";
 
 export type NativeAction =
   | "scan"
@@ -31,7 +32,11 @@ export type NativeAction =
   | "session.load"
   | "session.save"
   | "deviceCheck.token"
-  | "device.id";
+  | "device.id"
+  | "steps.status"
+  | "steps.get"
+  | "steps.openSettings"
+  | "steps.stop";
 
 /** "iap.products": one App Store product as StoreKit gives it (the price is StoreKit's own localised text, never ours). */
 export interface NativeProduct {
@@ -85,6 +90,8 @@ export interface NativeResult {
   /** "device.id" (Android only): SHA-256 of "numbite-device:" + this phone's Android ID, 64 lower-case hex characters. Sent only to our server, which hashes it again
    *  with its own secret and keeps only that, to stop a second free week on the same phone (lib/payments/freeWeek.ts). The Android ID itself never leaves the phone. */
   deviceHash?: string;
+  /** "steps.get": the phone's own step counts, one entry a day, oldest first (lib/mm/steps.ts). Shown and forgotten: never stored, synced or sent. */
+  steps?: DaySteps[];
   /** "denied" (the person said no in Settings), "unavailable" (this iPhone can't), "cancelled", "timeout". */
   error?: "denied" | "unavailable" | "cancelled" | "timeout";
 }
@@ -173,8 +180,10 @@ export function cleanNativeResult(raw: unknown): NativeResult {
     if (r.deviceEnv === "development" || r.deviceEnv === "production") out.deviceEnv = r.deviceEnv;
   }
   if (typeof r.deviceHash === "string" && /^[0-9a-f]{64}$/.test(r.deviceHash)) out.deviceHash = r.deviceHash;
+  const steps = cleanStepDays(r.steps);
+  if (steps) out.steps = steps;
   if (r.error === "denied" || r.error === "unavailable" || r.error === "cancelled" || r.error === "timeout") out.error = r.error;
-  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.purchases && !out.pending && !out.session && !out.deviceToken && !out.deviceHash && !out.error) out.error = "unavailable";
+  if (!out.code && out.lat === undefined && !out.done && !out.idToken && !out.authCode && !out.permission && !out.products && !out.transactions && !out.purchases && !out.pending && !out.session && !out.deviceToken && !out.deviceHash && !out.steps && !out.error) out.error = "unavailable";
   return out;
 }
 
@@ -259,5 +268,51 @@ export const native = {
   async openNotificationSettings(): Promise<void> {
     if (!hasNative()) return;
     await nativeCall("notifications.openSettings", {}, QUICK_TIMEOUT_MS);
+  },
+};
+
+// ---- steps (lib/mm/steps.ts): the phone counts them; the page only asks for the last STEP_DAYS days and shows them
+
+/** What "steps.get" gave: the days, or why there are none. "failed" = no answer in time (keep showing what was there). */
+export type StepsAnswer =
+  | { kind: "days"; days: DaySteps[] }
+  | { kind: "notDetermined" }
+  | { kind: "denied" }
+  | { kind: "unavailable" }
+  | { kind: "failed" };
+
+function stepsAnswer(r: NativeResult): StepsAnswer {
+  if (r.steps) return { kind: "days", days: r.steps };
+  if (r.permission === "notDetermined") return { kind: "notDetermined" };
+  if (r.permission === "denied" || r.error === "denied") return { kind: "denied" };
+  if (r.error === "timeout") return { kind: "failed" };
+  return { kind: "unavailable" };
+}
+
+export const nativeSteps = {
+  /** Reads (never asks) whether this phone can count steps and whether Numbite may read them. The website, or an app with no steps: "unavailable". */
+  async status(): Promise<StepPermission | "failed"> {
+    if (!hasNative()) return "unavailable";
+    const r = await nativeCall("steps.status", {}, QUICK_TIMEOUT_MS);
+    if (r.permission) return r.permission;
+    return r.error === "denied" ? "denied" : r.error === "timeout" ? "failed" : "unavailable";
+  },
+  /**
+   * The last STEP_DAYS days' steps. `ask`: the person just tapped "Turn on step counting", so the phone may show its own permission question (and the answer
+   * waits for them); otherwise it never asks and answers "notDetermined" when nobody has been asked yet.
+   */
+  async read(ask: boolean): Promise<StepsAnswer> {
+    if (!hasNative()) return { kind: "unavailable" };
+    return stepsAnswer(await nativeCall("steps.get", { days: STEP_DAYS, ask }, ask ? PERMISSION_TIMEOUT_MS : QUICK_TIMEOUT_MS));
+  },
+  /** Opens this app's page in the phone's Settings (to allow Motion & Fitness, or Physical activity, again). */
+  async openSettings(): Promise<void> {
+    if (!hasNative()) return;
+    await nativeCall("steps.openSettings", {}, QUICK_TIMEOUT_MS);
+  },
+  /** Step counting turned off in Numbite: on Android the phone stops recording steps for Numbite; on the iPhone there is nothing to stop. */
+  async stop(): Promise<void> {
+    if (!hasNative()) return;
+    await nativeCall("steps.stop", {}, QUICK_TIMEOUT_MS);
   },
 };

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { cleanText } from "../lib/mm/aiRecipe";
-import { EVERYDAY_KINDS, FESTIVE_KINDS, PANTRY } from "../lib/mm/pantry";
+import { EVERYDAY_KINDS, FESTIVE_KINDS, PANTRY, PROTEIN_KINDS } from "../lib/mm/pantry";
 import { OCCASION_LINES } from "../lib/mm/recipeBook/niches";
 import { RECIPES } from "../lib/mm/recipeBook";
 import { fitRecipe, ing, isMeatFree, recipeForDiet, recipeTotals, resolveRecipe, MEAL_TYPES } from "../lib/mm/recipes";
@@ -100,8 +100,23 @@ describe("the recipe book", () => {
     expect([...EVERYDAY_KINDS].filter((k) => !PANTRY.has(k)), "everyday kinds that aren't in the pantry").toEqual([]);
     // founder 2026-10-17: the Christmas recipes (and only those) may also use the festive kinds
     const christmas = new Set(OCCASION_LINES.filter(([, o]) => o === "christmas").map(([id]) => id));
-    const other = RECIPES.flatMap((r) => r.ingredients.filter((i) => !EVERYDAY_KINDS.has(i.pantry ?? "") && !(christmas.has(r.id) && FESTIVE_KINDS.has(i.pantry ?? ""))).map((i) => `${r.id}: ${i.pantry ?? i.key}`));
+    // founder 2026-11-26 ("make more recipes so that my app caters for multiple inputs"): the protein kinds too, which most of the shops sell
+    const other = RECIPES.flatMap((r) => r.ingredients.filter((i) => !EVERYDAY_KINDS.has(i.pantry ?? "") && !PROTEIN_KINDS.has(i.pantry ?? "") && !(christmas.has(r.id) && FESTIVE_KINDS.has(i.pantry ?? ""))).map((i) => `${r.id}: ${i.pantry ?? i.key}`));
     expect(other).toEqual([]);
+  });
+
+  // The protein kinds are kept apart from the everyday ones, each has words in USED_AS, and each resolves to a product whose label we have read (nothing estimated).
+  it("keeps the protein kinds apart, each resolving to a read label", () => {
+    expect([...PROTEIN_KINDS].filter((k) => !PANTRY.has(k)), "protein kinds that aren't in the pantry").toEqual([]);
+    expect([...PROTEIN_KINDS].filter((k) => EVERYDAY_KINDS.has(k) || FESTIVE_KINDS.has(k)), "kinds in two sets").toEqual([]);
+    expect([...PROTEIN_KINDS].filter((k) => !USED_AS[k]), "protein kinds with no words in USED_AS").toEqual([]);
+    for (const k of PROTEIN_KINDS) {
+      const kind = PANTRY.get(k)!;
+      const probe = resolveRecipe({ id: `probe-${k}`, name: k, blurb: "", servings: 1, minutes: 5, ingredients: [ing(k, kind.unit === "ml" ? 200 : 100)], method: [] }, products);
+      expect(probe.complete, `${k} finds a product`).toBe(true);
+      expect(probe.picks[0]?.spec.pantry, `${k} is found as itself, not a substitute`).toBe(k);
+      expect(probe.picks[0]?.product.nutrition, `${k}: the product's label is read`).toBeTruthy();
+    }
   });
 
   // The festive kinds are kept apart from the everyday ones, and each still resolves to a product whose label we have read (nothing is ever estimated).

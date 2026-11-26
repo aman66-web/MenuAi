@@ -19,6 +19,7 @@ import { NO_FREE_WEEK, sanitizeFreeWeek, type FreeWeekState } from "./freeWeek";
 import type { LogMeal } from "./types";
 import { IAP_ENABLED } from "./config";
 import { addWater, lastWaterToday, removeWater, sanitizeWater, type WaterEntry } from "./water";
+import { NO_STEPS, sanitizeSteps, type StepsState } from "./steps";
 import {
   isDoneToday, localDateString, markDone, MAX_REMINDERS, sanitiseReminders, undoDone, validateDraft,
   type DraftResult, type Reminder, type ReminderDraft,
@@ -54,6 +55,9 @@ export const savedStore = createStore<SavedOrder[]>("mm.v1.saved", [], { sanitiz
 export const logStore = createStore<LogEntry[]>("mm.v1.log", [], { sanitize: sanitizeLog });
 /** Water drunk (lib/mm/water.ts). On this device only: not one of the synced stores. */
 export const waterStore = createStore<WaterEntry[]>("mm.v1.water", [], { sanitize: sanitizeWater });
+/** Step counting turned on, "Not now" on Home's offer, and the daily step goal (lib/mm/steps.ts). On this device only: never synced, never sent. The steps
+ *  themselves are never stored: the phone is asked for them each time. */
+export const stepsStore = createStore<StepsState>("mm.v1.steps", NO_STEPS, { sanitize: sanitizeSteps });
 /** The person's own reminders (lib/mm/reminders.ts), e.g. a weekly or daily one for medication. On this device only, never synced, never sent anywhere. */
 export const remindersStore = createStore<Reminder[]>("mm.v1.reminders", [], { sanitize: sanitiseReminders });
 export const outboxStore = createStore<OutboxItem[]>("mm.v1.outbox", [], { sanitize: sanitizeOutbox });

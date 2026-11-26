@@ -73,6 +73,10 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 | Device or other IDs | **yes since the build with `device.id` (1.1 (3))** | fraud prevention, security and compliance: a one-way hash of the Android ID stops a second free week on the same phone (the server keeps only a second hash of it, even after the account is deleted); not shared | required |
 | Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
 
+**Steps (26 November 2026, on `iap`, not uploaded): nothing to change.** The Android app shows no steps yet (it answers "unavailable" until Google's Recording API, approved on 26 Nov,
+is added). When it does, the counts stay on the phone (read from Google Play services on the phone, shown, never stored, sent or synced), which Google's form doesn't
+count as collected; the new permission would be ACTIVITY_RECOGNITION ("Physical activity"), asked only when the person taps "Turn on step counting".
+
 **Ask Pip (added 26 November 2026; switched on 26 November for the next build, `NEXT_PUBLIC_ASK_PIP=1`): Data safety already covers it, nothing to change.** Each chat message
 goes to our server and Anthropic (a service provider, so not "shared") with the newest turns of the chat, the goal, targets, diet and allergy choices, supermarkets and the
 phone's time; today's food diary, saved recipes and meal plan reach Anthropic only when Pip looks them up. Nothing is kept on our server; never a name, email or account ID.

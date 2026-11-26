@@ -128,7 +128,7 @@ export default function Privacy() {
             store-cupboard items you mark as already having, what you picked to compare, and today&apos;s log (about the last two days).
           </li>
           <li className={row}>
-            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your reminders, your meal plan and the people you cook for, the dishes you viewed in the last day, the offline menu files, messages waiting to be
+            <strong>What never syncs:</strong> your location, the water you add on Home (only your daily water goal syncs, with your other targets), your steps and step goal, your reminders, your meal plan and the people you cook for, the dishes you viewed in the last day, the offline menu files, messages waiting to be
             sent, and anything in the app while you are signed out.
           </li>
           <li className={row}>
@@ -374,6 +374,26 @@ export default function Privacy() {
         </p>
       </Section>
       )}
+
+      <Section title="Steps">
+        <p className={para}>
+          In the iPhone app{ANDROID_TEXT ? " and the Android app" : ""} you can turn on step counting to see today&apos;s steps on Home and your last seven days. Nothing is read until you tap
+          &ldquo;Turn on step counting&rdquo; and allow it.
+        </p>
+        <Rows>
+          <li className={row}>
+            <strong>Where they come from:</strong> on an iPhone, the iPhone&apos;s own step counter (Motion &amp; Fitness), not Apple Health.{ANDROID_TEXT ? <>{" "}On an Android phone, the step count Google Play services keeps on your phone (the Physical activity permission).</> : null}
+          </li>
+          <li className={row}>
+            <strong>Where they are kept:</strong> {site.name} reads your steps from your phone each time you look and doesn&apos;t save them. They are never sent to us or anyone
+            else and never synced to your account. Only whether step counting is on and your daily step goal are kept, on your phone.
+          </li>
+          <li className={row}>
+            <strong>Turning it off:</strong> &ldquo;Stop counting steps&rdquo; on the Steps page, or &ldquo;Clear data on this device&rdquo; in Settings. To take back the permission too,
+            switch off Motion &amp; Fitness{ANDROID_TEXT ? " (iPhone) or Physical activity (Android)" : ""} for {site.name} in your phone&apos;s Settings.
+          </li>
+        </Rows>
+      </Section>
 
       <Section title="Reminders">
         <p className={para}>

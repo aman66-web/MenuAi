@@ -108,3 +108,5 @@ export const ExpandIcon = (p: P) => (<svg {...base(p)}><path d="M4 9V4h5M20 9V4h
 export const ShrinkIcon = (p: P) => (<svg {...base(p)}><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" /></svg>);
 /** A fridge: two doors and their handles (Cook with what you have). */
 export const FridgeIcon = (p: P) => (<svg {...base(p)}><rect x="6" y="3" width="12" height="18" rx="2.5" /><path d="M6 10h12M9 6.5v1.5M9 13v2.5" /></svg>);
+/** Two footprints: steps (Home's Steps card, the Steps page). */
+export const FootstepsIcon = (p: P) => (<svg {...base(p)}><path d="M7.5 3C9.2 3 10 4.7 10 7c0 1.9-.7 3.1-.7 4.5H5.7C5.7 10.1 5 8.9 5 7c0-2.3.8-4 2.5-4z" /><path d="M5.9 12.5h3.2v1.4a1.6 1.6 0 01-3.2 0z" /><path d="M16.5 8c1.7 0 2.5 1.7 2.5 4 0 1.9-.7 3.1-.7 4.5h-3.6c0-1.4-.7-2.6-.7-4.5 0-2.3.8-4 2.5-4z" /><path d="M14.9 17.5h3.2v1.4a1.6 1.6 0 01-3.2 0z" /></svg>);
