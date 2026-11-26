@@ -222,6 +222,8 @@ web/lib/mm/steps.ts, app/app/_components/StepsCard.tsx, app/app/steps/page.tsx).
   a Debug build launched with `-NumbiteFakeSteps` uses a made-up week instead, to check the screens (`xcrun simctl launch <device> com.amanmarwaha.MenuMacros -NumbiteFakeSteps`).
 * **Bridge:** `steps.status` → `{permission}` or `{error:"unavailable"}`; `steps.get {days: 1-7, ask}` → `{steps:[{date:"YYYY-MM-DD", steps, partial?}]}` (oldest first),
   `{permission:"notDetermined"}`, `{error:"denied"}` or `{error:"unavailable"}`; `steps.openSettings` and `steps.stop` → `{done:true}` (nothing to stop on the iPhone).
+* **Android** answers the same four actions with Google Play services' on-phone step recording (the Recording API on mobile, permission "Physical activity"); there the
+  first day is sent with `partial:true` and `steps.stop` ends the recording: docs/ANDROID_BRIDGE.md "Steps".
 * **Privacy:** the counts are shown and forgotten: never stored by the page or the app, never sent, never synced (not in SYNC_STORES), never given to Pip.
   The device keeps only `mm.v1.steps` (on/off, "Not now", the goal), cleared by Clear data. App Privacy: nothing collected (docs/STORE.md).
 

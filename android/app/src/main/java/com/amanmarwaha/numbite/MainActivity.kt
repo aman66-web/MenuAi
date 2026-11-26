@@ -34,6 +34,7 @@ import com.amanmarwaha.numbite.bridge.IntentShareService
 import com.amanmarwaha.numbite.bridge.NativeBridge
 import com.amanmarwaha.numbite.bridge.PermissionBroker
 import com.amanmarwaha.numbite.bridge.PlayReviewPrompt
+import com.amanmarwaha.numbite.bridge.androidStepCounter
 import com.amanmarwaha.numbite.billing.PurchaseUpdateSource
 import com.amanmarwaha.numbite.session.KeystoreSessionStore
 import com.amanmarwaha.numbite.web.AppAssetHandler
@@ -123,6 +124,7 @@ class MainActivity : AppCompatActivity() {
                 reviews = PlayReviewPrompt(applicationContext, front),
                 session = KeystoreSessionStore(applicationContext),
                 device = AndroidDeviceIdentity(applicationContext),
+                steps = androidStepCounter(applicationContext, permissions),
                 hideKeyboard = { me.get()?.hideKeyboard() },
                 runInPage = { script -> me.get()?.runInPage(script) },
             ),
