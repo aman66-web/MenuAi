@@ -78,11 +78,12 @@ export function AboutYouStep({ body, sex, change, counter, shown }: StepProps & 
   const bad = (p: BodyProblem) => shown.includes(p);
   return (
     <>
-      <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("About you")}<CounterText text={counter} /></h1>
-      {/* the screen's one grey line (the founder's examples), with the shield that says it is about privacy */}
+      {/* the headline says what the screen is for (founder 2026-11-26: "just have a headline, don't have subtitles"); the one short line kept under it is about the
+          person's body data, with the shield: optional, and never saved or sent (CLAUDE.md rule 4) */}
+      <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Let's work out your numbers")}<CounterText text={counter} /></h1>
       <p className={`${SUBLINE} flex items-start gap-2`}>
         <ShieldIcon aria-hidden className="mt-[0.2rem] h-[1.125rem] w-[1.125rem] shrink-0 text-accent" />
-        <span><strong className="font-bold text-foreground">{t("All optional.")}</strong> {t("Only used to work out your numbers. Never saved or sent.")}</span>
+        <span>{t("Optional. Never saved or sent.")}</span>
       </p>
       <div role="radiogroup" aria-label={t("Sex")} className={`${GAP} grid grid-cols-2 gap-2.5`}>
         {SEX_OPTIONS.map((o, i) => (

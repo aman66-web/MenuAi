@@ -39,8 +39,9 @@ describe("the welcome screens' sign-in step", () => {
 
   it("heads the screen by the way it was reached, and keeps 'Sign in or sign up' on a page of the app", () => {
     expect(SIGN_IN_HEADING).toEqual({
-      setup: "Save your plan", // founder 2026-11-20, "short and simple" (that morning: "Save your goal and numbers: make your free account")
-      returning: "Welcome back. Sign in",
+      // founder 2026-11-26, a headline only: the grey lines under them ("Free, and it keeps your plan safe on any phone.", "Use the same Apple ID ...") went
+      setup: "Save your plan for free",
+      returning: "Sign in the same way as last time",
       page: "Sign in or sign up",
     });
     expect(SIGN_IN_REASONS).toEqual(["setup", "returning"]);

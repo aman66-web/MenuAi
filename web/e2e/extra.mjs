@@ -53,9 +53,9 @@ await step("GLP-1 onboarding keeps the default comfortable meal size (450) when 
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
   await vis(page.getByRole("heading", { name: /^Where do you shop\?/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // the shops
-  await vis(page.getByRole("heading", { level: 1, name: /^Recipes/ }));
+  await vis(page.getByRole("heading", { level: 1, name: /^(Pick a recipe|Recipes)/ }));
   await page.getByRole("button", { name: "Continue", exact: true }).click(); // the recipes
-  await vis(page.getByRole("heading", { name: /^About you/ }));
+  await vis(page.getByRole("heading", { name: /^Let's work out your numbers/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // About you and How active are you?, to Your plan
   await vis(page.getByRole("heading", { name: /^Your plan/ }));
   await page.getByRole("button", { name: "Continue", exact: true }).click();
@@ -83,9 +83,9 @@ await step("onboarding offers Other as a goal (full width, ticked when tapped; n
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // foods to avoid
   await vis(page.getByRole("heading", { name: /^Where do you shop\?/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click(); // the shops
-  await vis(page.getByRole("heading", { level: 1, name: /^Recipes/ }));
+  await vis(page.getByRole("heading", { level: 1, name: /^(Pick a recipe|Recipes)/ }));
   await page.getByRole("button", { name: "Continue", exact: true }).click();
-  await vis(page.getByRole("heading", { name: /^About you/ }));
+  await vis(page.getByRole("heading", { name: /^Let's work out your numbers/ }));
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: "Continue", exact: true }).click();
   await page.getByRole("button", { name: "Not now" }).click();

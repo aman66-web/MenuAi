@@ -74,7 +74,8 @@ describe("the welcome screens' words when their data is missing", () => {
   });
 
   it("shows prices only with the shelf-price line (step 4, and Your plan's example week: its first shop and each week after)", () => {
-    expect(source("RecipeChoice.tsx")).toContain("Prices are {shop}'s shelf prices and vary by store.");
+    // step 4's headline names the shop, so its line is short (founder 2026-11-26: as few words as possible)
+    expect(source("RecipeChoice.tsx")).toContain("Prices vary by store.");
     // founder 2026-11-20, 23:05 ("week one cost and then the week afterwards costs"): the example week is priced at the person's shop, as Meal plan says it
     const week = source("WeekShowcase.tsx");
     expect(week).toContain("<TwoWeeks ");

@@ -49,8 +49,9 @@ export const SIGN_IN_REASONS: readonly SignInReason[] = ["setup", "returning"];
 /** The sign-in screen's heading for each way in; a page of the app, reached signed out, keeps "Sign in or sign up" (founder 2026-11-18). The last welcome step
  *  says "Save your plan" (founder 2026-11-20, "short and simple"; until then "Save your goal and numbers: make your free account"). */
 export const SIGN_IN_HEADING: Readonly<Record<SignInReason | "page", string>> = {
-  setup: tk("Save your plan"),
-  returning: tk("Welcome back. Sign in"),
+  // the welcome screens' headlines say it all (founder 2026-11-26: "just have a headline, don't have subtitles"): free, and the same way in as last time
+  setup: tk("Save your plan for free"),
+  returning: tk("Sign in the same way as last time"),
   page: tk("Sign in or sign up"),
 };
 

@@ -18,17 +18,14 @@ import { BackCircle, EmailSignIn, SIGN_IN_MESSAGES, SIGN_IN_SCREEN, SignInPanel 
 // 20 November evening), and the three big buttons at the foot, where a thumb is; under them one small line says what the account keeps, with the Privacy link (SignIn.tsx), and no card
 // round any of it. "Continue with email" swaps the whole screen for the two email screens ("What's your email?", then "Enter the code": SignIn.tsx
 // EmailSignIn), whose Back arrow comes back here. On the last step:
-// - "Waiting for you on Home: {recipe}." when a first recipe was chosen on step 5, only while the three buttons still fit on the screen without scrolling (4.8);
 // - offline, a status line above the buttons before any tap (the buttons stay; a tap gives the offline error);
 // - where sign-in is optional (numbite.com's signInOptional switch, or NEXT_PUBLIC_SIGN_IN_REQUIRED=0), a quiet "Not now", and nothing else changes.
 // `top`: the welcome steps' own top bar (Back, the app's name, the bar and its counter), in place of this screen's Back and name. `onBack`: Back on its own.
 
-/** The one short grey line under the heading for each way in (founder 2026-11-20: "Free, and it keeps your plan safe on any phone."). */
-const PIP_LINE: Readonly<Record<SignInReason | "page", string>> = {
-  setup: tk("Free, and it keeps your plan safe on any phone."),
-  returning: tk("Use the same Apple ID, Google account or email as last time."),
-  page: tk("Free, and it keeps your plan safe on any phone."),
-};
+/** The one short grey line under the heading of a page of the app reached signed out (founder 2026-11-20: "Free, and it keeps your plan safe on any phone."). The
+ *  welcome screens' account step and the cover's sign-in have their headline only since 26 November 2026 ("Save your plan for free", "Sign in the same way as
+ *  last time"). */
+const PAGE_LINE = tk("Free, and it keeps your plan safe on any phone.");
 
 /** Whether the browser says it is online (true on the server and until it says otherwise). */
 function useOnline(): boolean {
@@ -46,17 +43,13 @@ function useOnline(): boolean {
   return online;
 }
 
-export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, resumed, onNotNow }: {
+export function SignInScreen({ onDone, onBack, reason, top, counter, onNotNow }: {
   onDone?: () => void;
   onBack?: () => void;
   reason?: SignInReason;
   top?: React.ReactNode;
   /** "Step 11 of 11", read by a screen reader with the heading. */
   counter?: string;
-  /** The first recipe chosen on step 5, by name. */
-  waiting?: string | null;
-  /** Came back to this step through the cover's "Carry on". */
-  resumed?: boolean;
   /** Where sign-in is optional: "Not now". */
   onNotNow?: () => void;
 }) {
@@ -66,19 +59,12 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
   const online = useOnline();
   // "Continue with email": the two email screens take this screen's place until their Back arrow
   const [emailOpen, setEmailOpen] = useState(false);
-  // the recipe line only while Apple, Google and email all still fit on the screen without scrolling (guideline 4.8): measured once it is in place, and
-  // taken out again (hidden) when it would push "Continue with email" below the screen
-  const waitingLine = useRef<HTMLParagraphElement>(null);
   // a screen reader starts at the heading when this screen takes the place of a page (and again back from the email screens)
   useLayoutEffect(() => {
     if (!emailOpen) heading.current?.focus({ preventScroll: true });
   }, [emailOpen]);
-  useLayoutEffect(() => {
-    const el = waitingLine.current;
-    const last = document.querySelector<HTMLElement>("[data-signin-last]");
-    if (el && last && last.getBoundingClientRect().bottom + window.scrollY > window.innerHeight) el.hidden = true;
-  }, [waiting, emailOpen]);
-  const line = way === "setup" && resumed ? tk("Welcome back. Your plan is still here.") : PIP_LINE[way];
+  // the welcome screens' two ways in have their headline only (founder 2026-11-26: "just have a headline, don't have subtitles"); a page of the app keeps its line
+  const line = way === "page" ? PAGE_LINE : null;
   // A website sign-in with Apple or Google that came back without finishing (?signin=cancelled, failed, expired or busy: lib/auth/handlers.ts failure) says so
   // under the buttons; the address is tidied either way (an "ok" has nothing to say). Read once it is in the browser.
   const [notice, setNotice] = useState<string | null>(null);
@@ -110,9 +96,8 @@ export function SignInScreen({ onDone, onBack, reason, top, counter, waiting, re
         {t(SIGN_IN_HEADING[way])}
         {counter && <span className="sr-only">{`, ${counter}`}</span>}
       </h1>
-      {/* the one grey line under the heading, as on the reference screens */}
-      <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t(line)}</p>
-      {waiting && <p ref={waitingLine} className="mt-2 text-base font-semibold leading-snug text-foreground">{t("Waiting for you on Home: {recipe}.", { recipe: waiting })}</p>}
+      {/* the one grey line under the heading on a page of the app, as on the reference screens */}
+      {line && <p className="mt-2 text-[1.0625rem] leading-snug text-muted">{t(line)}</p>}
       {/* nothing in the free space: white space, as on the reference screens (Pip stands, small, on step 1 only) */}
       <div className="mt-auto pt-6">
         {way === "setup" && !online && (

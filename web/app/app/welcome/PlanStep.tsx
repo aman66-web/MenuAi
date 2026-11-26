@@ -12,7 +12,7 @@ import { SourcesLink } from "../_components/SourcesLink";
 import { useT } from "../_lib/i18n";
 import { type FeatureBottom, FeatureFoot } from "./FeatureSteps";
 import { H1, SECONDARY } from "./Frame";
-import { CARD, HEADLINE, STEP_TOP, StepperCard, SUBLINE } from "./parts";
+import { CARD, HEADLINE, STEP_TOP, StepperCard } from "./parts";
 import { CounterText } from "./QuestionSteps";
 import { RestaurantRow } from "./RestaurantRow";
 import { WeekShowcase } from "./WeekShowcase";
@@ -20,7 +20,7 @@ import { WeekShowcase } from "./WeekShowcase";
 // Screen 7, "Your plan" (founder, 20 November 2026): the daily calories and protein, big; the week as a picture timetable with its shopping (WeekShowcase); then a
 // row of restaurant dishes in the chains' own photos (RestaurantRow). No caption or tag on any of it, and few words: what must be said stays, short.
 // - The numbers are worked out on the phone from About you and How active are you? (lib/mm/onboardingPlan.ts planFromAnswers), or are the starting numbers when
-//   those were skipped (said so in the grey line under the heading). "Change", a white pill at the heading's end, opens the calorie and protein boxes (− and
+//   those were skipped (the heading then says "Your starting plan"). "Change", a white pill at the heading's end, opens the calorie and protein boxes (− and
 //   +, or type), so anyone can put in their own number; "Save" saves them, and the week follows. Carbs and fat aren't shown: ones that followed the old numbers
 //   follow the new ones (useTargetFields.ts changeTargetField). Under 18, no numbers: "Ask a doctor or dietitian for
 //   targets." (UNDER_18_COPY), and no week.
@@ -83,9 +83,10 @@ export function PlanStep({ counter, goal, prefs, targets, replay, planLine, onDi
   };
   return (
     <section className={`${STEP_TOP} flex flex-1 flex-col`}>
-      {/* the heading, with "Change" at its end (a white pill, like Skip); the one grey line under it says when these are the starting numbers */}
+      {/* the heading, with "Change" at its end (a white pill, like Skip); no grey line under it (founder 2026-11-26: a headline only), so the heading itself says
+          when these are the starting numbers */}
       <div className="flex min-h-11 items-center justify-between gap-3">
-        <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{t("Your plan")}<CounterText text={counter} /></h1>
+        <h1 tabIndex={-1} className={`${HEADLINE} ${H1}`}>{starting && !under18 ? t("Your starting plan") : t("Your plan")}<CounterText text={counter} /></h1>
         {!replay && !under18 && !editing && (
           <button type="button" onClick={() => setEditing(true)} className={`${SECONDARY} -me-1 inline-flex min-h-11 shrink-0 items-center rounded-full px-4 text-[1rem] font-bold`}>{t("Change")}</button>
         )}
@@ -94,7 +95,6 @@ export function PlanStep({ counter, goal, prefs, targets, replay, planLine, onDi
         <p className="mt-3 text-[1.0625rem] font-semibold leading-snug text-foreground">{t(UNDER_18_COPY)}</p>
       ) : (
         <>
-          {starting && !editing && <p className={SUBLINE}>{t("Starting numbers.")}</p>}
           {editing ? (
             <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,9.75rem),1fr))] gap-3">
               <StepperCard id="plan-calories" label={t("Calories")} Icon={FlameIcon} value={fields.calories} onChange={(v) => setField("calories", v)} step={50} min={500} max={10000} invalid={reading.problems.includes("calories")} describedBy={MAIN_PROBLEM} large />

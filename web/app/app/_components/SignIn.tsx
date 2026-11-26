@@ -417,8 +417,8 @@ export function EmailSignIn({ onDone, onBack, full = false }: { onDone: () => vo
     return (
       <form noValidate onSubmit={(e) => { e.preventDefault(); void send(); }} className={screen} style={screenStyle}>
         <EmailTop help={full} onBack={() => { setError(null); onBack(); }} />
+        {/* the headline only (founder 2026-11-26: "just have a headline, don't have subtitles"); the next screen says where the code went */}
         <Heading id={head} className={headClass}>{t("What's your email?")}</Heading>
-        <p id={sub} className={subClass}>{t("We'll send you a code.")}</p>
         <div className={`${middle} @container`}>
           <input
             type="email"
@@ -431,7 +431,7 @@ export function EmailSignIn({ onDone, onBack, full = false }: { onDone: () => vo
             autoFocus
             placeholder={t("Email")}
             aria-labelledby={head}
-            aria-describedby={error ? `${sub} ${err}` : sub}
+            aria-describedby={error ? err : undefined}
             aria-invalid={error ? true : undefined}
             className={EMAIL_FIELD}
             style={{ ...emailSize(email), outline: "none" }}

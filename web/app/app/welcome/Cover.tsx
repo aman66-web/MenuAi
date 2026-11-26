@@ -1,12 +1,11 @@
 "use client";
 
 import { useMemo } from "react";
-import { LOGOS_ENABLED, TELEMETRY_ENABLED } from "@/lib/mm/config";
+import { LOGOS_ENABLED } from "@/lib/mm/config";
 import { RETAILERS } from "@/lib/mm/groceries";
 import { logoFor } from "@/lib/mm/logos";
 import { POPULAR_ORDER } from "@/lib/mm/popular";
-import { site } from "@/site.config";
-import { CheckIcon, FlameIcon, GiftIcon, ShieldIcon } from "../_components/icons";
+import { CheckIcon } from "../_components/icons";
 import { LogoWall, type WallItem } from "../_components/LogoWall";
 import { Pip } from "../_components/Mascot";
 import { useHiddenLogos } from "../_lib/hiddenLogos";
@@ -16,8 +15,9 @@ import { useShopManifest } from "../_lib/shopProducts";
 import { Bottom, BottomButton, H1, LINK, QuietLink, SCREEN, TopBar } from "./Frame";
 
 // The welcome cover (no counter), kept as built: the moving wall of the official logo files of the chains and shops in the app (CLAUDE.md rule 2: unmodified, on
-// white tiles; names and cuisine icons with logos off; LogoWall's 44 pt Pause), two floating counts from the data, Pip waving once beside the greeting, the
-// headline, three promises, one ink "Get started", the sign-in link and the footer. Nothing is downloaded here beyond the wall.
+// white tiles; names and cuisine icons with logos off; LogoWall's 44 pt Pause), two floating counts from the data, Pip waving once beside "Meet Pip, your food
+// guide and nutrition coach", the headline, one ink "Get started", the sign-in link and the footer (the three promises went with the headline-only screens of
+// 26 November 2026). Nothing is downloaded here beyond the wall.
 // The onboarding redesign meeting (20 November 2026, approved by the founder) adds only single lines: a status line after Settings › Clear data (?cleared=1) or
 // after "Delete my account" (?deleted=1); for someone who left part-way, "Carry on from step {n}" on the pill with a quiet "Start again" under it; and, for
 // someone already set up who opened this from Settings, Back at the top left.
@@ -29,7 +29,7 @@ const HEAVY_LOGOS = new Set(["british-garden-centres", "daves-hot-chicken", "pub
 
 export type CoverNotice = "cleared" | "deleted" | "signedOut" | null;
 
-export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack, signInRequired }: {
+export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack }: {
   notice: CoverNotice;
   /** The step "Carry on" goes to, as its number in the run ("Carry on from step {n}"); null shows "Get started". */
   carryOn: number | null;
@@ -40,7 +40,6 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
   onSignIn?: () => void;
   /** Back, for someone already set up who opened this from Settings. */
   onBack?: () => void;
-  signInRequired: boolean;
 }) {
   const t = useT();
   const hydrated = useHydrated();
@@ -68,13 +67,6 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
     return out;
   }, [real, hiddenLogos]); // eslint-disable-line react-hooks/exhaustive-deps -- logoFor reads the taken-down list, which hiddenLogos tracks
 
-  // The three promises: which numbers, and, in the build where everyone signs in, "No ads, no tracking" (the same words as the sign-in screen; "No ads" alone
-  // while the setup screen counts are on: lib/mm/config.ts TELEMETRY_ENABLED). "No account needed" only where sign-in is optional, never while everyone signs in.
-  const promises = [
-    { Icon: FlameIcon, text: t("Calories and protein") },
-    { Icon: GiftIcon, text: t("Every menu free") },
-    signInRequired ? { Icon: ShieldIcon, text: TELEMETRY_ENABLED ? t("No ads") : t("No ads, no tracking") } : { Icon: ShieldIcon, text: t("No account needed") },
-  ];
   // the wall's one sentence for a screen reader, true with logos on or off: the first five names on it
   const wallLabel = t("Restaurants and shops in the app, including {names}", { names: new Intl.ListFormat("en-GB", { type: "conjunction" }).format(wallItems.slice(0, 5).map((i) => i.name)) });
   // Signing out and deleting the account remove the meal plan (app/app/_lib/account.ts forgetAccountsOwn), so the lines say so (the meeting of 21 November
@@ -99,20 +91,16 @@ export function Cover({ notice, carryOn, onStart, onStartAgain, onSignIn, onBack
             {status}
           </p>
         )}
+        {/* Pip, met where Pip first appears (founder 2026-11-26: Pip "can be a food guide and also a nutrition coach"; never a dietitian or nutritionist, and
+            never medical advice: CLAUDE.md rule 3), on no disc (colour meeting: never on lime or a disc), waving once */}
         <p className="mt-2 flex items-center gap-3 text-[1.125rem] font-semibold leading-snug">
-          {/* Pip on no disc (colour meeting: never on lime or a disc), waving once */}
           <span aria-hidden className="grid h-11 w-11 shrink-0 place-items-center"><Pip mood="wave" size={40} /></span>
-          <span className="min-w-0">{t("Welcome to {app}", { app: site.name })}</span>
+          <span className="min-w-0">{t("Meet Pip, your food guide and nutrition coach")}</span>
         </p>
+        {/* the headline only (founder 2026-11-26: "just have a headline, don't have subtitles"): the three promises under it went */}
         <h1 tabIndex={-1} className={`mt-4 text-[2.65rem] font-[700] leading-[1.04] tracking-[-0.035em] ${H1}`}>
           {t("Eat out, shop and cook.")} {t("Know the numbers first.")}
         </h1>
-        {/* in the page's own ink at 16 px (they were the faintest words on the screen) */}
-        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-base font-semibold text-foreground">
-          {promises.map(({ Icon, text }) => (
-            <li key={text} className="flex items-center gap-1.5"><Icon aria-hidden className="h-5 w-5 shrink-0 text-accent" />{text}</li>
-          ))}
-        </ul>
       </div>
       {/* the picture, at the top (founder 2026-11-17): the restaurants and shops in the app drifting by, with two labels from the data floating over it */}
       <div className="relative order-2 -mx-5 mt-1">

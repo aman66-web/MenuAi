@@ -9,11 +9,11 @@
 //   screen, the activity tiles, Your plan (the big numbers, the picture week with its two chips and its first shop and each week after at Sainsbury's, the
 //   restaurant row in the chains' own photos with their
 //   captions, never Costa), the account's three ways in and "Not now", Home's toast and Start here card, and what is (and isn't) stored or sent;
-// - (b) the questions about the person skipped (Skip on 5 or 6): "Starting numbers.", Back to About you; an age under 18 goes straight to Your plan with no
+// - (b) the questions about the person skipped (Skip on 5 or 6): "Your starting plan", Back to About you; an age under 18 goes straight to Your plan with no
 //   numbers and no Change; About you's grey Continue says what is missing and focuses that box;
 // - (c) Skip on 1 to 3 saves nothing for that question; Back goes to the last screen shown;
 // - (d) vegan with milk avoided: the recipes, the week and the restaurant dishes fit; (e) GLP-1's note under the tiles and on Your plan;
-// - (f) leaving and coming back: "Carry on from step {n}" (About you for the questions about the person, the account with "Welcome back. Your plan is still
+// - (f) leaving and coming back: "Carry on from step {n}" (About you for the questions about the person, the account (its
 //   here."), "Start again", and a note left by the eleven-step screens (eatOut, week) read in the new steps;
 // - (g) a run that starts signed in (8 steps, "Continue" on Your plan and on the colours); (h) an existing account signing in at the account step (its own settings win) through a
 //   fake backend that uses the real merge rules;
@@ -116,7 +116,7 @@ const digitsIn = (page, name) => page.getByRole("region", { name, exact: true })
 const writtenCounter = (page) => page.evaluate(() => [...document.querySelectorAll("main *")].some((el) => !el.closest(".sr-only") && [...el.childNodes].some((n) => n.nodeType === 3 && /Step \d+ of \d+/.test(n.textContent ?? ""))));
 const home = (page) => page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/", { timeout: 30000 });
 /** Your plan's week, once it is made (its two chips), or its words-only line. */
-const weekSettled = (page) => page.getByText("What Meal plan could make you.", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
+const weekSettled = (page) => page.getByText("Example plan", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
 /** The restaurant row's dishes, once they are there (each card's screen-reader line: "{dish} at {chain}: {kcal} calories."). */
 const dishLines = (page) => page.getByRole("region", { name: "Restaurants", exact: true }).locator("li .sr-only").allInnerTexts();
 /** Email sign-in on the full screens (the account step): "What's your email?", Continue, "Enter the code" (it goes on with the sixth digit). */
@@ -171,8 +171,8 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await W.shops(page, ["Sainsbury's"]);
   // 4: two recipes at Sainsbury's, one chosen
   await check("recipes", 4, { skip: false });
-  await W.headline(page, "recipes").filter({ hasText: "Recipes from Sainsbury's" }).waitFor();
-  await page.getByText("Tap one to cook first.").waitFor();
+  await W.headline(page, "recipes").filter({ hasText: "Pick a recipe from Sainsbury's" }).waitFor();
+  expect((await page.getByText("Tap one to cook first.").count()) === 0, "step 4 still has its grey line");
   const tiles = W.recipeTiles(page);
   await tiles.first().waitFor({ timeout: 45000 });
   expect((await tiles.count()) === 2, `${await tiles.count()} recipes`);
@@ -196,7 +196,7 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await check("plan", 7, { skip: false });
   const nums = await W.planNumbers(page);
   expect(nums.calories > 1500 && nums.calories < 4000 && nums.protein > 60, "the plan's numbers: " + JSON.stringify(nums));
-  expect((await page.getByText("Starting numbers.", { exact: true }).count()) === 0, "'Starting numbers.' for numbers worked out");
+  expect((await page.getByRole("heading", { level: 1, name: /^Your starting plan/ }).count()) === 0, "'Your starting plan' for numbers worked out");
   await page.getByText("Suggested starting points, not medical advice. Adjust any time.").waitFor();
   await page.getByRole("button", { name: /Where these numbers come from/ }).first().waitFor();
   await weekSettled(page);
@@ -217,7 +217,7 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   expect(weekOne > weekAfter && weekAfter > 0, `the first shop £${weekOne}, each week after £${weekAfter}`);
   await weekBox.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).waitFor();
   await weekBox.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
-  await weekBox.getByText("What Meal plan could make you.", { exact: true }).waitFor();
+  await weekBox.getByText("Example plan", { exact: true }).waitFor();
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/kcal yet/).count()) === 0, "a worked-out week (a price or a calorie gap) on Your plan");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).locator("img").count()) >= 7, "the week's pictures");
   expect((await page.getByRole("region", { name: "Your week", exact: true }).getByText("Premium", { exact: true }).count()) === (GATED ? 1 : 0), "Meal plan's Premium badge");
@@ -245,8 +245,8 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await W.press(page, "Continue");
   // 9: the account: one line, the recipe waiting, three ways in, Not now; no Pip (founder 2026-11-20: Pip taken off the account step)
   await check("save", 9, { skip: false });
-  await page.getByText("Free, and it keeps your plan safe on any phone.").waitFor();
-  await page.getByText(`Waiting for you on Home: ${recipe}.`).waitFor();
+  // a headline only (founder 2026-11-26): no grey line, no recipe line
+  expect((await page.getByText("Free, and it keeps your plan safe on any phone.").count()) === 0, "the account step still has its grey line");
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) expect(await page.getByText(way, { exact: true }).isVisible(), `${way} isn't offered`);
   await W.press(page, "Not now");
   await home(page);
@@ -266,7 +266,7 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await ctx.close();
 });
 
-await step("(b) the questions about the person skipped: Skip on About you and on How active are you? both go to Your plan with 'Starting numbers.'; Back to About you; an age under 18 goes straight to Your plan with no numbers, no Change and no week; About you's grey Continue says what is missing and focuses that box", async () => {
+await step("(b) the questions about the person skipped: Skip on About you and on How active are you? both go to 'Your starting plan'; Back to About you; an age under 18 goes straight to Your plan with no numbers, no Change and no week; About you's grey Continue says what is missing and focuses that box", async () => {
   const { ctx, page } = await phone();
   await W.toAbout(page, BASE);
   // nothing typed: the button offers to skip (founder 2026-11-20); something typed: the grey Continue (aria-disabled, still tappable), the reason, the Age box focused
@@ -279,7 +279,7 @@ await step("(b) the questions about the person skipped: Skip on About you and on
   expect(await page.evaluate(() => document.activeElement?.id === "welcome-age"), "the Age box isn't focused after the grey Continue");
   await W.skipBody(page);
   await W.expectCounter(page, 7, 9);
-  await page.getByText("Starting numbers.", { exact: true }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /^Your starting plan/ }).waitFor();
   expect((await W.litSegments(page)) === 7, "the bar after the jump");
   await W.backButton(page).click();
   await W.onStep(page, "about");
@@ -287,7 +287,7 @@ await step("(b) the questions about the person skipped: Skip on About you and on
   await W.aboutYou(page, { sex: "Female", age: 52, height: [5, 4], weight: [10, 2] });
   await W.aboutNext(page);
   await W.skipBody(page);
-  await page.getByText("Starting numbers.", { exact: true }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /^Your starting plan/ }).waitFor();
   await W.backButton(page).click();
   await W.onStep(page, "about");
   expect((await page.getByLabel("Age in years").inputValue()) === "", "the age was kept after Skip");
@@ -372,7 +372,7 @@ await step("(e) GLP-1: the medicine line under the goals (no bubble) and on Your
   await ctx.close();
 });
 
-await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again'; the questions about the person resume at About you with nothing kept; the account resumes with 'Welcome back. Your plan is still here.'; a note from the eleven-step screens (eatOut, week) is read in the new steps", async () => {
+await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again'; the questions about the person resume at About you with nothing kept; the account resumes there; a note from the eleven-step screens (eatOut, week) is read in the new steps", async () => {
   const { ctx, page } = await phone();
   await W.startSteps(page, BASE);
   await W.goal(page, "Maintain");
@@ -406,7 +406,6 @@ await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again
   await page.goto(BASE + "/app");
   await W.press(page, "Carry on from step 9");
   await W.onStep(page, "save");
-  await page.getByText("Welcome back. Your plan is still here.").waitFor();
   await W.backButton(page).click();
   await W.onStep(page, "colours");
   await W.backButton(page).click();
@@ -499,7 +498,7 @@ await step("(i) no connection for the menus or the shops' files: step 4 says so 
   await W.recipes(page);
   await W.skipBody(page);
   // the week is an example from the recipe book (founder 2026-11-20), so it needs no shop file and still shows, with no price
-  await page.getByText("What Meal plan could make you.", { exact: true }).waitFor({ timeout: 30000 });
+  await page.getByText("Example plan", { exact: true }).waitFor({ timeout: 30000 });
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/^(Your first shop|Each week after): /).count()) === 0, "a price on the example week");
   expect((await page.getByRole("region", { name: "Restaurants", exact: true }).locator("li").count()) === 0, "restaurant dishes without the menus");
   await W.planNext(page);

@@ -2,13 +2,12 @@
 
 import { NO_PREFERENCES, type Preferences } from "@/lib/mm/types";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { parseNumber } from "@/lib/mm/addFood";
 import { analytics, reportSetupScreen } from "@/lib/mm/analytics";
 import { tk } from "@/lib/mm/i18n";
 import { dayParam } from "@/lib/mm/day";
 import { EMPTY_BODY, bodyProblems, planFromAnswers, readTargetFields, type BodyAnswers, type BodyProblem } from "@/lib/mm/onboardingPlan";
-import { RECIPES } from "@/lib/mm/recipeBook";
 import { recipeShopSet } from "@/lib/mm/shopProducts";
 import { mealPlanStore, settingsStore, updateSettings } from "@/lib/mm/stores";
 import { afterSignIn, sanitizeResume, SIGN_IN_RESUME_KEY, TYPED_SETUP_KEYS, typedSetup, type SignInReason, type SignInResume, type TypedSetup } from "@/lib/mm/signInGate";
@@ -112,13 +111,6 @@ const SIGN_IN_NOTES: Readonly<Record<string, string>> = {
   busy: tk("Too many tries. Please wait a few minutes and try again."),
 };
 
-/** A screen too short for the account step's extra lines above the sign-in buttons (an iPhone SE at large text, a 320 x 568 phone). */
-const SHORT_SCREEN = 620;
-const onResize = (change: () => void) => {
-  window.addEventListener("resize", change);
-  return () => window.removeEventListener("resize", change);
-};
-
 /** A saved Meal plan whose seven days include today ("You already have a plan for this week."). */
 function planThisWeek(start: string | undefined, today: string): boolean {
   if (!start) return false;
@@ -164,14 +156,11 @@ function Welcome() {
   const [signinBack] = useState(() => params.get("signin"));
   const [resume] = useState(() => (!replay && signinBack && (signinBack === "ok" || signinBack in SIGN_IN_NOTES) ? readResume() : null));
   const signInNote = resume && signinBack && signinBack in SIGN_IN_NOTES ? SIGN_IN_NOTES[signinBack]! : null;
-  const shortScreen = useSyncExternalStore(onResize, () => window.innerHeight < SHORT_SCREEN, () => false);
   // the run, fixed when the steps begin (a run started signed out has the account as its last step)
   const [run, setRun] = useState<WelcomeRun>(() => startRun(false));
   // back from Apple or Google at the account step: Back from it goes to Your plan, and the body answers are gone
   const [answers, setAnswers] = useState<WelcomeAnswers>(() => (resume?.reason === "setup" ? resumeAt(startRun(false), { step: "save", savedOn: "" }, settingsStore.get().hasSetTargets === true)?.answers ?? NO_ANSWERS : NO_ANSWERS));
   const [view, setView] = useState<View>(() => (replay ? { kind: "replay", index: 0 } : resume?.reason === "setup" ? { kind: "step", step: "save" } : resume?.reason === "returning" ? { kind: "returning" } : { kind: "cover" }));
-  // came back to the account step through "Carry on" (its line says the answers are still here)
-  const [resumed, setResumed] = useState(false);
   // the navigation hints for Home's Start here card: the recipe chosen on step 4 and the first restaurant dish on Your plan
   const [firstRecipeId, setFirstRecipeId] = useState<string | null>(() => resume?.firstRecipeId ?? null);
   const [firstDish, setFirstDish] = useState<FirstDish | null>(() => resume?.firstDish ?? null);
@@ -287,7 +276,6 @@ function Welcome() {
     if (carryOn && progress) {
       setFirstRecipeId(progress.firstRecipeId ?? null);
       setFirstDish(progress.firstDish ?? null);
-      setResumed(carryOn.step === "save");
       // the goal chosen before: ticked if the person goes Back to step 1
       if (progress.goalPicked) {
         setGoalTouched(true);
@@ -482,7 +470,6 @@ function Welcome() {
           onSignIn={accountUser ? undefined : signInRequired ? openReturning : () => setSheetOpen(true)}
           // where everyone signs in, someone signed out has nowhere to go back to (Back led to a second sign-in screen)
           onBack={wasOnboarded && !(signInRequired && !accountUser) ? leave : undefined}
-          signInRequired={signInRequired}
         />
         {!signInRequired && !accountUser && <SignInSheet open={sheetOpen} onClose={() => setSheetOpen(false)} />}
       </>
@@ -555,15 +542,12 @@ function Welcome() {
   // The account step: the sign-in screen as the bar's last segment, with Back. Where sign-in is optional, it also has "Not now".
   if (step === "save") {
     if (accountChecking && !accountUser) return <Spinner />;
-    const recipe = firstRecipeId ? RECIPES.find((r) => r.id === firstRecipeId) : undefined;
+    // a headline only (founder 2026-11-26): the recipe waiting on Home and "Your plan is still here" are no longer said here
     return (
       <SignInScreen
         reason="setup"
         top={signInLine ? <>{top}{signInLine}</> : top}
         counter={counter}
-        // on a short screen the recipe line is left out, so Apple, Google and email come first
-        waiting={recipe && !shortScreen ? t(recipe.name) : null}
-        resumed={resumed}
         onNotNow={signInRequired ? undefined : () => finish("notNow")}
       />
     );

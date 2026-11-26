@@ -109,10 +109,8 @@ export function WeekShowcase({ under18 = false, planLine = false }: { under18?: 
             {/* plainly an example, not the person's plan (founder 2026-11-21: "This should say example plan and show a photo of a phone screen so they know it's
                 not their plan") */}
             <div className="mb-3 flex items-start justify-between gap-3">
-              <div className="min-w-0">
-                <h2 className="text-[1.125rem] font-bold leading-tight">{t("Example plan")}</h2>
-                <p className="mt-0.5 text-[0.9375rem] leading-snug text-muted">{t("What Meal plan could make you.")}</p>
-              </div>
+              {/* the label only, no grey line under it (founder 2026-11-26: a headline only) */}
+              <h2 className="min-w-0 text-[1.125rem] font-bold leading-tight">{t("Example plan")}</h2>
               {premium && <PremiumBadge />}
             </div>
             {/* for a screen reader, the week in words; the picture grid below is for the eye */}

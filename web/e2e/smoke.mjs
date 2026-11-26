@@ -70,7 +70,7 @@ await step("onboarding: goal → avoid → shops → a first recipe → about yo
   await shopTile(page, "Sainsbury's").click();
   await page.getByRole("button", { name: "Continue" }).click();
   // 4: two recipes from Sainsbury's: one chosen as the first recipe
-  await visible(page.getByRole("heading", { name: /^Recipes from Sainsbury's/ }));
+  await visible(page.getByRole("heading", { name: /^Pick a recipe from Sainsbury's/ }));
   const tiles = recipeTiles(page);
   await tiles.first().waitFor({ state: "visible", timeout: 45000 });
   if ((await tiles.count()) !== 2) throw new Error(`expected two recipes to choose from, got ${await tiles.count()}`);
@@ -80,7 +80,7 @@ await step("onboarding: goal → avoid → shops → a first recipe → about yo
   await shot("03-onboarding-recipes");
   await page.getByRole("button", { name: "Continue" }).click();
   // 5-6: about you on one screen, then how active; Your plan arrives worked out from them
-  await visible(page.getByRole("heading", { name: /^About you/ }));
+  await visible(page.getByRole("heading", { name: /^Let's work out your numbers/ }));
   await page.getByRole("radio", { name: "Male", exact: true }).click();
   await page.getByLabel("Age in years").fill("34");
   await page.getByLabel("Stone").fill("12");
@@ -106,8 +106,7 @@ await step("onboarding: goal → avoid → shops → a first recipe → about yo
   await shot("04-onboarding-plan");
   await page.getByRole("button", { name: "Continue", exact: true }).click();
   // 8: the account (optional on this build: "Not now")
-  await visible(page.getByRole("heading", { name: /^Save your plan/ }));
-  await visible(text(`Waiting for you on Home: ${recipe}.`));
+  await visible(page.getByRole("heading", { name: /^Save your plan for free/ }));
   await shot("06-onboarding-account");
   await page.getByRole("button", { name: "Not now" }).click();
   await page.waitForURL(/\/app\/?$/);

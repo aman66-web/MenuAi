@@ -112,7 +112,7 @@ await step("the welcome steps with no signal: step 4's two recipes, Your plan's 
   await recipeTiles(page).first().waitFor({ timeout: 15000 }); // RecipeTile's choose mode: a radio each (the 20 November 2026 audit)
   expect((await page.getByText("Recipes can't load just now.", { exact: false }).count()) === 0, "the website's connection line in the app");
   await page.getByRole("button", { name: "Continue" }).click();
-  await page.getByRole("heading", { name: /^About you/ }).waitFor({ timeout: 15000 });
+  await page.getByRole("heading", { name: /^Let's work out your numbers/ }).waitFor({ timeout: 15000 });
   await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("heading", { name: /^Your plan/ }).waitFor({ timeout: 15000 });
   await page.getByText(/^About £[\d,]+ for the week$/).waitFor({ timeout: 15000 });

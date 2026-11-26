@@ -11,12 +11,12 @@ export const HEADLINES = {
   goal: "What's your goal?",
   avoid: "Anything you avoid?",
   shops: "Where do you shop?",
-  recipes: /^Recipes( from |\s*,|$)/,
-  about: "About you",
+  recipes: /^(Pick a recipe|Recipes)( from |\s*,|$)/,
+  about: "Let's work out your numbers",
   active: "How active are you?",
-  plan: "Your plan",
+  plan: /^Your (starting )?plan(\s*,|$)/,
   colours: "Pick your colours",
-  save: "Save your plan",
+  save: "Save your plan for free",
 };
 /** The step ids in order, as lib/mm/welcomeSteps.ts WELCOME_STEPS. */
 export const STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"];

@@ -118,7 +118,7 @@ await step("(b) person A (a vegan woman in stone and feet, losing weight): Your 
   expect(n.calories === A.plan.calories && n.protein === A.plan.protein, "person A's plan: " + JSON.stringify(n));
   await vis(page.getByText("Because of your diet, we set your protein a little higher. Change it any time."));
   await vis(page.getByText("Suggested starting points, not medical advice. Adjust any time."));
-  expect((await page.getByText("Starting numbers.", { exact: true }).count()) === 0, "'Starting numbers.' for worked-out numbers");
+  expect((await page.getByRole("heading", { level: 1, name: /^Your starting plan/ }).count()) === 0, "'Your starting plan' for worked-out numbers");
   const s = await settingsOf(page);
   expect(s.dailyCalories === 1530 && s.dailyProtein === 110 && s.dailyCarbs === 160 && s.dailyFat === 50 && s.hasSetTargets === true, "saved: " + JSON.stringify(s));
   // no word that judges a body or food
@@ -416,7 +416,7 @@ await step("(k) skipped questions stay starting numbers (Home asks for targets);
   await W.toAbout(r.page, BASE);
   await W.skipBody(r.page);
   expect((await W.planNumbers(r.page)).calories === 2000, "the starting calories: " + JSON.stringify(await W.planNumbers(r.page)));
-  await vis(r.page.getByText("Starting numbers.", { exact: true }));
+  await vis(r.page.getByRole("heading", { level: 1, name: /^Your starting plan/ }));
   await W.finishFromPlan(r.page);
   expect((await settingsOf(r.page)).hasSetTargets !== true, "untouched starting numbers were saved as set");
   const done = r.page.getByRole("region", { name: "Start here" }).getByRole("button", { name: "Done with this" });

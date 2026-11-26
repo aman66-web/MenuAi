@@ -52,12 +52,12 @@ async function toShops(p) {
 async function toRecipes(p) {
   await toShops(p);
   await next(p);
-  await p.getByRole("heading", { level: 1, name: /^Recipes/ }).waitFor();
+  await p.getByRole("heading", { level: 1, name: /^(Pick a recipe|Recipes)/ }).waitFor();
 }
 async function toAbout(p) {
   await toRecipes(p);
   await next(p);
-  await p.getByRole("heading", { level: 1, name: /^About you/ }).waitFor();
+  await p.getByRole("heading", { level: 1, name: /^Let's work out your numbers/ }).waitFor();
 }
 async function toActive(p) {
   await toAbout(p);
@@ -76,7 +76,7 @@ async function toPlan(p) {
 }
 /** The replay's screen n (1-2) of Settings › Help › "Show me what Numbite can do": Recipes from {shop}, then Your plan. */
 async function toReplay(p, n) {
-  await p.getByRole("heading", { level: 1, name: /^Recipes/ }).waitFor({ timeout: 30000 });
+  await p.getByRole("heading", { level: 1, name: /^(Pick a recipe|Recipes)/ }).waitFor({ timeout: 30000 });
   if (n === 2) { await p.getByRole("button", { name: "Next", exact: true }).click(); await p.getByRole("heading", { level: 1, name: /^Your plan/ }).waitFor(); }
   await p.waitForTimeout(1500);
 }

@@ -15,7 +15,6 @@ import { useNow, useSettings } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { recipeShopSetFor, useRecipeCards, useRecipeShopSet } from "../_lib/recipes";
 import { useShopManifest } from "../_lib/shopProducts";
-import { SUBLINE } from "./parts";
 import { ShowcaseWindow } from "./ShowcaseWindow";
 
 // Step 4 of the welcome steps, "Recipes from {shop}" (kept as the founder liked it on 20 November 2026: "keep that look"): two of our own recipes made from
@@ -31,7 +30,7 @@ import { ShowcaseWindow } from "./ShowcaseWindow";
 //   "Your first recipe" tag; tapping again un-chooses it. Two fit side by side down to about 290 px.
 // - Ranked by the most protein for the calories (never simply the most protein), and for someone losing weight or on a GLP-1 medicine those at or under 600 kcal
 //   a serving first.
-// - "Tap one to cook first." is the screen's one grey line under its heading, as in the founder's example screens.
+// - The headline says what to do ("Pick a recipe from {shop}"); there is no grey line under it (founder 2026-11-26: "just have a headline, don't have subtitles").
 // - Under them only what must be said: the shop recipes use when a ticked one isn't in recipes yet, and that shelf prices vary by store.
 // - Loading: a status line and page-fill bars; on the website the shop's file (1.3 to 3.5 MB) is waited for up to 6 s, then a words-only line.
 
@@ -97,8 +96,6 @@ export function RecipeChoice({ chosen, onChoose }: { chosen: string | null; onCh
 
   return (
     <>
-      {/* the one line, before the recipes it is about (not in the replay, where nothing is chosen) */}
-      {!replay && <p className={SUBLINE}>{t("Tap one to cook first.")}</p>}
       <ShowcaseWindow kind="recipes" loading={loading} status={shopName ? t("Finding two recipes at {shop}…", { shop: shopName }) : t("Finding two recipes for you…")} rows={2} skeleton={<TileSkeleton />}>
         {ready ? (
           replay ? (
@@ -136,7 +133,7 @@ export function RecipeChoice({ chosen, onChoose }: { chosen: string | null; onCh
       {ready && (
         <div className="mt-3 space-y-2">
           {why && <p className="text-[0.9375rem] leading-snug text-foreground">{why}</p>}
-          <p className="text-sm leading-snug text-muted">{t("Prices are {shop}'s shelf prices and vary by store.", { shop: shopName })}</p>
+          <p className="text-sm leading-snug text-muted">{t("Prices vary by store.")}</p>
         </div>
       )}
     </>
