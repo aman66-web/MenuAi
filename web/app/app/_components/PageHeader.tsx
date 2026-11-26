@@ -5,6 +5,7 @@ import type { MouseEvent, ReactNode } from "react";
 import { backName, useBack } from "../_lib/backNav";
 import { useT } from "../_lib/i18n";
 import { ChevronLeftIcon } from "./icons";
+import { AskPipButton } from "./AskPip";
 import { SettingsGear, ShoppingListPill } from "./TopActions";
 
 // One header for every page (colour meeting, 19 November 2026; approved by the founder that day), in one fixed order so people find things by where they are:
@@ -67,13 +68,15 @@ export function BackButton(props: PageBack & { photo?: boolean; className?: stri
 /** A page's title: compact and heavy, like Home's (groceries/PageBits.tsx TITLE). */
 const TITLE = "text-[1.75rem] font-[800] leading-[1.1] tracking-[-0.02em]";
 
-export function PageHeader({ title, titleId, back, action, list, settings = true, photo, coach, className }: {
+export function PageHeader({ title, titleId, back, action, pip, list, settings = true, photo, coach, className }: {
   /** The page's h1. With Back it goes on its own line under the header row; without, it sits at the left of the row. */
   title?: ReactNode;
   titleId?: string;
   back?: PageBack;
   /** The page's own action (My recipes, Save), placed before the Shopping list pill. */
   action?: ReactNode;
+  /** The Pip button that opens Ask Pip, before the Shopping list pill (Home, Groceries, Eat out; Recipes lays out its own row). */
+  pip?: boolean;
   /** Show the Shopping list pill (Home, Groceries, Eat out, Recipes). */
   list?: boolean;
   /** The Settings cog; false on Settings itself, in sheets and on the full-screen camera. */
@@ -84,7 +87,7 @@ export function PageHeader({ title, titleId, back, action, list, settings = true
   coach?: string;
   className?: string;
 }) {
-  const right = action || list || settings;
+  const right = action || pip || list || settings;
   const heading = title != null && title !== false && <h1 id={titleId} className={TITLE}>{title}</h1>;
   return (
     <>
@@ -95,6 +98,7 @@ export function PageHeader({ title, titleId, back, action, list, settings = true
         {right && (
           <div data-coach={coach} className="-me-1 ms-auto flex max-w-full flex-wrap items-start justify-end gap-x-1 gap-y-1">
             {action && <div className="flex min-h-11 items-center">{action}</div>}
+            {pip && <AskPipButton />}
             {list && <ShoppingListPill photo={photo} />}
             {settings && <SettingsGear photo={photo} />}
           </div>

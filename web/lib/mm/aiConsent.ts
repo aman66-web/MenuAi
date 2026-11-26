@@ -10,11 +10,14 @@
 // Failures (the same audit): when Anthropic can't be reached (the monthly spending cap, an outage, a timeout) the server answers 503 "busy" and the screens say
 // so, instead of blaming the person's photo; the photo-quality words stay for answers that failed the checks.
 
+import { ASK_PIP_ENABLED } from "./askPip";
 import { tk } from "./i18n";
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
-export const AI_FEATURES = ["scan", "photoRecipe", "fridgeRecipe", "mealPlan"] as const;
-export type AiFeature = (typeof AI_FEATURES)[number];
+const ALL_AI_FEATURES = ["scan", "photoRecipe", "fridgeRecipe", "mealPlan", "askPip"] as const;
+export type AiFeature = (typeof ALL_AI_FEATURES)[number];
+/** The features this build has. Ask Pip (lib/mm/askPip.ts) only once it is switched on: then everyone is asked once more, with the chat named on the sheet. */
+export const AI_FEATURES: readonly AiFeature[] = ALL_AI_FEATURES.filter((f) => f !== "askPip" || ASK_PIP_ENABLED);
 
 export const AI_CONSENT_KEY = "mm.v1.aiOk";
 
@@ -38,7 +41,10 @@ export const aiAllowed = (allowed: readonly AiFeature[], feature?: AiFeature): b
 export const withAiAllowed = (allowed: readonly AiFeature[], feature?: AiFeature): AiFeature[] => sanitizeAiConsent([...allowed, ...(feature ? [feature] : []), ...AI_FEATURES]);
 
 /** The sheet's words: every feature and what it sends, in one go (asked once for all of Pip). */
-export const AI_CONSENT_TEXT = tk("Pip's meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: your plan answers, a photo you take, or the foods you list, with your diet and meal sizes. Never your name, email or account. Anthropic may keep requests for a short time under its own terms.");
+export const AI_CONSENT_TEXT = ASK_PIP_ENABLED
+  // with Ask Pip (2026-11-26, for the founder's approval): the chat named, and what it sends (the question, the targets and diet, the diary when asked about the day)
+  ? tk("Pip's chat, meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: what you ask Pip, your plan answers, a photo you take or the foods you list, with your diet, targets and meal sizes, and your food diary when you ask about your day. Never your name, email or account. Anthropic may keep requests for a short time under its own terms.")
+  : tk("Pip's meal plans, food scans and recipes use AI from Anthropic (the makers of Claude). Only what each needs is sent: your plan answers, a photo you take, or the foods you list, with your diet and meal sizes. Never your name, email or account. Anthropic may keep requests for a short time under its own terms.");
 
 /** What each feature sends, in the order the screens ask for it ({shop}: the supermarket's name). */
 export const AI_SENDS: Readonly<Record<AiFeature, string>> = {
@@ -47,6 +53,8 @@ export const AI_SENDS: Readonly<Record<AiFeature, string>> = {
   fridgeRecipe: tk("the foods you typed or tapped, what you fancy, your diet and allergy choices, the meal size and the list of {shop} products it may use"),
   // Meal plan with Pip (founder 2026-11-21): the answers, the note, the meal sizes and the recipes that fit; never the names of the people at home
   mealPlan: tk("your answers to Pip's meal plan questions (with anything you typed for Pip), your meal sizes, the age group and portion size of anyone else you cook for, and the {shop} recipes that fit you"),
+  // Ask Pip (2026-11-26): the conversation's newest turns, the targets, diet, allergies and shops; the diary, saved recipes and plan only when Pip looks them up
+  askPip: tk("what you ask Pip and the chat so far, your goal, targets, diet, allergies and supermarkets, and, when Pip looks them up, today's food diary, your saved recipes and your meal plan"),
 };
 
 /** What the screens say when Pip can't answer (English keys: shown with t()). */

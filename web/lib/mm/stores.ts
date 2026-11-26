@@ -10,6 +10,7 @@ import { indexedDbPhotos } from "./photo-store";
 import { recordView, sanitizeRecent, type RecentView } from "./recent";
 import { sanitizeCompare, type CompareItem } from "./compare";
 import { sanitizeComparePicks, type PickEntry } from "./comparePick";
+import { sanitizeChat, type ChatMessage } from "./askPip";
 import { EMPTY_RATING, sanitizeRating, type RatingState } from "./ratingPrompt";
 import { sanitizeHiddenLogos, setHiddenLogos } from "./logos";
 import { grantShareUnlock, localDay, NO_PAID, NO_TRUTH_DAY, openTruth, sanitizePaid, sanitizeTruthDay, withoutToken, withVerifiedToken, type PaidState, type TruthDay } from "./paid";
@@ -68,6 +69,9 @@ export const earlierPlansStore = createStore<SavedPlan[]>("mm.v1.earlierPlans", 
 export const householdStore = createStore<Household>("mm.v1.household", NO_HOUSEHOLD, { sanitize: sanitizeHousehold });
 /** Recipes Pip wrote that the person saved (the pantry kinds and amounts, rebuilt from today's products when opened). On this device only. */
 export const myRecipesStore = createStore<SavedRecipe[]>("mm.v1.myRecipes", [], { sanitize: sanitizeSavedRecipes });
+/** Ask Pip's conversation (lib/mm/askPip.ts): on this device only, never synced; only its newest turns go with the next question. Cleared by Clear data, signing out
+ *  and deleting the account. */
+export const pipChatStore = createStore<ChatMessage[]>("mm.v1.pipChat", [], { sanitize: sanitizeChat });
 /** Recipes from our book the person saved ("My recipes"), newest first. On this device only. */
 export const savedRecipesStore = createStore<RecipeSave[]>("mm.v1.savedRecipes", [], { sanitize: sanitizeRecipeSaves });
 

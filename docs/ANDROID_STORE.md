@@ -73,6 +73,12 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 | Device or other IDs | **yes since the build with `device.id` (1.1 (3))** | fraud prevention, security and compliance: a one-way hash of the Android ID stops a second free week on the same phone (the server keeps only a second hash of it, even after the account is deleted); not shared | required |
 | Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
 
+**Ask Pip (added 26 November 2026; on `iap`, off until `NEXT_PUBLIC_ASK_PIP=1`): before the Android build that switches it on, update Data safety.** Each chat message
+goes to our server and Anthropic (a service provider, so not "shared") with the newest turns of the chat, the goal, targets, diet and allergy choices, supermarkets and the
+phone's time; today's food diary, saved recipes and meal plan reach Anthropic only when Pip looks them up. Nothing is kept on our server; never a name, email or account ID.
+Add or confirm: **App activity › Other user-generated content** (the questions typed, optional) and **Health and fitness › Health info** (targets, diet, allergies,
+diary entries, already "yes"), with "processed ephemerally" ticked for the chat.
+
 ## What's new (first release)
 
 ```

@@ -130,6 +130,7 @@ export default function HomePage() {
           (founder 2026-11-19), and the Settings cog with its word at the far right (PageHeader: the same top right on every page). */}
       <PageHeader
         coach="home-top"
+        pip
         list
         title={
           <>

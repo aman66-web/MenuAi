@@ -6,7 +6,7 @@ import type { UserSettings } from "./user-data";
 // SPEC §4: free vs Pro. With GATING_ENABLED off (the free launch) every feature is open. With it on, "Pro" is a preview switch (test builds), a checked payment token
 // or the 48 hours given for a WhatsApp share (lib/mm/paid.ts); a payment is verified on the server (lib/payments).
 
-export const PAYWALL_TRIGGERS = ["saveLimit", "bestForYou", "orderBuilder", "log", "recipeMaker", "truthLimit", "moreResults", "leaderboard", "smallAppetite", "photoRecipe", "foodScan", "mealPlan", "fridgeRecipe"] as const;
+export const PAYWALL_TRIGGERS = ["saveLimit", "bestForYou", "orderBuilder", "log", "recipeMaker", "truthLimit", "moreResults", "leaderboard", "smallAppetite", "photoRecipe", "foodScan", "mealPlan", "fridgeRecipe", "askPip"] as const;
 export type PaywallTrigger = (typeof PAYWALL_TRIGGERS)[number];
 
 export function isPro(settings: Pick<UserSettings, "devProOverride">, paid: PaidState = NO_PAID, nowMs: number = Date.now()): boolean {

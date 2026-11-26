@@ -3,6 +3,7 @@
 // Premium action someone can tap is on the list, and nothing is on the list that this build doesn't have (`on`). Words only here (tk keys): the screen draws the
 // icon named by `icon`. Numbers come from the constants that set the limits, never typed again.
 
+import { ASK_PIP_ENABLED } from "./askPip";
 import { FOOD_SCAN_ENABLED, FREE_SAVED_ORDER_LIMIT, PHOTO_RECIPES_ENABLED } from "./config";
 import { FREE_BEST_RESULTS, type PaywallTrigger } from "./entitlements";
 import { tk } from "./i18n";
@@ -40,6 +41,8 @@ export const PREMIUM_FEATURES: readonly PremiumFeature[] = [
   { id: "bestForYou", title: tk("Top 5 picks"), line: tk("For your goal at restaurants that publish protein"), icon: "star", triggers: ["bestForYou"], on: true, headline: false },
   { id: "leaderboards", title: tk("Nutrition leaderboards"), line: tk("All {n} on every board, every shop"), values: { n: BOARD_SIZE }, icon: "podium", triggers: ["leaderboard"], on: true, headline: false },
   { id: "savedOrders", title: tk("Saved orders"), line: tk("As many as you like"), icon: "bookmark", triggers: ["saveLimit"], on: true, headline: false },
+  // Ask Pip (founder 2026-11-26: Premium, like the other Pip features, so the free week has it); off until NEXT_PUBLIC_ASK_PIP=1
+  { id: "askPip", title: tk("Ask Pip"), line: tk("Your food guide and nutrition coach, in a chat"), icon: "star", triggers: ["askPip"], on: ASK_PIP_ENABLED, headline: false },
 ];
 
 /** The features this build has, in the list's order. */
@@ -76,6 +79,7 @@ export const PAYWALL_REASON: Readonly<Record<PaywallTrigger, { text: string; val
   log: { text: tk("Keeping a log is part of Premium.") },
   orderBuilder: { text: tk("The order builder is part of Premium.") },
   recipeMaker: { text: tk("Pip's recipe maker is part of Premium.") },
+  askPip: { text: tk("Ask Pip is part of Premium.") },
 };
 
 /**

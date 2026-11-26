@@ -1,0 +1,149 @@
+{
+ "menu": [
+  {
+   "t": "doing",
+   "what": "menu",
+   "name": "Nando's"
+  },
+  {
+   "t": "card",
+   "card": {
+    "kind": "dishes",
+    "chain": {
+     "id": "nandos",
+     "name": "Nando's"
+    },
+    "items": [
+     {
+      "id": "1-4-chicken",
+      "name": "1/4 Chicken",
+      "serving": "",
+      "kcal": 289,
+      "protein": 39.3,
+      "carbs": 0.3,
+      "fat": 14.5,
+      "image": "nandos/135bc4300b43.webp",
+      "clash": []
+     },
+     {
+      "id": "sweet-potato-wedges",
+      "name": "Sweet Potato Wedges",
+      "serving": "Serves 2",
+      "kcal": 398,
+      "protein": 7.6,
+      "carbs": 43.6,
+      "fat": 22.8,
+      "image": "nandos/b544d3cc0046.webp",
+      "clash": []
+     },
+     {
+      "id": "grilled-chicken-wrap",
+      "name": "Grilled Chicken Wrap",
+      "serving": "",
+      "kcal": 514,
+      "protein": 36.2,
+      "carbs": 54.1,
+      "fat": 16.3,
+      "image": "nandos/d85464a69821.webp",
+      "clash": [
+       "Contains milk"
+      ]
+     }
+    ],
+    "total": null
+   }
+  },
+  {
+   "t": "say",
+   "text": "The quarter chicken with sweet potato wedges suits your protein well."
+  },
+  {
+   "t": "say",
+   "text": " The Grilled Chicken Wrap contains milk, so I'd skip that one."
+  },
+  {
+   "t": "end",
+   "left": 39
+  }
+ ],
+ "recipes": [
+  {
+   "t": "doing",
+   "what": "recipes"
+  },
+  {
+   "t": "card",
+   "card": {
+    "kind": "recipes",
+    "shop": {
+     "id": "sainsburys",
+     "name": "Sainsbury's"
+    },
+    "items": [
+     {
+      "id": "chicken-rice-bowl",
+      "name": "Chicken, rice and soy bowl",
+      "meal": "dinner",
+      "minutes": 25,
+      "kcal": 544,
+      "protein": 54.3,
+      "carbs": 66.8,
+      "fat": 5.6,
+      "cost": 2.31
+     },
+     {
+      "id": "chicken-curry",
+      "name": "Chicken curry with rice",
+      "meal": "dinner",
+      "minutes": 35,
+      "kcal": 692,
+      "protein": 62,
+      "carbs": 76.2,
+      "fat": 12.5,
+      "cost": 2.38
+     }
+    ]
+   }
+  },
+  {
+   "t": "say",
+   "text": "Here are two chicken dinners you could cook tonight."
+  },
+  {
+   "t": "say",
+   "text": " Tap Save to keep one in My recipes."
+  },
+  {
+   "t": "end",
+   "left": 39
+  }
+ ],
+ "plan": [
+  {
+   "t": "card",
+   "card": {
+    "kind": "plan",
+    "handoff": {
+     "answers": {
+      "aim": "loseFat",
+      "cookWeekday": 30,
+      "spice": "mild"
+     }
+    },
+    "lines": []
+   }
+  },
+  {
+   "t": "say",
+   "text": "Your week is set up: dinners in 30 minutes or less, nothing too spicy."
+  },
+  {
+   "t": "say",
+   "text": " Tap View meal plan and I'll make it."
+  },
+  {
+   "t": "end",
+   "left": 39
+  }
+ ]
+}

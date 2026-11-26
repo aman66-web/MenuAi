@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SEARCH_HELP_ENABLED } from "@/lib/mm/searchHelp";
 import { PLAN_AI_API_ENABLED } from "@/lib/mm/planAi";
+import { ASK_PIP_ENABLED } from "@/lib/mm/askPip";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
@@ -42,6 +43,7 @@ const AI_FEATURES = [
   COMPARE_PICK_ENABLED && "Pip's pick on Compare",
   SEARCH_HELP_ENABLED && "search help",
   PLAN_AI_API_ENABLED && "Meal plan with Pip",
+  ASK_PIP_ENABLED && "Ask Pip",
 ].filter((f): f is string => typeof f === "string");
 const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
@@ -327,6 +329,27 @@ export default function Privacy() {
           keeps Pip&apos;s answer for exactly the same request in its memory for up to a day, filed under a one-way scramble of what was sent, so the AI isn&apos;t
           asked twice; nothing is stored. To check you have Premium, your device sends its access token, which holds no personal details, and a one-way scramble of
           details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
+        </p>
+      </Section>
+      )}
+
+      {/* Ask Pip, added 26 November 2026 (lib/mm/askPip.ts): shown once the chat is switched on (NEXT_PUBLIC_ASK_PIP=1) */}
+      {ASK_PIP_ENABLED && (
+      <Section title="Ask Pip">
+        <p className={para}>
+          From 26 November 2026, if you have Premium you can chat with Pip, the app&apos;s food guide and nutrition coach. Each message you send goes to our server with
+          the newest part of your chat, your goal, your daily calories and protein (and carbs and fat if you set them), your diet and allergy choices, the
+          supermarkets you chose and your phone&apos;s day and time. Our server passes them to Anthropic, the company that makes the Claude AI, which writes Pip&apos;s
+          answer. Today&apos;s food diary, the recipes you saved and your meal plan also go to our server with each message, but are passed to Anthropic only when Pip
+          needs to look at them to answer you. Your name, email, account and location are never sent. Pip asks for your OK the first time.
+        </p>
+        <p className={para}>
+          Pip looks up restaurant dishes, supermarket products and our recipes in the app&apos;s own data, and every figure and price you see in the chat comes from
+          those, never from the AI; a sentence with a figure that didn&apos;t come from the app&apos;s data is taken out before you see it. Your chat is kept on your
+          device only (it isn&apos;t synced to your account or kept on our server) and is deleted by Start again, Clear data, signing out and deleting your account.
+          Our server keeps nothing from the chat. To check you have Premium, your device sends its access token, which holds no personal details, and a one-way
+          scramble of details in that token (never a name or email), held only in our server&apos;s memory for a day at most, limits how many messages one person can
+          send in a day.
         </p>
       </Section>
       )}

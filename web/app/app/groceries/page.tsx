@@ -59,7 +59,7 @@ export default function GroceriesPage() {
     <div>
       {/* the title, then the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19); it wraps, so at large text the pill and
           the cog move under the title instead of breaking the word "Groceries" */}
-      <PageHeader title={t("Groceries")} list />
+      <PageHeader title={t("Groceries")} pip list />
       {/* what this tab is for, in one line (founder 2026-11-18: "everyone needs to understand the point for each screen"); as short as it still says it
           (the words pass, 20 November 2026) */}
       <p className="mt-2.5 text-[0.9375rem] leading-snug text-muted">{t("Supermarket prices, calories and protein.")}</p>

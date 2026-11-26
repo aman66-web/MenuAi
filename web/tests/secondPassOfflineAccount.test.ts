@@ -57,7 +57,7 @@ vi.mock("../app/app/_lib/communityCache", () => ({ communityCacheStore: { reset:
 vi.mock("../app/app/_lib/inviteCode", () => ({ forgetInviteCode: () => {} }));
 vi.mock("@/lib/mm/stores", () => {
   const fake = () => ({ get: () => undefined, set: () => {}, reset: () => {}, subscribe: () => () => {} });
-  const names = ["compareStore", "cupboardStore", "earlierPlansStore", "favoritesStore", "homePagesStore", "logStore", "mealPlanStore", "myRecipesStore", "recentStore", "remindersStore", "savedRecipesStore", "savedStore", "settingsStore", "shoppingStore", "waterStore", "householdStore"];
+  const names = ["compareStore", "cupboardStore", "earlierPlansStore", "favoritesStore", "homePagesStore", "logStore", "mealPlanStore", "myRecipesStore", "recentStore", "remindersStore", "savedRecipesStore", "savedStore", "settingsStore", "shoppingStore", "waterStore", "householdStore", "pipChatStore"];
   return Object.fromEntries(names.map((n) => [n, fake()]));
 });
 

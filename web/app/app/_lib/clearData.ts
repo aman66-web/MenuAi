@@ -4,7 +4,7 @@ import { aiConsentStore } from "@/lib/mm/aiConsent";
 import { forgetInstallId } from "@/lib/mm/analytics";
 import {
   clearReminders, coachStore, comparePicksStore, compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, householdStore, logStore, mealPlanStore,
-  myRecipesStore, outbox, ratingStore, recentStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, waterStore,
+  myRecipesStore, outbox, pipChatStore, ratingStore, recentStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, tourStore, waterStore,
 } from "@/lib/mm/stores";
 import { DEFAULT_SETTINGS } from "@/lib/mm/user-data";
 import { forgetAccountAccess } from "@/lib/payments/accountAccess";
@@ -57,6 +57,7 @@ const CLEARED: Record<string, () => void> = {
   "mm.v1.recentItems": () => recentStore.reset(),
   "mm.v1.compare": () => compareStore.reset(),
   "mm.v1.comparePicks": () => comparePicksStore.reset(),
+  "mm.v1.pipChat": () => pipChatStore.reset(), // Ask Pip's conversation
   "mm.v1.rating": () => ratingStore.reset(),
   "mm.v1.aiOk": () => aiConsentStore.reset(), // the permission for Pip's AI features: asked again
   "mm.v1.outbox": () => outbox().clear(), // messages not sent yet (and a report's photo)

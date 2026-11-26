@@ -54,6 +54,8 @@ import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, Leftover
 import { SwapPicker } from "./SwapPicker";
 import { WeekSummary } from "./WeekSummary";
 import { clearPlanMaking, finishPlanMaking, planMakingStore, planMakingWatchedStore, startPlanMaking } from "../_lib/planMaking";
+import { pipPlanHandoffStore } from "../_lib/askPip";
+import type { PlanHandoff } from "@/lib/mm/askPip";
 
 // The meal plan (founder 2026-11-18; lib/mm/mealPlan.ts has the rules). Premium ("a third icon, which has meal plan, and that has pro on it"). Pip asks one thing
 // a screen ("they just got to type in all their stuff, like Pip's guiding them through"): the daily numbers from the person's own plan, their diet and allergies,
@@ -212,12 +214,15 @@ function PlanScreen() {
   const hydrated = useHydrated();
   const saved = useStore(mealPlanStore);
   const pro = useIsPro();
-  const [editing, setEditing] = useState(false);
+  // a plan Pip set up in Ask Pip (_components/AskPip.tsx, "View meal plan"): taken once, and made straight away from his answers (Questions `pip`)
+  const [fromPip] = useState<PlanHandoff | null>(() => pipPlanHandoffStore.get());
+  useEffect(() => { if (fromPip) pipPlanHandoffStore.set(null); }, [fromPip]);
+  const [editing, setEditing] = useState(!!fromPip);
   if (!hydrated) return <Spinner />;
   if (GATING_ENABLED && !pro) return <PremiumIntro />;
   // a new plan is saved as soon as it is made (leaving "Making your plan" keeps it); `editing` holds the questions' screen until Making is over
   if (saved && !editing) return <Week key={saved.start} saved={saved} onChange={() => setEditing(true)} />;
-  return <Questions saved={saved} onStart={() => setEditing(true)} onDone={() => setEditing(false)} onKeep={saved ? () => setEditing(false) : undefined} />;
+  return <Questions saved={saved} pip={fromPip ?? undefined} onStart={() => setEditing(true)} onDone={() => setEditing(false)} onKeep={saved ? () => setEditing(false) : undefined} />;
 }
 
 /**
@@ -346,7 +351,7 @@ function PremiumIntro() {
 
 // ---------- Pip's questions, one a screen ----------
 
-function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null; onStart: () => void; onDone: () => void; onKeep?: () => void }) {
+function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan | null; pip?: PlanHandoff; onStart: () => void; onDone: () => void; onKeep?: () => void }) {
   const t = useT();
   const settings = useSettings();
   // tried again from the check screen's "Try again" when the shops or their products couldn't be loaded
@@ -363,7 +368,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
   const steps = useMemo(() => stepsFor(household, shape.meals.includes("breakfast")), [household, shape.meals]);
   // Pip's extra questions (PipSteps.tsx), nothing chosen until the person chooses (a new plan starts from the last one's answers)
-  const [answers, setAnswers] = useState<PlanAnswers>(() => sanitizeAnswers(saved?.answers));
+  // (from Ask Pip: his answers over the last plan's)
+  const [answers, setAnswers] = useState<PlanAnswers>(() => sanitizeAnswers({ ...saved?.answers, ...pip?.answers }));
   const answer = (patch: Partial<PlanAnswers>) => setAnswers((a) => ({ ...a, ...patch }));
   // the person's bread and fruit and veg answers as the plan's limits (mealBalance.ts BalanceLimits), used by the phone's own planner too
   const limits = useMemo(() => planLimits(answers), [answers]);
@@ -383,8 +389,8 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   };
   // the first open, with no plan yet, starts on the check screen ("direct": not walked through the steps yet, so there is no step count and Back goes Home);
   // Make a new plan walks the steps from the first, as before
-  const [direct, setDirect] = useState(!saved);
-  const [step, setStep] = useState(() => (saved ? 1 : steps.length));
+  const [direct, setDirect] = useState(!saved || !!pip);
+  const [step, setStep] = useState(() => (saved && !pip ? 1 : steps.length));
   const id: StepId = steps[Math.min(step, steps.length) - 1] ?? "count";
   const total = steps.length;
   // no budget on the first open: the best week for the goal, as the preview made it (planForBudget with none); a budget only once the slider is moved (opening
@@ -401,7 +407,7 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
   const slots = useMemo(() => planSlots(shape), [shape]);
   // how they like to eat (founder 2026-11-20): High protein and Lower carb fit every meal to more protein (mealPlan.ts styleTargets; Balanced: the same sizes,
   // so a first open makes the week the onboarding preview made) and the plan uses only that style's recipes (styleCandidates)
-  const [style, setStyle] = useState<EatingStyle>(saved?.style ?? "balanced");
+  const [style, setStyle] = useState<EatingStyle>(pip?.style ?? saved?.style ?? "balanced");
   const ownTargets = useSlotTargets(shape);
   const targets = useMemo(() => styleTargets(ownTargets, style), [ownTargets, style]);
   // how often a meal may come round (founder 2026-11-18: "they can choose if they want any foods repeated")
@@ -676,6 +682,14 @@ function Questions({ saved, onStart, onDone, onKeep }: { saved: SavedPlan | null
       setMaking({ steps: [...first, ...(final ? [] : [t("Pip couldn't plan with your answers this time")]), ...workSteps((final ?? plan).week)], more: false, pip: true });
     });
   };
+
+  // from Ask Pip: made once, as soon as the recipes are worked out (a budget that still needs choosing leaves the check screen with Make my plan)
+  const pipMade = useRef(false);
+  useEffect(() => {
+    if (!pip || pipMade.current || !ready || !prep) return;
+    pipMade.current = true;
+    make();
+  });
 
   const working = preparing && (
         <ul className="mt-5 space-y-3" aria-label={t("Working out the prices")}>

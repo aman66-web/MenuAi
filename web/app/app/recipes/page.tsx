@@ -40,6 +40,7 @@ import { ServingPriceSheet } from "./ServingPrice";
 import { MEAL_LOOK, RecipeTile } from "./RecipeTile";
 import { RecipeThumbStack, hasRecipePicture } from "./RecipeThumb";
 import { useListAddress, useNicheFilter } from "./useNicheFilter";
+import { AskPipButton } from "../_components/AskPip";
 import { SettingsGear, ShoppingListPill } from "../_components/TopActions";
 
 // Recipes from your shop (founder 2026-10-10): every ingredient is a real product at that supermarket, with its shelf price and the
@@ -332,6 +333,7 @@ function RecipesScreen() {
           </span>
         </Link>
         <div className="-me-1 ms-auto flex max-w-full flex-wrap items-start justify-end gap-x-1 gap-y-1">
+          <AskPipButton />
           <ShoppingListPill />
           <SettingsGear />
         </div>

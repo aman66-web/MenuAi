@@ -65,6 +65,9 @@ describe("Pip's eyebrows", () => {
 
 /** Every screen that may draw Pip (imports app/app/_components/Mascot.tsx), as of 20 November 2026. */
 const MAY_DRAW_PIP = [
+  // Ask Pip (26 November 2026): the Pip button where the founder asked for it (each tab's top bar, before the Shopping list), and in the chat Pip beside his
+  // own words only; his cards with their figures go under the conversation's width, never beside him
+  "app/app/_components/AskPip.tsx",
   "app/app/_components/CoachMarks.tsx",
   "app/app/_components/SignIn.tsx",
   "app/app/_components/SignInScreen.tsx",

@@ -77,6 +77,12 @@ tracking, and there is no analytics in this version.
 | User Content → Other User Content (Community) | **Only if the person uses Community**: friends and requests, blocks, the shopping lists sent between friends (product references and typed words, no prices; 30 days) and reports | Yes |
 
 - Purpose for all of the above: App Functionality.
+- **Ask Pip (added 26 November 2026; built on `iap`, off until `NEXT_PUBLIC_ASK_PIP=1`): before the build that switches it on, update App Privacy.** Each chat
+  message goes to our server and Anthropic with the newest turns of the chat, the person's goal, targets, diet and allergy choices, supermarkets and the
+  phone's time; today's food diary, saved recipes and meal plan go to our server and reach Anthropic only when Pip looks them up. Nothing is kept on our server
+  (the chat stays on the phone), never a name, email or account ID. Answers to add or confirm, all **not linked to the user**, purpose App Functionality:
+  **User Content › Other User Content** (the questions typed), **Health & Fitness › Health** (targets, diet, allergies, food diary entries), and **Search
+  History** already covers search help. Update the privacy page's "Last updated" date in `web/site.config.ts` on the same day.
 - Location: **not collected** (used on the phone only to sort nearby branches; a typed postcode goes to postcodes.io for the lookup and
   isn't kept by us). Camera: not collected (barcodes are read on the phone).
 - Purchases: none in this version. Apple Health: not used.

@@ -86,7 +86,7 @@ export default function EatOutPage() {
       {/* the shopping list and the Settings cog at the top right, as on every tab (founder 2026-11-19: "the settings cog should be on the top right of every
           page. Also shopping list should be on the last page too"); at a narrow width or a larger text the pill and the cog move under the title */}
       {/* no intro line under the title (words pass, 20 November 2026: Home has none, and the rows' "calories only" labels say what each restaurant publishes) */}
-      <PageHeader title={<Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} />} list />
+      <PageHeader title={<Rich text={t("Eat {out}")} values={{ out: <span className="serif-em">{t("out")}</span> }} />} pip list />
 
       <StartPrompt className="mt-5" />
 

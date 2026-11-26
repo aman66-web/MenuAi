@@ -11,7 +11,7 @@ import { communityCacheStore } from "./communityCache";
 import { forgetInviteCode } from "./inviteCode";
 import { withoutArrival } from "@/lib/mm/homePages";
 import { forgetAccountAccess } from "@/lib/payments/accountAccess";
-import { compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, logStore, mealPlanStore, myRecipesStore, recentStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
+import { compareStore, cupboardStore, earlierPlansStore, favoritesStore, homePagesStore, logStore, mealPlanStore, myRecipesStore, pipChatStore, recentStore, remindersStore, savedRecipesStore, savedStore, settingsStore, shoppingStore, waterStore, householdStore } from "@/lib/mm/stores";
 
 // Sign-in and sync for the running app (docs/ACCOUNTS_SYNC.md). Since 2026-11-17 everyone signs in (lib/mm/config.ts SIGN_IN_REQUIRED: the app shows the
 // sign-in screen until someone is); with that switch off signing in is optional, and with no account none of this does anything and everything stays on the device. The cached "who" (mm.v1.account) is only for showing the name; the real session is the server's
@@ -62,7 +62,7 @@ export const syncEngine = (): SyncEngine =>
     }),
     meta: syncMetaStore,
     // what stays on this device but belongs to whoever uses it: a different person signing in here starts with these empty (privacy page)
-    localStores: [waterStore, remindersStore, mealPlanStore, earlierPlansStore, householdStore, recentStore],
+    localStores: [waterStore, remindersStore, mealPlanStore, earlierPlansStore, householdStore, recentStore, pipChatStore],
     api: accountApi(),
     now: () => Date.now(),
   }));
@@ -147,6 +147,7 @@ function forgetAccountsOwn(): void {
   householdStore.reset(); // the people the meal plan cooks for: another person may sign in next on this phone
   mealPlanStore.reset(); // the week's plan and the earlier ones are made for those people
   earlierPlansStore.reset();
+  pipChatStore.reset(); // Ask Pip's conversation is the person's own
   homePagesStore.set(withoutArrival(homePagesStore.get())); // Home's Start here card and toast from the welcome screens belong to the account just left
   forgetAccountAccess(); // the account's free week or gift of Premium (a bought one stays: lib/payments/accountAccess.ts)
 }
