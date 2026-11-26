@@ -10,7 +10,7 @@ each recipe's description of how it looks from above is in `web/lib/mm/recipeBoo
 
 Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**
 (https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.
-The safe way is for a person to paste each prompt (442 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
+The safe way is for a person to paste each prompt (433 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
 current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.
 
 ## Hand-over for Claude in Chrome (or for a person)
@@ -31,7 +31,7 @@ You are making one picture per recipe with Midjourney for Numbite, a UK calories
 Then, on the founder's computer: copy the PNG files into `data/recipe-images/` (named `<recipe id>.png`), run `python3 tools/recipes/import_recipe_images.py` (it crops to 4:3, resizes to 800 x 600, writes WebP copies into `web/public/recipe-images/`
 and lists them in `web/lib/mm/recipeImages.ts`), then commit and push. Or send the files to Claude and it does this.
 
-442 recipes, 382 with a picture.
+433 recipes, 382 with a picture.
 
 ## Breakfast
 
@@ -477,18 +477,6 @@ A round white bowl of thick, creamy oat porridge with spoonfuls of golden-brown 
 
 ```
 A deep white bowl of thick soaked oats flecked with grated apple and dark plump raisins, scattered on top with roughly chopped pale almonds and a dusting of cinnamon. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Protein pancakes with berries and yogurt · `protein-pancakes-berries-yogurt`
-
-```
-A stack of four small golden-brown pancakes on a white plate, topped with a thick dollop of white yogurt and a heap of glossy deep red and purple mixed berries spilling down the sides. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Protein overnight oats with berries · `protein-overnight-oats-berries`
-
-```
-A wide glass bowl of thick, creamy soaked oats seen from straight above, the pale surface flecked with cinnamon and topped with a cluster of glossy red and purple mixed berries. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Banana, berry and almond yogurt bowl · `banana-berry-almond-yogurt-bowl`
@@ -1213,22 +1201,16 @@ A round white plate with a mound of white rice beside a rich red stew of tomato,
 A wide white bowl of cool noodles with shredded green lettuce and thin cucumber sticks, topped with large flakes of glossy soy-glazed pink salmon and a thin, glossy dressing flecked with red chilli. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
-### Soy tofu and edamame rice bowl with cucumber · `soy-tofu-edamame-rice-bowl`
+### Soy tofu and pea rice bowl with cucumber · `soy-tofu-pea-rice-bowl`
 
 ```
-A wide white bowl of white rice topped in separate piles with glossy soy-glazed golden tofu cubes, bright green edamame beans and pale green cucumber half-moons, scattered with spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
+A wide white bowl of white rice topped in separate piles with glossy soy-glazed golden tofu cubes, bright green peas and pale green cucumber half-moons, scattered with spring onion rings. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Smoky tofu and pepper wraps with houmous · `smoky-tofu-pepper-wraps`
 
 ```
 A tortilla wrap cut in half on the diagonal on a round white plate, the cut ends showing golden paprika-dusted tofu strips, soft red pepper strips, creamy beige houmous and green salad leaves. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Edamame, pea and spinach pasta with lemon · `edamame-pea-spinach-lemon-pasta`
-
-```
-A white bowl of short pasta shapes glossy with olive oil, tossed with bright green edamame beans, green peas and dark wilted spinach, dotted with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Cottage cheese, spinach and pepper frittata with salad · `cottage-cheese-spinach-pepper-frittata-salad`
@@ -2597,24 +2579,6 @@ A small white bowl of thick white yogurt topped with small chunks of red-skinned
 A small white bowl of smooth, thick red-brown kidney bean dip flecked with cumin, on a white plate surrounded by orange carrot sticks and pale green cucumber sticks. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
-### Peanut butter protein flapjacks · `peanut-butter-protein-flapjacks`
-
-```
-A stack of thick golden-brown oat flapjack squares on a white plate, the chewy tops showing whole oats and darker caramelised edges, with one square broken in half to show the dense, moist oat inside. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Oat and raisin protein balls · `oat-raisin-protein-balls`
-
-```
-A round white plate of a dozen pale golden oat balls, each about the size of a walnut, their rough surfaces showing whole oats and dark wrinkled raisins, with a fine dusting of cinnamon. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Protein yogurt bark with berries and almonds · `protein-yogurt-berry-almond-bark`
-
-```
-Jagged pieces of frozen white yogurt bark on a sheet of baking paper, studded with deep red and purple mixed berries and pale chopped almond pieces, the edges crisp and frosty. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
 ### Cottage cheese and spinach egg muffins · `cottage-cheese-spinach-egg-muffins`
 
 ```
@@ -2639,22 +2603,10 @@ A white bowl of thick white yogurt dip speckled with pale green grated cucumber 
 Short pieces of cucumber halved lengthways and hollowed out, laid in two rows on a white plate, each heaped with flaked pale pink tuna and bright yellow sweetcorn kernels, speckled with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
-### Warm edamame with soy and lemon · `warm-edamame-soy-lemon`
-
-```
-A round white bowl heaped with glossy bright green shelled edamame beans, coated in a thin dark soy glaze and flecked with cracked black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
 ### Crispy soy and paprika tofu bites · `crispy-soy-paprika-tofu-bites`
 
 ```
 Golden-brown cubes of crisp baked tofu with darker toasted edges, dusted with red paprika and glazed with soy, piled in a shallow white bowl. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Edamame and pea smash on toast · `edamame-pea-smash-toast`
-
-```
-Two slices of golden wholemeal toast on a white plate, each spread thickly with a rough bright green smash of crushed edamame and peas with some whole beans showing, glossy with olive oil and dotted with black pepper. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Peanut butter yogurt dip with apple slices · `peanut-butter-yogurt-dip-apple`
@@ -2679,12 +2631,6 @@ Two slices of wholemeal toast on a white plate, each covered with creamy white c
 
 ```
 Two tall glasses of thick, deep purple berry smoothie seen from straight above, the creamy round tops filling each glass, with a few whole red and purple mixed berries resting on the surface. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Berry and almond protein yogurt pots · `berry-protein-yogurt-pots`
-
-```
-Two clear glass pots seen from above, filled with thick white yogurt topped with glossy deep red and purple mixed berries and a scatter of roughly chopped pale almonds. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Ham and cottage cheese pepper cups · `ham-cottage-cheese-pepper-cups`

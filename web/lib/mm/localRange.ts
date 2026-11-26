@@ -118,4 +118,13 @@ export const LOCAL_SHOP_PRODUCTS: ReadonlySet<string> = new Set([
   "weetabix-12-original-cereal-pack",
   "weetabix-24-original-cereal-pack",
   "yeo-valley-organic-natural-yogurt-450g",
+  // the protein kinds (founder 2026-11-26: "use protein powder, tofu, Quorn, edamame and soy drink ... If it's something that would only be available at a massive
+  // Sainsbury's and not Sainsbury's local, you'll have to leave it out"): judged the same way on 26 November 2026 ("would a typical Sainsbury's Local or Tesco
+  // Express usually stock this exact product in this size?"), 5 of the 23 Sainsbury's products the recipes could use. No edamame (2 judged) or whey protein
+  // powder (2 judged) passed, so no recipe uses them.
+  "alpro-1l-soya-no-sugar-chilled-dairy-free-drink",
+  "alpro-1l-soya-plant-based-chilled-drink",
+  "quorn-vegetarian-chicken-style-pieces-300g",
+  "sainsburys-unsweetened-long-life-soya-drink-1l",
+  "the-tofoo-co-naked-organic-tofu-280g",
 ]);

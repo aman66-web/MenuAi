@@ -191,6 +191,7 @@ for (const p of PEOPLE) {
     const text = (await page.locator("main").innerText()).replace(/\s+/g, " ");
     if (p.goalLine) {
       await page.getByText(p.goalLine).first().waitFor();
+      console.log(`      ${await page.getByText(p.goalLine).first().innerText()}`);
       await page.getByText("Make a new plan every 4 weeks with your new weight, so your numbers keep up.").waitFor();
     } else expect(!/ in about \d+ (to \d+ )?weeks/.test(text), "no time to a goal when training for a sport");
     const card = page.locator("#day-h").locator("..").locator("div", { has: page.locator("p", { hasText: /^Exercise$/ }) }).first();
@@ -199,6 +200,7 @@ for (const p of PEOPLE) {
     const cardText = (await card.innerText()).replace(/\s+/g, " ");
     expect(cardText.includes(what), `${DAY[TODAY]}'s exercise is ${what}: ${cardText}`);
     if (figures) expect(cardText.includes(figures), `${DAY[TODAY]}'s figures ${figures}: ${cardText}`);
+    console.log(`      ${DAY[TODAY]}: ${cardText}`);
     await card.scrollIntoViewIfNeeded();
     await widths("16-week");
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);

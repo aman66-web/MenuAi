@@ -60,6 +60,25 @@ Full ranked list (top 400 of 11,264 thin combinations out of 17,937): `web/.reci
   shawarma-style salad (Middle Eastern lunch); paprika chicken traybake, roast salmon with peppers, tuna egg salad (paleo).
 - Five drafts were dropped as near-duplicates of existing recipes (three keto dinners, the soy beef noodles, a salmon and rice dinner).
 
+## Changed the same day: the small-shop rule (442 -> 433)
+
+Founder, 26 November (relayed by the desktop session): "use protein powder, tofu, Quorn, edamame and soy drink ... we're basing it on what these supermarkets sell:
+Tesco, Sainsbury's ... If it's something that would only be available at a massive Sainsbury's and not Sainsbury's local, you'll have to leave it out ... You can
+ignore corner shops". So the protein kinds are held to the same test as every other ingredient (`web/lib/mm/localRange.ts`): three independent judges were asked,
+for each of the 23 Sainsbury's products the recipes could use, "would a typical Sainsbury's Local or Tesco Express usually stock this exact product in this
+size?", and a product is listed only on two or more yeses.
+
+- **Passed (5):** The Tofoo Co. Naked Organic Tofu 280 g, Quorn Vegetarian Chicken Style Pieces 300 g, Sainsbury's Unsweetened Long Life Soya Drink 1 L, Alpro
+  Soya chilled 1 L, Alpro Soya No Sugar chilled 1 L. Recipes now pick these first. A meat-free recipe may take Quorn's "Chicken Style" pack: for the Quorn kind
+  only, a product the diet rule reads as meat-free skips the plain meat-word check (`web/lib/mm/recipes.ts` `MEAT_STYLE_KINDS`).
+- **Failed (all three said no):** both edamame products and both whey protein tubs, and every other tofu, Quorn and soya pack. `PROTEIN_KINDS` is now tofu, Quorn
+  and soya drink; edamame and whey protein stay in the pantry (substitutes, Pip's recipe maker) but no recipe uses them.
+- **Left out (9):** peanut butter protein flapjacks, oat and raisin protein balls, protein yogurt bark, berry protein yogurt pots, protein pancakes, protein
+  overnight oats (the powder-free cottage cheese pancakes and yogurt bark in `snacks.ts` stay), warm edamame with soy and lemon, edamame and pea smash on toast,
+  edamame pea pasta.
+- **Swapped (1):** the soy tofu rice bowl takes peas for the edamame (`soy-tofu-pea-rice-bowl`).
+- Recipes each shop can make: Sainsbury's 433, Morrisons 429, Waitrose 378, Iceland 376, Asda 361, M&S 221, Aldi 147.
+
 ## After
 
 Not measured yet: the Mac ran short of memory and the run moved to the cloud session. Rerun the command above and compare with `gaps-before.md`; expected to
@@ -68,8 +87,8 @@ close items 1 to 6 at the five big shops (snacks, vegan and vegetarian protein, 
 ## Still to do
 
 - Rerun the audit and fill what is still thin (likely: vegan snacks at a fat-loss size, Longevity for losing fat, Lower salt at Morrisons and Iceland).
-- `tests/eatingStyle.test.ts` "a varied week ... keto 7": the keto week now has eggs 4 days running in one meal (limit 3).
-- Regenerate keys and coverage: `WRITE_I18N=1 npx vitest run tests/i18n.test.ts`, `WRITE_COVERAGE=1 npx vitest run tests/recipeCoverage.test.ts`; then `npx tsc --noEmit`.
-- Pictures: 60 new recipes have a look and a prompt in `docs/RECIPE_IMAGE_PROMPTS.md`, none has a picture yet (about 60 to 70 Higgsfield credits at 1 credit
+- ~~`tests/eatingStyle.test.ts` "a varied week ... keto 7"~~ fixed in the cloud checks (26 Nov): the planner's search gained one move and the keto week is back to 3.
+- ~~Regenerate keys and coverage~~ done in the cloud checks (26 Nov), with the scan references and the leaderboards.
+- Pictures: the 51 new recipes kept have a look and a prompt in `docs/RECIPE_IMAGE_PROMPTS.md`, none has a picture yet (about 51 to 60 Higgsfield credits at 1 credit
   a picture, with a few retries; needs the founder's go-ahead to spend).
 - Aldi and M&S: read the missing labels (item 9).
