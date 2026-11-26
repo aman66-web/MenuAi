@@ -10,7 +10,7 @@ import java.time.ZonedDateTime
 /**
  * Steps for the page's Steps card and week (founder 2026-11-26: "the app should also track peoples steps too"; web/lib/mm/steps.ts, StepCounter.swift on the iPhone).
  * The counts are handed to the page and kept nowhere by the app: not stored, not sent, not synced. Pure Kotlin here (the day ranges and the reply), unit-tested
- * without a phone; the phone's own counter is behind [StepCounting].
+ * without a phone; the phone's own counter is behind [StepCounting]: Google Play services' on-phone recording (RecordingStepCounter.kt, PlayStepRecorder.kt).
  */
 
 /** One day's steps: the phone's own calendar day ("YYYY-MM-DD", local time). `partial`: counting began part-way through that day. */
@@ -35,7 +35,7 @@ interface StepCounting {
     fun openSettings()
 }
 
-/** A phone that can't count steps for the app (and the tests' default): every answer is "unavailable", so the page shows nothing. */
+/** No step counter (a bridge made without one, as in older tests): every answer is "unavailable", so the page shows nothing. */
 class NoStepCounter : StepCounting {
     override suspend fun access() = "unavailable"
     override suspend fun steps(days: Int, ask: Boolean): StepsOutcome = StepsOutcome.Unavailable

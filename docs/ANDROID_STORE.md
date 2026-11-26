@@ -50,7 +50,8 @@ in the app), no chat. Reminders are the person's own clock. Do not answer lower 
 
 Target age: **18 and over** (a calorie and diet app is not for children; this also keeps the app out of Google's Families policy). Not designed for children. No ads. News app: no.
 Health apps declaration: Numbite is not a medical device and gives no medical advice (the screens say so); it is a nutrition-information app: choose the "nutrition and weight
-management" kind of health feature if asked, and "no" to medical device, clinical decision support, health connect, and government or medical-records access.
+management" kind of health feature if asked (and, from the first build that counts steps, "activity and fitness" too: see "Steps" below), and "no" to medical device,
+clinical decision support, health connect, and government or medical-records access.
 
 ## Data safety form (from what the app really sends: docs/STORE.md "App Privacy", docs/BACKEND.md)
 
@@ -73,9 +74,19 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 | Device or other IDs | **yes since the build with `device.id` (1.1 (3))** | fraud prevention, security and compliance: a one-way hash of the Android ID stops a second free week on the same phone (the server keeps only a second hash of it, even after the account is deleted); not shared | required |
 | Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
 
-**Steps (26 November 2026, on `iap`, not uploaded): nothing to change.** The Android app shows no steps yet (it answers "unavailable" until Google's Recording API, approved on 26 Nov,
-is added). When it does, the counts stay on the phone (read from Google Play services on the phone, shown, never stored, sent or synced), which Google's form doesn't
-count as collected; the new permission would be ACTIVITY_RECOGNITION ("Physical activity"), asked only when the person taps "Turn on step counting".
+**Steps (26 November 2026, built on `claude/android-steps` from `iap`, not uploaded): Data safety stays "not collected" for steps; nothing to change on the form.**
+The Android app now counts steps with Google's Recording API on mobile (Google Play services records them on the phone, keeps ten days, no Google account;
+docs/ANDROID_BRIDGE.md "Steps"). The counts are read from Google Play services on the phone, shown and forgotten: never stored by the app, never sent to our server or
+anyone, never synced, never given to Pip. Data processed only on the device is not "collected" in Google's sense, so **Health and fitness › Fitness info stays as it is**
+(it is ticked already, for the Meal plan's training question, which is a different thing). The app keeps only whether it has asked the question and when the current
+recording began, in its own preferences on the phone.
+* **New permission:** `android.permission.ACTIVITY_RECOGNITION` (Android shows it as **"Physical activity"**), asked only when the person taps "Turn on step counting";
+  plus `com.google.android.gms.permission.ACTIVITY_RECOGNITION` for Android 8 and 9 only (`maxSdkVersion` 28; given at install, no question). Play Console has no
+  declaration form for either (unlike background location or Health Connect). The listing's permission list will show "Physical activity" for the next build.
+* **Before that build goes to review, in Play Console › App content › Health apps:** add **"Activity and fitness"** next to "Nutrition and weight management" (the
+  app now shows the phone's step count). Not Health Connect: the app doesn't use it.
+* **New library:** `com.google.android.gms:play-services-fitness` 21.3.0 (founder approved 26 Nov, CLAUDE.md rule 6); only its on-phone classes are used, never Google
+  Fit's cloud APIs, so no Google Fit OAuth verification is needed.
 
 **Ask Pip (added 26 November 2026; switched on 26 November for the next build, `NEXT_PUBLIC_ASK_PIP=1`): Data safety already covers it, nothing to change.** Each chat message
 goes to our server and Anthropic (a service provider, so not "shared") with the newest turns of the chat, the goal, targets, diet and allergy choices, supermarkets and the

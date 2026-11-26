@@ -386,7 +386,13 @@ export default function Privacy() {
           </li>
           <li className={row}>
             <strong>Where they are kept:</strong> {site.name} reads your steps from your phone each time you look and doesn&apos;t save them. They are never sent to us or anyone
-            else and never synced to your account. Only whether step counting is on and your daily step goal are kept, on your phone.
+            else and never synced to your account. Only whether step counting is on and your daily step goal are kept, on your phone.{ANDROID_TEXT ? (
+              <>
+                {" "}On an Android phone, Google Play services records your steps on the phone for {site.name} while step counting is on (it keeps the last ten days, without a
+                Google account), and {site.name} also keeps the moment you turned it on, so the first day is shown as counted from then. &ldquo;Stop counting steps&rdquo;
+                ends the recording, and what Google Play services recorded for {site.name} can no longer be read.
+              </>
+            ) : null}
           </li>
           <li className={row}>
             <strong>Turning it off:</strong> &ldquo;Stop counting steps&rdquo; on the Steps page, or &ldquo;Clear data on this device&rdquo; in Settings. To take back the permission too,
