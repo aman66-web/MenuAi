@@ -1,4 +1,5 @@
 import { tk } from "../i18n";
+import { WAVE2_CUISINE_LINES, WAVE2_OCCASION_LINES } from "./wave2";
 
 // The recipe book's niches (founder 2026-10-16: "a way to customise by niche, for example for Christmas, or like Chinese cuisine or Indian"): the cuisine
 // a recipe belongs to, and the occasions it suits, kept here in one typed place rather than as free words on each recipe. A recipe has at most one
@@ -65,6 +66,8 @@ const occasion = (id: OccasionId, ...recipes: string[]): Array<readonly [string,
 
 /** One line per recipe and cuisine (a recipe has at most one: tests/recipeNiche.test.ts checks). */
 export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: CuisineId]> = [
+  // the second wave (wave2.ts, 26 November 2026): each file keeps its own lines next to its recipes
+  ...WAVE2_CUISINE_LINES,
   ...cuisine("british", "cottage-pie", "bean-cottage-pie", "salmon-fish-pie", "ham-egg-potatoes", "easy-macaroni-cheese", "chicken-thigh-potato-traybake", "tuna-fishcakes", "smoked-salmon-kedgeree", "beans-poached-eggs", "turkey-roast-parsnips-sprouts", "chipolatas-red-cabbage-mash", "gammon-parsnips-apple-sauce", "sprout-chestnut-potato-gratin"),
   ...cuisine("chinese", "chicken-chow-mein", "sticky-beef-noodles", "egg-fried-rice", "vegetable-almond-stir-fry", "chicken-sweetcorn-soup", "egg-chow-mein", "egg-tomato-stir-fry", "chicken-mushroom-noodle-soup", "chinese-style-chicken-curry"),
   ...cuisine("indian", "chicken-jalfrezi", "beef-keema-peas", "egg-pea-curry", "kidney-bean-curry", "spiced-chicken-naan", "chickpea-potato-curry", "chicken-curry", "chickpea-curry", "salmon-coconut-curry"),
@@ -123,6 +126,8 @@ export const CUISINE_LINES: ReadonlyArray<readonly [recipeId: string, cuisine: C
 
 /** One line per recipe and occasion (a recipe may suit several; the same pair twice is a mistake the tests catch). */
 export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion: OccasionId]> = [
+  // the second wave (wave2.ts, 26 November 2026)
+  ...WAVE2_OCCASION_LINES,
   ...occasion("bonfire-night", "beef-chilli", "bean-chilli", "bean-tomato-soup", "sweetcorn-potato-soup", "cottage-pie", "bean-cottage-pie"),
   ...occasion("christmas", "turkey-roast-parsnips-sprouts", "turkey-cranberry-cheddar-wraps", "chipolatas-red-cabbage-mash", "gammon-parsnips-apple-sauce", "sprout-chestnut-potato-gratin", "spiced-parsnip-apple-soup", "red-cabbage-chestnut-cranberry-rice", "mince-pie-porridge", "cranberry-cheddar-ham-toasted-wraps"),
   ...occasion("lunchbox", "chicken-wraps", "tuna-sweetcorn-pasta-salad", "smoked-salmon-soft-cheese-wraps", "egg-mayonnaise-wraps", "ham-soft-cheese-wraps", "chickpea-tomato-salad", "pesto-pasta-mozzarella-salad", "tuna-bean-salad", "potato-egg-salad", "curried-rice-salad", "peanut-butter-oat-bites", "houmous-veg-sticks", "ham-soft-cheese-roll-ups", "crispy-spiced-chickpeas"),

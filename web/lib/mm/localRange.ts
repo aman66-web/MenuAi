@@ -1,3 +1,5 @@
+import { LOCAL_PROTEIN_PRODUCTS } from "./localRangeProtein";
+
 // Products a typical small shop stocks (founder 2026-11-17: "all the ingredients should be able to be found [at a Sainsbury's Local or a Tesco Express], so the person
 // doesn't have to venture to a large Sainsbury's"). No supermarket publishes its small shops' range, so this is a judgement: for each recipe ingredient, every
 // Sainsbury's product the recipes could use was judged by three independent reviewers ("would a typical Sainsbury's Local usually stock this exact product in this
@@ -8,6 +10,8 @@
 export const LOCAL_RANGE_SHOP = "sainsburys";
 
 export const LOCAL_SHOP_PRODUCTS: ReadonlySet<string> = new Set([
+  // the protein foods judged the same way on 26 November 2026 (lib/mm/localRangeProtein.ts)
+  ...LOCAL_PROTEIN_PRODUCTS,
   "alpro-1l-oat-original-chilled-dairy-free-drink",
   "amoy-soy-sauce-light-150ml",
   "amoy-straight-to-wok-medium-noodles-2x150g",
