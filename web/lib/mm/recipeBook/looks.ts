@@ -21,6 +21,7 @@ import { PROTEIN_MORNINGS_LOOKS } from "./proteinMornings";
 import { QUICK_DINNERS_LOOKS } from "./quickDinners";
 import { VEGAN_MAINS_LOOKS } from "./veganMains";
 import { VEGAN_MORNING_LOOKS } from "./veganMorning";
+import { WAVE2_LOOKS } from "./wave2";
 import { WORLD_MEALS_LOOKS } from "./worldMeals";
 
 export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
@@ -167,4 +168,6 @@ export const RECIPE_LOOKS: Readonly<Record<string, string>> = {
   ...PROTEIN_MEALS_LOOKS,
   ...ONION_FREE_MEALS_LOOKS,
   ...FAST_MEALS_LOOKS,
+  // the second wave (wave2.ts) keeps its looks next to its recipes
+  ...WAVE2_LOOKS,
 };

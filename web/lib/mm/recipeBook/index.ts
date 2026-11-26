@@ -24,6 +24,7 @@ import { QUICK_DINNERS } from "./quickDinners";
 import { SNACKS } from "./snacks";
 import { VEGAN_MAINS } from "./veganMains";
 import { VEGAN_MORNING } from "./veganMorning";
+import { WAVE2 } from "./wave2";
 import { WORLD_MEALS } from "./worldMeals";
 
 // The recipe book: our own recipes, built from the pantry (lib/mm/pantry.ts). Each ingredient is a kind of food, not a product: the app
@@ -38,7 +39,9 @@ import { WORLD_MEALS } from "./worldMeals";
 // - every ingredient is a pantry kind, down to the pinch of salt (listed, priced and counted), and an everyday one (EVERYDAY_KINDS in
 //   lib/mm/pantry.ts): something nearly every small convenience shop sells, so a Tesco Express or a Sainsbury's Local has it too. The one exception is the
 //   Christmas recipes (christmas.ts), which may also use FESTIVE_KINDS; niches.ts files them under the Christmas occasion, offered only 1 November to 6 January;
-//   and, since 2026-11-26, any recipe may use the few PROTEIN_KINDS (tofu, Quorn, soya drink), each with a product the small-shop judges passed (localRange.ts);
+//   and, since 2026-11-26, any recipe may use the few PROTEIN_KINDS (tofu, Quorn, soya drink), each with a product the small-shop judges passed
+//   (lib/mm/localRangeProtein.ts; founder 2026-11-26: "If it's something that would only be available at a massive Sainsbury's and not Sainsbury's local, you'll
+//   have to leave it out");
 // - a recipe's cuisine and the occasions it suits are not written on the recipe: they are one line each in niches.ts (the Recipes screen's Cuisine and Occasion
 //   choices; tests/recipeNiche.test.ts checks every line names a recipe in the book), so a new recipe gets its line there.
 
@@ -75,4 +78,7 @@ export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...D
   ...PROTEIN_MORNINGS, ...PROTEIN_MEALS,
   // founder 2026-11-26 (the same): lunches and dinners with no onion, garlic or root vegetables (the Jain diet had none), then 15-minute dinners, lunches for
   // the cuisines with the fewest, and keto and paleo dinners
-  ...ONION_FREE_MEALS, ...FAST_MEALS];
+  ...ONION_FREE_MEALS, ...FAST_MEALS,
+  // founder 2026-11-26 ("it needs to suit literally everyone ... a professional footballer ... someone who does rugby"): the second wave, for the personas in
+  // docs/RECIPE_PERSONAS_2026-11-26.md (wave2.ts)
+  ...WAVE2];
