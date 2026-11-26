@@ -387,7 +387,7 @@ export const WAVE2_PLANT_PROTEIN: readonly Recipe[] = [
   },
   {
     id: "tawa-pulao-style-tofu-chickpea-rice", meal: "lunch", tags: ["Vegan", "Indian"], name: "Tawa pulao-style spiced rice with tofu and chickpeas", blurb: "Mumbai street-food rice fried on a hot pan with golden tofu, chickpeas, pepper, peas and a red spiced tomato masala, finished with lemon.", servings: 2, minutes: 35,
-    ingredients: [ing("rice", 200, { note: "uncooked" }), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("chickpeas", 240), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("tomatoes", 170, { note: "about 2 tomatoes" }), ing("vegetable-oil", 20), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 2), ing("paprika", 2), ing("chilli-powder", 1), ing("turmeric", 1), ing("cinnamon", 1), ing("chopped-tomato-puree", 20), ing("peas", 80), ing("lemon-juice", 15)],
+    ingredients: [ing("rice", 160, { note: "uncooked" }), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("chickpeas", 240), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("tomatoes", 170, { note: "about 2 tomatoes" }), ing("vegetable-oil", 20), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 2), ing("paprika", 2), ing("chilli-powder", 1), ing("turmeric", 1), ing("cinnamon", 1), ing("chopped-tomato-puree", 20), ing("peas", 80), ing("lemon-juice", 15)],
     method: [
       "Cook the rice: Rinse the rice and put it in a saucepan with twice its volume of boiling water and a pinch of salt. Cover and simmer on a low heat for 10 to 12 minutes, until tender.",
       "Cool the rice: Spread the rice out on a large plate and leave it to cool for 10 minutes, so the grains stay separate when you fry them.",
@@ -402,7 +402,7 @@ export const WAVE2_PLANT_PROTEIN: readonly Recipe[] = [
   },
   {
     id: "roast-tomato-tofu-pasta-crispy-chickpeas", meal: "lunch", tags: ["Vegan", "Pasta", "Bake"], name: "Roast tomato and tofu pasta with crispy chickpeas", blurb: "Tofu roasted whole with bursting cherry tomatoes and oregano, crushed into a chunky sauce and tossed with pasta, spinach and chickpeas.", servings: 2, minutes: 40,
-    ingredients: [ing("chickpeas", 240), ing("cherry-tomatoes", 400), ing("olive-oil", 30), ing("paprika", 2), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("oregano", 2), ing("black-pepper", 1), ing("pasta-shapes", 200), ing("lemon-juice", 15), ing("spinach", 80)],
+    ingredients: [ing("chickpeas", 240), ing("cherry-tomatoes", 400), ing("olive-oil", 30), ing("paprika", 2), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("oregano", 2), ing("black-pepper", 1), ing("pasta-shapes", 160), ing("lemon-juice", 15), ing("spinach", 80)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6).",
       "Fill the dish: Rinse and drain the chickpeas and pat them dry. Put them in a baking dish about 20 by 30 cm with the cherry tomatoes, half the oil, the paprika and a pinch of salt, and toss together.",
@@ -429,7 +429,7 @@ export const WAVE2_PLANT_PROTEIN: readonly Recipe[] = [
   },
   {
     id: "nasi-lemak-style-coconut-rice-crispy-tofu", meal: "lunch", tags: ["Vegan"], name: "Nasi lemak-style coconut rice with crispy tofu", blurb: "Malaysian-style coconut rice with crisp golden tofu, crunchy fried chickpeas in place of peanuts, cucumber and a sticky chilli sambal.", servings: 2, minutes: 40,
-    ingredients: [ing("rice", 180, { note: "uncooked" }), ing("coconut-milk", 100), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("chickpeas", 240), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 20), ing("garlic", 10, { note: "about 2 cloves" }), ing("chilli-powder", 2), ing("paprika", 2), ing("chopped-tomato-puree", 30), ing("soy", 15), ing("lemon-juice", 10), ing("cucumber", 150)],
+    ingredients: [ing("rice", 140, { note: "uncooked" }), ing("coconut-milk", 100), ing("salt", 1), ing("tofu", 390, { role: "protein" }), ing("chickpeas", 240), ing("onion", 150, { note: "about 1 onion" }), ing("vegetable-oil", 20), ing("garlic", 10, { note: "about 2 cloves" }), ing("chilli-powder", 2), ing("paprika", 2), ing("chopped-tomato-puree", 30), ing("soy", 15), ing("lemon-juice", 10), ing("cucumber", 150)],
     method: [
       "Rinse the rice: Rinse the rice in a sieve under the cold tap until the water runs almost clear.",
       "Cook the coconut rice: Put the rice in a saucepan with the coconut milk, a pinch of salt and enough boiling water to make twice the volume of the rice. Cover and simmer on a low heat for 12 minutes, until tender.",
@@ -458,7 +458,7 @@ export const WAVE2_PLANT_PROTEIN: readonly Recipe[] = [
   },
   {
     id: "cheese-kottu-style-wraps-tofu-peppers", meal: "lunch", tags: ["Wrap", "One pan"], name: "Cheese kottu-style chopped wraps with tofu", blurb: "Sri Lankan street food at home: strips of wrap tossed on a hot pan with spiced tofu, pepper, peas and spinach, then melting mozzarella.", servings: 2, minutes: 30,
-    ingredients: [ing("tofu", 390, { role: "protein" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("spinach", 100), ing("wraps", 240, { note: "about 4 wraps" }), ing("vegetable-oil", 20), ing("peas", 80), ing("turmeric", 1), ing("cumin", 2), ing("paprika", 2), ing("cinnamon", 1), ing("black-pepper", 1), ing("passata", 100), ing("salt", 1), ing("mozzarella", 125), ing("lemon-juice", 10)],
+    ingredients: [ing("tofu", 390, { role: "protein" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("spinach", 100), ing("wraps", 180, { note: "about 3 wraps" }), ing("vegetable-oil", 20), ing("peas", 80), ing("turmeric", 1), ing("cumin", 2), ing("paprika", 2), ing("cinnamon", 1), ing("black-pepper", 1), ing("passata", 100), ing("salt", 1), ing("mozzarella", 125), ing("lemon-juice", 10)],
     method: [
       "Get ready: Drain the tofu, pat it dry and cut it into 1 cm cubes. Seed the pepper and slice it thinly. Roughly chop the spinach.",
       "Cut the wraps: Stack the wraps, cut them into strips about 1 cm wide, then cut across the strips into short pieces.",
@@ -472,7 +472,7 @@ export const WAVE2_PLANT_PROTEIN: readonly Recipe[] = [
   },
   {
     id: "maqluba-style-upside-down-tofu-chickpea-rice", meal: "dinner", tags: ["Vegan", "One pot", "Middle Eastern"], name: "Maqluba-style upside-down rice with tofu and chickpeas", blurb: "Golden tofu, broccoli, pepper and tomato layered under spiced chickpea rice in one pot, then turned out like a cake, with lemony cucumber.", servings: 4, minutes: 75,
-    ingredients: [ing("rice", 400, { note: "uncooked" }), ing("tofu", 780, { role: "protein", note: "about 2 blocks" }), ing("broccoli", 300), ing("peppers", 320, { note: "about 2 peppers" }), ing("tomatoes", 340, { note: "about 4 tomatoes" }), ing("chickpeas", 480), ing("olive-oil", 40), ing("cumin", 3), ing("turmeric", 2), ing("cinnamon", 2), ing("paprika", 3), ing("salt", 2), ing("black-pepper", 1), ing("cucumber", 300, { note: "about 1 cucumber" }), ing("lemon-juice", 20)],
+    ingredients: [ing("rice", 340, { note: "uncooked" }), ing("tofu", 780, { role: "protein", note: "about 2 blocks" }), ing("broccoli", 300), ing("peppers", 320, { note: "about 2 peppers" }), ing("tomatoes", 340, { note: "about 4 tomatoes" }), ing("chickpeas", 480), ing("olive-oil", 40), ing("cumin", 3), ing("turmeric", 2), ing("cinnamon", 2), ing("paprika", 3), ing("salt", 2), ing("black-pepper", 1), ing("cucumber", 300, { note: "about 1 cucumber" }), ing("lemon-juice", 20)],
     method: [
       "Soak the rice: Rinse the rice in a sieve until the water runs almost clear, then leave it to soak in a bowl of cold water for 15 minutes.",
       "Get ready: Drain the tofu, pat it dry and cut it into slices about 1 cm thick. Cut the broccoli into small florets, seed the peppers and cut them into wide strips, and slice the tomatoes into rounds.",

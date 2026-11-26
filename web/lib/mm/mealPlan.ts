@@ -1230,11 +1230,13 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
  * than the week already is or MAX_SWAP_DISTANCE, and never over the budget it meets (5% over the bill at most). A bill already over its budget (the cheapest week
  * the choices allow) may grow BALANCED_CHEAPEST_EXTRA for a balanced week: at 5%, two people's cheapest week at Sainsbury's had bread at both breakfast and lunch
  * nearly every day (21 November evening, with the world recipes; founder: "who wants to have bread every single day"); at 20% it is £88, not £76, with bread
- * on 5 meals and no repeats.
+ * on 5 meals and no repeats. 25% since 26 November 2026 (founder's choice, when the four branches were merged): the second wave's cheap batch-cooks brought
+ * the bare cheapest week for two at Sainsbury's down to £51, and at 20% (£61) the balanced week still had bread at two meals on 5 days; at 25% it is £63.69
+ * with bread at two meals on 2 days (Asda and Morrisons unchanged).
  * Changes `chosen` in place.
  */
 /** How much more than the bare cheapest week a balanced cheapest week may cost (balanceRepair). */
-const BALANCED_CHEAPEST_EXTRA = 0.2;
+const BALANCED_CHEAPEST_EXTRA = 0.25;
 
 function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number, formFaultsOf: (ids: PlanIds) => number, balancedOf: (ids: PlanIds) => number, tieBreak: () => number): void {
   const byId = new Map<string, PlanCandidate>();

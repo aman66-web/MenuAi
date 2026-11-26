@@ -90,7 +90,7 @@ export const WAVE2_BIG_MEALS: readonly Recipe[] = [
   },
   {
     id: "cajun-style-salmon-spiced-beans-rice", meal: "dinner", tags: ["Fish"], name: "Cajun-style salmon with spiced beans and rice", blurb: "Paprika and cumin-rubbed salmon roasted on peppers and cherry tomatoes, with rice tossed through smoky kidney beans and lemon.", servings: 2, minutes: 35,
-    ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("paprika", 4), ing("cumin", 2), ing("oregano", 1), ing("black-pepper", 1), ing("salt", 1), ing("lemon-juice", 15), ing("olive-oil", 15), ing("peppers", 160, { note: "about 1 pepper" }), ing("cherry-tomatoes", 200), ing("rice", 260), ing("kidney-beans", 240, { note: "1 tin, drained" })],
+    ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("paprika", 4), ing("cumin", 2), ing("oregano", 1), ing("black-pepper", 1), ing("salt", 1), ing("lemon-juice", 15), ing("olive-oil", 15), ing("peppers", 160, { note: "about 1 pepper" }), ing("cherry-tomatoes", 200), ing("rice", 200), ing("kidney-beans", 240, { note: "1 tin, drained" })],
     method: [
       "Heat the oven: Heat the oven to 200°C (180°C fan, gas 6).",
       "Mix the spices: Stir the paprika, cumin, oregano, black pepper and salt together in a small bowl.",
@@ -188,7 +188,7 @@ export const WAVE2_BIG_MEALS: readonly Recipe[] = [
   },
   {
     id: "chicken-nanban-egg-tartare-rice", meal: "dinner", tags: ["Eggs"], name: "Chicken nanban with egg tartare and rice", blurb: "Japanese-style egg-coated chicken fried golden, glazed in a sweet soy and lemon sauce, with a creamy chopped egg tartare, rice and salad.", servings: 2, minutes: 35,
-    ingredients: [ing("eggs", 180, { note: "about 3 eggs" }), ing("rice", 260), ing("soy", 30), ing("honey", 20), ing("lemon-juice", 30), ing("chicken", 240), ing("salt", 1), ing("black-pepper", 1), ing("vegetable-oil", 20), ing("spring-onions", 20), ing("light-mayo", 40), ing("greek-yogurt", 40), ing("lettuce", 100), ing("cucumber", 100)],
+    ingredients: [ing("eggs", 180, { note: "about 3 eggs" }), ing("rice", 200), ing("soy", 30), ing("honey", 20), ing("lemon-juice", 30), ing("chicken", 240), ing("salt", 1), ing("black-pepper", 1), ing("vegetable-oil", 20), ing("spring-onions", 20), ing("light-mayo", 40), ing("greek-yogurt", 40), ing("lettuce", 100), ing("cucumber", 100)],
     method: [
       "Boil the eggs: Lower all but one of the eggs into a pan of boiling water on a spoon and boil for 9 minutes, until completely set. Cool them in cold water and peel. Wash your hands after touching raw eggs.",
       RICE,
@@ -395,7 +395,7 @@ export const WAVE2_BIG_MEALS: readonly Recipe[] = [
   },
   {
     id: "hiyashi-chuka-cold-noodles-chicken-egg", meal: "lunch", tags: ["Salad", "Make ahead"], name: "Japanese-style cold noodle salad with chicken and egg", blurb: "Chilled noodles under rows of shredded chicken, omelette strips, cucumber, tomatoes and sweetcorn, with a sweet soy and lemon dressing.", servings: 2, minutes: 30,
-    ingredients: [ing("chicken", 200), ing("soy", 40), ing("honey", 15), ing("lemon-juice", 20), ing("vegetable-oil", 15), ing("eggs", 120, { note: "about 2 eggs" }), ing("salt", 1), ing("noodles", 600), ing("cucumber", 150, { note: "about ½ a cucumber" }), ing("cherry-tomatoes", 150), ing("sweetcorn", 80)],
+    ingredients: [ing("chicken", 200), ing("soy", 40), ing("honey", 15), ing("lemon-juice", 20), ing("vegetable-oil", 15), ing("eggs", 120, { note: "about 2 eggs" }), ing("salt", 1), ing("noodles", 450), ing("cucumber", 150, { note: "about ½ a cucumber" }), ing("cherry-tomatoes", 150), ing("sweetcorn", 80)],
     method: [
       "Poach the chicken: Put the chicken in a saucepan of cold water, bring it to a gentle simmer and cook for 12 to 15 minutes, until piping hot all the way through with no pink left. Wash your hands after touching raw chicken.",
       "Shred the chicken: Lift the chicken out, leave it to cool for 10 minutes, then tear it into thin shreds with two forks.",
