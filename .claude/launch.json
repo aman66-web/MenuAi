@@ -28,6 +28,24 @@
         "3006"
       ],
       "port": 3006
+    },
+    {
+      "name": "web-premium",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "NEXT_PUBLIC_PRO=1",
+        "NEXT_PUBLIC_PRO_PREVIEW=1",
+        "NEXT_PUBLIC_SIGN_IN_REQUIRED=0",
+        "npm",
+        "--prefix",
+        "web",
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "3112"
+      ],
+      "port": 3112
     }
   ]
 }

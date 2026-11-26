@@ -1,3 +1,4 @@
+import { sanitizeSavedGoal, type SavedGoal } from "./bodyGoal";
 import { dishFormOf, MAX_WRAPS_A_WEEK, varietyFaults, type DishForm } from "./dishForm";
 import { balanceFaults, mealBalanceOf, type BalanceLimits, type MealBalance } from "./mealBalance";
 import { tk } from "./i18n";
@@ -60,15 +61,21 @@ export const shapeOf = (slots: readonly MealType[]): DayShape => ({ meals: PLAN_
  * has one: then the day can't add up, and the plan says so (capShortfall). Protein follows each slot's share of the day. Recipes are then fitted to these
  * sizes exactly as the Recipes tab fits them.
  */
-export function slotTargets(shape: DayShape, daily: { kcal: number; protein: number }, cap?: number | null): Partial<Record<MealType, MealTarget>> {
+/** The day's biggest meal, when the person chose one (planAi.ts BIG_MEALS): this many times an even share, the others sharing what is left. */
+export const BIG_MEAL_SHARE = 1.3;
+
+export function slotTargets(shape: DayShape, daily: { kcal: number; protein: number }, cap?: number | null, big?: MealType | null): Partial<Record<MealType, MealTarget>> {
   const out: Partial<Record<MealType, MealTarget>> = {};
   const round10 = (v: number) => Math.round(v / 10) * 10;
   const snackKcal = shape.snacks ? Math.min(250, Math.max(100, round10(daily.kcal * 0.1))) : 0;
   const meals = PLAN_MEALS.filter((m) => shape.meals.includes(m));
   const rest = daily.kcal - shape.snacks * snackKcal;
   const share = (kcal: number) => Math.max(5, Math.round((daily.protein * kcal) / Math.max(1, daily.kcal)));
+  const even = rest / Math.max(1, meals.length);
+  const bigOn = !!big && meals.length > 1 && meals.includes(big);
+  const bigKcal = even * BIG_MEAL_SHARE;
   for (const m of meals) {
-    let kcal = Math.max(200, round10(rest / Math.max(1, meals.length)));
+    let kcal = Math.max(200, round10(!bigOn ? even : m === big ? bigKcal : (rest - bigKcal) / (meals.length - 1)));
     if (cap) kcal = Math.min(kcal, cap);
     out[m] = { kcal, protein: share(kcal) };
   }
@@ -1360,6 +1367,11 @@ export interface SavedPlan {
    * Settings (the plan then says the diet has changed, and hides any meal that no longer fits). Absent (plans from before 20 November): today's diet.
    */
   diet?: DietPrefs;
+  /**
+   * The goal the plan was made for (founder 2026-11-26, bodyGoal.ts): the body answers, the day's numbers, the time to the goal and each day's exercise. On this
+   * phone only, like the plan (never synced, never sent).
+   */
+  goal?: SavedGoal;
   /** The plan's shopping went on the shopping list (planListKey of the plan then): "Add all" isn't offered twice for the same week. */
   addedToList?: string;
   /** How the person likes to eat (EATING_STYLES), so the week is rebuilt from the same recipes; absent = Balanced, as plans were before 20 November. */
@@ -1459,11 +1471,13 @@ export function sanitizePlan(raw: unknown): SavedPlan | null {
   const style = sanitizeStyle(r.style);
   const answers = sanitizeAnswers(r.answers);
   const why = cleanWhy(r.why);
+  const goal = sanitizeSavedGoal(r.goal);
   return {
     shops, ids, leaveOut, budget, start: r.start, ...(slotsOk ? { slots } : {}), ...(better.length ? { better } : {}), ...(variety ? { variety } : {}), ...(cuisines.length ? { cuisines } : {}), ...(r.swapped === true ? { swapped: true } : {}),
     ...(home ? { home } : typeof r.people === "number" && (PLAN_PEOPLE as readonly number[]).includes(r.people) && r.people > 1 ? { people: r.people } : {}),
     ...(diet ? { diet } : {}), ...(addedToList ? { addedToList } : {}), ...(style !== "balanced" ? { style } : {}),
     ...(Object.keys(answers).length ? { answers } : {}), ...(why ? { why } : {}), ...(r.pipMissed === true ? { pipMissed: true as const } : {}),
+    ...(goal ? { goal } : {}),
   };
 }
 

@@ -11,7 +11,8 @@ import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
 import { budgetCost, DEFAULT_SHAPE, LEAVE_OUT, MAX_SNACKS, PLAN_DAYS, PLAN_MEALS, PER_MEAL_RECIPES, VARIETIES, betterForHousehold, forHousehold, budgetRange, buildWeek, capShortfall, cleanDiet, cuisineRecipes, fitsDietNow, forPeople, householdReference, keepEarlier, openEarlier, leavesOut, planDayIndex, planForBudget, planListKey, planShortfall, planSlots, sameDiet, setMeal, shapeOf, slotTargets, styleBetter, styleCandidates, styleShortfall, styleTargets, styleTooFew, upgradeWithin, withBetter, fitsStyle, weekCosts, showsWeekAfter, EATING_STYLES, STYLE_FIT, type StyleFit, type BudgetPlan, type BudgetRange, type DayShape, type EatingStyle, type PlanCandidate, type PlanIds, type SavedPlan, type ShopLine, type StyleShort, type Variety, type WeekCosts, type WeekPlan } from "@/lib/mm/mealPlan";
 import { aiAllowed, aiConsentStore, withAiAllowed } from "@/lib/mm/aiConsent";
-import { cleanWhy, hasPipAnswers, PLAN_AI_ENABLED, sanitizeAnswers, type PlanAnswers } from "@/lib/mm/planAi";
+import { cleanWhy, hasPipAnswers, PLAN_AI_ENABLED, sanitizeAnswers, type BigMeal, type PlanAnswers } from "@/lib/mm/planAi";
+import { goalOutcome, hasWeightGoal, sanitizeBody, type BodyGoal, type GoalAim, type GoalOutcome, type SavedGoal } from "@/lib/mm/bodyGoal";
 import { budgetKept, mergeAiWeek, planAiRequest, planLimits, servingPortions } from "@/lib/mm/planAiWeek";
 import { dayPortions, shownPortions } from "@/lib/mm/fiveADay";
 import { localDay } from "@/lib/mm/paid";
@@ -52,6 +53,10 @@ import { TwoWeeks, foodADay } from "./TwoWeeks";
 import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, STYLE_LABEL, StyleStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
 import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, LeftoversStep, NotesStep, SkipCuisines, SpiceStep, TrainingStep, pipAnswerLines } from "./PipSteps";
 import { SwapPicker } from "./SwapPicker";
+import {
+  AboutYouStep, BigMealStep, BodyFatStep, DayToDayStep, ExerciseDayCard, ExerciseStep, HeightStep, LiftingStep, NumbersCard, PaceStep, PregnantStep, SessionStep,
+  SportKindStep, TrainingKindStep, WeightStep, goalTimeLine,
+} from "./GoalSteps";
 import { WeekSummary } from "./WeekSummary";
 import { clearPlanMaking, finishPlanMaking, planMakingStore, planMakingWatchedStore, startPlanMaking } from "../_lib/planMaking";
 import { pipPlanHandoffStore } from "../_lib/askPip";
@@ -110,7 +115,7 @@ const DONE_TICK = "grid h-7 w-7 shrink-0 place-items-center rounded-full border-
 // The steps, one question a screen (the 20-agent meeting, 2026-11-19): how many people first; a household then says who each person is, its allergies and
 // the diets anyone at home follows (until 20 November, whether anyone doesn't eat meat); Just me keeps its own diet and the food it likes; everyone ends on the
 // check screen before the plan is made (and a first open starts there). How they like to eat (founder 2026-11-20) comes after the diet, in both.
-type StepId = "count" | "who" | "meals" | "shops" | "diet" | "style" | "cuisine" | "allergies" | "homeDiet" | "leaveOut" | "budget" | PipStep | "check";
+type StepId = "count" | "who" | "meals" | "shops" | "diet" | "style" | "cuisine" | "allergies" | "homeDiet" | "leaveOut" | "budget" | PipStep | GoalStepId | "check";
 const JUST_ME: readonly StepId[] = ["count", "meals", "shops", "diet", "style", "cuisine", "leaveOut", "budget", "check"];
 const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergies", "homeDiet", "style", "leaveOut", "budget", "check"];
 // Pip's extra questions (Meal plan with Pip, founder 2026-11-21: "full customization ... ask as many questions as you want"), after the budget and before the
@@ -118,18 +123,56 @@ const HOUSEHOLD: readonly StepId[] = ["count", "who", "meals", "shops", "allergi
 type PipStep = "aim" | "fruitVeg" | "training" | "cookTime" | "leftovers" | "breakfast" | "bread" | "spice" | "notes";
 const PIP_STEPS: readonly PipStep[] = ["aim", "fruitVeg", "training", "cookTime", "leftovers", "breakfast", "bread", "spice", "notes"];
 const isPipStep = (s: StepId): s is PipStep => (PIP_STEPS as readonly StepId[]).includes(s);
+// The flowchart's goal questions (founder 2026-11-26: "consider the questions you ask like a flowchart to the end, because different questions may need to be
+// asked based on what they put for earlier questions"; "ask as many questions as you want, all that matters is they get the most perfect diet they can"; body fat
+// "only ... to someone who maybe wants to cut or bulk"; "people should be able to input if they are an athlete"): GoalSteps.tsx, worked out by lib/mm/bodyGoal.ts.
+type GoalStepId = "aboutYou" | "weightNow" | "bodyFat" | "goalWeight" | "pregnant" | "dayToDay" | "height" | "sportKind" | "trainingKind" | "lifting" | "exercise" | "session" | "pace" | "numbers" | "bigMeal";
+const GOAL_STEPS: readonly GoalStepId[] = ["aboutYou", "weightNow", "bodyFat", "goalWeight", "pregnant", "dayToDay", "height", "sportKind", "trainingKind", "lifting", "exercise", "session", "pace", "numbers", "bigMeal"];
+const isGoalStep = (s: StepId): s is GoalStepId => (GOAL_STEPS as readonly StepId[]).includes(s);
+const goalAimOf = (a: PlanAnswers): GoalAim | null => (a.aim === "loseFat" || a.aim === "muscle" || a.aim === "sport" ? a.aim : null);
+/**
+ * Pip's questions as the flowchart walks them, from the aim:
+ *   Lose fat / Build muscle: about you, weight now, body fat, goal weight, (women) pregnant or breastfeeding, day to day, training, what they train,
+ *     (muscle) lifting, shall I plan your exercise, (their own training) a usual session, how fast, your numbers;
+ *   Train for a sport: about you, weight now, height, day to day, the sport, training, a usual session, your numbers;
+ *   Keep steady / Just eat well (and no aim): training;
+ * then, for everyone, fruit and veg, the biggest meal (when the day has two meals or more), cooking time, leftovers, breakfast (when the day has one), bread,
+ * spice and a note. A step only ever depends on answers before it, so the step being answered never moves.
+ */
+function pipFlow(a: PlanAnswers, body: BodyGoal, meals: readonly string[]): StepId[] {
+  const aim = goalAimOf(a);
+  const out: StepId[] = ["aim"];
+  const weightGoal = !!aim && hasWeightGoal(aim);
+  const pregnant = weightGoal && body.pregnant === true;
+  if (weightGoal) out.push("aboutYou", "weightNow", "bodyFat", "goalWeight", ...(body.set === "female" ? ["pregnant" as const] : []), "dayToDay");
+  if (aim === "sport") out.push("aboutYou", "weightNow", "height", "dayToDay", "sportKind");
+  out.push("training");
+  const trains = !!a.training && a.training !== "none";
+  if (trains && aim !== "sport") out.push("trainingKind");
+  if (aim === "muscle" && !pregnant) out.push("lifting");
+  if (weightGoal && !pregnant) out.push("exercise");
+  if ((aim === "sport" && trains) || (weightGoal && !pregnant && a.exercise === "own" && trains)) out.push("session");
+  if (weightGoal && !pregnant) out.push("pace");
+  if (aim) out.push("numbers");
+  out.push("fruitVeg");
+  if (PLAN_MEALS.filter((m) => meals.includes(m)).length > 1) out.push("bigMeal");
+  out.push("cookTime", "leftovers", ...(meals.includes("breakfast") ? ["breakfast" as const] : []), "bread", "spice", "notes");
+  return out;
+}
 /** Each of Pip's questions as its line on the check screen. */
 const PIP_ROW: Record<PipStep, string> = { aim: tk("Your aim"), fruitVeg: tk("Fruit and veg"), training: tk("Training"), cookTime: tk("Cooking time"), leftovers: tk("Leftovers"), breakfast: tk("Breakfast"), bread: tk("Bread"), spice: tk("Spice"), notes: tk("Notes for Pip") };
-const stepsFor = (household: boolean, breakfast: boolean): readonly StepId[] => {
+const stepsFor = (household: boolean, meals: readonly string[], a: PlanAnswers, body: BodyGoal): readonly StepId[] => {
   const base = household ? HOUSEHOLD : JUST_ME;
-  return PLAN_AI_ENABLED ? [...base.slice(0, -1), ...PIP_STEPS.filter((s) => s !== "breakfast" || breakfast), "check"] : base;
+  return PLAN_AI_ENABLED ? [...base.slice(0, -1), ...pipFlow(a, body, meals), "check"] : base;
 };
 // Pip guides the questions but never stands beside a figure or a price (the Pip and Premium findings, 20 November 2026): the meals step (calories) and the
 // budget step (£) carry his words as plain text, and so does the check screen once its budget row shows £; he waits ("listen") on the check screen rather
 // than cheering before anything is made; the style step has no words at all (its picture tiles carry the figures, as in the founder's example)
 const STEP_PIP: Partial<Record<StepId, PipMood>> = { count: "wave", who: "point", shops: "listen", diet: "listen", cuisine: "listen", allergies: "listen", homeDiet: "point", leaveOut: "point", check: "listen",
   // the cooking time step's answers are minutes: plain words there, as on the meals step
-  aim: "point", training: "listen", leftovers: "listen", breakfast: "point", bread: "listen", spice: "point", notes: "listen" };
+  aim: "point", training: "listen", leftovers: "listen", breakfast: "point", bread: "listen", spice: "point", notes: "listen",
+  // the goal's questions: Pip asks the words ones; the weights, body fat, height, pace and numbers carry figures (no Pip beside a figure)
+  aboutYou: "wave", pregnant: "listen", dayToDay: "point", sportKind: "point", trainingKind: "listen", lifting: "listen", exercise: "point", bigMeal: "point" };
 /** A new person's id on this phone (letters and digits only). */
 const personId = () => `p${Math.random().toString(36).slice(2, 10)}`;
 const MEAL_PLURAL: Record<string, string> = { breakfast: tk("breakfasts"), lunch: tk("lunches"), dinner: tk("dinners"), snack: tk("snacks") };
@@ -163,12 +206,12 @@ const RECIPE_BY_ID = new Map(RECIPES.map((r) => [r.id, r]));
 const loadShops = (ids: readonly string[]): Promise<Loaded[]> => loadShopsWith(ids, loadShopFile);
 
 /** Each meal's and snack's size for this day's shape (lib/mm/mealPlan.ts slotTargets): from the person's own daily calories and protein, under a GLP-1 cap. */
-function useSlotTargets(shape: DayShape): Targets {
+function useSlotTargets(shape: DayShape, big?: BigMeal | null): Targets {
   const settings = useSettings();
   const daily = macroTargets(settings);
   const cap = settings.goal === "glp1" ? settings.glp1MealCap : null;
   const key = JSON.stringify(shape);
-  return useMemo(() => slotTargets(JSON.parse(key) as DayShape, { kcal: settings.dailyCalories, protein: daily.protein }, cap), [key, settings.dailyCalories, daily.protein, cap]);
+  return useMemo(() => slotTargets(JSON.parse(key) as DayShape, { kcal: settings.dailyCalories, protein: daily.protein }, cap, big ?? null), [key, settings.dailyCalories, daily.protein, cap, big]);
 }
 
 /** The day's shortfall under a GLP-1 meal cap (mealPlan.ts capShortfall) with the figures to say it; null when the day adds up (no cap, or a cap it fits under). */
@@ -366,12 +409,43 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
   const setHome = (patch: Partial<Household>) => householdStore.set({ ...householdStore.get(), ...patch });
   // the day's meals and snacks (founder 2026-11-18: "how many meals and how many snacks they want a day as well ... full personalization")
   const [shape, setShape] = useState<DayShape>(saved?.slots ? shapeOf(saved.slots) : DEFAULT_SHAPE);
-  const steps = useMemo(() => stepsFor(household, shape.meals.includes("breakfast")), [household, shape.meals]);
   // Pip's extra questions (PipSteps.tsx), nothing chosen until the person chooses (a new plan starts from the last one's answers)
   // (from Ask Pip: his answers over the last plan's)
   const [answers, setAnswers] = useState<PlanAnswers>(() => sanitizeAnswers({ ...saved?.answers, ...pip?.answers }));
   const answer = (patch: Partial<PlanAnswers>) => setAnswers((a) => ({ ...a, ...patch }));
-  // the person's bread and fruit and veg answers as the plan's limits (mealBalance.ts BalanceLimits), used by the phone's own planner too
+  // the body's answers for the goal (bodyGoal.ts): on this phone only, kept with the plan, never sent; a new plan starts from the last one's
+  const [body, setBody] = useState<BodyGoal>(() => sanitizeBody(saved?.goal?.body));
+  const onBody = (patch: Partial<BodyGoal>) => setBody((b) => ({ ...b, ...patch }));
+  const goalAim = goalAimOf(answers);
+  const outcome: GoalOutcome | null = useMemo(() => (goalAim ? goalOutcome(goalAim, body, answers) : null), [goalAim, body, answers]);
+  // "Use these numbers" was tapped (they are the daily targets now and the plan keeps the goal); a plan made with a goal starts with it
+  const [goalUsed, setGoalUsed] = useState(!!saved?.goal);
+  const steps = useMemo(() => stepsFor(household, shape.meals, answers, body), [household, shape.meals, answers, body]);
+  /** The numbers become the daily targets (carbs and fat follow them again). */
+  const applyGoal = () => {
+    if (outcome?.kind !== "ok") return;
+    updateSettings({ dailyCalories: outcome.kcal, dailyProtein: outcome.protein, dailyCarbs: undefined, dailyFat: undefined, hasSetTargets: true });
+    setGoalUsed(true);
+  };
+  const goalAnswered = (s: GoalStepId): boolean => {
+    switch (s) {
+      case "aboutYou": return !!body.set && body.age !== undefined;
+      case "weightNow": return body.weightKg !== undefined;
+      case "bodyFat": return body.bodyFat !== undefined;
+      case "goalWeight": return body.goalKg !== undefined;
+      case "pregnant": return body.pregnant !== undefined;
+      case "dayToDay": return !!body.dayToDay;
+      case "height": return body.heightCm !== undefined;
+      case "sportKind": return !!answers.sportKind;
+      case "trainingKind": return !!answers.trainingKind;
+      case "lifting": return !!answers.lifting;
+      case "exercise": return !!answers.exercise;
+      case "session": return !!answers.sessionMinutes;
+      case "pace": return !!answers.pace;
+      case "numbers": return outcome?.kind === "ok";
+      case "bigMeal": return !!answers.bigMeal;
+    }
+  };  // the person's bread and fruit and veg answers as the plan's limits (mealBalance.ts BalanceLimits), used by the phone's own planner too
   const limits = useMemo(() => planLimits(answers), [answers]);
   const limitsKey = JSON.stringify(limits);
   const pipAnswered = (s: PipStep): boolean => {
@@ -404,11 +478,13 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
   const [fromCheck, setFromCheck] = useState(false);
   const go = (to: StepId) => { setFromCheck(true); moveTo(steps.indexOf(to) + 1); };
   const backToCheck = () => { setFromCheck(false); moveTo(steps.length); };
+  /** The goal's Change: back through its questions from the first one after the aim (the numbers depend on all of them). */
+  const walkGoal = () => { setFromCheck(false); moveTo(steps.indexOf("aim") + 2); };
   const slots = useMemo(() => planSlots(shape), [shape]);
   // how they like to eat (founder 2026-11-20): High protein and Lower carb fit every meal to more protein (mealPlan.ts styleTargets; Balanced: the same sizes,
   // so a first open makes the week the onboarding preview made) and the plan uses only that style's recipes (styleCandidates)
   const [style, setStyle] = useState<EatingStyle>(pip?.style ?? saved?.style ?? "balanced");
-  const ownTargets = useSlotTargets(shape);
+  const ownTargets = useSlotTargets(shape, answers.bigMeal);
   const targets = useMemo(() => styleTargets(ownTargets, style), [ownTargets, style]);
   // how often a meal may come round (founder 2026-11-18: "they can choose if they want any foods repeated")
   const [variety, setVariety] = useState<Variety>(saved?.variety ?? PER_MEAL_RECIPES);
@@ -642,7 +718,15 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
     // saved now, so leaving "Making your plan" keeps it; the plan this one replaces is kept among the earlier plans (founder 2026-11-19: "they can start
     // another meal plan"); the person's own diet is kept with it, so changing it later doesn't break the week; Pip's answers too, so a new plan starts from them
     const kept = sanitizeAnswers(answers);
-    const base: Omit<SavedPlan, "ids"> = { shops: chosen, slots, leaveOut, budget, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(household ? { home: { others, allergies: home.allergies, diets: home.diets } } : {}), diet: cleanDiet(settings.preferences), ...(style !== "balanced" ? { style } : {}), ...(Object.keys(kept).length ? { answers: kept } : {}) };
+    // the goal kept with the plan (on this phone only) once its numbers were used; its exercise days are the training days Pip plans more carbs for
+    const savedGoal: SavedGoal | undefined = goalUsed && goalAim && outcome?.kind === "ok"
+      ? { aim: goalAim, body, kcal: outcome.kcal, protein: outcome.protein, weeks: outcome.weeks, weeklyKg: outcome.weeklyKg, floored: outcome.floored, exercise: outcome.exercise }
+      : undefined;
+    const active = savedGoal?.exercise.filter((d) => d.kind === "strength" || d.kind === "cardio" || d.kind === "sport" || d.kind === "mix").map((d) => d.day) ?? [];
+    const toPip: PlanAnswers = active.length
+      ? { ...kept, training: kept.training && kept.training !== "none" ? kept.training : active.length >= 5 ? "5+" : active.length >= 3 ? "3-4" : "1-2", trainingDays: active }
+      : kept;
+    const base: Omit<SavedPlan, "ids"> = { shops: chosen, slots, leaveOut, budget, start: today(), variety, ...(cuisinesUsed.length ? { cuisines: cuisinesUsed } : {}), ...(household ? { home: { others, allergies: home.allergies, diets: home.diets } } : {}), diet: cleanDiet(settings.preferences), ...(style !== "balanced" ? { style } : {}), ...(Object.keys(kept).length ? { answers: kept } : {}), ...(savedGoal ? { goal: savedGoal } : {}) };
     const save = (p: BudgetPlan, extra: Pick<SavedPlan, "why" | "pipMissed"> = {}) => mealPlanStore.set({ ...base, ids: p.ids, ...(p.better.length ? { better: p.better } : {}), ...extra });
     onStart();
     if (saved) earlierPlansStore.update((l) => keepEarlier(l, saved));
@@ -656,7 +740,7 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
     save(plan);
     const day = slots.reduce((n, m) => ({ kcal: n.kcal + (targets[m]?.kcal ?? 0), protein: n.protein + (targets[m]?.protein ?? 0) }), { kcal: 0, protein: 0 });
     const req = planAiRequest({
-      answers: kept, style, cuisines: cuisinesUsed, slots, targets, daily: day, start: new Date(), variety, budget, cands,
+      answers: toPip, style, cuisines: cuisinesUsed, slots, targets, daily: day, start: new Date(), variety, budget, cands,
       household: household ? { others: home.others.map((o) => ({ group: o.group, portion: o.portion })) } : null,
       draft: { ids: plan.ids, cost: budgetCost(plan.week) },
     });
@@ -715,6 +799,10 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
     leaveOut: household ? t("Anything someone won't eat?") : t("Foods you'd rather not have"), budget: t("Your food budget a day"), check: t("Ready to make your plan?"),
     aim: t("What's your aim?"), fruitVeg: t("Fruit and veg a day"), training: t("How often do you train?"), cookTime: t("How long can you cook for?"), leftovers: t("Cook once, eat twice?"),
     breakfast: t("What do you like for breakfast?"), bread: t("How often do you like bread?"), spice: t("How hot do you like it?"), notes: t("Anything else Pip should know?"),
+    aboutYou: t("About you"), weightNow: t("Your weight now"), bodyFat: t("Your body fat"), goalWeight: t("Your goal weight"), pregnant: t("Are you pregnant or breastfeeding?"),
+    dayToDay: t("Day to day, not counting workouts"), height: t("Your height"), sportKind: t("What's your sport?"), trainingKind: t("What do you train?"),
+    lifting: t("How long have you lifted weights?"), exercise: t("Shall I plan your exercise too?"), session: t("How long is a usual session?"), pace: t("How fast?"),
+    numbers: t("Your numbers"), bigMeal: t("Your biggest meal of the day"),
   };
   const title = TITLES[id];
   // the shops step says what the ticks mean as they change (founder 2026-11-18: "it needs to be clear to them")
@@ -750,6 +838,21 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
     bread: t("Toast, wraps and sandwiches count. Never more than one a day."),
     spice: t("I'll match the heat to you."),
     notes: t("Tell me in your own words. I'll plan around it."),
+    aboutYou: t("For your numbers. It all stays on this phone."),
+    weightNow: t("It stays on this phone."),
+    bodyFat: t("Type it if you know it. If not, tap What's my body fat?"),
+    goalWeight: t("Where you'd like to be."),
+    pregnant: t("Your midwife or GP sets your numbers then."),
+    dayToDay: t("Workouts come next."),
+    height: t("For your numbers."),
+    sportKind: t("I'll fuel your training."),
+    trainingKind: t("So I count what it burns."),
+    lifting: t("So I pitch your training right."),
+    exercise: t("Food and exercise together get you there sooner."),
+    session: t("So I count what it burns."),
+    pace: t("Steady is easier to stick to."),
+    numbers: "",
+    bigMeal: t("I'll make it bigger and the others lighter."),
   };
   const says = SAYS[id];
   // the check screen keeps Pip until its budget row shows £
@@ -781,11 +884,13 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
   // the bottom button says the usual answer until something is changed (the meeting: the button is the only way on, and a hurried person taps it once);
   // a step opened from the check screen says Done and goes back to it
   const nextLabel = id === "check" ? t("Make my plan")
-    : fromCheck ? t("Done")
+    : fromCheck ? (id === "aim" && goalAim && !goalUsed ? t("Continue") : t("Done"))
     : id === "allergies" && !home.allergies.length ? t("No allergies at home")
     : id === "homeDiet" && !home.diets.length ? t("No diets at home")
     : id === "leaveOut" && !leaveOut.length ? t("Nothing to leave out")
+    : id === "numbers" ? (outcome?.kind === "ok" ? t("Use these numbers") : t("Skip"))
     : isPipStep(id) && !pipAnswered(id) ? t("Skip")
+    : isGoalStep(id) && !goalAnswered(id) ? t("Skip")
     : t("Continue");
 
   return (
@@ -940,6 +1045,23 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
         {id === "spice" && <SpiceStep value={answers.spice} onChange={(spice) => answer({ spice })} />}
         {id === "notes" && <NotesStep value={answers.notes ?? ""} onChange={(notes) => answer({ notes: notes || undefined })} />}
 
+        {/* the flowchart's goal questions (GoalSteps.tsx), nothing chosen when a screen opens */}
+        {id === "aboutYou" && <AboutYouStep body={body} onBody={onBody} />}
+        {id === "weightNow" && <WeightStep kg={body.weightKg} unit={body.unit} onChange={(weightKg, unit) => onBody({ weightKg, unit })} />}
+        {id === "bodyFat" && <BodyFatStep body={body} onBody={onBody} />}
+        {id === "goalWeight" && <WeightStep kg={body.goalKg} unit={body.unit} onChange={(goalKg, unit) => onBody({ goalKg, unit })} />}
+        {id === "pregnant" && <PregnantStep value={body.pregnant} onChange={(pregnant) => onBody({ pregnant })} />}
+        {id === "dayToDay" && <DayToDayStep value={body.dayToDay} onChange={(dayToDay) => onBody({ dayToDay })} />}
+        {id === "height" && <HeightStep cm={body.heightCm} onChange={(heightCm) => onBody({ heightCm })} />}
+        {id === "sportKind" && <SportKindStep value={answers.sportKind} onChange={(sportKind) => answer({ sportKind })} />}
+        {id === "trainingKind" && <TrainingKindStep value={answers.trainingKind} onChange={(trainingKind) => answer({ trainingKind })} />}
+        {id === "lifting" && <LiftingStep value={answers.lifting} onChange={(lifting) => answer({ lifting })} />}
+        {id === "exercise" && <ExerciseStep value={answers.exercise} onChange={(exercise) => answer({ exercise })} />}
+        {id === "session" && <SessionStep value={answers.sessionMinutes} onChange={(sessionMinutes) => answer({ sessionMinutes })} />}
+        {id === "pace" && goalAim && hasWeightGoal(goalAim) && <PaceStep aim={goalAim} body={body} value={answers.pace} onChange={(pace) => answer({ pace })} />}
+        {id === "numbers" && goalAim && outcome && <NumbersCard aim={goalAim} outcome={outcome} body={body} start={today()} />}
+        {id === "bigMeal" && <BigMealStep meals={shape.meals} value={answers.bigMeal} onChange={(bigMeal) => answer({ bigMeal })} />}
+
         {/* the check screen (the meeting: everyone sees it, Just me too; anything can be changed from here). Who's eating first (the onboarding meeting,
             20 November 2026: the first open starts here, and the old first question became this line), then the allergies */}
         {id === "check" && unloaded && (
@@ -966,6 +1088,8 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
                 ) : undefined],
               // Pip's extra questions, in the order asked
               ...steps.filter(isPipStep).map((s): [StepId, string, string] => [s, t(PIP_ROW[s]), pipLines[s]]),
+              ...(steps.includes("numbers") ? [["numbers", t("Your numbers"), goalUsed && outcome?.kind === "ok" ? t("{kcal} kcal and {protein} g protein a day", { kcal: formatInt(outcome.kcal), protein: formatInt(outcome.protein) }) : t("Not set")] as [StepId, string, string]] : []),
+              ...(steps.includes("bigMeal") ? [["bigMeal", t("Biggest meal"), answers.bigMeal ? t(MEAL_LABEL[answers.bigMeal]) : t("No preference")] as [StepId, string, string]] : []),
             ] as Array<[StepId, string, string, React.ReactNode?]>).map(([to, label, value, note]) => {
               const row = (
                 <>
@@ -974,7 +1098,7 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
                     <span className="mt-0.5 block text-[1rem] font-semibold leading-snug [overflow-wrap:anywhere]">{value}</span>
                     {note && (typeof note === "string" ? <span className="mt-1 block text-[0.9375rem] leading-snug">{note}</span> : <div className="text-[0.9375rem] leading-snug">{note}</div>)}
                   </span>
-                  <Button variant="secondary" onClick={() => go(to)} aria-label={t("Change: {what}", { what: label })} className="shrink-0 px-4">{t("Change")}</Button>
+                  <Button variant="secondary" onClick={() => (to === "numbers" ? walkGoal() : go(to))} aria-label={t("Change: {what}", { what: label })} className="shrink-0 px-4">{t("Change")}</Button>
                 </>
               );
               // the allergies in the one amber note when there are any (the card a parent must not miss); "No allergies at home." stays a plain card
@@ -1000,7 +1124,7 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
             {noneWays}
           </div>
         ) : (
-          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "check") make(); else if (fromCheck) backToCheck(); else moveTo(step + 1); }}>{nextLabel}</Button>
+          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "numbers") { if (outcome?.kind === "ok") applyGoal(); else setGoalUsed(false); } if (id === "check") make(); else if (fromCheck) (id === "aim" && goalAim && !goalUsed ? walkGoal() : backToCheck()); else moveTo(step + 1); }}>{nextLabel}</Button>
         )}
       </div>
       {/* Pip's permission, the first time his AI would plan the week: Allow plans with him; Not now makes the week on this phone */}
@@ -1366,7 +1490,7 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const shape = useMemo(() => shapeOf(slots), [slots]);
   // the meal sizes and recipes of the style the plan was made with (Questions does the same)
   const style: EatingStyle = saved.style ?? "balanced";
-  const ownTargets = useSlotTargets(shape);
+  const ownTargets = useSlotTargets(shape, saved.answers?.bigMeal);
   const targets = useMemo(() => styleTargets(ownTargets, style), [ownTargets, style]);
   const gap = useCapGap(shape, targets);
   const daily = macroTargets(settings);
@@ -1378,6 +1502,8 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
   const todayIndex = planDayIndex(saved.start, today());
   const ended = todayIndex >= PLAN_DAYS;
   const [day, setDay] = useState(() => Math.min(PLAN_DAYS - 1, Math.max(0, todayIndex)));
+  // the shown day's exercise, by its weekday (the plan's days are named from its start)
+  const dayExercise = saved.goal?.exercise.find((e) => e.day === new Date(new Date(`${saved.start}T12:00:00`).getTime() + day * 86_400_000).getDay());
   const [swapping, setSwapping] = useState<number | null>(null);
   const [added, setAdded] = useState<{ text: string; href: string; at: number } | null>(null);
   const shopKey = saved.shops.join("|");
@@ -1653,6 +1779,13 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
             : t("Our recipes go up to about {max} kcal a meal, so your days come to about {avg} of your {daily} kcal.", { max: formatInt(short.max), avg: formatInt(short.avg), daily: formatInt(settings.dailyCalories) })}</p>
         )}
         <CapNote gap={gap} />
+        {/* the goal the plan was made for (bodyGoal.ts): the time to it, and making a new plan every 4 weeks with the new weight */}
+        {saved.goal && saved.goal.aim !== "sport" && (
+          <>
+            <p className="app-numbers text-[0.9375rem] font-semibold leading-snug">{goalTimeLine(t, (d) => new Intl.DateTimeFormat(localeInfo(language).htmlLang, { day: "numeric", month: "long", year: "numeric" }).format(d), { weeks: saved.goal.weeks, goalKg: saved.goal.body.goalKg, unit: saved.goal.body.unit, start: saved.start })}</p>
+            <p className="text-[0.9375rem] leading-snug">{t("Make a new plan every {n} weeks with your new weight, so your numbers keep up.", { n: "4" })}</p>
+          </>
+        )}
         {/* the allergies the plan leaves out, in the one amber note with "Always check the label" (never a promise): a home's and the person's own, or (Just
             me) the person's own; "No allergies at home." stays a plain line */}
         {savedHome ? (savedHome.allergies.length || ownAllergies.length
@@ -1690,6 +1823,9 @@ function Week({ saved, onChange }: { saved: SavedPlan; onChange: () => void }) {
         {/* the day's fruit and veg, counted the NHS way from the recipes' own weights (fiveADay.ts), against the person's aim when they set one */}
         <p className="app-numbers mt-2.5 px-1 text-[0.9375rem] font-semibold leading-snug">{fruitVegLine(t, dayPortions(shown.meals.map((m) => servingPortions(m.candidate))), fruitVegAim)}</p>
         <p className="mt-0.5 px-1 text-[0.8125rem] leading-snug text-muted">{t("Counted the NHS way: 80 g of fruit or veg is a portion.")}</p>
+        {/* the day's exercise from the goal (founder 2026-11-26: "once their meal timetable is made it may say recommended 1 hr of exercise, weight training etc and
+            how much that would burn") */}
+        {dayExercise && <ExerciseDayCard day={dayExercise} />}
         {logged && <Toast key={logged.id} onUndo={undoLog} onClose={() => setLogged(null)}>{logged.text}</Toast>}
         <ul className="mt-5 space-y-6">
           {shown.meals.map((m, i) => {

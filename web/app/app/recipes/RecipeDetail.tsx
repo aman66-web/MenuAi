@@ -149,6 +149,9 @@ const INFO_CHIP = "inline-flex min-h-[3.25rem] items-center gap-1.5 px-2 text-[0
 const HAVE_ON = "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-sun)]";
 /** A secondary action inside a white card: a light grey pill. */
 const SOFT_PILL = "inline-flex min-h-11 max-w-full items-center justify-center gap-1.5 rounded-full border-[1.5px] border-[color:var(--edge)] bg-soft px-4 text-[0.9375rem] font-bold transition active:scale-95 hover:bg-[var(--fill)]";
+/** "Add a serving to today" in the main buttons' look (founder 2026-11-26: white "is easily missed ... make that button the same background colour as the add all
+ *  to my shopping list button"): ink with white words, which follows the person's colour scheme like every main button. */
+const LOG_PILL = "inline-flex min-h-12 max-w-full items-center justify-center gap-1.5 rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] hover:bg-ink-pressed active:bg-ink-pressed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 /** A figure from the full label ("56.1 g", "688 kcal · 2,880 kJ"): the numbers in DM Mono like Home's rows, each unit in the text face, so the
  *  mono font's wide space doesn't open a gap before the "g". */
@@ -419,7 +422,7 @@ export function RecipeDetail({ recipe, files, products, backHref, actions, photo
     });
   };
   const logButton = totals ? (
-    <button type="button" aria-haspopup="dialog" onClick={() => { setLogServings(1); setLogOpen(true); }} className={`${SOFT_PILL} w-full`}>
+    <button type="button" aria-haspopup="dialog" onClick={() => { setLogServings(1); setLogOpen(true); }} className={`${LOG_PILL} w-full`}>
       <PlusIcon aria-hidden className="h-[18px] w-[18px] shrink-0" />{t("Add a serving to today")}
     </button>
   ) : null;

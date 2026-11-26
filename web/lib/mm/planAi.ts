@@ -1,3 +1,7 @@
+import {
+  EXERCISE_CHOICES, GOAL_PACES, LIFTING, SESSION_MINUTES, SPORT_KINDS, TRAINING_KINDS,
+  type ExerciseChoice, type GoalPace, type Lifting, type SessionMinutes, type SportKind, type TrainingKind,
+} from "./bodyGoal";
 import { GATING_ENABLED } from "./config";
 import { cleanFruitVegAim, type FruitVegAim } from "./fiveADay";
 import type { AgeGroup, PortionSize } from "./household";
@@ -19,7 +23,7 @@ export const PLAN_AI_API_ENABLED = process.env.NEXT_PUBLIC_PLAN_AI !== "0";
 /** Pip's extra questions and the AI plan exist only where Meal plan is Premium (the iPhone app; never free, where nothing could use the answers). */
 export const PLAN_AI_ENABLED = PLAN_AI_API_ENABLED && GATING_ENABLED;
 
-export const AIMS = ["muscle", "loseFat", "steady", "eatWell"] as const;
+export const AIMS = ["loseFat", "muscle", "sport", "steady", "eatWell"] as const;
 export type PlanAim = (typeof AIMS)[number];
 export const TRAINING = ["none", "1-2", "3-4", "5+"] as const;
 export type Training = (typeof TRAINING)[number];
@@ -31,6 +35,9 @@ export type Spice = (typeof SPICES)[number];
 export const BREAKFASTS = ["sweet", "savoury", "quick"] as const;
 export type BreakfastLike = (typeof BREAKFASTS)[number];
 export const BREADS = ["mostDays", "fewTimes", "rarely"] as const satisfies readonly BreadLike[];
+/** The meal that may be the day's biggest (founder 2026-11-26, the flowchart's questions): its share of the day grows (mealPlan.ts BIG_MEAL_SHARE). */
+export const BIG_MEALS = ["breakfast", "lunch", "dinner"] as const;
+export type BigMeal = (typeof BIG_MEALS)[number];
 /** The longest note to Pip. */
 export const MAX_NOTES = 300;
 /** Days of the week as the phone's clock counts them: 0 Sunday to 6 Saturday. */
@@ -44,6 +51,22 @@ export interface PlanAnswers {
   training?: Training;
   /** The days they train (0 Sunday to 6 Saturday), when they said; otherwise Pip spreads the training days out. */
   trainingDays?: number[];
+  // the flowchart's questions (founder 2026-11-26: "different questions may need to be asked based on what they put for earlier questions"); the body's own
+  // answers (weight, body fat, goal) are never here: they stay on the phone in the saved plan's goal (bodyGoal.ts), and only these choices go to Pip
+  /** What their training is (when they train). */
+  trainingKind?: TrainingKind;
+  /** Training for a sport: what kind. */
+  sportKind?: SportKind;
+  /** A usual session's length (their own training, or a sport). */
+  sessionMinutes?: SessionMinutes;
+  /** Building muscle: how long they have lifted weights. */
+  lifting?: Lifting;
+  /** Losing fat or building muscle: Pip plans the exercise, or they keep their own. */
+  exercise?: ExerciseChoice;
+  /** Losing fat or building muscle: Steady or Faster. */
+  pace?: GoalPace;
+  /** The meal they like to be the day's biggest. */
+  bigMeal?: BigMeal;
   cookWeekday?: CookTime;
   cookWeekend?: CookTime;
   /** Happy to cook once and eat it twice. */
@@ -80,6 +103,20 @@ export function sanitizeAnswers(raw: unknown): PlanAnswers {
     const days = WEEKDAY_NUMBERS.filter((d) => (r.trainingDays as unknown[]).includes(d));
     if (days.length) out.trainingDays = [...days];
   }
+  const trainingKind = pick(TRAINING_KINDS, r.trainingKind);
+  if (trainingKind && training && training !== "none") out.trainingKind = trainingKind;
+  const sportKind = pick(SPORT_KINDS, r.sportKind);
+  if (sportKind && aim === "sport") out.sportKind = sportKind;
+  const sessionMinutes = pick(SESSION_MINUTES, r.sessionMinutes);
+  if (sessionMinutes) out.sessionMinutes = sessionMinutes;
+  const lifting = pick(LIFTING, r.lifting);
+  if (lifting && aim === "muscle") out.lifting = lifting;
+  const exercise = pick(EXERCISE_CHOICES, r.exercise);
+  if (exercise && (aim === "loseFat" || aim === "muscle")) out.exercise = exercise;
+  const pace = pick(GOAL_PACES, r.pace);
+  if (pace && (aim === "loseFat" || aim === "muscle")) out.pace = pace;
+  const bigMeal = pick(BIG_MEALS, r.bigMeal);
+  if (bigMeal) out.bigMeal = bigMeal;
   const weekday = pick(COOK_TIMES, r.cookWeekday);
   if (weekday) out.cookWeekday = weekday;
   const weekend = pick(COOK_TIMES, r.cookWeekend);

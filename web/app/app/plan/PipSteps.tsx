@@ -23,8 +23,8 @@ const ROW_ON = "border-on-sun bg-sun text-on-sun shadow-[0_0_0_0.5px_var(--on-su
 
 type T = ReturnType<typeof useT>;
 
-export const AIM_LABEL: Record<PlanAim, string> = { muscle: tk("Build muscle"), loseFat: tk("Lose fat"), steady: tk("Keep steady"), eatWell: tk("Just eat well") };
-const AIM_LINE: Record<PlanAim, string> = { muscle: tk("More protein in every meal"), loseFat: tk("More food for the calories"), steady: tk("Meals that match your numbers"), eatWell: tk("Lots of variety") };
+export const AIM_LABEL: Record<PlanAim, string> = { loseFat: tk("Lose fat"), muscle: tk("Build muscle"), sport: tk("Train for a sport"), steady: tk("Keep steady"), eatWell: tk("Just eat well") };
+const AIM_LINE: Record<PlanAim, string> = { loseFat: tk("Your goal weight, with a date"), muscle: tk("More protein, with a date for your goal"), sport: tk("Fuel for your training"), steady: tk("Meals that match your numbers"), eatWell: tk("Lots of variety") };
 export const TRAINING_LABEL: Record<Training, string> = { none: tk("None"), "1-2": tk("1 to 2 days"), "3-4": tk("3 to 4 days"), "5+": tk("5 or more") };
 const COOK_LABEL: Record<CookTime, string> = { 15: tk("15 min"), 30: tk("30 min"), 45: tk("45 min"), 60: tk("1 hour+") };
 export const BREAKFAST_LABEL: Record<BreakfastLike, string> = { sweet: tk("Sweet"), savoury: tk("Savoury"), quick: tk("Quick") };
@@ -34,7 +34,7 @@ const SPICE_LINE: Record<Spice, string> = { mild: tk("No chilli heat"), medium: 
 const DAY_SHORT: Record<number, string> = { 1: tk("Mon"), 2: tk("Tue"), 3: tk("Wed"), 4: tk("Thu"), 5: tk("Fri"), 6: tk("Sat"), 0: tk("Sun") };
 
 /** One single-choice answer as a big row: `line` under the name when given. Tapping the chosen one again clears it (nothing chosen = Skip). */
-function Rows<V extends string | number | boolean>({ label, options, value, onChange, name, line }: { label: string; options: readonly V[]; value: V | undefined; onChange: (v: V | undefined) => void; name: (v: V) => string; line?: (v: V) => string }) {
+export function Rows<V extends string | number | boolean>({ label, options, value, onChange, name, line }: { label: string; options: readonly V[]; value: V | undefined; onChange: (v: V | undefined) => void; name: (v: V) => string; line?: (v: V) => string }) {
   return (
     <div role="radiogroup" aria-label={label} className="space-y-2">
       {options.map((o) => {
@@ -54,7 +54,7 @@ function Rows<V extends string | number | boolean>({ label, options, value, onCh
 }
 
 /** A single choice as chips (short answers: minutes, how many days). */
-function Chips<V extends string | number>({ label, options, value, onChange, name }: { label: string; options: readonly V[]; value: V | undefined; onChange: (v: V | undefined) => void; name: (v: V) => string }) {
+export function Chips<V extends string | number>({ label, options, value, onChange, name }: { label: string; options: readonly V[]; value: V | undefined; onChange: (v: V | undefined) => void; name: (v: V) => string }) {
   return (
     <div role="radiogroup" aria-label={label} className="flex flex-wrap gap-2">
       {options.map((o) => {

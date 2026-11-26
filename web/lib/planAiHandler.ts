@@ -150,7 +150,9 @@ Plan the week like a thoughtful meal planner who knows this person:
 
 "days": seven lists, one for each day in order, each with that day's recipe ids in slot order.`;
 
-const AIM_WORDS: Record<NonNullable<PlanAnswers["aim"]>, string> = { muscle: "build muscle", loseFat: "lose fat", steady: "keep steady", eatWell: "just eat well" };
+const AIM_WORDS: Record<NonNullable<PlanAnswers["aim"]>, string> = { muscle: "build muscle", loseFat: "lose fat", sport: "train for a sport (an athlete)", steady: "keep steady", eatWell: "just eat well" };
+const KIND_WORDS: Record<NonNullable<PlanAnswers["trainingKind"]>, string> = { weights: "weights", cardio: "running or cardio", sport: "a sport", mix: "a mix of weights and cardio" };
+const SPORT_WORDS: Record<NonNullable<PlanAnswers["sportKind"]>, string> = { endurance: "an endurance sport (running, cycling or swimming)", team: "a team or racket sport", power: "a strength or power sport" };
 const TRAINING_WORDS: Record<NonNullable<PlanAnswers["training"]>, string> = { none: "doesn't train", "1-2": "trains 1 to 2 days a week", "3-4": "trains 3 to 4 days a week", "5+": "trains 5 or more days a week" };
 const BREAD_WORDS: Record<NonNullable<PlanAnswers["bread"]>, string> = { mostDays: "most days", fewTimes: "a few times a week", rarely: "rarely" };
 const VARIETY_WORDS: Record<PlanAiRequest["variety"], string> = { 7: "a different meal every day", 4: "some repeats", 2: "meal prep" };
@@ -168,6 +170,12 @@ export function planUserPrompt(r: PlanAiRequest): string {
     `- Aim: ${a.aim ? AIM_WORDS[a.aim] : "not said"}`,
     `- Fruit and veg a day: ${a.fruitVeg === 5 || a.fruitVeg === 7 ? `${a.fruitVeg} portions every day` : a.fruitVeg === "none" ? "no aim" : "not said (no aim)"}`,
     `- Training: ${a.training ? TRAINING_WORDS[a.training] : "not said"}${a.trainingDays?.length ? " (the training days are marked below)" : a.training && a.training !== "none" ? " (which days isn't known)" : ""}`,
+    ...(a.trainingKind ? [`- What they train: ${KIND_WORDS[a.trainingKind]}`] : []),
+    ...(a.sportKind ? [`- Their sport: ${SPORT_WORDS[a.sportKind]} (fuel the training days with more carbs)`] : []),
+    ...(a.sessionMinutes ? [`- A usual session: ${minutes(a.sessionMinutes)}`] : []),
+    ...(a.exercise ? [`- Exercise: ${a.exercise === "plan" ? "Pip planned their week's exercise; strength days are marked as training days" : "they keep their own training"}`] : []),
+    ...(a.pace ? [`- Pace: ${a.pace}`] : []),
+    ...(a.bigMeal ? [`- Biggest meal of the day: ${a.bigMeal} (its size is already bigger)`] : []),
     `- Cooking time: ${a.cookWeekday ? `up to ${minutes(a.cookWeekday)} on weekdays` : "weekdays not said"}; ${a.cookWeekend ? `up to ${minutes(a.cookWeekend)} at weekends` : "weekends not said"}`,
     `- Cook once, eat twice: ${a.leftovers === undefined ? "not said (no leftovers)" : a.leftovers ? "yes" : "no"}`,
     `- Cuisines they love for lunch and dinner: ${r.cuisines.length ? r.cuisines.map(cuisineName).join(", ") : "any"}`,

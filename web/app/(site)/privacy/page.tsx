@@ -315,8 +315,9 @@ export default function Privacy() {
       {PLAN_AI_API_ENABLED && (
       <Section title="Meal plan with Pip">
         <p className={para}>
-          If you have Premium and answer any of Pip&apos;s extra questions in Meal plan (your aim, fruit and veg, training, cooking time, leftovers, breakfast, bread,
-          spice and the kinds of food you&apos;d rather skip) or type a note for Pip, making your plan sends to our server: those answers and your note, how you like to
+          If you have Premium and answer any of Pip&apos;s extra questions in Meal plan (your aim, fruit and veg, training and what you train, your sport, how long you
+          have lifted weights, whether Pip plans your exercise, your pace, your biggest meal, cooking time, leftovers, breakfast, bread, spice and the kinds of food
+          you&apos;d rather skip) or type a note for Pip, making your plan sends to our server: those answers and your note, how you like to
           eat and the kinds of food you chose, the meals and snacks in your day with each one&apos;s calories and protein, your budget if you set one, the days of the
           week, the age group and portion size of anyone else you cook for (never their names or their own numbers), and the recipes from your shops that fit you,
           with each one&apos;s figures and price. Our server passes them to Anthropic, the company that makes the Claude AI, which chooses the week&apos;s recipes from
@@ -325,7 +326,10 @@ export default function Privacy() {
           never by the AI.
         </p>
         <p className={para}>
-          Your answers and your note are kept with your plan on your device only (they aren&apos;t synced to your account) and are deleted by Clear data. Our server
+          Your answers and your note are kept with your plan on your device only (they aren&apos;t synced to your account) and are deleted by Clear data. If you set a
+          goal (losing fat, building muscle or training for a sport), your age, weight, body fat, height and goal weight are used on your device to work out your
+          daily calories and protein, the time to your goal and each day&apos;s exercise; they are kept with your plan on your device only and are never sent to us or
+          to the AI (only the days you exercise are, so those days can have meals with more carbs). Our server
           keeps Pip&apos;s answer for exactly the same request in its memory for up to a day, filed under a one-way scramble of what was sent, so the AI isn&apos;t
           asked twice; nothing is stored. To check you have Premium, your device sends its access token, which holds no personal details, and a one-way scramble of
           details in that token (never a name or email), held only in our server&apos;s memory for a day at most, stops one person asking too often.
