@@ -109,6 +109,7 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Steps on Android (26 Nov, built on `claude/android-steps`, not merged or uploaded):** on a real Android phone with a debug build from that branch (`./scripts/build_android.sh debug`, or Android Studio's Run): Home › "Turn on step counting" shows Android's "Physical activity" question once; allow it, walk a few hundred steps with the app closed, reopen: today's number has gone up and the Steps page says "Counted since you turned it on"; the next day yesterday is a whole day; "Don't allow" shows the line with Open Settings (it opens App info › Permissions); "Stop counting steps" then turning on again starts a new first day. Then say "merge the Android steps" and, before that build goes to review, tick **Activity and fitness** in Play Console › App content › Health apps (docs/ANDROID_STORE.md "Steps"; Data safety stays as it is)
 - [ ] **Steps (26 Nov, on `iap`):** (1) Android: Google's Recording API (`play-services-fitness`) approved by you on 26 Nov; until that change lands
   Android shows no steps. (2) **Try it on your real iPhone** (cable + Run in Xcode, Home › Steps › Turn on step counting): iOS asks for Motion & Fitness once; the
   Simulator can't count steps. No Xcode capability is needed and App Privacy doesn't change (steps never leave the phone)
