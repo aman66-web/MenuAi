@@ -354,15 +354,20 @@ function ProductsCard({ card, onNavigate }: { card: Extract<PipCard, { kind: "pr
 function PlanCard({ card, onNavigate }: { card: Extract<PipCard, { kind: "plan" }>; onNavigate: () => void }) {
   const t = useT();
   const router = useRouter();
+  const { gate } = useGate();
   return (
     <div className={`${CARD} p-3`}>
       <p className="flex items-center gap-2 font-bold"><CalendarIcon aria-hidden className="h-5 w-5 text-ink" />{t("Your meal plan with Pip")}</p>
       <button
         type="button"
         onClick={() => {
-          pipPlanHandoffStore.set(card.handoff);
           onNavigate();
-          router.push("/app/plan");
+          // Meal plan is Premium (lib/mm/mealPlanGate.ts): without it (the free week ended mid-chat), the Premium sheet opens here, and Pip's answers are handed
+          // to the plan only if Premium is switched on in it
+          gate("mealPlan", () => {
+            pipPlanHandoffStore.set(card.handoff);
+            router.push("/app/plan");
+          });
         }}
         className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-ink px-5 text-[1.0625rem] font-bold text-on-ink transition active:scale-[0.98]"
       >
