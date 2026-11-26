@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { mealPlanDoor } from "@/lib/mm/mealPlanGate";
 import { clearPlanMaking, planMakingStore, planMakingWatchedStore } from "../_lib/planMaking";
-import { useNow, useStore } from "../_lib/hooks";
+import { useIsPro, useNow, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { CalendarIcon, CloseIcon } from "./icons";
+import { useGate } from "./Paywall";
 
 /** About how long Pip takes: the bar fills to here and waits (never full until he is back). */
 const PIP_MS = 60_000;
@@ -22,6 +24,9 @@ export function PlanMakingBanner() {
   const making = useStore(planMakingStore);
   const watched = useStore(planMakingWatchedStore);
   const now = useNow(1000);
+  const pro = useIsPro();
+  const { gate } = useGate();
+  const router = useRouter();
   const onPlan = /^\/app\/plan\/?$/.test(pathname);
   // ready and the week is on screen: seen
   useEffect(() => {
@@ -40,7 +45,19 @@ export function PlanMakingBanner() {
             <span aria-hidden className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sun text-on-sun"><CalendarIcon className="h-4 w-4" /></span>
           )}
           <p className="min-w-0 flex-1 text-[0.9375rem] font-bold leading-snug">{pip ? t("Pip is making your plan…") : t("Your meal plan is ready")}</p>
-          <Link href="/app/plan" onClick={() => { if (!pip) clearPlanMaking(); }} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          {/* without Premium where it is sold (the free week ended while Pip worked), Open shows the Premium sheet here, as Home's Meal plan card does
+              (lib/mm/mealPlanGate.ts); the notice stays until the plan is opened or closed */}
+          <Link
+            href="/app/plan"
+            onClick={(e) => {
+              if (mealPlanDoor(pro) === "premium") {
+                e.preventDefault();
+                gate("mealPlan", () => { if (!pip) clearPlanMaking(); router.push("/app/plan"); });
+                return;
+              }
+              if (!pip) clearPlanMaking();
+            }}
+            className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-ink px-4 text-[0.9375rem] font-bold text-on-ink transition active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             {pip ? t("See it") : t("Open")}
           </Link>
           {!pip && (
