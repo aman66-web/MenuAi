@@ -32,7 +32,7 @@ class NativeBridge(
     private val session: SessionStoring,
     /** The phone's one-way identity for the free week. */
     private val device: DeviceIdentifying,
-    /** The phone's step count (StepCounter.kt); none until the app has one. */
+    /** The phone's step count: Google Play services' recording (RecordingStepCounter.kt, PlayStepRecorder.kt); a bridge made without one answers "unavailable". */
     private val steps: StepCounting = NoStepCounter(),
     /** Puts the keyboard away (runs on the main thread). */
     private val hideKeyboard: () -> Unit,

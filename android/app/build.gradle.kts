@@ -75,6 +75,9 @@ dependencies {
     // Google's own in-app review pop-up (the page asks only after someone rated the app 5); the Android twin of Apple's requestReview
     implementation("com.google.android.play:review-ktx:2.0.2")
     implementation("com.android.billingclient:billing-ktx:8.0.0")
+    // Steps (founder approved 2026-11-26, CLAUDE.md rule 6): Google Play services' on-phone step recording, the Recording API on mobile (FitnessLocal, no
+    // Google account, ten days kept on the phone, nothing sent). Only the Local* classes are used (bridge/PlayStepRecorder.kt); never Google Fit's cloud APIs.
+    implementation("com.google.android.gms:play-services-fitness:21.3.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
     testImplementation("junit:junit:4.13.2")
     // Android's own org.json is only a stub in plain JVM tests; this is the same API for the unit tests (test only, never in the app).

@@ -1074,7 +1074,7 @@ function varietyPools(candidates: Map<MealType, PlanCandidate[]>, types: readonl
 /**
  * Makes the week as varied as the recipes allow, one move at a time, the move that removes most faults first (ties: the one the pack search likes best, its
  * fresh food left, bill and fit; `tieBreak`): two of a meal's recipes swap turns, or one is changed for another from the variety window, or, when neither
- * helps, one is changed and two then swap turns. First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
+ * helps, one is changed and two then swap turns (in its own meal, else in another). First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
  */
 function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], faults: () => number, tieBreak: () => number, maxRounds = 40, slacks: readonly number[] = [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]): void {
   const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
@@ -1096,7 +1096,9 @@ function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
         const n = size(m);
         for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => flip(pool, a, b)); flip(pool, a, b); }
       }
-      for (const compound of [false, true]) {
+      // 0: one recipe changed; 1: one changed and two of the same meal swap turns; 2 (only when neither helps): one changed and two of another meal swap
+      // turns (an omelette dinner changed for a chicken one frees its day for an omelette lunch, 26 November 2026: the keto week's eggs)
+      for (const stage of [0, 1, 2]) {
         if (best) break;
         for (const m of types) {
           const pool = chosen.get(m)!;
@@ -1107,8 +1109,14 @@ function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
             for (const x of windows.get(m)!) {
               if (inPool.has(x.recipe.id)) continue;
               pool[i] = x;
-              if (!compound) look(() => { pool[i] = x; });
-              else for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => { pool[i] = x; flip(pool, a, b); }); flip(pool, a, b); }
+              if (stage === 0) look(() => { pool[i] = x; });
+              else if (stage === 1) for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => { pool[i] = x; flip(pool, a, b); }); flip(pool, a, b); }
+              else for (const other of types) {
+                if (other === m) continue;
+                const p2 = chosen.get(other)!;
+                const n2 = size(other);
+                for (let a = 0; a < n2; a++) for (let b = a + 1; b < n2; b++) { flip(p2, a, b); look(() => { pool[i] = x; flip(p2, a, b); }); flip(p2, a, b); }
+              }
             }
             pool[i] = was;
           }
@@ -1222,11 +1230,13 @@ function makePlanFresh(candidates: Map<MealType, PlanCandidate[]>, budget: numbe
  * than the week already is or MAX_SWAP_DISTANCE, and never over the budget it meets (5% over the bill at most). A bill already over its budget (the cheapest week
  * the choices allow) may grow BALANCED_CHEAPEST_EXTRA for a balanced week: at 5%, two people's cheapest week at Sainsbury's had bread at both breakfast and lunch
  * nearly every day (21 November evening, with the world recipes; founder: "who wants to have bread every single day"); at 20% it is £88, not £76, with bread
- * on 5 meals and no repeats.
+ * on 5 meals and no repeats. 25% since 26 November 2026 (founder's choice, when the four branches were merged): the second wave's cheap batch-cooks brought
+ * the bare cheapest week for two at Sainsbury's down to £51, and at 20% (£61) the balanced week still had bread at two meals on 5 days; at 25% it is £63.69
+ * with bread at two meals on 2 days (Asda and Morrisons unchanged).
  * Changes `chosen` in place.
  */
 /** How much more than the bare cheapest week a balanced cheapest week may cost (balanceRepair). */
-const BALANCED_CHEAPEST_EXTRA = 0.2;
+const BALANCED_CHEAPEST_EXTRA = 0.25;
 
 function balanceRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], slots: readonly MealType[], ids: () => PlanIds, budget: number, formFaultsOf: (ids: PlanIds) => number, balancedOf: (ids: PlanIds) => number, tieBreak: () => number): void {
   const byId = new Map<string, PlanCandidate>();

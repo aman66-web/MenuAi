@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { recipeNutrients } from "@/lib/mm/addFood";
 import { analytics } from "@/lib/mm/analytics";
 import { MEAL_LABEL } from "@/lib/mm/budget";
-import { GATING_ENABLED } from "@/lib/mm/config";
 import { formatDate, formatInt } from "@/lib/mm/format";
 import { formatPrice, retailerName, withPhoto } from "@/lib/mm/groceries";
 import { localeInfo, tk } from "@/lib/mm/i18n";
@@ -15,8 +15,9 @@ import { cleanWhy, hasPipAnswers, PLAN_AI_ENABLED, sanitizeAnswers, type BigMeal
 import { goalOutcome, hasWeightGoal, sanitizeBody, type BodyGoal, type GoalAim, type GoalOutcome, type SavedGoal } from "@/lib/mm/bodyGoal";
 import { budgetKept, mergeAiWeek, planAiRequest, planLimits, servingPortions } from "@/lib/mm/planAiWeek";
 import { dayPortions, shownPortions } from "@/lib/mm/fiveADay";
+import { mealPlanDoor } from "@/lib/mm/mealPlanGate";
 import { localDay } from "@/lib/mm/paid";
-import { betterFor, loadShops as loadShopsWith, previewShop, recipesFor, weekPreview, widenedIn, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
+import { betterFor, loadShops as loadShopsWith, recipesFor, widenedIn, workKey, workOut, type Candidates, type Loaded, type Targets } from "@/lib/mm/planPreview";
 import { RECIPES } from "@/lib/mm/recipeBook";
 import { CUISINES, type CuisineId } from "@/lib/mm/recipeBook/niches";
 import { matchesNiche } from "@/lib/mm/recipeNiche";
@@ -38,6 +39,7 @@ import { Toast } from "../_components/Toast";
 import { AllergyNote, Badge, Button, ChoiceMark, ErrorBox, LinkButton, Sheet, Spinner, inputClass } from "../_components/ui";
 import { AiConsentSheet, useOnline } from "../_components/AiConsentSheet";
 import { useHydrated, useIsPro, useSettings, useStore } from "../_lib/hooks";
+import { travelBack } from "../_lib/backNav";
 import { askPipForWeek } from "../_lib/planAi";
 import { useLanguage, useT } from "../_lib/i18n";
 import { addedNote, placeItems, targetList } from "../_lib/listRecipes";
@@ -49,7 +51,7 @@ import { PhotoTile } from "../groceries/ProductPhoto";
 import { MEAL_LOOK } from "../recipes/RecipeTile";
 import { RecipeThumb } from "../recipes/RecipeThumb";
 import { DayStrip, type StripDay } from "./DayStrip";
-import { TwoWeeks, foodADay } from "./TwoWeeks";
+import { TwoWeeks } from "./TwoWeeks";
 import { AllergiesStep, CountStep, GROUP_LABEL, HOME_DIET_LABEL, HomeDietStep, STYLE_LABEL, StyleStep, WhoStep, allergyLine, homeDietLine, personName, whoWords } from "./HouseholdSteps";
 import { AimStep, BreadStep, BreakfastStep, CookTimeStep, FruitVegStep, LeftoversStep, NotesStep, SkipCuisines, SpiceStep, TrainingStep, pipAnswerLines } from "./PipSteps";
 import { SwapPicker } from "./SwapPicker";
@@ -70,7 +72,8 @@ import type { PlanHandoff } from "@/lib/mm/askPip";
 // shopping list. The plan stays on the phone until a new one is made (mm.v1.mealPlan).
 // The first open, with no plan yet (the onboarding meeting, 20 November 2026, build list 13): straight to the check screen, filled in from the person's own
 // settings (their diet and allergies, daily numbers and shop) and Meal plan's Just-me defaults, "Who's eating: Just me" first, every line with its Change; its
-// "Make my plan" makes the same week the onboarding preview and PremiumIntro show, and saves it as before.
+// "Make my plan" makes the same week the onboarding preview shows, and saves it as before. Without Premium where it is sold there is no page here, only the
+// Premium sheet (PremiumDoor, founder 2026-11-26).
 
 /** Today's date on this phone (yyyy-mm-dd, the local day: a plan made at 00:30 starts today, not yesterday as the UTC date would say). */
 const today = () => localDay(new Date());
@@ -262,134 +265,35 @@ function PlanScreen() {
   useEffect(() => { if (fromPip) pipPlanHandoffStore.set(null); }, [fromPip]);
   const [editing, setEditing] = useState(!!fromPip);
   if (!hydrated) return <Spinner />;
-  if (GATING_ENABLED && !pro) return <PremiumIntro />;
+  if (mealPlanDoor(pro) === "premium") return <PremiumDoor />;
   // a new plan is saved as soon as it is made (leaving "Making your plan" keeps it); `editing` holds the questions' screen until Making is over
   if (saved && !editing) return <Week key={saved.start} saved={saved} onChange={() => setEditing(true)} />;
   return <Questions saved={saved} pip={fromPip ?? undefined} onStart={() => setEditing(true)} onDone={() => setEditing(false)} onKeep={saved ? () => setEditing(false) : undefined} />;
 }
 
 /**
- * The week Meal plan's first open would make (useWeekPreview): working on it, ready, or none: `diet` when our recipes can't fill every meal for the
- * person's diet, otherwise (offline, no shop, a week far from their numbers) the words alone.
+ * Meal plan without Premium where it is sold (after the free week, nothing bought), opened by its address (a link, Back, a saved page): the Premium sheet opens
+ * at once, with nothing of Meal plan under it (founder 2026-11-26: "It won't even go into the meal plan. If they click a meal plan, it will show up saying
+ * they'll have to get a membership"; until then a preview week and See Premium). Closing it goes back to the page before, or Home; buying there shows the plan,
+ * and a plan already made is still kept (mm.v1.mealPlan is never touched here). Home's card, the plan-ready notice and Ask Pip open the sheet where the person
+ * is instead (lib/mm/mealPlanGate.ts).
  */
-type Preview = { state: "working" } | { state: "none"; diet: boolean; narrow?: boolean } | { state: "ready"; meals: Array<{ meal: MealType; name: string; recipeId: string }>; day: number; kcal: number; protein: number; total: number; costs: WeekCosts; week: WeekPlan; checkedOn: string; gap: CapGap };
-
-/**
- * The week the first open's "Make my plan" makes (the onboarding meeting, 20 November 2026: "not bait"): lib/mm/planPreview.ts weekPreview, the same sums
- * the onboarding's step 10 runs: one person with Meal plan's Just-me defaults (breakfast, lunch and dinner, any kind of food, nothing left out, no budget,
- * PER_MEAL_RECIPES), the person's own diet, allergies and daily numbers, from the first of their shops that recipes can use, else the shop recipes use until
- * they choose. Worked out on this phone in chunks (the screen keeps moving) and never saved.
- */
-function useWeekPreview(): { shop: string | null; preview: Preview } {
-  const settings = useSettings();
-  const manifest = useShopManifest();
-  const shop = manifest ? previewShop(manifest, settings.shops).shop : null;
-  const targets = useSlotTargets(DEFAULT_SHAPE);
-  const gap = useCapGap(DEFAULT_SHAPE, targets);
-  const key = JSON.stringify([shop, settings.preferences, { goal: settings.goal, dailyCalories: settings.dailyCalories, dailyProtein: settings.dailyProtein, glp1MealCap: settings.glp1MealCap }]);
-  const [result, setResult] = useState<{ key: string; preview: Preview } | null>(null);
-  useEffect(() => {
-    if (!shop) return;
-    const stop = new AbortController();
-    const [, diet, person] = JSON.parse(key) as [string, DietPrefs, Parameters<typeof weekPreview>[0]["person"]];
-    void weekPreview({ shop, diet, person }, { load: loadShopFile, signal: stop.signal }).then((r) => {
-      if (stop.signal.aborted) return;
-      const dietOn = dietWords((x) => x, asPrefs(diet)).length > 0;
-      setResult({ key, preview: r.ok
-        ? { state: "ready", meals: r.firstDay, day: r.day, kcal: r.average.kcal, protein: r.average.protein, total: r.total, costs: weekCosts(r.week), week: r.week, checkedOn: r.checkedOn, gap: null }
-        : { state: "none", diet: r.reason === "noRecipes" && dietOn, narrow: r.reason === "narrow" } });
-    });
-    return () => stop.abort();
-  }, [key, shop]);
-  const preview: Preview = !manifest ? { state: "working" } : !shop ? { state: "none", diet: false } : result?.key === key ? (result.preview.state === "ready" ? { ...result.preview, gap } : result.preview) : { state: "working" };
-  return { shop, preview };
-}
-
-const PREVIEW_ROW: Partial<Record<MealType, string>> = { breakfast: tk("Breakfast · {recipe}"), lunch: tk("Lunch · {recipe}"), dinner: tk("Dinner · {recipe}") };
-
-/**
- * The week, shown before Premium (the onboarding meeting's "Meal plan honesty"): the first day's three meals by name, the day's average against the target, the
- * week's shopping as labelled lines at normal size (never a big £ figure that could be read as a charge): the first shop and each week after (founder
- * 2026-11-20), or the one line when they cost about the same, and the shelf-price line. While it is worked out,
- * grey bars with no figures and a status line saying what is happening; when no week can be made, the words alone.
- */
-function WeekPreview({ shop, preview }: { shop: string | null; preview: Preview }) {
+function PremiumDoor() {
   const t = useT();
-  const settings = useSettings();
-  const language = useLanguage();
-  const shopName = shop ? retailerName(shop) : "";
-  // the plan starts the day it is made: the day shown is that many days from today
-  const shownDay = preview.state === "ready" ? preview.day : 0;
-  const dayName = useMemo(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + shownDay);
-    return new Intl.DateTimeFormat(localeInfo(language).htmlLang, { weekday: "long" }).format(d);
-  }, [language, shownDay]);
-  return (
-    <section aria-labelledby="preview-h" className={`${CARD} mt-4 min-h-[15rem] p-4`}>
-      <h2 id="preview-h" className="text-lg font-[800] leading-snug">{t("Your week, planned")}</h2>
-      {preview.state === "none" ? (
-        <p className="mt-1.5 text-[0.9375rem] leading-snug">{preview.diet
-          ? t("Not enough of our recipes fit your diet ({diet}) for a week yet.", { diet: dietWords(t, settings.preferences).join(", ") })
-          // a week that comes out far from the person's numbers is never said to be sized to them (the 21 November meeting, Kemi)
-          : preview.narrow ? t("A week of meals from your shop.")
-          : t("A week of meals from your shop, sized to your numbers.")}</p>
-      ) : (
-        <>
-          <p className="mt-1 text-[0.9375rem] leading-snug text-muted">{t("7 days from {shop}, sized to your numbers.", { shop: shopName })}</p>
-          {preview.state === "working" ? (
-            <>
-              <p role="status" className="mt-3 text-[0.9375rem] font-semibold leading-snug">{t("Planning your week from {shop}'s recipes…", { shop: shopName })}</p>
-              <div aria-hidden className="mt-3 space-y-2.5">
-                {["w-1/3", "w-11/12", "w-10/12", "w-9/12", "w-2/3"].map((w, i) => <span key={i} className={`block h-4 ${w} animate-pulse rounded-full bg-line motion-reduce:animate-none`} />)}
-              </div>
-            </>
-          ) : (
-            <>
-              <p className="mt-3 font-bold">{dayName}</p>
-              <ul className="mt-1.5 space-y-1.5 text-[1rem] leading-snug">
-                {preview.meals.map((c) => <li key={`${c.meal}-${c.recipeId}`} className="[overflow-wrap:anywhere]">{t(PREVIEW_ROW[c.meal] ?? "{recipe}", { recipe: t(c.name) })}</li>)}
-              </ul>
-              <p className="app-numbers mt-3 text-[0.9375rem] leading-snug">{t("About {kcal} kcal and {protein} g protein a day (your target is {target} kcal).", { kcal: formatInt(preview.kcal), protein: formatInt(preview.protein), target: formatInt(settings.dailyCalories) })}</p>
-              <CapNote gap={preview.gap} className="mt-2" />
-              {/* the first shop and each week after when the packs that keep make the first dearer (TwoWeeks), else the one line */}
-              {showsWeekAfter(preview.costs) ? <TwoWeeks costs={preview.costs} week={preview.week} className="mt-2" />
-                : <p className="app-numbers mt-2 text-[0.9375rem] leading-snug">{t("Your food at {shop}: about {cost} a day", { shop: shopName, cost: foodADay(preview.costs) })}</p>}
-              <p className="mt-1.5 text-[0.9375rem] leading-snug">{t("With Premium, Meal plan makes this week for you.")}</p>
-              <p className="mt-2 text-[0.8125rem] leading-snug text-muted">{t("Prices are {shop}'s shelf prices, checked {date}, and vary by store.", { shop: shopName, date: formatDate(preview.checkedOn, t) })}</p>
-            </>
-          )}
-        </>
-      )}
-    </section>
-  );
-}
-
-/**
- * For someone without Premium: what the meal plan does, the week it would make them (the same one), and the way to Premium. No Pip here: the screen carries
- * the week's figures and its shopping. When our recipes can't fill a week for the person's diet, the screen says so instead of selling the plan.
- */
-function PremiumIntro() {
-  const t = useT();
+  const router = useRouter();
   const { showPaywall } = useGate();
-  const { shop, preview } = useWeekPreview();
-  const cantPlan = preview.state === "none" && preview.diet;
-  return (
-    <div className="pb-6">
-      <PageHeader back={{ href: "/app", label: t("Back to Home") }} />
-      <h1 className={`mt-4 ${TITLE}`}>{t("Meal plan")}</h1>
-      <WeekPreview shop={shop} preview={preview} />
-      {!cantPlan && <ul className={`${CARD} mt-4 space-y-3 p-4 text-base leading-snug`}>
-        {[t("Meals and snacks sized to your goal"), t("One shop or several"), t("What each meal costs, within your budget"), t("Swap any meal, then add it all to your shopping list")].map((line) => (
-          <li key={line} className="flex items-start gap-3"><CheckIcon aria-hidden strokeWidth={2.6} className="mt-0.5 h-5 w-5 shrink-0 text-ink" />{line}</li>
-        ))}
-      </ul>}
-      {/* the one main action, on a 16 px band of the page's grey above the tab bar, so it shows however long the week is */}
-      <div className="sticky bottom-0 z-10 -mx-5 -mb-32 mt-5 bg-background px-5 pb-[calc(max(0.75rem,env(safe-area-inset-bottom))+5.1rem)] pt-4">
-        <Button full className="min-h-14 text-lg" onClick={() => showPaywall("mealPlan")}>{t("See Premium")}</Button>
-      </div>
-    </div>
-  );
+  // the sheet is asked for once; the page only leaves while it is still on screen (Premium switched on elsewhere, or the phone's own Back, unmount it)
+  const asked = useRef(false);
+  const here = useRef(true);
+  useEffect(() => {
+    here.current = true;
+    if (!asked.current) {
+      asked.current = true;
+      showPaywall("mealPlan", { onDismiss: () => { if (here.current && !travelBack(router, "/app")) router.replace("/app"); } });
+    }
+    return () => { here.current = false; };
+  }, [router, showPaywall]);
+  return <PageHeader back={{ href: "/app", label: t("Back to Home") }} />;
 }
 
 // ---------- Pip's questions, one a screen ----------
@@ -1124,7 +1028,7 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
             {noneWays}
           </div>
         ) : (
-          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "numbers") { if (outcome?.kind === "ok") applyGoal(); else setGoalUsed(false); } if (id === "check") make(); else if (fromCheck) (id === "aim" && goalAim && !goalUsed ? walkGoal() : backToCheck()); else moveTo(step + 1); }}>{nextLabel}</Button>
+          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "numbers") { if (outcome?.kind === "ok") applyGoal(); else setGoalUsed(false); } if (id === "check") make(); else if (fromCheck && id === "aim" && goalAim && !goalUsed) walkGoal(); else if (fromCheck) backToCheck(); else moveTo(step + 1); }}>{nextLabel}</Button>
         )}
       </div>
       {/* Pip's permission, the first time his AI would plan the week: Allow plans with him; Not now makes the week on this phone */}

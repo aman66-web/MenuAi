@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { RECIPES } from "../lib/mm/recipeBook";
-import { resolveRecipe } from "../lib/mm/recipes";
+import { PANTRY } from "../lib/mm/pantry";
+import { candidates, resolveRecipe, specFromKind } from "../lib/mm/recipes";
 import { LOCAL_SHOP_PRODUCTS } from "../lib/mm/localRange";
 import { LOCAL_TIPS, localTipFor } from "../lib/mm/localTips";
 import { decodeShopProducts } from "../lib/mm/shopProducts";
@@ -29,6 +30,15 @@ describe("ingredients a small shop sells", () => {
     const i = chickenRecipe.ingredients.findIndex((x) => x.pantry === "chicken");
     const pick = resolveRecipe(chickenRecipe, products).picks[i]!;
     expect(LOCAL_SHOP_PRODUCTS.has(pick.product.id)).toBe(true);
+  });
+
+  it("a meat-free recipe takes Quorn's chicken-style pieces (the small-shop pack), never a product that names meat for another kind", () => {
+    const quorn = candidates(products, specFromKind(PANTRY.get("quorn")!, 300), true).map((c) => c.product.id);
+    expect(quorn[0]).toBe("quorn-vegetarian-chicken-style-pieces-300g");
+    for (const k of ["stock-cube", "curry-paste", "noodles", "soy"]) {
+      const named = candidates(products, specFromKind(PANTRY.get(k)!, 50), true).filter((c) => /chicken|beef|pork|fish|prawn/i.test(c.product.name));
+      expect(named.map((c) => c.product.name), k).toEqual([]);
+    }
   });
 
   it("tips are plain words: no figures, no health words", () => {

@@ -240,20 +240,22 @@ describe("step 10's week", () => {
     expect(await weekPreview({ shop: "sainsburys", diet: {}, person }, { load: async () => { throw new Error("not loaded again"); }, yieldToScreen: now, keepNarrow: true })).toEqual(p);
   }, 120000);
 
-  it("falls short on a big day because each recipe stretches only so far (the founder's 3,480 kcal day: about 2,830)", async () => {
-    // a third of the day a meal (equal meals), and a recipe's protein and carb ingredients move at most to double (lib/mm/recipes.ts fitRecipe): no breakfast
-    // reaches 1,160 kcal, so the day can't add up to 3,480; the welcome screens show the week with one line saying so
+  it("reaches a big day since the second wave's big meals (the founder's 3,480 kcal day: about 2,830 before them, 26 November 2026)", async () => {
+    // a third of the day a meal (equal meals), and a recipe's protein and carb ingredients move at most to double (lib/mm/recipes.ts fitRecipe). Until the second
+    // wave (lib/mm/recipeBook/wave2*.ts: breakfasts, lunches and dinners sized for a rugby player's day) no breakfast reached 1,160 kcal and the week fell short
+    // at about 2,830; now a breakfast does, and the week comes within SHOW_GAP of 3,480, so the welcome screens show it with no line saying it falls short
     const person: PlanPerson = { goal: "buildMuscle", dailyCalories: 3480, dailyProtein: 175 };
     const targets = mealTargets(person);
     expect(targets.breakfast?.kcal).toBe(1160);
     const { products } = await load("sainsburys");
     const cands = planCandidates(recipesFor([], {}, []), products, {}, targets, [], "sainsburys", false);
     const biggest = Math.max(...(cands.get("breakfast") ?? []).map((c) => c.perServing.kcal));
-    expect(biggest).toBeLessThan(1160);
+    expect(biggest).toBeGreaterThanOrEqual(1160);
     const p = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now, keepNarrow: true });
     if (!p.ok) throw new Error(p.reason);
-    expect(p.average.kcal).toBeLessThan(3480 * 0.9);
-    expect(weekGap(p)?.kind).toBe("short");
+    expect(p.narrow).toBeFalsy();
+    expect(p.average.kcal).toBeGreaterThanOrEqual(3480 * (1 - SHOW_GAP));
+    expect(weekGap(p)).toBeNull();
   }, 120000);
 });
 

@@ -18,9 +18,36 @@ built in parallel (the web/server side, the app shell, Play Billing). If you mus
   the app whenever the bridge exists, web/app/app/map/page.tsx), `share`, `webAuth` (Custom Tabs for **google and apple**, returns to `numbite://auth?code=…`), `appleSignIn`
   (`{error:"unavailable"}`), `notifications.*` (local notifications), `keyboard.hide`, `review.request` (Google Play's in-app review pop-up: `{done:true}` whether or not Google shows
   it, `{error:"unavailable"}` if Play can't give it), `session.load` / `session.save` (Android Keystore), `deviceCheck.token` (`{error:"unavailable"}`: Apple's DeviceCheck), `device.id` (`{deviceHash}`: SHA-256 of
-  `"numbite-device:" + Settings.Secure.ANDROID_ID`, 64 lower-case hex characters; `{error:"unavailable"}` without an Android ID; the Android ID itself never leaves the phone), `steps.status` / `steps.get {days, ask}` / `steps.openSettings` / `steps.stop` (`bridge/StepCounter.kt`, the same answers as the
-iPhone's, docs/APP_BUILD.md "Steps"; **26 Nov: answered `{error:"unavailable"}` by `NoStepCounter`, so the page shows no steps, until Google's Recording API is added (approved by the founder 26 Nov)**: an
-app in the background can't read Android's step sensor since Android 9), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
+  `"numbite-device:" + Settings.Secure.ANDROID_ID`, 64 lower-case hex characters; `{error:"unavailable"}` without an Android ID; the Android ID itself never leaves the phone), `steps.status` / `steps.get {days, ask}` / `steps.openSettings` / `steps.stop` (the same answers as the
+iPhone's, docs/APP_BUILD.md "Steps"; Google's Recording API, see "Steps" below), and `iap.*` below. The app also dispatches `window.dispatchEvent(new Event("menumath:purchases"))` when Play reports a purchase nobody was waiting for.
+
+## Steps (Google's Recording API on mobile, 26 November 2026)
+
+Since Android 9 an app that isn't on screen can't read the step sensor, so a whole day's steps come from **Google Play services' on-phone step recording** (the
+Recording API on mobile, `com.google.android.gms:play-services-fitness` 21.3.0, only its `FitnessLocal` / `LocalRecordingClient` classes; founder approved the
+library on 26 Nov under CLAUDE.md rule 6). No Google account, no Google Fit, no Health Connect: Google Play services records the steps on the phone and keeps ten days.
+Code: `bridge/RecordingStepCounter.kt` (the rules, unit-tested with a pretend recorder: `RecordingStepCounterTest`), `bridge/PlayStepRecorder.kt` (Google's calls, the
+permission, the Settings page), `bridge/StepCounter.kt` (day ranges and replies, `StepsBridgeTest`).
+
+| Action | payload | answer |
+|---|---|---|
+| `steps.status` | – | `{permission:"granted"\|"denied"\|"notDetermined"}`, or `{error:"unavailable"}` when Google Play services is missing or older than 24.15 (`LOCAL_RECORDING_CLIENT_STEPS_MIN_VERSION_CODE`). Never asks |
+| `steps.get` | `{days: 1-7, ask}` | `{steps:[{date:"YYYY-MM-DD", steps, partial?}]}` oldest first, `{permission:"notDetermined"}` (nobody asked and `ask` isn't `true`), `{error:"denied"}` or `{error:"unavailable"}` |
+| `steps.openSettings` | – | `{done:true}`: the app's page in Android Settings (App info › Permissions › Physical activity) |
+| `steps.stop` | – | `{done:true}`: recording stops (`unsubscribe`); Google Play services' recorded steps for the app can no longer be read |
+
+* **The question:** Android's "Physical activity" (`ACTIVITY_RECOGNITION`, Android 10+) is asked only by `steps.get` with `ask:true` (the person tapped "Turn on step
+  counting"). "notDetermined" until the app has asked once; afterwards a permission not held is "denied" (Android answers no at once after two refusals), and the page
+  shows its line with Open Settings. Android 8 and 9 have no question: `com.google.android.gms.permission.ACTIVITY_RECOGNITION` (manifest, `maxSdkVersion` 28) is given at
+  install, so status is "granted"; if Google Play services refuses there anyway the answer is "unavailable" (nothing to switch on in Settings).
+* **Recording starts on turn-on** (`subscribe(TYPE_STEP_COUNT_DELTA)`), so the first day is counted from that moment: it is sent with `partial:true`, and the days before
+  it are not sent at all (the page says "Not counted"). Each later read subscribes again (nothing happens if the recording is there; it comes back if Google Play services
+  dropped it). If Google says there is no recording (`ApiException` 5011, `FitnessStatusCodes.API_EXCEPTION`), or the permission was seen to be off, recording starts again
+  and that day is a new first day.
+* **Reading:** one `readData` per calendar day (local midnight to midnight, today to now; `aggregate(TYPE_STEP_COUNT_DELTA)`, `bucketByTime(1, DAYS)`, every bucket and
+  point added up, so a 23- or 25-hour day when the clocks change is one day). A day Google can't answer is left out; a `SecurityException` is `{error:"denied"}`.
+* **Privacy (CLAUDE.md rule 4):** the counts are handed to the page and kept nowhere by the app. The app keeps only, in its own preferences (`numbite_steps`), whether it
+  has asked the question and when the current recording began (`since`, removed by `steps.stop`). Nothing is sent. Data safety: not collected (docs/ANDROID_STORE.md).
 
 ## In-app purchase (Google Play Billing)
 

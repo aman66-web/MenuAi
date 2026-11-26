@@ -11,6 +11,11 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Reminders are set again after the phone restarts. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Steps ("Physical activity", Android 10+): asked only when the person taps "Turn on step counting". Google Play services records the steps on the phone
+         for the app (bridge/PlayStepRecorder.kt); the app shows them and keeps no count, sends none. -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- The same for Android 9 and older, where Google Play services' own permission is given at install (no question). -->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" android:maxSdkVersion="28" />
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />

@@ -319,9 +319,10 @@ describe("recipes for a diet", () => {
     const withWraps = RECIPES.filter((r) => r.ingredients.some((i) => i.pantry === "wraps"));
     expect(withWraps.length).toBeGreaterThan(5);
     const wrapsOf = (r: Recipe) => r.ingredients.find((i) => i.pantry === "wraps")!.amount / 60;
-    // the quesadilla wedges are written with half a wrap each: they count wraps overall (see tests/recipeServings.test.ts)
+    // the quesadilla wedges are written with half a wrap each: they count wraps overall (see tests/recipeServings.test.ts); so do the two wave-2 dishes that
+    // cut their wraps up and share them (the nachos' tortilla chips, 6 wraps for 4, and the kottu's chopped wraps, 3 for 2), where no one eats a whole wrap
     const wholeEach = (r: Recipe) => { const each = wrapsOf(r) / r.servings; return each >= 1 && Number.isInteger(each); };
-    expect(withWraps.filter((r) => !wholeEach(r)).map((r) => r.id)).toEqual(["cheese-bean-quesadilla-wedges"]);
+    expect(withWraps.filter((r) => !wholeEach(r)).map((r) => r.id).sort()).toEqual(["cheese-bean-quesadilla-wedges", "cheese-kottu-style-wraps-tofu-peppers", "loaded-bean-cheese-wrap-nachos"]);
     for (const r of withWraps) {
       for (const kcal of [250, 400, 600, 800, 1000]) {
         const f = fitRecipe(r, products, {}, { kcal });

@@ -648,12 +648,14 @@ export const EVERYDAY_KINDS: ReadonlySet<string> = new Set([
 ]);
 
 // The protein kinds (founder 2026-11-26: "if my app hasn't good foods suitable for every possible input please make more recipes ... they all have different diet
-// plans that may vary a lot"; "also have like protein flapjack etc recipes"): foods most of the supermarkets in the app sell, though not every small shop, that a
-// recipe may use on top of the everyday kinds. With the everyday kinds alone a vegan plan had no lunch or dinner that reached a fat-loss or muscle meal's protein,
-// and a vegetarian high-protein plan none either (docs/RECIPE_COVERAGE_2026-11-26.md). A shop without one makes the recipe with the kind's substitute (tofu ->
-// chickpeas for a vegan, edamame -> peas, soya drink -> oat drink), or doesn't offer it (protein powder). tests/recipeBook.test.ts checks each still resolves to a
-// read label at Sainsbury's.
-export const PROTEIN_KINDS: ReadonlySet<string> = new Set(["tofu", "quorn", "edamame", "whey-protein", "soya-drink"]);
+// plans that may vary a lot"; then "use protein powder, tofu, Quorn, edamame and soy drink ... If it's something that would only be available at a massive
+// Sainsbury's and not Sainsbury's local, you'll have to leave it out"): plant and protein foods a recipe may use on top of the everyday kinds, each because a
+// product of it passed the small-shop judges (lib/mm/localRange.ts: The Tofoo Co. tofu 280 g, Quorn Chicken Style Pieces 300 g, three soya drinks), so the
+// recipe's Sainsbury's pick is one a Sainsbury's Local or Tesco Express stocks (tests/localRange.test.ts). Edamame and whey protein powder were judged too and no
+// product passed: they stay in the pantry (substitutes, Pip's recipe maker) but no recipe uses them. With the everyday kinds alone a vegan plan had no lunch or
+// dinner that reached a fat-loss or muscle meal's protein (docs/RECIPE_COVERAGE_2026-11-26.md). A shop without one makes the recipe with the kind's substitute
+// (tofu -> chickpeas for a vegan, soya drink -> oat drink). tests/recipeBook.test.ts checks each still resolves to a read label at Sainsbury's.
+export const PROTEIN_KINDS: ReadonlySet<string> = new Set(["tofu", "quorn", "soya-drink"]);
 
 // The festive kinds (founder 2026-10-17: "christmas recipies can have festive ingreidents"): foods that are sold in Christmas weeks and not
 // stocked by every small shop all year. Only recipes the Occasion list files under Christmas (niches.ts) may use them, on top of the everyday ones

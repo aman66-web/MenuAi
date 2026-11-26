@@ -1,6 +1,6 @@
 // The meal plan (founder 2026-11-18: a third card on Home with Premium on it; Pip asks one thing a screen; several shops; swap any meal for another; add it all to
 // the shopping list). The first open, with no plan yet, starts on the check screen filled in from the person's settings, "Who's eating: Just me" first (the
-// onboarding meeting, 20 November 2026), and its Make my plan makes the same week PremiumIntro shows; a GLP-1 meal cap is explained, never "your day adds up".
+// onboarding meeting, 20 November 2026); a GLP-1 meal cap is explained, never "your day adds up". Without Premium: e2e/mealplan-premium.mjs.
 // Since the 30-person audit (20 November 2026) a step opened from the check screen's Change is that one step: its button says Done and goes back to the check
 // (one change, one screen); "Make a new plan" still walks every step from the first with Continue.
 // Run against a server: BASE=http://localhost:3005 node e2e/mealplan.mjs (a build without Premium switched on shows no Premium gate.)
@@ -404,41 +404,8 @@ await step("a new plan keeps the old one under Earlier plans; Open makes it the 
 
 await ctx.close();
 
-// The week shown before Premium is the week the first open makes (the onboarding meeting: "not bait"). Only on a build that sells Premium; elsewhere there is no
-// PremiumIntro, and the step says so.
-const sold = await context({ devProOverride: false });
-const p2 = await sold.newPage();
-await step("before Premium: the same week the first open's Make my plan makes, from the person's shop, the first shop and each week after as plain lines", async () => {
-  await p2.goto(BASE + "/app/plan");
-  const intro = p2.getByRole("button", { name: "See Premium", exact: true }); // "Premium" is the one name; "See Premium" the one button (19-20 November 2026)
-  const check = p2.getByRole("heading", { level: 1, name: "Ready to make your plan?" });
-  await Promise.race([intro.waitFor({ timeout: 60000 }), check.waitFor({ timeout: 60000 })]);
-  if (!(await intro.isVisible())) { console.log("     (no Premium sold on this build: no PremiumIntro to check)"); return; }
-  const preview = p2.locator("section[aria-labelledby='preview-h']");
-  await preview.getByText(/^Breakfast · /).waitFor({ timeout: 180000 });
-  const shown = (await preview.locator("li").allInnerTexts()).map((x) => x.replace(/^(Breakfast|Lunch|Dinner) · /, ""));
-  expect(shown.length === 3, "three meals: " + shown.join(", "));
-  // the first shop and each week after (founder 2026-11-20), then the shop's shelf-price line
-  const seen = await twoWeeks(preview);
-  expect(seen.first > seen.after, "the preview's two figures: " + JSON.stringify(seen));
-  await preview.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
-  await preview.getByText(/^About [\d,]+ kcal and \d+ g protein a day \(your target is 2,000 kcal\)\.$/).waitFor();
-  // now with Premium: the first open's Make my plan, untouched
-  await p2.evaluate(() => { const s = JSON.parse(localStorage.getItem("mm.v1.settings")); s.data.devProOverride = true; localStorage.setItem("mm.v1.settings", JSON.stringify(s)); });
-  await p2.reload();
-  await check.waitFor({ timeout: 60000 });
-  await p2.getByRole("button", { name: "Make my plan" }).and(p2.locator(":enabled")).waitFor({ timeout: 180000 });
-  await p2.getByRole("button", { name: "Make my plan" }).click();
-  await p2.getByRole("heading", { level: 1, name: "Your meal plan" }).waitFor({ timeout: 45000 });
-  const made = await p2.locator("section[aria-labelledby='day-h'] li a span.font-bold").allInnerTexts();
-  expect(JSON.stringify(made.slice(0, 3)) === JSON.stringify(shown), `the same first day: ${made.join(", ")} vs ${shown.join(", ")}`);
-  const plan = await twoWeeks(p2);
-  expect(plan.first === seen.first && plan.after === seen.after, `the same two figures: ${JSON.stringify(plan)} vs ${JSON.stringify(seen)}`);
-  const stored = await p2.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.mealPlan")).data);
-  expect(stored.budget === null && stored.shops.join() === "sainsburys", JSON.stringify(stored).slice(0, 160));
-  await p2.getByText("No budget set.", { exact: true }).waitFor();
-});
-await sold.close();
+// Without Premium there is no Meal plan page any more, only the Premium sheet (founder, 26 November 2026: "It won't even go into the meal plan"); the preview
+// week that stood here before Premium is gone with it. e2e/mealplan-premium.mjs checks the sheet, from Home's card and from this address, with Premium off and on.
 
 // A GLP-1 meal cap (founder 2026-11-20): the meals can't add up to the day, so the plan says why, with the way to change it, and Pip never says it adds up.
 const glp = await context({ goal: "glp1", glp1MealCap: 450, dailyCalories: 2000 });

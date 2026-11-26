@@ -55,6 +55,8 @@ node brand.mjs                                    # re-render the app icon + soc
 
 `iap.mjs` is the iPhone app 1.1's Apple In-App Purchase (the iPhone and our server are FAKED; a throwaway key from `paykey.mjs`): `KEY=$(node e2e/paykey.mjs); NEXT_PUBLIC_SIGN_IN_REQUIRED=0 NEXT_PUBLIC_IAP=1 NEXT_PUBLIC_PHOTO_RECIPES=1 NEXT_PUBLIC_REMOTE_BASE=https://numbite.com NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$KEY" NEXT_PUBLIC_SUPPORT_EMAIL=test@numbite.com npm run build:app`, then `PORT=3103 node e2e/serve-app.mjs .next-app &` and `BASE=http://localhost:3103 node e2e/iap.mjs`. Delete `.next-app` afterwards: it carries the throwaway key.
 
+`mealplan-premium.mjs` is Meal plan after the free week (founder, 26 November 2026: no Meal plan page without Premium, only the Premium sheet). It runs on two builds: `BUILD=test` on the build above (Premium previewed off and on with devProOverride; port 3101) and `BUILD=app` on the `iap.mjs` build (the free week running and ended, as the iPhone and as Android). The app build reuses `.next` while it builds, so stop the test server and build that again afterwards.
+
 `pay.mjs` is for paid access (Stripe and our payment routes are FAKED in the browser; nothing reaches Stripe or a database). It needs its own build with payments on and a throwaway key:
 `PUB=$(node e2e/paykey.mjs); NEXT_PUBLIC_WEB_PRO=1 NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$PUB" NEXT_PUBLIC_SHOW_SAMPLE_DATA=1 npm run build && npm start -- -p 3104` then `BASE=http://localhost:3104 node e2e/pay.mjs`.
 It checks the free tier's limits, the plans, the checkout request and a creator code, the return from Stripe, the signed token (forged, expired and foreign tokens refused), the 48-hour WhatsApp unlock, restore, and the legal pages' paid-access text.
