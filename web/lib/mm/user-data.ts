@@ -1,5 +1,6 @@
 import type { AllergenKey, Nutrients, NutrientKey, Goal, LogMeal, Preferences } from "./types";
 import { isLocale, type Locale } from "./i18n";
+import { DEFAULT_COLOUR_SCHEME, isColourScheme, type ColourScheme } from "./colourSchemes";
 import { ALLERGEN_KEYS, NO_PREFERENCES } from "./types";
 import { DEFAULT_DAILY_CALORIES, DEFAULT_GLP1_MEAL_CAP, LOG_MEALS } from "./budget";
 import type { OrderLine } from "./order";
@@ -132,6 +133,8 @@ export interface UserSettings {
   language?: Locale;
   /** The person's extra shopping lists, each for one shop (founder 2026-11-18), oldest first; absent = only the main "Shopping list". Synced. */
   shoppingLists?: ShoppingList[];
+  /** The app's colours (lib/mm/colourSchemes.ts), picked at the end of the welcome screens or in Settings; absent = Lime, today's look. This device's own. */
+  colourScheme?: ColourScheme;
 }
 
 export interface RecipeMeal {
@@ -262,6 +265,8 @@ export function sanitizeSettings(raw: unknown): UserSettings {
     ...(sanitizeRecipeMeal(raw.recipeMeal) ? { recipeMeal: sanitizeRecipeMeal(raw.recipeMeal) } : {}),
     ...(isLocale(raw.language) ? { language: raw.language } : {}),
     ...(sanitizeShoppingLists(raw.shoppingLists).length ? { shoppingLists: sanitizeShoppingLists(raw.shoppingLists) } : {}),
+    // Lime, the default, is kept as no scheme at all
+    ...(isColourScheme(raw.colourScheme) && raw.colourScheme !== DEFAULT_COLOUR_SCHEME ? { colourScheme: raw.colourScheme } : {}),
   };
 }
 

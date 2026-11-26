@@ -102,6 +102,97 @@
   --font-weight-semibold: 550;
 }
 .app-surface { font-weight: 500; }
+/* Colour schemes (founder 2026-11-26: "at the end of the onboarding ... they then can pick a color scheme, and the default one's the one it's on now ... make the
+   color schemes quite nice and cool"; the same choice in Settings › Colours; lib/mm/colourSchemes.ts). Lime is today's look and the default (no data-scheme on
+   <html>); each other scheme swaps only the brand colours: the chosen-and-progress colour (--sun) with its dark words and edge (--on-sun), the link colour
+   (--accent), progress on a light surface (--bar), the one dark fill (--ink) with its pressed step, its second words and its empty track, and the meal plan's tint.
+   The page grey, the cards, the lines, the words, the macro colours, the allergy note, errors, Pip and the app icon never change. Every scheme passes the same
+   checks as Lime (tests/colourTokens.test.ts): words 4.5:1 or more on every surface, edges, ticks and progress 3:1 or more. Only on /app screens (:has(.app-surface)),
+   never on the website. The .scheme-* classes draw one scheme inside a small area (the picker's previews) whatever scheme the app is in. */
+.scheme-lime {
+  --sun: #d6efa0;
+  --on-sun: #052e16;
+  --on-accent: #052e16;
+  --accent: #046c4f;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --bar: #4d7c0f;
+  --ink: #1d2320;
+  --ink-pressed: #3d4642;
+  --on-ink-2: #c9d1cc;
+  --ring-track: #6b716e;
+  --tint-plan: #e4f0d0;
+  --tint-cook: #fbeccb;
+}
+:root[data-scheme="mint"]:has(.app-surface), .scheme-mint {
+  --sun: #b4ecdc;
+  --on-sun: #053b31;
+  --on-accent: #053b31;
+  --accent: #0a6b62;
+  --accent-soft: rgba(20, 184, 166, 0.12);
+  --bar: #0d7a6e;
+  --ink: #15262a;
+  --ink-pressed: #33474b;
+  --on-ink-2: #c3d5d4;
+  --ring-track: #66797a;
+  --tint-plan: #d9f1ea;
+  --tint-cook: #fbeccb;
+}
+:root[data-scheme="ocean"]:has(.app-surface), .scheme-ocean {
+  --sun: #c2dfff;
+  --on-sun: #0b2a52;
+  --on-accent: #0b2a52;
+  --accent: #0b5cad;
+  --accent-soft: rgba(59, 130, 246, 0.12);
+  --bar: #1d64b8;
+  --ink: #162133;
+  --ink-pressed: #354258;
+  --on-ink-2: #c6d1e0;
+  --ring-track: #68748a;
+  --tint-plan: #dde9fa;
+  --tint-cook: #fbeccb;
+}
+:root[data-scheme="lavender"]:has(.app-surface), .scheme-lavender {
+  --sun: #ddd2ff;
+  --on-sun: #2a1461;
+  --on-accent: #2a1461;
+  --accent: #5a3fc4;
+  --accent-soft: rgba(139, 92, 246, 0.12);
+  --bar: #6448d0;
+  --ink: #211c33;
+  --ink-pressed: #403a57;
+  --on-ink-2: #d0cae2;
+  --ring-track: #716b85;
+  --tint-plan: #ebe5fb;
+  --tint-cook: #fbeccb;
+}
+:root[data-scheme="berry"]:has(.app-surface), .scheme-berry {
+  --sun: #ffcade;
+  --on-sun: #4d0b29;
+  --on-accent: #4d0b29;
+  --accent: #b0185c;
+  --accent-soft: rgba(236, 72, 153, 0.12);
+  --bar: #bd2568;
+  --ink: #2a1822;
+  --ink-pressed: #4f3846;
+  --on-ink-2: #dcc9d3;
+  --ring-track: #7c6672;
+  --tint-plan: #fbe2ec;
+  --tint-cook: #fbeccb;
+}
+:root[data-scheme="sunset"]:has(.app-surface), .scheme-sunset {
+  --sun: #ffd5a6;
+  --on-sun: #4a1e03;
+  --on-accent: #4a1e03;
+  --accent: #ad420a;
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --bar: #c2510f;
+  --ink: #2a1e17;
+  --ink-pressed: #4a3b31;
+  --on-ink-2: #e0d1c6;
+  --ring-track: #7b6c63;
+  --tint-plan: #fde2cb;
+  --tint-cook: #f6eec6;
+}
 /* Accessibility and platform settings (colour meeting, 19 November 2026). No grey flash on a tap (it looks like a disabled control); the text cursor and native
    checkboxes, radios and sliders in the link green; selected text in lime with the dark green words on it (11.86:1). */
 .app-surface { -webkit-tap-highlight-color: transparent; caret-color: var(--accent); accent-color: var(--accent); }
@@ -505,6 +596,9 @@ html[data-i18n-pending] body {
   --accent: #d6efa0;
   --accent-soft: rgba(214, 239, 160, 0.16);
   --on-accent: #052e16;
+  /* the filming card stays ink, lime and white in every colour scheme (the colour schemes of 26 November 2026 change the app, not the card people share) */
+  --sun: #d6efa0;
+  --on-sun: #052e16;
   --card-shadow: none;
   --ring-track: #6b716e;
   --bar: #d6efa0;

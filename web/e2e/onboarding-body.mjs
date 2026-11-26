@@ -82,7 +82,7 @@ async function toPlan(page, p) {
 await step("(a) About you is one screen: the privacy line, Male / Female / Prefer not to say with none ticked, one unit switch, Age, Height and Weight as big boxes (never a date of birth or a name); Continue grey with its reason linked to it; the Done pill with a box in use; Skip at the top right", async () => {
   const { ctx, page } = await fresh();
   await W.toAbout(page, BASE);
-  await W.expectCounter(page, 5, 8);
+  await W.expectCounter(page, 5, 9);
   await vis(page.getByText("Only used to work out your numbers. Never saved or sent."));
   await vis(page.getByText("All optional.", { exact: true }));
   const sex = page.getByRole("radiogroup", { name: "Sex" }).getByRole("radio");

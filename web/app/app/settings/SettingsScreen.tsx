@@ -38,6 +38,7 @@ import { ContactForm } from "../_components/Submit";
 import { AccountSection } from "../_components/AccountSection";
 import { DietPicker } from "../_components/DietPicker";
 import { ShopPicker } from "../_components/ShopPicker";
+import { SchemePicker } from "../_components/SchemePicker";
 import { applyTextSize } from "../_lib/textSize";
 import { focusTargetBox, TargetSuggestForm } from "../_components/TargetSuggestForm";
 import { Badge, Button, Card, ChoiceMark, LinkButton, radioKeyNav, Segmented, Sheet, Toggle } from "../_components/ui";
@@ -450,6 +451,12 @@ export function SettingsScreen({ only }: { only?: "targets" } = {}) {
 
       <Section title={t("Account")} id="account">
         <AccountSection />
+      </Section>
+
+      {/* the colour schemes (founder 2026-11-26: "once they're on the dashboard ... they should be able to customize their color scheme"), the same tiles as the
+          welcome screens' last question; a tap recolours the app at once */}
+      <Section title={t("Colours")} id="colours">
+        <SchemePicker label={t("Colours")} />
       </Section>
 
       {/* off since 2026-11-19 (founder: "Just keep standard pls"; lib/mm/config.ts TEXT_SIZE_CHOICE_ENABLED) */}

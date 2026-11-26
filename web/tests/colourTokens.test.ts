@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { COLOUR_SCHEMES, DEFAULT_COLOUR_SCHEME } from "../lib/mm/colourSchemes";
 
 // The colour system (colour meeting, 19 November 2026; approved by the founder that day): every colour is a token in app/globals.css, and every pair the
 // app draws is readable: words 4.5:1 or more on each surface they sit on, edges, ticks and progress 3:1 or more against what is next to them. Light
@@ -55,6 +56,29 @@ function check(theme: Record<string, string>, pairs: Pair[], min: number) {
 
 const LIGHT_SURFACES = ["--background", "--card", "--tint-plan", "--tint-cook"];
 
+/** Every pair of words and what they sit on, at 4.5:1 or more (Lime and every colour scheme). */
+const WORDS: Pair[] = [
+  ...LIGHT_SURFACES.flatMap((s): Pair[] => [["--foreground", s], ["--muted", s]]),
+  ["--foreground", "--note-bg"], ["--foreground", "--danger-bg"], ["--muted", "--soft-strong"], ["--foreground", "--soft-strong"],
+  ["--placeholder", "--card"],
+  ["--accent", "--card"], ["--accent", "--background"],
+  ["--on-ink", "--ink"], ["--on-ink", "--ink-pressed"], ["--on-ink-2", "--ink"], ["--sun", "--ink"],
+  ["--on-sun", "--sun"], ["--on-accent", "--sun"],
+  ["--danger", "--card"], ["--danger", "--danger-bg"], ["--on-danger", "--danger"],
+  ["--ink", "--card"], ["--ink", "--tint-plan"],
+];
+/** Every edge, tick and progress colour and what is next to it, at 3:1 or more. */
+const EDGES: Pair[] = [
+  ...LIGHT_SURFACES.map((s): Pair => ["--edge", s]),
+  ["--on-sun", "--card"], ["--on-sun", "--background"], ["--on-sun", "--tint-plan"],
+  ["--bar", "--line"], ["--bar", "--card"], ["--bar", "--background"],
+  ["--ring-track", "--ink"], ["--sun", "--ring-track"],
+  ["--note-edge", "--note-bg"], ["--note-edge", "--card"],
+  ["--danger", "--card"],
+  // the macro colours' bars and dots on a white card
+  ["--protein", "--card"], ["--carbs", "--card"], ["--fat", "--card"],
+];
+
 describe("the app's colours (light)", () => {
   it("declares every token of the colour meeting", () => {
     // the macro colours (protein, carbs, fat: labels only, never good or bad) are shown again since 20 November 2026
@@ -70,29 +94,11 @@ describe("the app's colours (light)", () => {
   });
 
   it("words read at 4.5:1 or more on every surface they sit on", () => {
-    check(APP, LIGHT_SURFACES.flatMap((s): Pair[] => [["--foreground", s], ["--muted", s]]), 4.5);
-    check(APP, [
-      ["--foreground", "--note-bg"], ["--foreground", "--danger-bg"], ["--muted", "--soft-strong"], ["--foreground", "--soft-strong"],
-      ["--placeholder", "--card"],
-      ["--accent", "--card"], ["--accent", "--background"],
-      ["--on-ink", "--ink"], ["--on-ink", "--ink-pressed"], ["--on-ink-2", "--ink"], ["--sun", "--ink"],
-      ["--on-sun", "--sun"],
-      ["--danger", "--card"], ["--danger", "--danger-bg"], ["--on-danger", "--danger"],
-      ["--ink", "--card"], ["--ink", "--tint-plan"],
-    ], 4.5);
+    check(APP, WORDS, 4.5);
   });
 
   it("edges, ticks and progress stand out at 3:1 or more", () => {
-    check(APP, LIGHT_SURFACES.map((s): Pair => ["--edge", s]), 3);
-    check(APP, [
-      ["--on-sun", "--card"], ["--on-sun", "--background"], ["--on-sun", "--tint-plan"],
-      ["--bar", "--line"], ["--bar", "--card"],
-      ["--ring-track", "--ink"], ["--sun", "--ring-track"],
-      ["--note-edge", "--note-bg"], ["--note-edge", "--card"],
-      ["--danger", "--card"],
-      // the macro colours' bars and dots on a white card
-      ["--protein", "--card"], ["--carbs", "--card"], ["--fat", "--card"],
-    ], 3);
+    check(APP, EDGES, 3);
   });
 
   it("a press on an ink button shows (ink-pressed is a visible step from ink)", () => {
@@ -104,10 +110,51 @@ describe("the app's colours (light)", () => {
   });
 });
 
+// The colour schemes (founder 2026-11-26: "make the color schemes quite nice and cool"; lib/mm/colourSchemes.ts): Lime is the app's own colours above; each
+// other scheme is one rule, `:root[data-scheme="x"]:has(.app-surface), .scheme-x`, and .scheme-lime draws Lime inside the picker's previews.
+const SCHEME_TOKENS = ["--sun", "--on-sun", "--on-accent", "--accent", "--accent-soft", "--bar", "--ink", "--ink-pressed", "--on-ink-2", "--ring-track", "--tint-plan", "--tint-cook"];
+const schemeRule = (id: string) => (id === DEFAULT_COLOUR_SCHEME ? `.scheme-${id}` : `:root[data-scheme="${id}"]:has(.app-surface), .scheme-${id}`);
+const SCHEMES = COLOUR_SCHEMES.map((id) => ({ id, own: declared(schemeRule(id)), theme: { ...APP, ...declared(schemeRule(id)) } }));
+
+describe("the colour schemes", () => {
+  it("has a rule for every scheme the app offers, and none it doesn't", () => {
+    expect(COLOUR_SCHEMES[0]).toBe("lime");
+    expect(DEFAULT_COLOUR_SCHEME).toBe("lime");
+    expect(COLOUR_SCHEMES.length).toBeGreaterThanOrEqual(5);
+    const inCss = [...CSS.matchAll(/^:root\[data-scheme="([a-z]+)"\]/gm)].map((m) => m[1]);
+    expect(inCss.sort()).toEqual(COLOUR_SCHEMES.filter((s) => s !== DEFAULT_COLOUR_SCHEME).sort());
+  });
+
+  it("each sets exactly the brand colours, nothing else (the page, cards, lines, words, macro colours, note and errors stay)", () => {
+    for (const s of SCHEMES) expect(Object.keys(s.own).sort(), s.id).toEqual([...SCHEME_TOKENS].sort());
+  });
+
+  it("Lime's preview is the app's own colours exactly", () => {
+    const lime = SCHEMES.find((s) => s.id === DEFAULT_COLOUR_SCHEME)!;
+    for (const t of SCHEME_TOKENS) expect(lime.own[t], t).toBe(APP[t]);
+  });
+
+  it("no two schemes share their bright or their dark colour", () => {
+    for (const t of ["--sun", "--ink", "--accent"]) expect(new Set(SCHEMES.map((s) => colour(s.theme, t))).size, t).toBe(SCHEMES.length);
+  });
+
+  for (const s of SCHEMES) {
+    it(`${s.id}: words read at 4.5:1 or more, edges, ticks and progress stand out at 3:1 or more, and a press on ink shows`, () => {
+      check(s.theme, WORDS, 4.5);
+      check(s.theme, EDGES, 3);
+      expect(ratio(colour(s.theme, "--ink"), colour(s.theme, "--ink-pressed"))).toBeGreaterThanOrEqual(1.5);
+    });
+  }
+});
+
 describe("the Truth card's ink theme (.truth-dark)", () => {
   it("is ink, sun and white", () => {
     expect(colour(DARK, "--background")).toBe("#1d2320");
     expect(colour(DARK, "--accent")).toBe("#d6efa0");
+  });
+  it("stays lime in every colour scheme (the card people share and film)", () => {
+    const own = declared(".truth-dark");
+    expect([own["--sun"], own["--on-sun"]]).toEqual(["#d6efa0", "#052e16"]);
   });
   it("words read at 4.5:1 or more, edges at 3:1 or more", () => {
     check(DARK, [["--foreground", "--background"], ["--muted", "--background"], ["--foreground", "--fill"], ["--muted", "--fill"], ["--accent", "--background"], ["--on-ink", "--ink"], ["--on-sun", "--sun"]], 4.5);

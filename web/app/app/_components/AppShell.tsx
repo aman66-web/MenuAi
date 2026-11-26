@@ -15,6 +15,7 @@ import { refreshAppSwitches, useSignInRequired } from "../_lib/appSwitches";
 import { menuClient } from "../_lib/menu";
 import { warmOffline } from "../_lib/warm";
 import { applyTextSize } from "../_lib/textSize";
+import { applyColourScheme } from "../_lib/colourScheme";
 import { bootAccount, useAccountChecking, useAccountUser } from "../_lib/account";
 import { noteTabPage, useTabMemory } from "../_lib/tabMemoryStore";
 import { useReminderSync } from "../_lib/reminderSync";
@@ -57,6 +58,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const settings = useSettings();
   const textSize = settings.textSize;
   const language = settings.language;
+  const colourScheme = settings.colourScheme;
   // Everyone signs in (founder 2026-11-17; lib/mm/config.ts SIGN_IN_REQUIRED, unless numbite.com's switches file has made it optional: _lib/appSwitches.ts): until
   // someone is, every page but the welcome and offline screens shows the sign-in screen in its place (the address, a shared list's "#" included, stays as it is,
   // so the page opens once they're in). The welcome screens ask for the account themselves, as their last step (step 11, the redesign of 20 November 2026).
@@ -126,6 +128,11 @@ export function AppShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (hydrated) applyTextSize(textSize);
   }, [hydrated, textSize]);
+
+  // The colour scheme from Settings / the welcome screens' last question (the layout's inline script applies it before the first paint too; Lime is none).
+  useEffect(() => {
+    if (hydrated) applyColourScheme(colourScheme);
+  }, [hydrated, colourScheme]);
 
   // The app's language (Settings / the first onboarding screen); English until another is chosen.
   useEffect(() => {

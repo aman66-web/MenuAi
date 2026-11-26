@@ -1,7 +1,7 @@
-// Shared moves through the welcome steps for the browser tests. Onboarding in seven screens, then the account (founder, 20 November 2026, 12:21-12:37: one
-// question a screen, a big input, far fewer words, pictures over text; app/app/welcome/, lib/mm/welcomeSteps.ts):
+// Shared moves through the welcome steps for the browser tests. Onboarding in eight screens, then the account (founder, 20 November 2026, 12:21-12:37: one
+// question a screen, a big input, far fewer words, pictures over text; the colours added 26 November 2026; app/app/welcome/, lib/mm/welcomeSteps.ts):
 //    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan ·
-//    8 the account ("Save your plan"; a run that starts signed in has no account step)
+//    8 Pick your colours · 9 the account ("Save your plan"; a run that starts signed in has no account step)
 // No "Step n of N" is written on screen (the bar alone); a screen reader hears it with each headline (its accessible name ends ", Step n of N").
 // Top-right "Skip" on 1-3 skips that question; on 5-6 it skips the questions about the person, to Your plan with the starting numbers.
 // Not a test on its own: imported by showcase.mjs, onboarding-body.mjs, smoke.mjs, largetext.mjs, a11y.mjs and the other suites that walk the steps.
@@ -15,10 +15,11 @@ export const HEADLINES = {
   about: "About you",
   active: "How active are you?",
   plan: "Your plan",
+  colours: "Pick your colours",
   save: "Save your plan",
 };
 /** The step ids in order, as lib/mm/welcomeSteps.ts WELCOME_STEPS. */
-export const STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "save"];
+export const STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"];
 
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const vis = (l, timeout = 15000) => l.waitFor({ state: "visible", timeout });
@@ -34,7 +35,7 @@ export const counter = async (page) => {
   const name = await page.locator("main h1").first().evaluate((h) => h.querySelector(".sr-only")?.textContent ?? "").catch(() => "");
   return name.replace(/^,\s*/, "");
 };
-export const expectCounter = async (page, n, total = 8) => {
+export const expectCounter = async (page, n, total = 9) => {
   const got = await counter(page);
   if (got !== `Step ${n} of ${total}`) throw new Error(`the headline says "${got}", not "Step ${n} of ${total}"`);
 };
@@ -175,10 +176,18 @@ export async function planNumbers(page) {
     return { calories: read("Calories a day"), protein: read("Protein a day") };
   });
 }
-/** Your plan's button: "Continue" (signed out, to the account; signed in, to Home). */
-export async function planNext(page) {
+/** Your plan's button: "Continue", to Pick your colours; then (unless `stopAtColours`) the colours' Continue with Lime kept (signed out, to the account; signed in,
+ *  to Home). */
+export async function planNext(page, { stopAtColours = false } = {}) {
   await onStep(page, "plan");
   await page.getByRole("button", { name: "Continue", exact: true }).click();
+  if (!stopAtColours) await coloursNext(page);
+}
+/** Pick your colours: optionally a scheme tapped (its name: "Ocean"), then Continue. */
+export async function coloursNext(page, scheme = null) {
+  await onStep(page, "colours");
+  if (scheme) await page.getByRole("radiogroup", { name: "Colours" }).getByRole("radio", { name: scheme, exact: true }).click();
+  await press(page, "Continue");
 }
 /** The account step where sign-in is optional: "Not now", to Home. */
 export async function notNow(page) {

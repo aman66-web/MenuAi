@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import ts from "typescript";
 import { describe, expect, it } from "vitest";
+import { COLOUR_SCHEMES, DEFAULT_COLOUR_SCHEME } from "../lib/mm/colourSchemes";
 
 // The colour meeting's enforcement (19 November 2026, approved by the founder that day: "Do whatever you think is best"). Two promises, checked on every
 // .ts and .tsx file under app/app and lib/mm:
@@ -363,6 +364,28 @@ describe("every pair is readable (the app's light theme)", () => {
     }
     expect(failing).toEqual([]);
   });
+});
+
+// Every colour scheme (founder 2026-11-26; lib/mm/colourSchemes.ts) over the app's own colours: the same tables and every pair written in the code.
+describe("every pair is readable in every colour scheme", () => {
+  for (const id of COLOUR_SCHEMES.filter((x) => x !== DEFAULT_COLOUR_SCHEME)) {
+    const theme: Theme = { ...APP, ...declared(`:root[data-scheme="${id}"]:has(.app-surface), .scheme-${id}`) };
+    it(`${id}: text 4.5:1, edges and progress 3:1, and every text-and-fill pair in the code 4.5:1`, () => {
+      expect(theme["--sun"], `${id} has its own rule`).not.toBe(APP["--sun"]);
+      expect(checkPairs(theme, TEXT_ON, 4.5)).toEqual([]);
+      expect(checkPairs(theme, EDGE_ON, 3)).toEqual([]);
+      expect(PROGRESS.filter(([a, b]) => ratio(colour(theme, a), colour(theme, b)) < 3)).toEqual([]);
+      const failing: string[] = [];
+      for (const [text, fill, where] of codePairs()) {
+        const a = solid(theme, text);
+        const b = solid(theme, fill);
+        if (!a || !b) continue;
+        const r = ratio(a, b);
+        if (r < 4.5) failing.push(`${where}: ${text} on ${fill} is ${r.toFixed(2)}:1`);
+      }
+      expect(failing).toEqual([]);
+    });
+  }
 });
 
 describe("every pair is readable (the Truth card's ink theme, .truth-dark)", () => {

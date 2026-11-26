@@ -49,12 +49,12 @@ await step("a visit after the welcome tour goes straight to Home: no questionnai
   await visible(page.getByRole("button", { name: "Set up" }));
   await shot("00-first-visit-home");
 });
-await step("the guided setup at /app/welcome: the cover, then step 1 of 8 (heard with the headline, never written) with Pip small beside it and no speech bubble (no hello screen, no tour, no fork)", async () => {
+await step("the guided setup at /app/welcome: the cover, then step 1 of 9 (heard with the headline, never written) with Pip small beside it and no speech bubble (no hello screen, no tour, no fork)", async () => {
   await page.goto(`${BASE}/app/welcome`);
   await visible(page.getByRole("button", { name: "Get started" }));
   await shot("00-onboarding-welcome");
   await page.getByRole("button", { name: "Get started" }).click();
-  await visible(page.getByRole("heading", { level: 1, name: /^What's your goal\?\s*, Step 1 of 8$/ }));
+  await visible(page.getByRole("heading", { level: 1, name: /^What's your goal\?\s*, Step 1 of 9$/ }));
   if (await page.locator("main .speech").count()) throw new Error("a speech bubble on step 1");
   for (const gone of ["Hi, I'm Pip!", "Let's make it yours"]) if (await page.getByRole("heading", { name: gone }).count()) throw new Error(`'${gone}' is back`);
   await page.waitForTimeout(1000); // Pip's entrance

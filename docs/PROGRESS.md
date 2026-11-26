@@ -41,6 +41,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
+- **26 November, on `iap` only (not live, not uploaded):** colour schemes: "Pick your colours" at the end of onboarding (before the account) and Settings › Colours; six light schemes, Lime (today's look) the default; kept on the device only. Details in docs/PROGRESS_LOG.md.
 - **21 November evening, on `iap` (build 20, the final version, uploaded to App Store Connect 22 Nov 00:37, not submitted; on the phone through TestFlight):** every recipe checked against its photo and marinated, the 13 mismatched pictures remade, the double-tap guard on the plan's questions, one Pip permission for all, the finished plan says the food a day, the budget asked a day and held against the week-after cost, Pip's plan carrying on with a notice at the top of every screen (numbite.com still runs a5313bf0: Pip's prompt there says the budget as a week's shopping), every recipe made the way a chef would and cooked to match its picture (about 300 methods), Meal plan with Pip (nine questions, Opus picks
   the week, the phone checks it), 5 or 7 a day, 49 world recipes (382 in all), a balanced cheapest week on a tight budget, the free week sheet and pill, a
   barcode photo inside Scan a barcode, everyday sizes in recipe ingredients ("80 g / ½ pepper"). Details in docs/PROGRESS_LOG.md.

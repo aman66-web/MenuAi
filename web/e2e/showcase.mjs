@@ -2,9 +2,9 @@
 // text, no labels on what the app shows, no "Step n of N" written, no Pip speech bubbles): seven screens, then the account, then straight to Home with its one
 // toast and the one-time Start here card (app/app/welcome/, lib/mm/welcomeSteps.ts):
 //    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan ·
-//    8 Save your plan (the account; a run that starts signed in has 7 steps and no account step)
+//    8 Pick your colours · 9 Save your plan (the account; a run that starts signed in has 8 steps and no account step)
 // Checked here:
-// - (a) a plain run: the bar (8 segments, nothing written), "Step n of 8" heard with each headline, Skip only on 1, 2, 3, 5 and 6, Pip only beside step 1's
+// - (a) a plain run: the bar (9 segments, nothing written), "Step n of 9" heard with each headline, Skip only on 1, 2, 3, 5 and 6, Pip only beside step 1's
 //   heading with no bubble, the goal tiles, the diets as pictures of our own recipes, the shops' logo tiles, the two recipes and the one chosen, About you on one
 //   screen, the activity tiles, Your plan (the big numbers, the picture week with its two chips and its first shop and each week after at Sainsbury's, the
 //   restaurant row in the chains' own photos with their
@@ -15,7 +15,7 @@
 // - (d) vegan with milk avoided: the recipes, the week and the restaurant dishes fit; (e) GLP-1's note under the tiles and on Your plan;
 // - (f) leaving and coming back: "Carry on from step {n}" (About you for the questions about the person, the account with "Welcome back. Your plan is still
 //   here."), "Start again", and a note left by the eleven-step screens (eatOut, week) read in the new steps;
-// - (g) a run that starts signed in (7 steps, "Continue" on Your plan); (h) an existing account signing in at the account step (its own settings win) through a
+// - (g) a run that starts signed in (8 steps, "Continue" on Your plan and on the colours); (h) an existing account signing in at the account step (its own settings win) through a
 //   fake backend that uses the real merge rules;
 // - (i) no connection for the menus or the shops' files (plain lines, no digits) and the account step offline;
 // - (j) 375x667 and 320x568: the account's three ways on screen without scrolling, no sideways scroll; (k) Reduce Motion; (l) 200% text at 360x780: no sideways
@@ -131,7 +131,7 @@ const MEAT = /\b(chicken|beef|pork|bacon|fish|salmon|tuna|prawns?|ham|cheese|che
 
 // ------------------------------------------------------------------------------------------------ the steps
 
-await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard with each headline; Skip only on 1, 2, 3, 5 and 6; Pip only beside step 1's heading, with no bubble; pictures for the diets and shops; Your plan's numbers, picture week and restaurant photos; the account's three ways and 'Not now'; Home's toast and Start here; only the settings, the marks and Home's note stored", async () => {
+await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard with each headline; Skip only on 1, 2, 3, 5 and 6; Pip only beside step 1's heading, with no bubble; pictures for the diets and shops; Your plan's numbers, picture week and restaurant photos; the account's three ways and 'Not now'; Home's toast and Start here; only the settings, the marks and Home's note stored", async () => {
   const { ctx, page, requests, errors } = await phone();
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Get started", exact: true }).waitFor({ timeout: 120000 });
@@ -139,8 +139,8 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   await W.press(page, "Get started");
   const check = async (id, n, { skip, pip = 0 }) => {
     await W.onStep(page, id);
-    await W.expectCounter(page, n, 8);
-    expect((await W.segments(page)) === 8, `${id}: ${await W.segments(page)} segments`);
+    await W.expectCounter(page, n, 9);
+    expect((await W.segments(page)) === 9, `${id}: ${await W.segments(page)} segments`);
     expect((await W.litSegments(page)) === n, `${id}: ${await W.litSegments(page)} segments lit, not ${n}`);
     expect(!(await writtenCounter(page)), `${id}: "Step n of N" is written on screen`);
     expect((await W.skipButton(page).count()) === (skip ? 1 : 0), `${id}: Skip ${skip ? "missing" : "shown"}`);
@@ -234,9 +234,17 @@ await step("(a) a plain run: the bar alone with 8 segments, 'Step n of 8' heard 
   await page.getByRole("button", { name: "Change", exact: true }).waitFor();
   expect((await W.planNumbers(page)).calories === 2500, "Change and Save didn't keep 2,500");
   expect((await settingsOf(page)).dailyCalories === 2500, "2,500 isn't saved");
-  await W.planNext(page);
-  // 8: the account: one line, the recipe waiting, three ways in, Not now; no Pip (founder 2026-11-20: Pip taken off the account step)
-  await check("save", 8, { skip: false });
+  await W.planNext(page, { stopAtColours: true });
+  // 8: Pick your colours: Lime ticked, no Skip; a tap recolours the page at once (<html data-scheme>), and Lime again takes it off
+  await check("colours", 8, { skip: false });
+  expect((await page.getByRole("radio", { checked: true }).innerText()).includes("Lime"), "Lime isn't ticked");
+  await page.getByRole("radio", { name: "Ocean", exact: true }).click();
+  expect((await page.evaluate(() => document.documentElement.dataset.scheme)) === "ocean", "Ocean didn't recolour the page");
+  await page.getByRole("radio", { name: "Lime", exact: true }).click();
+  expect((await page.evaluate(() => document.documentElement.dataset.scheme)) === undefined, "Lime left a scheme on the page");
+  await W.press(page, "Continue");
+  // 9: the account: one line, the recipe waiting, three ways in, Not now; no Pip (founder 2026-11-20: Pip taken off the account step)
+  await check("save", 9, { skip: false });
   await page.getByText("Free, and it keeps your plan safe on any phone.").waitFor();
   await page.getByText(`Waiting for you on Home: ${recipe}.`).waitFor();
   for (const way of ["Continue with Apple", "Continue with Google", "Continue with email"]) expect(await page.getByText(way, { exact: true }).isVisible(), `${way} isn't offered`);
@@ -270,7 +278,7 @@ await step("(b) the questions about the person skipped: Skip on About you and on
   await W.onStep(page, "about");
   expect(await page.evaluate(() => document.activeElement?.id === "welcome-age"), "the Age box isn't focused after the grey Continue");
   await W.skipBody(page);
-  await W.expectCounter(page, 7, 8);
+  await W.expectCounter(page, 7, 9);
   await page.getByText("Starting numbers.", { exact: true }).waitFor();
   expect((await W.litSegments(page)) === 7, "the bar after the jump");
   await W.backButton(page).click();
@@ -396,9 +404,11 @@ await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again
   await W.planNext(page);
   await W.onStep(page, "save");
   await page.goto(BASE + "/app");
-  await W.press(page, "Carry on from step 8");
+  await W.press(page, "Carry on from step 9");
   await W.onStep(page, "save");
   await page.getByText("Welcome back. Your plan is still here.").waitFor();
+  await W.backButton(page).click();
+  await W.onStep(page, "colours");
   await W.backButton(page).click();
   await W.onStep(page, "plan");
   // Start again: step 1, nothing ticked
@@ -421,7 +431,7 @@ await step("(f) leaving and coming back: 'Carry on from step 3' and 'Start again
   }
 });
 
-await step("(g) a run that starts signed in: 'Step 1 of 7' with 7 segments; Your plan's button 'Continue'; no account step; Home says 'You're signed in. Your goal and daily numbers are saved.'", async () => {
+await step("(g) a run that starts signed in: 'Step 1 of 8' with 8 segments; Your plan's and the colours' button 'Continue'; no account step; Home says 'You're signed in. Your goal and daily numbers are saved.'", async () => {
   const { ctx, page } = await phone({ signIn: true });
   await page.goto(BASE + "/app/welcome");
   await page.getByRole("button", { name: "Already have an account? Sign in" }).click({ timeout: 120000 });
@@ -430,15 +440,18 @@ await step("(g) a run that starts signed in: 'Step 1 of 7' with 7 segments; Your
   await sheet.waitFor({ state: "hidden", timeout: 20000 });
   await page.getByRole("button", { name: "Get started", exact: true }).click();
   await W.onStep(page, "goal");
-  await W.expectCounter(page, 1, 7);
-  expect((await W.segments(page)) === 7, `${await W.segments(page)} segments`);
+  await W.expectCounter(page, 1, 8);
+  expect((await W.segments(page)) === 8, `${await W.segments(page)} segments`);
   await W.goal(page, "Maintain");
   await W.avoid(page);
   await W.shops(page);
   await W.recipes(page);
   await W.skipBody(page);
-  await W.expectCounter(page, 7, 7);
+  await W.expectCounter(page, 7, 8);
   await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await W.onStep(page, "colours");
+  await W.expectCounter(page, 8, 8);
+  await W.press(page, "Continue");
   await home(page);
   await page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." }).waitFor({ timeout: 20000 });
   expect((await settingsOf(page)).hasCompletedOnboarding === true, "not set up");
@@ -533,9 +546,12 @@ await step("(k) Reduce Motion: nothing runs on steps 1, 4, 7 and 8", async () =>
   await W.skipBody(page);
   await weekSettled(page);
   await still("step 7");
-  await W.planNext(page);
-  await W.onStep(page, "save");
+  await W.planNext(page, { stopAtColours: true });
+  await W.onStep(page, "colours");
   await still("step 8");
+  await W.coloursNext(page);
+  await W.onStep(page, "save");
+  await still("step 9");
   await ctx.close();
 });
 
@@ -609,9 +625,12 @@ await step("(m) axe: no violations on any of the eight screens (GLP-1 picked, an
   await page.getByRole("button", { name: "Change", exact: true }).click();
   await axe(page, "step 7 changing the numbers");
   await page.getByRole("button", { name: "Save", exact: true }).click();
-  await W.planNext(page);
-  await W.onStep(page, "save");
+  await W.planNext(page, { stopAtColours: true });
+  await W.onStep(page, "colours");
   await axe(page, "step 8");
+  await W.coloursNext(page, "Berry");
+  await W.onStep(page, "save");
+  await axe(page, "step 9 (in Berry)");
   await W.press(page, "Not now");
   await home(page);
   await page.getByRole("region", { name: "Start here" }).waitFor();

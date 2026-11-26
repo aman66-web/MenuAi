@@ -1,7 +1,7 @@
 // The welcome steps: their order, the counter behind the bar, Back, the jumps forward and carrying on after a relaunch. Pure and unit-tested
 // (tests/welcomeSteps.test.ts); the screens are app/app/welcome.
 //
-// Onboarding in seven screens (founder, 20 November 2026, 12:21-12:37: "one question a screen", far fewer words, pictures over text), then the account:
+// Onboarding in eight screens (founder, 20 November 2026, 12:21-12:37: "one question a screen", far fewer words, pictures over text), then the account:
 //    1 goal      What's your goal?            (big tiles; top-right Skip)
 //    2 avoid     Anything you avoid?          (diets as picture tiles, allergies as chips; top-right Skip)
 //    3 shops     Where do you shop?           (the shops' logos; top-right Skip)
@@ -9,9 +9,11 @@
 //    5 about     About you                    (sex, age, height and weight on one screen; top-right Skip skips 5 and 6)
 //    6 active    How active are you?          (tiles; top-right Skip skips it too)
 //    7 plan      Your plan                    (daily calories and protein, the week as pictures, its shopping, restaurant dishes)
-//    8 save      the account (the sign-in screen; CLAUDE.md rule 4)
+//    8 colours   Pick your colours            (founder 2026-11-26: "at the end of the onboarding ... they then can pick a color scheme, and the default one's the
+//                                              one it's on now"; today's Lime is ticked, a tap recolours the app at once; lib/mm/colourSchemes.ts)
+//    9 save      the account (the sign-in screen; CLAUDE.md rule 4)
 // A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step
-// and step 7's button saves and goes to Home. The run's steps are fixed before step 1 and never change; the bar only moves forward on a jump: Skip on 5 or 6
+// and step 8's button goes to Home. The run's steps are fixed before step 1 and never change; the bar only moves forward on a jump: Skip on 5 or 6
 // (and an age under 18) goes to 7. Back goes to the last screen actually shown. No "Step n of N" is written on screen (the bar alone); a screen reader still
 // hears it with each headline.
 //
@@ -27,7 +29,7 @@
 
 import { createStore, type KeyValueStorage, type Store } from "./persist";
 
-export const WELCOME_STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "save"] as const;
+export const WELCOME_STEPS = ["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"] as const;
 export type WelcomeStepId = (typeof WELCOME_STEPS)[number];
 
 /** The questions about the person (sex, age, height and weight; activity): skipped together, and never kept. */
@@ -45,7 +47,7 @@ export const isWelcomeStep = (x: unknown): x is WelcomeStepId => typeof x === "s
 export interface WelcomeRun {
   /** Someone was signed in when the run began: no account step. */
   readonly signedIn: boolean;
-  /** The steps, in order (8, or 7 without "save"). */
+  /** The steps, in order (9, or 8 without "save"). */
   readonly steps: readonly WelcomeStepId[];
   /** How many segments the bar has (and N in the "Step n of N" a screen reader hears). */
   readonly total: number;
@@ -206,8 +208,8 @@ export function progressNote(x: { step: WelcomeStepId; firstRecipeId?: string | 
 /**
  * Where "Carry on from step {n}" goes, and the answers the run starts with there; null when there is nothing to carry on from (no note, or only step 1 reached:
  * Get started does the same). The questions about the person start again at About you, because their answers are never kept; past them, those answers are gone,
- * so Back from Your plan goes to About you. A step the new run doesn't have ("save", for someone signed in by now) is its last step, Your plan, whose button
- * then saves and goes to Home.
+ * so Back from Your plan goes to About you. A step the new run doesn't have ("save", for someone signed in by now) is its last step, the colours, whose button
+ * then goes to Home.
  * `ownTargets`: the settings hold targets of the person's own (hasSetTargets). Without them, Your plan is never carried on to: the run carries on at About you
  * instead, as the age is never kept and an age under 18 must not be shown or save numbers (the meeting of 21 November 2026, Ada). The account step is still
  * carried on to (the iPhone app's trip to Mail for the email code comes back to it); it shows no numbers. (The welcome page always passes it.)

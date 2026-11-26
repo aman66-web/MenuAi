@@ -369,23 +369,26 @@ describe("settings", () => {
     expect(rows.has("user-1|settings")).toBe(true);
   });
 
-  it("a later change of settings on one device reaches the other; the other's own text size and language stay as they are", async () => {
+  it("a later change of settings on one device reaches the other; the other's own text size, language and colours stay as they are", async () => {
     const { store } = serverStore();
     const clk = clock();
     const a = device(store, clk);
     const b = device(store, clk);
-    a.stores.settings.set(real({ textSize: "large", language: "pl" }));
+    a.stores.settings.set(real({ textSize: "large", language: "pl", colourScheme: "berry" }));
     a.engine.prepareFor("user-1");
     await a.engine.syncNow();
     b.engine.prepareFor("user-1");
     await b.engine.syncNow();
-    b.stores.settings.set({ ...b.stores.settings.get(), textSize: "xlarge", language: "es" });
+    // a's colours never travel (each device keeps its own)
+    expect(b.stores.settings.get().colourScheme).toBeUndefined();
+    b.stores.settings.set({ ...b.stores.settings.get(), textSize: "xlarge", language: "es", colourScheme: "ocean" });
     clk.tick();
     a.stores.settings.set({ ...a.stores.settings.get(), dailyCalories: 2100, paywallDismissCount: 7 });
     await a.engine.syncNow();
     clk.tick();
     await b.engine.syncNow();
-    expect(b.stores.settings.get()).toMatchObject({ dailyCalories: 2100, textSize: "xlarge", language: "es", paywallDismissCount: 0 });
+    expect(b.stores.settings.get()).toMatchObject({ dailyCalories: 2100, textSize: "xlarge", language: "es", colourScheme: "ocean", paywallDismissCount: 0 });
+    expect(a.stores.settings.get().colourScheme).toBe("berry");
   });
 
   it("a target cleared on one device is cleared on the other too, not brought back by its old copy", async () => {

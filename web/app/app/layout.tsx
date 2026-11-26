@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { site } from "@/site.config";
 import { APP_BUILD, LANGUAGES_ENABLED, TEXT_SIZE_CHOICE_ENABLED } from "@/lib/mm/config";
 import { AUTO_TOUR_ON_WEBSITE, TOUR_GATE_SCRIPT } from "@/lib/mm/tour";
+import { SCHEME_ATTRIBUTES } from "@/lib/mm/colourSchemes";
 import { AppShell } from "./_components/AppShell";
 
 export const metadata: Metadata = {
@@ -22,9 +23,10 @@ export const viewport: Viewport = {
 // gate. The settings key and shape are lib/mm/stores.ts + persist.ts ({ v, data }).
 // The chosen language (lib/mm/i18n.ts) also applies before the first paint: <html lang/dir> straight away, and the page stays hidden
 // until that language's words have loaded (AppShell) so nobody sees a flash of English; it shows anyway after 3 seconds.
+// So does the colour scheme (lib/mm/colourSchemes.ts: <html data-scheme>, none for Lime), so the app never flashes Lime before the person's own colours.
 const RTL = ["ur", "ar"];
 const LANGS: Record<string, string> = !LANGUAGES_ENABLED ? {} : { pl: "pl", ro: "ro", pa: "pa", ur: "ur", pt: "pt", es: "es", ar: "ar", bn: "bn", gu: "gu", it: "it" };
-const FIRST_PAINT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize,l=z&&z.data&&z.data.language,h=document.documentElement,L=${JSON.stringify(LANGS)};${TEXT_SIZE_CHOICE_ENABLED ? 'if(t==="large")h.style.fontSize="115%";else if(t==="xlarge")h.style.fontSize="130%";' : ""}if(l&&L[l]){h.lang=L[l];h.dir=${JSON.stringify(RTL)}.indexOf(l)>=0?"rtl":"ltr";h.dataset.i18nPending="1";setTimeout(function(){delete h.dataset.i18nPending},3000)}}catch(e){}`;
+const FIRST_PAINT = `try{var z=JSON.parse(localStorage.getItem("mm.v1.settings")||"null"),t=z&&z.data&&z.data.textSize,l=z&&z.data&&z.data.language,c=z&&z.data&&z.data.colourScheme,h=document.documentElement,L=${JSON.stringify(LANGS)};if(${JSON.stringify(SCHEME_ATTRIBUTES)}.indexOf(c)>=0)h.dataset.scheme=c;${TEXT_SIZE_CHOICE_ENABLED ? 'if(t==="large")h.style.fontSize="115%";else if(t==="xlarge")h.style.fontSize="130%";' : ""}if(l&&L[l]){h.lang=L[l];h.dir=${JSON.stringify(RTL)}.indexOf(l)>=0?"rtl":"ltr";h.dataset.i18nPending="1";setTimeout(function(){delete h.dataset.i18nPending},3000)}}catch(e){}`;
 
 export default function AppLayout({ children }: LayoutProps<"/app">) {
   return (

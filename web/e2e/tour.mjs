@@ -76,7 +76,7 @@ const page = await main.newPage();
 const requests = [];
 page.on("request", (r) => requests.push({ url: r.url(), body: r.postData() ?? "" }));
 
-await step("1. a plain first visit to /app ends on the welcome cover without Home ever showing: no Skip, no bar and no counter; Get started opens step 1 of 8 (heard, not written; no 'Hi, I'm Pip!' screen, no tour, no text size screen)", async () => {
+await step("1. a plain first visit to /app ends on the welcome cover without Home ever showing: no Skip, no bar and no counter; Get started opens step 1 of 9 (heard, not written; no 'Hi, I'm Pip!' screen, no tour, no text size screen)", async () => {
   await page.goto(BASE + "/app");
   await page.waitForURL(/\/app\/welcome$/);
   await getStarted(page).waitFor({ timeout: 120000 });
@@ -87,8 +87,8 @@ await step("1. a plain first visit to /app ends on the welcome cover without Hom
   await page.getByRole("heading", { level: 1, name: "Eat out, shop and cook. Know the numbers first." }).waitFor();
   await getStarted(page).click();
   await page.getByRole("heading", { level: 1, name: /^What's your goal\?/ }).waitFor();
-  await W.expectCounter(page, 1, 8);
-  expect((await W.segments(page)) === 8, "step 1's bar: " + (await W.segments(page)));
+  await W.expectCounter(page, 1, 9);
+  expect((await W.segments(page)) === 9, "step 1's bar: " + (await W.segments(page)));
   for (const gone of ["Hi, I'm Pip!", "Let's make it yours", "Easy to read", "You're all set!"]) expect((await page.getByRole("heading", { name: gone }).count()) === 0, `'${gone}' is back`);
   expect((await page.getByRole("button", { name: /^(Show me around|Skip tour|Look around first)$/ }).count()) === 0, "an old tour button is back");
   expect((await page.evaluate(() => document.documentElement.style.fontSize)) === "", "html font-size: " + (await page.evaluate(() => document.documentElement.style.fontSize)));

@@ -26,8 +26,8 @@ import {
   type WelcomeStepId,
 } from "../lib/mm/welcomeSteps";
 
-// The welcome steps (onboarding in seven screens, founder 20 November 2026): the run's steps fixed before step 1 (8, or 7 for a run that starts signed in), jumps
-// that only go forward, Back to the last screen shown, and carrying on after a relaunch from mm.v1.welcomeProgress.
+// The welcome steps (onboarding in eight screens: the seven of 20 November 2026 and the colours of 26 November): the run's steps fixed before step 1 (9, or 8 for a
+// run that starts signed in), jumps that only go forward, Back to the last screen shown, and carrying on after a relaunch from mm.v1.welcomeProgress.
 
 class MemoryStorage implements KeyValueStorage {
   data = new Map<string, string>();
@@ -55,21 +55,22 @@ function walk(run: WelcomeRun, choose: (s: WelcomeStepId) => WelcomeMove = () =>
 }
 
 describe("the steps and the bar", () => {
-  it("has the seven screens in the founder's order, then the account, each named once", () => {
-    expect(WELCOME_STEPS).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "save"]);
+  it("has the eight screens in the founder's order (the colours last), then the account, each named once", () => {
+    expect(WELCOME_STEPS).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours", "save"]);
     expect(BODY_STEPS).toEqual(["about", "active"]);
     expect(QUESTION_STEPS).toEqual(["goal", "avoid", "shops"]);
-    // Skip at the top right: the three questions and the two about the person, never the recipes, Your plan or the account
+    // Skip at the top right: the three questions and the two about the person, never the recipes, Your plan, the colours or the account
     expect(SKIP_STEPS).toEqual(["goal", "avoid", "shops", "about", "active"]);
     expect(FEATURE_STEPS).toEqual(["recipes", "plan"]);
   });
 
-  it("fixes the run's steps: 8, or 7 for a run that starts signed in (no account step)", () => {
-    expect(signedOut.total).toBe(8);
-    expect(signedIn.total).toBe(7);
+  it("fixes the run's steps: 9, or 8 for a run that starts signed in (no account step)", () => {
+    expect(signedOut.total).toBe(9);
+    expect(signedIn.total).toBe(8);
     expect(signedIn.steps).not.toContain("save");
-    expect(WELCOME_STEPS.map((s) => stepCounter(signedOut, s))).toEqual(WELCOME_STEPS.map((_, i) => ({ step: i + 1, total: 8 })));
-    expect(stepCounter(signedIn, "plan")).toEqual({ step: 7, total: 7 });
+    expect(WELCOME_STEPS.map((s) => stepCounter(signedOut, s))).toEqual(WELCOME_STEPS.map((_, i) => ({ step: i + 1, total: 9 })));
+    expect(stepCounter(signedIn, "plan")).toEqual({ step: 7, total: 8 });
+    expect(stepCounter(signedIn, "colours")).toEqual({ step: 8, total: 8 });
     expect(stepCounter(signedIn, "save")).toBeNull();
     // the run can't be changed afterwards (a sign-in during the run never changes it)
     expect(Object.isFrozen(signedOut) && Object.isFrozen(signedOut.steps)).toBe(true);
@@ -83,10 +84,12 @@ describe("the steps and the bar", () => {
     }
   });
 
-  it("ends after the account, or after Your plan in a signed-in run ('Continue')", () => {
-    expect(moveOn(signedOut, NO_ANSWERS, "plan").to).toBe("save");
+  it("asks for the colours after Your plan, and ends after the account, or after the colours in a signed-in run ('Continue')", () => {
+    expect(moveOn(signedOut, NO_ANSWERS, "plan").to).toBe("colours");
+    expect(moveOn(signedOut, NO_ANSWERS, "colours").to).toBe("save");
     expect(moveOn(signedOut, NO_ANSWERS, "save").to).toBe("home");
-    expect(moveOn(signedIn, NO_ANSWERS, "plan").to).toBe("home");
+    expect(moveOn(signedIn, NO_ANSWERS, "plan").to).toBe("colours");
+    expect(moveOn(signedIn, NO_ANSWERS, "colours").to).toBe("home");
   });
 });
 
@@ -100,8 +103,8 @@ describe("skips only jump forward", () => {
     expect([n(signedOut, "about"), n(signedOut, "plan")]).toEqual([5, 7]);
     const young = moveOn(signedOut, { ...NO_ANSWERS, under18: true }, "about");
     expect(young.to).toBe("plan");
-    expect(walk(signedOut, () => "next", true)).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "save"]);
-    expect(walk(signedOut, (s) => (s === "about" ? "skipBody" : "next"))).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "save"]);
+    expect(walk(signedOut, () => "next", true)).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "colours", "save"]);
+    expect(walk(signedOut, (s) => (s === "about" ? "skipBody" : "next"))).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "colours", "save"]);
   });
 
   it("never moves the bar back, whatever is tapped on whichever screen", () => {
@@ -130,8 +133,10 @@ describe("Back", () => {
     expect(backFrom(signedOut, NO_ANSWERS, "goal")).toBe("cover");
     expect(backFrom(signedOut, NO_ANSWERS, "about")).toBe("recipes");
     expect(backFrom(signedOut, NO_ANSWERS, "plan")).toBe("active");
-    expect(backFrom(signedOut, NO_ANSWERS, "save")).toBe("plan");
+    expect(backFrom(signedOut, NO_ANSWERS, "colours")).toBe("plan");
+    expect(backFrom(signedOut, NO_ANSWERS, "save")).toBe("colours");
     expect(backFrom(signedIn, NO_ANSWERS, "plan")).toBe("active");
+    expect(backFrom(signedIn, NO_ANSWERS, "colours")).toBe("plan");
   });
 
   it("after a jump, goes to the last screen actually shown, never to a skipped one", () => {
@@ -149,8 +154,8 @@ describe("Back", () => {
   });
 
   it("shows only the screens on the way (welcomePath)", () => {
-    expect(welcomePath(signedOut, { ...NO_ANSWERS, bodySkipped: true })).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "save"]);
-    expect(welcomePath(signedIn, NO_ANSWERS)).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan"]);
+    expect(welcomePath(signedOut, { ...NO_ANSWERS, bodySkipped: true })).toEqual(["goal", "avoid", "shops", "recipes", "about", "plan", "colours", "save"]);
+    expect(welcomePath(signedIn, NO_ANSWERS)).toEqual(["goal", "avoid", "shops", "recipes", "about", "active", "plan", "colours"]);
   });
 });
 
@@ -158,7 +163,7 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
   const today = "2026-11-20";
 
   it("reopens each step where it was left, the questions about the person at About you (their answers are never kept); step 1 has nothing to carry on", () => {
-    const want: Record<WelcomeStepId, WelcomeStepId | null> = { goal: null, avoid: "avoid", shops: "shops", recipes: "recipes", about: "about", active: "about", plan: "plan", save: "save" };
+    const want: Record<WelcomeStepId, WelcomeStepId | null> = { goal: null, avoid: "avoid", shops: "shops", recipes: "recipes", about: "about", active: "about", plan: "plan", colours: "colours", save: "save" };
     for (const step of WELCOME_STEPS) {
       const storage = new MemoryStorage();
       createWelcomeProgressStore(storage).set(progressNote({ step }, today));
@@ -171,6 +176,7 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
         expect(n(signedOut, at.step), step).toBe(BODY_STEPS.includes(step) ? 5 : WELCOME_STEPS.indexOf(step) + 1);
         // past the questions about the person their answers are gone, so Back from Your plan goes to About you
         if (at.step === "plan") expect(backFrom(signedOut, at.answers, "plan")).toBe("about");
+        if (at.step === "colours") expect(backFrom(signedOut, at.answers, "colours")).toBe("plan");
       }
     }
     expect(resumeAt(signedOut, null)).toBeNull();
@@ -196,13 +202,14 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
     expect(back).toEqual({ step: "save", firstRecipeId: "chicken-fajita-bowl", firstDish: dish, savedOn: today });
     const at = resumeAt(signedOut, back)!;
     expect(at.step).toBe("save");
-    expect(stepCounter(signedOut, at.step)).toEqual({ step: 8, total: 8 });
-    expect(backFrom(signedOut, at.answers, "save")).toBe("plan");
+    expect(stepCounter(signedOut, at.step)).toEqual({ step: 9, total: 9 });
+    expect(backFrom(signedOut, at.answers, "save")).toBe("colours");
   });
 
-  it("someone signed in by the time they come back carries on at Your plan (7 of 7), whose button saves and goes to Home", () => {
+  it("someone signed in by the time they come back carries on at the colours (8 of 8), whose button goes to Home", () => {
     const at = resumeAt(signedIn, progressNote({ step: "save" }, today))!;
-    expect(at.step).toBe("plan");
+    expect(at.step).toBe("colours");
+    expect(stepCounter(signedIn, at.step)).toEqual({ step: 8, total: 8 });
     expect(moveOn(signedIn, at.answers, at.step).to).toBe("home");
   });
 
@@ -231,12 +238,15 @@ describe("carrying on after quitting (mm.v1.welcomeProgress)", () => {
     expect(at.answers).toEqual({ bodySkipped: false, under18: false });
     expect(n(signedOut, at.step)).toBe(5);
     // signed in by now (no account step): the same
-    expect(resumeAt(signedIn, progressNote({ step: "save" }, today), false)!.step).toBe("about");
+    expect(resumeAt(signedIn, progressNote({ step: "plan" }, today), false)!.step).toBe("about");
     // with the person's own targets (worked out before, or set in Settings), Your plan as before
     expect(resumeAt(signedOut, progressNote({ step: "plan" }, today), true)!.step).toBe("plan");
-    expect(resumeAt(signedIn, progressNote({ step: "save" }, today), true)!.step).toBe("plan");
-    // the account step shows no numbers, so the trip to Mail for the email code still comes back to it
+    expect(resumeAt(signedIn, progressNote({ step: "plan" }, today), true)!.step).toBe("plan");
+    // the colours and the account step show no numbers (the trip to Mail for the email code still comes back to the account step); left on the account step
+    // and signed in by now, the last step is the colours
     expect(resumeAt(signedOut, progressNote({ step: "save" }, today), false)!.step).toBe("save");
+    expect(resumeAt(signedOut, progressNote({ step: "colours" }, today), false)!.step).toBe("colours");
+    expect(resumeAt(signedIn, progressNote({ step: "save" }, today), false)!.step).toBe("colours");
     // nothing changes before the questions about the person
     expect(resumeAt(signedOut, progressNote({ step: "recipes" }, today), false)!.step).toBe("recipes");
     expect(resumeAt(signedOut, progressNote({ step: "active" }, today), false)!.step).toBe("about");

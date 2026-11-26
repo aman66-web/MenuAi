@@ -32,6 +32,7 @@ import { useHydrated, useSettings, useStore } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { loadShopFile, useShopManifest } from "../_lib/shopProducts";
 import { aboutProblemLine, ActivityStep, AboutYouStep, BODY_BOX, typedUnder18 } from "./BodySteps";
+import { ColoursStep } from "./ColoursStep";
 import { Cover, type CoverNotice } from "./Cover";
 import { RecipesStep } from "./FeatureSteps";
 import { finishWelcome, type WelcomeEnding } from "./finish";
@@ -42,10 +43,11 @@ import { AvoidStep, GoalStep, ShopsStep } from "./QuestionSteps";
 import { preloadRestaurantRow } from "./RestaurantRow";
 import { useTargetFields } from "./useTargetFields";
 
-// The welcome screens: onboarding in seven screens, then the account (founder, 20 November 2026, 12:21-12:37: one question a screen, a short heading, a big
+// The welcome screens: onboarding in eight screens, then the account (founder, 20 November 2026, 12:21-12:37: one question a screen, a short heading, a big
 // input, Continue pinned at the bottom, Back top left, far fewer words, pictures over text, no labels on what the app shows, no "Step n of N" words, no Pip
 // speech bubbles). lib/mm/welcomeSteps.ts holds the order:
-//    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan · the account
+//    1 What's your goal? · 2 Anything you avoid? · 3 Where do you shop? · 4 Recipes from {shop} · 5 About you · 6 How active are you? · 7 Your plan ·
+//    8 Pick your colours (founder 2026-11-26; ColoursStep.tsx) · the account
 // A run that starts signed in (a Settings rerun, an account not set up yet that signed in from the cover, someone who signed in at a page) has no account step,
 // and Your plan's button is "Continue" (founder 2026-11-21: the week is only an example; just the numbers are kept). Skip (top right) on 1 to 3 skips that question; on 5 and 6 it skips both, to Your plan with the starting
 // numbers (and an age under 18 goes from 5 to 7 too). Back goes to the last screen actually shown.
@@ -693,6 +695,14 @@ function Welcome() {
               },
             }}
           />
+        </>
+      )}
+
+      {/* Pick your colours: the scheme is kept the moment it is tapped (it recolours the screen), so Continue only moves on */}
+      {step === "colours" && (
+        <>
+          {top}
+          <ColoursStep counter={counter} onContinue={() => forward("colours")} />
         </>
       )}
     </div>

@@ -80,12 +80,12 @@ export const createSyncAdapters = (stores: SyncStores): Adapter[] => [
     kind: "value",
     store: stores.settings,
     pick: pickSettings,
-    // checked like anything read from storage, and the per-device parts stay as they are
+    // checked like anything read from storage, and the per-device parts (text size, language, colour scheme) stay as they are
     apply: (local, synced) => {
       const theirs = synced && typeof synced === "object" ? (synced as Record<string, unknown>) : null;
       const mine: Record<string, unknown> = { ...local };
       if (theirs) for (const k of OPTIONAL_SYNCED_KEYS) if (!(k in theirs)) delete mine[k];
-      return sanitizeSettings({ ...mine, ...(theirs ?? {}), ...{ textSize: local.textSize, language: local.language } });
+      return sanitizeSettings({ ...mine, ...(theirs ?? {}), ...{ textSize: local.textSize, language: local.language, colourScheme: local.colourScheme } });
     },
     meaningful: (v) => typeof v === "object" && v !== null && ((v as Record<string, unknown>).hasCompletedOnboarding === true || (v as Record<string, unknown>).hasSetTargets === true),
   }),
