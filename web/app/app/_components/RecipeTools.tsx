@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FOOD_SCAN_ENABLED, PHOTO_RECIPES_ENABLED } from "@/lib/mm/config";
+import { mealPlanDoor } from "@/lib/mm/mealPlanGate";
+import { useIsPro } from "../_lib/hooks";
 import { useT } from "../_lib/i18n";
 import { HaveChips, WeekStrip } from "./FeaturePreviews";
 import { CameraIcon, ChevronRightIcon, FlameIcon, PotIcon } from "./icons";
@@ -40,6 +42,7 @@ export function RecipeTools() {
   const t = useT();
   const { gate } = useGate();
   const router = useRouter();
+  const pro = useIsPro();
   return (
     <>
         {(FOOD_SCAN_ENABLED || PHOTO_RECIPES_ENABLED) && (
@@ -78,8 +81,18 @@ export function RecipeTools() {
         {/* the meal plan and Cook with what you already have, each a row of its own (founder 2026-11-19, on the phone: "I feel like these aren't noticed much
             the meal plan is a big thing it should have its own row"); each card says in words what it does, with a small picture of the result (a week of days,
             the foods you'd type) */}
-        {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price */}
-        <Link href="/app/plan" className={`${TINT_CARD} bg-tint-plan`}>
+        {/* the meal plan (founder 2026-11-18; app/app/plan; Premium): a week of our recipes for the person's goal and budget, with the shopping list and each meal's price.
+            Without Premium where it is sold (after the free week, nothing bought), the card opens the Premium sheet here and Meal plan doesn't open (founder
+            2026-11-26: "It won't even go into the meal plan"; lib/mm/mealPlanGate.ts); buying there carries on into Meal plan. */}
+        <Link
+          href="/app/plan"
+          onClick={(e) => {
+            if (mealPlanDoor(pro) !== "premium") return;
+            e.preventDefault();
+            gate("mealPlan", () => router.push("/app/plan"));
+          }}
+          className={`${TINT_CARD} bg-tint-plan`}
+        >
           <span className="flex items-start gap-3">
             <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
               <span className="flex flex-wrap items-center gap-x-2 gap-y-1">

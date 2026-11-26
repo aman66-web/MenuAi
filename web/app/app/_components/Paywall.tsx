@@ -28,10 +28,18 @@ import { Button, Sheet, inputClass } from "./ui";
 // Payments aren't wired on the web yet (docs/WEB_BUILD_PLAN.md), so instead of a purchase button it says so honestly
 // and offers the waitlist. Testers can unlock a preview when dev tools are enabled.
 
+interface PaywallOptions {
+  /**
+   * Runs when the person closes the sheet without Premium (Close, Escape, a tap outside it), never after a purchase or restore. A page that can't be shown
+   * without Premium leaves with it (Meal plan, opened by its address: founder 2026-11-26, "It won't even go into the meal plan").
+   */
+  onDismiss?: () => void;
+}
+
 interface Gate {
   /** Run `action` if allowed, otherwise show the paywall for `trigger`. */
-  gate: (trigger: PaywallTrigger, action: () => void) => void;
-  showPaywall: (trigger: PaywallTrigger) => void;
+  gate: (trigger: PaywallTrigger, action: () => void, options?: PaywallOptions) => void;
+  showPaywall: (trigger: PaywallTrigger, options?: PaywallOptions) => void;
 }
 
 const PaywallContext = createContext<Gate | null>(null);
@@ -57,19 +65,22 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   const triggerRef = useRef<PaywallTrigger | null>(null);
   /** What was tapped, kept while its paywall is open, so a purchase there carries on with it. */
   const pendingRef = useRef<(() => void) | null>(null);
+  /** What the caller asked to happen if this sheet is closed without Premium (PaywallOptions.onDismiss). */
+  const dismissRef = useRef<(() => void) | null>(null);
   const [unlocked, setUnlocked] = useState(0);
 
-  const showPaywall = useCallback((t: PaywallTrigger) => {
+  const showPaywall = useCallback((t: PaywallTrigger, options?: PaywallOptions) => {
     analytics.track({ name: "paywallShown", trigger: t });
     triggerRef.current = t;
     pendingRef.current = null;
+    dismissRef.current = options?.onDismiss ?? null;
     setTrigger(t);
   }, []);
 
   const gate = useCallback(
-    (t: PaywallTrigger, action: () => void) => {
+    (t: PaywallTrigger, action: () => void, options?: PaywallOptions) => {
       if (needsPaywall(t, { pro, savedCount: saved.length })) {
-        showPaywall(t);
+        showPaywall(t, options);
         pendingRef.current = action;
       } else action();
     },
@@ -79,11 +90,14 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
   const close = useCallback(() => {
     const current = triggerRef.current;
     if (!current) return; // already closed (the dialog also fires onClose after we close it ourselves)
+    const dismissed = dismissRef.current;
     triggerRef.current = null;
     pendingRef.current = null;
+    dismissRef.current = null;
     analytics.track({ name: "paywallDismissed", trigger: current });
     updateSettings({ paywallDismissCount: settingsStore.get().paywallDismissCount + 1 });
     setTrigger(null);
+    dismissed?.();
   }, []);
 
   /** Premium switched on inside the sheet: close it (not a dismissal), say so once, then do what was tapped, once the page below is Premium. */
@@ -91,6 +105,7 @@ export function PaywallProvider({ children }: { children: ReactNode }) {
     const action = pendingRef.current;
     triggerRef.current = null;
     pendingRef.current = null;
+    dismissRef.current = null;
     setTrigger(null);
     if (action) window.setTimeout(action, 0);
   }, []);

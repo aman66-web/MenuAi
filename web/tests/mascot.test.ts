@@ -126,9 +126,10 @@ describe("where Pip is drawn", () => {
     expect(m![1]).not.toMatch(/check:\s*"cheer"/);
   });
 
-  it("'Making your plan' and the Premium intro carry plain words, no Pip (their screens show calories and prices)", () => {
+  // the Premium intro page is gone (founder 2026-11-26: Meal plan without Premium is the Premium sheet alone); what stands in its place has no Pip either
+  it("'Making your plan' and Meal plan's Premium door carry plain words, no Pip (their screens show calories and prices)", () => {
     expect(fn("Making")).not.toMatch(/<PipSays|<Pip\b/);
-    expect(fn("PremiumIntro")).not.toMatch(/<PipSays|<Pip\b/);
+    expect(fn("PremiumDoor")).not.toMatch(/<PipSays|<Pip\b/);
     expect(fn("Week")).not.toMatch(/<PipSays|<Pip\b/);
   });
 
