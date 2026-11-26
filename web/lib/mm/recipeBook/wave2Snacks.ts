@@ -378,6 +378,88 @@ export const WAVE2_SNACKS: readonly Recipe[] = [
       "Top and serve: Spoon the berries on top. Eat straight away, or cover and chill for up to a day; the base softens as it sits.",
     ],
   },
+
+  // ---- vegan snacks that keep their protein on a small day (tofu carries it; a carb Meal plan can halve or double)
+  {
+    id: "berry-banana-tofu-pudding-pots", meal: "snack", tags: ["Quick", "No cook", "Vegan", "Sweet"], name: "Berry and banana tofu pudding pots", blurb: "A thick, smooth pudding of tofu blended with banana, berries and cinnamon, topped with more berries.", servings: 2, minutes: 10,
+    // the soya drink loosens the tofu, and the berries are blended with the banana, so each moves with the one it goes with
+    ingredients: [ing("tofu", 200), ing("banana", 120, { note: "about 1 banana", role: "carb" }), ing("berries", 150, { follows: "banana" }), ing("soya-drink", 60, { follows: "tofu" }), ing("lemon-juice", 5), ing("cinnamon", 1)],
+    method: [
+      "Drain the tofu: Pour the water off the tofu, pat it dry with kitchen paper and break it into chunks.",
+      "Get the fruit ready: Peel the banana and break it into pieces. If the berries are frozen, thaw them in a bowl in the microwave for 1 minute.",
+      "Blend: Put the tofu, banana, half the berries, the soya drink, lemon juice and cinnamon in a blender or tall jug. Blend for 1 to 2 minutes, scraping down the sides, until completely smooth and thick.",
+      "Fill the pots: Spoon the pudding into small glasses or pots and pile the rest of the berries on top.",
+      "Serve: Eat straight away, or cover and keep in the fridge for up to a day. It thickens a little more as it chills.",
+    ],
+  },
+  {
+    id: "sweetcorn-chickpea-tofu-fritters", meal: "snack", tags: ["Vegan", "Savoury"], name: "Sweetcorn, chickpea and tofu fritters with sweet chilli", blurb: "Little golden fritters of mashed tofu and chickpeas with sweetcorn, spring onion and cumin, with sweet chilli sauce to dip.", servings: 4, minutes: 25,
+    // the chickpeas hold the fritters together with the sweetcorn, so they move as the carb while the tofu carries the protein
+    ingredients: [ing("tofu", 200), ing("chickpeas", 240, { note: "about 1 tin, drained", role: "carb" }), ing("sweetcorn", 160, { role: "carb" }), ing("spring-onions", 30), ing("cumin", 2), ing("paprika", 1), ing("salt", 1), ing("oil-spray", 1), ing("sweet-chilli", 40)],
+    method: [
+      "Get ready: Drain the tofu and pat it dry with kitchen paper. Rinse the chickpeas in a sieve and shake them dry. Drain the sweetcorn if it is tinned, or thaw it if frozen.",
+      "Mash: Put the tofu and chickpeas in a large bowl and mash them with a potato masher or fork for 2 to 3 minutes, until mostly smooth and sticky.",
+      "Mix in the rest: Trim and thinly slice the spring onions. Stir them into the mash with the sweetcorn, cumin, paprika and a pinch of salt.",
+      "Shape the fritters: With damp hands, squeeze the mixture into walnut-sized balls and flatten each one into a patty about 1 cm thick, pressing firmly so it holds together.",
+      "Fry the fritters: Spray a large non-stick frying pan well with oil and set it over a medium heat. Fry the fritters in batches for 3 to 4 minutes a side, until golden and crisp.",
+      "Serve: Serve warm, with the sweet chilli sauce in a small bowl for dipping. Keep any left over covered in the fridge for up to 2 days.",
+    ],
+  },
+  {
+    id: "mushroom-tofu-pate-toast-fingers", meal: "snack", tags: ["Quick", "Vegan", "Savoury"], name: "Mushroom and tofu pâté with toast fingers", blurb: "A smooth, savoury spread of fried mushrooms, garlic and herbs blended with tofu, with warm toast fingers to spread it on.", servings: 5, minutes: 15,
+    // four slices cut into fingers for five, so Meal plan can add or take away part of a slice
+    ingredients: [ing("mushrooms", 250), ing("olive-oil", 10), ing("garlic", 5, { note: "about 1 clove" }), ing("mixed-herbs", 1), ing("tofu", 280), ing("soy", 10), ing("lemon-juice", 10), ing("black-pepper", 1), ing("bread", 160, { note: "about 4 slices" })],
+    method: [
+      "Slice the mushrooms: Wipe the mushrooms clean with kitchen paper and slice them thinly, if they aren't sliced already.",
+      "Fry the mushrooms: Heat the oil in a large frying pan over a medium-high heat. Fry the mushrooms for 6 to 8 minutes, stirring, until golden and all their juice has cooked away.",
+      "Add the flavour: Stir in the garlic and herbs and cook for 1 minute more, then take the pan off the heat.",
+      "Blend the pâté: Drain the tofu, pat it dry and break it into a tall jug or blender. Add the mushrooms, soy sauce, lemon juice and a pinch of black pepper, and blend until smooth and thick.",
+      "Toast the bread: Toast the bread until golden brown on both sides and cut each slice into fingers.",
+      "Serve: Spoon the pâté into a small bowl and serve with the warm toast fingers for spreading. Keep any left over covered in the fridge for up to 3 days.",
+    ],
+  },
+
+  // ---- small protein snacks with no milk (eggs, chicken, fish), for cutting, GLP-1 and small days
+  {
+    id: "korean-style-soy-marinated-eggs-rice", meal: "snack", tags: ["Eggs", "Savoury", "Make ahead"], name: "Korean-style soy-marinated eggs with rice", blurb: "Boiled eggs soaked in a sweet soy, garlic and spring onion marinade, halved over warm rice with cucumber.", servings: 6, minutes: 25,
+    ingredients: [ing("eggs", 360, { note: "about 6 eggs" }), ing("spring-onions", 30), ing("soy", 60), ing("honey", 15), ing("garlic", 5, { note: "about 1 clove" }), ing("chilli-powder", 1), ing("rice", 120), ing("cucumber", 150)],
+    method: [
+      "Boil the eggs: Lower the eggs into a pan of boiling water on a spoon and boil them for 8 minutes, until the whites are set and the yolks are just firm. Wash your hands after touching raw eggs.",
+      "Cool and peel: Move the eggs into a bowl of cold water for 5 minutes, then crack and peel them carefully.",
+      "Make the marinade: Trim and thinly slice the spring onions. In a small box with a lid, stir the soy sauce, honey, garlic and chilli powder with the same amount of cold water as soy sauce, then add the spring onions.",
+      "Marinate: Put the peeled eggs in the marinade and turn them so they are coated. Cover and keep in the fridge for at least 2 hours, or overnight, turning them once.",
+      "Cook the rice: Rinse the rice and cook it in a pan of boiling water for 10 to 12 minutes, until tender, then drain it well.",
+      "Slice the cucumber: Rinse the cucumber and cut it into thin rounds.",
+      "Serve: Spoon the warm rice into small bowls, halve the eggs and lay them on top with the cucumber. Spoon over a little of the marinade and spring onions. Eat the eggs within 3 days.",
+    ],
+  },
+  {
+    id: "paprika-chicken-bites-sweetcorn-salsa", meal: "snack", tags: ["Quick", "Savoury"], name: "Paprika chicken bites with sweetcorn salsa", blurb: "Bite-sized pieces of chicken fried with paprika and cumin, with a sweetcorn, cherry tomato and red onion salsa sharpened with lemon.", servings: 4, minutes: 15,
+    // the sweetcorn is the filling part of the salsa, so Meal plan moves it as the carb
+    ingredients: [ing("chicken", 160), ing("paprika", 2), ing("cumin", 1), ing("salt", 1), ing("black-pepper", 1), ing("oil-spray", 1), ing("sweetcorn", 240, { role: "carb" }), ing("cherry-tomatoes", 150), ing("red-onion", 40), ing("lemon-juice", 15)],
+    method: [
+      "Cut the chicken: Cut the chicken into bite-sized pieces about 2 cm across. Wash your hands and the board after touching raw chicken.",
+      "Season it: Toss the chicken in a bowl with the paprika, cumin and a pinch of salt and black pepper until coated all over.",
+      "Cook the chicken: Spray a large non-stick frying pan with oil and set it over a medium-high heat. Fry the chicken for 6 to 8 minutes, turning, until golden, piping hot and no pink is left inside.",
+      "Get the salsa ready: While the chicken cooks, drain the sweetcorn if it is tinned. Rinse and quarter the cherry tomatoes, and peel and finely chop the red onion.",
+      "Mix the salsa: Stir the sweetcorn, tomatoes and onion together in a bowl with the lemon juice.",
+      "Serve: Pile the warm chicken on a plate with cocktail sticks and serve the salsa alongside. Keep any left over covered in the fridge for up to 2 days.",
+    ],
+  },
+
+  // ---- vegan with no soya and no gluten (beans and chickpeas carry the protein, rice the carbs)
+  {
+    id: "smoky-bean-rice-cakes-salsa", meal: "snack", tags: ["Vegan", "Savoury"], name: "Smoky bean and rice cakes with salsa", blurb: "Crisp little cakes of mashed kidney beans and soft rice with spring onion, paprika and cumin, topped with tomato salsa.", servings: 4, minutes: 35,
+    ingredients: [ing("rice", 100), ing("kidney-beans", 240, { note: "about 1 tin, drained" }), ing("spring-onions", 30), ing("paprika", 2), ing("cumin", 2), ing("salt", 1), ing("oil-spray", 1), ing("salsa", 100)],
+    method: [
+      "Cook the rice: Rinse the rice and cook it in a pan of boiling water for 12 to 15 minutes, until very soft. Drain it well and spread it on a plate to cool for 5 minutes.",
+      "Mash the beans: Rinse the beans in a sieve and shake them dry. Mash them in a large bowl with a potato masher or fork until mostly smooth.",
+      "Mix: Trim and thinly slice the spring onions. Stir them into the beans with the rice, paprika, cumin and a pinch of salt, pressing the rice down so the mixture sticks together.",
+      "Shape the cakes: With damp hands, shape the mixture into small flat cakes about 1.5 cm thick, squeezing each one firmly.",
+      "Fry the cakes: Spray a large non-stick frying pan well with oil and set it over a medium heat. Fry the cakes for 4 to 5 minutes a side, turning them gently, until golden and crisp.",
+      "Serve: Serve warm, with the salsa spooned on top. Keep any left over covered in the fridge for up to 2 days and warm them through in the pan.",
+    ],
+  },
 ];
 
 export const WAVE2_SNACKS_LOOKS: Readonly<Record<string, string>> = {
@@ -413,6 +495,12 @@ export const WAVE2_SNACKS_LOOKS: Readonly<Record<string, string>> = {
   "peanut-butter-chickpea-cookie-dough-banana": "A small white bowl of thick, smooth golden-brown peanut butter cookie dough studded with dark raisins and dusted with cinnamon, surrounded on a plate by thick rounds of pale yellow banana.",
   "cheese-sweetcorn-oat-muffins": "Six golden-brown savoury oat muffins on a white plate, their domed tops crusted with melted cheddar, one broken open to show a soft, set inside studded with yellow sweetcorn and green spring onion.",
   "berry-cheesecake-pots": "Two small clear glass pots seen from above, filled with smooth white whipped cottage cheese over a crumbly brown biscuit base, topped with glossy red and purple berries.",
+  "berry-banana-tofu-pudding-pots": "Two small clear glass pots filled with thick, smooth pinky-purple tofu pudding flecked with cinnamon, each topped with a heap of glossy whole red and purple berries.",
+  "sweetcorn-chickpea-tofu-fritters": "Small round golden-brown fritters with crisp edges on a white plate, flecked with yellow sweetcorn kernels and green spring onion, beside a small white bowl of glossy red-orange sweet chilli sauce.",
+  "mushroom-tofu-pate-toast-fingers": "A small white bowl of smooth, speckled pale brown mushroom and tofu pâté with a swirled top, flecked with green herbs, beside a pile of golden wholemeal toast fingers on a white plate.",
+  "korean-style-soy-marinated-eggs-rice": "Small white bowls of white rice topped with halved boiled eggs, their whites stained deep amber from the soy marinade and their yolks just set and golden-orange, with thin cucumber rounds and green spring onion rings glistening with dark marinade.",
+  "paprika-chicken-bites-sweetcorn-salsa": "Bite-sized pieces of golden, paprika-red fried chicken piled on a white plate beside a small white bowl of salsa made of bright yellow sweetcorn, quartered red cherry tomatoes and finely chopped purple red onion.",
+  "smoky-bean-rice-cakes-salsa": "Small round golden-brown bean and rice cakes with crisp edges on a white plate, speckled dark red with kidney beans and green with spring onion, each topped with a spoonful of chunky red tomato salsa.",
 };
 
 export const WAVE2_SNACKS_CUISINES: ReadonlyArray<readonly [string, CuisineId]> = [
@@ -441,4 +529,11 @@ export const WAVE2_SNACKS_OCCASIONS: ReadonlyArray<readonly [string, OccasionId]
   ["coronation-tuna-lettuce-cups", "party-food"],
   ["sweet-chilli-chicken-rice-lettuce-cups", "party-food"],
   ["smashed-chickpea-sweetcorn-lettuce-cups", "party-food"],
+  ["sweetcorn-chickpea-tofu-fritters", "party-food"],
+  ["sweetcorn-chickpea-tofu-fritters", "lunchbox"],
+  ["korean-style-soy-marinated-eggs-rice", "lunchbox"],
+  ["paprika-chicken-bites-sweetcorn-salsa", "party-food"],
+  ["paprika-chicken-bites-sweetcorn-salsa", "lunchbox"],
+  ["smoky-bean-rice-cakes-salsa", "party-food"],
+  ["smoky-bean-rice-cakes-salsa", "lunchbox"],
 ];

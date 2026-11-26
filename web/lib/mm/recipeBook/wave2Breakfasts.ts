@@ -425,20 +425,6 @@ export const WAVE2_BREAKFASTS: readonly Recipe[] = [
     ],
   },
   {
-    id: "chickpea-fatteh-toasted-bread-cumin-yogurt", meal: "breakfast", tags: ["Savoury", "Middle Eastern"], name: "Chickpea fatteh with toasted bread and cumin yogurt", blurb: "The Levantine breakfast of crisp toasted bread under warm chickpeas, cool lemon and cumin yogurt and paprika almonds.", servings: 2, minutes: 25,
-    // the yogurt carries the protein with the chickpeas, so it moves with them when the dish is fitted
-    ingredients: [ing("bread", 240, { note: "about 6 slices" }), ing("olive-oil", 20), ing("chickpeas", 480), ing("cumin", 2), ing("salt", 1), ing("lemon-juice", 15), ing("greek-yogurt", 400, { role: "protein" }), ing("almonds", 30), ing("paprika", 2)],
-    method: [
-      "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6).",
-      "Toast the bread: Cut the bread into squares about 2 cm across. Toss them on a baking tray with half the oil and bake for 8 to 10 minutes, turning once, until golden and crisp.",
-      "Warm the chickpeas: Rinse and drain the chickpeas. Put them in a saucepan with half the cumin, a pinch of salt and 100 ml of water and simmer gently for 5 minutes, until hot. Crush a few with a spoon.",
-      "Make the yogurt: Stir the lemon juice and the rest of the cumin into the yogurt.",
-      "Toast the almonds: Chop the almonds roughly. Fry them in the rest of the oil in a small frying pan over a medium-low heat for 2 to 3 minutes, until golden, then stir in the paprika and take the pan off the heat.",
-      "Build the bowls: Spread the toasted bread over the bottom of wide bowls and spoon the warm chickpeas and their liquid over it.",
-      "Serve: Spoon the yogurt over the top and drizzle over the almonds and their red paprika oil. Eat straight away, while the bread is still crisp at the edges.",
-    ],
-  },
-  {
     id: "molletes-refried-beans-cheese-tomato-salsa", meal: "breakfast", tags: ["Savoury", "Quick", "Mexican"], name: "Molletes with refried beans, cheese and tomato salsa", blurb: "The Mexican breakfast of grilled bread spread with cumin refried beans and melted cheddar, topped with a tomato and cucumber salsa.", servings: 2, minutes: 20,
     ingredients: [ing("tomatoes", 170, { note: "about 2 tomatoes" }), ing("cucumber", 100), ing("lemon-juice", 10), ing("salt", 1), ing("kidney-beans", 480), ing("olive-oil", 15), ing("cumin", 2), ing("paprika", 2), ing("bread", 320, { note: "about 8 slices" }), ing("cheddar", 60)],
     method: [
@@ -539,7 +525,6 @@ export const WAVE2_BREAKFASTS_LOOKS: Readonly<Record<string, string>> = {
   "gallo-pinto-rice-beans-scrambled-tofu": "A round white plate with a mound of rice speckled red-brown with kidney beans, soft onion and small pieces of red pepper, beside a heap of golden-yellow scrambled tofu and overlapping slices of red tomato.",
   "cheesy-savoury-porridge-fried-eggs-spinach": "A wide white bowl of thick, creamy pale oat porridge streaked with dark green spinach and melted cheddar, topped with two fried eggs with set whites and bright yellow yolks, soft red cherry tomato halves and green spring onion rings.",
   "korean-style-egg-toast-sandwiches": "Halved toasted sandwiches on a white plate, the golden wholemeal bread showing thick folded omelette layers flecked with orange grated carrot and green spring onion, with melted cheddar at the edges.",
-  "chickpea-fatteh-toasted-bread-cumin-yogurt": "A wide shallow white bowl with crisp golden squares of toasted bread under warm chickpeas and thick white yogurt, topped with roughly chopped golden almonds and streaks of red paprika oil.",
   "molletes-refried-beans-cheese-tomato-salsa": "Slices of golden grilled bread on a white plate, spread thickly with dark red-brown refried beans under bubbling melted orange cheddar, topped with spoonfuls of chopped red tomato and pale green cucumber salsa.",
   "tofu-french-toast-banana-cream-berries": "Golden fried French toast halves on a round white plate, topped with a thick swirl of pale creamy banana tofu cream, a scattering of deep red and purple berries and a dusting of brown cinnamon.",
   "herby-tofu-breakfast-patties-tomatoes-toast": "A white plate of round golden-brown tofu patties flecked with green herbs and red paprika, beside soft blistered red cherry tomato halves, dark green wilted spinach and two triangles of golden wholemeal toast.",
@@ -555,7 +540,6 @@ export const WAVE2_BREAKFASTS_CUISINES: ReadonlyArray<readonly [string, CuisineI
   ["spiced-oat-spinach-pancakes-cucumber-yogurt", "indian"],
   ["tofu-chickpea-shakshuka-toast", "middle-eastern"], ["middle-eastern-breakfast-plate-eggs-houmous", "middle-eastern"],
   ["chinese-style-rice-porridge-egg", "chinese"],
-  ["chickpea-fatteh-toasted-bread-cumin-yogurt", "middle-eastern"],
 ];
 
 export const WAVE2_BREAKFASTS_OCCASIONS: ReadonlyArray<readonly [string, OccasionId]> = [
