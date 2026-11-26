@@ -166,7 +166,8 @@ it.skipIf(process.env.REPORT !== "fit")("fit report for one file", async () => {
     const makes = BIG_SHOPS.filter((s) => { const x = resolveRecipe(r, shops.get(s)!); return x.complete && recipeTotals(x)?.costPerServing != null; });
     out.push(`## ${r.id} (${r.meal}, ${r.minutes} min, serves ${r.servings})`);
     out.push(`as written at Sainsbury's: ${ps ? `${Math.round(ps.kcal)} kcal, ${Math.round(ps.protein)} g protein, carbs ${Math.round((ps.carbs * 400) / Math.max(1, ps.kcal))}% of kcal, fat ${Math.round(ps.fat)} g, £${t?.costPerServing?.toFixed(2)} a serving` : "NOT MADE"}`);
-    out.push(`made at: ${makes.join(", ") || "none"} | diets: ${diets || "none of the special ones"}`);
+    const costs = BIG_SHOPS.map((s) => { const x = resolveRecipe(r, shops.get(s)!); const c = x.complete ? recipeTotals(x)?.costPerServing : null; return `${s.slice(0, 4)} ${c == null ? "-" : `£${c.toFixed(2)}`}`; }).join(", ");
+    out.push(`made at: ${makes.join(", ") || "none"} | diets: ${diets || "none of the special ones"} | a serving as written: ${costs}`);
     const sizes: string[] = [];
     for (const [name, kcal, protein] of FIT_SIZES[r.meal ?? "dinner"]) {
       let n = 0;
