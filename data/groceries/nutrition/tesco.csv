@@ -4,6 +4,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 250802613,g,,547,131,9.0,2.5,<0.1,<0.1,0,12.6,0.39,2026-11-19,https://www.tesco.com/groceries/en-GB/products/250802613
 251314158,ml,,209,50,1.8,1.1,4.8,4.8,0,3.6,0.11,2026-11-19,https://www.tesco.com/groceries/en-GB/products/251314158
 251499998,ml,,209,50,1.7,1.1,5.1,4.9,0,3.5,0.11,2026-11-19,https://www.tesco.com/groceries/en-GB/products/251499998
+251631139,g,,1251,301,23.1,5.7,0.6,0,0,22.7,2.04,2026-11-26,https://www.tesco.com/groceries/en-GB/products/251631139
 251788587,g,,451,107,2.5,0.6,16.1,6.2,2.9,3.7,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/251788587
 251791087,g,,298,72,3.8,2.5,4.9,4.9,,4.2,0.12,2026-11-19,https://www.tesco.com/groceries/en-GB/products/251791087
 252207537,ml,,209,50,1.8,1.1,4.8,4.8,0,3.6,0.11,2026-11-19,https://www.tesco.com/groceries/en-GB/products/252207537
@@ -107,6 +108,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 281054492,g,,116,28,0.5,0.1,3.0,2.8,1.5,2.0,0.02,2026-11-17,https://www.tesco.com/groceries/en-GB/products/281054492
 281425851,g,,166,39,0.1,<0.1,8.0,6.2,1.1,1.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/281425851
 281426090,g,,166,39,0.1,<0.1,8.0,6.2,1.1,1.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/281426090
+281693371,g,,890,213,13.4,2.0,0.1,0.1,0,23.1,0.34,2026-11-26,https://www.tesco.com/groceries/en-GB/products/281693371
 282470731,g,,554,132,4.9,2.1,0,0,0,21.9,0.23,2026-11-19,https://www.tesco.com/groceries/en-GB/products/282470731
 282854370,g,,125,30,0.3,0.1,5.2,1.0,2.5,0.3,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/282854370
 284475129,g,,216,51,0.1,<0.1,10.9,10.9,2.7,0.3,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/284475129
@@ -151,9 +153,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 292686582,g,,185,45,1.3,0.5,2.7,2.3,5.0,3.0,0.08,2026-11-17,https://www.tesco.com/groceries/en-GB/products/292686582
 292686720,g,,185,45,1.3,0.5,2.7,2.3,5.0,3.0,0.08,2026-11-18,https://www.tesco.com/groceries/en-GB/products/292686720
 292695686,g,,169,40,0.6,0.1,4.3,0.3,3.9,2.5,0.02,2026-11-17,https://www.tesco.com/groceries/en-GB/products/292695686
+292916835,g,,338,80,0.9,0.2,0,0,0,17.9,0.25,2026-11-26,https://www.tesco.com/groceries/en-GB/products/292916835
 293821231,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/293821231
 293860450,g,,266,64,3.5,2.2,4.7,4.7,,3.3,0.14,2026-11-19,https://www.tesco.com/groceries/en-GB/products/293860450
+294007606,g,,339,80,0.5,0.3,0.4,0.4,<0.1,18.4,1.18,2026-11-26,https://www.tesco.com/groceries/en-GB/products/294007606
 294007923,g,,486,115,3.3,0.8,0,0,0,21.5,0.18,2026-11-19,https://www.tesco.com/groceries/en-GB/products/294007923
+294070260,g,,284,67,0.5,0.2,<0.1,<0.1,<0.1,15.5,0.93,2026-11-26,https://www.tesco.com/groceries/en-GB/products/294070260
 294070408,g,,263,62,0.5,0.2,<0.1,<0.1,<0.1,14.3,1.24,2026-11-20,https://www.tesco.com/groceries/en-GB/products/294070408
 294076120,g,,308,73,0.1,<0.1,17.0,17.0,0.6,0.6,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/294076120
 294770087,g,,266,63,0.2,0.1,5.0,4.0,<0.1,10.1,0.42,2026-11-19,https://www.tesco.com/groceries/en-GB/products/294770087
@@ -167,6 +172,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 296422890,g,,871,209,14.5,6.5,0,0,0,19.7,0.29,2026-11-19,https://www.tesco.com/groceries/en-GB/products/296422890
 296546961,g,,2891,701,68.5,7.5,3.3,2.6,6.3,14.7,0.02,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296546961
 296652420,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/296652420
+296920881,g,,874,209,12.0,1.6,0,0,0,25.3,0.13,2026-11-26,https://www.tesco.com/groceries/en-GB/products/296920881
 297186889,g,,1381,326,0.4,0.1,76.1,64.8,5.1,1.8,0.1,2026-11-18,https://www.tesco.com/groceries/en-GB/products/297186889
 297674945,g,,2558,619,52.5,4.1,10.1,4.9,10.9,21.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/297674945
 297682889,g,,135,32,0.4,0.1,3.9,3.0,2.3,2.2,0.05,2026-11-17,https://www.tesco.com/groceries/en-GB/products/297682889
@@ -179,6 +185,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 299914279,ml,,209,50,1.8,1.1,4.8,4.8,0,3.6,0.07,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299914279
 299914475,g,,972,234,18.0,12.0,1.0,1.0,0,17.0,0.60,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299914475
 299916749,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/299916749
+299955783,g,,397,94,2.1,0.7,0.8,0.8,0.8,17.6,1.62,2026-11-26,https://www.tesco.com/groceries/en-GB/products/299955783
 299963865,g,,91,22,0.1,0.1,0.6,0.2,2.1,3.5,0.22,2026-11-18,https://www.tesco.com/groceries/en-GB/products/299963865
 299970292,g,,240,57,1.6,1.1,5.4,5.3,0.5,4.9,0.12,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299970292
 300134734,g,,1528,371,36.0,31.4,3.5,3.5,9.0,3.8,0.10,2026-11-18,https://www.tesco.com/groceries/en-GB/products/300134734
@@ -188,6 +195,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 300991012,g,,131,31,0.1,,6.8,6.8,0.4,0.5,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/300991012
 301219119,g,,79,19,0.6,<0.1,0.2,0,1.2,2.6,0.08,2026-11-17,https://www.tesco.com/groceries/en-GB/products/301219119
 301795266,g,,260,61,0.7,0.4,<0.1,<0.1,<0.1,13.7,1.60,2026-11-20,https://www.tesco.com/groceries/en-GB/products/301795266
+301795289,g,,260,61,0.7,0.4,<0.1,<0.1,<0.1,13.7,1.60,2026-11-26,https://www.tesco.com/groceries/en-GB/products/301795289
 301801698,g,,532,127,6.5,2.4,0.8,0.2,0.3,16.1,2.15,2026-11-19,https://www.tesco.com/groceries/en-GB/products/301801698
 302219551,g,,1725,416,34.9,21.7,0.1,0.1,,25.4,1.8,2026-11-19,https://www.tesco.com/groceries/en-GB/products/302219551
 302286988,g,,341,80,0.3,0.1,0,0,0,19.4,0.34,2026-11-20,https://www.tesco.com/groceries/en-GB/products/302286988
@@ -204,10 +212,12 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 302971908,g,,146,35,0.1,0,7.2,7.2,1.2,0.6,0.04,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302971908
 302972049,g,,139,33,0.3,0.1,6.9,6.9,0.5,0.4,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302972049
 302972366,g,,179,42,0.3,0,8.6,8.5,1.4,0.6,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302972366
+303270573,g,,302,71,0.4,0.1,0,0,0,16.9,0.18,2026-11-26,https://www.tesco.com/groceries/en-GB/products/303270573
 303631204,g,,254,60,0.4,0.1,7.7,6.6,0.4,6.2,0.14,2026-11-19,https://www.tesco.com/groceries/en-GB/products/303631204
 303806049,g,,1723,415,34.2,21.3,2.0,0.1,0,24.9,1.77,2026-11-19,https://www.tesco.com/groceries/en-GB/products/303806049
 303823219,g,,150,36,1.4,0.2,5.1,1.7,1.4,<0.5,2.1,2026-11-18,https://www.tesco.com/groceries/en-GB/products/303823219
 303869954,g,,380,90,0.1,0.1,20.3,18.1,1.4,1.2,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/303869954
+303880749,g,,467,111,2.2,0.8,3.5,3.5,1.0,18.8,1.56,2026-11-26,https://www.tesco.com/groceries/en-GB/products/303880749
 304368923,g,,484,114,2.0,0.7,0,0,0,24.2,0.12,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304368923
 304378427,g,,716,170,5.2,2.5,7.0,6.4,0,23.8,2.18,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304378427
 304380429,g,,674,161,9.8,2.6,0,0,0,18.3,0.33,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304380429
@@ -219,11 +229,13 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 304404478,g,,128,31,0.8,0.3,0.9,0.8,2.5,3.7,0.07,2026-11-18,https://www.tesco.com/groceries/en-GB/products/304404478
 304405349,g,,442,105,2.1,0.6,0,0,0,21.5,0.16,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304405349
 304410539,g,,484,114,2.0,0.7,0,0,0,24.2,0.12,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304410539
+304789816,g,,537,128,4.5,0.7,0.1,0.1,0.5,21.5,0.28,2026-11-26,https://www.tesco.com/groceries/en-GB/products/304789816
 304796979,g,,130,31,0.7,0.2,1.9,1.9,1.9,3.3,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/304796979
 305255289,g,,160,38,0.9,0.2,1.8,1.5,2.6,4.4,0.02,2026-11-17,https://www.tesco.com/groceries/en-GB/products/305255289
 305433666,g,,520,123,3.8,1.5,0,0,0,22.3,3.36,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305433666
 305520004,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-18,https://www.tesco.com/groceries/en-GB/products/305520004
 305526666,g,,514,122,3.6,1.5,0,0,0,22.4,2.77,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305526666
+305528975,g,,930,223,14.3,2.8,0.3,0.1,0.4,23.1,0.32,2026-11-26,https://www.tesco.com/groceries/en-GB/products/305528975
 305830518,g,,376,88,0.4,0.2,9.8,8.8,,10.2,0.1,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305830518
 305953125,g,,171,41,0.4,0.1,7.7,7.2,2.1,0.5,0.07,2026-11-17,https://www.tesco.com/groceries/en-GB/products/305953125
 305964008,g,,171,41,0.4,0.1,7.7,7.2,2.1,0.5,0.07,2026-11-20,https://www.tesco.com/groceries/en-GB/products/305964008
@@ -234,6 +246,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 305982954,g,,241,57,<0.5,0.3,3.5,3.5,,10.0,0.10,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305982954
 306663547,ml,,203,48,1.5,0.2,7.2,3.5,0.7,1.1,0.10,2026-11-19,https://www.tesco.com/groceries/en-GB/products/306663547
 306665741,g,,1725,416,34.9,21.7,0.1,0.1,0,25.4,1.81,2026-11-19,https://www.tesco.com/groceries/en-GB/products/306665741
+306810996,g,,1310,315,24.6,5.7,1.4,0.1,0,22.1,2.21,2026-11-26,https://www.tesco.com/groceries/en-GB/products/306810996
 306821384,g,,265,62,0.3,0.1,<0.1,<0.1,0.5,14.6,1.40,2026-11-20,https://www.tesco.com/groceries/en-GB/products/306821384
 306944250,g,,1371,330,25.4,6.2,3.6,2.4,0.5,21.6,2.29,2026-11-20,https://www.tesco.com/groceries/en-GB/products/306944250
 307133459,g,,250,59,0.2,0.1,7.7,7.7,0.4,6.4,0.22,2026-11-19,https://www.tesco.com/groceries/en-GB/products/307133459
@@ -255,6 +268,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 309494477,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309494477
 309753989,g,,236,56,0.5,0.2,11.6,11.6,1.2,0.6,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309753989
 310127031,g,cooked,1006,241,15.5,2.7,<0.5,<0.5,<0.5,25.1,0.24,2026-11-19,https://www.tesco.com/groceries/en-GB/products/310127031
+310150394,g,,366,87,1.9,1.0,0,0,0,17.4,0.25,2026-11-26,https://www.tesco.com/groceries/en-GB/products/310150394
 310162754,g,,672,160,4.5,1.5,2.3,2.3,0.9,27.0,0.97,2026-11-20,https://www.tesco.com/groceries/en-GB/products/310162754
 310191051,g,,348,83,3.8,2.6,6.8,5.9,0.4,5.2,0.14,2026-11-19,https://www.tesco.com/groceries/en-GB/products/310191051
 311209097,g,,159,38,0.4,<0.1,7.2,7.1,1.3,0.6,0.02,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311209097
@@ -265,6 +279,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 311438519,g,,174,41,0.2,0.1,8.2,8.2,1.7,0.8,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311438519
 311449005,g,,211,50,0.1,0,11.1,11.1,1.2,0.5,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311449005
 311945345,ml,,236,56,1.9,1.2,5.7,5.7,,4.0,0.16,2026-11-19,https://www.tesco.com/groceries/en-GB/products/311945345
+312365943,g,,752,180,10.0,2.7,0.1,0.1,0.6,22.0,0.16,2026-11-26,https://www.tesco.com/groceries/en-GB/products/312365943
 312570515,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/312570515
 312571249,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/312571249
 312713935,g,,166,39,0.1,0,8.0,6.2,1.1,1.0,<0.01,2026-11-20,https://www.tesco.com/groceries/en-GB/products/312713935
@@ -275,6 +290,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 313504801,g,,560,134,6.1,1.8,0.1,0,0.1,19.5,0.20,2026-11-19,https://www.tesco.com/groceries/en-GB/products/313504801
 313601916,g,,499,118,2.2,0.6,0.3,0.1,0.5,24.1,0.19,2026-11-19,https://www.tesco.com/groceries/en-GB/products/313601916
 313618678,g,,500,118,1.7,0.7,0.5,0.5,0.5,25.0,0.19,2026-11-19,https://www.tesco.com/groceries/en-GB/products/313618678
+313756329,g,,775,185,9.9,1.7,1.5,0.3,0.4,22.3,3.38,2026-11-26,https://www.tesco.com/groceries/en-GB/products/313756329
 313852682,g,,35,8,0.2,0.1,0.3,0.3,0.7,1.0,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/313852682
 313859559,g,,236,56,0.5,0.2,11.6,11.6,1.2,0.6,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/313859559
 313949954,g,,266,64,3.5,2.2,4.7,4.7,,3.3,0.14,2026-11-19,https://www.tesco.com/groceries/en-GB/products/313949954
@@ -284,7 +300,9 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 314107573,g,as consumed,666,159,6.0,2.4,3.9,3.9,22.0,<0.5,3.14,2026-11-20,https://www.tesco.com/groceries/en-GB/products/314107573
 314119392,g,,108,26,0.5,0.1,3.6,3.6,1.2,1.1,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/314119392
 314581390,g,,517,123,4.4,1.7,1.0,0.3,0.2,19.8,1.71,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314581390
+314583520,g,,775,185,9.9,1.7,1.5,0.3,0.4,22.3,3.38,2026-11-26,https://www.tesco.com/groceries/en-GB/products/314583520
 314592964,g,,506,120,4.1,1.6,0.8,0.1,0.4,19.7,1.54,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314592964
+314596516,g,,775,185,9.9,1.7,1.5,0.3,0.4,22.3,3.38,2026-11-26,https://www.tesco.com/groceries/en-GB/products/314596516
 314602620,g,,982,236,18.0,12.7,0.6,0.6,0,18.0,0.40,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314602620
 314693741,g,,1232,291,0.2,<0.1,66.3,63.0,7.3,2.2,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/314693741
 314713638,g,,826,197,9.5,1.7,1.7,0.3,0.5,26.0,3.08,2026-11-20,https://www.tesco.com/groceries/en-GB/products/314713638
@@ -304,7 +322,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 315833074,g,,2707,655,58.2,6.8,12.0,3.8,7.1,17.3,0.27,2026-11-18,https://www.tesco.com/groceries/en-GB/products/315833074
 315956936,g,,504,119,1.7,0.6,4.3,4.3,0.5,21.4,1.53,2026-11-20,https://www.tesco.com/groceries/en-GB/products/315956936
 315960838,g,,488,117,4.3,2.5,12.0,0.7,6.6,4.3,0.13,2026-11-18,https://www.tesco.com/groceries/en-GB/products/315960838
+315967474,g,,502,119,2.5,0.9,2.2,2.2,1.0,21.3,1.51,2026-11-26,https://www.tesco.com/groceries/en-GB/products/315967474
 316055244,g,,336,79,0.1,<0.1,0.3,0.1,0.5,19.0,1.21,2026-11-20,https://www.tesco.com/groceries/en-GB/products/316055244
+316060787,g,,473,112,2.0,0.7,2.1,1.0,0.1,21.2,1.51,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316060787
+316064247,g,,485,115,2.8,0.9,0.9,0.9,0.5,21.4,1.42,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316064247
+316177140,g,,465,110,2.0,0.7,1.4,1.1,1.0,21.1,1.51,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316177140
 316290978,g,,1767,422,17.1,1.4,54.7,42.8,7.3,8.6,0.18,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316290978
 316556020,g,,196,46,0.2,<0.1,10.1,10.1,1.2,0.4,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316556020
 316558951,g,,901,213,<0.5,0.3,46.9,46.4,6.3,2.0,0.0,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316558951
@@ -328,6 +350,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 320559662,g,,220,52,0.6,0.2,10.4,10.1,1.1,0.7,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320559662
 320659175,g,,434,102,1.2,0.3,0,0,0.2,22.8,0.17,2026-11-19,https://www.tesco.com/groceries/en-GB/products/320659175
 320671931,g,,2721,658,58.0,5.1,8.4,4.1,6.8,22.2,0.02,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320671931
+320688111,g,,386,91,0,0,0,0,0,22.7,0.24,2026-11-26,https://www.tesco.com/groceries/en-GB/products/320688111
 320793320,g,,495,118,5.8,3.4,10.0,10.0,0.8,6.2,0.37,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320793320
 320799395,g,,1050,254,24.5,3.3,5.2,3.6,1.2,2.8,0.57,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320799395
 320968345,g,,1255,303,26.2,2.4,9.1,0.5,3.7,6.0,0.69,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320968345
@@ -364,6 +387,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 322263668,g,,69,17,0.2,<0.1,1.2,1.2,1.9,1.6,<0.01,2026-11-18,https://www.tesco.com/groceries/en-GB/products/322263668
 322328115,g,,663,159,9.1,3.5,0,0,0,19.2,2.31,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322328115
 322334504,g,,543,129,4.8,1.8,0,0,0,21.6,0.13,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322334504
+322338546,g,,263,62,0.5,0.2,<0.1,<0.1,<0.1,14.3,1.24,2026-11-26,https://www.tesco.com/groceries/en-GB/products/322338546
 322339050,g,,551,131,2.7,0.5,6.2,6.1,1.6,19.6,0.56,2026-11-20,https://www.tesco.com/groceries/en-GB/products/322339050
 322441475,g,,661,158,9.1,3.5,0,0,0,19.1,2.20,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322441475
 322549763,g,,442,105,2.1,0.6,0,0,0,21.5,0.16,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322549763
@@ -403,7 +427,11 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 330744711,g,,220,53,0.5,0,9.8,9.7,2.3,0.7,0,2026-11-18,https://www.tesco.com/groceries/en-GB/products/330744711
 330746754,g,,547,131,9.0,2.5,<0.1,<0.1,0,12.6,0.39,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330746754
 330746970,g,,166,39,1.1,0.1,4.8,1.2,1.2,2.0,<0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/330746970
+330746999,g,,374,89,2.2,1.5,0.8,0.7,0,16.5,0.58,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330746999
+330747004,g,,531,126,4.0,2.2,0.2,0.1,0,22.3,2.31,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747004
+330747474,g,,1118,269,19.4,5.9,0.1,0.1,0.5,23.3,0.18,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747474
 330747579,g,,517,123,4.6,2.8,19.9,15.3,0.8,0.2,0.08,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330747579
+330747649,g,,421,99,1.2,0.4,1.1,0.3,0.8,20.7,1.10,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747649
 330749873,g,,2564,620,51.3,8.7,9.6,3.6,10.4,24.8,0.01,2026-11-17,https://www.tesco.com/groceries/en-GB/products/330749873
 330750311,g,,548,130,4.1,1.7,0.4,0.2,<0.1,22.9,0.48,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330750311
 330750316,g,,627,149,3.2,0.9,3.0,2.9,1.1,26.4,0.56,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330750316
@@ -418,6 +446,7 @@ product_id,per,state,kj,kcal,fat_g,saturates_g,carbs_g,sugars_g,fibre_g,protein_
 330756067,g,,486,115,3.3,0.8,0,0,0,21.5,0.18,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330756067
 330757179,g,,1124,269,15.7,2.6,13.6,<0.1,1.5,17.6,0.68,2026-11-20,https://www.tesco.com/groceries/en-GB/products/330757179
 330757288,g,,542,129,4.9,2.0,0,0,0,21.1,0.12,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330757288
+330772452,g,,547,131,9.0,2.5,0.0,0.0,0.0,12.6,0.39,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330772452
 330777379,g,,167,39,0.2,0,8.5,8.5,0.8,0.5,0.03,2026-11-18,https://www.tesco.com/groceries/en-GB/products/330777379
 330782654,g,,792.4,189.2,8.8,5.1,24.9,24.3,2.1,2.5,<0.05,2026-11-18,https://www.tesco.com/groceries/en-GB/products/330782654
 390093383,ml,,82,20,0.8,0,1.8,0,2.0,0,0.17,2026-11-19,https://www.tesco.com/groceries/en-GB/products/390093383

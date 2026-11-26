@@ -44,7 +44,8 @@ COOP_BOTTLE = _re.compile(r"\b(75cl|70cl|35cl|50cl|37 5cl|20cl|1 litre)\b")
 # groceries only: pet food and household goods are left out first, whatever else the name says
 COOP_NOT_FOOD = _re.compile(r"\b(whiskas|felix|pedigree|dreamies|sheba|cesar|winalot|purina|go cat|cat|cats|dog|dogs|kitten|puppy|washing up|laundry|detergent|"
                             r"toilet|bin bags|bleach|kitchen roll|tissues|nappies|wipes|fabric|dishwasher|shampoo|toothpaste|deodorant|batteries)\b")
-READER = 4  # the reader's version (it sends it as "v"): 3 tried every "Ingredients" heading, 4 skips a box holding the nutrition table too (18 November 2026)
+READER = 5  # the reader's version (it sends it as "v"): 3 tried every "Ingredients" heading, 4 skips a box holding the nutrition table too (18 November 2026),
+# 5 takes the product's title from the first heading that isn't just "Back" (Tesco's page, 26 November 2026)
 
 
 def slug(name: str) -> str:
@@ -190,7 +191,11 @@ def done_ids(shop: str) -> set[str]:
                 r = json.loads(line)
                 # Tesco pages read before reader 4 without ingredients are read once more (earlier readers missed Tesco's list); before 4, "reader" was
                 # stamped by this script whatever the tab ran, so only a page the tab itself said was read by 4 counts
-                if shop == "tesco" and (r.get("reader") or 0) < READER and r.get("nut") and not r.get("ingredients"):
+                if shop == "tesco" and (r.get("reader") or 0) < 4 and r.get("nut") and not r.get("ingredients"):
+                    continue
+                # Tesco pages whose title came back as "Back" (Tesco's hidden heading, 20-26 November 2026: the import drops them as "title differs") are
+                # read once more by reader 5, which skips that heading
+                if shop == "tesco" and (r.get("reader") or 0) < 5 and (r.get("h1") or "").strip().lower() == "back":
                     continue
                 done.add(str(r.get("id")))
     return done - retry_ids(shop)

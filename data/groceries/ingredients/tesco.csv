@@ -1,5 +1,6 @@
 product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_url
 250802567,Egg.,INGREDIENTS:; Egg,,may contain white eggs.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/250802567
+251631139,"Mackerel (Fish) (98%), Salt.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/251631139
 251791087,This yogurt Contains only Milk's Naturally Occurring Sugar (Lactose),,Contains Milk,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/251791087
 253194105,Chilli Pepper,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/253194105
 253554982,Pomegranate,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/253554982
@@ -59,6 +60,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 279627298,Carrot,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/279627298
 279684822,,,Contains soya.,Not suitable for freezing.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/279684822
 281426090,,,,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/281426090
+281693371,"Salmon (Fish) (99%), Salt, Lemon Juice.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",Not suitable for microwave cooking.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/281693371
 282854370,Turmeric,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/282854370
 284475129,Pear,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/284475129
 284475164,Pear,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/284475164
@@ -93,8 +95,11 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 292275515,Nectarine,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/292275515
 292310843,Parsnip,,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/292310843
 292686720,Flat Leaf Parsley,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/292686720
+292916835,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/292916835
 293821231,Chestnut Mushroom,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/293821231
 293860450,"Yogurt (Milk), Vitamin D, Contains Live Cultures: Lactobacillus Bulgaricus, Streptococcus Thermophilus, and Bifidobacterium",Milk,Contains: Milk,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/293860450
+294007606,"King Prawns (Crustacean) (98%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold., The allergens in this product have changed.",May contain fish and molluscs.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/294007606
+294070260,"King Prawn (Crustacean) (99%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold.",May contain fish and molluscs.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/294070260
 294070408,"King Prawn (Crustacean) (99%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold., The allergens in this product have changed.",May contain fish and molluscs.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/294070408
 294076120,Grapes,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/294076120
 294770087,"Fat Free Cottage Cheese (Milk), Salt.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/294770087
@@ -103,6 +108,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 296057693,Nectarine,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296057693
 296057710,Plum,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296057710
 296546961,,,"May contain sesame seeds and peanuts and other nuts. For allergens, see ingredients in bold.",May contain sesame seeds and peanuts and other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/296546961
+296920881,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/296920881
 297674945,,INGREDIENTS:; Almonds,"May contain peanuts and other nuts, sesame seeds and soya. For allergens, see ingredients in bold.","May contain peanuts and other nuts, sesame seeds and soya.",2026-11-17,https://www.tesco.com/groceries/en-GB/products/297674945
 297682889,,INGREDIENTS:,,Not suitable for freezing.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/297682889
 298126620,Brussels Sprouts,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/298126620
@@ -111,10 +117,12 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 299685318,"Paneer Cheese(Skimmed Milk, Cream (Milk), Salt, Rennet, Sunflower Lecithins, Citric Acid).",INGREDIENTS:; Milk,"Contains milk. For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299685318
 299770281,"Whole Milk Yogurt Base(Milk, Water, Dried Skimmed Milk, Starter Culture, Skimmed Milk Concentrate, Whipping Cream (Milk)).",INGREDIENTS:; Milk,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299770281
 299914475,"Mozzarella Medium Fat Soft Cheese (Milk), Acidity Regulator (Citric Acid).",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299914475
+299955783,"Pork (80%), Water, Salt, Dextrose, Stabilisers (Pentapotassium Triphosphate, Pentasodium Triphosphate, Tetrapotassium Diphosphate), Mineral Sea Salt, Honey, Antioxidant (Sodium Ascorbate), Sugar, Brown Sugar, Gluten Free Breadcrumbs [Rice Flour, Cornflour, Rapeseed Oil, Turmeric, Paprika Extract, Dextrose], Preservatives (Sodium Nitrite, Sodium Nitrate), Demerara Sugar, Pork Gelatine, Colour (Plain Caramel), Caramelised Sugar Syrup.",INGREDIENTS:,,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/299955783
 299970292,"Low Fat Natural Yogurt Base(Water, Milk, Dried Skimmed Milk, Starter Culture, Skimmed Milk Concentrate, Whipping Cream (Milk)).",INGREDIENTS:; Milk,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/299970292
 300543993,"Cottage Cheese (Milk), Salt.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/300543993
 300991012,Melon,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/300991012
 301795266,"Prawn (Crustacean) (98%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold.",May contain fish and molluscs.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/301795266
+301795289,"Prawn (Crustacean) (98%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, including cereals containing gluten, see ingredients in bold.",May contain fish and molluscs.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/301795289
 301801698,"Pork (87%), Water, Salt, Stabiliser (Pentasodium Triphosphate), Preservative (Sodium Nitrite).",INGREDIENTS:,,Not suitable for cooking from frozen.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/301801698
 302219551,,,"Contains Milk., Not suitable for Milk allergy sufferers.",Not suitable for Milk allergy sufferers.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/302219551
 302286988,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/302286988
@@ -127,18 +135,22 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 302686929,,INGREDIENTS:; Almonds,"May contain peanuts and other nuts, sesame seeds and soya. For allergens, see ingredients in bold.","May contain peanuts and other nuts, sesame seeds and soya.",2026-11-17,https://www.tesco.com/groceries/en-GB/products/302686929
 302971908,"Melon, Grapes.",INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302971908
 302972366,"Pineapple, Melon, Mango.",INGREDIENTS:,,may contains pips.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/302972366
+303270573,,,Contains fish.,Not suitable for microwave cooking.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/303270573
 303631204,,,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/303631204
 303806049,"Mature Cheddar Cheese (Milk), Potato Starch.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/303806049
 303823219,"Ginger Purée (90%), Acidity Regulator (Acetic Acid), Salt, Rapeseed Oil, Dextrose Powder, Stabiliser (Xanthan Gum), Preservative (Potassium Sorbate)",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/303823219
 303869954,Banana,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/303869954
+303880749,"Pork (86%), Water, Honey (4.5%), Salt, Dextrose, Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), Mineral Sea Salt, Brown Sugar, Antioxidant (Sodium Ascorbate), Sugar, Gluten Free Breadcrumbs [Rice Flour, Cornflour, Rapeseed Oil, Turmeric, Paprika Extract, Dextrose], Preservatives (Sodium Nitrite, Sodium Nitrate), Demerara Sugar, Pork Gelatine, Colour (Plain Caramel), Caramelised Sugar Syrup.",INGREDIENTS:,,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/303880749
 304378427,"Pork (67%), Barbecue Glaze (13%) [Sugar, Water, Tomato Paste, Spirit Vinegar, Black Treacle, Cornflour, Salt, Garlic Powder, Smoked Water, Colour (Plain Caramel), White Pepper, Maltodextrin, Tamarind Paste, Concentrated Pineapple Juice, Flavouring), Mature Cheddar Cheese (Milk), Water, Salt, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304378427
 304390832,"Grana Padano Cheese (Milk), Preservative (Egg Lysozyme).","INGREDIENTS:; Milk),; Egg","For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304390832
 304399805,"Pork (90%), Water, Potato Starch, Rice Flour, Gram Flour, Salt, Acidity Regulator (Calcium Lactate), White Pepper, Sage, Stabilisers (Tetrapotassium Diphosphate, Disodium Diphosphate), Coriander, Preservative (Sodium Metabisulphite), Nutmeg, Maize Starch.",INGREDIENTS:; Metabisulphite,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304399805
 304400809,"Grana Padano Cheese (Milk), Preservative (Egg Lysozyme).",INGREDIENTS:; Milk; Egg,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/304400809
 304404478,Dill,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/304404478
+304789816,,,Contains fish.,Not suitable for microwave cooking.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/304789816
 304796979,Chive,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/304796979
 305433666,"Pork (91%), Water, Salt, Preservatives (Potassium Nitrate, Sodium Nitrite).",INGREDIENTS:,,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305433666
 305526666,"Pork (91%), Water, Salt, Preservatives (Potassium Nitrate, Sodium Nitrite).",INGREDIENTS:,,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305526666
+305528975,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/305528975
 305830518,"Skyr Yogurt with Live Cultures* (Milk) 86%, 14% Superberry Compote (Blackberry Puree (10%), Strawberry Puree (9%), Cranberry Puree (9%), Cornflour, Lemon Juice Concentrate (1%), Rowanberry Juice Concentrate (1%), Acai Juice (1%), Goji Berry Juice (1%), Elderberry Juice Concentrate (1%), Blueberry Juice Concentrate (1%), Sugar, Water, Natural Flavourings, *Includes millions of: Bifidobacterium and Lactobacillus",Milk,"For allergens, see ingredients in Bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305830518
 305831903,IngredientsApple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/305831903
 305964008,Carrot,,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/305964008
@@ -149,6 +161,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 305982954,,,Contains Milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/305982954
 306663547,"Water, Oats* 10%, Rapeseed Oil*, Sea Salt, *Organic ingredient",Oats,"Free From: Milk, SoyaContains: Oats",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/306663547
 306665741,,,Contains milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/306665741
+306810996,"Mackerel (Fish) (98%), Salt.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/306810996
 306821384,"Prawn (Crustacean) (98%), Salt.",INGREDIENTS:; Crustacean,"For allergens, see ingredients in bold.",,2026-11-20,https://www.tesco.com/groceries/en-GB/products/306821384
 306944250,"Mackerel (Fish) (96%), Salt, Demerara Sugar, Dextrose, Caster Sugar, Ground Lemon Peel, Dried Parsley, Lemon Extract.",INGREDIENTS; Fish,"For allergens, see ingredients in bold.",,2026-11-20,https://www.tesco.com/groceries/en-GB/products/306944250
 307133459,,,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/307133459
@@ -163,8 +176,10 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 309469888,"Skyr Yoghurt (Milk), Cream (12%)",Milk; Cream,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/309469888
 309472739,"Watermelon, Mango.",INGREDIENTS:,,Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309472739
 309474478,Feta Cheese PDO (Milk),Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/309474478
+309747513,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/309747513
 309753989,Apple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/309753989
 310127031,100% Scottish Salmon (Salmo salar) (Fish),Fish,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/310127031
+310150394,,,Contains fish.,Not suitable for cooking from frozen.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/310150394
 310162754,"Pork, Honey, Salt, Stabiliser (Pentasodium Triphosphate), Sugar, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/310162754
 310191051,,,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/310191051
 311209097,"Melon, Kiwi Fruit, Strawberry.",INGREDIENTS:,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311209097
@@ -174,18 +189,22 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 311430205,Plum,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311430205
 311438519,Orange,,,NOT SUITABLE FOR VEGANSMore informationNet Contentsmin.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/311438519
 311945345,Organic Milk Fermented with Live Yogurt and Kefir Cultures,Milk,"For allergens, see ingredients in Bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/311945345
+312365943,"Sea Bass (Fish) (99%), Lemon Zest, Parsley.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",Not suitable for microwave cooking.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/312365943
 312571249,Portobello Mushrooms,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/312571249
 312713935,Onion,,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/312713935
 312714404,This Yogurt contains only Milk's naturally occurring Sugar (Lactose),,Contains Milk.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/312714404
 312845963,"Pineapple, Melon, Orange, Kiwi Fruit, Grapes, Blueberry.",INGREDIENTS:,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/312845963
 313364240,Brussels Sprouts,,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/313364240
+313756329,"Salmon (Fish) (97%), Salt, Sugar",Fish,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/313756329
 313852682,"Shiitake Mushroom, Oyster Mushroom, Chanterelle Mushroom, Wild Mushroom, Eryngii Mushroom",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/313852682
 313859559,Apple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/313859559
 313949954,"Yogurt (Milk), Vitamin D",Milk,Contains: Milk,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/313949954
 313955497,"Babycorn, Mangetout",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/313955497
 314107573,"Pork (85%), Water (10%), Honey, Salt, Sugar, Breadcrumbs (Rice Flour, Cornflour, Salt, Rapeseed Oil, Dextrose, Colours (Paprika Extract, Curcumin)), Mineral Salt, Glucose Syrup, Stabilisers (Triphosphates), Pork Gelatine, Preservatives (Sodium Nitrite, Sodium Nitrate, Potassium Nitrate), Antioxidant (Sodium Ascorbate), Caramelised Sugar Syrup",,,Not suitable for home freezing.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/314107573
 314581390,"Pork (88%), Water, Salt, Preservatives (Sodium Nitrite, Potassium Nitrate).",INGREDIENTS:,,Not suitable for microwave cooking.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314581390
+314583520,"Salmon (Fish) (97%), Salt, Sugar.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/314583520
 314592964,"Pork (87%), Water, Salt, Preservatives (Sodium Nitrite, Potassium Nitrate).",INGREDIENTS:,,Not suitable for microwave cooking.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314592964
+314596516,"Salmon (Fish) (97%), Salt, Sugar.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/314596516
 314602620,"Mozzarella Medium Fat Soft Cheese (Milk), Acidity Regulator (Citric Acid).",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/314602620
 314713638,"Salmon (Fish) (97%), Salt, Sugar.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",,2026-11-20,https://www.tesco.com/groceries/en-GB/products/314713638
 314934215,Grapes,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/314934215
@@ -204,7 +223,11 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 315833074,"Walnuts, Almonds, Cashews, Salt",Walnuts; Almonds; Cashews,"May contain Peanuts, other Nuts and Sesame.For allergens see ingredients in bold.","May contain Peanuts, other Nuts and Sesame.",2026-11-18,https://www.tesco.com/groceries/en-GB/products/315833074
 315956936,"Pork (94%), Brown Sugar, Mineral Sea Salt, Honey, Dijon Mustard [Water, Mustard Flour, Spirit Vinegar, Salt], Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), English Mustard [Water, Sea Salt, Sugar, Turmeric], Cornflour, Salt, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:; Mustard,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/315956936
 315960838,"Petit Pois, Kale, Tenderstem ® Broccoli, Butter (Milk), Garlic Purée, Wild Garlic, Lemon Juice, Salt, Cornflour, Garlic Powder, Black Pepper.",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/315960838
+315967474,"Pork (98%), Honey, Mineral Sea Salt, Brown Sugar, Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), Caramelised Sugar Syrup, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:,,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/315967474
 316055244,"Organic King Prawn (Crustacean) (98%), Salt**. **Denotes non-organic ingredient.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold.",May contain fish and molluscs.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/316055244
+316060787,"Pork (98%), Mineral Sea Salt, Gluten Free Breadcrumbs [Rice Flour, Cornflour, Rapeseed Oil, Salt, Turmeric, Paprika Extract, Dextrose], Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), Brown Sugar, Pork Gelatine, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:,Free From: Cereals Containing Gluten,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316060787
+316064247,"Pork, Mineral Sea Salt, Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), Brown Sugar, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:,,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316064247
+316177140,"Pork (98%), Mineral Sea Salt, Stabilisers (Pentapotassium Triphosphate, Tetrapotassium Diphosphate, Pentasodium Triphosphate), Brown Sugar, Antioxidant (Sodium Ascorbate), Preservative (Sodium Nitrite).",INGREDIENTS:,,Not suitable for freezing.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/316177140
 316290978,,Almonds; Sulphur Dioxide; For allergens see ingredients in bold.,"May contain Peanuts, other Nuts and Sesame.For allergens see ingredients in bold.","May contain Peanuts, other Nuts and Sesame.",2026-11-18,https://www.tesco.com/groceries/en-GB/products/316290978
 316556020,Pineapple,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316556020
 316808604,Grapes,,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/316808604
@@ -224,6 +247,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 318185069,"Fat Free Strained Yogurt (Milk) (Skimmed Milk, Starter Culture).",INGREDIENTS:; Milk,Contains milk.,Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/318185069
 320402387,"Wheat Flour, Olive Oil, Extra Virgin Olive Oil (3%), Sea Salt, Yeast, Rosemary (1%), Malted Wheat Flour.",INGREDIENTS:; Wheat,"May contain soya and mustard. For allergens, including cereals containing gluten, see ingredients in bold.",May contain soya and mustard.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/320402387
 320671931,"Hazelnuts, Almonds, Cashew Nuts, Walnuts, Blanched Almonds.",INGREDIENTS:; Hazelnuts; Almonds; Cashew Nuts; Walnuts,"May contain peanuts and other nuts. For allergens, see ingredients in bold.",May contain peanuts and other nuts.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320671931
+320688111,,,Contains fish.,,2026-11-26,https://www.tesco.com/groceries/en-GB/products/320688111
 320793320,"Apple, Grapes, Cheddar Cheese [Cheddar Cheese (Milk), Potato Starch].",INGREDIENTS:; Milk,"For allergens, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320793320
 320799395,"Cabbage (30%), Rapeseed Oil, Carrot, West Country Extra Mature Cheddar Cheese (Milk) (10%), Water, Onion, Extra Mature Cheddar Cheese (Milk) (4%), Pasteurised Egg Yolk, Spirit Vinegar, Sugar, Chive, Salt, Mustard Flour, Citrus Fibre, Black Pepper, Stabilisers (Guar Gum, Xanthan Gum), Thickener (Pectin).",INGREDIENTS:; Milk; Egg; Mustard,"For allergens, see ingredients in bold.",,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320799395
 320968345,"Cooked Chickpeas (41%) [Water, Chickpeas], Rapeseed Oil, Water, Tahini Sesame Seed Paste (12%), Concentrated Lemon Juice, Garlic, Salt.",INGREDIENTS:; Sesame Seed,"For allergens, see ingredients in bold.",Not suitable for freezing.,2026-11-18,https://www.tesco.com/groceries/en-GB/products/320968345
@@ -256,6 +280,7 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 322259812,"Pork (58%), Tomato, White Wine and Onion Sauce (32%) [Tomato, Chardonnay (Sulphites), Tomato Juice, Onion, Water, Carrot, Cornflour, Basil, Sugar, Garlic Purée, Rapeseed Oil, Extra Virgin Olive Oil, Red Wine Vinegar, Concentrated Lemon Juice, Muscovado Sugar, Salt, Sunflower Oil, Black Pepper, White Wine Vinegar, Garlic Powder, Rosemary, Bay Leaf], Herb Crumb (2.5%) [Wheat Flour, Sea Salt, Sage, Parsley, Wheat, Yeast Extract, Porcini Mushroom Powder, Yeast, Black Pepper], Fennel, Nutmeg, Chilli Flakes, Olive Oil.Wheat Flour contains: Wheat Flour, Calcium, Folic Acid, Iron, Niacin, Thiamin.",INGREDIENTS:; Sulphites; Wheat,"Contains alcohol. For allergens, including cereals containing gluten, see ingredients in bold.",Not suitable for freezing.,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322259812
 322263668,"Frisée, Multi Green Leaf, Radicchio.",INGREDIENTS:,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/322263668
 322328115,"Pork (91%), Water, Salt, Preservatives (Potassium Nitrate, Sodium Nitrite).",INGREDIENTS:,,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322328115
+322338546,"King Prawn (Crustacean) (99%), Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold.",May contain fish and molluscs.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/322338546
 322339050,"Basa (Fish) (95%), Sugar, Parsley, Red Pepper, Salt, Garlic Powder, Chilli Flakes, Ginger, Lime Oil.",INGREDIENTS:; Fish,"For allergens, see ingredients in bold.",Not suitable for microwave cooking.,2026-11-20,https://www.tesco.com/groceries/en-GB/products/322339050
 322441475,"Pork (91%), Water, Salt, Preservatives (Potassium Nitrate, Sodium Nitrite).",INGREDIENTS:,,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/322441475
 322549014,"Apple (99.9%), Strawberry Juice Concentrate (0.1%)",,,,2026-11-18,https://www.tesco.com/groceries/en-GB/products/322549014
@@ -294,7 +319,11 @@ product_id,ingredients,allergens_bold,allergy_info,may_contain,checked_on,page_u
 326286528,IngredientsMango Strips,,Contains: See ingredients for full composition listing,,2026-11-17,https://www.tesco.com/groceries/en-GB/products/326286528
 330742520,"Green Halkidiki Olives, Salt, Basil, Parsley, Rapeseed Oil, Garlic, Concentrated Lemon Juice, Roasted Garlic Purée, Garlic Infused Oil (Sunflower Oil, Garlic), Basil Infused Oil (Sunflower Oil, Basil)",,,,2026-11-20,https://www.tesco.com/groceries/en-GB/products/330742520
 330743539,"Pasteurised Skimmed Cow's Milk, Milk Protein Fermented with Live Kefir and Yogurt Cultures†, † Includes: Bifidobacterium, Streptococcus thermophilus, Lactobacillus bulgaricus, Lactobacillus acidophilus, Lactococcus lactis",Milk,For allergens: see ingredients in bold.,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330743539
+330746999,"Hake (Fish) (79%), Red Thai Style Sauce (21%) [Water, Coconut Extract, Tomato Paste, Garlic Purée, Modified Maize Starch, Sugar, Salt, Galangal, Lemongrass, Soya Beans, Anchovy Extract (Fish), Red Chilli, Makrut Lime Leaf, Onion, Spirit Vinegar, Coriander Leaf, Yeast Extract, Preservative (Potassium Sorbate), Black Pepper].",INGREDIENTS:; Fish; Soya,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330746999
+330747004,"King Prawn (Crustacean) (93%), Butter (Milk) (5%), Salt, Dried Red Bell Pepper, Parsley.",INGREDIENTS:; Crustacean; Milk,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747004
+330747474,"Sea Bream (Fish) (90%), Butter with Roasted Garlic and Parsley [Butter (Milk), Roasted Garlic Purée, Parsley, Concentrated Lemon Juice, Maize Starch, Sea Salt].",INGREDIENTS:; Fish; Milk,"For allergens, see ingredients in bold.",,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747474
 330747579,"Bramley Apple (52%), Water, Sugar, Onion, Cider (Sulphites) (5%), Butter (Milk), Lemon Juice, Cornflour, Molasses, Cinnamon, Nutmeg.",INGREDIENTS:; Sulphites; Milk,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330747579
+330747649,"King Prawn (Crustacean) (95%), Water, Salt.",INGREDIENTS:; Crustacean,"May contain fish and molluscs. For allergens, see ingredients in bold.",May contain fish and molluscs.,2026-11-26,https://www.tesco.com/groceries/en-GB/products/330747649
 330749582,"Pasteurized Milk, Live Yoghurt Bacteria Cultures (Streptococcus Thermophilus, Lactobacillus Bulgaricus)",Milk,Contains: Milk,,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330749582
 330749873,,INGREDIENTS:; Peanuts; Almonds; Cashew Nuts,"May contain sesame seeds and soya. Also, may contain other nuts., For allergens, see ingredients in bold.",May contain sesame seeds and soya.,2026-11-17,https://www.tesco.com/groceries/en-GB/products/330749873
 330750311,"Chicken Breast (66%), Mushroom Sauce (33%) [Water, Chestnut Mushroom, Double Cream (Milk), White Wine (Sulphites), Cornflour, Butter (Milk), Chicken Extract, Garlic Purée, Salt, Sea Salt, Mushroom Extract Powder, Parsley], Dried Glucose Syrup, Black Pepper, Parsley, Sugar.",INGREDIENTS:; Milk; Sulphites,"For allergens, see ingredients in bold.",,2026-11-19,https://www.tesco.com/groceries/en-GB/products/330750311

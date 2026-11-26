@@ -8,13 +8,16 @@
   const head = clean(document.body ? document.body.innerText.slice(0, 4000) : "");
   // a bot check names itself in the page's title or heading ("Pardon Our Interruption", "Sorry, you have been blocked", "Access Denied"); a product page
   // that only mentions "captcha" in its small print is not one
-  const h1text = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
+  // every heading, not only the first: Tesco's product page (since 20 November 2026) starts with a hidden "Back" heading before the product's own
+  const h1s = [...document.querySelectorAll("h1")].map((x) => clean(x.innerText)).filter(Boolean);
+  const h1text = h1s.join(" ");
   // "Oops" alone is not a block: Morrisons heads a product it no longer sells "Oops"; Tesco's security page says "Oops" and "failed some security checks"
   const blocked = /verify you are human|you have been blocked|pardon our interruption|are you a robot|checking your browser|unusual traffic|access denied|just a moment|something is not right/i.test(h1text + " " + document.title)
     || (/\boops\b/i.test(h1text + " " + document.title) && /security check|failed some security|something is not right/i.test(head))
     || (!h1text && /captcha|access denied|verify you are human/i.test(head));
   const id = location.pathname.split("/").filter(Boolean).pop() || "";
-  const h1 = clean(document.querySelector("h1") && document.querySelector("h1").innerText);
+  // the product's title: the first heading that isn't just "Back" (reader 5, 26 November 2026; reader 4 sent Tesco's "Back", so the import dropped the page)
+  const h1 = h1s.find((t) => !/^back$/i.test(t)) || h1s[0] || "";
   // textContent, not innerText: some shops keep the table in a folded "Nutritional Information" section (Aldi), where innerText is empty
   const tables = [...document.querySelectorAll("table")].map((tb) => [...tb.querySelectorAll("tr")].map((tr) => [...tr.children].map((c) => clean(c.textContent))));
   // the table, trimmed to fit one result (the browser tool cuts results at about 1,500 characters): rows that carry a figure or name the columns, the first three
@@ -102,5 +105,5 @@
   // Iceland's record comes back in a third call ("ice"), so the main result stays short enough never to be cut off
   if (mode === "ice") return JSON.stringify({ want, host, part: "ice", iceland: iceland && { ...iceland, contains: undefined, mayContain: undefined } });
   if (mode === "ice2") return JSON.stringify({ want, host, part: "ice2", contains: iceland && iceland.contains, mayContain: iceland && iceland.mayContain });
-  return JSON.stringify({ want, host, part: "main", v: 4, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 10).map((w) => w.slice(0, 25)), allergy, mayContain: mayContain.map((m) => m.slice(0, 110)), ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
+  return JSON.stringify({ want, host, part: "main", v: 5, id, h1: h1.slice(0, 90), blocked, nut, above: above.trim().slice(0, 120), bold: bold.slice(0, 10).map((w) => w.slice(0, 25)), allergy, mayContain: mayContain.map((m) => m.slice(0, 110)), ingLen: ingredients.length, coop, checked_on: new Date().toISOString().slice(0, 10) });
 })
