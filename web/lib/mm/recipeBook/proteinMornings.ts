@@ -55,31 +55,6 @@ export const PROTEIN_MORNINGS: readonly Recipe[] = [
     ],
   },
   {
-    id: "protein-pancakes-berries-yogurt", meal: "breakfast", tags: ["Sweet", "Pancakes"], name: "Protein pancakes with berries and yogurt", blurb: "Fluffy banana and oat pancakes made with protein powder, topped with yogurt and berries.", servings: 2, minutes: 20,
-    // the banana, egg and milk make the batter with the oats, so they follow the oats when the recipe is fitted
-    ingredients: [ing("oats", 60, { role: "carb" }), ing("whey-protein", 30), ing("banana", 120, { follows: "oats" }), ing("eggs", 120, { note: "about 2 eggs", follows: "oats" }), ing("milk", 60, { follows: "oats" }), ing("oil-spray", 1), ing("greek-yogurt", 100), ing("berries", 120)],
-    method: [
-      "Make the batter: Peel the banana and put it in a tall jug with the eggs, oats, protein powder and milk. Blend with a stick blender for about 1 minute, until smooth. Wash your hands after touching raw eggs.",
-      "Rest the batter: Leave the batter for 5 minutes, so the oats soak up some of the milk and it thickens.",
-      "Heat the pan: Spray a large non-stick frying pan with a little oil and heat it over a medium heat for 1 minute.",
-      "Cook the first side: Pour in small rounds of batter, about 2 tablespoons each, with space between them. Cook for 2 minutes, until bubbles appear on top and the edges look set.",
-      "Cook the second side: Flip them with a fish slice and cook for 1 to 2 minutes more, until golden and cooked through in the middle. Keep them warm on a plate while you cook the rest.",
-      "Serve: Stack the pancakes on plates, spoon the yogurt on top and scatter over the berries.",
-    ],
-  },
-  {
-    id: "protein-overnight-oats-berries", meal: "breakfast", tags: ["Sweet", "Make ahead"], name: "Protein overnight oats with berries", blurb: "Oats soaked overnight in milk and yogurt with protein powder, topped with berries.", servings: 1, minutes: 5,
-    // the milk follows the oats, so they soak to the same thickness when the recipe is fitted
-    ingredients: [ing("oats", 60), ing("whey-protein", 30), ing("milk", 180, { follows: "oats" }), ing("greek-yogurt", 80), ing("berries", 80), ing("cinnamon", 1)],
-    method: [
-      "Mix the powder: Whisk the protein powder and cinnamon into the milk in a bowl or jar with a fork until there are no lumps left.",
-      "Add the oats: Stir in the oats and the yogurt until there are no dry oats left.",
-      "Soak overnight: Cover and leave it in the fridge overnight, or for at least 4 hours, until the oats are soft and thick.",
-      "Thaw the berries: If the berries are frozen, put them in a small covered bowl in the fridge at the same time, so they thaw overnight.",
-      "Serve: In the morning, stir the oats, adding a splash of milk if they are too thick. Top with the berries and eat cold.",
-    ],
-  },
-  {
     id: "banana-berry-almond-yogurt-bowl", meal: "breakfast", tags: ["Sweet", "No cook", "Quick"], name: "Banana, berry and almond yogurt bowl", blurb: "Thick yogurt with sliced banana, berries, chopped almonds and a little honey.", servings: 1, minutes: 5,
     ingredients: [ing("greek-yogurt", 250, { role: "protein" }), ing("banana", 120, { role: "carb" }), ing("berries", 100), ing("almonds", 20), ing("honey", 10)],
     method: [
@@ -97,7 +72,5 @@ export const PROTEIN_MORNINGS_LOOKS: Readonly<Record<string, string>> = {
   "tofu-pepper-spinach-breakfast-wraps": "A tortilla wrap cut in half on a round white plate, the cut ends showing golden-yellow scrambled tofu, soft strips of red pepper and dark green wilted spinach inside the rolled wrap.",
   "peanut-butter-berry-soya-porridge": "A round white bowl of thick, creamy oat porridge with spoonfuls of golden-brown peanut butter swirled into the top and a heap of warm, glossy deep red and purple mixed berries in their juice on one side.",
   "apple-almond-soya-overnight-oats": "A deep white bowl of thick soaked oats flecked with grated apple and dark plump raisins, scattered on top with roughly chopped pale almonds and a dusting of cinnamon.",
-  "protein-pancakes-berries-yogurt": "A stack of four small golden-brown pancakes on a white plate, topped with a thick dollop of white yogurt and a heap of glossy deep red and purple mixed berries spilling down the sides.",
-  "protein-overnight-oats-berries": "A wide glass bowl of thick, creamy soaked oats seen from straight above, the pale surface flecked with cinnamon and topped with a cluster of glossy red and purple mixed berries.",
   "banana-berry-almond-yogurt-bowl": "A wide white bowl of thick white yogurt with a row of banana rounds along one side, a heap of red and purple mixed berries beside them, scattered with chopped pale almonds and thin golden threads of honey.",
 };

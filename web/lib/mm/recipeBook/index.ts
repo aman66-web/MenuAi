@@ -38,7 +38,7 @@ import { WORLD_MEALS } from "./worldMeals";
 // - every ingredient is a pantry kind, down to the pinch of salt (listed, priced and counted), and an everyday one (EVERYDAY_KINDS in
 //   lib/mm/pantry.ts): something nearly every small convenience shop sells, so a Tesco Express or a Sainsbury's Local has it too. The one exception is the
 //   Christmas recipes (christmas.ts), which may also use FESTIVE_KINDS; niches.ts files them under the Christmas occasion, offered only 1 November to 6 January;
-//   and, since 2026-11-26, any recipe may use the few PROTEIN_KINDS (tofu, Quorn, edamame, protein powder, soya drink), which most of the shops sell;
+//   and, since 2026-11-26, any recipe may use the few PROTEIN_KINDS (tofu, Quorn, soya drink), each with a product the small-shop judges passed (localRange.ts);
 // - a recipe's cuisine and the occasions it suits are not written on the recipe: they are one line each in niches.ts (the Recipes screen's Cuisine and Occasion
 //   choices; tests/recipeNiche.test.ts checks every line names a recipe in the book), so a new recipe gets its line there.
 
@@ -68,7 +68,7 @@ export const RECIPES: readonly Recipe[] = [...CORE, ...BREAKFAST, ...LUNCH, ...D
   // companies are] serving"): world plates and bowls, no wraps, sandwiches or toast
   ...WORLD_MEALS,
   // founder 2026-11-26 ("also have like protein flapjack etc recipes ones that people may just want to cook at home"): snacks and bakes, many of them with
-  // yogurt, cottage cheese, eggs, tofu or edamame, so Meal plan's snack slots have enough that fit (docs/RECIPE_COVERAGE_2026-11-26.md)
+  // yogurt, cottage cheese, eggs or tofu, so Meal plan's snack slots have enough that fit (docs/RECIPE_COVERAGE_2026-11-26.md)
   ...HOME_SNACKS,
   // founder 2026-11-26 ("make more recipes so that my app caters for multiple inputs a user would need"): breakfasts, lunches and dinners with more protein
   // for vegan and vegetarian plans, which had none that reached a fat-loss or muscle meal's protein

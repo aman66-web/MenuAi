@@ -1124,7 +1124,7 @@ function Questions({ saved, pip, onStart, onDone, onKeep }: { saved: SavedPlan |
             {noneWays}
           </div>
         ) : (
-          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "numbers") { if (outcome?.kind === "ok") applyGoal(); else setGoalUsed(false); } if (id === "check") make(); else if (fromCheck) (id === "aim" && goalAim && !goalUsed ? walkGoal() : backToCheck()); else moveTo(step + 1); }}>{nextLabel}</Button>
+          <Button full className="min-h-14 text-lg" disabled={!canGo} reason={cantGo} onClick={() => { if (!settled()) return; if (id === "numbers") { if (outcome?.kind === "ok") applyGoal(); else setGoalUsed(false); } if (id === "check") make(); else if (fromCheck && id === "aim" && goalAim && !goalUsed) walkGoal(); else if (fromCheck) backToCheck(); else moveTo(step + 1); }}>{nextLabel}</Button>
         )}
       </div>
       {/* Pip's permission, the first time his AI would plan the week: Allow plans with him; Not now makes the week on this phone */}

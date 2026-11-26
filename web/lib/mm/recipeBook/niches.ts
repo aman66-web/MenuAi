@@ -157,9 +157,9 @@ export const OCCASION_LINES: ReadonlyArray<readonly [recipeId: string, occasion:
   ...occasion("bonfire-night", "pho-chicken-noodle-soup", "hot-sour-noodle-soup-ham-egg", "thai-coconut-noodle-soup-mushrooms"),
   // the snacks, bakes and meals added 2026-11-26 (homeSnacks.ts, proteinMeals.ts, onionFreeMeals.ts): the bakes, balls, muffins and cold salads keep in a box;
   // the dips, boats and bites are finger food; the chilli and the soup are for Bonfire Night
-  ...occasion("lunchbox", "peanut-butter-protein-flapjacks", "oat-raisin-protein-balls", "cottage-cheese-spinach-egg-muffins", "banana-raisin-baked-oat-cups", "crispy-soy-paprika-tofu-bites", "cottage-cheese-chickpea-tomato-salad", "lemony-chickpea-cucumber-rice-salad"),
-  ...occasion("picnic", "peanut-butter-protein-flapjacks", "cottage-cheese-spinach-egg-muffins", "cottage-cheese-spinach-pepper-frittata-salad", "lemony-chickpea-cucumber-rice-salad"),
-  ...occasion("party-food", "cottage-cheese-spinach-egg-muffins", "whipped-cottage-cheese-dip-sticks", "cucumber-garlic-yogurt-dip-carrots", "tuna-sweetcorn-cucumber-boats", "crispy-soy-paprika-tofu-bites", "warm-edamame-soy-lemon"),
+  ...occasion("lunchbox", "cottage-cheese-spinach-egg-muffins", "banana-raisin-baked-oat-cups", "crispy-soy-paprika-tofu-bites", "cottage-cheese-chickpea-tomato-salad", "lemony-chickpea-cucumber-rice-salad"),
+  ...occasion("picnic", "cottage-cheese-spinach-egg-muffins", "cottage-cheese-spinach-pepper-frittata-salad", "lemony-chickpea-cucumber-rice-salad"),
+  ...occasion("party-food", "cottage-cheese-spinach-egg-muffins", "whipped-cottage-cheese-dip-sticks", "cucumber-garlic-yogurt-dip-carrots", "tuna-sweetcorn-cucumber-boats", "crispy-soy-paprika-tofu-bites"),
   ...occasion("bonfire-night", "tofu-kidney-bean-chilli-rice", "spiced-chickpea-tomato-soup-toast"),
 ];
 

@@ -2,8 +2,8 @@ import { ing, type Recipe } from "../recipes";
 
 // Vegan and vegetarian lunches and dinners that carry a meal's protein (founder 2026-11-26: "if my app hasn't good foods suitable for every possible input please
 // make more recipes in my app"; docs/RECIPE_COVERAGE_2026-11-26.md): with the everyday kinds alone a vegan plan for losing fat or building muscle had no lunch or
-// dinner that reached the meal's protein, and a vegetarian high-protein plan none. These are built on tofu, Quorn, edamame, eggs and cottage cheese (tofu, Quorn
-// and edamame are protein kinds, lib/mm/pantry.ts PROTEIN_KINDS), with the carbs kept to a side the plan can shrink. See lib/mm/recipeBook/index.ts for the rules.
+// dinner that reached the meal's protein, and a vegetarian high-protein plan none. These are built on tofu, Quorn, eggs and cottage cheese (tofu and Quorn are
+// protein kinds, lib/mm/pantry.ts PROTEIN_KINDS), with the carbs kept to a side the plan can shrink. See lib/mm/recipeBook/index.ts for the rules.
 
 export const PROTEIN_MEALS: readonly Recipe[] = [
   // ---- vegan
@@ -65,15 +65,15 @@ export const PROTEIN_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "soy-tofu-edamame-rice-bowl", meal: "lunch", tags: ["Vegan", "Bowl"], name: "Soy tofu and edamame rice bowl with cucumber", blurb: "Rice topped with soy-glazed tofu, edamame beans and crunchy cucumber.", servings: 2, minutes: 25,
-    ingredients: [ing("rice", 100), ing("tofu", 280), ing("edamame", 120), ing("cucumber", 150), ing("spring-onions", 30), ing("soy", 30), ing("garlic", 5, { note: "about 1 clove" }), ing("vegetable-oil", 10)],
+    id: "soy-tofu-pea-rice-bowl", meal: "lunch", tags: ["Vegan", "Bowl"], name: "Soy tofu and pea rice bowl with cucumber", blurb: "Rice topped with soy-glazed tofu, green peas and crunchy cucumber.", servings: 2, minutes: 25,
+    ingredients: [ing("rice", 100), ing("tofu", 280), ing("peas", 120), ing("cucumber", 150), ing("spring-onions", 30), ing("soy", 30), ing("garlic", 5, { note: "about 1 clove" }), ing("vegetable-oil", 10)],
     method: [
       "Cook the rice: Rinse the rice and put it in a saucepan with twice its volume of boiling water. Cover and simmer on a low heat for 10 to 12 minutes, until tender. Turn off the heat and leave it covered.",
-      "Cook the edamame: Put the edamame in a small pan of boiling water. When it bubbles again, cook for 3 minutes, then drain.",
+      "Cook the peas: Put the frozen peas in a small pan of boiling water. When it bubbles again, cook for 3 minutes, then drain.",
       "Fry the tofu: Drain the tofu, pat it dry and cut it into 2 cm cubes. Heat the oil in a non-stick frying pan over a medium-high heat and fry the tofu for 6 to 8 minutes, turning it, until golden.",
       "Glaze the tofu: Stir the soy sauce and garlic together, pour it over the tofu and toss for 1 minute, until it is sticky and coats the cubes.",
       "Cut the cucumber: Rinse the cucumber, cut it in half lengthways and slice it into half-moons. Trim the spring onions and slice them thinly.",
-      "Serve: Spoon the rice into bowls. Arrange the tofu, edamame and cucumber on top in separate piles and scatter the spring onions over.",
+      "Serve: Spoon the rice into bowls. Arrange the tofu, peas and cucumber on top in separate piles and scatter the spring onions over.",
     ],
   },
   {
@@ -86,18 +86,6 @@ export const PROTEIN_MEALS: readonly Recipe[] = [
       "Warm the wraps: Warm the wraps one at a time in a dry pan for about 20 seconds a side, so they fold without cracking.",
       "Fill the wraps: Spread the houmous down the middle of each wrap. Add a line of salad leaves, then the pepper and tofu.",
       "Roll and serve: Fold in the sides and roll each wrap up tightly. Cut in half on the diagonal and serve warm.",
-    ],
-  },
-  {
-    id: "edamame-pea-spinach-lemon-pasta", meal: "lunch", tags: ["Vegan", "Pasta", "Quick"], name: "Edamame, pea and spinach pasta with lemon", blurb: "Pasta tossed with edamame beans, peas, spinach, garlic, lemon and olive oil.", servings: 2, minutes: 15,
-    ingredients: [ing("pasta-shapes", 140), ing("edamame", 150), ing("peas", 80), ing("spinach", 80), ing("garlic", 5, { note: "about 1 clove" }), ing("lemon-juice", 15), ing("olive-oil", 15), ing("salt", 1), ing("black-pepper", 1)],
-    method: [
-      "Boil the water: Fill a large saucepan two-thirds full with boiling water from the kettle, add a pinch of salt and bring it back to the boil on a high heat.",
-      "Cook the pasta: Add the pasta and stir. Boil for as long as the pack says, usually 10 to 12 minutes, until tender, stirring now and then.",
-      "Add the beans: For the last 3 minutes, add the edamame and peas to the pasta pan.",
-      "Drain: Scoop out a mugful of the cooking water, then drain the pasta, beans and peas in a colander.",
-      "Make the sauce: Put the pan back on a low heat with the oil and garlic for 30 seconds. Add the spinach and stir until it wilts.",
-      "Toss it together: Tip the pasta back in with the lemon juice, a splash of the cooking water and plenty of black pepper. Toss for 1 minute until glossy, then serve.",
     ],
   },
   // ---- vegetarian
@@ -202,9 +190,8 @@ export const PROTEIN_MEALS_LOOKS: Readonly<Record<string, string>> = {
   "tofu-spinach-tomato-curry-rice": "A white plate with a mound of fluffy white rice beside a rich red tomato curry full of golden cubes of tofu and dark green wilted spinach, the sauce speckled with spices.",
   "tofu-kidney-bean-chilli-rice": "A deep white bowl with white rice on one side and a thick, dark red chilli on the other, full of crumbled golden tofu, glossy kidney beans and soft red pepper pieces.",
   "tofu-pea-sweetcorn-fried-rice": "A wide white bowl of golden fried rice studded with crumbled golden tofu, bright green peas and yellow sweetcorn kernels, glossy with soy and scattered with thin green spring onion rings.",
-  "soy-tofu-edamame-rice-bowl": "A wide white bowl of white rice topped in separate piles with glossy soy-glazed golden tofu cubes, bright green edamame beans and pale green cucumber half-moons, scattered with spring onion rings.",
+  "soy-tofu-pea-rice-bowl": "A wide white bowl of white rice topped in separate piles with glossy soy-glazed golden tofu cubes, bright green peas and pale green cucumber half-moons, scattered with spring onion rings.",
   "smoky-tofu-pepper-wraps": "A tortilla wrap cut in half on the diagonal on a round white plate, the cut ends showing golden paprika-dusted tofu strips, soft red pepper strips, creamy beige houmous and green salad leaves.",
-  "edamame-pea-spinach-lemon-pasta": "A white bowl of short pasta shapes glossy with olive oil, tossed with bright green edamame beans, green peas and dark wilted spinach, dotted with cracked black pepper.",
   "quorn-tikka-style-curry-rice": "A white plate with a mound of fluffy white rice beside a creamy orange curry full of golden meat-free pieces and dark green wilted spinach.",
   "quorn-pepper-fajitas": "A round white plate with two folded tortilla wraps filled with golden spiced meat-free pieces, charred red and yellow pepper strips and soft red onion, with small bowls of red tomato salsa and white yogurt beside them.",
   "quorn-broccoli-soy-stir-fry-rice": "A wide white bowl of fluffy white rice topped with golden meat-free pieces, bright green broccoli florets and red pepper strips in a glossy dark soy glaze, scattered with thin spring onion rings.",

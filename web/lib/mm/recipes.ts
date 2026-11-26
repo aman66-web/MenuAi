@@ -158,6 +158,12 @@ export const countsSuit = (pantry: string | undefined, productName: string | und
 const GLOBAL_NONE = ["meal", "sandwich", "kit", "gift", "hamper", "soup", "chowder", "broth"];
 const MEAT_WORDS = ["chicken", "beef", "pork", "lamb", "turkey", "bacon", "ham", "sausage", "salmon", "tuna", "prawn", "fish", "anchov", "chorizo", "pepperoni", "cod"];
 /**
+ * Meat-free kinds whose products are named after the meat they stand in for ("Quorn Vegetarian Chicken Style Pieces", the one Quorn pack the small-shop judges
+ * passed, 26 November 2026; lib/mm/localRange.ts): in a meat-free recipe such a product skips MEAT_WORDS when the products' diet rule (foodSignals) reads its name
+ * as meat-free. Every other kind keeps the plain word check.
+ */
+const MEAT_STYLE_KINDS: ReadonlySet<string> = new Set(["quorn"]);
+/**
  * The product's own name names meat or fish by the diet rule every product screen uses (foodSignals on the name alone), and still does without the kind's own
  * words (`own`: its match.all and match.any), which name the ingredient, never what else is in it: "Lasagne Pasta Sheets" are sheets, not the dish lasagne.
  * Both must say so, as the whole name keeps the rule's own exceptions ("Oyster Mushrooms" are mushrooms).
@@ -453,7 +459,8 @@ function weighedPerMl<P extends ShopProduct>(p: P, density: number): P {
 function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFree: boolean): PricedProduct[] {
   let byRule = matchCache.get(products);
   if (!byRule) { byRule = new Map(); matchCache.set(products, byRule); }
-  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null, spec.match.pieceWeight ? spec.pantry ?? null : null, spec.density ?? null]);
+  const meatStyle = MEAT_STYLE_KINDS.has(spec.pantry ?? "");
+  const rule = JSON.stringify([spec.match, spec.unit, !!spec.drained, meatFree, !!spec.labelOptional, spec.unlabelledNeeds ?? null, spec.match.pieceWeight ? spec.pantry ?? null : null, spec.density ?? null, meatStyle]);
   const cached = byRule.get(rule);
   if (cached) return cached;
   const m = spec.match;
@@ -473,7 +480,7 @@ function matching(products: readonly ShopProduct[], spec: IngredientSpec, meatFr
     if (!m.all.every((w) => has(h, w))) continue;
     if (m.any && !m.any.some((w) => has(h, w))) continue;
     if ([...GLOBAL_NONE, ...(m.none ?? [])].some((w) => has(h, w))) continue;
-    if (meatFree && MEAT_WORDS.some((w) => has(h, w))) continue;
+    if (meatFree && MEAT_WORDS.some((w) => has(h, w)) && !(meatStyle && foodSignals({ name: p.name }).vegNamed)) continue;
     if (n && m.kcal && (n.kcal < m.kcal[0] || n.kcal > m.kcal[1])) continue;
     if (n && m.minProtein !== undefined && n.protein < m.minProtein) continue;
     if (n && m.maxFat !== undefined && n.fat > m.maxFat) continue;
