@@ -57,16 +57,6 @@ export const WAVE2_SNACKS: readonly Recipe[] = [
     ],
   },
   {
-    id: "wheat-biscuits-warm-cinnamon-milk-berries", meal: "snack", tags: ["Quick", "Sweet"], name: "Wholewheat biscuits with warm cinnamon milk and berries", blurb: "Wholewheat biscuits soaked in warm cinnamon milk and topped with berries.", servings: 2, minutes: 5,
-    ingredients: [ing("milk", 300, { role: "protein" }), ing("cinnamon", 1), ing("berries", 100), ing("wheat-biscuits", 76, { note: "about 4 biscuits" })],
-    method: [
-      "Warm the milk: Pour the milk into a small pan, add the cinnamon and warm it over a low heat for 2 to 3 minutes, stirring, until hot but not boiling.",
-      "Get the berries ready: If the berries are frozen, warm them in a small bowl in the microwave for 1 minute, or leave them to thaw.",
-      "Fill the bowls: Put the biscuits in small bowls and pour the warm milk over them.",
-      "Serve: Scatter the berries on top and eat straight away, while the biscuits are soft but not soggy.",
-    ],
-  },
-  {
     id: "warm-cinnamon-apple-toast-yogurt", meal: "snack", tags: ["Quick", "Sweet"], name: "Warm cinnamon apple toast with yogurt", blurb: "Toast spread with thick yogurt and topped with soft apple slices warmed with cinnamon.", servings: 2, minutes: 12,
     // one slice of toast each, held there (a whole slice can't shrink): the warm apple on it is what Meal plan moves
     ingredients: [ing("apple", 150, { note: "about 1 apple", role: "carb" }), ing("oil-spray", 1), ing("cinnamon", 1), ing("bread", 80, { note: "about 2 slices", fit: [1, 1] }), ing("greek-yogurt", 150, { role: "protein", fit: [0.5, 1.5] })],
@@ -133,17 +123,6 @@ export const WAVE2_SNACKS: readonly Recipe[] = [
       "Mix the filling: Flake the tuna into a bowl with a fork and stir in the sweetcorn, yogurt, lemon juice and a good pinch of black pepper.",
       "Toast the bread: Toast the bread until golden brown on both sides.",
       "Serve: Spread the tuna mix thickly over the toast, right to the edges, cut each slice into three fingers and eat straight away.",
-    ],
-  },
-  {
-    id: "grilled-ham-cheese-tomato-toast-fingers", meal: "snack", tags: ["Quick", "Savoury"], name: "Grilled ham, cheese and tomato toast fingers", blurb: "Toast spread with mustard and topped with ham, tomato and cheddar, grilled until bubbling.", servings: 2, minutes: 10,
-    ingredients: [ing("bread", 80, { note: "about 2 slices" }), ing("mustard", 5), ing("ham", 60), ing("tomatoes", 85, { note: "about 1 tomato" }), ing("cheddar", 30)],
-    method: [
-      "Toast one side: Turn the grill on to medium-high. Toast the bread under it on one side only, until golden.",
-      "Add the topping: Turn the bread over and spread the untoasted side thinly with the mustard. Lay the ham on top, then the tomato, sliced thinly.",
-      "Add the cheese: Grate the cheddar and scatter it over the tomato, right to the edges.",
-      "Grill: Grill for 2 to 3 minutes, until the cheese has melted and is bubbling and golden. Watch it closely so it doesn't burn.",
-      "Serve: Leave it for 1 minute, as the cheese is very hot, then cut each slice into three fingers.",
     ],
   },
   {
@@ -406,14 +385,12 @@ export const WAVE2_SNACKS_LOOKS: Readonly<Record<string, string>> = {
   "cinnamon-raisin-rice-pudding-pots": "Four small white ramekins of thick, creamy rice pudding, the soft grains glossy with milk, dotted with plump dark raisins and dusted on top with warm brown cinnamon.",
   "banana-cinnamon-soya-overnight-oat-pots": "Two small clear glass pots filled to the top with thick, creamy soaked oats, pale beige and streaked with mashed banana, the smooth surfaces dusted with brown cinnamon.",
   "banana-oat-cinnamon-milkshake": "Two tall glasses of thick, pale cream-coloured banana milkshake seen from straight above, the smooth frothy tops flecked with tiny bits of oat and dusted with brown cinnamon.",
-  "wheat-biscuits-warm-cinnamon-milk-berries": "Two wholewheat biscuits in a shallow white bowl, soaking in warm milk flecked with cinnamon, the biscuits softened and golden brown, topped with a scatter of deep red and purple mixed berries.",
   "warm-cinnamon-apple-toast-yogurt": "Two slices of golden wholemeal toast on a white plate, spread with thick white yogurt and piled with soft, glossy warm apple slices with their red and green skins on, dusted with brown cinnamon.",
   "banana-berry-soya-rice-pudding": "A wide shallow white bowl of creamy pale rice pudding speckled with cinnamon, topped with soft, juicy warm red and purple berries bleeding deep purple juice into the pudding.",
   "banana-granola-yogurt-pots": "Two clear glass pots seen from above, filled with thick white yogurt dusted with cinnamon, layered with rounds of banana and topped with a generous scatter of golden crunchy granola clusters.",
   "cottage-cheese-berry-honey-toast": "Fingers of wholemeal toast on a round white plate, each piled with creamy white cottage cheese and studded with red and purple berries, drizzled with glossy golden honey.",
   "crushed-egg-spring-onion-toast-fingers": "Fingers of golden wholemeal toast in a neat row on a white plate, each topped with roughly crushed boiled egg, yellow yolk and white flecked with green spring onion rings and dusted with red paprika.",
   "tuna-sweetcorn-lemon-toast-fingers": "Fingers of golden wholemeal toast on a white plate, each piled with a creamy mix of flaked pale tuna and bright yellow sweetcorn kernels, speckled with cracked black pepper.",
-  "grilled-ham-cheese-tomato-toast-fingers": "Fingers of grilled wholemeal toast on a wooden board, topped with pink ham and thin red tomato slices under a layer of melted, bubbling golden cheddar with browned patches at the edges.",
   "berry-lassi": "Two tall glasses of thick, smooth pinky-purple berry lassi seen from straight above, the creamy round tops filling each glass, with a few whole red and purple berries resting on the surface.",
   "peanut-butter-banana-soya-shake": "Two tall glasses of thick, smooth pale caramel-coloured banana and peanut butter shake seen from straight above, the creamy round tops dusted with a pinch of brown cinnamon.",
   "smoked-salmon-cottage-cheese-cucumber-toast": "Fingers of wholemeal toast on a white plate, spread with creamy white cottage cheese, topped with thin pale green cucumber rounds and loose pink ruffles of smoked salmon, scattered with cracked black pepper.",

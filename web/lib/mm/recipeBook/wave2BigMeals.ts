@@ -368,19 +368,6 @@ export const WAVE2_BIG_MEALS: readonly Recipe[] = [
     ],
   },
   {
-    id: "flaked-salmon-soft-egg-rice-bowls", meal: "lunch", tags: ["Bowl", "Fish", "Eggs"], name: "Flaked salmon and soft egg rice bowls", blurb: "Japanese-style bowls of rice topped with soy and honey roasted salmon in flakes, a soft-boiled egg, cucumber and spring onions.", servings: 2, minutes: 30,
-    ingredients: [ing("salmon", 240, { note: "about 2 fillets" }), ing("soy", 30), ing("honey", 10), ing("rice", 240), ing("eggs", 120, { note: "about 2 eggs" }), ing("cucumber", 150, { note: "about ½ a cucumber" }), ing("spring-onions", 40), ing("lemon-juice", 10)],
-    method: [
-      "Marinate the salmon: Stir the soy sauce and honey together. Turn the salmon in half of it on a lined roasting tray and leave it for 10 minutes while the oven heats to 200°C (180°C fan, gas 6). Wash your hands after touching raw fish.",
-      "Roast the salmon: Roast for 12 to 15 minutes, until it is opaque and flakes easily.",
-      RICE,
-      "Boil the eggs: Lower the eggs into a pan of boiling water on a spoon and boil for 7 minutes, until the whites are completely set and the yolks thick and jammy. Cool them in cold water and peel. Wash your hands after touching raw eggs.",
-      "Get the toppings ready: Cut the cucumber into thin sticks and slice the spring onions. Flake the salmon into large pieces, leaving the skin behind.",
-      "Serve: Spoon the rice into bowls and top with the salmon, cucumber and spring onions. Halve the eggs and add them. Stir the lemon juice into the rest of the soy mixture and drizzle it over.",
-      `Keep leftovers: ${KEEP_RICE}`,
-    ],
-  },
-  {
     id: "egyptian-style-koshari-rice-pasta-chickpeas", meal: "lunch", tags: ["Vegan"], name: "Egyptian-style koshari with rice, pasta and chickpeas", blurb: "Rice and pasta topped with chickpeas, a spicy garlic and cumin tomato sauce and a heap of crisp golden onions, Cairo street food style.", servings: 2, minutes: 45,
     ingredients: [ing("onion", 300, { note: "about 2 onions" }), ing("vegetable-oil", 25), ing("garlic", 10, { note: "about 2 cloves" }), ing("cumin", 3), ing("chilli-powder", 1), ing("chopped-tomatoes", 400), ing("salt", 2), ing("lemon-juice", 15), ing("rice", 160), ing("pasta-shapes", 120), ing("chickpeas", 240, { note: "1 tin, drained" })],
     method: [
@@ -449,7 +436,6 @@ export const WAVE2_BIG_MEALS_LOOKS: Readonly<Record<string, string>> = {
   "chilli-bean-loaded-potatoes-cottage-cheese": "A white plate of crisp golden roasted halved new potatoes piled with a thick red kidney bean and pepper chilli, white cottage cheese, melted orange cheddar and green spring onion rings.",
   "lahmacun-style-spiced-beef-naans": "Two round naans on a wooden board, spread edge to edge with a thin, browned layer of red spiced beef mince, one piled with shredded green lettuce, chopped red tomato and thin purple onion slices.",
   "tuna-nasi-goreng-fried-eggs": "A white plate of dark, glossy soy fried rice with flakes of tuna, red pepper strips and green spring onions, topped with a fried egg, with cucumber slices and tomato wedges on the side.",
-  "flaked-salmon-soft-egg-rice-bowls": "A wide white bowl of rice topped with large glossy flakes of soy-roasted pink salmon, thin cucumber sticks, green spring onion rings and a halved soft-boiled egg with a jammy orange yolk.",
   "egyptian-style-koshari-rice-pasta-chickpeas": "A wide white bowl of rice and small pasta topped with golden chickpeas and a thick red spiced tomato sauce, crowned with a heap of deep golden crisp fried onion rings.",
   "chicken-nanban-egg-tartare-rice": "A white plate with slices of golden egg-coated chicken glossy with a dark sweet soy glaze, topped with creamy white chopped egg tartare flecked with green spring onion, beside white rice, shredded lettuce and cucumber slices.",
   "hong-kong-style-baked-chicken-tomato-rice": "An oval ovenproof dish of golden egg fried rice under golden chicken fillets and a thick red tomato and soft onion sauce, covered in bubbling melted mozzarella browned in patches.",

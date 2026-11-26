@@ -86,31 +86,6 @@ export const WAVE2_BREAKFASTS: readonly Recipe[] = [
     ],
   },
   {
-    id: "scrambled-eggs-beans-toast", meal: "breakfast", tags: ["Savoury", "Eggs", "Quick", "British"], name: "Scrambled eggs with beans and toast", blurb: "Soft scrambled eggs with wilted spinach, a pan of hot baked beans and plenty of wholemeal toast.", servings: 2, minutes: 10,
-    // the beans are the plate's second carb: they move with the toast, no more than half as much again
-    ingredients: [ing("eggs", 360, { note: "about 6 eggs" }), ing("milk", 60, { follows: "eggs" }), ing("baked-beans", 400, { role: "carb", fit: [0.5, 1.5] }), ing("bread", 240, { note: "about 6 slices" }), ing("spinach", 60), ing("olive-oil", 5), ing("black-pepper", 1)],
-    method: [
-      "Warm the beans: Tip the beans into a small saucepan and warm them over a low heat for 4 to 5 minutes, stirring now and then, until bubbling.",
-      "Beat the eggs: Crack the eggs into a jug, add the milk and some black pepper and beat with a fork. Wash your hands after touching raw eggs.",
-      "Toast the bread: Put the bread in the toaster, so it is ready with the eggs.",
-      "Scramble the eggs: Heat the oil in a non-stick frying pan over a medium-low heat. Pour in the eggs and stir slowly for 3 to 4 minutes, until softly set with no runny egg left.",
-      "Add the spinach: Stir in the spinach for the last 30 seconds, until it just wilts.",
-      "Serve: Put the toast on plates, spoon the eggs on top and the beans alongside. Serve straight away.",
-    ],
-  },
-  {
-    id: "peanut-butter-banana-granola-yogurt-bowl", meal: "breakfast", tags: ["Sweet", "No cook", "Quick", "Bowl"], name: "Peanut butter, banana and granola yogurt bowl", blurb: "A big bowl of thick yogurt with sliced banana, crunchy granola and a drizzle of runny peanut butter.", servings: 2, minutes: 5,
-    // the banana goes with the granola, so the bowl keeps its balance when it is fitted
-    ingredients: [ing("greek-yogurt", 600, { role: "protein" }), ing("granola", 120), ing("banana", 240, { note: "about 2 bananas", follows: "granola" }), ing("peanut-butter", 40)],
-    method: [
-      "Slice the bananas: Peel the bananas and slice them into rounds.",
-      "Loosen the peanut butter: Stir the peanut butter with 1 tablespoon of hot water in a cup until smooth and runny, so it drizzles easily.",
-      "Fill the bowls: Spoon the yogurt into wide bowls and smooth the tops with the back of the spoon.",
-      "Add the toppings: Scatter the banana and granola over the yogurt.",
-      "Serve: Drizzle over the peanut butter and eat straight away, while the granola is still crunchy.",
-    ],
-  },
-  {
     id: "breakfast-burrito-bowl-eggs-beans", meal: "breakfast", tags: ["Savoury", "Eggs", "Bowl", "Mexican"], name: "Breakfast burrito bowl with eggs and beans", blurb: "Cumin rice with soft scrambled eggs, warm kidney beans, peppers, salsa and spring onions.", servings: 2, minutes: 30,
     ingredients: [ing("rice", 200, { note: "uncooked" }), ing("eggs", 360, { note: "about 6 eggs" }), ing("kidney-beans", 240), ing("peppers", 160, { note: "about 1 pepper" }), ing("salsa", 120), ing("spring-onions", 30), ing("cumin", 2), ing("olive-oil", 10), ing("salt", 1)],
     method: [
@@ -124,19 +99,6 @@ export const WAVE2_BREAKFASTS: readonly Recipe[] = [
   },
 
   // ---- before training: carbs at least half the calories (endurance athletes, footballers on match days)
-  {
-    id: "cinnamon-breakfast-rice-pudding-berries-banana", meal: "breakfast", tags: ["Sweet", "Make ahead", "British"], name: "Cinnamon breakfast rice pudding with berries and banana", blurb: "Rice simmered slowly in milk and cinnamon until creamy, topped with warm berries, sliced banana and thick yogurt.", servings: 4, minutes: 45,
-    // the milk and banana go with the rice, so the pudding keeps its texture when it is fitted
-    ingredients: [ing("rice", 280), ing("milk", 1600, { follows: "rice" }), ing("cinnamon", 3), ing("berries", 200), ing("banana", 240, { note: "about 2 bananas", follows: "rice" }), ing("greek-yogurt", 400, { role: "protein" })],
-    method: [
-      "Rinse the rice: Rinse the rice in a sieve under the cold tap and drain it well.",
-      "Start the pudding: Put the rice, milk and most of the cinnamon in a large saucepan and bring to a gentle bubble over a medium heat, stirring.",
-      "Simmer: Turn the heat to low and cook for 30 to 35 minutes, stirring every few minutes so it doesn't catch, until the rice is soft and the pudding thick and creamy.",
-      "Prepare the fruit: Near the end, warm the berries in a small pan over a low heat for 2 to 3 minutes, until juicy. Peel the bananas and slice them into rounds.",
-      "Serve: Spoon the pudding into bowls and top with the banana, the warm berries, a spoonful of yogurt and the rest of the cinnamon.",
-      "Keep the rest: It thickens as it cools. Keep any left over covered in the fridge for up to 2 days and warm it with a splash of water.",
-    ],
-  },
   {
     id: "apple-berry-breakfast-crumble-yogurt", meal: "breakfast", tags: ["Sweet", "Bake", "British"], name: "Apple and berry breakfast crumble with yogurt", blurb: "Soft baked apples and berries under a crunchy honey and cinnamon oat topping, with cold yogurt.", servings: 2, minutes: 35,
     // the fruit goes with the oat topping, so the crumble keeps its balance when it is fitted
@@ -400,10 +362,7 @@ export const WAVE2_BREAKFASTS_LOOKS: Readonly<Record<string, string>> = {
   "smoked-salmon-poached-eggs-soft-cheese-toast": "Two slices of golden wholemeal toast on a round white plate, spread with white soft cheese and draped with folds of pink-orange smoked salmon, each topped with a round poached egg, the white set and the yolk bright yellow.",
   "bacon-egg-mushroom-breakfast-sandwiches": "Two wholemeal toast sandwiches cut in half on a white plate, the cut sides showing crisp golden bacon, browned mushroom slices and a fried egg with a set white and a yellow yolk, cracked black pepper on top.",
   "tofu-bean-mushroom-fry-up": "A round white plate with golden paprika-coloured slices of fried tofu, a pool of orange baked beans, browned mushrooms, soft split red cherry tomatoes and two triangles of golden wholemeal toast.",
-  "scrambled-eggs-beans-toast": "A round white plate with slices of golden wholemeal toast heaped with soft yellow scrambled eggs and dark green wilted spinach, beside a generous pool of orange baked beans in tomato sauce.",
-  "peanut-butter-banana-granola-yogurt-bowl": "A wide white bowl of thick white yogurt topped with rows of pale banana rounds and a heap of golden clustered granola, drizzled with thin ribbons of glossy runny peanut butter.",
   "breakfast-burrito-bowl-eggs-beans": "A wide white bowl of pale cumin rice topped with soft yellow scrambled eggs, glossy dark red kidney beans with small pieces of red pepper, a dollop of chunky red salsa and sliced green spring onions.",
-  "cinnamon-breakfast-rice-pudding-berries-banana": "A wide white bowl of thick, creamy rice pudding dusted with cinnamon, topped with pale banana rounds, a dollop of thick white yogurt and warm, juicy deep red and purple berries.",
   "apple-berry-breakfast-crumble-yogurt": "A small white baking dish of golden, crisp oat crumble with bubbling purple berry juice and soft apple pieces showing at the edges, beside a small bowl of thick white yogurt.",
   "banana-oat-tofu-pancakes-cinnamon-apple": "A stack of thick, golden banana and oat pancakes on a round white plate, topped with soft, glossy slices of cinnamon-dusted cooked apple tumbling down the sides.",
   "peanut-butter-banana-stuffed-french-toast": "Golden-brown French toast sandwiches cut in half on a white plate, the cut sides showing a layer of peanut butter and pale banana slices, drizzled with honey, with a dollop of thick white yogurt on the side.",
@@ -427,7 +386,7 @@ export const WAVE2_BREAKFASTS_LOOKS: Readonly<Record<string, string>> = {
 };
 
 export const WAVE2_BREAKFASTS_CUISINES: ReadonlyArray<readonly [string, CuisineId]> = [
-  ["bacon-egg-mushroom-breakfast-sandwiches", "british"], ["scrambled-eggs-beans-toast", "british"], ["cinnamon-breakfast-rice-pudding-berries-banana", "british"],
+  ["bacon-egg-mushroom-breakfast-sandwiches", "british"],
   ["apple-berry-breakfast-crumble-yogurt", "british"], ["spiced-tofu-chickpea-breakfast-kedgeree", "british"],
   ["breakfast-burrito-bowl-eggs-beans", "mexican"], ["bean-sweetcorn-pepper-breakfast-burritos", "mexican"],
   ["bombay-potato-chickpea-breakfast-hash", "indian"], ["masala-beans-on-toast", "indian"], ["tofu-bhurji-peas-tomatoes-toast", "indian"], ["banana-cinnamon-lassi-smoothie", "indian"],

@@ -84,20 +84,6 @@ export const WAVE2_SOFT_SMALL: readonly Recipe[] = [
     ],
   },
   {
-    id: "scrambled-tofu-spinach-tomatoes-toast", meal: "lunch", tags: ["Quick", "Vegan"], name: "Scrambled tofu with spinach and tomatoes on toast", blurb: "Soft crumbled tofu scrambled with dried oregano and a pinch of turmeric, with wilted spinach and warm tomatoes, on wholemeal toast.", servings: 2, minutes: 15,
-    ingredients: [ing("tofu", 300, { note: "about ¾ of a block" }), ing("tomatoes", 170, { note: "about 2 tomatoes" }), ing("olive-oil", 10), ing("turmeric", 1), ing("oregano", 1), ing("soya-drink", 60), ing("spinach", 80), ing("salt", 1), ing("black-pepper", 1), ing("bread", 160, { note: "about 4 slices" })],
-    method: [
-      "Drain the tofu: Drain the tofu, wrap it in a clean tea towel or kitchen paper and press it gently for a minute to squeeze out the water.",
-      "Chop the tomatoes: Cut the tomatoes into small pieces, about 1 cm across.",
-      "Crumble the tofu: Crumble the tofu into a bowl with your fingers, into small, soft pieces like scrambled egg.",
-      "Warm the flavours: Heat the oil in a non-stick frying pan on a medium heat. Add the turmeric and oregano and stir for 20 seconds, until fragrant.",
-      "Scramble the tofu: Add the tofu and tomatoes and cook for 4 to 5 minutes, stirring now and then, until the tofu is hot and golden yellow.",
-      "Make it creamy: Pour in the soya drink and add the spinach, salt and a grind of black pepper. Stir for 1 to 2 minutes, until the spinach wilts and the tofu is soft and creamy.",
-      "Toast the bread: Meanwhile, toast the bread in a toaster or under the grill until golden on both sides.",
-      "Serve: Put the toast on warm plates and pile the scrambled tofu on top. Serve straight away.",
-    ],
-  },
-  {
     id: "spanish-chickpea-spinach-stew-rice", meal: "lunch", tags: ["One pot", "Vegan"], name: "Spanish-style chickpea and spinach stew with rice", blurb: "Soft chickpeas and spinach stewed in a garlicky tomato sauce with paprika and cumin, spooned over rice.", servings: 2, minutes: 30,
     ingredients: [ing("onion", 75, { note: "about half an onion" }), ing("chickpeas", 480, { note: "2 tins, drained" }), ing("rice", 80), ing("olive-oil", 10), ing("garlic", 10, { note: "about 2 cloves" }), ing("paprika", 3), ing("cumin", 2), ing("chopped-tomatoes", 200), ing("salt", 1), ing("spinach", 200), ing("lemon-juice", 10), ing("black-pepper", 1)],
     method: [
@@ -231,21 +217,6 @@ export const WAVE2_SOFT_SMALL: readonly Recipe[] = [
     ],
   },
 
-  {
-    id: "creamy-spinach-tofu-curry-rice", meal: "dinner", tags: ["Vegan", "Indian"], name: "Creamy spinach and tofu curry with rice", blurb: "A mild palak-style curry: spinach cooked down with cumin and turmeric and made creamy with soya drink, with soft tofu and rice.", servings: 2, minutes: 35,
-    ingredients: [ing("spinach", 400), ing("rice", 120), ing("tofu", 300, { note: "about ¾ of a block" }), ing("vegetable-oil", 15), ing("cumin", 3), ing("turmeric", 1), ing("paprika", 2), ing("tomatoes", 85, { note: "1 tomato" }), ing("salt", 2), ing("soya-drink", 150), ing("lemon-juice", 10)],
-    method: [
-      "Cook the spinach: Put the spinach in a large saucepan with a splash of water, cover and cook on a medium heat for 3 to 4 minutes, stirring once, until wilted.",
-      "Chop the spinach: Tip it into a sieve and press out some of the liquid with a spoon, then chop it very finely on a board, or blend it, until almost smooth.",
-      "Cook the rice: Rinse the rice, then simmer it in a pan of boiling water for 12 minutes, until soft. Drain it and keep it warm.",
-      "Brown the tofu: Meanwhile, drain the tofu, pat it dry and cut it into 2 cm cubes. Heat half the oil in a non-stick frying pan and fry the tofu for 5 to 6 minutes, turning, until lightly golden.",
-      "Cook the spices: Heat the rest of the oil in the saucepan on a medium heat. Stir in the cumin, turmeric and paprika for 30 seconds, until fragrant.",
-      "Add the tomato: Chop the tomato finely, add it to the spices with the salt and cook for 3 minutes, until soft.",
-      "Make it creamy: Stir in the spinach and soya drink and simmer gently for 3 to 4 minutes, stirring, until smooth, creamy and bright green.",
-      "Add the tofu: Add the tofu and simmer for 2 minutes more, until hot all the way through. Stir in the lemon juice.",
-      "Serve: Spoon the rice into warm bowls with the curry beside it and serve straight away.",
-    ],
-  },
 
   // ---- small protein-first lunches and dinners (smaller days: the protein carries the dish and the rice, bread or potato beside it can halve)
   {
@@ -388,9 +359,7 @@ export const WAVE2_SOFT_SMALL_LOOKS: Readonly<Record<string, string>> = {
   "chinese-steamed-salmon-spring-onions-rice": "A round white plate with a soft steamed salmon fillet, pale pink and just flaking, glossy with dark soy sauce and topped with thin strips of green spring onion, beside wilted spinach and a mound of white rice.",
   "lemon-chicken-spinach-risotto-rice": "A wide white bowl of soft, creamy pale risotto-style rice with golden pieces of chicken and dark green wilted spinach, flecked with grated cheese and black pepper.",
   "crumbed-tofu-fingers-lemony-mushy-peas": "A round white plate with five golden breadcrumbed tofu fingers, crisp and lightly dusted with red paprika, beside a large spoonful of thick, roughly mashed bright green peas.",
-  "scrambled-tofu-spinach-tomatoes-toast": "Two slices of golden wholemeal toast on a round white plate, piled with soft pale yellow crumbled scrambled tofu flecked with dried oregano, small pieces of warm red tomato and dark green wilted spinach.",
   "spanish-chickpea-spinach-stew-rice": "A wide white bowl with a mound of white rice and a thick red-orange paprika and tomato stew of soft, partly crushed chickpeas and dark green wilted spinach spooned over it.",
-  "creamy-spinach-tofu-curry-rice": "A wide white bowl with fluffy white rice on one side and a smooth, creamy bright green spinach curry on the other, with golden cubes of tofu sitting in the sauce.",
 };
 
 export const WAVE2_SOFT_SMALL_CUISINES: ReadonlyArray<readonly [string, CuisineId]> = [
@@ -398,7 +367,6 @@ export const WAVE2_SOFT_SMALL_CUISINES: ReadonlyArray<readonly [string, CuisineI
   ["yogurt-rice-cucumber-toasted-cumin", "indian"],
   ["stracciatella-egg-spinach-pasta-soup", "italian"],
   ["mince-and-tatties", "british"],
-  ["creamy-spinach-tofu-curry-rice", "indian"],
   ["green-shakshuka-spinach-peas-yogurt", "middle-eastern"],
   ["bang-bang-chicken-salad-rice", "chinese"],
   ["chinese-steamed-egg-custard-rice-spinach", "chinese"],
