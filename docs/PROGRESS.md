@@ -41,7 +41,7 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
-- **26 November, on `iap` only (not live, not uploaded):** colour schemes: "Pick your colours" at the end of onboarding (before the account) and Settings › Colours; six light schemes, Lime (today's look) the default; kept on the device only. Details in docs/PROGRESS_LOG.md.
+- **26 November, on `iap` only (not live, not uploaded):** colour schemes ("Pick your colours" at the end of onboarding and Settings › Colours; six light schemes, Lime the default, kept on the device only); onboarding with a headline only on every screen and Pip met as "your food guide and nutrition coach"; the example meal plan and restaurant dishes drawn on a phone that can't be tapped; Pip's button tips only from Settings. Details in docs/PROGRESS_LOG.md.
 - **21 November evening, on `iap` (build 20, the final version, uploaded to App Store Connect 22 Nov 00:37, not submitted; on the phone through TestFlight):** every recipe checked against its photo and marinated, the 13 mismatched pictures remade, the double-tap guard on the plan's questions, one Pip permission for all, the finished plan says the food a day, the budget asked a day and held against the week-after cost, Pip's plan carrying on with a notice at the top of every screen (numbite.com still runs a5313bf0: Pip's prompt there says the budget as a week's shopping), every recipe made the way a chef would and cooked to match its picture (about 300 methods), Meal plan with Pip (nine questions, Opus picks
   the week, the phone checks it), 5 or 7 a day, 49 world recipes (382 in all), a balanced cheapest week on a tight budget, the free week sheet and pill, a
   barcode photo inside Scan a barcode, everyday sizes in recipe ingredients ("80 g / ½ pepper"). Details in docs/PROGRESS_LOG.md.
@@ -78,8 +78,8 @@ touches an earlier decision, and add new entries there, dated, at the end).
   the UK government's figures (McCance and Widdowson's CoFID 2021). Each is marked and named on screen.
 - The rating question (iPhone app only, rarely; only a 5 asks for Apple's review pop-up): the founder's accepted risk under guideline 5.6.1.
 - Recipe pictures carry no visible caption (screen readers hear "An illustration of ...").
-- Pip's tips on the real screens (founder 18 Nov, "a guided tour of what everything does"): after the welcome screens each tab's first visit lights its real buttons one at a time
-  (`CoachMarks.tsx`, `lib/mm/coach.ts`); "Stop the tips" stops them; Settings › Help › "Show me the buttons on each screen" starts them again.
+- Pip's tips on the real screens (founder 18 Nov, "a guided tour of what everything does"): since 26 Nov they never start by themselves; Settings › Help › "Show me the buttons on each screen"
+  starts them (each tab's real buttons lit one at a time, `CoachMarks.tsx`, `lib/mm/coach.ts`); "Stop the tips" stops them.
 
 **In progress: supermarket labels for every product** (founder 17-18 November: nutrition for every product, recipes for each supermarket; see the 18 November log entry)
 - One Sonnet reader per shop in the founder's Chrome (`tools/groceries/labels_chrome_next.py`, reader `labels_chrome.js`), recipe ingredients first, then every product

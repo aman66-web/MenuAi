@@ -1,36 +1,31 @@
-// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"): the first time each tab opens after the welcome
-// screens, Pip dims the page, lights up one real button at a time and says what it does (app/app/_components/CoachMarks.tsx). This file is the plain logic:
-// which tab a page is, which round of tips is still due, where the tip's card may sit, and what is kept on the phone (only which rounds have been seen and
-// whether the tips follow the welcome screens; nothing is sent anywhere).
+// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"): Pip dims the page, lights up one real button at a time
+// and says what it does (app/app/_components/CoachMarks.tsx), the first time each tab opens once they are switched on. This file is the plain logic: which tab a
+// page is, which tab's tips are still due, where the tip's card may sit, and what is kept on the phone (only whether the tips are on and which tabs have shown
+// them; nothing is sent anywhere).
 //
-// The onboarding redesign meeting (20 November 2026, approved by the founder): the welcome screens no longer walk round the tabs; they show three features
-// at work instead (Eat out, Recipes, the week). So after them (`afterShowcase`):
-// - a tip a showcase already gave is left out (coachSteps.ts showcaseCovers: Eat out's "Restaurants");
-// - Home's tips come over two visits: the first teaches "Your day" and "Moving around" (and the + only when the Start here card isn't there), the second
-//   ("homeLater") the Scan your food card and the top right;
-// - the card keeps clear of Home's numbers and the Start here card wherever the screen has room for it whole (COACH_KEEP_CLEAR, placeTip); on a small
-//   phone it may cover them, but never shrinks below its own Next and "Stop the tips" (TIP_CARD_MIN; the 30-person audit, 20 November 2026).
-// Settings › "Show me the buttons on each screen" (COACH_ARMED) shows every tip, Home's all on one visit. A stored `afterTour` (the old walk) is dropped.
+// They never start by themselves (founder 2026-11-26, after "the onboarding of like once they like this button does this, that button does that, like it's very
+// tacky and also very confusing and also like too much": "you can turn whatever you think best regarding the tips that pop up"): not after the welcome screens,
+// and not on anyone's first visit to a tab. Only Settings › Help › "Show me the buttons on each screen" switches them on (COACH_ARMED: every tab's tips, Home's
+// all on one visit), and "Stop the tips" ends them. Tips the welcome screens switched on before 26 November (stored with `afterShowcase`) are read as off, so
+// someone who already has the app and hasn't seen every tab yet gets no more of them. The card keeps clear of Home's numbers and the Start here card wherever
+// the screen has room for it whole (COACH_KEEP_CLEAR, placeTip); on a small phone it may cover them, but never shrinks below its own Next and "Stop the tips"
+// (TIP_CARD_MIN; the 30-person audit, 20 November 2026).
 
 export type CoachScreen = "home" | "eatOut" | "groceries" | "recipes";
-/** One showing of tips: a tab's own, or Home's second visit after the welcome screens. */
-export type CoachRound = CoachScreen | "homeLater";
+/** One showing of tips: a tab's own. */
+export type CoachRound = CoachScreen;
 
-/**
- * `armed`: the tips are switched on (the welcome screens' end, or Settings › "Show me the buttons"); `seen`: the rounds that have been shown;
- * `afterShowcase`: set only when the welcome screens switched them on (see above).
- */
+/** `armed`: the tips are switched on (Settings › "Show me the buttons on each screen"); `seen`: the tabs whose tips have been shown. */
 export interface CoachState {
   armed: boolean;
   seen: CoachRound[];
-  afterShowcase?: boolean;
 }
 
 export const COACH_SCREENS: readonly CoachScreen[] = ["home", "eatOut", "groceries", "recipes"];
 /** Every round there can be, in the order they come. */
-export const COACH_ROUNDS: readonly CoachRound[] = ["home", "homeLater", "eatOut", "groceries", "recipes"];
+export const COACH_ROUNDS: readonly CoachRound[] = COACH_SCREENS;
 
-/** Nothing switched on: what a phone starts with, and what someone who was set up before the tips existed keeps (they can start them from Settings). */
+/** Nothing switched on: what every phone starts with and keeps until Settings switches the tips on. */
 export const NO_COACH: CoachState = { armed: false, seen: [] };
 
 /** Every tab's tips due, all of Home's on one visit: Settings › "Show me the buttons on each screen". */
@@ -52,25 +47,10 @@ export function coachScreenFor(pathname: string): CoachScreen | null {
   return PAGES.find(([path]) => path === p)?.[1] ?? null;
 }
 
-/** The rounds this state owes: Home's second visit only after the welcome screens. */
-const roundsFor = (state: Pick<CoachState, "afterShowcase">): readonly CoachRound[] => (state.afterShowcase ? COACH_ROUNDS : COACH_SCREENS);
-
-/**
- * The end of the welcome screens switches the tips on, unless this phone has already been through all of them or stopped them ("Stop the tips" means stop:
- * setting up again doesn't bring them back; Settings › "Show me the buttons on each screen" always does, with COACH_ARMED). The tips then follow the
- * showcases (`afterShowcase`). The second argument is ignored: it was the old walk round the tabs, which the showcases replaced.
- */
-export function coachAfterWelcome(state: CoachState, _old?: { walkedTour?: boolean }): CoachState { // eslint-disable-line @typescript-eslint/no-unused-vars -- kept for old callers
-  if (!state.armed && COACH_SCREENS.every((s) => state.seen.includes(s))) return state;
-  return { armed: true, seen: [], afterShowcase: true };
-}
-
-/** The round of tips due on this tab now, or null: its own first, then (Home after the welcome screens) the second visit's. */
+/** The tips due on this tab now, or null: only while they are switched on, and once per tab. */
 export function coachRoundFor(state: CoachState, screen: CoachScreen | null): CoachRound | null {
   if (!screen || !state.armed) return null;
-  if (!state.seen.includes(screen)) return screen;
-  if (screen === "home" && state.afterShowcase && !state.seen.includes("homeLater")) return "homeLater";
-  return null;
+  return state.seen.includes(screen) ? null : screen;
 }
 
 /** True when this tab has tips still to show. */
@@ -78,18 +58,21 @@ export function coachDue(state: CoachState, screen: CoachScreen | null): screen 
   return coachRoundFor(state, screen) !== null;
 }
 
-/** After a round of tips: it is seen; once every round this state owes is, the tips switch themselves off. */
+/** After a tab's tips: it is seen; once every tab's are, the tips switch themselves off. */
 export function coachSeen(state: CoachState, round: CoachRound): CoachState {
   const seen = state.seen.includes(round) ? state.seen : [...state.seen, round];
-  return { ...state, armed: state.armed && roundsFor(state).some((r) => !seen.includes(r)), seen };
+  return { armed: state.armed && COACH_ROUNDS.some((r) => !seen.includes(r)), seen };
 }
 
+/**
+ * The tips as stored, checked. Tips the welcome screens switched on (stored with `afterShowcase`, before 26 November 2026) are off: they never start by
+ * themselves now. Anything else (an old "homeLater" or afterTour among it) is dropped.
+ */
 export function sanitizeCoach(raw: unknown): CoachState {
   if (!raw || typeof raw !== "object") return NO_COACH;
   const r = raw as { armed?: unknown; seen?: unknown; afterShowcase?: unknown };
   const seen = Array.isArray(r.seen) ? COACH_ROUNDS.filter((s) => (r.seen as unknown[]).includes(s)) : [];
-  // anything else (an old afterTour among it) is dropped
-  return r.afterShowcase === true ? { armed: r.armed === true, seen, afterShowcase: true } : { armed: r.armed === true, seen };
+  return { armed: r.armed === true && r.afterShowcase !== true, seen };
 }
 
 /** What a tip's card must never cover on each tab (the meeting: "the bubble never covers the Start here card or the numbers card"). The lit control itself, and

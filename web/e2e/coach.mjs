@@ -1,12 +1,11 @@
-// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"; app/app/_components/CoachMarks.tsx): switched on by the end of
-// the welcome screens or Settings, each tab's first visit dims the page, lights up one real control at a time and says what it does; Next walks on, Done ends
-// that tab's tips, "Stop the tips" ends them all; each tab's show once; a phone set up before the tips existed never sees them unasked; at the largest text
-// the card stays on the screen; axe. The onboarding redesign meeting (20 November 2026): after the welcome screens the tips follow the showcases, so Eat out
-// leaves out "Restaurants"; Home's first visit teaches "Your day" and "Moving around" (and the + only without the Start here card), once the arrival toast
-// has gone, with Pip hopping once along the real tab bar (still with Reduce Motion); its second visit the Scan your food card and the top right; the card
-// never covers Home's numbers or the Start here card. Settings › "Show me the buttons" shows every tip, Home's on one visit, "Moving around" last.
-// Run with the same NEXT_PUBLIC_ switches the build had (they decide Home's tips): on the website build (no Premium, no Scan your food) Home's second visit
-// has one tip; with NEXT_PUBLIC_PRO=1 the + tip says "It's part of Premium", and with NEXT_PUBLIC_PHOTO_RECIPES=1 on a gated build Scan your food is one more.
+// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"; app/app/_components/CoachMarks.tsx). Since 26 November 2026
+// they never start by themselves (founder: "you can turn whatever you think best regarding the tips that pop up"): not after the welcome screens, and not for a
+// phone the old welcome screens switched them on for. Settings › Help › "Show me the buttons on each screen" switches them on: each tab's first visit then dims
+// the page, lights up one real control at a time and says what it does (Home's every tip on one visit, "Moving around" last with Pip hopping along the real tab
+// bar, still with Reduce Motion; the + only without the Start here card); Next walks on, Done and Escape end that tab's tips, "Stop the tips" ends them all;
+// the tips wait for Home's arrival toast; the card never covers Home's numbers or the Start here card where there is room; at the largest text the card stays
+// on the screen; axe. Run with the same NEXT_PUBLIC_ switches the build had: with NEXT_PUBLIC_PRO=1 the + tip says "It's part of Premium", and with
+// NEXT_PUBLIC_PHOTO_RECIPES=1 on a gated build Scan your food is one more Home tip.
 //   BASE=http://localhost:3005 node e2e/coach.mjs
 import { chromium } from "playwright-core";
 import { createRequire } from "node:module";
@@ -16,12 +15,12 @@ const BASE = process.env.BASE ?? "http://localhost:3101";
 const GATED = process.env.NEXT_PUBLIC_PRO === "1" || process.env.NEXT_PUBLIC_WEB_PRO === "1" || process.env.NEXT_PUBLIC_IAP === "1";
 const LOG_PAID = process.env.NEXT_PUBLIC_PRO === "1";
 const SCAN = process.env.NEXT_PUBLIC_PHOTO_RECIPES === "1" && GATED; // Scan your food on Home (FOOD_SCAN_ENABLED)
-/** Home's tips on its second visit after the welcome screens: (Scan your food,) Shopping list and Settings. */
-const LATER_TIPS = SCAN ? 2 : 1;
 /** Every Home tip on one visit (Settings): Your day, Add what you ate, (Scan your food,) Shopping list and Settings, Moving around. */
 const ALL_HOME_TIPS = SCAN ? 5 : 4;
-/** What the end of the welcome screens leaves (lib/mm/coach.ts coachAfterWelcome). */
-const AFTER_WELCOME = { armed: true, seen: [], afterShowcase: true };
+/** What the end of the welcome screens left before 26 November 2026 (the old coachAfterWelcome): now read as off. */
+const AFTER_WELCOME_OLD = { armed: true, seen: [], afterShowcase: true };
+/** Switched on from Settings › "Show me the buttons on each screen" (lib/mm/coach.ts COACH_ARMED). */
+const SWITCHED_ON = { armed: true, seen: [] };
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ["--no-sandbox"] });
 const settings = (patch = {}) => JSON.stringify({ v: 1, data: { goal: "maintain", dailyCalories: 2000, dailyProtein: 120, hasSetTargets: true, preferences: { vegetarianOnly: false, noPork: false, noBeef: false }, hasCompletedOnboarding: true, shops: ["sainsburys"], ...patch } });
 let passed = 0, failed = 0;
@@ -112,102 +111,36 @@ await step("a phone set up before the tips existed sees none unasked", async () 
   await ctx.close();
 });
 
-await step("after the welcome screens: the tips wait for the arrival toast; Home's first visit lights 'Your day' then 'Moving around' (no + while the Start here card shows), never covering the numbers or the card; Pip waves, then hops once along the tab bar; the second visit teaches the top right", async () => {
-  const ctx = await context(AFTER_WELCOME, { devProOverride: true }, { homePages: ARRIVAL });
-  const page = await ctx.newPage();
-  await page.goto(BASE + "/app");
-  const toast = page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." });
-  await toast.waitFor({ timeout: 120000 });
-  await page.getByRole("region", { name: "Start here" }).waitFor();
-  await page.waitForTimeout(3000);
-  expect((await tip(page).count()) === 0, "no tip while the arrival toast shows");
-  const d = tip(page);
-  await d.waitFor({ timeout: 20000 });
-  expect(await toast.count() === 0, "the toast has gone first");
-  expect((await d.textContent()).includes("Tip 1 of 2"), `two tips on the first visit: ${(await d.textContent()).slice(0, 80)}`);
-  await page.getByRole("heading", { level: 2, name: "Your day" }).waitFor();
-  expect(await page.evaluate(() => document.activeElement?.id === "coach-title"), "the focus is on the tip");
-  expect(await litAround(page, '[data-coach="home-numbers"]'), "the day's numbers are lit");
-  expect(await coversNothing(page), "the card covers neither the numbers nor the Start here card");
-  const first = await pipInCard(page);
-  expect(first.mood === "wave" && first.width === "56", `Pip waves on the first tip, at 56: ${JSON.stringify(first)}`);
-  expect(!/TIP \d/.test(await d.textContent()), "the tip's count in sentence case");
-  await tip(page).getByRole("button", { name: "Next" }).click();
-  await page.getByRole("heading", { level: 2, name: "Moving around" }).waitFor();
-  expect(await litAround(page, '[data-coach="tabs"]'), "the tab bar is lit");
-  { const why = await keptClear(page); expect(why === "", `Moving around: ${why}`); }
-  // Pip stands on the real tab bar (above its top edge, not on the ink) and hops once to the far end; the card has no Pip of its own on this tip
-  await page.waitForTimeout(1600);
-  const hop = await page.evaluate(() => {
-    const pip = document.querySelector("[data-coach-hop]").getBoundingClientRect();
-    const bar = document.querySelector('[data-coach="tabs"]').getBoundingClientRect();
-    return { pipBottom: pip.bottom, barTop: bar.top, pipRight: pip.right, barRight: bar.right, inCard: !!document.querySelector("dialog[open] [data-mood]") };
-  });
-  expect(hop.pipBottom <= hop.barTop && hop.barRight - hop.pipRight < 60 && !hop.inCard, `Pip hopped along the bar: ${JSON.stringify(hop)}`);
-  await tip(page).getByRole("button", { name: "Done" }).click();
-  await d.waitFor({ state: "hidden" });
-  await page.waitForTimeout(2500);
-  expect((await tip(page).count()) === 0, "the second round waits for another visit");
-  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data);
-  expect(stored.armed === true && stored.seen.join() === "home" && stored.afterShowcase === true, `remembered: ${JSON.stringify(stored)}`);
-
-  // Eat out after the welcome screens: Search and Near me (step 3 showed the restaurants)
-  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Eat out" }).click();
-  await tip(page).waitFor({ timeout: 60000 });
-  expect((await tip(page).textContent()).includes("Tip 1 of 2"), "two tips on Eat out after the welcome screens");
-  await tip(page).getByRole("button", { name: "Next" }).click();
-  await page.getByRole("heading", { level: 2, name: "Near me" }).waitFor();
-  await tip(page).getByRole("button", { name: "Done" }).click();
-  await tip(page).waitFor({ state: "hidden" });
-
-  // back on Home: the second visit's tips. The Start here card stays, visit after visit, until it is done with (the 30-person audit, 20 November 2026:
-  // lib/mm/homePages.ts; it used to vanish the moment she left Home)
-  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Home" }).click();
-  await tip(page).waitFor({ timeout: 60000 });
-  expect(await page.getByRole("region", { name: "Start here" }).count() === 1, "the Start here card stays until it is done with");
-  expect((await tip(page).textContent()).includes(`Tip 1 of ${LATER_TIPS}`), `the second visit: ${(await tip(page).textContent()).slice(0, 80)}`);
-  if (SCAN) {
-    await page.getByRole("heading", { level: 2, name: "Scan your food" }).waitFor();
-    expect(await litAround(page, '[data-coach="home-photo"]'), "Scan your food is lit");
-    { const why = await keptClear(page); expect(why === "", `Scan your food: ${why}`); }
-    await tip(page).getByRole("button", { name: "Next" }).click();
+await step("they never start by themselves: after the welcome screens (Home's toast and Start here card) and on a phone the old welcome screens switched them on for, part-way, no tab shows a tip", async () => {
+  for (const stored of [null, AFTER_WELCOME_OLD, { armed: true, seen: ["home", "homeLater"], afterShowcase: true }]) {
+    const ctx = await context(stored, { devProOverride: true }, { homePages: ARRIVAL });
+    const page = await ctx.newPage();
+    await page.goto(BASE + "/app");
+    await page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." }).waitFor({ timeout: 120000 });
+    await page.getByRole("region", { name: "Start here" }).waitFor();
+    await page.waitForTimeout(7000); // past the toast, when the tips used to start
+    expect((await tip(page).count()) === 0, `a tip on Home (${JSON.stringify(stored)})`);
+    for (const tab of ["Eat out", "Groceries", "Recipes", "Home"]) {
+      await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: tab }).click();
+      await page.waitForTimeout(4000);
+      expect((await tip(page).count()) === 0, `a tip on ${tab} (${JSON.stringify(stored)})`);
+    }
+    await ctx.close();
   }
-  await page.getByRole("heading", { level: 2, name: "Shopping list, Settings" }).waitFor();
-  expect(await litAround(page, '[data-coach="home-top"]'), "the shopping list and the gear are lit");
-  { const why = await keptClear(page); expect(why === "", `Shopping list, Settings: ${why}`); }
-  await tip(page).getByRole("button", { name: "Done" }).click();
-  await tip(page).waitFor({ state: "hidden" });
-  const after = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data);
-  expect(after.seen.includes("homeLater"), `Home's second round remembered: ${JSON.stringify(after)}`);
-
-  // Groceries next: its own tips, the shops lit first; Escape counts as Done
-  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Groceries" }).click();
-  await tip(page).waitFor({ timeout: 60000 });
-  await page.getByRole("heading", { level: 2, name: "Your supermarkets" }).waitFor();
-  expect(await litAround(page, '[data-coach="groceries-shops"]'), "the shops are lit");
-  await page.keyboard.press("Escape");
-  await tip(page).waitFor({ state: "hidden" });
-  expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data.seen)).includes("groceries"), "Escape marks Groceries seen");
-
-  // "Stop the tips" on Recipes ends them everywhere
-  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
-  await tip(page).waitFor({ timeout: 60000 });
-  await tip(page).getByRole("button", { name: "Stop the tips" }).click();
-  await tip(page).waitFor({ state: "hidden" });
-  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Home" }).click();
-  await page.getByRole("button", { name: "Add to Breakfast" }).waitFor({ timeout: 60000 });
-  await page.waitForTimeout(4000);
-  expect((await tip(page).count()) === 0, "no tips after Stop the tips");
-  await ctx.close();
 });
 
-await step("without the Start here card, Home's first visit also teaches the +; with Reduce Motion Pip stands still on the tab bar", async () => {
-  const ctx = await context(AFTER_WELCOME, {}, { reducedMotion: "reduce" });
+await step("from Settings, without the Start here card, Home's tips teach the + too; with Reduce Motion Pip stands still on the tab bar", async () => {
+  const ctx = await context(SWITCHED_ON, {}, { reducedMotion: "reduce" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
   const d = tip(page);
   await d.waitFor({ timeout: 120000 });
-  expect((await d.textContent()).includes("Tip 1 of 3"), `Your day, the + and Moving around: ${(await d.textContent()).slice(0, 80)}`);
+  expect((await d.textContent()).includes(`Tip 1 of ${ALL_HOME_TIPS}`), `every Home tip: ${(await d.textContent()).slice(0, 80)}`);
+  await page.getByRole("heading", { level: 2, name: "Your day" }).waitFor();
+  expect(await page.evaluate(() => document.activeElement?.id === "coach-title"), "the focus is on the tip");
+  expect(await litAround(page, '[data-coach="home-numbers"]'), "the day's numbers are lit");
+  const first = await pipInCard(page);
+  expect(first.mood === "wave" && first.width === "56", `Pip waves on the first tip, at 56: ${JSON.stringify(first)}`);
   await tip(page).getByRole("button", { name: "Next" }).click();
   await page.getByRole("heading", { level: 2, name: "Add what you ate" }).waitFor();
   expect(await litAround(page, '[data-coach="home-add"]'), "the + is lit");
@@ -215,8 +148,7 @@ await step("without the Start here card, Home's first visit also teaches the +; 
   expect((await d.textContent()).includes("It's part of Premium.") === LOG_PAID, LOG_PAID ? "the + tip doesn't say it's part of Premium where adding a meal is paid" : "the + tip says Premium where adding a meal is free");
   const second = await pipInCard(page);
   expect(second.mood === (second.below ? "pointUp" : "point"), `Pip points at the lit +: ${JSON.stringify(second)}`);
-  expect(await page.evaluate(() => !!document.querySelector("dialog[open]") && document.querySelector('[data-coach="home-add"]').closest("[inert]") === null), "a modal dialog is open");
-  await tip(page).getByRole("button", { name: "Next" }).click();
+  for (let i = 2; i < ALL_HOME_TIPS; i++) await tip(page).getByRole("button", { name: "Next" }).click();
   await page.getByRole("heading", { level: 2, name: "Moving around" }).waitFor();
   await page.waitForTimeout(1500);
   const still = await page.evaluate(() => { const el = document.querySelector("[data-coach-hop]"); return el ? el.getAnimations().length : -1; });
@@ -226,8 +158,8 @@ await step("without the Start here card, Home's first visit also teaches the +; 
   await ctx.close();
 });
 
-await step("Settings › Show me the buttons on each screen switches them on again and opens Home with every tip on one visit, 'Moving around' last", async () => {
-  const ctx = await context({ armed: false, seen: ["home", "homeLater", "eatOut", "groceries", "recipes"], afterShowcase: true });
+await step("Settings › Show me the buttons on each screen switches them on again: Home with every tip on one visit ('Moving around' last, Pip hopping along the bar), then each tab once; Escape counts as Done; 'Stop the tips' ends them", async () => {
+  const ctx = await context({ armed: false, seen: ["home", "eatOut", "groceries", "recipes"] });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app/settings");
   await page.getByRole("link", { name: /^Show me the buttons on each screen/ }).click();
@@ -238,8 +170,39 @@ await step("Settings › Show me the buttons on each screen switches them on aga
   for (let i = 1; i < ALL_HOME_TIPS; i++) await tip(page).getByRole("button", { name: "Next" }).click();
   await page.getByRole("heading", { level: 2, name: "Moving around" }).waitFor();
   expect(await litAround(page, '[data-coach="tabs"]'), "the tab bar is lit");
+  await page.waitForTimeout(1600);
+  const hop = await page.evaluate(() => {
+    const pip = document.querySelector("[data-coach-hop]").getBoundingClientRect();
+    const bar = document.querySelector('[data-coach="tabs"]').getBoundingClientRect();
+    return { pipBottom: pip.bottom, barTop: bar.top, pipRight: pip.right, barRight: bar.right, inCard: !!document.querySelector("dialog[open] [data-mood]") };
+  });
+  expect(hop.pipBottom <= hop.barTop && hop.barRight - hop.pipRight < 60 && !hop.inCard, `Pip hopped along the bar: ${JSON.stringify(hop)}`);
   await tip(page).getByRole("button", { name: "Done" }).click();
   await d.waitFor({ state: "hidden" });
+  await page.waitForTimeout(2500);
+  expect((await tip(page).count()) === 0, "Home's tips show once");
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data);
+  expect(stored.armed === true && stored.seen.join() === "home", `remembered: ${JSON.stringify(stored)}`);
+
+  // Groceries: its own tips, the shops lit first; Escape counts as Done
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Groceries" }).click();
+  await tip(page).waitFor({ timeout: 60000 });
+  await page.getByRole("heading", { level: 2, name: "Your supermarkets" }).waitFor();
+  expect(await litAround(page, '[data-coach="groceries-shops"]'), "the shops are lit");
+  await page.keyboard.press("Escape");
+  await tip(page).waitFor({ state: "hidden" });
+  expect((await page.evaluate(() => JSON.parse(localStorage.getItem("mm.v1.coach")).data.seen)).includes("groceries"), "Escape marks Groceries seen");
+
+  // "Stop the tips" on Recipes ends them everywhere (Eat out's are never shown)
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "Recipes" }).click();
+  await tip(page).waitFor({ timeout: 60000 });
+  await tip(page).getByRole("button", { name: "Stop the tips" }).click();
+  await tip(page).waitFor({ state: "hidden" });
+  for (const tab of ["Eat out", "Home"]) {
+    await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: tab }).click();
+    await page.waitForTimeout(4000);
+    expect((await tip(page).count()) === 0, `a tip on ${tab} after Stop the tips`);
+  }
   await ctx.close();
 });
 
@@ -275,13 +238,18 @@ await step("Eat out's three tips from Settings in page order (Search, Near me, R
   await ctx.close();
 });
 
-await step("a small phone (375 x 667): Home's first-visit tips keep clear of the numbers and the Start here card where there is room, and otherwise stay whole with their buttons on the screen", async () => {
-  const ctx = await context(AFTER_WELCOME, { devProOverride: true }, { homePages: ARRIVAL, viewport: { width: 375, height: 667 } });
+await step("a small phone (375 x 667), switched on from Settings with the Start here card showing: the tips wait for the toast, keep clear of the numbers and the Start here card where there is room, and otherwise stay whole with their buttons on the screen", async () => {
+  const ctx = await context(SWITCHED_ON, { devProOverride: true }, { homePages: ARRIVAL, viewport: { width: 375, height: 667 } });
   const page = await ctx.newPage();
   await page.goto(BASE + "/app");
+  const toast = page.getByRole("status").filter({ hasText: "You're signed in. Your goal and daily numbers are saved." });
+  await toast.waitFor({ timeout: 120000 });
+  await page.waitForTimeout(2000);
+  expect((await tip(page).count()) === 0, "no tip while the arrival toast shows");
   const d = tip(page);
   await d.waitFor({ timeout: 120000 });
-  for (let i = 0; i < 3; i++) {
+  expect(await toast.count() === 0, "the toast has gone first");
+  for (let i = 0; i < ALL_HOME_TIPS; i++) {
     await page.waitForTimeout(1500);
     const why = await keptClear(page);
     expect(why === "", `tip ${i + 1}: ${await page.locator("#coach-title").textContent()}: ${why}`);

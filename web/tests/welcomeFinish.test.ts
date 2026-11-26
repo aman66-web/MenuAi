@@ -58,16 +58,14 @@ describe("finishWelcome", () => {
     expect(welcomeProgressStore.get()).toBeNull();
   });
 
-  it.each(["signedIn", "signedInBack", "notNow"] as const)("%s: the Start here card with both hints, and Pip's tips after the showcases", (ending) => {
+  it.each(["signedIn", "signedInBack", "notNow"] as const)("%s: the Start here card with both hints, and no button tips (founder 2026-11-26: they never start by themselves)", (ending) => {
     end(ending);
     const note = arrivalDue(homePagesStore.get(), NOW);
     expect(note).toMatchObject({ card: true, firstRecipeId: "chicken-tikka-traybake", firstDish: DISH });
     expect(note?.toast).toBe(ending === "notNow" ? "notNow" : ending);
     const coach = coachStore.get();
-    expect(coach.armed).toBe(true);
-    expect(coach.afterShowcase).toBe(true);
-    expect(coach).not.toHaveProperty("afterTour");
-    expect(coachRoundFor(coach, "home")).toBe("home");
+    expect(coach).toEqual(NO_COACH);
+    expect(coachRoundFor(coach, "home")).toBeNull();
   });
 
   it("a Settings rerun gets the toast only: no card, no hints, no tips", () => {
@@ -83,7 +81,7 @@ describe("finishWelcome", () => {
   });
 
   it("tips the person stopped stay stopped", () => {
-    coachStore.set({ armed: false, seen: ["home", "homeLater", "eatOut", "groceries", "recipes"] });
+    coachStore.set({ armed: false, seen: ["home", "eatOut", "groceries", "recipes"] });
     end("signedIn");
     expect(coachStore.get().armed).toBe(false);
   });

@@ -9,15 +9,14 @@ import { useT } from "../_lib/i18n";
 import { Pip } from "./Mascot";
 import { coachStepsFor, type CoachStep } from "./coachSteps";
 
-// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"; lib/mm/coach.ts, coachSteps.ts). The first time a tab opens
-// after the welcome screens, the page dims a little (--tips-wash: older testers were flustered by the heavy dimming; colour meeting, 19 November 2026), one
+// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"; lib/mm/coach.ts, coachSteps.ts). Only after Settings › Help ›
+// "Show me the buttons on each screen" (since 26 November 2026 they never start by themselves), the first time each tab opens the page dims a little (--tips-wash: older testers were flustered by the heavy dimming; colour meeting, 19 November 2026), one
 // real control at a time is lit with a 3 px ink ring and a 2 px white gap, and a card with Pip says what it does: "Tip 2 of 5", Next (Done on the last), and
 // "Stop the tips". It is a modal <dialog>, so the page behind can't be tapped by mistake, the focus stays on the card and a screen reader reads the tip; Escape
 // counts as Done. It waits until the tab has drawn its controls, no other sheet is open and Home's arrival toast has gone (anything marked data-coach-wait;
 // the iPhone app's trial offer waits for the tips), and no toast is showing (data-toast-host: opened over one, its Undo couldn't be tapped and the one-time
 // free-week note went unread behind the tips; Quinn and Ella, the 30-person meeting, 21 November 2026). Every toast closes itself, so the tips start after it.
-// The onboarding redesign meeting (20 November 2026): after the welcome screens Home's tips come over two visits (a later visit is another time Home opens:
-// a tab and back, or the app opened again), the card keeps clear of Home's numbers and the Start here card wherever it fits whole (lib/mm/coach.ts placeTip: it
+// The onboarding redesign meeting (20 November 2026): the card keeps clear of Home's numbers and the Start here card wherever it fits whole (lib/mm/coach.ts placeTip: it
 // scrolls the page once if it must, never past the lit control's top), and in "Moving around" Pip stands on the real tab bar and hops once along it (no hop
 // with Reduce Motion). The 30-person audit (20 November 2026): the card is never shorter than TIP_CARD_MIN, its tip scrolls inside it while Next and "Stop the
 // tips" stay whole under it, so it can never become a modal with no way out on a small phone.
@@ -52,14 +51,9 @@ export function CoachMarks() {
   const pathname = usePathname();
   const state = useStore(coachStore);
   const screen = coachScreenFor(pathname);
-  // each time a page opens is a visit; Home's second round of tips waits for a visit after the one that showed its first
-  const [visit, setVisit] = useState({ path: pathname, n: 0 });
-  if (visit.path !== pathname) setVisit({ path: pathname, n: visit.n + 1 });
-  const [homeShownOn, setHomeShownOn] = useState<number | null>(null);
   const round = coachRoundFor(state, screen);
   if (!screen || !round) return null;
-  if (round === "homeLater" && homeShownOn === visit.n) return null;
-  return <CoachRun key={round} screen={screen} round={round} onShown={() => { if (round === "home") setHomeShownOn(visit.n); }} />;
+  return <CoachRun key={round} screen={screen} round={round} />;
 }
 
 /** True for an element that is drawn (not hidden and not empty). */
@@ -102,7 +96,7 @@ function keepClear(screen: CoachScreen, lit: Element): Span[] {
   });
 }
 
-function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: CoachRound; onShown: () => void }) {
+function CoachRun({ screen, round }: { screen: CoachScreen; round: CoachRound }) {
   const t = useT();
   const dialog = useRef<HTMLDialogElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
@@ -124,7 +118,7 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
   // Wait for the tab's controls (a list may still be loading), for any other sheet to close and for the arrival toast to go, then start with the tips whose
   // controls are there (a tip whose `unless` is on the page is left out: the Start here card already teaches the +).
   useEffect(() => {
-    const all = coachStepsFor(round, coachStore.get());
+    const all = coachStepsFor(round);
     const started = Date.now();
     let timer = 0;
     const look = () => {
@@ -216,11 +210,6 @@ function CoachRun({ screen, round, onShown }: { screen: CoachScreen; round: Coac
   const placed = plan && !("scroll" in plan) ? plan : null;
   const showing = !!placed && !!hole;
   const place: React.CSSProperties = placed ? { top: placed.top, maxHeight: placed.maxHeight } : { bottom: EDGE + TAB_BAR };
-
-  // once the first tip shows, this round counts as shown on this visit (Home's second round waits for another visit)
-  useEffect(() => {
-    if (showing && at === 0) onShown();
-  }, [showing, at]); // eslint-disable-line react-hooks/exhaustive-deps -- once
 
   // Pip's single hop along the tab bar: from the first tab to the last, once; nothing moves with Reduce Motion
   const hopping = !!step?.hop && showing && !!hole;

@@ -1,13 +1,13 @@
 import { readFileSync } from "node:fs";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
-  COACH_ARMED, COACH_KEEP_CLEAR, COACH_ROUNDS, COACH_SCREENS, COACH_STOPPED, coachAfterWelcome, coachDue, coachRoundFor, coachScreenFor, coachSeen, NO_COACH, placeTip,
+  COACH_ARMED, COACH_KEEP_CLEAR, COACH_ROUNDS, COACH_SCREENS, COACH_STOPPED, coachDue, coachRoundFor, coachScreenFor, coachSeen, NO_COACH, placeTip,
   sanitizeCoach, TIP_CARD_MIN, type Span,
 } from "../lib/mm/coach";
 
-// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"): lib/mm/coach.ts and the tips each tab has. The onboarding
-// redesign meeting (20 November 2026): after the welcome screens the tips follow the showcases (Eat out's "Restaurants" goes), Home's come over two visits,
-// and the card never covers Home's numbers or the Start here card.
+// Pip's tips on the real screens (founder 2026-11-18: "i want a guided tour of what everything does"): lib/mm/coach.ts and the tips each tab has. Since 26 November
+// 2026 (founder: "you can turn whatever you think best regarding the tips that pop up") they never start by themselves: only Settings › Help › "Show me the
+// buttons on each screen" switches them on. The card never covers Home's numbers or the Start here card where it fits.
 vi.mock("../app/app/_lib/i18n", () => ({ useT: () => (s: string) => s }));
 
 describe("which page is which tab", () => {
@@ -34,37 +34,28 @@ describe("when the tips show", () => {
     expect(coachDue(afterHome, "recipes")).toBe(true);
     expect(coachSeen(afterHome, "home")).toEqual(afterHome); // seeing a tab twice changes nothing
   });
-  it("come on at the end of the welcome screens, following the showcases, but not for a phone that has been through them all or stopped them", () => {
-    expect(coachAfterWelcome(NO_COACH)).toEqual({ armed: true, seen: [], afterShowcase: true });
-    expect(coachAfterWelcome({ armed: false, seen: ["home"] })).toEqual({ armed: true, seen: [], afterShowcase: true });
-    const stopped = { armed: false, seen: [...COACH_SCREENS] };
-    expect(coachAfterWelcome(stopped)).toEqual(stopped);
-    expect(coachAfterWelcome(COACH_STOPPED)).toEqual(COACH_STOPPED);
-    // the old walk round the tabs is gone: an old caller's walkedTour changes nothing
-    expect(coachAfterWelcome(NO_COACH, { walkedTour: true })).toEqual(coachAfterWelcome(NO_COACH, { walkedTour: false }));
-    // Settings › "Show me the buttons on each screen" shows every tip
-    expect("afterShowcase" in COACH_ARMED).toBe(false);
+  it("never start by themselves: a new phone, and nothing in the welcome screens, switches them on (only Settings' COACH_ARMED does)", () => {
+    for (const screen of COACH_SCREENS) expect(coachDue(NO_COACH, screen), screen).toBe(false);
+    const coach = readFileSync("lib/mm/coach.ts", "utf8");
+    expect(coach).not.toMatch(/export function coachAfterWelcome/);
+    // nothing outside Settings › Help and the tips' own Stop / Next switches them on
+    for (const f of ["app/app/welcome/finish.ts", "app/app/welcome/page.tsx", "app/app/page.tsx", "app/app/_components/AppShell.tsx", "app/app/_components/HomePages.tsx"]) {
+      expect(readFileSync(f, "utf8"), f).not.toMatch(/COACH_ARMED|coachStore\.set\(/);
+    }
+    expect(readFileSync("app/app/settings/SettingsScreen.tsx", "utf8")).toMatch(/coachStore\.set\(COACH_ARMED\)/);
   });
-  it("after the welcome screens Home's tips come over two visits: its first round, then the later one, then the tabs; then they switch off", () => {
-    let s = coachAfterWelcome(NO_COACH);
-    expect(coachRoundFor(s, "home")).toBe("home");
-    s = coachSeen(s, "home");
-    expect(coachRoundFor(s, "home")).toBe("homeLater");
-    expect(coachDue(s, "home")).toBe(true);
-    s = coachSeen(s, "homeLater");
-    expect(coachRoundFor(s, "home")).toBeNull();
-    for (const screen of ["eatOut", "groceries"] as const) s = coachSeen(s, screen);
-    expect(s.armed).toBe(true);
-    s = coachSeen(s, "recipes");
-    expect(s.armed).toBe(false);
-    // the tabs before Home's second visit: still owed, still armed
-    let t = coachAfterWelcome(NO_COACH);
-    for (const screen of COACH_SCREENS) t = coachSeen(t, screen);
-    expect(t.armed).toBe(true);
-    expect(coachRoundFor(t, "home")).toBe("homeLater");
-    expect(coachSeen(t, "homeLater").armed).toBe(false);
+  it("tips the welcome screens switched on before 26 November are off, so someone who already has the app gets no more of them", () => {
+    // what coachAfterWelcome used to store, part-way through the tabs
+    for (const stored of [{ armed: true, seen: [], afterShowcase: true }, { armed: true, seen: ["home", "homeLater"], afterShowcase: true }]) {
+      const s = sanitizeCoach(stored);
+      expect(s.armed, JSON.stringify(stored)).toBe(false);
+      expect(s).not.toHaveProperty("afterShowcase");
+      for (const screen of COACH_SCREENS) expect(coachDue(s, screen), screen).toBe(false);
+    }
+    // switched on from Settings (no afterShowcase): still on
+    expect(sanitizeCoach({ armed: true, seen: ["home"] })).toEqual({ armed: true, seen: ["home"] });
   });
-  it("switch themselves off once every tab's have been seen (from Settings: no second Home round)", () => {
+  it("switch themselves off once every tab's have been seen (Home's all on one visit)", () => {
     let s = COACH_ARMED;
     for (const screen of COACH_SCREENS) s = coachSeen(s, screen);
     expect(s.armed).toBe(false);
@@ -79,12 +70,10 @@ describe("when the tips show", () => {
     expect(sanitizeCoach(null)).toEqual(NO_COACH);
     expect(sanitizeCoach("yes")).toEqual(NO_COACH);
     expect(sanitizeCoach({ armed: "true", seen: ["home"] })).toEqual({ armed: false, seen: ["home"] });
-    expect(sanitizeCoach({ armed: true, seen: ["recipes", "nope", "home", 3, "homeLater"] })).toEqual({ armed: true, seen: ["home", "homeLater", "recipes"] });
-    expect(sanitizeCoach({ armed: true, seen: [], afterShowcase: true })).toEqual({ armed: true, seen: [], afterShowcase: true });
+    // an old "homeLater" (Home's second visit after the welcome screens, gone with them) is dropped
+    expect(sanitizeCoach({ armed: true, seen: ["recipes", "nope", "home", 3, "homeLater"] })).toEqual({ armed: true, seen: ["home", "recipes"] });
     expect(sanitizeCoach({ armed: true, seen: [], afterTour: true })).toEqual({ armed: true, seen: [] });
-    expect("afterShowcase" in sanitizeCoach({ armed: true, seen: [], afterShowcase: "yes" })).toBe(false);
-    const after = coachAfterWelcome(NO_COACH);
-    expect(sanitizeCoach(JSON.parse(JSON.stringify(after)))).toEqual(after);
+    expect(sanitizeCoach(JSON.parse(JSON.stringify(COACH_ARMED)))).toEqual(COACH_ARMED);
   });
 });
 
@@ -256,14 +245,12 @@ describe("the tips on each tab", () => {
     vi.resetModules();
   });
 
-  it("has two to seven tips a tab (Home's later visit one or two), each with a title and a short plain line, no figures and no good/bad words (CLAUDE.md rules 1 and 3)", async () => {
+  it("has two to seven tips a tab, each with a title and a short plain line, no figures and no good/bad words (CLAUDE.md rules 1 and 3)", async () => {
     const { COACH_STEPS, coachStepsFor } = await import("../app/app/_components/coachSteps");
     for (const screen of COACH_SCREENS) {
-      for (const state of [undefined, { afterShowcase: true }]) {
-        const steps = coachStepsFor(screen, state);
-        expect(steps.length, screen).toBeGreaterThanOrEqual(2);
-        expect(steps.length, screen).toBeLessThanOrEqual(7);
-      }
+      const steps = coachStepsFor(screen);
+      expect(steps.length, screen).toBeGreaterThanOrEqual(2);
+      expect(steps.length, screen).toBeLessThanOrEqual(7);
       // every wording, the ones for other builds too (the + tip's Premium line is 136 characters)
       for (const s of COACH_STEPS[screen]) {
         expect(s.title.length, s.title).toBeLessThanOrEqual(24);
@@ -272,30 +259,18 @@ describe("the tips on each tab", () => {
         expect(/\d/.test(s.text), s.text).toBe(false);
       }
     }
-    const later = coachStepsFor("homeLater", { afterShowcase: true });
-    expect(later.length).toBeGreaterThanOrEqual(1);
-    expect(later.length).toBeLessThanOrEqual(2);
   });
 
-  it("after the welcome screens: Home's first visit teaches 'Your day', the + and 'Moving around'; its second the Scan your food card and the top right; Eat out leaves out 'Restaurants'", async () => {
+  it("the + is left out on the page while the Start here card (which teaches it) is there; only 'Moving around' has Pip hop along the tab bar", async () => {
     const { coachStepsFor } = await import("../app/app/_components/coachSteps");
-    const after = coachAfterWelcome(NO_COACH);
-    const titles = (round: Parameters<typeof coachStepsFor>[0], state?: Parameters<typeof coachStepsFor>[1]) => coachStepsFor(round, state).map((s) => s.title);
-    expect(titles("home", after)).toEqual(["Your day", "Add what you ate", "Moving around"]);
-    expect(titles("homeLater", after).filter((t) => t !== "Scan your food")).toEqual(["Shopping list, Settings"]);
-    expect(titles("eatOut", after)).toEqual(["Search", "Near me"]);
-    expect(titles("groceries", after)).toEqual(["Your supermarkets", "Search every shop", "Scan a barcode"]);
-    // stored and read back, the same
-    expect(titles("eatOut", sanitizeCoach(JSON.parse(JSON.stringify(after))))).toEqual(["Search", "Near me"]);
-    // the + is left out on the page while the Start here card (which teaches it) is there; only "Moving around" has Pip hop along the tab bar
-    const home = coachStepsFor("home", after);
+    const home = coachStepsFor("home");
     expect(home.find((s) => s.title === "Add what you ate")!.unless).toBe('[data-coach="home-start"]');
     expect(home.filter((s) => s.hop).map((s) => s.title)).toEqual(["Moving around"]);
   });
 
   it("each tab's tips, in order, from Settings (every tip, Home's on one visit): no tip for a card that names itself, an empty list or a button another tab teaches", async () => {
     const { COACH_STEPS, coachStepsFor } = await import("../app/app/_components/coachSteps");
-    const titles = (screen: (typeof COACH_SCREENS)[number]) => coachStepsFor(screen, COACH_ARMED).map((s) => s.title);
+    const titles = (screen: (typeof COACH_SCREENS)[number]) => coachStepsFor(screen).map((s) => s.title);
     const home = titles("home").filter((t) => t !== "Scan your food"); // Scan your food only where it's built
     expect(home).toEqual(["Your day", "Add what you ate", "Shopping list, Settings", "Moving around"]);
     expect(titles("eatOut")).toEqual(["Search", "Near me", "Restaurants"]);
