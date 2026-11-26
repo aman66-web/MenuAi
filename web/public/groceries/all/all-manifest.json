@@ -55,9 +55,10 @@
    "file": "lidl.json",
    "count": 1037,
    "checkedOn": "2026-10-08",
-   "nutrition": 39,
+   "nutrition": 45,
+   "sameProduct": 6,
    "priced": 264,
-   "sha256": "99960d1777a1bcc055fc81213fa85756a70031a656488538251bbcc9f74d60b2"
+   "sha256": "40a4fa2300174b8beb593344ca2037d16d7512198516679ea440729526704344"
   },
   {
    "id": "morrisons",

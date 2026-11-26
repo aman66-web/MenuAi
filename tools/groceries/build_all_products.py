@@ -698,6 +698,39 @@ def own_label(nut) -> bool:
     return bool(nut) and not (len(nut) > 11 and isinstance(nut[11], str) and (nut[11] == "off" or nut[11].startswith("same:")))
 
 
+# Lidl's names print no pack size and its pages no barcode, but its offer listing prints a price and a price per kg or litre (founder 2026-11-26: Lidl
+# products take the label of "the same exact product" at another supermarket). The pack size is then the one whole number of grams or millilitres at which
+# Lidl's price gives its printed unit price, which Lidl rounds up to the penny (£0.99 at £5.79/kg: 171g only); it is used only to find the same branded
+# product by name and size, never shown. Lidl's own brands never match; nor does its fresh aisle; nor do shops whose own products often carry no shop name
+# in their titles (Aldi, M&S) lend to such a row.
+SIZE_FROM_UNIT_PRICE = {"lidl"}
+NO_UNIT_SIZE_LENDERS = {"aldi", "marks-and-spencer"}
+LIDL_OWN = re.compile(r"\b(?:lidl|milbona|deluxe|crownfield|vemondo|chef select|favorina|belbake|lupilu|alpen ?fest|tower gate|woodcote|birchwood|freeway|"
+                      r"mcallisters|highgate fayre|valley spire|aberdoyle|strathvale|donald and sons|alba bakeries|kuljanka|knightsbridge|hortus|oaklands|"
+                      r"newgate|rivercote|rowan hill|lighthouse bay|ocean sea|snaktastic|solevita|maribel|dulano|sondey|bellarom|combino|baresa|italiamo|"
+                      r"eridanous|trattoria alfredo|el tequito|kania|golden sun|freshona|batts|pilos|mister choc|fin carre|j d gross|duc de coeur|gelatelli|"
+                      r"harvest basket|linessa|snack day|nightingale farms|perlenbacher|mcennedy|taste of|simply)\b")
+
+
+def size_from_unit_price(price, unit_price, unit) -> str | None:
+    """The pack size ("171g", "1500ml") at which `price` gives `unit_price` per kg or litre rounded up to the penny, or None when no size or more than one
+    whole size does (an "each" price, a missing figure, a big pack whose unit price can't tell 10,000 g from 10,001 g)."""
+    import math
+    if not isinstance(price, (int, float)) or not isinstance(unit_price, (int, float)) or unit not in ("per kg", "per litre") or unit_price <= 0.01:
+        return None
+    lo, hi = price / unit_price * 1000, price / (unit_price - 0.01) * 1000
+    fits = [g for g in range(max(1, math.floor(lo)), math.ceil(hi) + 1) if math.ceil(round(price * 100000) / g - 1e-9) / 100 == unit_price]
+    return f"{fits[0]}{'g' if unit == 'per kg' else 'ml'}" if len(fits) == 1 else None
+
+
+def unit_size_excluded(shop: str, doc: dict, r: list) -> bool:
+    """A row whose pack size may not be read from its unit price: Lidl's own brands and its fresh aisle (SIZE_FROM_UNIT_PRICE)."""
+    cats = doc.get("categories") or []
+    aisle = cats[r[7]] if isinstance(r[7], int) and 0 <= r[7] < len(cats) else ""
+    words = " ".join(re.sub(r"[^a-z0-9 ]+", " ", (r[1] or "").lower().replace("&", " and ").replace("é", "e").replace("'", "").replace("’", "")).split())
+    return aisle in FRESH_AISLES.get(shop, set()) or bool(LIDL_OWN.search(words))
+
+
 def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
     """A row with no label of its own takes the label read from ANOTHER supermarket's page for exactly the same product (founder 2026-11-17: "if it's the same
     exact product on another supermarket ... you can literally just duplicate it"): the same barcode (never a shop-internal number), else the same branded name
@@ -737,6 +770,12 @@ def fill_same_product_nutrition(docs: dict[str, dict]) -> dict[str, int]:
             if not hit and (shop, r[0]) not in NAME_SKIP:
                 key = name_key(r[1])
                 hit = by_name.get(key) if key else None
+                if not key and shop in SIZE_FROM_UNIT_PRICE and not unit_size_excluded(shop, doc, r):
+                    size = size_from_unit_price(r[2], r[3], r[4])
+                    key = name_key(f"{r[1]} {size}") if size else None
+                    hit = by_name.get(key) if key else None
+                    if hit and hit[0] in NO_UNIT_SIZE_LENDERS:
+                        hit = None
             if hit and hit[0] != shop:
                 r[10] = list(hit[1]) + ["same:" + hit[0]]
                 n += 1

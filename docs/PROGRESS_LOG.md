@@ -4409,3 +4409,19 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   at 3 (its list has no cupboard aisle). Not committed here: a full rebuild would also add government produce figures to 17 Asda, 4 Iceland and 5 M&S products
   (their lists are older than the committed code), and recipeCoverage.ts would count another session's uncommitted recipes; both left to their owners. The
   harvest also copied 30 Asda, Iceland and M&S page reads from 23 November transcripts into their raw files (committed, not yet imported).
+- (15:10, 26 Nov) **Lidl: the same product's label from another supermarket, 6 products** (founder: "the product that's being used has to be exactly the
+  same as another product from another supermarket ... it just needs to be the same exact product that's on Lidl"). The rule (same barcode, or the same
+  branded name and pack size, never a shop's own brand; `fill_same_product_nutrition`) already ran for Lidl but matched nothing: Lidl's pages give no
+  barcode, its names print no pack size (16 of 1,037 make a name key), and about 95% of its range is its own brands (Milbona, Deluxe, Favorina, Lupilu,
+  Crownfield ...), which never match. New in `build_all_products.py`: for a Lidl offer row, the pack size is the one whole number of grams (or ml) at which
+  Lidl's printed price gives its printed price per kg (or litre), which Lidl rounds up to the penny (£0.99 at £5.79/kg: 171 g only; `size_from_unit_price`);
+  used only to find the same branded product by exact name and size, never shown. Lidl's own brands (`LIDL_OWN`) and its fresh aisle never match, and Aldi
+  and M&S (whose own products often carry no shop name) lend nothing to such a row. Result: Swizzels Spooky Eyeball Double Lollies 130g (Morrisons),
+  Swizzels Curious Chews 171g (Sainsbury's), Swizzels Scrumptious Sweets 173g (Iceland), Twix Funsize 275g (Morrisons), Reese's Peanut Butter Cups Snack
+  Size 255g (Morrisons), Laila Bombay Mix Hot 325g (Sainsbury's): each label copied unchanged and marked "same:<shop>", so the app names whose page it is
+  from. Lidl products with numbers 39 to 45 (the other 39 are government figures for loose fruit and veg). Lidl's own pages for these Halloween offers are
+  gone (404), so the sizes could not also be checked there. Not matched: Sweet Shop Favourites Tub (Lidl printed no price per kg), Laila Pure Butter Ghee
+  (Lidl 1 kg, elsewhere 500 g), Diet Coke 30x330ml (elsewhere 24x330ml), Kinder Bueno, After Eight, Pepsi Max, Mackie's (no other shop has its own label
+  for them). **Recipes at Lidl stay at 0** (`MIN_RECIPE_COVERAGE` is 80): every recipe needs cupboard, dairy or meat products, and at Lidl those are its
+  own brands, whose labels Lidl doesn't publish online and which no other shop sells; its everyday range has no price online either (264 of 1,037 priced).
+  Only Lidl's own labels (read in store, or a data feed from Lidl) would change that. Tests: 2 new (259 Python tests pass).

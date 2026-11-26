@@ -1294,6 +1294,42 @@ class SameProductNutritionTests(unittest.TestCase):
         }
         self.assertEqual(bap.fill_same_product_nutrition(docs)["c"], 0)
 
+    def test_pack_size_from_lidls_printed_unit_price(self):
+        # Lidl rounds its price per kg up to the penny: the one whole size that gives the printed figure (26 Nov 2026: Swizzels, Twix, Reese's, Laila)
+        self.assertEqual(bap.size_from_unit_price(0.99, 5.79, "per kg"), "171g")
+        self.assertEqual(bap.size_from_unit_price(3.49, 12.7, "per kg"), "275g")    # 3.49 / 0.275 = 12.69..., printed 12.70
+        self.assertEqual(bap.size_from_unit_price(4.19, 16.44, "per kg"), "255g")
+        self.assertEqual(bap.size_from_unit_price(1.00, 4.00, "per litre"), "250ml")
+        self.assertIsNone(bap.size_from_unit_price(1.20, 0.80, "per litre"))       # 1500 to 1518 ml all print 0.80
+        self.assertIsNone(bap.size_from_unit_price(10.0, 1.0, "per kg"))            # many sizes fit: none is taken
+        self.assertIsNone(bap.size_from_unit_price(1.0, 2.0, "each"))
+        self.assertIsNone(bap.size_from_unit_price(None, 2.0, "per kg"))
+        self.assertIsNone(bap.size_from_unit_price(1.0, None, "per kg"))
+
+    def test_lidl_borrows_only_the_same_branded_product(self):
+        label = [409, 0.0, 88.0, 6.0, 5.5, 60.0, None, 0.1, 1730, "g", ""]
+        docs = {
+            "sainsburys": {"products": [
+                ["s1", "Swizzels Curious Chews 171g", 1.0, None, "", None, None, 0, "", "", list(label)],
+                ["s2", "Favorina Marzipan Bites 200g", 1.0, None, "", None, None, 0, "", "", list(label)],
+                ["s3", "Brand Toffees 150g", 1.0, None, "", None, None, 0, "", "", list(label)],
+            ]},
+            "aldi": {"products": [["a1", "Brand Fudge 200g", 1.0, None, "", None, None, 0, "", "", list(label)]]},
+            "lidl": {"categories": ["Food Cupboard"], "products": [
+                ["l1", "SWIZZELS Curious Chews", 0.99, 5.79, "per kg", None, None, 0, "", "", None],     # 171g from Lidl's own prices: same product
+                ["l2", "FAVORINA Marzipan Bites", 1.0, 5.0, "per kg", None, None, 0, "", "", None],      # 200g, but Lidl's own brand: never
+                ["l3", "Brand Toffees", 1.0, 5.0, "per kg", None, None, 0, "", "", None],                # 200g, the other shop's is 150g: not the same
+                ["l4", "Brand Fudge", 1.0, 5.0, "per kg", None, None, 0, "", "", None],                  # 200g, only at Aldi (own products unnamed): no
+                ["l5", "Swizzels Curious Chews", None, None, "", None, None, 0, "", "", None],            # no size anywhere: no
+            ]},
+        }
+        self.assertEqual(bap.fill_same_product_nutrition(docs)["lidl"], 1)
+        l1, l2, l3, l4, l5 = docs["lidl"]["products"]
+        self.assertEqual(l1[10][:11], label)
+        self.assertEqual(l1[10][11], "same:sainsburys")
+        for r in (l2, l3, l4, l5):
+            self.assertIsNone(r[10], r[1])
+
 
 class ProduceDataTests(unittest.TestCase):
     """cofid.produce_code (founder 2026-11-17: UK government food data only for loose fruit and vegetables without any label)."""
