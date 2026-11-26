@@ -115,10 +115,17 @@ const digitsIn = (page, name) => page.getByRole("region", { name, exact: true })
 /** "Step n of N" written where it can be seen (it must only be heard, in the headline's screen-reader text). */
 const writtenCounter = (page) => page.evaluate(() => [...document.querySelectorAll("main *")].some((el) => !el.closest(".sr-only") && [...el.childNodes].some((n) => n.nodeType === 3 && /Step \d+ of \d+/.test(n.textContent ?? ""))));
 const home = (page) => page.waitForURL((u) => u.pathname === "/app" || u.pathname === "/app/", { timeout: 30000 });
-/** Your plan's week, once it is made (its two chips), or its words-only line. */
+/** Your plan's week, once it is made (its label and phone), or its words-only line. */
 const weekSettled = (page) => page.getByText("Example plan", { exact: true }).or(page.getByText("Meal plan makes your week from your shop, with one shopping list.")).first().waitFor({ timeout: 60000 });
-/** The restaurant row's dishes, once they are there (each card's screen-reader line: "{dish} at {chain}: {kcal} calories."). */
-const dishLines = (page) => page.getByRole("region", { name: "Restaurants", exact: true }).locator("li .sr-only").allInnerTexts();
+/** The restaurant dishes, once they are there: the phone picture's name for a screen reader, one "{dish} at {chain}: {kcal} calories." each (since 26 November 2026
+ *  the dishes are a picture of Eat out on a phone that can't be tapped). */
+const dishLines = async (page) => {
+  const phone = page.getByRole("img", { name: /^Example of restaurant dishes in the app\./ });
+  if (!(await phone.count())) return [];
+  return ((await phone.getAttribute("aria-label")) ?? "").replace(/^Example of restaurant dishes in the app\.\s*/, "").split(/(?<=calories\.)\s+/).filter(Boolean);
+};
+/** The example week's meals, by name (each picture's data-meal). */
+const weekMeals = (page) => page.getByRole("region", { name: "Your week", exact: true }).locator("[data-meal]").evaluateAll((els) => els.map((e) => e.getAttribute("data-meal")));
 /** Email sign-in on the full screens (the account step): "What's your email?", Continue, "Enter the code" (it goes on with the sixth digit). */
 async function emailSignIn(scope, email) {
   await scope.getByRole("button", { name: "Continue with email" }).click();
@@ -200,22 +207,22 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await page.getByText("Suggested starting points, not medical advice. Adjust any time.").waitFor();
   await page.getByRole("button", { name: /Where these numbers come from/ }).first().waitFor();
   await weekSettled(page);
-  await page.getByText("1 shopping list", { exact: true }).waitFor();
-  const days = await page.getByRole("region", { name: "Your week", exact: true }).locator("ul.sr-only li").allInnerTexts();
-  // an example week (founder 2026-11-20): pictures and dish names only, no calories a day
-  expect(days.length === 7 && days.every((d) => /^\w+day: .+\.$/.test(d) && !/calories/.test(d)), "the week: " + JSON.stringify(days.slice(0, 2)));
-  await page.getByText("Your shop's prices", { exact: true }).waitFor();
-  // its shopping at Sainsbury's (founder 2026-11-20, "week one cost and then the week afterwards costs"): the first shop more than each week after, why, and
-  // the shop's own shelf prices; still "An example of what you can make."
+  // an example week (founder 2026-11-20): pictures only, no calories a day, drawn on a phone that is one image and can't be tapped (founder 2026-11-26)
+  const phone = page.getByRole("img", { name: /^Example of a meal plan/ });
+  await phone.waitFor();
+  const meals = await weekMeals(page);
+  expect(meals.length >= 14 && !meals.some((m) => /calories|kcal/.test(m)), "the week: " + JSON.stringify(meals.slice(0, 3)));
+  expect((await phone.locator("[inert]").count()) === 1, "the phone's screen can be tapped");
+  // its shopping at Sainsbury's (founder 2026-11-20, "week one cost and then the week afterwards costs"), inside the phone: the food a day and the first shop;
+  // under the phone, the shop's own shelf prices
   const weekBox = page.getByRole("region", { name: "Your week", exact: true });
-  const firstShop = weekBox.getByText(/^Your first shop: about £[\d,]+$/);
+  const firstShop = weekBox.getByText(/^First shop: about £[\d,]+$/);
   await firstShop.waitFor({ timeout: 60000 });
   const pounds = async (l) => Number((await l.innerText()).replace(/[^\d]/g, ""));
   // the food a day under it (founder 2026-11-21: "show the cost per each day for food"), a seventh of what each week after costs
-  const day = Number(/£([\d.]+)/.exec(await weekBox.getByText(/^Your food: about £[\d.]+ a day$/).innerText())[1]);
+  const day = Number(/£([\d.]+)/.exec(await weekBox.getByText(/^Food: about £[\d.]+ a day$/).innerText())[1]);
   const [weekOne, weekAfter] = [await pounds(firstShop), Math.round(day * 7)];
   expect(weekOne > weekAfter && weekAfter > 0, `the first shop £${weekOne}, each week after £${weekAfter}`);
-  await weekBox.getByText(/^It includes .+(, which last for weeks| that last for weeks)\.$/).waitFor();
   await weekBox.getByText(/^Prices are Sainsbury's shelf prices, checked .+, and vary by store\.$/).waitFor();
   await weekBox.getByText("Example plan", { exact: true }).waitFor();
   expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/kcal yet/).count()) === 0, "a worked-out week (a price or a calorie gap) on Your plan");
@@ -224,7 +231,7 @@ await step("(a) a plain run: the bar alone with 9 segments, 'Step n of 9' heard 
   await page.getByRole("heading", { level: 2, name: /^[\d,]+ restaurants, their own figures$/ }).waitFor({ timeout: 45000 });
   const dishes = await dishLines(page);
   expect(dishes.length >= 3 && dishes.every((d) => / at .+: [\d,]+ calories\.$/.test(d)) && !dishes.some((d) => /at Costa/.test(d)), "the restaurant dishes: " + JSON.stringify(dishes));
-  const captions = await page.getByRole("region", { name: "Restaurants", exact: true }).locator("figcaption").allInnerTexts();
+  const captions = await page.getByRole("region", { name: "Restaurants", exact: true }).getByText(/^Photo from the .+ website$/).allInnerTexts();
   expect(captions.length > 0 && captions.every((c) => /^Photo from the .+ website$/.test(c)), "the photo captions: " + JSON.stringify(captions));
   await page.getByText("Not affiliated with any restaurant or shop shown.").waitFor();
   // Change: the calorie and protein boxes, Save keeps the number
@@ -347,8 +354,7 @@ await step("(d) vegan with milk avoided: the diet tile shows a picture; the two 
   await W.press(page, "Continue");
   await W.skipBody(page);
   await weekSettled(page);
-  const days = await page.getByRole("region", { name: "Your week", exact: true }).locator("ul.sr-only li").allInnerTexts();
-  for (const d of days) expect(!MEAT.test(d.replace(/^\w+day: /, "")), "the week for a vegan: " + d);
+  for (const d of await weekMeals(page)) expect(!MEAT.test(d), "the week for a vegan: " + d);
   await page.getByRole("region", { name: "Restaurants", exact: true }).waitFor({ timeout: 45000 });
   await page.waitForTimeout(3000);
   for (const d of await dishLines(page)) expect(!MEAT.test(d.split(" at ")[0]), "a restaurant dish for a vegan: " + d);
@@ -499,7 +505,7 @@ await step("(i) no connection for the menus or the shops' files: step 4 says so 
   await W.skipBody(page);
   // the week is an example from the recipe book (founder 2026-11-20), so it needs no shop file and still shows, with no price
   await page.getByText("Example plan", { exact: true }).waitFor({ timeout: 30000 });
-  expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/^(Your first shop|Each week after): /).count()) === 0, "a price on the example week");
+  expect((await page.getByText(/^About £[\d,]+ for the week$/).count()) === 0 && (await page.getByText(/^(First shop|Food): about /).count()) === 0, "a price on the example week");
   expect((await page.getByRole("region", { name: "Restaurants", exact: true }).locator("li").count()) === 0, "restaurant dishes without the menus");
   await W.planNext(page);
   await W.onStep(page, "save");

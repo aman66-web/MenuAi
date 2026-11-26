@@ -76,9 +76,12 @@ describe("the welcome screens' words when their data is missing", () => {
   it("shows prices only with the shelf-price line (step 4, and Your plan's example week: its first shop and each week after)", () => {
     // step 4's headline names the shop, so its line is short (founder 2026-11-26: as few words as possible)
     expect(source("RecipeChoice.tsx")).toContain("Prices vary by store.");
-    // founder 2026-11-20, 23:05 ("week one cost and then the week afterwards costs"): the example week is priced at the person's shop, as Meal plan says it
+    // founder 2026-11-20, 23:05 ("week one cost and then the week afterwards costs"): the example week is priced at the person's shop, as Meal plan's money card
+    // says it (the food a day, then the first shop), inside the example's phone since 26 November 2026, with whose prices they are under it
     const week = source("WeekShowcase.tsx");
-    expect(week).toContain("<TwoWeeks ");
+    expect(week).toContain("foodADay(");
+    expect(week).toContain('"First shop: about £{cost}"');
+    expect(week).toContain("showsWeekAfter(");
     expect(week).toContain("Prices are {shop}'s shelf prices, checked {date}, and vary by store.");
     expect(week).not.toMatch(/formatPrice|total\b/);
   });
@@ -86,7 +89,9 @@ describe("the welcome screens' words when their data is missing", () => {
   it("Your plan's week is an example, never worked out or sized for the person (founder 2026-11-20: \"We shouldn't calculate the meal plan\")", () => {
     const week = source("WeekShowcase.tsx");
     expect(week).toContain("exampleWeek(");
-    expect(week).toContain("An example of what you can make.");
+    // labelled as an example, and drawn as a picture on a phone that can't be tapped (founder 2026-11-26: people took it for their own plan and tapped it)
+    expect(week).toContain('"Example plan"');
+    expect(week).toContain("<PhoneFrame");
     // the shop's file is read only to price the example (23:05); the week itself is never a plan worked out or sized for them
     for (const worked of ["weekPreview", "dailyCalories", "kcal"]) expect(week, worked).not.toContain(worked);
   });

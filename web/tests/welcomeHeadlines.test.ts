@@ -27,7 +27,8 @@ describe("Pip", () => {
   it("is never called a dietitian or nutritionist, and never gives medical advice, anywhere in the app", () => {
     const bad = [...files("app/app"), ...files("lib/mm")]
       .flatMap((f) => words(f).map((w) => [f, w] as const))
-      .filter(([, w]) => /\bPip\b/.test(w) && /dietitian|nutritionist|medical advice|prescri/i.test(w) && !/doesn't give medical advice|not medical advice/i.test(w));
+      // a line saying what Pip is NOT ("not a doctor or dietitian", "doesn't give medical advice") is fine
+      .filter(([, w]) => /\bPip\b/.test(w) && /dietitian|nutritionist|medical advice|prescri/i.test(w) && !/\bnot\b|n't\b/i.test(w));
     expect(bad).toEqual([]);
   });
 });
@@ -61,5 +62,25 @@ describe("a headline only", () => {
     expect(words("app/app/welcome/RestaurantRow.tsx")).toContain("Not affiliated with any restaurant or shop shown.");
     expect(read("app/app/welcome/PlanStep.tsx")).toMatch(/SUGGESTION_NOTE/);
     expect(words("app/app/_components/SignIn.tsx")).toContain("We keep your email and what you save. No ads, no tracking.");
+  });
+});
+
+// The onboarding's examples of the app are pictures on a phone (founder 2026-11-26: "the meal plan screen, people often think that that is like that their current
+// meal plan, and they try and click it ... show it within a phone because it helps").
+describe("examples of the app are drawn on a phone that can't be tapped", () => {
+  const frame = read("app/app/welcome/PhoneFrame.tsx");
+  it("the phone is one image for a screen reader, and nothing inside it can be tapped, focused or selected", () => {
+    expect(frame).toMatch(/role="img" aria-label=\{label\}/);
+    expect(frame).toMatch(/<div inert className="pointer-events-none select-none/);
+    // a plain outline: no device picture, no brand
+    expect(frame).not.toMatch(/<img|iphone|apple|android|pixel|galaxy/i);
+  });
+  it("the example meal plan and the restaurant dishes are inside it, each with a name that says it is an example", () => {
+    expect(read("app/app/welcome/WeekShowcase.tsx")).toMatch(/<PhoneFrame label=\{costs \? t\("Example of a meal plan/);
+    const row = read("app/app/welcome/RestaurantRow.tsx");
+    expect(row).toContain("<PhoneFrame");
+    expect(row).toContain('t("Example of restaurant dishes in the app.")');
+    // nothing tappable or focusable is left in the row (it was a scrollable list a keyboard could focus)
+    expect(row).not.toMatch(/tabIndex|onClick|href=/);
   });
 });
