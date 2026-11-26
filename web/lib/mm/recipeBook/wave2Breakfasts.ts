@@ -353,6 +353,157 @@ export const WAVE2_BREAKFASTS: readonly Recipe[] = [
       "Fry the tomatoes: Halve the cherry tomatoes and fry them in the pan for 2 minutes, until they soften. Serve them with the fritters.",
     ],
   },
+
+  // ---- more big breakfasts for the diets with the fewest at a rugby player's size: no gluten (rice, eggs, fish, tofu), vegetarian, Jain, vegan
+  {
+    id: "salmon-soft-boiled-egg-breakfast-rice-bowl", meal: "breakfast", tags: ["Savoury", "Fish", "Eggs", "Bowl"], name: "Salmon and soft-boiled egg breakfast rice bowl", blurb: "A Japanese-style breakfast of salted pan-fried salmon on warm rice with soft-boiled eggs, spinach, cucumber and spring onions.", servings: 2, minutes: 30,
+    ingredients: [ing("rice", 200, { note: "uncooked" }), ing("eggs", 240, { note: "about 4 eggs" }), ing("cucumber", 150), ing("spring-onions", 30), ing("salmon", 240, { note: "about 2 fillets" }), ing("salt", 1), ing("vegetable-oil", 10), ing("spinach", 100), ing("lemon-juice", 10)],
+    method: [
+      "Cook the rice: Rinse the rice in a sieve under the cold tap. Simmer it in a large pan of boiling water for 10 to 12 minutes, until tender, then drain it, put it back in the pan and cover it to keep warm.",
+      "Boil the eggs: Lower the eggs gently into a small pan of boiling water and cook for 7 minutes, until the whites are set and the yolks still soft in the middle. Cool them in cold water for 2 minutes.",
+      "Get ready: Cut the cucumber into thin sticks and trim and slice the spring onions.",
+      "Salt the salmon: Pat the salmon dry with kitchen paper and sprinkle the salt over both sides. Wash your hands after touching raw fish.",
+      "Fry the salmon: Heat the oil in a non-stick frying pan over a medium heat. Fry the salmon skin side down for 4 minutes, then turn it and cook for 3 to 4 minutes more, until it is opaque and flakes easily.",
+      "Wilt the spinach: Lift the salmon onto a plate. Add the spinach to the pan and stir it for 1 to 2 minutes, until it wilts.",
+      "Peel the eggs: Tap the eggs all over, peel off the shells and cut them in half.",
+      "Serve: Spoon the rice into bowls. Pull the skin off the salmon, break it into large flakes and lay it on the rice with the spinach, cucumber and eggs. Sprinkle over the lemon juice and spring onions.",
+    ],
+  },
+  {
+    id: "pea-spinach-cottage-cheese-rice-frittata", meal: "breakfast", tags: ["Savoury", "Eggs", "Make ahead"], name: "Pea, spinach and cottage cheese rice frittata", blurb: "A thick, golden frittata of rice, peas and spinach set in eggs with cottage cheese and cheddar, eaten warm or cold.", servings: 2, minutes: 45,
+    ingredients: [ing("rice", 160, { note: "uncooked" }), ing("peas", 80), ing("spring-onions", 30), ing("spinach", 60), ing("cheddar", 30), ing("eggs", 360, { note: "about 6 eggs" }), ing("cottage-cheese", 150), ing("salt", 1), ing("black-pepper", 1), ing("olive-oil", 10)],
+    method: [
+      "Cook the rice: Rinse the rice in a sieve. Simmer it in a large pan of boiling water for 10 to 12 minutes, until tender, adding the peas for the last 2 minutes. Drain well and leave to steam dry for 5 minutes.",
+      "Get ready: Trim and slice the spring onions, chop the spinach roughly and grate the cheddar.",
+      "Mix the eggs: Crack the eggs into a large bowl and beat them with a fork. Stir in the cottage cheese, most of the cheddar, a pinch of salt and some black pepper. Wash your hands after touching raw eggs.",
+      "Add the rice: Stir the rice, peas, spinach and spring onions into the eggs until everything is coated.",
+      "Cook on the hob: Heat the oil in a non-stick frying pan about 24 cm across over a medium-low heat. Tip in the mixture, level it and cook for 10 to 12 minutes, until the edges are set and the underneath is golden.",
+      "Heat the grill: While it cooks, turn the grill on to medium-high.",
+      "Finish under the grill: Scatter over the rest of the cheddar. Slide the pan under the grill, keeping the handle away from the heat, for 4 to 5 minutes, until puffed, golden and set in the middle.",
+      "Serve: Leave it for 5 minutes, then loosen the edges with a spatula, slide it onto a board and cut it into wedges. It keeps in the fridge for up to 2 days and is good cold.",
+    ],
+  },
+  {
+    id: "gallo-pinto-rice-beans-scrambled-tofu", meal: "breakfast", tags: ["Vegan", "Savoury", "Bowl"], name: "Gallo pinto rice and beans with scrambled tofu", blurb: "The Central American breakfast of rice and red beans fried with onion, pepper and cumin, with turmeric scrambled tofu.", servings: 2, minutes: 35,
+    ingredients: [ing("rice", 200, { note: "uncooked" }), ing("onion", 150, { note: "about 1 onion" }), ing("peppers", 160, { note: "about 1 pepper" }), ing("kidney-beans", 240), ing("vegetable-oil", 20), ing("garlic", 5, { note: "about 1 clove" }), ing("cumin", 2), ing("salt", 1), ing("tofu", 300), ing("turmeric", 1), ing("paprika", 1), ing("black-pepper", 1), ing("tomatoes", 170, { note: "about 2 tomatoes" })],
+    method: [
+      "Cook the rice: Rinse the rice in a sieve under the cold tap. Simmer it in a large pan of boiling water for 10 to 12 minutes, until tender, then drain it well and spread it on a plate to dry.",
+      "Get ready: Peel the onion and chop it finely. Cut the pepper in half, scoop out the seeds and white inside and chop it into small pieces. Rinse and drain the beans.",
+      "Soften the onion: Heat half the oil in a large frying pan over a medium heat. Fry the onion and pepper for 6 to 8 minutes, stirring, until soft and lightly golden. Stir in the garlic and cumin for 1 minute.",
+      "Add the beans: Add the beans and a splash of water and cook for 3 minutes, crushing a few with the back of a spoon so their juices colour the rice later.",
+      "Fry the rice: Tip in the rice with a pinch of salt and stir-fry for 4 to 5 minutes, until it is piping hot and speckled red-brown all through. Cover and keep it warm.",
+      "Scramble the tofu: Drain the tofu, pat it dry with kitchen paper and crumble it into a second frying pan with the rest of the oil, the turmeric, paprika and some black pepper.",
+      "Cook the tofu: Cook it over a medium heat for 5 minutes, stirring, until hot and golden yellow all over.",
+      "Serve: Slice the tomatoes. Spoon the rice and beans onto plates with the scrambled tofu and tomatoes beside it.",
+    ],
+  },
+  {
+    id: "cheesy-savoury-porridge-fried-eggs-spinach", meal: "breakfast", tags: ["Savoury", "Porridge", "Eggs", "Quick"], name: "Cheesy savoury porridge with fried eggs and spinach", blurb: "Oats cooked in milk with spinach, cheddar and spring onions, topped with fried eggs, soft cherry tomatoes and black pepper.", servings: 2, minutes: 15,
+    // the milk cooks into the oats, so it follows them when the porridge is fitted; the eggs on top carry most of the protein
+    ingredients: [ing("spring-onions", 30), ing("cherry-tomatoes", 150), ing("cheddar", 40), ing("oats", 180), ing("milk", 400, { follows: "oats" }), ing("salt", 1), ing("spinach", 100), ing("olive-oil", 10), ing("eggs", 240, { note: "about 4 eggs" }), ing("black-pepper", 1)],
+    method: [
+      "Get ready: Trim and slice the spring onions, halve the cherry tomatoes and grate the cheddar.",
+      "Start the porridge: Put the oats, milk and 300 ml of water in a medium saucepan with a pinch of salt and stir well.",
+      "Cook: Bring to a gentle bubble over a medium heat, then turn the heat down and cook for 4 to 5 minutes, stirring often, until thick and creamy.",
+      "Add the spinach: Stir in the spinach, most of the cheddar and most of the spring onions for 1 minute, until the spinach wilts and the cheese melts. Take the pan off the heat and cover it.",
+      "Fry the tomatoes: Heat the oil in a large non-stick frying pan over a medium heat. Fry the tomatoes cut side down for 2 minutes, until soft, then push them to one side.",
+      "Fry the eggs: Crack the eggs into the pan and fry for 3 to 4 minutes, until the whites are set and the edges golden. Wash your hands after touching raw eggs.",
+      "Serve: Spoon the porridge into bowls and top with the fried eggs, tomatoes and the rest of the cheddar and spring onions. Finish with plenty of black pepper.",
+    ],
+  },
+  {
+    id: "korean-style-egg-toast-sandwiches", meal: "breakfast", tags: ["Savoury", "Eggs", "Quick"], name: "Korean-style egg toast sandwiches", blurb: "Korean street-style breakfast toast: a carrot and spring onion omelette with melted cheddar and a little honey in golden toast.", servings: 2, minutes: 20,
+    ingredients: [ing("carrots", 100, { note: "about 1 carrot" }), ing("spring-onions", 30), ing("cheddar", 40), ing("eggs", 360, { note: "about 6 eggs" }), ing("black-pepper", 1), ing("bread", 320, { note: "about 8 slices" }), ing("vegetable-oil", 10), ing("honey", 10)],
+    method: [
+      "Get ready: Peel and coarsely grate the carrot, trim and thinly slice the spring onions and grate the cheddar.",
+      "Mix the eggs: Crack the eggs into a bowl, add the carrot, spring onions and some black pepper and beat well with a fork. Wash your hands after touching raw eggs.",
+      "Toast the bread: Heat a large non-stick frying pan over a medium heat and toast the bread in it, in batches, for 1 to 2 minutes a side, until golden. Keep it warm on a plate.",
+      "Start the omelettes: Add a little of the oil to the pan and pour in enough egg mixture to make a square about the size of a slice of bread.",
+      "Cook the omelettes: Cook for 2 minutes, until set underneath, then fold in the edges and turn it over. Scatter over some of the cheese and cook for 1 minute more, until set all the way through. Cook the rest the same way.",
+      "Build the sandwiches: Lay each omelette on a slice of toast, drizzle with a little honey and top with a second slice.",
+      "Serve: Press each sandwich down gently, cut it in half and eat warm.",
+    ],
+  },
+  {
+    id: "chickpea-fatteh-toasted-bread-cumin-yogurt", meal: "breakfast", tags: ["Savoury", "Middle Eastern"], name: "Chickpea fatteh with toasted bread and cumin yogurt", blurb: "The Levantine breakfast of crisp toasted bread under warm chickpeas, cool lemon and cumin yogurt and paprika almonds.", servings: 2, minutes: 25,
+    // the yogurt carries the protein with the chickpeas, so it moves with them when the dish is fitted
+    ingredients: [ing("bread", 240, { note: "about 6 slices" }), ing("olive-oil", 20), ing("chickpeas", 480), ing("cumin", 2), ing("salt", 1), ing("lemon-juice", 15), ing("greek-yogurt", 400, { role: "protein" }), ing("almonds", 30), ing("paprika", 2)],
+    method: [
+      "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6).",
+      "Toast the bread: Cut the bread into squares about 2 cm across. Toss them on a baking tray with half the oil and bake for 8 to 10 minutes, turning once, until golden and crisp.",
+      "Warm the chickpeas: Rinse and drain the chickpeas. Put them in a saucepan with half the cumin, a pinch of salt and 100 ml of water and simmer gently for 5 minutes, until hot. Crush a few with a spoon.",
+      "Make the yogurt: Stir the lemon juice and the rest of the cumin into the yogurt.",
+      "Toast the almonds: Chop the almonds roughly. Fry them in the rest of the oil in a small frying pan over a medium-low heat for 2 to 3 minutes, until golden, then stir in the paprika and take the pan off the heat.",
+      "Build the bowls: Spread the toasted bread over the bottom of wide bowls and spoon the warm chickpeas and their liquid over it.",
+      "Serve: Spoon the yogurt over the top and drizzle over the almonds and their red paprika oil. Eat straight away, while the bread is still crisp at the edges.",
+    ],
+  },
+  {
+    id: "molletes-refried-beans-cheese-tomato-salsa", meal: "breakfast", tags: ["Savoury", "Quick", "Mexican"], name: "Molletes with refried beans, cheese and tomato salsa", blurb: "The Mexican breakfast of grilled bread spread with cumin refried beans and melted cheddar, topped with a tomato and cucumber salsa.", servings: 2, minutes: 20,
+    ingredients: [ing("tomatoes", 170, { note: "about 2 tomatoes" }), ing("cucumber", 100), ing("lemon-juice", 10), ing("salt", 1), ing("kidney-beans", 480), ing("olive-oil", 15), ing("cumin", 2), ing("paprika", 2), ing("bread", 320, { note: "about 8 slices" }), ing("cheddar", 60)],
+    method: [
+      "Make the salsa: Chop the tomatoes and cucumber into small pieces and mix them with the lemon juice and a pinch of salt. Set aside.",
+      "Fry the beans: Rinse and drain the beans. Heat the oil in a frying pan over a medium heat, add the beans, cumin and paprika and fry for 2 minutes, stirring.",
+      "Mash the beans: Add a splash of water and mash the beans in the pan with a masher or fork for 3 to 4 minutes, until thick and mostly smooth. Take the pan off the heat.",
+      "Toast the bread: Turn the grill on to high. Toast the bread on one side under the grill for 1 to 2 minutes, until golden.",
+      "Top the toast: Turn the bread over and spread the beans thickly over the untoasted side, right to the edges. Grate the cheddar and scatter it over the beans.",
+      "Grill: Grill for 2 to 3 minutes, until the cheese has melted and is bubbling and golden in places.",
+      "Serve: Spoon the salsa over the top and eat straight away.",
+    ],
+  },
+  {
+    id: "tofu-french-toast-banana-cream-berries", meal: "breakfast", tags: ["Vegan", "Sweet", "Quick"], name: "Tofu French toast with banana cream and berries", blurb: "Egg-free French toast dipped in a blended tofu and cinnamon batter, fried until golden, with a thick banana tofu cream and berries.", servings: 2, minutes: 20,
+    // the tofu makes both the batter and the cream on top, so the soya drink in the batter follows it when the recipe is fitted; the bread is the carb that halves
+    ingredients: [ing("tofu", 280), ing("soya-drink", 150, { follows: "tofu" }), ing("cinnamon", 2), ing("banana", 120, { note: "about 1 banana" }), ing("bread", 160, { note: "about 4 slices" }), ing("oil-spray", 1), ing("berries", 200)],
+    method: [
+      "Make the batter: Drain the tofu and pat it dry. Blend half of it with the soya drink and half the cinnamon in a blender or tall jug for about 1 minute, until smooth, then pour it into a wide, shallow dish.",
+      "Make the cream: Peel the banana and blend it with the rest of the tofu and cinnamon for about 1 minute, until smooth and thick, like yogurt, adding a splash of water if it needs help. Spoon it into a bowl.",
+      "Soak the bread: Lay the bread in the batter for about 30 seconds a side, until coated all over.",
+      "Fry: Spray a large non-stick frying pan with oil and heat it over a medium heat. Fry the bread for 3 to 4 minutes a side, until golden and crisp, in batches, spraying the pan again each time.",
+      "Serve: Cut the French toast in half, spoon the banana cream over the top and scatter over the berries. If the berries are frozen, let them thaw in the fridge first.",
+    ],
+  },
+  {
+    id: "herby-tofu-breakfast-patties-tomatoes-toast", meal: "breakfast", tags: ["Vegan", "Savoury"], name: "Herby tofu breakfast patties with tomatoes and toast", blurb: "Golden patties of mashed tofu, oats, paprika and herbs, like breakfast sausage patties, with soft cherry tomatoes, spinach and toast.", servings: 2, minutes: 30,
+    // the oats bind the tofu, so they follow it when the recipe is fitted; the toast is the carb that halves on a small day
+    ingredients: [ing("oats", 40, { follows: "tofu" }), ing("tofu", 360), ing("soy", 10), ing("garlic", 5, { note: "about 1 clove" }), ing("paprika", 2), ing("mixed-herbs", 2), ing("black-pepper", 1), ing("vegetable-oil", 10), ing("cherry-tomatoes", 200), ing("spinach", 80), ing("bread", 160, { note: "about 4 slices" })],
+    method: [
+      "Make the oat flour: Blend the oats in a blender for about 1 minute, until they look like coarse flour.",
+      "Mix the patties: Drain the tofu, pat it dry and crumble it into a bowl. Add the oat flour, soy sauce, garlic, paprika, herbs and plenty of black pepper and mash with your hands for 2 minutes, until it holds together when squeezed.",
+      "Shape the patties: With wet hands, shape the mixture into small flat patties about 1 cm thick, pressing them firmly together.",
+      "Fry the patties: Heat most of the oil in a large non-stick frying pan over a medium heat. Fry the patties for 3 to 4 minutes a side, turning them carefully with a spatula, until golden and crisp. Keep them warm.",
+      "Cook the tomatoes: Halve the cherry tomatoes. Add the rest of the oil to the pan and fry the tomatoes for 2 minutes, then add the spinach and stir until it wilts.",
+      "Toast the bread: Toast the bread until golden on both sides.",
+      "Serve: Share the patties, tomatoes, spinach and toast between plates and eat hot.",
+    ],
+  },
+  // ---- big vegan breakfasts that are also Jain (no onion, garlic, roots or mushrooms)
+  {
+    id: "tofu-chilaquiles-beans-spiced-tomato-sauce", meal: "breakfast", tags: ["Vegan", "Savoury", "Bake", "Mexican"], name: "Tofu chilaquiles with beans and spiced tomato sauce", blurb: "The Mexican breakfast of crisp baked tortilla chips tossed in a cumin tomato and bean sauce, topped with golden paprika tofu.", servings: 2, minutes: 35,
+    ingredients: [ing("wraps", 240, { note: "about 4 wraps" }), ing("vegetable-oil", 20), ing("peppers", 160, { note: "about 1 pepper" }), ing("cumin", 2), ing("paprika", 2), ing("oregano", 1), ing("chopped-tomatoes", 400), ing("kidney-beans", 240), ing("salt", 1), ing("tofu", 300), ing("lemon-juice", 10)],
+    method: [
+      "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6).",
+      "Make the chips: Brush the wraps lightly on both sides with a third of the oil, cut each one into 8 triangles and spread them over baking trays in one layer.",
+      "Bake the chips: Bake for 8 to 10 minutes, turning once, until golden and crisp. Watch them closely at the end, as they brown quickly.",
+      "Soften the pepper: Cut the pepper in half, scoop out the seeds and chop it small. Heat another third of the oil in a large frying pan over a medium heat and fry the pepper for 5 minutes, until soft.",
+      "Simmer the sauce: Stir in the cumin, half the paprika and the oregano for 30 seconds. Add the tomatoes, the rinsed and drained beans and a pinch of salt and simmer for 8 to 10 minutes, until thick.",
+      "Fry the tofu: Drain the tofu, pat it dry and cut it into 2 cm cubes. Fry them in the rest of the oil in a non-stick pan over a medium-high heat for 6 to 8 minutes, turning, until golden. Toss with the rest of the paprika.",
+      "Coat the chips: Stir the lemon juice into the sauce, then add the tortilla chips and turn them gently for 1 minute, so they soak up some sauce but keep a little crunch.",
+      "Serve: Spoon onto plates straight away and scatter the tofu over the top.",
+    ],
+  },
+  {
+    id: "berry-cheesecake-overnight-oats-tofu", meal: "breakfast", tags: ["Vegan", "Sweet", "No cook", "Make ahead"], name: "Berry cheesecake overnight oats with tofu", blurb: "Oats soaked overnight in soya drink, layered with a smooth lemon, banana and tofu cheesecake cream and berries, with almonds on top.", servings: 2, minutes: 10,
+    // the soya drink soaks the oats, so it follows them when the recipe is fitted; the tofu cream carries the protein
+    ingredients: [ing("oats", 160), ing("soya-drink", 360, { follows: "oats" }), ing("cinnamon", 1), ing("tofu", 300), ing("banana", 120, { note: "about 1 banana" }), ing("lemon-juice", 10), ing("berries", 200), ing("almonds", 20)],
+    method: [
+      "Soak the oats: Stir the oats, soya drink and cinnamon together in a bowl.",
+      "Make the cheesecake cream: Drain the tofu and break it into pieces. Peel the banana. Blend the tofu, banana and lemon juice in a blender or tall jug for 1 to 2 minutes, scraping down the sides, until completely smooth and thick.",
+      "Layer the pots: Spoon half the oats into glasses or small bowls, add half the tofu cream and half the berries, then repeat the layers.",
+      "Chill overnight: Cover and leave in the fridge overnight, or for at least 4 hours, so the oats soften and frozen berries thaw.",
+      "Serve: Chop the almonds roughly and scatter them over the top just before eating. The pots keep covered in the fridge for up to 2 days.",
+    ],
+  },
 ];
 
 export const WAVE2_BREAKFASTS_LOOKS: Readonly<Record<string, string>> = {
@@ -383,17 +534,30 @@ export const WAVE2_BREAKFASTS_LOOKS: Readonly<Record<string, string>> = {
   "crunchy-honey-almond-oat-cereal-yogurt": "A white bowl of golden toasted oat clusters with pieces of pale almond and dark raisins, cold milk around them and a dollop of thick white yogurt on top.",
   "peanut-butter-banana-soya-rice-pudding": "A wide white bowl of thick, creamy rice pudding with a swirl of golden-brown peanut butter through the top, pale banana rounds and a dusting of brown cinnamon.",
   "sweetcorn-cheddar-fritters-tomatoes": "A stack of round golden fritters on a white plate, studded with bright yellow sweetcorn kernels, green spring onion and melted cheddar, beside soft, blistered red cherry tomato halves.",
+  "salmon-soft-boiled-egg-breakfast-rice-bowl": "A wide white bowl of white rice topped with large golden-edged pink flakes of pan-fried salmon, halved soft-boiled eggs with glossy orange yolks, dark green wilted spinach, pale cucumber sticks and thin green spring onion rings.",
+  "pea-spinach-cottage-cheese-rice-frittata": "A thick round golden frittata on a wooden board with one wedge cut away, the cut side showing set yellow egg packed with white rice, bright green peas, dark green spinach and white curds of cottage cheese under a browned cheddar top.",
+  "gallo-pinto-rice-beans-scrambled-tofu": "A round white plate with a mound of rice speckled red-brown with kidney beans, soft onion and small pieces of red pepper, beside a heap of golden-yellow scrambled tofu and overlapping slices of red tomato.",
+  "cheesy-savoury-porridge-fried-eggs-spinach": "A wide white bowl of thick, creamy pale oat porridge streaked with dark green spinach and melted cheddar, topped with two fried eggs with set whites and bright yellow yolks, soft red cherry tomato halves and green spring onion rings.",
+  "korean-style-egg-toast-sandwiches": "Halved toasted sandwiches on a white plate, the golden wholemeal bread showing thick folded omelette layers flecked with orange grated carrot and green spring onion, with melted cheddar at the edges.",
+  "chickpea-fatteh-toasted-bread-cumin-yogurt": "A wide shallow white bowl with crisp golden squares of toasted bread under warm chickpeas and thick white yogurt, topped with roughly chopped golden almonds and streaks of red paprika oil.",
+  "molletes-refried-beans-cheese-tomato-salsa": "Slices of golden grilled bread on a white plate, spread thickly with dark red-brown refried beans under bubbling melted orange cheddar, topped with spoonfuls of chopped red tomato and pale green cucumber salsa.",
+  "tofu-french-toast-banana-cream-berries": "Golden fried French toast halves on a round white plate, topped with a thick swirl of pale creamy banana tofu cream, a scattering of deep red and purple berries and a dusting of brown cinnamon.",
+  "herby-tofu-breakfast-patties-tomatoes-toast": "A white plate of round golden-brown tofu patties flecked with green herbs and red paprika, beside soft blistered red cherry tomato halves, dark green wilted spinach and two triangles of golden wholemeal toast.",
+  "tofu-chilaquiles-beans-spiced-tomato-sauce": "A wide white plate of golden tortilla chips coated in thick red tomato sauce with dark red kidney beans and soft pieces of red pepper, topped with crisp golden cubes of paprika tofu.",
+  "berry-cheesecake-overnight-oats-tofu": "Two clear glasses layered with soft pale soaked oats, thick smooth white tofu cheesecake cream and deep red and purple berries, finished with roughly chopped pale almonds on top.",
 };
 
 export const WAVE2_BREAKFASTS_CUISINES: ReadonlyArray<readonly [string, CuisineId]> = [
   ["bacon-egg-mushroom-breakfast-sandwiches", "british"],
   ["apple-berry-breakfast-crumble-yogurt", "british"], ["spiced-tofu-chickpea-breakfast-kedgeree", "british"],
-  ["breakfast-burrito-bowl-eggs-beans", "mexican"], ["bean-sweetcorn-pepper-breakfast-burritos", "mexican"],
+  ["breakfast-burrito-bowl-eggs-beans", "mexican"], ["bean-sweetcorn-pepper-breakfast-burritos", "mexican"], ["molletes-refried-beans-cheese-tomato-salsa", "mexican"], ["tofu-chilaquiles-beans-spiced-tomato-sauce", "mexican"],
   ["bombay-potato-chickpea-breakfast-hash", "indian"], ["masala-beans-on-toast", "indian"], ["tofu-bhurji-peas-tomatoes-toast", "indian"], ["banana-cinnamon-lassi-smoothie", "indian"],
   ["spiced-oat-spinach-pancakes-cucumber-yogurt", "indian"],
   ["tofu-chickpea-shakshuka-toast", "middle-eastern"], ["middle-eastern-breakfast-plate-eggs-houmous", "middle-eastern"],
   ["chinese-style-rice-porridge-egg", "chinese"],
+  ["chickpea-fatteh-toasted-bread-cumin-yogurt", "middle-eastern"],
 ];
 
 export const WAVE2_BREAKFASTS_OCCASIONS: ReadonlyArray<readonly [string, OccasionId]> = [
+  ["pea-spinach-cottage-cheese-rice-frittata", "lunchbox"],
 ];
