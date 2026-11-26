@@ -1,3 +1,4 @@
+import { GATING_ENABLED } from "./config";
 import { tk } from "./i18n";
 import { EATING_STYLES, type EatingStyle } from "./mealPlan";
 import type { PlanAnswers } from "./planAi";
@@ -14,8 +15,12 @@ import type { AllergenKey, Goal } from "./types";
 // targets) is dropped before it reaches the phone (checkSentence). Rule 3: a sentence that calls food healthy, unhealthy, good or bad, clean or junk is dropped
 // the same way. Rule 4: the chat goes only through our own route (POST /api/v1/pip/chat) to Anthropic; the conversation is kept on this phone only.
 
-/** Off unless NEXT_PUBLIC_ASK_PIP=1 (founder to switch on after raising the Anthropic spending cap; the route answers 404 while off). */
-export const ASK_PIP_ENABLED = process.env.NEXT_PUBLIC_ASK_PIP === "1";
+/** The chat's route answers with NEXT_PUBLIC_ASK_PIP=1 (founder switched it on 2026-11-26 after raising the Anthropic spending cap to $200 a month; it still
+ *  needs a paid token and ANTHROPIC_API_KEY), so the website serves the apps' Premium chat. The privacy page describes the chat whenever the route answers. */
+export const ASK_PIP_API_ENABLED = process.env.NEXT_PUBLIC_ASK_PIP === "1";
+/** The Pip button, the onboarding screen, the Premium list line and the AI permission's words: only on a build where free and paid are told apart
+ *  (GATING_ENABLED, the apps), like Make it at home, because the route answers Premium only and nothing is sold on the website. */
+export const ASK_PIP_ENABLED = ASK_PIP_API_ENABLED && GATING_ENABLED;
 /** Messages one account may send Pip a day (checked on the server; founder's default 2026-11-26, can change). */
 export const ASK_PIP_DAILY_LIMIT = 40;
 /** In any ten minutes, so a stuck button can't spend the day's allowance at once. */

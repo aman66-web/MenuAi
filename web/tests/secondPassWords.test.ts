@@ -126,9 +126,9 @@ describe("privacy: the AI features' limit counts the Premium token, and the date
   });
 
   it("the policy's date is the day it last changed", () => {
-    expect(read("site.config.ts")).toContain('privacyLastUpdated: "21 November 2026"');
-    // the website and the Android app's copy name the Android app (22 November 2026); the iPhone app's copy is the 21 November text
-    expect(read("site.config.ts")).toContain('privacyLastUpdatedAndroid: "22 November 2026"');
+    // both copies gained the Ask Pip section on 26 November 2026 (founder switched the chat on)
+    expect(read("site.config.ts")).toContain('privacyLastUpdated: "26 November 2026"');
+    expect(read("site.config.ts")).toContain('privacyLastUpdatedAndroid: "26 November 2026"');
   });
 });
 

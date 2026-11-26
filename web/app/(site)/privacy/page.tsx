@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SEARCH_HELP_ENABLED } from "@/lib/mm/searchHelp";
 import { PLAN_AI_API_ENABLED } from "@/lib/mm/planAi";
-import { ASK_PIP_ENABLED } from "@/lib/mm/askPip";
+import { ASK_PIP_API_ENABLED } from "@/lib/mm/askPip";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
@@ -43,7 +43,7 @@ const AI_FEATURES = [
   COMPARE_PICK_ENABLED && "Pip's pick on Compare",
   SEARCH_HELP_ENABLED && "search help",
   PLAN_AI_API_ENABLED && "Meal plan with Pip",
-  ASK_PIP_ENABLED && "Ask Pip",
+  ASK_PIP_API_ENABLED && "Ask Pip",
 ].filter((f): f is string => typeof f === "string");
 const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
@@ -334,7 +334,7 @@ export default function Privacy() {
       )}
 
       {/* Ask Pip, added 26 November 2026 (lib/mm/askPip.ts): shown once the chat is switched on (NEXT_PUBLIC_ASK_PIP=1) */}
-      {ASK_PIP_ENABLED && (
+      {ASK_PIP_API_ENABLED && (
       <Section title="Ask Pip">
         <p className={para}>
           From 26 November 2026, if you have Premium you can chat with Pip, the app&apos;s food guide and nutrition coach. Each message you send goes to our server with

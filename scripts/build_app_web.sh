@@ -10,6 +10,7 @@
 # (packing without them gave an app with nothing to buy, which App Review rejects as "In-App Purchase not found"). Anything left in the shell from testing is
 # cleared, so the pack is the same whoever runs it; each switch can still be set on purpose with a PACK_ name:
 #   PACK_IAP=0 / PACK_PHOTO_RECIPES=0          a free build without purchases or the photo features
+#   PACK_ASK_PIP=0                              without Ask Pip, the Premium chat (on since 2026-11-26; its button shows only with In-App Purchase)
 #   PACK_SIGN_IN_REQUIRED=0                     optional sign-in (the App Review 5.1.1(v) fallback; the live switch file can also do it without a new build)
 #   PACK_TELEMETRY_APP_ID=<id>                  anonymous setup counts (only after the App Privacy answers say so)
 #   PACK_ENTITLEMENT_PUBLIC_JWK='<json>'        another key than the committed web/lib/payments/entitlement-public-key.json (never for the App Store)
@@ -38,6 +39,7 @@ unset NEXT_PUBLIC_SHOW_SAMPLE_DATA NEXT_PUBLIC_PRO NEXT_PUBLIC_PRO_PREVIEW NEXT_
   NEXT_PUBLIC_COMMUNITY NEXT_PUBLIC_COMMUNITY_FRIENDS NEXT_PUBLIC_COMPARE_PICK NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_WEB_PRO NEXT_PUBLIC_APP_PREMIUM NEXT_PUBLIC_APP_VERSION
 export NEXT_PUBLIC_IAP="${PACK_IAP:-1}"
 export NEXT_PUBLIC_PHOTO_RECIPES="${PACK_PHOTO_RECIPES:-1}"
+export NEXT_PUBLIC_ASK_PIP="${PACK_ASK_PIP:-1}"
 [ -n "${PACK_SIGN_IN_REQUIRED:-}" ] && export NEXT_PUBLIC_SIGN_IN_REQUIRED="$PACK_SIGN_IN_REQUIRED"
 [ -n "${PACK_TELEMETRY_APP_ID:-}" ] && export NEXT_PUBLIC_TELEMETRY_APP_ID="$PACK_TELEMETRY_APP_ID"
 [ -n "${PACK_ENTITLEMENT_PUBLIC_JWK:-}" ] && export NEXT_PUBLIC_ENTITLEMENT_PUBLIC_JWK="$PACK_ENTITLEMENT_PUBLIC_JWK"
@@ -51,7 +53,7 @@ if [ -z "$marketing" ] || [ -z "$build" ] || [ "$(printf '%s\n' "$marketing" | w
   exit 1
 fi
 export NEXT_PUBLIC_APP_VERSION="$marketing ($build)"
-echo "Packing Numbite $NEXT_PUBLIC_APP_VERSION: In-App Purchase ${NEXT_PUBLIC_IAP}, photo features ${NEXT_PUBLIC_PHOTO_RECIPES}, sign-in required ${NEXT_PUBLIC_SIGN_IN_REQUIRED:-yes}."
+echo "Packing Numbite $NEXT_PUBLIC_APP_VERSION: In-App Purchase ${NEXT_PUBLIC_IAP}, photo features ${NEXT_PUBLIC_PHOTO_RECIPES}, Ask Pip ${NEXT_PUBLIC_ASK_PIP}, sign-in required ${NEXT_PUBLIC_SIGN_IN_REQUIRED:-yes}."
 
 photos=$(python3 -c 'import json; print("1" if json.load(open("app-content.json")).get("menuPhotos", True) else "0")')
 logos=$(python3 -c 'import json; print("1" if json.load(open("app-content.json")).get("appLogos", True) else "0")')

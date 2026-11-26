@@ -77,12 +77,13 @@ tracking, and there is no analytics in this version.
 | User Content → Other User Content (Community) | **Only if the person uses Community**: friends and requests, blocks, the shopping lists sent between friends (product references and typed words, no prices; 30 days) and reports | Yes |
 
 - Purpose for all of the above: App Functionality.
-- **Ask Pip (added 26 November 2026; built on `iap`, off until `NEXT_PUBLIC_ASK_PIP=1`): before the build that switches it on, update App Privacy.** Each chat
+- **Ask Pip (added 26 November 2026; switched on 26 November for the next builds, `NEXT_PUBLIC_ASK_PIP=1`): no new App Privacy answer is needed.** Each chat
   message goes to our server and Anthropic with the newest turns of the chat, the person's goal, targets, diet and allergy choices, supermarkets and the
   phone's time; today's food diary, saved recipes and meal plan go to our server and reach Anthropic only when Pip looks them up. Nothing is kept on our server
-  (the chat stays on the phone), never a name, email or account ID. Answers to add or confirm, all **not linked to the user**, purpose App Functionality:
-  **User Content › Other User Content** (the questions typed), **Health & Fitness › Health** (targets, diet, allergies, food diary entries), and **Search
-  History** already covers search help. Update the privacy page's "Last updated" date in `web/site.config.ts` on the same day.
+  (the chat stays on the phone), never a name, email or account ID. That is **User Content › Other User Content** (the questions typed) and **Health & Fitness ›
+  Health** (targets, diet, allergies, diary entries), both already declared for sync (linked, App Functionality; a data type is declared once, linked if any of it
+  is), as Meal plan with Pip's answers were on 22 November. Look at the live App Privacy page before the build is submitted. The privacy page's dates moved to
+  26 November 2026 (`web/site.config.ts`).
 - Location: **not collected** (used on the phone only to sort nearby branches; a typed postcode goes to postcodes.io for the lookup and
   isn't kept by us). Camera: not collected (barcodes are read on the phone).
 - Purchases: none in this version. Apple Health: not used.

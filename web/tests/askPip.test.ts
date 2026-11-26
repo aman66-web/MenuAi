@@ -383,3 +383,19 @@ describe("the browser check's answers (e2e/askpip.mjs)", () => {
     }
   }, 30_000);
 });
+
+describe("where the chat is switched on (founder 2026-11-26)", () => {
+  const src = (p: string) => readFileSync(p, "utf8");
+  it("the button, onboarding screen and Premium line need a build that sells Premium; the route and privacy page need only the switch", () => {
+    expect(src("lib/mm/askPip.ts")).toMatch(/export const ASK_PIP_API_ENABLED = process\.env\.NEXT_PUBLIC_ASK_PIP === "1";/);
+    expect(src("lib/mm/askPip.ts")).toMatch(/export const ASK_PIP_ENABLED = ASK_PIP_API_ENABLED && GATING_ENABLED;/);
+    expect(src("app/api/v1/pip/chat/route.ts")).toMatch(/if \(!ASK_PIP_API_ENABLED\) return notFound\(request\);/);
+    expect(src("app/(site)/privacy/page.tsx")).toMatch(/\{ASK_PIP_API_ENABLED && \(/);
+    expect(src("app/app/_components/AskPip.tsx")).toMatch(/if \(!ASK_PIP_ENABLED\) return null;/);
+  });
+  it("both app packs switch it on unless PACK_ASK_PIP=0", () => {
+    for (const p of ["../scripts/build_app_web.sh", "../scripts/build_android_web.sh"]) {
+      expect(src(p)).toMatch(/^export NEXT_PUBLIC_ASK_PIP="\$\{PACK_ASK_PIP:-1\}"$/m);
+    }
+  });
+});

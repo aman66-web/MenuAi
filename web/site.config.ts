@@ -13,7 +13,8 @@ export const site = {
   // Set once the app is live (App Store Connect › App Information › Apple ID).
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL ?? "",
   appleStandardEula: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
-  privacyLastUpdated: "21 November 2026",
-  /** The policy's date on the website and in the Android app, which name the Android app (the iPhone app's copy is the 21 November text, so its date stays). */
-  privacyLastUpdatedAndroid: "22 November 2026",
+  privacyLastUpdated: "26 November 2026",
+  /** The policy's date on the website and in the Android app, which name the Android app. Both dates moved to 26 November 2026 for the Ask Pip section
+   *  (shown once NEXT_PUBLIC_ASK_PIP=1, which the next app builds and the next website deploy carry). */
+  privacyLastUpdatedAndroid: "26 November 2026",
 } as const;

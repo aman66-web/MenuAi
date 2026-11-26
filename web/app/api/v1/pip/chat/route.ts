@@ -3,7 +3,7 @@ import { isJsonRequest, NOT_JSON } from "@/lib/http";
 import { anthropicPip } from "@/lib/askPipAi";
 import { siteData } from "@/lib/askPipData";
 import { makePipLimiter, prepareAskPip, runAskPip, type AskPipCtx } from "@/lib/askPipHandler";
-import { ASK_PIP_ENABLED, type PipEvent } from "@/lib/mm/askPip";
+import { ASK_PIP_API_ENABLED, type PipEvent } from "@/lib/mm/askPip";
 import { fromUs, limitedCaller, notFound, PHOTO_CORS } from "@/lib/photoRecipeRoute";
 
 // Ask Pip (lib/askPipHandler.ts): the conversation's newest turns, the person's targets, diet and shops, and their diary, saved recipes and plan in; Pip's
@@ -24,7 +24,7 @@ export function OPTIONS(request: Request) {
 }
 
 export async function POST(request: Request) {
-  if (!ASK_PIP_ENABLED) return notFound(request);
+  if (!ASK_PIP_API_ENABLED) return notFound(request);
   if (!fromUs(request)) return json(request, 403, { error: "forbidden" });
   if (!isJsonRequest(request)) return json(request, NOT_JSON.status, { ...NOT_JSON.body });
   const text = await request.text();

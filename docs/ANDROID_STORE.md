@@ -73,11 +73,11 @@ definition of "sharing" excludes service providers). Nothing is used for adverti
 | Device or other IDs | **yes since the build with `device.id` (1.1 (3))** | fraud prevention, security and compliance: a one-way hash of the Android ID stops a second free week on the same phone (the server keeps only a second hash of it, even after the account is deleted); not shared | required |
 | Contacts, Calendar, Audio, Files, Web browsing, Diagnostics, Performance | no |
 
-**Ask Pip (added 26 November 2026; on `iap`, off until `NEXT_PUBLIC_ASK_PIP=1`): before the Android build that switches it on, update Data safety.** Each chat message
+**Ask Pip (added 26 November 2026; switched on 26 November for the next build, `NEXT_PUBLIC_ASK_PIP=1`): Data safety already covers it, nothing to change.** Each chat message
 goes to our server and Anthropic (a service provider, so not "shared") with the newest turns of the chat, the goal, targets, diet and allergy choices, supermarkets and the
 phone's time; today's food diary, saved recipes and meal plan reach Anthropic only when Pip looks them up. Nothing is kept on our server; never a name, email or account ID.
-Add or confirm: **App activity › Other user-generated content** (the questions typed, optional) and **Health and fitness › Health info** (targets, diet, allergies,
-diary entries, already "yes"), with "processed ephemerally" ticked for the chat.
+Checked on the live form on 26 November: **App activity › Other user-generated content** (optional, App functionality) and **Health and fitness › Health info** are both ticked.
+"Processed ephemerally" stays **No** for both: Google asks it per data type, and saved meals, recipes, lists and the synced diary are kept.
 
 ## What's new (first release)
 
