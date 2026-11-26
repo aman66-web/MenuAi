@@ -16,9 +16,9 @@ describe("a liquid labelled per 100 g, for a recipe's ml", () => {
   const oil = product("1", "Extra Virgin Olive Oil 500 ml", 4.5, null, "", nut(884, 0, 0, 100, "g"));
   const spec = specFromKind(kind("olive-oil"), 15);
 
-  it("only kinds with a well-known density: oils, milk, oat drink, lemon and lime juice, coconut milk, soy sauce", () => {
+  it("only kinds with a well-known density: oils, milk, oat and soya drinks, lemon and lime juice, coconut milk, soy sauce", () => {
     const dense = [...PANTRY.values()].filter((k) => k.density).map((k) => k.key).sort();
-    expect(dense).toEqual(["coconut-light", "coconut-milk", "lemon-juice", "lime-juice", "milk", "oat-drink", "oil-spray", "olive-oil", "soy", "vegetable-oil"]);
+    expect(dense).toEqual(["coconut-light", "coconut-milk", "lemon-juice", "lime-juice", "milk", "oat-drink", "oil-spray", "olive-oil", "soy", "soya-drink", "vegetable-oil"]);
     for (const k of PANTRY.values()) if (k.density) expect(k.unit, k.key).toBe("ml");
     expect(kind("olive-oil").density).toBe(0.91);
     expect(kind("milk").density).toBe(1.03);

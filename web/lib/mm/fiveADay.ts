@@ -38,12 +38,12 @@ export const NOT_FRUIT_VEG: ReadonlySet<string> = new Set([
   // meat, fish, eggs, tofu and dairy
   "chicken", "chicken-thigh", "beef-mince", "turkey-mince", "lamb-mince", "salmon", "cod", "tuna", "prawns", "eggs", "tofu", "quorn", "halloumi", "cottage-cheese",
   "greek-yogurt", "cheddar", "feta", "milk", "beef-steak", "bacon", "ham", "smoked-salmon", "tinned-salmon", "mackerel", "white-fish", "paneer", "mozzarella",
-  "parmesan", "soft-cheese", "natural-yogurt", "skyr", "turkey-breast", "pork-chipolatas", "gammon-steaks",
+  "parmesan", "soft-cheese", "natural-yogurt", "skyr", "turkey-breast", "pork-chipolatas", "gammon-steaks", "whey-protein",
   // rice, pasta, bread and cereals
   "rice", "pasta-long", "pasta-shapes", "noodles", "wraps", "oats", "egg-noodles", "rice-noodles", "naan", "bread", "white-bread", "granola", "wheat-biscuits",
   "lasagne-sheets",
   // oils, sauces, nuts, seeds, drinks, spices and dried herbs
-  "olive-oil", "light-mayo", "honey", "stock-cube", "fajita-seasoning", "oat-drink", "almonds", "mixed-seeds", "soy", "peanut-butter", "salt", "black-pepper",
+  "olive-oil", "light-mayo", "honey", "stock-cube", "fajita-seasoning", "oat-drink", "soya-drink", "almonds", "mixed-seeds", "soy", "peanut-butter", "salt", "black-pepper",
   "white-pepper", "cumin", "paprika", "smoked-paprika", "chilli-powder", "chilli-flakes", "cinnamon", "turmeric", "curry-powder", "mixed-herbs", "oregano",
   "thyme", "rosemary", "dill", "mint", "sesame-seeds", "vegetable-oil", "oil-spray", "mixed-spice", "nutmeg",
 ]);

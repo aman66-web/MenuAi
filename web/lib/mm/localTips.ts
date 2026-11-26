@@ -38,6 +38,12 @@ export const LOCAL_TIPS: Readonly<Record<string, string>> = {
   "cooked-chestnuts": tk("a small pack of cooked chestnuts, in December"),
   "dried-cranberries": tk("any small bag of dried cranberries"),
   mincemeat: tk("a jar of mincemeat, in November and December"),
+  // the plant and protein kinds of 26 November (pantry.ts PROTEIN_KINDS): many small shops have some of them, not every one
+  tofu: tk("any block of firm tofu, from the chilled aisle"),
+  quorn: tk("any pack of Quorn pieces, chilled or frozen"),
+  edamame: tk("any bag of frozen edamame beans"),
+  "soya-drink": tk("any unsweetened soya drink, chilled or long-life"),
+  "whey-protein": tk("any plain or vanilla whey protein powder (many small shops don't sell it)"),
 };
 
 /** The small-shop tip for an ingredient whose shown product a typical small shop doesn't stock; null when the product is a small-shop one or there's no tip. */

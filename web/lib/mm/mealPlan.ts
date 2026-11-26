@@ -1074,7 +1074,7 @@ function varietyPools(candidates: Map<MealType, PlanCandidate[]>, types: readonl
 /**
  * Makes the week as varied as the recipes allow, one move at a time, the move that removes most faults first (ties: the one the pack search likes best, its
  * fresh food left, bill and fit; `tieBreak`): two of a meal's recipes swap turns, or one is changed for another from the variety window, or, when neither
- * helps, one is changed and two then swap turns. First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
+ * helps, one is changed and two then swap turns (in its own meal, else in another). First within VARIETY_FIT_SLACK, then, if faults are left, within VARIETY_WIDE_SLACK. Changes `chosen` in place.
  */
 function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<MealType, PlanCandidate[]>, counts: ReadonlyMap<MealType, number>, types: readonly MealType[], faults: () => number, tieBreak: () => number, maxRounds = 40, slacks: readonly number[] = [VARIETY_FIT_SLACK, VARIETY_WIDE_SLACK]): void {
   const size = (m: MealType) => Math.min(counts.get(m)!, chosen.get(m)!.length);
@@ -1096,7 +1096,9 @@ function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
         const n = size(m);
         for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => flip(pool, a, b)); flip(pool, a, b); }
       }
-      for (const compound of [false, true]) {
+      // 0: one recipe changed; 1: one changed and two of the same meal swap turns; 2 (only when neither helps): one changed and two of another meal swap
+      // turns (an omelette dinner changed for a chicken one frees its day for an omelette lunch, 26 November 2026: the keto week's eggs)
+      for (const stage of [0, 1, 2]) {
         if (best) break;
         for (const m of types) {
           const pool = chosen.get(m)!;
@@ -1107,8 +1109,14 @@ function varietyRepair(candidates: Map<MealType, PlanCandidate[]>, chosen: Map<M
             for (const x of windows.get(m)!) {
               if (inPool.has(x.recipe.id)) continue;
               pool[i] = x;
-              if (!compound) look(() => { pool[i] = x; });
-              else for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => { pool[i] = x; flip(pool, a, b); }); flip(pool, a, b); }
+              if (stage === 0) look(() => { pool[i] = x; });
+              else if (stage === 1) for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) { flip(pool, a, b); look(() => { pool[i] = x; flip(pool, a, b); }); flip(pool, a, b); }
+              else for (const other of types) {
+                if (other === m) continue;
+                const p2 = chosen.get(other)!;
+                const n2 = size(other);
+                for (let a = 0; a < n2; a++) for (let b = a + 1; b < n2; b++) { flip(p2, a, b); look(() => { pool[i] = x; flip(p2, a, b); }); flip(p2, a, b); }
+              }
             }
             pool[i] = was;
           }
