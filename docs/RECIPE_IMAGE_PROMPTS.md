@@ -10,7 +10,7 @@ each recipe's description of how it looks from above is in `web/lib/mm/recipeBoo
 
 Midjourney's Community Guidelines say it has no API and that **automating interactions with Midjourney is prohibited; accounts that do not comply may be blocked**
 (https://docs.midjourney.com/docs/community-guidelines). Letting Claude in Chrome paste the prompts and click through the site is automation of that kind, so it could put the founder's account at risk: read the current terms and decide.
-The safe way is for a person to paste each prompt (641 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
+The safe way is for a person to paste each prompt (640 of them) and download the pictures; the hand-over below also works for a person following it. Images made on a paid plan can be used commercially under Midjourney's terms (check the
 current plan rules: a company above a revenue threshold needs the Pro plan). If Midjourney is not wanted, the same descriptions work in Nano Banana: drop the `--` settings at the end of each prompt.
 
 ## Hand-over for Claude in Chrome (or for a person)
@@ -31,7 +31,7 @@ You are making one picture per recipe with Midjourney for Numbite, a UK calories
 Then, on the founder's computer: copy the PNG files into `data/recipe-images/` (named `<recipe id>.png`), run `python3 tools/recipes/import_recipe_images.py` (it crops to 4:3, resizes to 800 x 600, writes WebP copies into `web/public/recipe-images/`
 and lists them in `web/lib/mm/recipeImages.ts`), then commit and push. Or send the files to Claude and it does this.
 
-641 recipes, 382 with a picture.
+640 recipes, 382 with a picture.
 
 ## Breakfast
 
@@ -3433,12 +3433,6 @@ A wide white bowl of spaghetti under a thick red tomato sauce with five golden-b
 
 ```
 A wide white bowl of white rice topped with golden tofu cubes and soft sliced mushrooms and onions in a creamy, rusty orange paprika sauce. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
-```
-
-### Glamorgan-style cheese and spring onion sausages with beans · `glamorgan-style-cheese-sausages-beans`
-
-```
-A round white plate with three crisp, golden-brown breadcrumb and cheese sausages flecked with green spring onion, beside a heap of glossy orange baked beans. Overhead food photograph, bird's-eye view shot straight down from directly above (90 degrees, flat lay), the dish centred with space around it, on a light oak wooden table, soft natural window daylight, natural appetising colours, crisp sharp detail, simple home-cooked styling. --ar 4:3 --v 7 --style raw --no text, letters, numbers, logo, brand, packaging, label, hands, people, cutlery, steam
 ```
 
 ### Turkish-style lazy manti pasta with garlic yogurt · `turkish-style-lazy-manti-garlic-yogurt`

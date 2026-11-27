@@ -240,19 +240,30 @@ describe("step 10's week", () => {
     expect(await weekPreview({ shop: "sainsburys", diet: {}, person }, { load: async () => { throw new Error("not loaded again"); }, yieldToScreen: now, keepNarrow: true })).toEqual(p);
   }, 120000);
 
-  it("falls short on a big day because each recipe stretches only so far (the founder's 3,480 kcal day: about 2,830)", async () => {
-    // a third of the day a meal (equal meals), and a recipe's protein and carb ingredients move at most to double (lib/mm/recipes.ts fitRecipe): no breakfast
-    // reaches 1,160 kcal, so the day can't add up to 3,480; the welcome screens show the week with one line saying so
+  it("adds up on the founder's 3,480 kcal day since the big-day recipes (26 November 2026: about 2,830 before them)", async () => {
+    // a third of the day a meal (equal meals), and a recipe's protein and carb ingredients move at most to double (lib/mm/recipes.ts fitRecipe); the second
+    // wave of recipes (lib/mm/recipeBook/wave2.ts) has breakfasts, lunches and dinners written big enough to reach a 1,160 kcal meal
     const person: PlanPerson = { goal: "buildMuscle", dailyCalories: 3480, dailyProtein: 175 };
     const targets = mealTargets(person);
     expect(targets.breakfast?.kcal).toBe(1160);
     const { products } = await load("sainsburys");
     const cands = planCandidates(recipesFor([], {}, []), products, {}, targets, [], "sainsburys", false);
     const biggest = Math.max(...(cands.get("breakfast") ?? []).map((c) => c.perServing.kcal));
-    expect(biggest).toBeLessThan(1160);
+    expect(biggest).toBeGreaterThanOrEqual(1160 * 0.95);
     const p = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now, keepNarrow: true });
     if (!p.ok) throw new Error(p.reason);
-    expect(p.average.kcal).toBeLessThan(3480 * 0.9);
+    expect(p.average.kcal).toBeGreaterThan(3480 * 0.9);
+  }, 120000);
+
+  it("still falls short on a day bigger than any recipe stretches to, and says so", async () => {
+    // 6,000 kcal in three meals is 2,000 a meal: no recipe's protein and carb ingredients double that far, so the welcome screens show the week with one line
+    const person: PlanPerson = { goal: "buildMuscle", dailyCalories: 6000, dailyProtein: 250 };
+    const { products } = await load("sainsburys");
+    const cands = planCandidates(recipesFor([], {}, []), products, {}, mealTargets(person), [], "sainsburys", false);
+    expect(Math.max(...(cands.get("breakfast") ?? []).map((c) => c.perServing.kcal))).toBeLessThan(2000);
+    const p = await weekPreview({ shop: "sainsburys", diet: {}, person }, { load, yieldToScreen: now, keepNarrow: true });
+    if (!p.ok) throw new Error(p.reason);
+    expect(p.average.kcal).toBeLessThan(6000 * 0.9);
     expect(weekGap(p)?.kind).toBe("short");
   }, 120000);
 });

@@ -156,7 +156,7 @@ export const WAVE2_QUICK_BATCH: readonly Recipe[] = [
   },
   {
     id: "loaded-bean-cheese-wrap-nachos", meal: "dinner", tags: ["Bake", "Mexican"], name: "Loaded bean and cheese wrap nachos", blurb: "Crisp baked tortilla triangles piled with spiced kidney beans, sweetcorn, salsa and melted cheddar, with cool yogurt and spring onions.", servings: 4, minutes: 25,
-    ingredients: [ing("wraps", 360, { note: "about 6 wraps" }), ing("kidney-beans", 480, { note: "about 2 tins, drained" }), ing("sweetcorn", 160), ing("salsa", 200), ing("cheddar", 100), ing("greek-yogurt", 120), ing("spring-onions", 30), ing("cumin", 3), ing("paprika", 3), ing("oil-spray", 2)],
+    ingredients: [ing("wraps", 240, { note: "about 4 wraps" }), ing("kidney-beans", 480, { note: "about 2 tins, drained" }), ing("sweetcorn", 160), ing("salsa", 200), ing("cheddar", 100), ing("greek-yogurt", 120), ing("spring-onions", 30), ing("cumin", 3), ing("paprika", 3), ing("oil-spray", 2)],
     method: [
       "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6).",
       "Cut the wraps: Stack the wraps and cut them into 8 triangles, like a cake. Spread them over two large baking trays and spray them lightly with the oil spray.",
@@ -465,21 +465,6 @@ export const WAVE2_QUICK_BATCH: readonly Recipe[] = [
       "Store: Cool the paprikash quickly, keep it covered in the fridge and eat it within 3 days, reheated gently until piping hot. Cool leftover rice within 1 hour and eat it the next day.",
     ],
   },
-  {
-    id: "glamorgan-style-cheese-sausages-beans", meal: "dinner", tags: ["Batch cook", "Bake", "British"], name: "Glamorgan-style cheese and spring onion sausages with beans", blurb: "Crisp baked Welsh-style sausages of breadcrumbs, cheddar, spring onions and mustard, with baked beans on the side.", servings: 4, minutes: 45,
-    ingredients: [ing("bread", 200, { note: "about 5 slices" }), ing("cheddar", 120), ing("spring-onions", 60, { note: "about 4 spring onions" }), ing("mixed-herbs", 2), ing("eggs", 120, { note: "about 2 eggs" }), ing("milk", 40), ing("mustard", 5), ing("baked-beans", 800, { role: "protein", fit: [0.5, 1.5], note: "about 2 tins" }), ing("oil-spray", 2), ing("black-pepper", 1)],
-    method: [
-      "Heat the oven: Turn the oven on to 200°C (180°C fan, gas 6) and line a baking tray with baking paper.",
-      "Make the crumbs: Grate the bread on the coarse side of a box grater into a large bowl, or tear it into very small pieces.",
-      "Add the cheese: Grate the cheddar into the bowl. Trim the spring onions, slice them very thinly and add them with the herbs and plenty of black pepper.",
-      "Bind: Beat the eggs, milk and mustard together in a jug. Pour most of it into the bowl and mix with your hands until it holds together when squeezed. Wash your hands after touching raw eggs.",
-      "Shape: Squeeze and roll the mixture into sausages about 10 cm long and as thick as a thumb. Brush them all over with the rest of the egg.",
-      "Bake: Put them on the tray, spray them with the oil spray and bake for 20 to 25 minutes, turning halfway, until golden and crisp all over.",
-      "Warm the beans: Meanwhile, tip the beans into a saucepan and warm them on a medium heat for 4 to 5 minutes, stirring, until bubbling.",
-      "Serve: Serve the sausages hot, with the beans spooned beside them.",
-      "Store: Cool any left over quickly, keep them covered in the fridge and eat them within 3 days, reheated in the oven for 10 minutes until piping hot.",
-    ],
-  },
 
   // ---- 15-minute lunches, round two: without gluten, vegan, and ones whose rice or pasta and protein both grow for a big training day's lunch
   {
@@ -586,7 +571,6 @@ export const WAVE2_QUICK_BATCH_LOOKS: Readonly<Record<string, string>> = {
   "persian-style-spinach-kuku-yogurt-rice": "A round white plate with two thick squares of deep green spinach omelette with golden edges, beside a mound of white rice and a spoonful of thick white yogurt flecked with grated pale green cucumber.",
   "bean-tofu-balls-tomato-sauce-spaghetti": "A wide white bowl of spaghetti under a thick red tomato sauce with five golden-brown baked bean and tofu balls, flecked with green oregano.",
   "hungarian-style-mushroom-tofu-paprikash-rice": "A wide white bowl of white rice topped with golden tofu cubes and soft sliced mushrooms and onions in a creamy, rusty orange paprika sauce.",
-  "glamorgan-style-cheese-sausages-beans": "A round white plate with three crisp, golden-brown breadcrumb and cheese sausages flecked with green spring onion, beside a heap of glossy orange baked beans.",
   "mexican-style-tuna-tomatoes-onion-rice": "A wide white bowl of white rice topped with pale pink flaked tuna in a chunky red tomato and soft onion sauce, finished with a pile of finely shredded green lettuce.",
   "korean-style-rolled-omelette-rice-cucumber": "A wide white bowl of white rice beside thick slices of rolled yellow omelette showing swirled layers flecked with green spring onion and red pepper, with thin cucumber slices dusted with red chilli.",
   "smoky-tofu-pea-carbonara-style-spaghetti": "A wide white bowl of spaghetti coated in a creamy pale sauce with bright green peas, scattered with crisp, paprika-dusted golden tofu cubes and coarse black pepper.",
@@ -610,7 +594,6 @@ export const WAVE2_QUICK_BATCH_CUISINES: ReadonlyArray<readonly [string, Cuisine
   ["neapolitan-baked-spaghetti-frittata-peas", "italian"],
   ["persian-style-spinach-kuku-yogurt-rice", "middle-eastern"],
   ["bean-tofu-balls-tomato-sauce-spaghetti", "italian"],
-  ["glamorgan-style-cheese-sausages-beans", "british"],
   ["mexican-style-tuna-tomatoes-onion-rice", "mexican"],
   ["smoky-tofu-pea-carbonara-style-spaghetti", "italian"],
   ["turkish-style-lazy-manti-garlic-yogurt", "middle-eastern"],
@@ -641,8 +624,6 @@ export const WAVE2_QUICK_BATCH_OCCASIONS: ReadonlyArray<readonly [string, Occasi
   ["persian-style-spinach-kuku-yogurt-rice", "lunchbox"],
   ["bean-tofu-balls-tomato-sauce-spaghetti", "bonfire-night"],
   ["hungarian-style-mushroom-tofu-paprikash-rice", "bonfire-night"],
-  ["glamorgan-style-cheese-sausages-beans", "picnic"],
-  ["glamorgan-style-cheese-sausages-beans", "lunchbox"],
   ["korean-style-rolled-omelette-rice-cucumber", "lunchbox"],
   ["smoky-tofu-lettuce-tomato-toasted-sandwiches", "lunchbox"],
 ];
