@@ -269,11 +269,12 @@ describe("measured at Sainsbury's and Morrisons", () => {
     }
   });
 
-  it("greys the styles a diet leaves too few of: a vegan has no High protein, Lower carb, Keto or Paleo meals at Sainsbury's, but has Longevity and Mediterranean", () => {
+  // since the second wave of recipes (26 November 2026: tofu-led vegan meals, lib/mm/recipeBook/wave2.ts) a vegan has High protein meals too
+  it("greys the styles a diet leaves too few of: a vegan has no Lower carb, Keto or Paleo meals at Sainsbury's, but has High protein, Longevity and Mediterranean", () => {
     const vegan = { veganOnly: true };
     const grey = EATING_STYLES.filter((s) => styleTooFew(candidatesFor(s, vegan), s, SLOTS).length > 0);
-    for (const s of ["highProtein", "lowerCarb", "keto", "paleo"] as const) expect(grey, s).toContain(s);
-    for (const s of ["balanced", "longevity", "mediterranean", "lowFat", "highFibre"] as const) expect(grey, s).not.toContain(s);
+    for (const s of ["lowerCarb", "keto", "paleo"] as const) expect(grey, s).toContain(s);
+    for (const s of ["balanced", "highProtein", "longevity", "mediterranean", "lowFat", "highFibre"] as const) expect(grey, s).not.toContain(s);
   });
 
   it("fitting to the style's protein is what gives High protein and Lower carb enough recipes", () => {

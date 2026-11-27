@@ -310,7 +310,10 @@ describe("using up the packs (founder 2026-11-18: \"by the end of the week, all 
     const before = buildWeek(plain, cands, null, slots)!;
     const after = makePlan(cands, null, slots)!.week;
     const share = (w: typeof after) => w.fresh.eaten / w.fresh.bought;
-    expect(share(after)).toBeGreaterThan(share(before) + 0.1);
+    // since the second wave of recipes (26 November 2026) the closest recipes in turn already share their packs far better (0.35 of the fresh food eaten before,
+    // 0.69 after, for this person at Sainsbury's), so the plan's own gain is smaller; it still eats more of it, and over 75%. Measured that day for four people
+    // (2,000/120, 1,600/130, 2,800/170, 2,000/100), the wave moved the plan's share by -2.8, -1.5, +2.6 and +2.4 points: no pattern, and three weeks cost less.
+    expect(share(after)).toBeGreaterThan(share(before) + 0.05);
     expect(share(after)).toBeGreaterThan(0.75);
     expect(after.shoppingCost).toBeLessThanOrEqual(before.shoppingCost + 0.01);
     for (const d of after.days) for (const m of d.meals) expect(m.candidate.distance, m.candidate.recipe.id).toBeLessThanOrEqual(0.1);

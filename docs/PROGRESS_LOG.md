@@ -4449,3 +4449,41 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
 - (26 Nov) **"Add a serving to today" on a recipe page is a main button** (founder: white "is easily missed ... make that button the same background colour as the add all to my shopping list button ... whatever you think would be best"): ink with white words (`LOG_PILL` in `RecipeDetail.tsx`), like "Add all to my shopping list", following the colour scheme.
 - (26 Nov) **The "second email screen" after Apple or Google sign-up (founder, on the iPhone):** the app has none: after Apple's sheet or Google's page it goes straight on (`SignIn.tsx` `withProvider`). What asks for an email and a code is Apple's or Google's own check, shown when the phone (or a simulator) isn't already signed in to that Apple ID or Google account; on a phone signed in to iCloud, Apple is one Face ID tap. Apple's sheet also offers "Share My Email / Hide My Email" because the app asks Apple for the email (`AppleSignInService.swift` `requestedScopes = [.email]`); left as is pending the founder.
 - (26 Nov) **Work moves off the Mac (founder: "All the stuff that can be run on a cloud session, run it on a cloud session, and only stuff that has to be run on a desktop session ... the same for moving forward").** The desktop session keeps only Xcode, the Simulator, the founder's Chrome and typing; builds, tests, browser checks and code work go to cloud sessions from the pushed branch.
+- (27 Nov, cloud session, branch `claude/recipes-wave-2` from `iap` 9fa3ee1c; not merged, not deployed) **Recipes for every kind of person: 198 new recipes
+  (442 to 640) and the persona audit** (founder 26 Nov: "it needs to suit literally everyone. Like, someone could be a professional footballer ... someone who
+  does rugby might need more ... So it's important to have as many recipes as possible that cater to different things").
+  - **Personas** (`docs/RECIPE_PERSONAS_2026-11-26.md`): footballer, rugby (3,500 to 4,500 kcal), endurance, power, combat (no weight-cutting advice), gym cut and
+    bulk, tight-budget weight loss, students, shift workers, busy parents, older adults, GLP-1 users, variety; calories, protein g/kg, carbs g/kg, timing and food
+    types from the ACSM/AND/DC 2016 position, the ISSN protein and timing stands, UEFA 2021, the IAAF 2019 consensus, PROT-AGE/ESPEN and the NHS; what each
+    day means for the planner's meal and snack sizes; which diets are realistic for each.
+  - **Small-shop protein foods** (the desktop session relayed the founder: only what a Sainsbury's Local or Tesco Express stocks): three judges on the 23
+    Sainsbury's products of the protein kinds, kept at 2 of 3 (`web/lib/mm/localRangeProtein.ts`, added to `LOCAL_SHOP_PRODUCTS`): the Cauldron tofu block, Quorn
+    chicken-style pieces and four soya drinks pass; edamame and protein powder fail. Quorn can't be used as things stand: a meat-free recipe never takes a product
+    whose name says "chicken". So wave 2 uses only tofu and soya drink (`tests/recipesWave2.test.ts`). **Not done here, for the "Check and fix iap" session:**
+    removing the blanket `PROTEIN_KINDS` exception in `pantry.ts` and swapping the first wave's protein powder, edamame and Quorn (13 recipes still buy them).
+  - **The audit** (`web/tests/recipePersonas.check.test.ts`, `REPORT=personas`; `REPORT=fit FILE=...` for one file): 49,000 counts (16 people x 41 diets and
+    allergen sets x meals x cooking times and their own filters x 5 shops). Thin (under 7): 21,888 to 5,929; none at all: 4,211 to 607; weighted gap -92%.
+    By shop, thin: Sainsbury's 4,086 to 1,001, Morrisons 4,094 to 1,104, Waitrose 4,688 to 1,137, Iceland 4,473 to 1,556, Asda 4,547 to 1,131. By persona:
+    footballer 1,887 to 346, rugby 1,987 to 459, rugby at 4,500 2,126 to 875, endurance 2,058 to 379, power 1,334 to 315, combat 1,751 to 399, gym cut 904 to
+    335, gym bulk 1,425 to 303, tight budget 1,187 to 464, student 1,272 to 338, shift worker 852 to 167, parent 739 to 165, older adult 986 to 197, GLP-1 977
+    to 360, 1,200 kcal day 966 to 404, variety 1,437 to 423. Tables and the worst-first list: `docs/RECIPE_COVERAGE_2026-11-26.md` "Wave 2".
+  - **Recipes the shops make** (`recipeCoverage.ts`), 442 to 640: Sainsbury's 442 to 641, Morrisons 438 to 637, Waitrose 381 to 574, Iceland 384 to 568, Asda
+    364 to 553, Aldi 150 to 199, M&S 224 to 273, Tesco 3, Lidl 0.
+  - **The 198** (`web/lib/mm/recipeBook/wave2*.ts`, gathered in `wave2.ts`; each file keeps its looks and niche lines): breakfasts 37, lunches 59, dinners 64,
+    snacks 38; 63 in 15 minutes or less. Vegan 74, vegetarian 147, Jain 64, no gluten 86, no milk 120. Big breakfasts, lunches and dinners written at 650 to 900
+    kcal that fit to 1,250 kcal; carb-heavy pre-match and endurance meals; recovery meals and snacks; tofu-led vegan and Jain meals; soft meals for older adults;
+    small protein-first meals; 15-minute dinners; cheap batch-cooks. Written by six helper sessions in parallel from one brief, then reviewed: 12 near-copies of
+    a dish already in the book or of another new one taken out, the Glamorgan-style cheese sausages taken out (they put bread at two meals of a day four times
+    in the tight £40 week), seven trimmed under 900 kcal as written, the wrap nachos to one wrap each.
+  - **The planner** (no constant changed): the plan's average day at Sainsbury's for 1,200, 1,400 (GLP-1 cap) and 1,500 kcal was and is 99-100%; 3,300 kcal
+    90 to 98%, 3,500 89 to 98%, 4,000 83 to 97% (75 to 98% with no snacks), 4,500 77 to 97%; vegans 4,000 74 to 95%, 4,500 66 to 89%. A bigger snack cap (400,
+    or 12.5% of the day up to 450) was simulated: +2 to -5 points, so **the proposal is to change nothing**; the last few % on a 4,500 kcal day would need carbs
+    to go past double (`SCALES`), which needs the founder's go-ahead.
+  - **Tests changed** (they described the old shortfall or a bar the new recipes moved): `eatingStyle` (a vegan now has High protein meals at Sainsbury's),
+    `planPreview` (the founder's 3,480 kcal day adds up; a 6,000 kcal day still falls short and says so), `mealPlan` "using up the packs" (beat the closest
+    recipes in turn by 5 points of fresh food eaten, not 10, and stay over 75%: the closest recipes in turn went from 35% to 69%; across four people the wave
+    moved the plan's share by -2.8 to +2.6 points). Full run: 4,883 passed, 4 failed, all four from the first wave and failing on `iap` too (byWeight
+    soya-drink density, fiveADay kinds, localRange's 13 first-wave picks, the keto week's eggs).
+  - **Pictures:** 198 looks and prompts (`docs/RECIPE_IMAGE_PROMPTS.md`), the three scenes in turn listed in `docs/RECIPE_PICTURES_WAVE2_2026-11-26.md`; none made
+    (about 198 Higgsfield credits, about 218 with retries; the founder's go-ahead first).
+  - **New copy** (rule 8, logged here; English only): the 198 recipe names, blurbs, methods and looks.

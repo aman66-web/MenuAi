@@ -41,6 +41,10 @@ decisions that differ from the spec (and why), and list known issues. Keep it sh
 touches an earlier decision, and add new entries there, dated, at the end).
 
 **Where things live**
+- **Recipes wave 2, 27 November, on `claude/recipes-wave-2` only (from `iap`; not merged, not live):** 198 recipes for every kind of person (442 to 640:
+  athletes' big days, recovery and pre-training snacks, vegan and Jain protein, soft and small meals, 15-minute and cheap ones), the personas
+  (`docs/RECIPE_PERSONAS_2026-11-26.md`) and their audit (`docs/RECIPE_COVERAGE_2026-11-26.md` "Wave 2"); big days now reach 97-98% of a 3,300 to 4,500 kcal day
+  (was 77-90%). Details in docs/PROGRESS_LOG.md.
 - **26 November, on `iap` only (not live, not uploaded):** colour schemes ("Pick your colours" at the end of onboarding and Settings › Colours; six light schemes, Lime the default, kept on the device only); onboarding with a headline only on every screen and Pip met as "your food guide and nutrition coach"; the example meal plan and restaurant dishes drawn on a phone that can't be tapped; Pip's button tips only from Settings; "Tap Pip to ask anything" in onboarding while Ask Pip is on. Details in docs/PROGRESS_LOG.md.
 - **Steps, 26 November, on `iap` only (not live, not uploaded):** today's steps on Home under Water and the last 7 days at /app/steps, with a daily goal; iPhone
   through Core Motion (never Health), nothing stored or sent, nothing on the website; Android shows nothing yet: the founder approved Google's Recording API on 26 Nov and it is being added in a cloud session. Details in docs/PROGRESS_LOG.md.
@@ -109,6 +113,12 @@ Moved to docs/PROGRESS_LOG.md (see above).
 
 ## Founder to-do (things Claude can't do)
 
+- [ ] **Recipes wave 2 (27 Nov, branch `claude/recipes-wave-2`):** (1) say whether to merge it into `iap` (the "Check and fix iap" session's branch touches the
+  same first-wave files: merge that first; this one adds new files and one line each in `recipeBook/index.ts`, `looks.ts`, `niches.ts` and `localRange.ts`);
+  (2) approve about 218 Higgsfield credits for the 198 pictures (list and scenes in `docs/RECIPE_PICTURES_WAVE2_2026-11-26.md`), made from the desktop
+  session; (3) decide whether Quorn should count as a small-shop food (its Local pack is "Chicken Style", which meat-free recipes never take: a change to
+  the shared diet signals); (4) the planner: nothing to change (a bigger snack size was measured and doesn't help); say if the last few % on a 4,500 kcal day
+  are worth letting carbs go past double
 - [ ] **Steps (26 Nov, on `iap`):** (1) Android: Google's Recording API (`play-services-fitness`) approved by you on 26 Nov; until that change lands
   Android shows no steps. (2) **Try it on your real iPhone** (cable + Run in Xcode, Home › Steps › Turn on step counting): iOS asks for Motion & Fitness once; the
   Simulator can't count steps. No Xcode capability is needed and App Privacy doesn't change (steps never leave the phone)
