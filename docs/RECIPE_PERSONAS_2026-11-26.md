@@ -162,12 +162,12 @@ Each persona gives the day (reference person), the macros, when they eat, and th
 
 Every persona above is planned in every diet below where realistic. "Hard" means the book has to go out of its way for it.
 
-| Diet | Protein foods the book can use (small-shop rule) | Hard for |
+| Diet | Protein foods the book can use (small-shop rule: tofu and soya drink pass; Quorn, edamame and protein powder don't, `web/lib/mm/localRangeProtein.ts`) | Hard for |
 |---|---|---|
 | Any | everything | - |
-| Vegetarian | eggs, milk, yogurt, cottage cheese, cheese, beans, chickpeas, tofu, Quorn pieces | rugby and bulking (needs eggs, dairy, tofu, Quorn every meal) |
+| Vegetarian | eggs, milk, yogurt, cottage cheese, cheese, beans, chickpeas, tofu | rugby and bulking (needs eggs, dairy or tofu every meal) |
 | Vegan | tofu, chickpeas, kidney beans, baked beans, peanut butter, soya drink, houmous | rugby, power, cutting (protein per kcal is low in pulses: tofu carries it) |
-| Pescatarian | salmon, smoked salmon, tuna, eggs, dairy, pulses, tofu, Quorn | - |
+| Pescatarian | salmon, smoked salmon, tuna, eggs, dairy, pulses, tofu | - |
 | Halal | halal chicken and beef mince (where the shop names it), fish, eggs, dairy, pulses | shops with no halal-named meat: fish, eggs and pulses carry it |
 | Jain | milk, yogurt, cottage cheese, vegetarian cheeses, chickpeas, kidney beans, tofu, peanuts, almonds (no eggs, roots, onion, garlic, mushrooms, honey) | every high-protein persona: needs tofu, dairy and pulses in every meal |
 | Kosher style | no pork or shellfish, never meat with dairy in one dish | meat dishes must have no cheese, yogurt or milk |
