@@ -4376,3 +4376,16 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
     `screens`, not the exact line); eslint 0 errors; typecheck clean; `next build` and the apps' `APP_BUILD=1` export both built. At 375 and 1280 px: axe
     found no violations, there was no sideways scroll, and the LCP was the headline (120 to 160 ms with the CPU slowed 4×). Screenshots are in
     `docs/site-hero-lime/`.
+- 2026-11-27 (later) — **The Lime hero gets a sunrise gradient** (founder, on the flat lime: "the light green looks slightly boring ... maybe some kind of
+  gradient or something, just to make it look more interesting ... whatever you think"). On `claude/site-hero-lime`, not live.
+  - **Colours:** the app icon's own (web/design/icon.svg), as the tokens `--icon-lime`, `--icon-green` and `--icon-deep`. The top is exactly `--sun`, so it
+    joins the lime header with no seam (the header carries the same fine grain). The icon's bright lime comes in from both sides; its green rises like a
+    horizon behind the phone; a fine grain (an inline noise tile) stops banding. Flat lime with "Increase contrast".
+  - **Decision:** the only gradient on the site, an exception for this hero to the flat look of 2026-10-15; the page's design comment says so.
+  - **How it was chosen:** four variants (corner glow with a green stage, top-to-bottom, mesh with grain, stage with grain) were rendered at 375 and 1280 px.
+    The chosen one keeps every word on lime: the green starts under the proof row.
+  - **Checks:** black words measured on the real pixels behind them at 11:1 or more (9.9:1 at 200% text); new `tests/heroColours.test.ts`; vitest 4,246
+    passed (22 skipped); eslint 0 errors; `next build` passes; axe clean at 375 and 1280 px; LCP still the headline. New picture
+    `docs/site-hero-lime/hero-375-whole.png`.
+  - **Side finding:** an `APP_BUILD=1 next build` (what `build_app_web.sh` runs) also rewrites parts of a local `web/.next`. A later `next start` then serves the
+    app's pages until `npm run build` runs again. Vercel always builds fresh, so the live site is unaffected.

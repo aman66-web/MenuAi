@@ -10,11 +10,12 @@ brand lime and its own app screens.
 
 ## Screenshots
 
-Taken at 2x from `next start` on this branch (first screen only):
+Taken at 2x from `next start` on this branch. The first two show the first screen; the third shows the whole hero on a phone, down to the green
+behind the phone:
 
-| 375 px (iPhone) | 1280 px (desktop) |
-|---|---|
-| ![The hero at 375 px](site-hero-lime/hero-375.png) | ![The hero at 1280 px](site-hero-lime/hero-1280.png) |
+| 375 px (iPhone) | 1280 px (desktop) | The whole hero at 375 px |
+|---|---|---|
+| ![The hero at 375 px](site-hero-lime/hero-375.png) | ![The hero at 1280 px](site-hero-lime/hero-1280.png) | ![The whole hero at 375 px](site-hero-lime/hero-375-whole.png) |
 
 ## Vercel preview
 
@@ -24,9 +25,20 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
 ## What changed
 
 **The hero** (`web/app/(site)/page.tsx`, styles in `web/app/globals.css` under "The homepage hero")
-- **Lime, edge to edge.** The background is the site's own brand lime, `--sun` (#d6efa0), and no new colour was added. The hero fills the first screen
-  under the header (`min-height: 100svh` minus the header). On the homepage the header turns the same lime, so the header and hero read as one block, and
-  its quieter links (Support, Privacy) switch to `--on-sun`.
+- **Lime, edge to edge, with a sunrise.** The founder found the flat lime "slightly boring" and asked for "some kind of gradient ... whatever you
+  think" (27 November), so the hero is now a gradient in the colours of **the app's own icon** (`web/design/icon.svg`: lime #a3e635, green #22c55e,
+  deep green #047857, now the tokens `--icon-lime`, `--icon-green` and `--icon-deep`). No colour outside the brand was added.
+  - The top is exactly the brand lime `--sun` (#d6efa0).
+  - The icon's bright lime comes in from both sides lower down.
+  - The icon's green rises like a horizon behind the phone.
+  - A very fine grain (a tiny inline noise tile, nothing to download) keeps the large gradients from banding.
+
+  This is the only gradient on the site: an exception, for this hero only, to the flat look decided on 2026-10-15. The words never sit on the green;
+  it starts below the proof row. With the iPhone's "Increase contrast" setting on, the hero goes back to flat lime. Four variants were tried; this one
+  was chosen because it joins the header with no seam and keeps every word on lime.
+
+  The hero fills the first screen under the header (`min-height: 100svh` minus the header). On the homepage the header turns the same lime, with the
+  same grain, so the header and hero read as one block. Its quieter links (Support, Privacy) switch to `--on-sun`.
 - **Headline.** The existing words, "Know your *macros* before you order.", with "macros" still in the Playfair serif italic. It is now all black, as the
   direction asked (it was green before). Size: 56 px on a 375 px phone and up to 100 px on desktop, with tight leading. Four lines on a phone; two lines
   from 1024 px ("Know your macros / before you order.").
@@ -80,7 +92,8 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
 
 ## Checks (all on this branch, after the rebase)
 
-- `npm test`: **passed**. 188 test files, 4,243 tests (22 skipped, as before). One test from the other branch was loosened:
+- `npm test`: **passed**. 189 test files, 4,246 tests (22 skipped, as before), including the new `tests/heroColours.test.ts` (the sunrise's colours
+  come from the icon, black words stay above 11:1 on every lime the words can sit on, and the top is exactly `--sun`). One test from the other branch was loosened:
   `tests/secondPassOffline.test.ts` pinned the exact line `ALWAYS_OUT = {"menus-sample", "sw.js"}`. It now checks that the set holds `"sw.js"` and
   `"screens"`.
 - `npm run lint`: **passed**. 0 errors; 4 warnings, all in older e2e scripts this change doesn't touch.
@@ -91,13 +104,14 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
     two rows of two on the phone and one row on desktop; no sideways scroll.
   - **Accessibility:** axe (WCAG 2.0/2.1/2.2 A and AA, plus best practice) found **no violations** at either width. The keyboard reaches the header, both
     badges and the screenshots row, and the focus ring is the site's green.
-- **Speed:** with the CPU slowed 4×, the browser's Largest Contentful Paint is the **headline** at both widths, at 120 to 160 ms. The first screen picture
+- **Speed:** with the CPU slowed 4×, the browser's Largest Contentful Paint is the **headline** at both widths, at 130 to 180 ms. The first screen picture
   is 13 to 29 KB and the next two load after it at low priority. Nothing in the hero animates in.
 - **Contrast on the lime, all above AA:**
 
   | What | Ratio |
   |---|---|
-  | Words (`--foreground`) | 14.28:1 |
+  | Words (`--foreground`) on flat lime | 14.28:1 |
+  | Words on the sunrise, measured on the real pixels behind them (grain included) | 11:1 or more; 9.9:1 at 200% text |
   | Header links (`--on-sun`) | 11.86:1 |
   | Focus ring (`--accent`) | 5.12:1 |
   | Phone frame (`--ink`) | 12.72:1 |
@@ -112,6 +126,8 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
   closed web app kept), takes out the Smart App Banner and puts `screens/` back in the app packs.
 - **Fastest after it is live:** Vercel › Project menumacros › Deployments › the previous production deployment › Instant Rollback.
 - **Only the banner:** in `app/(site)/layout.tsx`, change `smartAppBanner(APP_BUILD, site.appStoreId)` to `{}`.
+- **Only the gradient:** in `web/app/globals.css`, set `.hero-lime`'s `background` to `var(--sun)` and the lime header's to `var(--sun)`. That brings
+  back the flat lime.
 - **Only the motion:** delete the `@media (prefers-reduced-motion: no-preference)` block under "The homepage hero" in `web/app/globals.css`. The phone
   then shows Home only.
 
@@ -120,3 +136,4 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
 1. The short line under the headline (above).
 2. Whether the header should stay lime down the whole homepage, as built, or go back to white once you scroll past the hero.
 3. A Pause button on the phone (no, as built, following the logo wall).
+4. The sunrise gradient (as built) or the flat lime (one line to switch back, above).

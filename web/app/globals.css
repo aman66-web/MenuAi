@@ -71,6 +71,10 @@
   --tint-cook: #fbeccb;
   --photo-chip: rgba(255, 255, 255, 0.92);
   --photo-chip-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.28);
+  /* The app icon's own gradient (web/design/icon.svg: lime, green, deep green), used only by the homepage hero's sunrise (.hero-lime below). */
+  --icon-lime: #a3e635;
+  --icon-green: #22c55e;
+  --icon-deep: #047857;
   color-scheme: light;
 }
 
@@ -203,9 +207,26 @@ p { text-wrap: pretty; }
 /* The homepage hero, direction "A. Lime" (founder 2026-11-27, after Opal's site: one huge headline, one line, the store buttons; "a background that commands
    attention"): the brand lime (--sun) edge to edge, and the header over it in the same lime, so they read as one block; the header stays lime down the page.
    Contrast on the lime, checked: the words (--foreground) 14.28:1, the header's quieter links in --on-sun 11.86:1 (--muted would be 4.85:1), the focus ring
-   (--accent) 5.12:1 and the phone's frame (--ink) 12.72:1. Flat, like the rest of the site: no gradient, glow or shadow. */
-.hero-lime { background: var(--sun); color: var(--foreground); }
-:root:has(.hero-lime) .site-header { background: var(--sun); border-bottom-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+   (--accent) 5.12:1 and the phone's frame (--ink) 12.72:1.
+   The one gradient on the site (founder 2026-11-27, on the flat lime: "maybe some kind of gradient ... to make it look more interesting ... whatever you
+   think"; an exception to the flat look of 2026-10-15, for this hero only): a sunrise in the app icon's own colours (web/design/icon.svg). The top is exactly
+   --sun, so it joins the lime header with no seam; the icon's bright lime comes in from both sides lower down; its green rises like a horizon behind the
+   phone; a fine grain keeps the large gradients from banding. The words never sit on the green: it starts about two-thirds of the way down, under the proof
+   row, where only the phone is (black words: 11.9:1 or more on the tokens, tests/heroColours.test.ts; measured on the page behind the words, grain
+   included, 11:1 or more, 9.9:1 at 200% text). Flat lime with "Increase contrast" on. */
+.hero-lime {
+  color: var(--foreground);
+  background:
+    var(--hero-grain),
+    radial-gradient(130% 48% at 50% 104%, var(--icon-deep) 0%, var(--icon-green) 34%, color-mix(in srgb, var(--icon-green) 50%, transparent) 55%, color-mix(in srgb, var(--icon-lime) 0%, transparent) 80%),
+    radial-gradient(45% 30% at 4% 58%, color-mix(in srgb, var(--icon-lime) 90%, transparent), color-mix(in srgb, var(--icon-lime) 0%, transparent) 72%),
+    radial-gradient(45% 30% at 96% 48%, color-mix(in srgb, var(--icon-lime) 80%, transparent), color-mix(in srgb, var(--icon-lime) 0%, transparent) 72%),
+    linear-gradient(180deg, var(--sun) 0%, var(--sun) 24%, color-mix(in srgb, var(--sun), var(--icon-lime) 55%) 100%);
+}
+@media (prefers-contrast: more) { .hero-lime, :root:has(.hero-lime) .site-header { background: var(--sun); } }
+/* The hero's fine grain (a tiny noise tile, no file to fetch), on the lime header too so the two meet with no seam. */
+:root:has(.hero-lime) { --hero-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+:root:has(.hero-lime) .site-header { background: var(--hero-grain), var(--sun); border-bottom-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 :root:has(.hero-lime) .site-header .text-muted { color: var(--on-sun); }
 /* About 56 px on a 375 px phone, 100 px at most on a wide screen (the rem ends grow with the reader's text size); tight leading. */
 .hero-title { font-size: clamp(3.25rem, 2rem + 6.5vw, 6.25rem); font-weight: 680; line-height: 0.98; letter-spacing: -0.04em; }

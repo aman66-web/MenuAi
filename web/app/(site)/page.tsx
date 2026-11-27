@@ -75,7 +75,8 @@ const faqs = siteFaqs(
 
 // The website's look (founder 2026-10-15: "the rest of the app should match that elegance too"): a white page, flat light grey cards
 // with 20 px corners and nothing inside them but white, the app's black pill for the main action (the words only), the
-// one accent green for small highlights, and the Playfair italic kickers the website keeps. No gradients, glows or coloured shadows.
+// one accent green for small highlights, and the Playfair italic kickers the website keeps. No gradients, glows or coloured shadows, except the hero's sunrise
+// (founder 2026-11-27: globals.css .hero-lime).
 const card = "rounded-[1.25rem] bg-[var(--fill)]";
 // Side gutters in px, like the app's: at 200% text the words get the room rather than the margins.
 const section = "mx-auto max-w-5xl px-[20px] py-10 sm:py-14";
