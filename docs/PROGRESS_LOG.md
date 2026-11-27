@@ -4398,3 +4398,15 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   - **Rollback:** Vercel › menumacros › Deployments › dpl_GYGGWHARADupEnxfwYxzT3Mhacc5 (da6f5d80) › Instant Rollback.
   - **Still for the founder** (they are live as built): the hero's short line, the header staying lime down the page, a Pause button (none), the sunrise or the
     flat lime, and #12's points (shared dish links, former web app users).
+- 2026-11-27 (later) — **numbite.com's screenshots are the App Store's own** (founder, on the copies retaken in the cloud without photos: "the screenshots should
+  be the images of the screens from the App Store you took. Just the photos of the screens, because there's some screens here where there's no images of the
+  food products").
+  - **"See it on your phone":** the ten screenshots of the live App Store listing (1.1, released 24 November), exactly as the store shows them, photos and logos
+    included. `web/e2e/site-screens.mjs` now fetches them from the listing itself (iTunes lookup, Apple's 1320 x 2868 originals) instead of a local retake.
+    The caption "Not affiliated with any restaurant or shop shown." stays under them.
+  - **Hero phone:** cut from those images, now four screens: Meal plan first (our recipe pictures), Home, Best for you (the dishes' photos), the leaderboards. No
+    logo in the part shown. Still on Meal plan with Reduce Motion.
+  - **Decision recorded:** CLAUDE.md rule 2 (founder 2026-11-27): the homepage may show the App Store screenshots with their photos and logos, and the hero is
+    cut from them; nowhere else in marketing.
+  - **Checks:** vitest 4,246 passed (22 skipped); eslint 0 errors; `next build`; axe clean at 375 and 1280 px; the LCP is still the headline (148 to 168 ms with
+    the CPU slowed 4×).

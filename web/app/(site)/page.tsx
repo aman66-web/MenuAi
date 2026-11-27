@@ -33,16 +33,19 @@ const pillars = [
   { title: "Recipes", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
 ];
 
-// The hero's phone (direction "A. Lime", 27 November 2026): the screen alone, cut from three of the screenshots below (e2e/hero-screens.mjs), slowly fading
-// from one to the next. Only screens with no chain's or shop's logo and no food picture in the part shown (the hero is marketing: CLAUDE.md rule 2).
+// The hero's phone (direction "A. Lime", 27 November 2026): the screen alone, cut from four of the App Store screenshots below (e2e/hero-screens.mjs), slowly
+// fading from one to the next; the first (Meal plan, our own recipe pictures) is shown at once and alone with Reduce Motion. With their food pictures, as the
+// store shows them (founder 27 Nov 2026); no logo in the part shown.
 const heroScreens = [
+  { name: "plan", alt: "Meal plan: today's calories, protein and food cost, starting with cottage cheese pancakes with banana and honey for breakfast." },
   { name: "home", alt: "The app's Home screen: the calories left today, and the protein, carbs and fat eaten so far against your targets." },
-  { name: "best", alt: "Best for you: a restaurant's lunches up to 700 kcal, ranked by the most protein for their calories." },
+  { name: "best", alt: "Best for you: a restaurant's lunches up to 700 kcal, each with its photo, ranked by the most protein for their calories." },
   { name: "groceries", alt: "Nutrition leaderboards: the top 20 supermarket products for the most protein for the calories, the cheapest protein and more." },
 ];
 
-// The App Store screenshots of 1.1 (22 November 2026), in the store's order, retaken without the chains' and shops' own photos, which CLAUDE.md rule 2
-// keeps out of marketing (e2e/site-screens.mjs). The words are the ones drawn on each picture.
+// The App Store listing's own ten screenshots of 1.1, in the store's order, exactly as the store shows them (e2e/site-screens.mjs fetches them): with the
+// chains' and shops' photos and logos as the app shows them (founder 27 Nov 2026: "the screenshots should be the images of the screens from the App Store").
+// The words are the ones drawn on each picture.
 const screens = [
   { name: "recipes", alt: "Recipes priced at your shop. Real products from 7 UK supermarkets." },
   { name: "recipe", alt: "Every ingredient, ready to buy. Real Sainsbury's products, with prices." },

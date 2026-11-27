@@ -58,17 +58,18 @@ The branch preview is **https://menumacros-git-claude-site-hero-lime-aman-moneys
   stops the build rather than letting it show a wrong figure. Note that the 9 supermarkets include Lidl, whose list has prices but few labels (39 of
   1,037 products have nutrition). The app counts it the same way.
 - **Phone rising from the bottom edge.** An ink frame drawn in CSS (no new image) holding the real app screens, cut off by the hero's bottom edge. It
-  crossfades slowly through **three** screens, each shown for 5 seconds with a 1.2 second fade:
+  crossfades slowly through **four** screens, each shown for 5 seconds with a 1.2 second fade:
+  - **Meal plan**: the week's dishes and today's calories, protein and cost, with our own recipe pictures (the pancakes). It comes first.
   - **Home**: the day's calories, protein, carbs and fat.
-  - **Best for you**: lunches ranked by protein for their calories, with our own cuisine icons.
+  - **Best for you**: lunches ranked by protein for their calories, each with the dish's own photo.
   - **Nutrition leaderboards** from Groceries.
 
-  **Why three and not four:** the brief keeps logos and food photos out of marketing. Every other screen in `public/screens/` shows a chain's or a shop's
-  logo near the top (Eat out, Truth's Nando's logo, Scan's Asda logo, Recipes and Recipe's Sainsbury's logo) or food pictures (Plan, Fridge, Recipes).
-  **How the pictures are made:** the screens are cut out of the existing store screenshots by `web/e2e/hero-screens.mjs`. It keeps only the top 70% of
-  the screen, the part the hero shows, so the M&S tile and the Aldi logo further down the leaderboards screen are not in the files at all. That gives six
-  WebP files in `web/public/screens/hero/` (13 to 44 KB each).
-- **Reduced motion.** With Reduce Motion on, the phone stands still on Home. The other two screens are hidden and never downloaded.
+  **Where the pictures come from (changed the same evening):** the founder asked for "the images of the screens from the App Store", because the copies
+  retaken in the cloud had no food photos. So `web/e2e/site-screens.mjs` now fetches the ten screenshots from the live App Store listing (Apple's
+  1320 × 2868 originals) for the "See it on your phone" row, exactly as the store shows them, photos and logos included. `web/e2e/hero-screens.mjs` cuts the
+  phone's screens from those, keeping only the top 70% of each, the part the hero shows. None of the four has a logo in that part. The founder's decision is
+  recorded in CLAUDE.md rule 2. The files are in `web/public/screens/hero/` (14 to 61 KB each).
+- **Reduced motion.** With Reduce Motion on, the phone stands still on Meal plan. The other three screens are hidden and never downloaded.
 - **No Pause button.** This follows the founder's decision for the welcome screen's logo wall on 20 November ("There's literally no point of a pause
   button"): Reduce Motion is the way to stop it. Strictly, WCAG 2.2.2 asks for a pause control on motion that lasts more than 5 seconds. Say if you want
   one: it is a small change.

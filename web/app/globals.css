@@ -241,12 +241,14 @@ p { text-wrap: pretty; }
 /* A slow crossfade through the screens: each shown for 5 s, 1.2 s to fade; the first starts fully shown (its negative delay), the others wait their turn hidden.
    For reduced motion nothing moves (the global rule above stops every animation) and only the first screen is there: the others are not even loaded. No Pause
    button, as on the welcome screen's logo wall (founder 2026-11-20: "There's literally no point of a pause button"): Reduce Motion stops it. */
-@keyframes hero-screen { 0% { opacity: 0; } 8% { opacity: 1; } 33.333% { opacity: 1; } 41.333% { opacity: 0; } 100% { opacity: 0; } }
+/* Four screens, 20 s round: each 5 s (25%), 1.2 s (6%) to fade in and out. */
+@keyframes hero-screen { 0% { opacity: 0; } 6% { opacity: 1; } 25% { opacity: 1; } 31% { opacity: 0; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-screen > img { animation: hero-screen 15s ease-in-out infinite; }
+  .hero-screen > img { animation: hero-screen 20s ease-in-out infinite; }
   .hero-screen > img:nth-child(1) { animation-delay: -1.2s; }
   .hero-screen > img:nth-child(2) { animation-delay: 3.8s; }
   .hero-screen > img:nth-child(3) { animation-delay: 8.8s; }
+  .hero-screen > img:nth-child(4) { animation-delay: 13.8s; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-screen > img:not(:first-child) { display: none; } }
 
