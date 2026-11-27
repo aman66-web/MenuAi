@@ -78,6 +78,8 @@ export interface SiteFaqFlags {
   communityFriends: boolean;
   /** The App Store page, once there is one ("" before). */
   appStoreUrl: string;
+  /** The Google Play page, once there is one ("" before). */
+  playStoreUrl: string;
   /** The website's prices (lib/payments/plans.ts PLANS), used only with `webPro`. */
   webPrices: { monthly: string; annual: string; pass90: string };
   appName: string;
@@ -104,7 +106,7 @@ export function siteFaqs(f: SiteFaqFlags, chains: number): Array<{ q: string; a:
     {
       q: "Is it an app?",
       a: f.appStoreUrl
-        ? `Yes: ${f.appName} is on the App Store for iPhone, and there is a web version that works in any browser.`
+        ? `Yes: ${f.appName} is on the App Store for iPhone${f.playStoreUrl ? " and on Google Play for Android phones" : ""}, and there is a web version that works in any browser.`
         : "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later.",
     },
     { q: "Is this medical advice?", a: "No. It shows published nutrition information and helps you choose. Talk to your doctor or a dietitian about your own needs." },

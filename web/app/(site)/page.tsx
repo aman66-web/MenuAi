@@ -7,7 +7,6 @@ import { APP_PREMIUM, COMMUNITY_FRIENDS_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, 
 import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
-import { WaitlistForm } from "@/app/components/WaitlistForm";
 
 // Read once at build time from the published data, so the headline numbers are never typed in by hand: the chains from the manifest, and what their items
 // really publish from each chain's own file (about half publish calories only: the overnight audit of 20 November 2026).
@@ -39,6 +38,29 @@ const pillars = [
   { title: "Recipes", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
 ];
 
+// The hero's download badges (founder 2026-11-27: "download on iOS and download on Android with a hyperlink to each"). Both 46 px tall: the width follows
+// each file's own shape (Apple's 119.66 x 40, Google's 238.96 x 70.87).
+const BADGE_HEIGHT = 46;
+const badges = [
+  { href: site.appStoreUrl, src: "/badges/app-store-download-en-gb-black.svg", alt: `Download ${site.name} on the App Store`, width: 138 },
+  { href: site.playStoreUrl, src: "/badges/google-play-get-it-on-en.svg", alt: `Get ${site.name} on Google Play`, width: 155 },
+];
+
+// The App Store screenshots of 1.1 (22 November 2026), in the store's order, retaken without the chains' and shops' own photos, which CLAUDE.md rule 2
+// keeps out of marketing (e2e/site-screens.mjs). The words are the ones drawn on each picture.
+const screens = [
+  { name: "recipes", alt: "Recipes priced at your shop. Real products from 7 UK supermarkets." },
+  { name: "recipe", alt: "Every ingredient, ready to buy. Real Sainsbury's products, with prices." },
+  { name: "plan", alt: "A week of meals, one list. Fits your calories, budget and 5 a day." },
+  { name: "fridge", alt: "Cook with what you have. Tap what's in your fridge." },
+  { name: "scan", alt: "Scan it. Log it. Pick a glass, a can or grams." },
+  { name: "groceries", alt: "Top 20 supermarket lists. Most protein, cheapest protein, most fibre." },
+  { name: "home", alt: "Your day at a glance. Calories, protein, carbs and fat." },
+  { name: "eat-out", alt: "Know what's in your order. Official figures from 241 UK restaurants." },
+  { name: "truth", alt: "See the truth about a dish. Protein score and traffic lights." },
+  { name: "best", alt: "Top picks for your goal. The most protein for the calories, meal by meal." },
+];
+
 const goals = [
   { title: "Lose weight", body: "Stay under today's budget without guessing." },
   { title: "Build muscle", body: "The most protein per calorie, with double-protein options." },
@@ -51,7 +73,7 @@ const goals = [
 const faqs = siteFaqs(
   {
     appPremium: APP_PREMIUM, webPro: WEB_PRO_ENABLED, pro: PRO_ENABLED, signInRequired: SIGN_IN_REQUIRED, communityFriends: COMMUNITY_FRIENDS_ENABLED,
-    appStoreUrl: site.appStoreUrl, webPrices: { monthly: PLANS.monthly.price, annual: PLANS.annual.price, pass90: PLANS.pass90.price }, appName: site.name,
+    appStoreUrl: site.appStoreUrl, playStoreUrl: site.playStoreUrl, webPrices: { monthly: PLANS.monthly.price, annual: PLANS.annual.price, pass90: PLANS.pass90.price }, appName: site.name,
   },
   stats.chains,
 );
@@ -98,15 +120,22 @@ export default function Home() {
               Know your <span className="serif-em pe-1 text-accent">macros</span> before you order.
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-muted sm:text-xl">{site.description}</p>
-            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            {/* The two stores' own badges, unmodified (public/badges/SOURCES.md): the same height, the App Store first, a quarter of their height clear round
+                each (the 16 px gap). Side by side from 360 px; on a narrower screen or at large text they stack. */}
+            <ul aria-label="Get the app" className="mt-9 flex flex-wrap items-center gap-4">
+              {badges.map((b) => (
+                <li key={b.src}>
+                  <a href={b.href} target="_blank" rel="noopener noreferrer" className="block rounded-[0.6875rem]">
+                    {/* eslint-disable-next-line @next/next/no-img-element -- the store's own SVG badge, shown as it is */}
+                    <img src={b.src} alt={b.alt} width={b.width} height={BADGE_HEIGHT} className="block h-[46px] w-auto" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Link href="/app" className={mainButton}>
                 <span className="min-w-0 text-balance">Open the web app</span>
               </Link>
-              {site.appStoreUrl && (
-                <a href={site.appStoreUrl} className="inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--fill)] px-7 text-base font-semibold transition hover:bg-soft-strong active:scale-[0.98]">
-                  Download on the App Store
-                </a>
-              )}
             </div>
             <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? `${APP_PREMIUM || WEB_PRO_ENABLED ? "Every menu is free." : "Free."} Your free account keeps your targets, saved meals and shopping list on all your devices.` : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
           </div>
@@ -133,6 +162,37 @@ export default function Home() {
             </section>
           )}
         </div>
+      </section>
+
+      {/* The app's own screens, below the hero so they load only when scrolled to. A row to swipe on a phone (it takes the keyboard's arrows once
+          focused), two rows of five from 1024 px. */}
+      <section aria-labelledby="screens" className={section}>
+        <p className="kicker">Inside the app</p>
+        <h2 id="screens" className={heading}>See it on your phone</h2>
+        <figure className="mt-8">
+          <div role="region" aria-label="App screenshots" tabIndex={0} className="-mx-[20px] snap-x snap-mandatory scroll-px-[20px] overflow-x-auto px-[20px] pb-2 lg:mx-0 lg:overflow-visible lg:px-0 lg:pb-0">
+            <ul className="flex gap-3 lg:grid lg:grid-cols-5 lg:gap-3.5">
+              {screens.map((s) => (
+                <li key={s.name} className="w-[min(240px,62vw)] shrink-0 snap-start lg:w-auto">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- already sized WebP files (e2e/site-screens.mjs), no image service needed */}
+                  <img
+                    src={`/screens/${s.name}-480.webp`}
+                    srcSet={`/screens/${s.name}-480.webp 480w, /screens/${s.name}-960.webp 960w`}
+                    sizes="(min-width: 1024px) 186px, min(240px, 62vw)"
+                    width={480}
+                    height={1043}
+                    loading="lazy"
+                    decoding="async"
+                    alt={s.alt}
+                    className="block h-auto w-full rounded-[1.25rem] bg-[var(--fill)]"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* CLAUDE.md rule 2: the screens show chains' and shops' official logos as the app does */}
+          <figcaption className="mt-4 text-sm font-medium leading-relaxed text-muted">Screens from the iPhone app. Not affiliated with any restaurant or shop shown.</figcaption>
+        </figure>
       </section>
 
       <section aria-labelledby="pillars" className={`${section} @container`}>
@@ -209,22 +269,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {!site.appStoreUrl && (
-        <section className={section}>
-          {/* The one dark moment on the page: the same black as the app's main buttons, with the lime kept for the kicker. */}
-          <div className="rounded-[1.25rem] bg-foreground p-[28px] text-background sm:p-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
-            <div>
-              <p className="kicker" style={{ color: "var(--sun)" }}>iPhone app</p>
-              <h2 className="mt-2 text-3xl font-[650] tracking-[-0.02em] sm:text-4xl">Be first in line</h2>
-              <p className="mt-3 text-base font-medium leading-relaxed text-[#c9d1cc] sm:text-lg">Get one email the day {site.name} launches on iPhone.</p>
-            </div>
-            <div className="mt-7 lg:mt-0">
-              <WaitlistForm tone="dark" />
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }

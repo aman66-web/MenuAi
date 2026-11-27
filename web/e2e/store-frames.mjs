@@ -6,8 +6,9 @@ import { chromium } from "playwright-core";
 import { readFileSync, mkdirSync } from "node:fs";
 import sharp from "sharp";
 
-const RAW = new URL("./shots/store-v2/raw/", import.meta.url).pathname;
-const OUT = new URL("./shots/store-v2/", import.meta.url).pathname;
+// RAW_DIR and OUT_DIR (relative to this folder) frame another set, e.g. the homepage's: RAW_DIR=./shots/store-v2/no-photos/raw/ OUT_DIR=./shots/store-v2/no-photos/
+const RAW = new URL(process.env.RAW_DIR ?? "./shots/store-v2/raw/", import.meta.url).pathname;
+const OUT = new URL(process.env.OUT_DIR ?? "./shots/store-v2/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 const font = readFileSync(new URL("../app/fonts/Urbanist-latin.woff2", import.meta.url)).toString("base64");

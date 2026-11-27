@@ -51,6 +51,8 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
           <p className="max-w-md leading-relaxed sm:pt-2.5">
             © {new Date().getFullYear()} {site.name}. Not affiliated with any restaurant or shop. Figures come from each restaurant&apos;s
             and shop&apos;s published information. Not medical advice.
+            {/* the credit lines the store badges on the homepage ask for where the site gives legal information (public/badges/SOURCES.md) */}
+            {!APP_BUILD && " App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC."}
           </p>
         </div>
       </footer>

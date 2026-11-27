@@ -4308,3 +4308,25 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
   Web tests 4223 passed, Android unit tests pass, tsc clean. Committed on `iap` (5b1c0844 and the version bump); signed bundle Android 1.1 (3), `android/app/build/outputs/bundle/release/app-release.aab`, 64 MB, sha256 c7e5ad72...f3b41e4,
   jarsigner verified, contains the new calls. **Not yet done (needs the founder's go-ahead because it changes what the app collects):** release `iap` to main, run the migration in Supabase, set "Device or other IDs" to collected in
   Play Console's Data safety, upload 1.1 (3) and send it for review.
+- 2026-11-27 — **numbite.com's homepage: App Store and Google Play badges in the hero, and the app's screenshots** (founder: "on the website for numbite update it
+  with all the new screenshots from the app and on the first image banner of the site make sure it has download on iOS and download on Android with a hyperlink
+  to each"). Branch `claude/site-download-buttons` from `main` at fb299d08 (what numbite.com runs; `iap` left out), **not live**: the founder approves the merge.
+  - **Hero:** the official "Download on the App Store" (Apple's marketing toolbox, English UK, black; tools.applemarketingtools.com now redirects there and no
+    longer answers) and "Get it on Google Play" (Google's Partner Marketing Hub, English, digital) badges, saved byte for byte in `web/public/badges/` with
+    `SOURCES.md` (addresses, SHA-256, the owners' rules). Both 46 px tall, the App Store first, 16 px apart (more than a quarter of their height), side by side
+    from 360 px; each opens its store in a new tab (`rel="noopener noreferrer"`), named "Download Numbite on the App Store" and "Get Numbite on Google Play".
+    "Open the web app" stays under them, unchanged. `site.appStoreUrl` keeps `NEXT_PUBLIC_APP_STORE_URL` and falls back to the App Store address;
+    `site.playStoreUrl` is new (`NEXT_PUBLIC_PLAY_STORE_URL`, falling back to the Play address). So the "Be first in line" waitlist block (shown only without an
+    App Store address) is gone, and the shared-list and invite pages always offer the App Store. The footer gains Apple's and Google's credit lines (website only).
+    The FAQ "Is it an app?" now says "on the App Store for iPhone and on Google Play for Android phones" (lib/mm/catalogue.ts; test added).
+  - **Screenshots:** the 22 November App Store set was never committed (it lives in "App Store screenshots 1.1" on the Mac), so it was retaken in the cloud from
+    the commit it came from (`iap` 32b135af, build 20's test copy with a throwaway key, `store-shots-v2.mjs` with `SHOT_H=902`, framed by `store-frames.mjs`:
+    same ten screens, headlines and status bar). **Decision, open to the founder:** taken with the logos but WITHOUT the chains' and shops' own dish and product
+    photos (new `NO_PHOTOS=1`; the app's "no photo" tile shows instead), because CLAUDE.md rule 2 allows those photos in store screenshots but "never in
+    marketing", and the homepage is marketing. Our own recipe illustrations stay. Shown in the store's order under "See it on your phone": a row to swipe on a
+    phone (focusable, so arrow keys scroll it), two rows of five from 1024 px; WebP 480 and 960 px wide (`web/public/screens/`, 1.2 MB in all, made by
+    `web/e2e/site-screens.mjs`), lazy, with width and height; the caption "Screens from the iPhone app. Not affiliated with any restaurant or shop shown."
+  - **Checks:** `npm ci`, `tsc --noEmit` (after `next typegen`), eslint on the changed files, vitest 4,224 passed (22 skipped), `npm run build`; then
+    `web/e2e/site-download.mjs` against `next start` at 360, 390 and 1280 px: both badges in the hero on the first screen with the right addresses, new tab and
+    rel, 46 px tall (138 x 46 and 155 x 46), side by side at all three widths; all ten screenshots drawn; no sideways scroll; axe no violations. Pictures in
+    `docs/site-shots/`.

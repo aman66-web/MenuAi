@@ -12,7 +12,7 @@ import { mkdirSync, readFileSync } from "node:fs";
 
 const BASE = process.env.BASE ?? "http://localhost:3103";
 const LIVE = process.env.LIVE ?? "https://numbite.com";
-const OUT = new URL(process.env.RAW_DIR ?? (process.env.NO_LOGOS === "1" ? "./shots/store-v2/no-logos/raw/" : "./shots/store-v2/raw/"), import.meta.url).pathname;
+const OUT = new URL(process.env.RAW_DIR ?? (process.env.NO_LOGOS === "1" ? "./shots/store-v2/no-logos/raw/" : process.env.NO_PHOTOS === "1" ? "./shots/store-v2/no-photos/raw/" : "./shots/store-v2/raw/"), import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 const only = process.argv.slice(2);
 
@@ -22,8 +22,11 @@ const LOGOS = process.env.NO_LOGOS !== "1";
 // shots that show a product's own photo as the app does (founder 2026-11-21, on the Asda milk: "should have the Asda logo and also an image of ... the food
 // itself"): the supermarket's picture from its own image server or our stored copy of it; every other photo stays refused
 // and the dish's own photo on the Truth card (founder 2026-11-21: "you need a photo of the dish on it too"); then every photo the app shows ("There should always be the
-// images of the item"): with logos, every shot shows the dishes' and products' own photos as the app does; NO_LOGOS=1 keeps the set with neither
-const PHOTO_SHOTS = { has: () => LOGOS };
+// images of the item"): with logos, every shot shows the dishes' and products' own photos as the app does; NO_LOGOS=1 keeps the set with neither.
+// NO_PHOTOS=1 (27 Nov, numbite.com's homepage): the logos as the app shows them but no dish or product photo, because CLAUDE.md rule 2 keeps the chains' and
+// shops' own photos out of marketing (store screenshots only); a screenshot with one drawn is not saved. Our own recipe illustrations still show.
+const PHOTOS = LOGOS && process.env.NO_PHOTOS !== "1";
+const PHOTO_SHOTS = { has: () => PHOTOS };
 const PHOTO_HOST = /^https:\/\/(asdagroceries\.scene7\.com|assets\.sainsburys-groceries\.co\.uk|groceries\.morrisons\.com|ecom-su-static-prod\.wtrecom\.com|assets\.iceland\.co\.uk|assets\.digitalcontent\.marksandspencer\.app|dm\.emea\.cms\.aldi\.cx)\//;
 const hidden = LOGOS ? [] : [...manifest.chains.map((c) => c.id), ...shops.map((s) => `shop:${s}`)];
 const { privateJwk } = JSON.parse(readFileSync(new URL("./.paykey.json", import.meta.url), "utf8"));

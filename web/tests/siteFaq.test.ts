@@ -11,7 +11,7 @@ const STOREKIT = join(__dirname, "../../Config/Numbite.storekit");
 const appStorePrices = (): string[] => [...readFileSync(STOREKIT, "utf8").matchAll(/"displayPrice"\s*:\s*"([\d.]+)"/g)].map((m) => m[1]!);
 
 const base: SiteFaqFlags = {
-  appPremium: false, webPro: false, pro: false, signInRequired: true, communityFriends: false, appStoreUrl: "https://apps.apple.com/gb/app/id1",
+  appPremium: false, webPro: false, pro: false, signInRequired: true, communityFriends: false, appStoreUrl: "https://apps.apple.com/gb/app/id1", playStoreUrl: "",
   webPrices: { monthly: "£2.99", annual: "£14.99", pass90: "£9.99" }, appName: "Numbite",
 };
 const text = (f: SiteFaqFlags) => siteFaqs(f, 241).map((x) => `${x.q} ${x.a}`).join("\n");
@@ -46,6 +46,13 @@ describe("the website's questions", () => {
     expect(text(base)).toContain("Yes: Numbite is on the App Store for iPhone");
     expect(text(base)).not.toMatch(/planned/);
     expect(text({ ...base, appStoreUrl: "" })).toContain("An iPhone app is planned");
+  });
+
+  it("names Google Play next to the App Store once the Android app has a page (27 November 2026)", () => {
+    expect(text(base)).not.toMatch(/Google Play|Android phones/);
+    expect(text({ ...base, playStoreUrl: "https://play.google.com/store/apps/details?id=x" })).toContain(
+      "Yes: Numbite is on the App Store for iPhone and on Google Play for Android phones, and there is a web version that works in any browser.",
+    );
   });
 });
 
