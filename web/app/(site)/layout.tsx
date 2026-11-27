@@ -3,9 +3,11 @@ import { APP_BUILD } from "@/lib/mm/config";
 import { site } from "@/site.config";
 import { SiteBack } from "./SiteBack";
 import { RefCapture } from "../components/RefCapture";
+import { RetireServiceWorker } from "../components/RetireServiceWorker";
+import { GET_THE_APP } from "@/lib/webAppClosed";
 
 // Marketing site chrome (landing page, privacy, terms, support). The web app under /app has its own layout.
-// Look (founder 2026-10-15): the app's own icon beside the name, quiet links, and the app's black pill for "Open app".
+// Look (founder 2026-10-15): the app's own icon beside the name, quiet links, and the app's black pill for "Get the app".
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="min-h-full flex flex-col">
@@ -25,12 +27,13 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
             {site.name}
           </Link>
           <nav aria-label="Site" className="flex flex-wrap items-center gap-1 text-[0.9375rem] font-semibold text-muted">
-            {/* below 640 px only Open app stays in the header, so it keeps one row at 320 px (Support and Privacy are in the footer) */}
+            {/* below 640 px only Get the app stays in the header, so it keeps one row at 320 px (Support and Privacy are in the footer) */}
             <Link href="/support" className="hidden min-h-11 items-center rounded-full px-3 transition-colors hover:text-foreground sm:inline-flex">Support</Link>
             <Link href="/privacy" className="hidden min-h-11 items-center rounded-full px-3 transition-colors hover:text-foreground sm:inline-flex">Privacy</Link>
+            {/* the website no longer runs the web app (founder 2026-11-27): the pill goes to the homepage's App Store and Google Play badges */}
             {!APP_BUILD && (
-              <Link href="/app" className="ms-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-foreground px-5 font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.97]">
-                Open app
+              <Link href={GET_THE_APP} className="ms-2 inline-flex min-h-11 items-center whitespace-nowrap rounded-full bg-foreground px-5 font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.97]">
+                Get the app
               </Link>
             )}
           </nav>
@@ -38,6 +41,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       </header>
       )}
       <RefCapture />
+      <RetireServiceWorker />
       <main className="flex-1">{children}</main>
       <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-line px-[20px] py-10 text-sm text-muted">
         <div className="flex flex-col gap-6 sm:flex-row-reverse sm:items-start sm:justify-between sm:gap-10">

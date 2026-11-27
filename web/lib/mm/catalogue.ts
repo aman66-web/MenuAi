@@ -105,9 +105,10 @@ export function siteFaqs(f: SiteFaqFlags, chains: number): Array<{ q: string; a:
     { q: "Which restaurants?", a: `${chains > 0 ? `${chains} popular UK chains so far` : "Popular UK chains first"}, taken from each chain's own nutrition guide, with more added based on what people request. US chains come later.` },
     {
       q: "Is it an app?",
+      // the website no longer runs the web app (founder 2026-11-27, lib/webAppClosed.ts), so the answer names only the phone apps
       a: f.appStoreUrl
-        ? `Yes: ${f.appName} is on the App Store for iPhone${f.playStoreUrl ? " and on Google Play for Android phones" : ""}, and there is a web version that works in any browser.`
-        : "There is a web version that works in any browser and can be added to your home screen. An iPhone app is planned; Android may follow later.",
+        ? `Yes: ${f.appName} is on the App Store for iPhone${f.playStoreUrl ? " and on Google Play for Android phones" : ""}.`
+        : "An iPhone app is planned; Android may follow later.",
     },
     { q: "Is this medical advice?", a: "No. It shows published nutrition information and helps you choose. Talk to your doctor or a dietitian about your own needs." },
   ];

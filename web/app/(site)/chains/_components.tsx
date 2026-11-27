@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SIGN_IN_REQUIRED } from "@/lib/mm/config";
 import { site } from "@/site.config";
-import { chainHref, itemHref } from "@/lib/mm/routes";
+import { StoreBadges } from "@/app/components/StoreBadges";
 import { FSA_SOURCE, type Light } from "@/lib/mm/truth/fsaLights";
 import { itemTruth } from "@/lib/mm/truth/itemTruth";
 import { SCORE_LABELS } from "@/lib/mm/truth/proteinScore";
@@ -41,16 +41,18 @@ export function Crumbs({ items }: { items: Array<{ name: string; href?: string }
   );
 }
 
-export function OpenInApp({ chain, children }: { chain: Pick<Chain, "id" | "name">; children?: React.ReactNode }) {
+/** Where the page sends people for the rest of the menu: the App Store and Google Play badges (the website no longer runs the web app: founder 2026-11-27). */
+export function GetTheApp({ chain, className = "" }: { chain: Pick<Chain, "name">; className?: string }) {
   return (
-    <Link href={chainHref(chain.id)} className="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-base font-bold text-background transition active:scale-[0.97]">
-      {children ?? `Open ${chain.name} in Numbite`}
-    </Link>
+    <div className={className}>
+      <p className="text-base font-semibold">See the whole {chain.name} menu in the {site.name} app.</p>
+      <StoreBadges className="mt-3" />
+    </div>
   );
 }
 
-/** One dish as a card: the numbers, the four official traffic-light pills (colour only where the published figures allow it), and a link into the app. */
-export function ItemCard({ chain, item, level = "h3" }: { chain: Pick<Chain, "id" | "name">; item: MenuItem; level?: "h2" | "h3" }) {
+/** One dish as a card: the numbers and the four official traffic-light pills (colour only where the published figures allow it). */
+export function ItemCard({ item, level = "h3" }: { item: MenuItem; level?: "h2" | "h3" }) {
   const Heading = level;
   const truth = itemTruth(item);
   const n = item.nutrients;
@@ -84,9 +86,6 @@ export function ItemCard({ chain, item, level = "h3" }: { chain: Pick<Chain, "id
           ))}
         </ul>
       )}
-      <Link href={itemHref(chain.id, item.id)} className="mt-3 inline-flex min-h-11 items-center text-base font-bold text-accent underline underline-offset-4">
-        See the full numbers and a Smart Swap in Numbite<span className="sr-only"> for {item.name}</span>
-      </Link>
     </li>
   );
 }

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { catalogueStats, nutritionStats, siteFaqs, type ChainForStats } from "@/lib/mm/catalogue";
@@ -7,6 +6,8 @@ import { APP_PREMIUM, COMMUNITY_FRIENDS_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, 
 import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
 import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_components/icons";
+import { StoreBadges } from "@/app/components/StoreBadges";
+import { GET_THE_APP_ID } from "@/lib/webAppClosed";
 
 // Read once at build time from the published data, so the headline numbers are never typed in by hand: the chains from the manifest, and what their items
 // really publish from each chain's own file (about half publish calories only: the overnight audit of 20 November 2026).
@@ -36,14 +37,6 @@ const pillars = [
   { title: "Eat out", body: `Every dish at ${stats.chains > 0 ? `${stats.chains} UK restaurants` : "popular UK restaurants"}, with the calories each chain publishes, and protein, carbs and fat where it publishes them.`, Icon: ForkIcon },
   { title: "Groceries", body: "Supermarket products with the calories, protein and price from the shop's own pages. Make a list and see what it comes to.", Icon: BasketIcon },
   { title: "Recipes", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
-];
-
-// The hero's download badges (founder 2026-11-27: "download on iOS and download on Android with a hyperlink to each"). Both 46 px tall: the width follows
-// each file's own shape (Apple's 119.66 x 40, Google's 238.96 x 70.87).
-const BADGE_HEIGHT = 46;
-const badges = [
-  { href: site.appStoreUrl, src: "/badges/app-store-download-en-gb-black.svg", alt: `Download ${site.name} on the App Store`, width: 138 },
-  { href: site.playStoreUrl, src: "/badges/google-play-get-it-on-en.svg", alt: `Get ${site.name} on Google Play`, width: 155 },
 ];
 
 // The App Store screenshots of 1.1 (22 November 2026), in the store's order, retaken without the chains' and shops' own photos, which CLAUDE.md rule 2
@@ -85,9 +78,6 @@ const card = "rounded-[1.25rem] bg-[var(--fill)]";
 // Side gutters in px, like the app's: at 200% text the words get the room rather than the margins.
 const section = "mx-auto max-w-5xl px-[20px] py-10 sm:py-14";
 const heading = "mt-2 max-w-2xl text-3xl font-[650] leading-[1.08] tracking-[-0.02em] sm:text-4xl";
-// A plain black pill: the words only (founder 2026-10-15). Side padding is in px so that at 200% text the words still get the room to wrap whole.
-const mainButton =
-  "inline-flex min-h-14 w-full items-center justify-center rounded-full bg-foreground px-[24px] py-3 text-center text-base font-semibold text-background transition hover:bg-[color-mix(in_srgb,var(--foreground)_86%,white)] active:scale-[0.98] sm:w-auto";
 // Proof cards: the label comes first in the code (a dl needs it, screen readers read it first) and is placed under the figure. Each
 // figure is sized to the section (cqi, capped) so its longest word always fits whole in a stacked card; side by side the cards share two
 // rows (subgrid), so the figures end on one line and the labels start on one line, however the figures wrap. (The card itself can't be
@@ -120,23 +110,10 @@ export default function Home() {
               Know your <span className="serif-em pe-1 text-accent">macros</span> before you order.
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-muted sm:text-xl">{site.description}</p>
-            {/* The two stores' own badges, unmodified (public/badges/SOURCES.md): the same height, the App Store first, a quarter of their height clear round
-                each (the 16 px gap). Side by side from 360 px; on a narrower screen or at large text they stack. */}
-            <ul aria-label="Get the app" className="mt-9 flex flex-wrap items-center gap-4">
-              {badges.map((b) => (
-                <li key={b.src}>
-                  <a href={b.href} target="_blank" rel="noopener noreferrer" className="block rounded-[0.6875rem]">
-                    {/* eslint-disable-next-line @next/next/no-img-element -- the store's own SVG badge, shown as it is */}
-                    <img src={b.src} alt={b.alt} width={b.width} height={BADGE_HEIGHT} className="block h-[46px] w-auto" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-4 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link href="/app" className={mainButton}>
-                <span className="min-w-0 text-balance">Open the web app</span>
-              </Link>
-            </div>
+            {/* The hero's download badges (founder 2026-11-27: "download on iOS and download on Android with a hyperlink to each"). The website no longer runs
+                the web app (founder 2026-11-27), so they are the only way in, and /app comes here (lib/webAppClosed.ts): scroll-mt keeps them clear of the
+                sticky header. */}
+            <StoreBadges id={GET_THE_APP_ID} className="mt-9 scroll-mt-28" />
             <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? `${APP_PREMIUM || WEB_PRO_ENABLED ? "Every menu is free." : "Free."} Your free account keeps your targets, saved meals and shopping list on all your devices.` : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
           </div>
 

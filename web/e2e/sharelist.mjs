@@ -107,20 +107,16 @@ await step("the link's own page says what it is: how many things and from which 
   expect(/and 1 you can pick up anywhere/.test(body), "typed items: " + body.slice(0, 260));
   expect(!/Warburtons/.test(body), "a product's name on the page (only counts are shown)");
   expect(/never stored on a server/.test(body), "the privacy line");
-  // Before the App Store page exists (NEXT_PUBLIC_APP_STORE_URL unset) one button opens the list in the browser; once it is set there are three ways in:
-  // the App Store, the app (numbite://l#...) and the browser. Both are checked, whichever this build has.
-  const store = page.getByRole("link", { name: "Get Numbite on the App Store" });
+  // The ways in (27 November 2026: the website no longer runs the web app): the App Store and Google Play badges, and the app that is already there
+  // (numbite://l#...). No "read it in the browser".
   const here = (await page.url()).split("#")[1];
-  if ((await store.count()) === 0) {
-    const view = page.getByRole("link", { name: "View the list" });
-    expect((await view.count()) === 1, "one main button");
-    expect((await view.getAttribute("href")) === `/app/groceries/list/shared#${here}`, "it opens the list in the app: " + (await view.getAttribute("href")));
-  } else {
-    expect((await store.getAttribute("href")).startsWith("https://apps.apple.com/"), "the App Store address");
-    expect((await page.getByRole("link", { name: "I have Numbite: open the list" }).getAttribute("href")) === `numbite://l#${here}`, "the app's own address");
-    expect((await page.getByRole("link", { name: "Or read the list in your browser" }).getAttribute("href")) === `/app/groceries/list/shared#${here}`, "the browser fallback");
-    expect(/After you.ve installed it/.test(body), "what to do after installing");
-  }
+  const badges = page.getByRole("list", { name: "Get the app" }).getByRole("link");
+  expect((await badges.count()) === 2, "the two store badges");
+  expect((await badges.nth(0).getAttribute("href")).startsWith("https://apps.apple.com/"), "the App Store address");
+  expect((await badges.nth(1).getAttribute("href")).startsWith("https://play.google.com/"), "the Google Play address");
+  expect((await page.getByRole("link", { name: "I have Numbite: open the list" }).getAttribute("href")) === `numbite://l#${here}`, "the app's own address");
+  expect((await page.getByText(/in your browser/i).count()) === 0, "no browser fallback");
+  expect(/After you.ve installed it/.test(body), "what to do after installing");
   expect((await page.locator('meta[name="robots"]').getAttribute("content")).includes("noindex"), "not for search engines");
   expect(errors.length === 0, errors.join(" | "));
   await ctx.close();

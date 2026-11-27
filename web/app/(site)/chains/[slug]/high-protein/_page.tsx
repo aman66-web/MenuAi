@@ -4,7 +4,7 @@ import { site } from "@/site.config";
 import { formatDate } from "@/lib/mm/format";
 import { chainFacts } from "@/lib/mm/truth/chainFacts";
 import { chainEntry, chainsWithSubPage, hasSubPage, loadChain, subPageItems } from "../../_data";
-import { Crumbs, ItemCard, OpenInApp, SourceNote } from "../../_components";
+import { Crumbs, ItemCard, GetTheApp, SourceNote } from "../../_components";
 
 export function generateStaticParams() {
   return chainsWithSubPage("high-protein").map((slug) => ({ slug }));
@@ -40,8 +40,8 @@ export default async function HighProteinPage({ params }: Params) {
         {items.length} of the {f.meals} meals on {chain.name}&apos;s menu have 35 g or more of protein, from its own published nutrition guide (checked {checkedOn}). The list is ordered by protein for the calories, so the first dish gives the most protein per calorie.
         Drinks, sides, desserts, sauces and add-ons are not counted.
       </p>
-      <div className="mt-5"><OpenInApp chain={chain} /></div>
-      <ul className="mt-8 space-y-4">{items.slice(0, TOP).map((i) => <ItemCard key={i.id} chain={chain} item={i} level="h2" />)}</ul>
+      <GetTheApp chain={chain} className="mt-5" />
+      <ul className="mt-8 space-y-4">{items.slice(0, TOP).map((i) => <ItemCard key={i.id} item={i} level="h2" />)}</ul>
       {items.length > TOP && <p className="mt-4 text-base text-muted">Showing the first {TOP} of {items.length}. The app has them all.</p>}
       <SourceNote chain={chain} checkedOn={checkedOn} />
     </article>

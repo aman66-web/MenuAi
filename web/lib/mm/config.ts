@@ -168,6 +168,11 @@ export const ANDROID_PACK = APP_BUILD && /^Android /.test(APP_VERSION_TEXT);
  * (founder, 22 November 2026: nothing visible changes on the iPhone).
  */
 export const ANDROID_TEXT = !APP_BUILD || ANDROID_PACK;
+/**
+ * The website no longer runs the web app (founder, 27 November 2026; lib/webAppClosed.ts). The privacy and terms pages say so where they carry the newer text
+ * (the website and the Android app's copy, ANDROID_TEXT); the iPhone app's copy keeps its 21 November text until a new iPhone build carries a new policy.
+ */
+export const NO_WEB_APP_TEXT = ANDROID_TEXT;
 export const APP_VERSION = APP_BUILD ? (/^(Android|iPhone) /.test(APP_VERSION_TEXT) ? APP_VERSION_TEXT : `iPhone ${APP_VERSION_TEXT}`.trim()) : "web 1.0";
 /** Our API (reports, chain requests, messages). The iPhone app reaches it on the live website (lib/cors.ts lets the app's pages call it). */
 export const API_BASE = `${REMOTE_BASE}/api/v1/`;

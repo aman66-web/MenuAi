@@ -4,7 +4,7 @@ import { PLAN_AI_API_ENABLED } from "@/lib/mm/planAi";
 import type { ReactNode } from "react";
 import { COMPARE_PICK_ENABLED } from "@/lib/mm/comparePick";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
-import { AI_RECIPES_ENABLED, ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { AI_RECIPES_ENABLED, ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, FOOD_SCAN_API_ENABLED, NO_WEB_APP_TEXT, PHOTO_RECIPES_API_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, TELEMETRY_ENABLED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { site } from "@/site.config";
 
 export const metadata: Metadata = { title: "Privacy policy" };
@@ -43,6 +43,8 @@ const AI_FEATURES = [
   SEARCH_HELP_ENABLED && "search help",
   PLAN_AI_API_ENABLED && "Meal plan with Pip",
 ].filter((f): f is string => typeof f === "string");
+/** The website no longer runs the web app (27 November 2026): said on the website and in the Android app's copy; the iPhone app's copy keeps its text. */
+const NO_WEB_APP = NO_WEB_APP_TEXT;
 const listed = (words: string[]) => (words.length <= 1 ? words.join("") : `${words.slice(0, -1).join(", ")} and ${words[words.length - 1]}`);
 
 // Plain-English privacy policy matching docs/BACKEND.md and what the apps actually do. Since the free launch (founder 2026-10-12) the
@@ -80,26 +82,35 @@ export default function Privacy() {
               <>If you choose to sign in, to keep your data on all your devices, the section &ldquo;Signing in and syncing (optional)&rdquo; below says exactly what we then keep.</>
             )}
           </>
-        )} This policy covers the {site.name} iPhone app, {ANDROID_TEXT ? <>the {site.name} Android app, </> : null}the {site.name} web app (at /app on this website) and this website. The iPhone app
+        )} This policy covers the {site.name} iPhone app, {ANDROID_TEXT ? <>the {site.name} Android app, </> : null}{NO_WEB_APP ? <>and this website. This website no longer runs the {site.name} web app (it was at /app until 27 November 2026).</> : <>the {site.name} web app (at /app on this website) and this website.</>} The iPhone app
         is the web app packed into an app, so it works the same way, except that it keeps everything inside the app on your phone.
         {ANDROID_TEXT ? <>{" "}The Android app is the same web app packed into an app: everything this policy says about the iPhone app applies to it too, with Android&apos;s own notifications, location permission and Settings in place of the iPhone&apos;s. Only purchases differ (see &ldquo;Purchases&rdquo;).</> : null}{" "}
         To keep the app small, it loads
-        photos of dishes, recipes and products from this website the first time you look at them (like the web app does), and keeps them on your phone to show again.
+        photos of dishes, recipes and products from this website the first time you look at them{NO_WEB_APP ? "" : " (like the web app does)"}, and keeps them on your phone to show again.
       </p>
 
       <Section title="What stays on your phone or in your browser">
         <Rows>
           <li className={row}>Your goal, daily targets, preferences, favourite restaurants, saved orders, the meals you log, the water you add on Home, your reminders (see &ldquo;Reminders&rdquo; below), and the dishes you looked at in the last day (shown as &ldquo;Recently viewed&rdquo; on that restaurant&apos;s page, then forgotten), and the products and dishes you pick to compare. Your meal plan, and the people you cook for in it (for each, an age group, a portion size and a name only if you type one, plus your home&apos;s allergies and whether anyone doesn&apos;t eat meat), stay only on your phone: they are never sent to us or synced, and signing out, deleting your account or &ldquo;Clear data on this device&rdquo; removes them.</li>
-          <li className={row}>
-            In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
-            on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). {SIGN_IN_REQUIRED ? <>The parts listed under &ldquo;Your account and syncing&rdquo; are also saved in your account.</> : <>If you don&apos;t sign in, we never
-            receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account.</>} Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
-            Settings, removes them. Browsers can also remove site data on their own if you haven&apos;t visited for a
-            while (iPhone Safari can do this after about a week); adding the web app to your Home Screen helps prevent it.
-          </li>
+          {NO_WEB_APP ? (
+            <li className={row}>
+              In the iPhone and Android apps these are stored only inside the app on your phone; deleting the app deletes them. {SIGN_IN_REQUIRED ? <>The parts listed under &ldquo;Your account and syncing&rdquo; are also saved in your account.</> : <>If you don&apos;t sign in, we never
+              receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account.</>} Using &ldquo;Clear data on this device&rdquo; in Settings removes them.
+              If you used the web app on this website before it closed, what it kept is still only in that browser on that device (local storage and, for a report
+              photo that hadn&apos;t been sent, IndexedDB). We can&apos;t see it. Clearing your browser&apos;s data for this website removes it, and browsers can also remove it on their own.
+            </li>
+          ) : (
+            <li className={row}>
+              In the iPhone app these are stored only inside the app on your phone; deleting the app deletes them. In the web app they are stored only in this browser
+              on this device (local storage and, for a report photo that hasn&apos;t been sent yet, IndexedDB). {SIGN_IN_REQUIRED ? <>The parts listed under &ldquo;Your account and syncing&rdquo; are also saved in your account.</> : <>If you don&apos;t sign in, we never
+              receive them; if you do, the parts listed under &ldquo;Signing in and syncing&rdquo; are also saved in your account.</>} Clearing your browser&apos;s site data, or using &ldquo;Clear data on this device&rdquo; in
+              Settings, removes them. Browsers can also remove site data on their own if you haven&apos;t visited for a
+              while (iPhone Safari can do this after about a week); adding the web app to your Home Screen helps prevent it.
+            </li>
+          )}
           <li className={row}>
             A message, report or request you&apos;ve written but that hasn&apos;t been sent yet (for example because you
-            were offline) waits in the same place until it is sent. Once it&apos;s sent, the web app deletes its local copy.
+            were offline) waits in the same place until it is sent. Once it&apos;s sent, the {NO_WEB_APP ? "app" : "web app"} deletes its local copy.
           </li>
         </Rows>
       </Section>
@@ -137,11 +148,20 @@ export default function Privacy() {
             <strong>Where it is kept:</strong> in our database at Supabase (hosted in the United States), in a table that only our service can read or write,
             and only for the signed-in person. The app and this website never talk to the database directly.
           </li>
-          <li className={row}>
-            <strong>Sign-in cookies:</strong> if you sign in on this website we set cookies that keep you signed in (and a short-lived one while you
-            sign in with Apple or Google). They cannot be read by page scripts and are removed when you sign out. In the iPhone app your sign-in is kept
-            inside the app on your phone.
-          </li>
+          {NO_WEB_APP ? (
+            <li className={row}>
+              <strong>Sign-in cookies:</strong> when you sign in with Apple or Google through this website&apos;s sign-in page (the app opens it for you), we set a
+              short-lived cookie while you do. If you signed in to the web app on this website before it closed, the cookies that kept you signed in stay in that
+              browser for up to 60 days, or until you clear its data for this website. Page scripts cannot read them. In the iPhone and Android apps your sign-in is
+              kept inside the app on your phone.
+            </li>
+          ) : (
+            <li className={row}>
+              <strong>Sign-in cookies:</strong> if you sign in on this website we set cookies that keep you signed in (and a short-lived one while you
+              sign in with Apple or Google). They cannot be read by page scripts and are removed when you sign out. In the iPhone app your sign-in is kept
+              inside the app on your phone.
+            </li>
+          )}
           <li className={row}>
             <strong>Signing out</strong> stops syncing on that device; its data stays on the device. <strong>Delete my account</strong> (Settings ›
             Account) deletes your account and everything synced for it from our database straight away, and cannot be undone; what is on your device
@@ -212,9 +232,8 @@ export default function Privacy() {
       <Section title="Location">
         <p className={para}>
           The Near me map (in Eat out) can use your location: the first time, only when you tap &ldquo;Use my location&rdquo; and allow it (in the
-          iPhone app through the iPhone&apos;s own location permission; in the web app through your browser); while you allow it, the map uses it when you open it. Your position is used on your
-          device to work out which restaurant branches are closest, using a list of branch positions that comes with the app or that your
-          browser downloads from us. We never store or receive your location, and it is not remembered on your device.
+          iPhone app through the iPhone&apos;s own location permission{NO_WEB_APP ? "" : "; in the web app through your browser"}); while you allow it, the map uses it when you open it. Your position is used on your
+          device to work out which restaurant branches are closest, using a list of branch positions that comes with the app or that {NO_WEB_APP ? "the app" : "your browser"} downloads from us. We never store or receive your location, and it is not remembered on your device.
         </p>
         <p className={para}>
           Instead of sharing your location you can type a postcode or town. That text (not your location) is sent to
@@ -355,13 +374,13 @@ export default function Privacy() {
         </p>
         <Rows>
           <li className={row}>
-            <strong>Where they are kept:</strong> only on your device, inside the iPhone app on your phone, or in this browser if you use the web app. We never
+            <strong>Where they are kept:</strong> only on your device, inside the {NO_WEB_APP ? "app on your phone." : "iPhone app on your phone, or in this browser if you use the web app."} We never
             receive a reminder, its name, its note or its time, and they are not part of what syncs to your account, even when you are signed in.
           </li>
           <li className={row}>
             <strong>How they ring:</strong> in the iPhone app each reminder is scheduled on your phone itself, using the iPhone&apos;s own notifications. No server
             sends them. {site.name} asks for permission to send notifications only when you save your first reminder, and you can switch it off at any time in
-            your iPhone&apos;s Settings. The web app lists your reminders and lets you tick them off, but it can&apos;t ring: for that you need the iPhone app.
+            your iPhone&apos;s Settings.{NO_WEB_APP ? null : <>{" "}The web app lists your reminders and lets you tick them off, but it can&apos;t ring: for that you need the iPhone app.</>}
           </li>
           <li className={row}>
             <strong>What shows on your lock screen:</strong> the name you typed, and your note if you added one. Anyone who can see your phone&apos;s lock screen
@@ -383,9 +402,9 @@ export default function Privacy() {
                 {APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED) ? <>Purchases in the iPhone app are handled by Apple. We don&apos;t receive your name, email or payment details from Apple. To switch paid features on, the app sends our server the purchase record Apple signed (which plan, its dates, the price, the currency and the country of the App Store, and Apple&apos;s reference number for the purchase) so we can check it is genuine; we don&apos;t keep it. </> : null}
                 {ANDROID_TEXT && (APP_PREMIUM || (PRO_ENABLED && !WEB_PRO_ENABLED)) ? <>Purchases in the Android app are handled by Google Play. We don&apos;t receive your name, email or payment details from Google. To switch paid features on, the app sends our server the purchase token Google Play gave it (no name or email is in it), and our server sends that token to Google to check it is genuine and to learn which plan it is and when it ends; we don&apos;t keep it. </> : null}
                 {WEB_PRO_ENABLED ? <>When you pay on the website, Stripe takes your payment on its own page and tells us your email address, what you bought, the amount, the dates and a payment reference. We never see your card number. We keep these records for as long as your access lasts and for six years after, because we must keep our accounts. If you arrived through a creator&apos;s link, we also record the creator&apos;s code against your payment so the creator can be credited, and we never tell the creator who you are. </> : null}
-                {!WEB_PRO_ENABLED ? <>Paid features aren&apos;t available in the web app yet.</> : null}
+                {!WEB_PRO_ENABLED ? (NO_WEB_APP ? <>Nothing is sold on this website.</> : <>Paid features aren&apos;t available in the web app yet.</>) : null}
               </>
-            : <>There is nothing to buy: every feature is free, in the iPhone app and the web app.</>}
+            : <>There is nothing to buy: every feature is free, in the iPhone app{NO_WEB_APP ? " and the Android app" : " and the web app"}.</>}
         </p>
         {APP_PREMIUM && (
           <p className={para}>
@@ -404,9 +423,19 @@ export default function Privacy() {
 
       <Section title="Cookies, offline storage and usage statistics">
         <p className={para}>
-          We don&apos;t use advertising or tracking cookies. The only cookies are the sign-in cookies described above, and only if you sign in on the website. The iPhone app carries the menus inside it and, when you&apos;re online,
-          downloads newer menus and product lists from this website. The web app saves menus and its own files in your browser&apos;s
-          cache so it keeps working with a poor connection.{" "}
+          {NO_WEB_APP ? (
+            <>
+              We don&apos;t use advertising or tracking cookies. The only cookies are the sign-in cookies described above. The iPhone and Android apps carry the menus
+              inside them and, when you&apos;re online, download newer menus and product lists from this website. The web app kept menus and its own files in your
+              browser&apos;s cache so it worked with a poor connection; this website now deletes that copy the next time you open it in that browser.{" "}
+            </>
+          ) : (
+            <>
+              We don&apos;t use advertising or tracking cookies. The only cookies are the sign-in cookies described above, and only if you sign in on the website. The iPhone app carries the menus inside it and, when you&apos;re online,
+              downloads newer menus and product lists from this website. The web app saves menus and its own files in your browser&apos;s
+              cache so it keeps working with a poor connection.{" "}
+            </>
+          )}
           {/* the setup screen counts (lib/mm/config.ts TELEMETRY_ENABLED, lib/mm/analytics.ts): this sentence changes only while they are switched on */}
           {TELEMETRY_ENABLED ? (
             <>
@@ -426,12 +455,12 @@ export default function Privacy() {
         <Rows>
           <li className={row}>
             <strong>Report a number:</strong> the restaurant and item, the value you think is wrong and the correct value,
-            your note, an optional photo, and the app (or web app) version and menu data version.
+            your note, an optional photo, and the app {NO_WEB_APP ? "version" : "(or web app) version"} and menu data version.
           </li>
           <li className={row}><strong>Request a restaurant:</strong> the name you type and the app version.</li>
           <li className={row}><strong>Support messages:</strong> your message and, if you give it, your email address so we can reply.</li>
           <li className={row}>
-            <strong>Website and web app waitlist:</strong> your email address, and which link or screen brought you here
+            <strong>{NO_WEB_APP ? "Waitlist (on this website, and in the web app before it closed):" : "Website and web app waitlist:"}</strong> your email address, and which link or screen brought you here
             (for example a link you followed{PRO_ENABLED ? ", or the Premium screen in the web app" : ""}).
           </li>
         </Rows>

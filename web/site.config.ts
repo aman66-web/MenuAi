@@ -16,6 +16,7 @@ export const site = {
   playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL || "https://play.google.com/store/apps/details?id=com.amanmarwaha.numbite",
   appleStandardEula: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/",
   privacyLastUpdated: "21 November 2026",
-  /** The policy's date on the website and in the Android app, which name the Android app (the iPhone app's copy is the 21 November text, so its date stays). */
-  privacyLastUpdatedAndroid: "22 November 2026",
+  /** The policy's date on the website and in the Android app, which name the Android app and say the website no longer runs the web app (27 November 2026;
+   *  the iPhone app's copy is the 21 November text, so its date stays). */
+  privacyLastUpdatedAndroid: "27 November 2026",
 } as const;

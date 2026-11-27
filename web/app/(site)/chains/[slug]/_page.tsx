@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/mm/format";
 import { chainFacts, chainFaq } from "@/lib/mm/truth/chainFacts";
 import { applyPreset } from "@/lib/mm/truth/presets";
 import { chainEntry, hasSubPage, loadChain, MIN_ITEMS_TO_INDEX, realChains } from "../_data";
-import { Crumbs, Faqs, faqJsonLd, ItemCard, JsonLd, OpenInApp, SourceNote } from "../_components";
+import { Crumbs, Faqs, faqJsonLd, ItemCard, JsonLd, GetTheApp, SourceNote } from "../_components";
 
 // /chains/<id>: one restaurant's public page, rendered at build time from its published figures (founder's brief, 13 Nov 2026, deliverable 6). Every number on it is
 // copied from the restaurant's own nutrition guide; the answers in the FAQ are worked out from those numbers (lib/mm/truth/chainFacts.ts) and shown on the page as well
@@ -66,17 +66,19 @@ export default async function ChainPage({ params }: Params) {
         {" "}
         {f.fewestCalories && <>The fewest calories in a meal is {f.fewestCalories.name} at {Math.round(f.fewestCalories.nutrients.calories)} kcal.</>}
       </p>
-      <div className="mt-5 flex flex-wrap gap-3">
-        <OpenInApp chain={chain} />
-        {highProtein && <Link href={`/chains/${slug}/high-protein`} className="inline-flex min-h-12 items-center rounded-full border border-line px-6 text-base font-bold">High protein at {chain.name}</Link>}
-        {under500 && <Link href={`/chains/${slug}/under-500-calories`} className="inline-flex min-h-12 items-center rounded-full border border-line px-6 text-base font-bold">Under 500 calories</Link>}
-      </div>
+      <GetTheApp chain={chain} className="mt-5" />
+      {(highProtein || under500) && (
+        <div className="mt-5 flex flex-wrap gap-3">
+          {highProtein && <Link href={`/chains/${slug}/high-protein`} className="inline-flex min-h-12 items-center rounded-full border border-line px-6 text-base font-bold">High protein at {chain.name}</Link>}
+          {under500 && <Link href={`/chains/${slug}/under-500-calories`} className="inline-flex min-h-12 items-center rounded-full border border-line px-6 text-base font-bold">Under 500 calories</Link>}
+        </div>
+      )}
 
       {topProtein.length > 0 && (
         <section aria-labelledby="top-protein" className="mt-10">
           <h2 id="top-protein" className="text-2xl font-extrabold tracking-tight">Most protein for the calories</h2>
           <p className="mt-1 text-base text-muted">Meals of 250 kcal or more with at least 20 g of protein, ranked by protein for their calories.</p>
-          <ul className="mt-4 space-y-4">{topProtein.map((i) => <ItemCard key={i.id} chain={chain} item={i} />)}</ul>
+          <ul className="mt-4 space-y-4">{topProtein.map((i) => <ItemCard key={i.id} item={i} />)}</ul>
         </section>
       )}
 
@@ -84,7 +86,7 @@ export default async function ChainPage({ params }: Params) {
         <section aria-labelledby="lowest" className="mt-10">
           <h2 id="lowest" className="text-2xl font-extrabold tracking-tight">Five lowest-calorie meals</h2>
           <p className="mt-1 text-base text-muted">Meals of 500 kcal or less (not drinks, sides, desserts, sauces or add-ons), fewest calories first.</p>
-          <ul className="mt-4 space-y-4">{lowest.map((i) => <ItemCard key={i.id} chain={chain} item={i} />)}</ul>
+          <ul className="mt-4 space-y-4">{lowest.map((i) => <ItemCard key={i.id} item={i} />)}</ul>
         </section>
       )}
 

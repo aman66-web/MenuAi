@@ -51,8 +51,14 @@ describe("the website's questions", () => {
   it("names Google Play next to the App Store once the Android app has a page (27 November 2026)", () => {
     expect(text(base)).not.toMatch(/Google Play|Android phones/);
     expect(text({ ...base, playStoreUrl: "https://play.google.com/store/apps/details?id=x" })).toContain(
-      "Yes: Numbite is on the App Store for iPhone and on Google Play for Android phones, and there is a web version that works in any browser.",
+      "Yes: Numbite is on the App Store for iPhone and on Google Play for Android phones.",
     );
+  });
+
+  it("never offers a web version: the website no longer runs the web app (27 November 2026)", () => {
+    for (const f of [base, { ...base, appStoreUrl: "" }, { ...base, playStoreUrl: "https://play.google.com/store/apps/details?id=x" }]) {
+      expect(text(f)).not.toMatch(/web version|any browser|home screen|web app/i);
+    }
   });
 });
 

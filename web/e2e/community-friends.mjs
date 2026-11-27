@@ -823,15 +823,17 @@ await step("a first-time visitor with an invite link lands straight on Friends w
   await p.ctx.close();
 });
 
-await step("the website's invite page /f: the code, the three ways to open it, a bad code and no code; no index; axe", async () => {
+await step("the website's invite page /f: the code, the ways to open it (store badges, the installed app), a bad code and no code; no index; axe", async () => {
   const sc = scene();
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
   const page = await ctx.newPage();
   await page.goto(BASE + "/f#K7M2-QXWA", { timeout: 120000 });
   await page.getByRole("heading", { level: 1, name: /A friend invited you to/ }).waitFor({ timeout: 90000 });
   expect((await page.locator("main, body").first().innerText()).includes("K7M2-QXWA"), "the code is not shown");
-  const link = page.getByRole("link", { name: /Add them in your browser|Or add them in your browser/ });
-  expect((await link.first().getAttribute("href")) === "/app/community/friends#K7M2QXWA", "the browser link is " + (await link.first().getAttribute("href")));
+  // the website no longer runs the web app (27 November 2026): the store badges and the installed app, no browser link
+  expect((await page.getByRole("list", { name: "Get the app" }).getByRole("link").count()) === 2, "the two store badges");
+  expect((await page.getByRole("link", { name: /I have Numbite: add them/ }).getAttribute("href")) === "numbite://f#K7M2QXWA", "the app's own address");
+  expect((await page.getByText(/in your browser/i).count()) === 0, "a browser link is still offered");
   expect((await page.locator('meta[name="robots"]').getAttribute("content")).includes("noindex"), "the invite page can be indexed");
   expect((await over(page)) <= 0, "overflow");
   await scan(page, "/f with a code");

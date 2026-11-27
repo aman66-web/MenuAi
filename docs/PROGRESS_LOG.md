@@ -4330,3 +4330,29 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
     `web/e2e/site-download.mjs` against `next start` at 360, 390 and 1280 px: both badges in the hero on the first screen with the right addresses, new tab and
     rel, 46 px tall (138 x 46 and 155 x 46), side by side at all three widths; all ten screenshots drawn; no sideways scroll; axe no violations. Pictures in
     `docs/site-shots/`.
+- 2026-11-27 — **numbite.com no longer runs the web app** (founder: people should use only the phone apps, so nobody can open the web app on the website).
+  Branch `claude/site-no-web-app`, on top of `claude/site-download-buttons`, **not live**: both go live together when the founder merges it into `main`.
+  Full report: `docs/SITE_NO_WEB_APP_REPORT.md`.
+  - **Redirect:** every `/app` and `/app/...` address gets a 307 (temporary) to the homepage's store badges (`/#get-the-app`); the query is kept and ignored.
+    It is only in a Vercel build (`VERCEL=1`, production and previews: `web/lib/webAppClosed.ts`, `web/next.config.ts`). Local dev, `next start`, the e2e and
+    store-screenshot scripts and the apps' static export (`APP_BUILD=1`, no redirects) keep `/app`.
+  - **Links:** the header pill is now "Get the app" (to the badges). "Open the web app" (homepage), "Open {chain} in Numbite" and the per-dish links (restaurant
+    pages), "read it / add them in your browser" (`/l`, `/f`) are gone; the store badges (shared `web/app/components/StoreBadges.tsx`) and "I have Numbite"
+    (numbite://) are there instead. 404 and error pages go to the homepage on the website. The FAQ names no web version.
+  - **Offline and install:** `web/public/sw.js` is now a worker that deletes every cache and unregisters itself. Website pages also remove any old worker
+    and its caches (`web/lib/retireServiceWorker.ts`); the web app no longer registers one. `web/app/manifest.ts` deleted. The phone apps never used the
+    worker, and their packs leave `sw.js` out.
+  - **Privacy and terms** (website and Android copy, `NO_WEB_APP_TEXT`): the website no longer runs the web app, what a former user's browser still holds and
+    how to remove it, and that the offline copy is deleted. Privacy dated 27 November 2026 (`privacyLastUpdatedAndroid`). The iPhone copy is unchanged: the
+    iPhone export's privacy, terms, support and 404 pages were compared with the old code's, word for word.
+  - **Unaffected, checked:** the apps' Google and Apple sign-in (start → Supabase → `/auth/callback?m=app` → `numbite://auth`, every ending; traced on a
+    `VERCEL=1` build), all of `/api`, `/menus`, `/menu-images`, `/recipe-images`, `/logos` (with `hidden.json`), `/app-switches.json`, `/.well-known`,
+    `/privacy`, `/terms`, `/support`, `/chains`.
+  - **Checks:** vitest 4,237 passed, 22 skipped (new `tests/webAppClosed.test.ts`, `tests/retireServiceWorker.test.ts`; the service worker tests now test the
+    retiring worker; the privacy date test moved to 27 November). Eslint 0 errors (4 old warnings in e2e scripts). `npm run typecheck` clean. `npm run build`
+    passes. A Playwright check on the `VERCEL=1` build at 320, 390 and 1280 px: redirect landing on the badges, no `/app` link on any website page, axe clean,
+    no sideways scroll, and the old worker removed both by the retiring worker and by a website page.
+  - **For the founder:**
+    - when to make it live;
+    - dish links shared from the apps (`/app/item?chain=…`) now land on the homepage; one more rule could send them to `/chains/<chain>`;
+    - former web app users keep what synced, by signing in to a phone app with the same account.

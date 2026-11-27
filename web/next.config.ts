@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { webAppRedirects } from "./lib/webAppClosed";
 
 // Two builds from the same code:
 //  * the website (default): served by Vercel, with the API and the headers below;
@@ -46,8 +47,12 @@ const everyPage = [
 
 const websiteConfig: NextConfig = {
   poweredByHeader: false,
-  // A new deploy registers a new service worker URL (/sw.js?v=<id>), so the offline cache is refreshed with it.
   env,
+  // The web app is closed on the deployed website (founder, 27 November 2026): /app and /app/... go to the homepage's store badges with a 307, only in a
+  // build on Vercel (lib/webAppClosed.ts). Redirects run before pages and public files, so no /app page or cached copy is served there.
+  async redirects() {
+    return webAppRedirects(process.env);
+  },
   async headers() {
     return [
       { source: "/:path*", headers: everyPage },
@@ -83,7 +88,8 @@ const websiteConfig: NextConfig = {
         headers: [{ key: "Content-Type", value: "application/json" }, { key: "Cache-Control", value: "public, max-age=3600" }],
       },
       {
-        // The service worker must always be re-checked so a new version reaches people promptly.
+        // The service worker must always be re-checked, so the one that clears the old web app's caches and removes itself (public/sw.js) reaches every
+        // browser that still has the old one on its next visit.
         source: "/sw.js",
         headers: [
           { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },

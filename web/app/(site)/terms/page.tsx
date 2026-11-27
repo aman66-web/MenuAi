@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
+import { ANDROID_TEXT, APP_PREMIUM, COMMUNITY_ENABLED, NO_WEB_APP_TEXT, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { FREE_WEEK_DAYS } from "@/lib/mm/freeWeek";
 import { PASS_DAYS, PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
@@ -42,11 +42,20 @@ export default function Terms() {
       </Section>
 
       <Section title="The web app">
-        <p className={para}>
-          The {site.name} web app (at /app on this website) is free to use{WEB_PRO_ENABLED ? ", with some paid features (see Paid access on the website below)" : ""}.{PRO_ENABLED && !WEB_PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
-          Your goal, targets, saved orders and log are kept only in your browser unless you sign in (see below); if you clear your browser&apos;s site
-          data, or the browser removes it, and you aren&apos;t signed in, they are deleted and we can&apos;t restore them.
-        </p>
+        {NO_WEB_APP_TEXT ? (
+          // the website no longer runs the web app (founder, 27 November 2026; lib/webAppClosed.ts): said on the website and in the Android app's copy
+          <p className={para}>
+            This website no longer runs the {site.name} web app (it was at /app until 27 November 2026): use the iPhone or Android app instead. If you used it,
+            what it kept is only in that browser, and what you hadn&apos;t synced to an account is deleted if you clear your browser&apos;s data for this website
+            or the browser removes it; we can&apos;t restore it.
+          </p>
+        ) : (
+          <p className={para}>
+            The {site.name} web app (at /app on this website) is free to use{WEB_PRO_ENABLED ? ", with some paid features (see Paid access on the website below)" : ""}.{PRO_ENABLED && !WEB_PRO_ENABLED ? " Paid features aren't available in it yet." : ""}{" "}
+            Your goal, targets, saved orders and log are kept only in your browser unless you sign in (see below); if you clear your browser&apos;s site
+            data, or the browser removes it, and you aren&apos;t signed in, they are deleted and we can&apos;t restore them.
+          </p>
+        )}
       </Section>
 
       {APP_PREMIUM && (
@@ -127,7 +136,7 @@ export default function Terms() {
           the date we last checked. Restaurants change recipes and portions, and mistakes can happen, so values may not
           match what you&apos;re served. Supermarket products show the label the shop publishes, or a marked stand-in where it publishes none. Recipe numbers are
           added up from those labels. Scan your food (Premium) gives an estimate from your photo, not a label, and it can be wrong. If something looks wrong,
-          please report it in the app or the web app.
+          please report it in the app{NO_WEB_APP_TEXT ? "" : " or the web app"}.
         </p>
       </Section>
 

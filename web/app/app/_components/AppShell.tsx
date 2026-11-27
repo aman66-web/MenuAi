@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { APP_BUILD } from "@/lib/mm/config";
+import { retireServiceWorker } from "@/lib/retireServiceWorker";
 import { chooseWarmChains } from "@/lib/mm/popular";
 import { coachDue, coachScreenFor } from "@/lib/mm/coach";
 import { coachStore, favoritesStore, outbox, savedStore } from "@/lib/mm/stores";
@@ -176,11 +177,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   // page of the app (and its fixed page only when there is nothing earlier): lib/mm/navDepth.ts, _lib/backNav.ts.
   useEffect(() => { installBackDepth(); }, []);
 
-  // Offline support (public/sw.js). Production website only: development never serves stale files, and the iPhone app carries its files.
+  // The website's offline service worker is retired (27 November 2026: the website no longer runs the web app, lib/webAppClosed.ts), so a copy of these pages
+  // opened off Vercel (`npm run dev`, `next start`) registers none and removes an old one (lib/retireServiceWorker.ts). The phone apps carry their files.
   useEffect(() => {
-    if (process.env.NODE_ENV === "production" && !APP_BUILD && "serviceWorker" in navigator) {
-      navigator.serviceWorker.register(`/sw.js?v=${process.env.NEXT_PUBLIC_BUILD_ID ?? "dev"}`, { scope: "/app", updateViaCache: "none" }).catch(() => undefined);
-    }
+    if (!APP_BUILD) void retireServiceWorker();
   }, []);
 
   // Retry queued submissions whenever the app becomes active or the network returns (SPEC §12).

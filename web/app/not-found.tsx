@@ -18,12 +18,8 @@ export default function NotFound() {
       <Pip mood="think" size={96} />
       <h1 style={{ fontSize: 26, lineHeight: 1.2, fontWeight: 800, margin: 0 }}>We can&apos;t find that page</h1>
       <p style={{ fontSize: 17, lineHeight: 1.4, margin: 0, maxWidth: 360, color: "#4b5563" }}>The link may be old, or the address may have a typo.</p>
-      <Link href="/app" style={{ ...pill, background: "#0b1a12", color: "#fff" }}>Go to Home</Link>
-      {!APP_BUILD && (
-        <Link href="/" style={{ minHeight: 48, display: "inline-flex", alignItems: "center", fontSize: 16, fontWeight: 600, color: "#0b1a12" }}>
-          {site.name} website
-        </Link>
-      )}
+      {/* the website no longer runs the web app (founder 2026-11-27, lib/webAppClosed.ts): there, its home page, with the App Store and Google Play badges */}
+      <Link href={APP_BUILD ? "/app" : "/"} style={{ ...pill, background: "#0b1a12", color: "#fff" }}>{APP_BUILD ? "Go to Home" : `Go to the ${site.name} home page`}</Link>
     </main>
   );
 }

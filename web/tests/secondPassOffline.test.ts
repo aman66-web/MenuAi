@@ -12,115 +12,47 @@ const read = (f: string) => readFileSync(new URL(f, WEB), "utf8");
 
 // ------------------------------------------------------------------------------------------------ the service worker, run as the browser would
 
-const ORIGIN = "https://numbite.test";
-
-interface FakeResponse { ok: boolean; status: number; type: string; body: string; clone(): FakeResponse; text(): Promise<string> }
-const respond = (body: string, status = 200): FakeResponse => ({ ok: status >= 200 && status < 300, status, type: "basic", body, clone: () => respond(body, status), text: async () => body });
-
-/** A Cache as the spec has it: keys in the order they were put, and putting a key again makes it the newest. */
-class FakeCache {
-  entries = new Map<string, FakeResponse>();
-  private key(k: string | { url: string }) { return typeof k === "string" ? new URL(k, ORIGIN).href : k.url; }
-  async match(k: string | { url: string }) { return this.entries.get(this.key(k))?.clone(); }
-  async put(k: string | { url: string }, r: FakeResponse) { const key = this.key(k); this.entries.delete(key); this.entries.set(key, r); }
-  async keys() { return [...this.entries.keys()].map((url) => ({ url })); }
-  async delete(k: string | { url: string }) { return this.entries.delete(this.key(k)); }
-  has(path: string) { return this.entries.has(new URL(path, ORIGIN).href); }
-}
+// Since 27 November 2026 the website no longer runs the web app (lib/webAppClosed.ts), so its offline worker is retired: public/sw.js now only clears the old
+// worker's caches and removes itself. (The offline worker these meeting fixes were made in is in git history, before the commit that retired it.)
 
 function loadServiceWorker() {
-  const stores = new Map<string, FakeCache>();
-  const caches = {
-    open: async (name: string) => { if (!stores.has(name)) stores.set(name, new FakeCache()); return stores.get(name)!; },
-    keys: async () => [...stores.keys()],
-    delete: async (name: string) => stores.delete(name),
-  };
-  const net = { online: true, files: new Map<string, string>() };
-  const fetchFn = async (input: string | { url: string }) => {
-    if (!net.online) throw new TypeError("offline");
-    const url = new URL(typeof input === "string" ? input : input.url, ORIGIN);
-    const body = net.files.get(url.pathname);
-    return body === undefined ? respond("not found", 404) : respond(body);
-  };
+  const stores = new Map<string, Map<string, string>>([["mm-v10-pages", new Map([["/app", "<html>"]])], ["mm-v10-logos", new Map()], ["mm-v9-static", new Map()]]);
+  const caches = { keys: async () => [...stores.keys()], delete: async (name: string) => stores.delete(name) };
   const handlers: Record<string, (event: unknown) => void> = {};
-  const self = { location: { origin: ORIGIN }, addEventListener: (type: string, fn: (e: unknown) => void) => { handlers[type] = fn; }, skipWaiting: async () => undefined, clients: { claim: async () => undefined } };
-  const ctx = { self, caches, fetch: fetchFn, URL, AbortController, setTimeout, clearTimeout };
-  runInNewContext(`${read("public/sw.js")}\n;self.__test = { SHELLS, QUERY_SHELLS, MAX_ENTRIES, VERSION, PAGES, DATA, STATIC, LOGOS: typeof LOGOS === "undefined" ? "(none)" : LOGOS };`, ctx);
-  const t = (self as unknown as { __test: { SHELLS: string[]; QUERY_SHELLS: string[]; MAX_ENTRIES: Record<string, number>; VERSION: string; PAGES: string; DATA: string; STATIC: string; LOGOS: string } }).__test;
-  const settle = async () => { for (let i = 0; i < 5; i++) await new Promise((r) => setTimeout(r, 0)); };
-  const install = async () => {
-    let done: Promise<unknown> = Promise.resolve();
-    handlers.install!({ waitUntil: (p: Promise<unknown>) => { done = p; } });
+  const calls = { skipWaiting: 0, unregister: 0 };
+  const self = {
+    addEventListener: (type: string, fn: (e: unknown) => void) => { handlers[type] = fn; },
+    skipWaiting: async () => { calls.skipWaiting++; },
+    registration: { unregister: async () => { calls.unregister++; return true; } },
+  };
+  runInNewContext(read("public/sw.js"), { self, caches });
+  const fire = async (type: string) => {
+    let done: unknown = Promise.resolve();
+    handlers[type]?.({ waitUntil: (p: Promise<unknown>) => { done = p; } });
     await done;
   };
-  const get = async (path: string, mode = "no-cors") => {
-    let answer: Promise<FakeResponse> | undefined;
-    handlers.fetch!({ request: { url: ORIGIN + path, method: "GET", mode }, respondWith: (p: Promise<FakeResponse>) => { answer = p; } });
-    const r = answer ? await answer : undefined;
-    await settle(); // the cache writes (and their trimming) run after the answer
-    return r;
-  };
-  return { t, net, stores, caches, install, get };
+  return { stores, handlers, calls, fire };
 }
 
-describe("the website's service worker", () => {
-  it("keeps the logos in a cache of their own, so scrolling Eat out never pushes out the menus kept for offline (Violet #21)", async () => {
+describe("the website's retired service worker", () => {
+  it("takes over at once, deletes every cache the old web app's worker made, and unregisters itself", async () => {
     const sw = loadServiceWorker();
-    sw.net.files.set("/menus/chain-kfc.json", "{}");
-    for (let i = 0; i < 200; i++) sw.net.files.set(`/logos/chain-${i}.png`, "png");
-    await sw.get("/menus/chain-kfc.json");
-    for (let i = 0; i < 200; i++) await sw.get(`/logos/chain-${i}.png`);
-    const data = await sw.caches.open(sw.t.DATA);
-    const logos = await sw.caches.open(sw.t.LOGOS);
-    expect(data.has("/menus/chain-kfc.json")).toBe(true);
-    expect(data.entries.size).toBe(1);
-    expect(logos.entries.size).toBe(200);
-    // offline the logo comes from its own cache
-    sw.net.online = false;
-    expect((await sw.get("/logos/chain-7.png"))?.body).toBe("png");
+    await sw.fire("install");
+    expect(sw.calls.skipWaiting).toBe(1);
+    await sw.fire("activate");
+    expect(sw.stores.size).toBe(0);
+    expect(sw.calls.unregister).toBe(1);
   });
 
-  it("the logos' cache has a place for every logo file we ship (and the takedown list), and its name keeps it through the activate step", () => {
+  it("answers no request, so /app gets the website's redirect and nothing comes from an old copy", () => {
     const sw = loadServiceWorker();
-    const images = (dir: string): number =>
-      readdirSync(dir).reduce((n, f) => {
-        const p = join(dir, f);
-        return n + (statSync(p).isDirectory() ? images(p) : /\.(png|svg|webp|jpe?g|gif|avif|ico)$/i.test(f) ? 1 : 0);
-      }, 0);
-    const count = images(new URL("public/logos", WEB).pathname);
-    expect(count).toBeGreaterThan(100);
-    expect(sw.t.MAX_ENTRIES[sw.t.LOGOS]).toBeGreaterThanOrEqual(count + 1);
-    expect(sw.t.LOGOS.startsWith(`${sw.t.VERSION}-`)).toBe(true);
+    expect(Object.keys(sw.handlers).sort()).toEqual(["activate", "install"]);
   });
 
-  it("offline, an extra shopping list, its recipes, the leaderboards, welcome and settings open from their one kept copy whatever the query (Violet #22)", async () => {
-    const sw = loadServiceWorker();
-    for (const path of sw.t.SHELLS) sw.net.files.set(path, `<html>${path}</html>`);
-    await sw.install();
-    sw.net.online = false;
-    for (const page of ["/app/groceries/list?list=2", "/app/groceries/list/recipes?list=2", "/app/groceries/leaderboards?shop=tesco", "/app/welcome?cleared=1", "/app/settings?signin=ok"]) {
-      const r = await sw.get(page, "navigate");
-      expect(r?.body, page).toBe(`<html>${page.split("?")[0]}</html>`);
-    }
-    // and every query-driven screen is one of the precached shells
-    for (const q of sw.t.QUERY_SHELLS) expect(sw.t.SHELLS, q).toContain(q);
-  });
-
-  it("a deploy's precache puts the script files the pages still use back as the newest, so trimming drops older deploys' files first (Violet #24)", async () => {
-    const sw = loadServiceWorker();
-    const statics = await sw.caches.open(sw.t.STATIC);
-    const current = "/_next/static/chunks/current.js";
-    // the current pages' script, kept since an earlier deploy (so the oldest), then the cache filled with older deploys' files
-    await statics.put(current, respond("current"));
-    for (let i = 0; statics.entries.size < sw.t.MAX_ENTRIES[sw.t.STATIC]!; i++) await statics.put(`/_next/static/chunks/old-${i}.js`, respond("old"));
-    for (const path of sw.t.SHELLS) sw.net.files.set(path, `<html><script src="${current}"></script></html>`);
-    await sw.install();
-    // the next script file used goes in and the cache is trimmed back to its limit
-    sw.net.files.set("/_next/static/chunks/next.js", "next");
-    await sw.get("/_next/static/chunks/next.js");
-    expect(statics.entries.size).toBe(sw.t.MAX_ENTRIES[sw.t.STATIC]);
-    expect(statics.has(current)).toBe(true);
-    expect(statics.has("/_next/static/chunks/old-0.js")).toBe(false);
+  it("is still re-checked on every visit, never registered by the web app, and never packed into the phone apps", () => {
+    expect(read("next.config.ts")).toMatch(/source: "\/sw\.js",\s*headers: \[\s*\{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" \}/);
+    expect(read("app/app/_components/AppShell.tsx")).not.toMatch(/serviceWorker\.register/);
+    expect(readFileSync(new URL("../scripts/pack_app_web.py", WEB), "utf8")).toMatch(/ALWAYS_OUT = \{"menus-sample", "sw\.js"\}/);
   });
 });
 

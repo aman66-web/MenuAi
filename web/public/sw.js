@@ -1,176 +1,24 @@
-/* Numbite web app service worker.
+/* Numbite's old web app service worker, retired on 27 November 2026: the website no longer runs the web app (lib/webAppClosed.ts sends /app to the
+ * homepage's App Store and Google Play badges), so nothing should keep serving it from a cache.
  *
- * Goal: after you've opened something once, it keeps working with a poor or no connection.
- *  - /_next/static/* and /icons/*: cache-first (Next.js names contain a content hash; icons do not, so bump VERSION when they change)
- *  - /menu-images/*, /grocery-images/* and /recipe-images/*: cache-first in their own capped cache (photos are named by content hash, so they never go stale)
- *  - /menus/*, /menus-sample/*, /branches/* and /groceries/*: network-first, falling back to the last copy
- *  - /logos/*: network-first too, in their own capped cache, so scrolling Eat out's hundreds of logos never pushes out the menus kept for offline
- *  - /app/* pages (and their data requests): network-first, falling back to the last copy
- *  - /app/chain, /app/item, /app/builder and the other QUERY_SHELLS are static shells that read their ids from the query string, so ONE
- *    cached copy (keyed without the query) opens every restaurant, item, order, shopping list and so on offline
- * Nothing under /api/ is ever cached, and only same-origin GET requests are handled.
- * Bump VERSION to drop all old caches.
+ * A browser that installed the old worker (scope /app, registered with updateViaCache "none") checks this file again on its next visit; it is served with
+ * max-age=0 (next.config.ts). It then gets this version, which:
+ *  - takes over at once (skipWaiting), so the old worker stops answering from its copy;
+ *  - deletes every cache the old worker made;
+ *  - unregisters itself, so nothing is left behind.
+ * It has no fetch handler: every page and file comes from the network, so /app gets the redirect. Website pages also remove any registration and these
+ * caches themselves (lib/retireServiceWorker.ts). The phone apps never register a service worker, and their packs leave this file out (scripts/pack_app_web.py).
+ * To bring the offline web app back, revert the commit that made this file (docs/SITE_NO_WEB_APP_REPORT.md).
  */
-const VERSION = "mm-v10"; // v10: the Daily targets page (/app/targets, a new shell); v9: the Stats screen is precached (a new shell that reads ?tab=); v8: the favourites, leaderboards, meal plan and Cook with what you have screens are precached (new shells); v7: Cheapest protein page (a new shell), and precached screens are no longer evicted by the page-cache limit (now 120); v6: Community tab and the food blog pages (new shells); v5: plate-and-fork app icon; v4: renamed to Numbite (the app shells carry the name); v3: green app icon (icon files keep their names, so changing them needs a bump)
-const STATIC = `${VERSION}-static`;
-const PAGES = `${VERSION}-pages`;
-const DATA = `${VERSION}-data`;
-const IMAGES = `${VERSION}-images`;
-// The logos have their own cache (the meeting of 21 November 2026, Violet #21: they shared DATA's 120 places, so scrolling Eat out pushed out the menus kept
-// for offline). Its name starts with VERSION, so the activate step keeps it, and VERSION stays as it is: a bump would delete everyone's offline copies.
-const LOGOS = `${VERSION}-logos`;
-const MAX_ENTRIES = { [PAGES]: 120, [DATA]: 120, [STATIC]: 200, [IMAGES]: 150, [LOGOS]: 520 };
-const NETWORK_TIMEOUT_MS = 5000;
-const SHELLS = ["/app", "/app/eat-out", "/app/map", "/app/groceries", "/app/groceries/search", "/app/groceries/product", "/app/groceries/shop", "/app/groceries/shops", "/app/groceries/shop/item", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/list/shared", "/app/groceries/protein", "/app/recipes", "/app/recipes/view", "/app/recipes/saved", "/app/search", "/app/saved", "/app/meals", "/app/compare", "/app/today", "/app/settings", "/app/settings/numbers", "/app/settings/sources", "/app/reminders", "/app/community", "/app/community/blog", "/app/community/blog/view", "/app/community/friends", "/app/community/inbox", "/app/community/inbox/view", "/app/welcome", "/app/chain", "/app/item", "/app/builder", "/app/offline", "/app/eat-out/favourites", "/app/groceries/leaderboards", "/app/plan", "/app/recipes/fridge", "/app/stats", "/app/targets"];
-// Every screen opened with a query (?list=, ?tab=, ?cleared=1, ...) is a static shell in SHELLS: keyed without the query, its one copy opens offline (the meeting
-// of 21 November 2026, Violet #22: an extra shopping list, its recipes, the leaderboards, welcome and settings opened the "hasn't been opened yet" page)
-const QUERY_SHELLS = ["/app/chain", "/app/item", "/app/builder", "/app/groceries/product", "/app/groceries/search", "/app/groceries/shop", "/app/groceries/shops", "/app/groceries/shop/item", "/app/recipes", "/app/recipes/view", "/app/meals", "/app/compare", "/app/today", "/app/community/blog", "/app/community/blog/view", "/app/community/inbox/view", "/app/stats", "/app/groceries/list", "/app/groceries/list/recipes", "/app/groceries/leaderboards", "/app/welcome", "/app/settings"];
-
-/** Page navigations to the query-driven shells share one cache entry; everything else is keyed by its full URL. */
-function cacheKey(request) {
-  const url = new URL(request.url);
-  if (request.mode === "navigate" && QUERY_SHELLS.includes(url.pathname)) return url.origin + url.pathname;
-  return request;
-}
-
-/**
- * Precache every page shell and the files each one needs (scripts, styles, fonts), so a screen that was never opened
- * still works offline. The assets are found by reading the HTML and CSS, which keeps this independent of how Next.js
- * names its chunks. Everything here is best-effort: a failure just means that file is cached when first used.
- */
-async function precacheShells() {
-  const pages = await caches.open(PAGES);
-  const statics = await caches.open(STATIC);
-  const assets = new Set();
-  const scrape = (text, re) => {
-    for (const m of text.matchAll(re)) assets.add(m[0]);
-  };
-  await Promise.all(
-    SHELLS.map(async (path) => {
-      try {
-        const response = await fetch(path, { cache: "reload" });
-        if (!response.ok) return;
-        scrape(await response.clone().text(), /\/_next\/static\/[^"'\\\s<>)]+\.(?:js|css)/g);
-        await pages.put(path, response);
-      } catch {
-        // ignore
-      }
-    }),
-  );
-  const styles = [...assets].filter((a) => a.endsWith(".css"));
-  await Promise.all(
-    styles.map(async (url) => {
-      try {
-        const response = await fetch(url);
-        if (response.ok) scrape(await response.clone().text(), /\/_next\/static\/[^"'\\\s<>)]+\.(?:woff2?|ttf)/g);
-      } catch {
-        // ignore
-      }
-    }),
-  );
-  await Promise.all(
-    [...assets].map(async (url) => {
-      try {
-        // already kept: put back so it counts as the newest (trim drops the oldest first, and after a few deploys these were the oldest: the current pages'
-        // own scripts were thrown away while older deploys' stayed; the meeting of 21 November 2026, Violet #24)
-        const hit = await statics.match(url);
-        if (hit) {
-          await statics.put(url, hit);
-          return;
-        }
-        const response = await fetch(url);
-        if (response.ok) await statics.put(url, response);
-      } catch {
-        // ignore
-      }
-    }),
-  );
-}
-
-self.addEventListener("install", (event) => {
-  event.waitUntil(precacheShells().catch(() => undefined).then(() => self.skipWaiting()));
+self.addEventListener("install", () => {
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
-      for (const key of await caches.keys()) {
-        if (!key.startsWith(`${VERSION}-`)) await caches.delete(key);
-      }
-      await self.clients.claim();
+      for (const key of await caches.keys()) await caches.delete(key);
+      await self.registration.unregister();
     })(),
   );
-});
-
-const SHELL_PATHS = new Set(SHELLS);
-
-async function trim(cache, name) {
-  const keys = await cache.keys();
-  const extra = keys.length - (MAX_ENTRIES[name] ?? 100);
-  let removed = 0;
-  for (const key of keys) {
-    if (removed >= extra) break;
-    // the oldest entries go first, but a precached screen (Home, Eat out, ...) is never the one dropped: with about 35 of them
-    // and the warm-up's chain pages, the cache passed its limit and Home itself was evicted, so it did not open offline
-    const url = new URL(key.url);
-    if (name === PAGES && !url.search && SHELL_PATHS.has(url.pathname)) continue;
-    await cache.delete(key);
-    removed++;
-  }
-}
-
-async function cacheFirst(request, cacheName = STATIC) {
-  const cache = await caches.open(cacheName);
-  const hit = await cache.match(request);
-  if (hit) return hit;
-  const response = await fetch(request);
-  if (response.ok && response.type === "basic") {
-    cache.put(request, response.clone()).then(() => trim(cache, cacheName));
-  }
-  return response;
-}
-
-async function networkFirst(request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), NETWORK_TIMEOUT_MS);
-  try {
-    const response = await fetch(request, { signal: controller.signal });
-    if (response.ok && response.type === "basic") {
-      cache.put(cacheKey(request), response.clone()).then(() => trim(cache, cacheName));
-    }
-    return response;
-  } catch (error) {
-    const hit = await cache.match(cacheKey(request), { ignoreVary: true });
-    if (hit) return hit;
-    if (request.mode === "navigate") {
-      // A page that was never opened here: say so, instead of showing the wrong page at this address.
-      const offline = await cache.match("/app/offline", { ignoreVary: true });
-      if (offline) return offline;
-    }
-    throw error;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-self.addEventListener("fetch", (event) => {
-  const request = event.request;
-  if (request.method !== "GET") return;
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-  const path = url.pathname;
-  if (path.startsWith("/api/") || path === "/sw.js") return;
-
-  if (path.startsWith("/_next/static/") || path.startsWith("/icons/")) {
-    event.respondWith(cacheFirst(request));
-  } else if (path.startsWith("/menu-images/") || path.startsWith("/grocery-images/") || path.startsWith("/recipe-images/")) {
-    event.respondWith(cacheFirst(request, IMAGES));
-  } else if (path.startsWith("/logos/")) {
-    event.respondWith(networkFirst(request, LOGOS));
-  } else if (path.startsWith("/menus/") || path.startsWith("/menus-sample/") || path.startsWith("/branches/") || path.startsWith("/groceries/")) {
-    event.respondWith(networkFirst(request, DATA));
-  } else if (path === "/app" || path.startsWith("/app/")) {
-    event.respondWith(networkFirst(request, PAGES));
-  }
 });
