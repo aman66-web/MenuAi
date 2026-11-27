@@ -20,6 +20,30 @@ export function catalogueStats(chains: ReadonlyArray<{ sample: boolean; itemCoun
   return { chains: real.length, itemsLabel: countLabel(real.reduce((n, c) => n + c.itemCount, 0), t) };
 }
 
+/** The supermarkets whose full product lists are in the app (public/groceries/all/all-manifest.json), kept to the ones web/app-content.json packs, if it names any. */
+export function appShopCount(retailers: ReadonlyArray<{ id: string }>, appShops?: ReadonlyArray<string>): number {
+  return appShops ? retailers.filter((r) => appShops.includes(r.id)).length : retailers.length;
+}
+
+export interface HeroProofItem {
+  figure: string;
+  label: string;
+}
+
+/**
+ * The homepage hero's proof row (direction "A. Lime", 27 November 2026): true counts read from the published data at build time, never typed in, said
+ * exactly (they are whole lists, not estimates), then "Free to download". A count of 0 (its data missing) is left out. No ratings or awards: there are none.
+ */
+export function heroProof(c: { restaurants: number; supermarkets: number; recipes: number }): HeroProofItem[] {
+  const count = (n: number, one: string, many: string): HeroProofItem[] => (n > 0 ? [{ figure: n.toLocaleString("en-GB"), label: n === 1 ? one : many }] : []);
+  return [
+    ...count(c.restaurants, "UK restaurant", "UK restaurants"),
+    ...count(c.supermarkets, "supermarket", "supermarkets"),
+    ...count(c.recipes, "recipe", "recipes"),
+    { figure: "Free", label: "to download" },
+  ];
+}
+
 /** One published chain file, as far as these counts need it. */
 export interface ChainForStats {
   sample?: boolean;

@@ -1,10 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { APP_BUILD } from "@/lib/mm/config";
+import { smartAppBanner } from "@/lib/smartAppBanner";
 import { site } from "@/site.config";
 import { SiteBack } from "./SiteBack";
 import { RefCapture } from "../components/RefCapture";
 import { RetireServiceWorker } from "../components/RetireServiceWorker";
 import { GET_THE_APP } from "@/lib/webAppClosed";
+
+// Safari's Smart App Banner on every page of the website, never in the copy packed inside the phone apps (their privacy, terms and support pages use this
+// layout too): lib/smartAppBanner.ts, tests/smartAppBanner.test.ts.
+export const metadata: Metadata = smartAppBanner(APP_BUILD, site.appStoreId);
 
 // Marketing site chrome (landing page, privacy, terms, support). The web app under /app has its own layout.
 // Look (founder 2026-10-15): the app's own icon beside the name, quiet links, and the app's black pill for "Get the app".
@@ -19,7 +25,8 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
           </div>
         </header>
       ) : (
-      <header className="sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl">
+      // site-header: on the homepage it takes the hero's lime (globals.css), so the header and the hero read as one block
+      <header className="site-header sticky top-0 z-30 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl">
         <div className="mx-auto flex min-h-16 w-full max-w-5xl flex-wrap items-center justify-between gap-x-2 px-[20px] py-2.5">
           <Link href={APP_BUILD ? "/app" : "/"} className="inline-flex min-h-11 items-center gap-2.5 whitespace-nowrap text-lg font-[650] tracking-[-0.01em]">
             {/* eslint-disable-next-line @next/next/no-img-element -- our own app icon, a static file */}

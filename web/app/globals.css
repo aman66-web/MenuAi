@@ -200,6 +200,35 @@ p { text-wrap: pretty; }
    status lines are in the same ink as the words around them (colour meeting, 19 November 2026: green words mean a link). */
 .app-surface .serif-em { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: inherit; }
 
+/* The homepage hero, direction "A. Lime" (founder 2026-11-27, after Opal's site: one huge headline, one line, the store buttons; "a background that commands
+   attention"): the brand lime (--sun) edge to edge, and the header over it in the same lime, so they read as one block; the header stays lime down the page.
+   Contrast on the lime, checked: the words (--foreground) 14.28:1, the header's quieter links in --on-sun 11.86:1 (--muted would be 4.85:1), the focus ring
+   (--accent) 5.12:1 and the phone's frame (--ink) 12.72:1. Flat, like the rest of the site: no gradient, glow or shadow. */
+.hero-lime { background: var(--sun); color: var(--foreground); }
+:root:has(.hero-lime) .site-header { background: var(--sun); border-bottom-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+:root:has(.hero-lime) .site-header .text-muted { color: var(--on-sun); }
+/* About 56 px on a 375 px phone, 100 px at most on a wide screen (the rem ends grow with the reader's text size); tight leading. */
+.hero-title { font-size: clamp(3.25rem, 2rem + 6.5vw, 6.25rem); font-weight: 680; line-height: 0.98; letter-spacing: -0.04em; }
+/* The phone rising from the hero's bottom edge: an ink frame with no bottom (the edge of the hero cuts it off), its corners in proportion to its width, round
+   the screen pictures (e2e/hero-screens.mjs keeps only the part shown, so the picture's bottom is the hero's edge). */
+.hero-phone { --phone: min(280px, 76vw); width: var(--phone); padding: calc(var(--phone) * 0.034) calc(var(--phone) * 0.034) 0; border-radius: calc(var(--phone) * 0.16) calc(var(--phone) * 0.16) 0 0; background: var(--ink); }
+@media (min-width: 640px) { .hero-phone { --phone: 310px; } }
+@media (min-width: 1024px) { .hero-phone { --phone: 340px; } }
+.hero-screen { position: relative; aspect-ratio: 700 / 1067; overflow: hidden; border-radius: calc(var(--phone) * 0.126) calc(var(--phone) * 0.126) 0 0; background: var(--fill); }
+.hero-screen > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: 0; }
+.hero-screen > img:first-child { opacity: 1; }
+/* A slow crossfade through the screens: each shown for 5 s, 1.2 s to fade; the first starts fully shown (its negative delay), the others wait their turn hidden.
+   For reduced motion nothing moves (the global rule above stops every animation) and only the first screen is there: the others are not even loaded. No Pause
+   button, as on the welcome screen's logo wall (founder 2026-11-20: "There's literally no point of a pause button"): Reduce Motion stops it. */
+@keyframes hero-screen { 0% { opacity: 0; } 8% { opacity: 1; } 33.333% { opacity: 1; } 41.333% { opacity: 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-screen > img { animation: hero-screen 15s ease-in-out infinite; }
+  .hero-screen > img:nth-child(1) { animation-delay: -1.2s; }
+  .hero-screen > img:nth-child(2) { animation-delay: 3.8s; }
+  .hero-screen > img:nth-child(3) { animation-delay: 8.8s; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-screen > img:not(:first-child) { display: none; } }
+
 
 .prose-legal h2 { font-size: 1.15rem; font-weight: 700; margin: 2rem 0 0.5rem; letter-spacing: -0.01em; }
 .prose-legal p, .prose-legal li { color: var(--foreground); line-height: 1.7; margin: 0.5rem 0; }

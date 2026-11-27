@@ -1,7 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { catalogueStats, nutritionStats, siteFaqs, type ChainForStats } from "@/lib/mm/catalogue";
+import { appShopCount, catalogueStats, heroProof, siteFaqs } from "@/lib/mm/catalogue";
 import type { Manifest } from "@/lib/mm/types";
+import { RECIPES } from "@/lib/mm/recipeBook";
 import { APP_PREMIUM, COMMUNITY_FRIENDS_ENABLED, PRO_ENABLED, SIGN_IN_REQUIRED, WEB_PRO_ENABLED } from "@/lib/mm/config";
 import { PLANS } from "@/lib/payments/plans";
 import { site } from "@/site.config";
@@ -9,20 +10,13 @@ import { BasketIcon, CheckIcon, ForkIcon, PlusIcon, PotIcon } from "@/app/app/_c
 import { StoreBadges } from "@/app/components/StoreBadges";
 import { GET_THE_APP_ID } from "@/lib/webAppClosed";
 
-// Read once at build time from the published data, so the headline numbers are never typed in by hand: the chains from the manifest, and what their items
-// really publish from each chain's own file (about half publish calories only: the overnight audit of 20 November 2026).
-const MENUS = join(process.cwd(), "public/menus");
-const manifest = JSON.parse(readFileSync(join(MENUS, "menus-manifest.json"), "utf8")) as Manifest;
-const stats = catalogueStats(manifest.chains);
-const nutrition = nutritionStats(
-  manifest.chains.filter((c) => !c.sample).map((c): ChainForStats => {
-    try {
-      return { ...c, ...(JSON.parse(readFileSync(join(MENUS, c.file), "utf8")) as ChainForStats) };
-    } catch {
-      return { ...c, items: [] };
-    }
-  }),
-);
+// Read once at build time from the published data, so the headline numbers are never typed in by hand: the chains from the menus manifest, the supermarkets
+// with a full product list that the apps pack (the count the app's own welcome screen shows), and every recipe in the book.
+// A missing file fails the build rather than showing a wrong count.
+const readJson = <J,>(path: string): J => JSON.parse(readFileSync(join(process.cwd(), path), "utf8")) as J;
+const stats = catalogueStats(readJson<Manifest>("public/menus/menus-manifest.json").chains);
+const shopLists = readJson<{ retailers: { id: string }[] }>("public/groceries/all/all-manifest.json");
+const proof = heroProof({ restaurants: stats.chains, supermarkets: appShopCount(shopLists.retailers, readJson<{ shops?: string[] }>("app-content.json").shops), recipes: RECIPES.length });
 
 const steps = [
   { title: "Pick the restaurant", body: "Search by name and open the whole menu. Works offline once you've opened it." },
@@ -37,6 +31,14 @@ const pillars = [
   { title: "Eat out", body: `Every dish at ${stats.chains > 0 ? `${stats.chains} UK restaurants` : "popular UK restaurants"}, with the calories each chain publishes, and protein, carbs and fat where it publishes them.`, Icon: ForkIcon },
   { title: "Groceries", body: "Supermarket products with the calories, protein and price from the shop's own pages. Make a list and see what it comes to.", Icon: BasketIcon },
   { title: "Recipes", body: "Recipes filled with real products from your supermarket, with calories, protein and the cost of each serving. Swap any ingredient.", Icon: PotIcon },
+];
+
+// The hero's phone (direction "A. Lime", 27 November 2026): the screen alone, cut from three of the screenshots below (e2e/hero-screens.mjs), slowly fading
+// from one to the next. Only screens with no chain's or shop's logo and no food picture in the part shown (the hero is marketing: CLAUDE.md rule 2).
+const heroScreens = [
+  { name: "home", alt: "The app's Home screen: the calories left today, and the protein, carbs and fat eaten so far against your targets." },
+  { name: "best", alt: "Best for you: a restaurant's lunches up to 700 kcal, ranked by the most protein for their calories." },
+  { name: "groceries", alt: "Nutrition leaderboards: the top 20 supermarket products for the most protein for the calories, the cheapest protein and more." },
 ];
 
 // The App Store screenshots of 1.1 (22 November 2026), in the store's order, retaken without the chains' and shops' own photos, which CLAUDE.md rule 2
@@ -78,14 +80,6 @@ const card = "rounded-[1.25rem] bg-[var(--fill)]";
 // Side gutters in px, like the app's: at 200% text the words get the room rather than the margins.
 const section = "mx-auto max-w-5xl px-[20px] py-10 sm:py-14";
 const heading = "mt-2 max-w-2xl text-3xl font-[650] leading-[1.08] tracking-[-0.02em] sm:text-4xl";
-// Proof cards: the label comes first in the code (a dl needs it, screen readers read it first) and is placed under the figure. Each
-// figure is sized to the section (cqi, capped) so its longest word always fits whole in a stacked card; side by side the cards share two
-// rows (subgrid), so the figures end on one line and the labels start on one line, however the figures wrap. (The card itself can't be
-// a size container: that would stop it being a subgrid.)
-const proofCard = `${card} grid content-start gap-3 p-[22px] sm:p-6 @2xl:row-span-2 @2xl:grid-rows-subgrid`;
-const proofLabel = "row-start-2 self-start text-pretty text-[0.9375rem] font-medium leading-snug text-muted";
-const proofFigure = "row-start-1 self-end leading-[1.04]";
-const proofNumber = "app-numbers text-[length:min(2.75rem,22cqi)] font-medium tracking-[-0.02em]";
 
 // Decorative, so it grows only a little with the text (22 px, at most 30 px at 200%) and the words keep the room. It sits in a box
 // one line tall, so it stays centred on the first line.
@@ -102,42 +96,49 @@ function Tick() {
 export default function Home() {
   return (
     <>
-      <section className="mx-auto max-w-5xl px-[20px] pb-6 pt-12 sm:pt-20 lg:pb-10">
-        <div className="lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-16">
-          <div>
-            <p className="kicker">Know before you order</p>
-            <h1 className="mt-4 max-w-3xl text-[2.75rem] font-[650] leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-[4.5rem]">
-              Know your <span className="serif-em pe-1 text-accent">macros</span> before you order.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-muted sm:text-xl">{site.description}</p>
-            {/* The hero's download badges (founder 2026-11-27: "download on iOS and download on Android with a hyperlink to each"). The website no longer runs
-                the web app (founder 2026-11-27), so they are the only way in, and /app comes here (lib/webAppClosed.ts): scroll-mt keeps them clear of the
-                sticky header. */}
-            <StoreBadges id={GET_THE_APP_ID} className="mt-9 scroll-mt-28" />
-            <p className="mt-5 max-w-xl text-sm font-medium leading-relaxed text-muted">{SIGN_IN_REQUIRED ? `${APP_PREMIUM || WEB_PRO_ENABLED ? "Every menu is free." : "Free."} Your free account keeps your targets, saved meals and shopping list on all your devices.` : "Free. No account needed for menus, shops and recipes. Your targets and saved orders stay on your device unless you sign in to sync them."}</p>
+      {/* The hero (direction "A. Lime", founder 2026-11-27, after Opal's site): the brand lime edge to edge, filling the first screen under the header (which
+          turns lime with it: globals.css), one huge headline, one short line, the two stores' badges, the proof row, and the phone rising from the bottom edge.
+          The headline is plain text with no animation and no picture larger than it on the first screen, so it is the first and largest thing to paint. */}
+      <section aria-labelledby="hero-title" className="hero-lime">
+        <div className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-5xl flex-col items-center px-[20px] pt-9 text-center sm:pt-16">
+          <h1 id="hero-title" className="hero-title max-w-[12ch] text-balance lg:max-w-[17ch]">
+            Know your <span className="serif-em pe-[0.06em]">macros</span> before you order.
+          </h1>
+          <p className="mt-5 max-w-[32rem] text-pretty text-[1.0625rem] font-semibold leading-snug sm:mt-7 sm:text-xl">{site.heroLine}</p>
+          {/* The two stores' own badges (app/components/StoreBadges.tsx), centred. The website no longer runs the web app, so they are the only way in, and
+              /app comes here (lib/webAppClosed.ts GET_THE_APP): scroll-mt keeps them clear of the sticky header. */}
+          <StoreBadges id={GET_THE_APP_ID} className="mt-8 justify-center scroll-mt-28 sm:mt-9" />
+          {/* True counts from the published data (read at build time above), never typed in; no ratings or awards, because there are none. */}
+          <ul aria-label="In the app" className="mt-6 flex max-w-[21rem] flex-wrap justify-center gap-x-5 gap-y-1 text-[0.9375rem] font-semibold leading-relaxed sm:max-w-none sm:gap-x-7 sm:text-base">
+            {proof.map((p) => (
+              <li key={p.label} className="whitespace-nowrap">
+                <span className="app-numbers text-[1.1875rem] font-[750] tracking-[-0.01em] sm:text-xl">{p.figure}</span> {p.label}
+              </li>
+            ))}
+          </ul>
+          {/* The phone, cut off by the hero's bottom edge: our own screens, the first shown at once and the others loaded after it, fading from one to the
+              next every five seconds (still, showing the first only, with Reduce Motion: globals.css). */}
+          <div className="mt-auto pt-10 sm:pt-14">
+            <div role="group" aria-label="Screens from the app" className="hero-phone">
+              <div className="hero-screen">
+                {heroScreens.map((s, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element -- already sized WebP files (e2e/hero-screens.mjs), no image service needed
+                  <img
+                    key={s.name}
+                    src={`/screens/hero/${s.name}-360.webp`}
+                    srcSet={`/screens/hero/${s.name}-360.webp 360w, /screens/hero/${s.name}-700.webp 700w`}
+                    sizes="(min-width: 1024px) 317px, (min-width: 640px) 289px, min(261px, 71vw)"
+                    width={700}
+                    height={1067}
+                    alt={s.alt}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "auto" : "low"}
+                    decoding="async"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
-          {stats.chains > 0 && (
-            // A container, so the three cards sit side by side only when there is room for them at the chosen text size (42rem grows
-            // with it): at 200% text they stack.
-            <section aria-label="What's in it" className="@container mt-12 lg:mt-0">
-              <dl className="grid gap-3.5 @2xl:grid-cols-3">
-                <div className={proofCard}>
-                  <dt className={proofLabel}>UK restaurants</dt>
-                  <dd className={`${proofFigure} ${proofNumber} text-accent`}>{stats.chains}</dd>
-                </div>
-                <div className={proofCard}>
-                  {/* said as it is: every item has its calories, and about half have protein, carbs and fat too (the rest's chains publish calories only) */}
-                  <dt className={proofLabel}>menu items with calories; {nutrition.withMacrosLabel} with protein, carbs and fat too</dt>
-                  <dd className={`${proofFigure} ${proofNumber}`}>{nutrition.itemsLabel}</dd>
-                </div>
-                <div className={proofCard}>
-                  <dt className={proofLabel}>from each restaurant&apos;s own published nutrition information</dt>
-                  <dd className={`${proofFigure} serif-em text-[length:min(2.5rem,22cqi)] tracking-[-0.01em]`}>Every number</dd>
-                </div>
-              </dl>
-            </section>
-          )}
         </div>
       </section>
 

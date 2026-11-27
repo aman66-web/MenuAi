@@ -4356,3 +4356,23 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
     - when to make it live;
     - dish links shared from the apps (`/app/item?chain=…`) now land on the homepage; one more rule could send them to `/chains/<chain>`;
     - former web app users keep what synced, by signing in to a phone app with the same account.
+- 2026-11-27 — **numbite.com's homepage hero, direction "A. Lime"** (founder, after showing Opal's site: one huge headline, one short line, the store button and
+  Safari's Smart App Banner, on a background that suits Numbite and "commands attention"; they chose "A. Lime"). Branch `claude/site-hero-lime`, rebased onto
+  `claude/site-no-web-app` (88294cf8) with all its changes kept, **not live**: the founder says when. Full report with screenshots, checks and how to undo it: `docs/SITE_HERO_LIME_REPORT.md`.
+  - **Hero:** the brand lime `--sun` (#d6efa0) edge to edge, filling the first screen; the header turns the same lime on the homepage. The headline is the same
+    words in black, "macros" still in the Playfair italic: 56 px at 375 px, 100 px at most on desktop. Under it, a new short line in `site.heroLine`
+    (`site.description` ran to four lines on a phone): "Calories for every dish, and macros wherever the restaurant publishes them." **Copy for the founder to
+    approve.** Then the two badges (the shared `StoreBadges`, with the `get-the-app` anchor), centred, and a proof row of true counts read at build time: UK restaurants (menus manifest), supermarkets (full lists the
+    apps pack, as the app's welcome screen counts them), recipes (the whole book), "Free to download" (`heroProof`, `appShopCount` in lib/mm/catalogue.ts,
+    tested). Today: 241, 9, 382.
+  - **Phone:** a CSS ink frame rising from the hero's bottom edge, crossfading every 5 s through Home, Best for you and Nutrition leaderboards. These are the only
+    screens with no chain or shop logo and no food picture in the part shown. They are cut from the store screenshots by `web/e2e/hero-screens.mjs` (the top
+    70% of the screen only; `public/screens/hero/`). Still, and only the first loaded, with Reduce Motion. No Pause button, as for the logo wall (20 November).
+  - **Out of the hero:** the kicker, the account sentence and the three proof cards.
+  - **Smart App Banner:** `apple-itunes-app` with app-id 6822767746 on every website page (`app/(site)/layout.tsx` through `lib/smartAppBanner.ts`), never in
+    the phone apps' copy (`APP_BUILD`; checked: 0 files in the static export). `scripts/pack_app_web.py` now leaves `screens/` (website-only pictures, about
+    1.3 MB) out of both apps.
+  - **Checks (after the rebase):** vitest 4,243 passed (22 skipped; `secondPassOffline.test.ts` now checks that the always-out set holds `sw.js` and
+    `screens`, not the exact line); eslint 0 errors; typecheck clean; `next build` and the apps' `APP_BUILD=1` export both built. At 375 and 1280 px: axe
+    found no violations, there was no sideways scroll, and the LCP was the headline (120 to 160 ms with the CPU slowed 4×). Screenshots are in
+    `docs/site-hero-lime/`.

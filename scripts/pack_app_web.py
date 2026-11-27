@@ -3,8 +3,8 @@
 (git-ignored; Xcode copies a .bundle folder into the app whole), keeping only what the app needs and what web/app-content.json allows
 (docs/APP_BUILD.md).
 
-  * always left out: the fictional sample menus (menus-sample/) and the website's service worker (sw.js); the website's landing page
-    (index.html) is replaced by a page that only forwards to /app;
+  * always left out: the fictional sample menus (menus-sample/), the website's service worker (sw.js) and the homepage's app screenshots (screens/, only
+    the website's landing page shows them: 27 November 2026); the website's landing page (index.html) is replaced by a page that only forwards to /app;
   * "appLogos": false leaves out logos/ (the build also sets NEXT_PUBLIC_APP_LOGOS=0, so chains show our cuisine icons and shops their names);
   * "menuPhotos": false leaves out menu-images/ (the build also sets NEXT_PUBLIC_MENU_PHOTOS=0, so no item asks for one);
   * "remoteImages": true leaves out menu-images/ and grocery-images/ (founder 2026-11-17: the app shouldn't use excessive storage; our own recipe-images/,
@@ -24,7 +24,7 @@ import shutil
 import sys
 from pathlib import Path
 
-ALWAYS_OUT = {"menus-sample", "sw.js"}
+ALWAYS_OUT = {"menus-sample", "sw.js", "screens"}
 
 
 def size(path: Path) -> int:

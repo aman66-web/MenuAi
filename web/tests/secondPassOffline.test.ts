@@ -52,7 +52,10 @@ describe("the website's retired service worker", () => {
   it("is still re-checked on every visit, never registered by the web app, and never packed into the phone apps", () => {
     expect(read("next.config.ts")).toMatch(/source: "\/sw\.js",\s*headers: \[\s*\{ key: "Cache-Control", value: "public, max-age=0, must-revalidate" \}/);
     expect(read("app/app/_components/AppShell.tsx")).not.toMatch(/serviceWorker\.register/);
-    expect(readFileSync(new URL("../scripts/pack_app_web.py", WEB), "utf8")).toMatch(/ALWAYS_OUT = \{"menus-sample", "sw\.js"\}/);
+    // the set the phone apps' packs always leave out: the worker, and (since the Lime hero, 27 November 2026) the website-only screenshots
+    const alwaysOut = /ALWAYS_OUT = \{([^}]*)\}/.exec(readFileSync(new URL("../scripts/pack_app_web.py", WEB), "utf8"))?.[1] ?? "";
+    expect(alwaysOut).toContain('"sw.js"');
+    expect(alwaysOut).toContain('"screens"');
   });
 });
 
