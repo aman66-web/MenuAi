@@ -4389,3 +4389,12 @@ Founder (asleep until 09:00): "I feel like the onboarding is missing a lot, mayb
     `docs/site-hero-lime/hero-375-whole.png`.
   - **Side finding:** an `APP_BUILD=1 next build` (what `build_app_web.sh` runs) also rewrites parts of a local `web/.next`. A later `next start` then serves the
     app's pages until `npm run build` runs again. Vercel always builds fresh, so the live site is unaffected.
+- 2026-11-27 (about 02:30 UTC) — **The website changes are live on numbite.com** (founder: "Set everything live to numbyte.com"). `main` fast-forwarded from
+  da6f5d80 to the head of `claude/site-hero-lime`, which holds aman66-web/MenuAi#12 (the web app closed, `/app` to the homepage's store badges) and #13 (the
+  Lime hero with its sunrise, the true counts and the phone, and Safari's Smart App Banner). That merges both pull requests.
+  - **Not included:** `iap` and its open pull requests (the Android phone check, recipes wave 2 and the rest), which have their own go-aheads.
+  - **Checked before:** vitest 4,246 passed, eslint 0 errors, `next build`, and the branch's Vercel preview (READY, serving the banner, the hero and no web-app
+    links).
+  - **Rollback:** Vercel › menumacros › Deployments › dpl_GYGGWHARADupEnxfwYxzT3Mhacc5 (da6f5d80) › Instant Rollback.
+  - **Still for the founder** (they are live as built): the hero's short line, the header staying lime down the page, a Pause button (none), the sunrise or the
+    flat lime, and #12's points (shared dish links, former web app users).
