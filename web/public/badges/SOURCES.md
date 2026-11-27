@@ -10,11 +10,11 @@ Saved byte for byte as each owner serves them, never edited, recoloured, cropped
 
 ## The owners' rules, and how the homepage keeps them
 
-- **Same height:** both badges are 48 px tall (Apple: at least 40 px on screen; Google: at least 28 px, and the Google Play badge the same size as or larger than other
+- **Same height:** both badges are 46 px tall (Apple: at least 40 px on screen; Google: at least 28 px, and the Google Play badge the same size as or larger than other
   stores' badges). The width follows each file's own shape.
 - **Order and colour:** the App Store badge first (Apple), the black App Store badge because another store's badge is beside it (Apple), Google's badge in its
   own colours (Google: never change the colour or any element).
-- **Clear space:** at least a quarter of the badge's height (12 px) on every side, kept by a 16 px gap and the page's 20 px side margins (Apple and Google).
+- **Clear space:** at least a quarter of the badge's height (11.5 px) on every side, kept by a 16 px gap and the page's 20 px side margins (Apple and Google).
 - **Background:** the page's plain white (Google: solid backgrounds only).
 - **Credit lines** where the site gives legal information (Apple): the footer says "App Store is a service mark of Apple Inc. Google Play and the Google Play
   logo are trademarks of Google LLC."
